@@ -2,9 +2,9 @@
 title: Android 10 アプリでの Enabler Android SDK シングルサインオン (SSO) へのアクセス
 description: Android 10 アプリでの Enabler Android SDK シングルサインオン (SSO) へのアクセス
 exl-id: dedade15-c451-4757-b684-d3728e11dd87
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '377'
+source-wordcount: '374'
 ht-degree: 0%
 
 ---
@@ -27,7 +27,7 @@ Adobe Pass認証を利用したアプリ間のシングルサインオン (SSO) 
 
 ## 動作
 
-アプリの **target SDK レベル** または **android:requestLegacyExternalStorage** manifest 属性は、Access Enabler Android バージョン 3.2.1 SDK（最新）および以前のバージョンで提供されるシングルサインオン (SSO) は、現在、次のように動作します。
+アプリの **[!UICONTROL target SDK level]** または **android:requestLegacyExternalStorage** manifest 属性は、Access Enabler Android バージョン 3.2.1 SDK（最新）および以前のバージョンで提供されるシングルサインオン (SSO) は、現在、次のように動作します。
 
 - アプリのターゲット **Android 9（API レベル 28）** またはそれ以下 **-\>** シングルサインオン (SSO) **動く**
 - アプリのターゲット **Android 10** **（API レベル 29）** および **設定** 値 **requestLegacyExternalStorage を true に設定** をアプリのマニフェストファイルに追加します。 **-\>** シングルサインオン (SSO) **動く**

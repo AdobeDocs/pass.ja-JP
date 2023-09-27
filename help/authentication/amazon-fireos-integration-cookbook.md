@@ -2,9 +2,9 @@
 title: Amazon FireOS 統合クックブック
 description: Amazon FireOS 統合クックブック
 exl-id: 1982c485-f0ed-4df3-9a20-9c6a928500c2
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '1432'
+source-wordcount: '1416'
 ht-degree: 0%
 
 ---
@@ -20,27 +20,27 @@ ht-degree: 0%
 
 ## はじめに {#intro}
 
-このドキュメントでは、Amazon FireOS AccessEnabler ライブラリによって公開される API を使用して、プログラマーの上位レベルアプリケーションが実装できる使用権限ワークフローについて説明します。
+このドキュメントでは、プログラマーの上位レベルアプリケーションが、Amazon FireOS で公開される API を通じて実装できるエンタイトルメントワークフローについて説明します `AccessEnabler` ライブラリ。
 
 Amazon FireOS のAdobe Pass Authentication Entitlement Solution は、最終的に次の 2 つのドメインに分割されます。
 
-- UI ドメイン — UI を実装し、AccessEnabler ライブラリが提供するサービスを使用して、制限されたコンテンツへのアクセスを提供する上位レベルのアプリケーション層です。
-- AccessEnabler ドメイン — エンタイトルメントワークフローは、次の形式で実装されます。
+- UI ドメイン — UI を実装し、が提供するサービスを使用する上位レベルのアプリケーションレイヤー。 `AccessEnabler` 制限されたコンテンツへのアクセスを提供するライブラリ。
+- The `AccessEnabler` ドメイン — 資格付与ワークフローは、次の形式で実装されます。
    - Adobeのバックエンドサーバーに対しておこなわれたネットワーク呼び出し
    - 認証ワークフローと承認ワークフローに関連するビジネスロジックルール
    - 様々なリソースの管理とワークフロー状態の処理（トークンキャッシュなど）
 
-AccessEnabler ドメインの目的は、権限付与ワークフローの複雑さをすべて非表示にし、権限付与ワークフローを実装するシンプルな権限付与プリミティブのセットを（AccessEnabler ライブラリを通じて）上層のアプリケーションに提供することです。
+の目標 `AccessEnabler` ドメインは、権限付与ワークフローの複雑さをすべて非表示にし、( `AccessEnabler` ライブラリ ) 一連のシンプルなエンタイトルメントプリミティブ。 このプロセスでは、次の権限付与ワークフローを実装できます。
 
-1. 要求者 ID を設定
-1. 特定の ID プロバイダーに対する認証の確認と取得
-1. 特定のリソースの認証を確認し、取得する
-1. ログアウト
+1. 要求者 ID を設定します。
+1. 特定の ID プロバイダーに対する認証を確認し、取得します。
+1. 特定のリソースの認証を確認し、取得します。
+1. ログアウトします。
 
-AccessEnabler のネットワーク・アクティビティは別のスレッドで実行されるため、UI スレッドはブロックされません。 その結果、2 つのアプリケーションドメイン間の双方向通信チャネルは、完全に非同期のパターンに従う必要があります。
+The `AccessEnabler`のネットワークアクティビティは別のスレッドで実行されるので、UI スレッドがブロックされることはありません。 その結果、2 つのアプリケーションドメイン間の双方向通信チャネルは、完全に非同期のパターンに従う必要があります。
 
-- UI アプリケーション・レイヤは、AccessEnabler ライブラリによって公開された API 呼び出しを介して、AccessEnabler ドメインにメッセージを送信します。
-- AccessEnabler は、UI 層が AccessEnabler ライブラリに登録する AccessEnabler プロトコルに含まれるコールバックメソッドを使用して、UI 層に応答します。
+- UI アプリケーションレイヤーが、 `AccessEnabler` が公開する API 呼び出しを介したドメイン `AccessEnabler` ライブラリ。
+- The `AccessEnabler` は、 `AccessEnabler` UI レイヤーが登録するプロトコル `AccessEnabler` ライブラリ。
 
 ## 権利付与フロー {#entitlement}
 
@@ -50,8 +50,6 @@ AccessEnabler のネットワーク・アクティビティは別のスレッド
 1. [認証フロー](#authz_flow)
 1. [メディアフローの表示](#media_flow)
 1. [ログアウトフロー](#logout_flow)
-
-
 
 ### A.前提条件 {#prereqs}
 
@@ -113,9 +111,9 @@ The `event` パラメーターは、発生したエンタイトルメントイ�
 1. 上位レベルのアプリケーションを起動します。
 1. Adobe Pass認証を開始します。
 
-   1. 通話 [`getInstance`](#$getInstance) をクリックして、Adobe Pass Authentication AccessEnabler の 1 つのインスタンスを作成します。
+   1. 通話 [`getInstance`](#$getInstance) Adobe Pass Authentication の単一のインスタンスを作成するには、以下を実行します。 `AccessEnabler`.
 
-      - **依存関係：** Adobe Pass認証ネイティブAmazon FireOS ライブラリ (AccessEnabler)
+      - **依存関係：** Adobe Pass認証ネイティブAmazon FireOS ライブラリ (`AccessEnabler`)
 
    1. 通話` setRequestor()` プログラマの識別子を確立するには、プログラマの `requestorID` と（オプション） Adobe Pass Authentication エンドポイントの配列。
 
@@ -127,8 +125,8 @@ The `event` パラメーターは、発生したエンタイトルメントイ�
 
    2 つの実装オプションがあります。要求者の識別情報がバックエンドサーバーに送信されると、UI アプリケーションレイヤーは次の 2 つの方法のいずれかを選択できます。</p>
 
-   1. トリガーされるまで待つ `setRequestorComplete()` callback （AccessEnabler デリゲートの一部）  このオプションは、 `setRequestor()` 完了したので、ほとんどの実装で推奨されます。
-   1. トリガーされるのを待たずに続行 `setRequestorComplete()` コールバックを実行し、エンタイトルメントリクエストの発行を開始します。 これらの呼び出し (checkAuthentication、checkAuthorization、getAuthorization、getAuthorization、checkPreauthorizedResource、getMetadata、logout) は、AccessEnabler ライブラリによってキューに登録され、 `setRequestor()`. 例えば、ネットワーク接続が不安定な場合などに、このオプションが中断される場合があります。
+   1. トリガーされるまで待つ `setRequestorComplete()` callback ( `AccessEnabler` デリゲート )。  このオプションは、 `setRequestor()` 完了したので、ほとんどの実装で推奨されます。
+   1. トリガーされるのを待たずに続行 `setRequestorComplete()` コールバックを実行し、エンタイトルメントリクエストの発行を開始します。 これらの呼び出し (checkAuthentication, checkAuthorization, getAuthorization, getAuthorization, checkPreauthorizedResource, getMetadata, logout) は、 `AccessEnabler` ライブラリに含まれます。このライブラリは、 `setRequestor()`. 例えば、ネットワーク接続が不安定な場合などに、このオプションが中断される場合があります。
 
 1. 通話 [checkAuthentication()](#$checkAuthN) をクリックして、認証フロー全体を開始せずに、既存の認証を確認します。  この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
 
@@ -150,10 +148,10 @@ The `event` パラメーターは、発生したエンタイトルメントイ�
 
    >[!NOTE]
    >
-   >この時点で、ユーザーは認証フローをキャンセルできます。 この場合、AccessEnabler は内部状態をクリーンアップし、認証フローをリセットします。
+   >この時点で、ユーザーは認証フローをキャンセルできます。 この場合、 `AccessEnabler` 内部状態をクリーンアップし、認証フローをリセットします。
 
 1. ユーザーが正常にログインすると、WebView が閉じます。
-1. 呼び出し `getAuthenticationToken(),` これは、AccessEnabler に対して、バックエンド・サーバから認証トークンを取得するよう指示します。
+1. 呼び出し `getAuthenticationToken(),` これは `AccessEnabler` をクリックして、バックエンドサーバーから認証トークンを取得します。
 1. [オプション] 通話 [`checkPreauthorizedResources(resources)`](#$checkPreauth) をクリックして、ユーザーが表示する権限を持つリソースを確認します。 The `resources` パラメーターは、ユーザーの認証トークンに関連付けられている保護されたリソースの配列です。
 
    **トリガー:** `preAuthorizedResources()` callback\
@@ -196,6 +194,6 @@ The `event` パラメーターは、発生したエンタイトルメントイ�
 
 ### F.ログアウトフロー {#logout_flow}
 
-1. 通話 [`logout()`](#$logout) をクリックして、ユーザーをログアウトします。 AccessEnabler は、シングルサインオンを通じてログインを共有するすべてのリクエスタに対して、現在の MVPD に対してユーザーが取得した、キャッシュされた値とトークンをすべて消去します。 キャッシュをクリアした後、AccessEnabler は、サーバ側セッションをクリーンアップするためのサーバ呼び出しを行います。  サーバー呼び出しによって IdP に SAML リダイレクトが発生する可能性があるので（IdP 側でのセッションのクリーンアップが可能）、この呼び出しはすべてのリダイレクトに従う必要があります。 このため、この呼び出しは WebView コントロール内で処理されます（ユーザーには表示されません）。
+1. 通話 [`logout()`](#$logout) をクリックして、ユーザーをログアウトします。 The `AccessEnabler` は、現在の MVPD に対してユーザーが取得したキャッシュされた値とトークンを、シングルサインオンを介してログインを共有するすべてのリクエスター上で消去します。 キャッシュをクリアした後、 `AccessEnabler` は、サーバー側セッションをクリーンアップするためにサーバー呼び出しをおこないます。  サーバー呼び出しによって IdP に SAML リダイレクトが発生する可能性があるので（IdP 側でのセッションのクリーンアップが可能）、この呼び出しはすべてのリダイレクトに従う必要があります。 このため、この呼び出しは WebView コントロール内で処理されます（ユーザーには表示されません）。
 
    **注意：** ログアウトフローは、ユーザーが WebView と何らかのやり取りをする必要がないという点で、認証フローとは異なります。 したがって、ログアウトプロセス中に WebView コントロールを非表示（つまり非表示）にする（推奨）ことが可能です。

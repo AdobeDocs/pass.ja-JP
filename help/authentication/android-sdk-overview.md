@@ -2,7 +2,7 @@
 title: Android SDK の概要
 description: Android SDK の概要
 exl-id: a1d98325-32a1-4881-8635-9a3c38169422
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
 source-wordcount: '2720'
 ht-degree: 0%
@@ -14,9 +14,6 @@ ht-degree: 0%
 >[!NOTE]
 >
 >このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
-
-</br>
-
 
 ## はじめに {#intro}
 
@@ -34,8 +31,6 @@ Android プラットフォームとAdobe Pass認証に関する現在の技術�
 - [汎用初期認証ワークフロー](#generic)
 - [ログアウトワークフロー](#logout)
 
-
-
 ### 初期化後のワークフロー {#post-init}
 
 AccessEnabler でサポートされるすべての権限付与ワークフローは、以前に [`setRequestor()`](#setRequestor) をクリックして、id を確立します。 この呼び出しを実行して Requestor ID を指定するのは、通常、アプリケーションの初期化/設定フェーズ中に 1 回だけにします。
@@ -50,8 +45,6 @@ AccessEnabler でサポートされるすべての権限付与ワークフロー
 - または、両方を実行します。
 
 成功の通知を待つかどうかは君次第だ [`setRequestor()`](#setRequestor) AccessEnabler の呼び出しキュー・メカニズムに依存する場合は、 それ以降のすべての認証要求にはリクエスト元 ID と関連する設定情報が必要なので、 [`setRequestor()`](#setRequestor) メソッドは、初期化が完了するまで、すべての認証および承認 API 呼び出しを効果的にブロックします。
-
-
 
 ### 汎用初期認証ワークフロー {#generic}
 

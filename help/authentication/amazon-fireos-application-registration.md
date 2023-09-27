@@ -2,9 +2,9 @@
 title: Amazon FireOS アプリケーションの登録
 description: Amazon FireOS アプリケーションの登録
 exl-id: 650fd4a2-dfc3-4c74-9b5b-6bea832a28ca
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '524'
+source-wordcount: '513'
 ht-degree: 0%
 
 ---
@@ -33,25 +33,37 @@ FireOS AccessEnabler SDK のバージョン 3.0 以降では、Adobeのサーバ
 
 ### Adobeの TVE ダッシュボードにアクセスできる場合：
 
-- ブラウザーを開き、に移動します。 <https://console.auth.adobe.com>
-- に移動します。 `Channels` 」セクションで、チャネルを選択します。
-- に移動します。 `Registered Applications` タブ。
-- クリック： `Add new application`.
-- アプリケーションの名前とバージョンを指定し、使用可能なプラットフォームを選択します（この例では Android）。
-- プログラマー用に既に構成されたドメインのリストから選択してドメイン名を指定します。
-- 変更をサーバーにプッシュし、チャネルの「登録済みアプリケーション」タブに戻ります。
-- すべての登録済みアプリケーションのリストが表示されます。 次をクリック： `Download` 」ボタンをクリックします。 注意：ソフトウェアステートメントのダウンロード準備が整うまで、数分待たなければならない場合があります。
-- テキストファイルがダウンロードされます。 その内容をソフトウェアステートメントとして使用します。
+1. ブラウザーを開き、に移動します。 `https://console.auth.adobe.com`.
+
+1. 次に移動： **[!UICONTROL Channels]** 」セクションで、チャネルを選択します。
+
+1. 次に移動： **[!UICONTROL Registered Applications]** タブをクリックします。
+
+1. クリック **[!UICONTROL Add new application]**.
+
+1. アプリケーションの名前とバージョンを指定し、使用可能にするプラットフォーム（Android など）を選択します。
+
+1. 次を提供： **[!UICONTROL Domain Name]** プログラマー用に既に設定されているドメインのリストから選択することで、
+
+1. 変更をサーバーにプッシュして、チャネルの **[!UICONTROL Registered Applications]** タブをクリックします。
+
+   すべての登録済みアプリケーションのリストが表示されます。
+
+1. クリック **[!UICONTROL Download]** をクリックします。
+
+   ソフトウェアステートメントのダウンロード準備が整うまで、数分待たなければならない場合があります。
+
+   テキストファイルがダウンロードされます。 その内容をソフトウェアステートメントとして使用します。
 
 詳しくは、 [Dynamic Client Registration Management](/help/authentication/dynamic-client-registration-management.md)
 
 ### Adobeの TVE ダッシュボードへのアクセス権がない場合：
 
-にチケットを送信 <tve-support@adobe.com>. チャネル、アプリケーション名、バージョン、プラットフォームなど、必要な情報をすべて含め、サポートチームの誰かがソフトウェアステートメントを作成します。
+にチケットを送信 [tve-support@adobe.com](mailto:tve-support@adobe.com). チャネル、アプリケーション名、バージョン、プラットフォームなど、必要な情報をすべて含め、サポートチームの誰かがソフトウェアステートメントを作成します。
 
-## ソフトウェアステートメントの使用方法 {#use}
+## ソフトウェア文の使用方法 {#use}
 
-ソフトウェア文を取得したら、Access Enabler コンストラクタでパラメータとして渡す必要があります。 リモートの場所でソフトウェアステートメントをホストすることをお勧めします。 これにより、アプリケーションの新しいバージョンをリリースすることなく、ソフトウェアステートメントを簡単に失効および変更できます。
+ソフトウェア文を取得したら、Access Enabler コンストラクタのパラメータとして渡す必要があります。 Adobeは、リモートの場所でソフトウェア文をホストすることを推奨します。 これにより、アプリケーションの新しいバージョンをリリースすることなく、ソフトウェアステートメントを簡単に失効および変更できます。
 
 ## ソフトウェア文の使用方法 {#use-both}
 

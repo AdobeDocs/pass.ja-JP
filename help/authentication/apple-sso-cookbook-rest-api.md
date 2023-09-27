@@ -2,7 +2,7 @@
 title: Apple SSO クックブック (REST API)
 description: Apple SSO クックブック (REST API)
 exl-id: cb27c4b7-bdb4-44a3-8f84-c522a953426f
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
 source-wordcount: '1435'
 ht-degree: 0%
@@ -21,13 +21,9 @@ Adobe Pass Authentication REST API は、Apple SSO ワークフローと呼ば�
 
 このドキュメントは、既存の REST API ドキュメントの拡張機能として機能します。 [ここ](/help/authentication/rest-api-reference.md).
 
-</br>
-
 ## クックブック {#Cookbooks}
 
 Apple SSO のユーザーエクスペリエンスを活用するには、1 つのアプリケーションで [ビデオ購読者のアカウント](https://developer.apple.com/documentation/videosubscriberaccount) Appleが開発したフレームワークですが、Adobe Pass Authentication REST API 通信に関しては、以下に示すヒントの順序に従う必要があります。
-
-</br>
 
 ### 認証 {#Authentication}
 
@@ -44,10 +40,8 @@ Apple SSO のユーザーエクスペリエンスを活用するには、1 つ�
 - [認証フローで進む](#Proceed_with_authorization_flows)
 
 
-
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/qu/platform-sso.jpeg)
 
-</br>
 
 #### 手順：「有効なAdobe認証トークンはありますか？」 {#Is_there_a_valid_Adobe_authentication_token}
 
@@ -55,7 +49,6 @@ Apple SSO のユーザーエクスペリエンスを活用するには、1 つ�
 >
 > **<u>ヒント：</u>** これは、 [Adobe Pass Authentication](/help/authentication/check-authentication-token.md) サービス。
 
-</br>
 
 #### 手順：「ユーザーは Platform SSO を使用してログインしていますか？」 {#Is_the_user_logged_in_via_Platform_SSO}
 
@@ -127,8 +120,6 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 ...  
 ```
 
-</br>
-
 #### 手順：「Adobe設定を取得」 {#Fetch_Adobe_configuration}
 
 >[!TIP]
@@ -139,8 +130,6 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 >[!TIP]
 >
 > **<u>ヒント：</u>** MVPD プロパティに注意してください。 *`enablePlatformServices`*, *`boardingStatus`*, *`displayInPlatformPicker`*, *`platformMappingId`*, *`requiredMetadataFields`* コードスニペットに示されたコメントには、他の手順で特に注意を払ってください。
-
-</br>
 
 #### 手順「Adobe設定で Platform SSO ワークフローを開始」 {#Initiate_Platform_SSO_workflow_with_Adobe_config}
 
@@ -263,8 +252,6 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 >
 > **<u>ヒント：</u>** 次のコードスニペットに注意してください： [「Adobe設定で Platform SSO ワークフローを開始」](#Initiate_Platform_SSO_workflow_with_Adobe_config) 手順 ユーザーログインが成功した場合、 *`vsaMetadata!.accountProviderIdentifier`* に有効な値が含まれ、現在の日付が *`vsaMetadata!.authenticationExpirationDate`* の値です。
 
-</br>
-
 #### ステップ「選択した MVPD のAdobeからプロファイルリクエストを取得する」 {#Obtain_a_profile_request_from_Adobe_for_the_selected_MVPD}
 
 >[!TIP]
@@ -274,8 +261,6 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 >[!TIP]
 >
 > **<u>ヒント：</u>** ビデオ購読者アカウントフレームワークから取得したプロバイダー識別子は、 *`platformMappingId`* (Adobe Pass Authentication 設定の観点から ) したがって、アプリケーションは、 *`platformMappingId`* Adobe Pass Authentication を通じた価値 [MVPD リストを提供](/help/authentication/provide-mvpd-list.md) サービス。
-
-</br>
 
 #### 手順：「Adobeリクエストを Platform SSO に転送してプロファイルを取得する」 {#Forward_the_Adobe_request_to_Platform_SSO_to_obtain_the_profile}
 
