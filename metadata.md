@@ -5,8 +5,8 @@ product: adobe primetime
 solution: Pass
 feature-set: Pass
 git-repo: https://github.com/AdobeDocs/pass.ja-JP
-hide: true
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+index: true
+source-git-commit: bf172d5bcce6c298c5f2548cbdcfbda01aaa1723
 workflow-type: tm+mt
 source-wordcount: '63'
 ht-degree: 0%
