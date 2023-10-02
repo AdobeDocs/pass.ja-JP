@@ -2,9 +2,9 @@
 title: iOS/tvOS API リファレンス
 description: iOS/tvOS API リファレンス
 exl-id: 017a55a8-0855-4c52-aad0-d3d597996fcb
-source-git-commit: 2ccfa8e018b854a359881eab193c1414103eb903
+source-git-commit: 854698397d9d14c1bfddcc10eecc61c7e3c32b71
 workflow-type: tm+mt
-source-wordcount: '7010'
+source-wordcount: '7018'
 ht-degree: 0%
 
 ---
@@ -365,7 +365,8 @@ ht-degree: 0%
 **ファイル：** AccessEnabler/headers/AccessEnabler.h
 
 **説明：** 現在のユーザーの認証状態を確認します。
-これをおこなうには、ローカルトークンストレージスペースで有効な認証トークンを検索します。 このメソッドを呼び出しても、ネットワーク呼び出しは実行されません。 アプリケーションは、ユーザーの認証状態を問い合わせ、それに応じて UI を更新するために使用します（つまり、ログイン/ログアウト UI を更新します）。 認証ステータスは、 [`setAuthenticationStatus:errorCode:`](#setAuthNStatus) コールバック。
+これをおこなうには、ローカルトークンストレージスペースで有効な認証トークンを検索します。 このメソッドは、ネットワーク呼び出しを実行しないので、メインスレッドで呼び出すことをお勧めします。
+アプリケーションは、ユーザーの認証状態を問い合わせ、それに応じて UI を更新するために使用します（つまり、ログイン/ログアウト UI を更新します）。 認証ステータスは、 [`setAuthenticationStatus:errorCode:`](#setAuthNStatus) コールバック。
 
 
 <table class="pass_api_table">

@@ -2,9 +2,9 @@
 title: Android SDK API リファレンス
 description: Android SDK API リファレンス
 exl-id: f932e9a1-2dbe-4e35-bd60-a4737407942d
-source-git-commit: 2ccfa8e018b854a359881eab193c1414103eb903
+source-git-commit: 854698397d9d14c1bfddcc10eecc61c7e3c32b71
 workflow-type: tm+mt
-source-wordcount: '4518'
+source-wordcount: '4526'
 ht-degree: 0%
 
 ---
@@ -165,7 +165,7 @@ ht-degree: 0%
 
 ### checkAuthentication {#checkAuthN}
 
-**説明：** 認証状態を確認します。 これをおこなうには、ローカルトークンストレージスペースで有効な認証トークンを検索します。 このメソッドを呼び出しても、ネットワーク呼び出しは実行されません。 アプリケーションは、ユーザーの認証状態を問い合わせ、それに応じて UI を更新する（ログイン/ログアウト UI を更新する）ために使用します。 認証ステータスは、 [*setAuthenticationStatus()*](#setAuthNStatus) コールバック。
+**説明：** 認証状態を確認します。 これをおこなうには、ローカルトークンストレージスペースで有効な認証トークンを検索します。 このメソッドは、ネットワーク呼び出しを実行しないので、メインスレッドで呼び出すことをお勧めします。 アプリケーションは、ユーザーの認証状態を問い合わせ、それに応じて UI を更新する（ログイン/ログアウト UI を更新する）ために使用します。 認証ステータスは、 [*setAuthenticationStatus()*](#setAuthNStatus) コールバック。
 
 MVPD が「要求者ごとの認証」機能をサポートしている場合は、複数の認証トークンを 1 台のデバイスに保存できます。  この機能の詳細については、 [キャッシュのガイドライン](#$caching) Android の技術概要の節を参照してください。
 
