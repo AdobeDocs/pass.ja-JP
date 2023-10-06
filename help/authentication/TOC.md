@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass Authentication
 user-guide-description: Adobe Pass認証は、TV Everywhere の使用権限付与ソリューションで、リソースへのアクセスを要求するユーザーがそのリソースに対する使用権限を付与されているかどうかを判断するためのモジュラーフレームワークを提供します。
-source-git-commit: fd65582522d6b40e5797dff192e2340c5575ef3b
+source-git-commit: 05184defb3d912050240be7763ced4ccce6a35ad
 workflow-type: tm+mt
-source-wordcount: '776'
+source-wordcount: '785'
 ht-degree: 0%
 
 ---
@@ -161,10 +161,12 @@ ht-degree: 0%
    + [Adobe Pass Authentication 2.64 リリースノート](auth-rn-264.md)
    + [Adobe Pass Authentication 2.63 リリースノート](auth-rn-263.md)
    + [Adobe Pass Authentication 2.62.1リリースノート](auth-rn-2621.md)
-   + [Adobe Pass Authentication iOS/tvOS 3.7.0 リリースノート](authn-rn-ios-tvos-370.md)
-   + [Adobe Pass Authentication iOS/tvOS 3.8.1 リリースノート](authn-rn-ios-tvos-381.md)
-   + [Adobe Pass Authentication iOS/tvOS 3.8.2 リリースノート](authn-rn-ios-tvos-382.md)
-   + [Adobe Pass Authentication Android 3.7.3 リリースノート](authn-rn-android-373.md)
+   + iOS/tvOS SDK リリースノート  {#release-notes-ios}
+      + [Adobe Pass Authentication iOS/tvOS 3.8.2 リリースノート](authn-rn-ios-tvos-382.md)
+      + [Adobe Pass Authentication iOS/tvOS 3.8.1 リリースノート](authn-rn-ios-tvos-381.md)
+      + [Adobe Pass Authentication iOS/tvOS 3.7.0 リリースノート](authn-rn-ios-tvos-370.md)
+   + Android SDK リリースノート {#release-notes-android}
+      + [Adobe Pass Authentication Android 3.7.3 リリースノート](authn-rn-android-373.md)
 + テクニカルノート {#tech-notes}
    + Adobe Pass認証 SDK {#primetime-authentication-sdks}
       + [証明書 Q&amp;A](certificates-qa.md)
