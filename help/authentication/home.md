@@ -2,9 +2,9 @@
 title: Adobe&reg；認証を渡す
 description: Adobe&reg；パス認証の概要へようこそ
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: 4eb5fc1eb1eea4c5e27bbee298db4b9b4ba2daef
+source-git-commit: 6699f37915551a19252dc84b6a37cc4565011fd5
 workflow-type: tm+mt
-source-wordcount: '343'
+source-wordcount: '338'
 ht-degree: 0%
 
 ---
@@ -27,13 +27,13 @@ Adobe Pass認証は、TV Everywhere の使用権限付与ソリューション�
 
 | **注目すべきトピック** |
 |-|
-| <ul><li>iOSのシングルサインオン</li><li>[プロモーション一時パス](/help/authentication/promotional-temp-pass.md)</li><li>[HBA（ホーム・ベース認証）](/help/authentication/home-based-authn-tve.md)</li><li>[HBA の解説図](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf)</li><li>[Adobe Pass TVE ダッシュボードユーザガイド](/help/authentication/tve-dashboard-user-guide.md)</li></ul> |
+| <ul><li>[iOSのシングルサインオン](/help/authentication/apple-sso-overview.md)</li><li>[プロモーション一時パス](/help/authentication/promotional-temp-pass.md)</li><li>[HBA（ホーム・ベース認証）](/help/authentication/home-based-authn-tve.md)</li><li>[HBA の解説図](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf)</li><li>[Adobe Pass TVE ダッシュボードユーザガイド](/help/authentication/tve-dashboard-user-guide.md)</li></ul> |
 
 | **プログラマー向け** | **MVPD の場合** |
 |------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
-| <ul><li>[プログラマー向けキックスタートガイド](/help/authentication/programmer-kickstart-guide.md)</li><li>**MVPD セレクター (「picker」)**</li><li>[ユーザーメタデータ](/help/authentication/user-metadata.md)</li></ul> | <ul><li>[MVPD キックスタートガイド](/help/authentication/mvpd-kickstart-guide.md)</li><li>[認証](/help/authentication/authn-usecase.md)</li><li>[認証](/help/authentication/authz-usecase.md)</li><li>[ログアウト](/help/authentication/usecase-mvpd-logout.md)</li></ul> |
+| <ul><li>[プログラマー向けキックスタートガイド](/help/authentication/programmer-kickstart-guide.md)</li><li>[ユーザーメタデータ](/help/authentication/user-metadata.md)</li></ul> | <ul><li>[MVPD キックスタートガイド](/help/authentication/mvpd-kickstart-guide.md)</li><li>[認証](/help/authentication/authn-usecase.md)</li><li>[認証](/help/authentication/authz-usecase.md)</li><li>[ログアウト](/help/authentication/usecase-mvpd-logout.md)</li></ul> |
 | **ネイティブアプリクライアント向け** | **全員に対して** |
-| <ul><li>[iOS Technical Overview](/help/authentication/iostvos-sdk-overview.md)</li><li>[Android 技術概要](/help/authentication/android-sdk-overview.md)</li></ul> | <ul><li>[テクニカルペーパー](/help/authentication/technical-paper.md)</li><li>[エスカレーション手順](/help/authentication/escalation-procedures.md)</li><li>**サポートされるシステム**</li><li>[用語集](/help/authentication/glossary.md)</li></ul> |
+| <ul><li>[iOS Technical Overview](/help/authentication/iostvos-sdk-overview.md)</li><li>[Android 技術概要](/help/authentication/android-sdk-overview.md)</li></ul> | <ul><li>[テクニカルペーパー](/help/authentication/technical-paper.md)</li><li>[エスカレーション手順](/help/authentication/escalation-procedures.md)</li><li>[用語集](/help/authentication/glossary.md)</li></ul> |
 | **スマートデバイスの場合** | |
 | <ul><li>[クライアントレスの技術概要](/help/authentication/rest-api-overview.md)</li><li>[クライアントレス API](/help/authentication/rest-api-reference.md)</li></ul> | |
 
