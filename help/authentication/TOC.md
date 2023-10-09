@@ -2,17 +2,17 @@
 product: adobe primetime
 audience: end-user
 feature: Authentication
-user-guide-title: Adobe Pass Authentication
-user-guide-description: Adobe Pass認証は、TV Everywhere の使用権限付与ソリューションで、リソースへのアクセスを要求するユーザーがそのリソースに対する使用権限を付与されているかどうかを判断するためのモジュラーフレームワークを提供します。
+user-guide-title: Adobe Pass 認証
+user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
 source-git-commit: 05184defb3d912050240be7763ced4ccce6a35ad
 workflow-type: tm+mt
 source-wordcount: '785'
-ht-degree: 0%
+ht-degree: 4%
 
 ---
 
 
-# Adobe Pass認証ヘルプ {#authentication}
+# Adobe Pass 認証 ヘルプ {#authentication}
 
 + [Adobe Pass認証の概要](home.md)
 + Adobe Pass認証の概念 {#authentication-concepts}

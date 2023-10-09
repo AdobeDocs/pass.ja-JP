@@ -2,17 +2,17 @@
 product: adobe primetime
 feature: Concurrency Monitoring
 audience: end-user
-user-guide-title: Adobe Pass Concurrency Monitoring
+user-guide-title: Adobe Pass 同時実行モニタリング
 user-guide-description: 複数のアプリケーションでの同時使用に関する制限を定義し、適用する方法を説明します。
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
 source-wordcount: '141'
-ht-degree: 0%
+ht-degree: 17%
 
 ---
 
 
-# Adobe Pass Concurrency Monitoring ヘルプ {#cm}
+# Adobe Pass 同時実行モニタリング ヘルプ {#cm}
 
 + [同時実行監視の概要](cm-home.md)
 + [同時実行監視の用語集](cm-glossary.md)
