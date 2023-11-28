@@ -1,7 +1,8 @@
 ---
 title: Adobe Pass Authentication 2.68 リリースノート
 description: Adobe Pass Authentication 2.68 リリースノート
-source-git-commit: dc9572912371fb23586eafa93d06c3f3a5c546bc
+exl-id: 88628696-448e-4afa-91f0-d3767d68d2f4
+source-git-commit: 87d7380aa7045e64e8caff6d5d7610bd0917181e
 workflow-type: tm+mt
 source-wordcount: '142'
 ht-degree: 0%
@@ -25,11 +26,11 @@ ht-degree: 0%
 ### ビルド番号 {#build-number-268}
 
 Adobe Pass認証：adobe-pass-**2.68.0.5**
-リリース日： **11/21/2023 - 11/23/2023**
+リリース日： **12/05/2023 - 12/07/2023**
 
 ### 新機能 {#new-features-268}
 
-* 新しい REST API の継続的な開発。 新しいエンドポイントとフローは、今後の専用リリースで使用できるようになる予定です。 これらの新しい API を使用するためのドキュメントの更新が進行中です。
+* 新しい REST API の継続的な開発。 今後の専用リリースで利用可能になる予定の新しいエンドポイントとフロー。 これらの新しい API を使用するためのドキュメントの更新が進行中です。
 * 内部アーキテクチャの継続的な改善。
 * デバイスの識別を改善するために、Device Atlas ライブラリを最新バージョンに更新しました。
 
