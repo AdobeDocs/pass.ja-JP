@@ -1,83 +1,72 @@
 ---
-title: 購読者のセグメントと時間枠
+title: 購読者のセグメントと時間間隔
 description: コホートを定義するか、購読者セグメントを選択して、チャネル閲覧者が Account IQ のグラフィカルツールとレポートを使用できるように、アカウント共有の可能性とパターンを測定します。
 exl-id: c38cde37-70d9-486d-b8d0-7c1cbd2baf2e
-source-git-commit: d543bbe972944ad83f4cb28c8a17ea6e10f66975
+source-git-commit: 6b790728f3d6a8eed5dfc0f8b3d0dad283af6418
 workflow-type: tm+mt
-source-wordcount: '289'
+source-wordcount: '346'
 ht-degree: 0%
 
 ---
 
 
-# 購読者のセグメントと時間枠 {#cohorts-segments}
+# 購読者のセグメントと時間間隔 {#cohorts-segments}
 
-アカウント IQ にログインすると、上部にパネルが表示され、購読者を定義できます [セグメント](/help/accountiq/product-concepts.md#segment-segmet-def) を使用して結果をフィルタリングし、購読者共有の動作とパターンに関するレポートを表示します。
 
-<!--![](assets/segment-timeframe-panel.png)-->
+アカウント IQ にログインすると、上部のセグメントランチャーパネルで購読者を指定できます [セグメント](/help/accountiq/product-concepts.md#segment-segmet-def). これにより、購読者の共有動作とパターンに関するレポートを表示する際に、結果をフィルタリングできます。 プロパティの「すべてのアカウント」という名前のデフォルトのセグメントが既に選択されています。セグメントランチャーには次のオプションが表示されます。
 
-+++プログラマー向けのセグメント選択パネル
+![](assets/new-segment-selector-collapsed.png){width="800" align="left"}
 
-![](assets/segment-panel-programmer.png)
+*図：折りたたまれたセグメント概要を含むセグメントランチャー*
 
-<!--![](assets/filter-panel.png)-->
+**A** 現在選択されているセグメント名<br/>
+**B** 時間間隔と精度の選択<br/>
+**C** セグメントの概要が折りたたまれました<br/>
+**D** セグメントサマリを展開するオプション<br/>
+**E** セグメントデータ（ある期間のセグメント内の購読者アカウント数）<br/>
+**金** 「セグメントリストを開く」オプション<br/>
+**G** セグメントを編集オプション<br/>
+**H** 新しいセグメントを作成オプション<br/>
 
-次のドロップダウンオプションを使用して、セグメントを定義します。
+## セグメントの選択 {#segment-selection}
 
-**[!UICONTROL MVPDs in segment]**
+プログラマーまたは MVPD ユーザーの場合は、 **セグメントを開く** オプション。 リストからセグメントを選択し、「 」を選択します。 **セグメントを開く** をクリックして、アカウント共有レポートを表示します。
 
-The **[!UICONTROL MVPDs in segment]** セレクターを使用して、 [MVPDs](/help/accountiq/product-concepts.md#mvpd-def) （個人またはグループ）を選択します。このユーザーは、アカウント共有レポートを表示する購読者です。
+以下を使用します。 **目** アイコンをクリックすると、詳細なセグメントの概要が表示され、選択した期間内の購読者のアカウント数と再生リクエスト数に関する情報が表示されます。
 
-このセレクターでは、個々の MVPD を選択する以外に、次のグループも選択できます。
++++プログラマー/MVPD 用のセグメント選択パネル
 
-* [スコアの共有による上位 10 件の MVPD](/help/accountiq/product-concepts.md#top-mvpds-def)
+![](assets/segment-panel-programmers-mvpds.png) {width="800" align="left"}
 
-* [使用別上位 10 件の MVPD](/help/accountiq/product-concepts.md#top-mvpds-def)
-
-* [アカウント別上位 10 件の MVPD](/help/accountiq/product-concepts.md#top-mvpds-def)
-
-* [分離モード](/help/accountiq/isolation-mode.md)
-
-**[!UICONTROL Channels in segment]**
-
-プログラマーユーザーとしてログインすると、チャネルを選択してアカウント共有分析を表示できます。 以下を使用します。 **[!UICONTROL Channels in segment]** ドロップダウンオプションを使用して、組織内の個々のチャネルまたは複数のチャネルを選択します。
+*図：プログラマー/MVPD のセグメントパネル*
 
 +++
 
-+++MVPDs 用のセグメント選択パネル
+セグメント概要は、次のパラメーターの定義に使用します。
 
-![](assets/segment-panel-mvpd.png)
-
-次のドロップダウンオプションを使用して、セグメントを定義します。
+**[!UICONTROL Programmers in segment]**
 
 **[!UICONTROL Channels in segment]**
 
-The **[!UICONTROL Channels in segment]** セレクターを使用すると、フィルターをさらに絞り込んで、選択した MVPD に対応するチャネルを選択できます。
+**[!UICONTROL MVPD in segment]**
 
-* [スコアを共有した上位 10 人のプログラマー](/help/accountiq/product-concepts.md#top-mvpds-def)
+**[!UICONTROL Metrics in segment]**
 
-* [使用状況別上位 10 位のプログラマー](/help/accountiq/product-concepts.md#top-mvpds-def)
+<!-- The definitions of these parameters will be defined in the glossary article-->
 
-* [アカウント別上位 10 件のプログラマー](/help/accountiq/product-concepts.md#top-mvpds-def)
+## [!UICONTROL Granularity and time interval] {#granularity-timeinterval}
 
-**セグメント内の MVPD**
+The **[!UICONTROL Granularity and time interval]** セレクターを使用すると、購読者のアカウント共有行動を監視するために、週単位/月単位で集計した日付と期間を指定できます。 期間のデフォルトで選択される期間は現在の週ですが、画像に表示されるオプションを使用して期間を変更できます。
 
-MVPD ユーザーとしてログインすると、名前が **[!UICONTROL MVPDs in segment]**.
+![[!UICONTROL Granularity and timeinterval]](assets/granularity-timeinterval-weekwise.png){width="350" align="left"}
 
-+++
+*図：「精度と時間間隔」ダイアログボックス*
 
+**A** 日付選択から日付を選択<br/>
+**B** 左向き矢印を選択して後ろに移動<br/>
+**C** 右向き矢印を選択して前に進みます。<br/>
+**D** 週別/月別の精度を選択<br/>
+**E** 選択した時間間隔<br/>
 
-
-
-<!--For example, you can define your segment as the "subscribers of the MVPD A that watched the channels X, Y, and Z".-->
-
-
-
-## [!UICONTROL Granularity and time frame] {#granularity-timeframe}
-
-The **[!UICONTROL Granularity and time frame]** セレクターを使用して、購読者の共有行動を表示する日付、期間、または時間を指定できます。
-
-![[!UICONTROL Granularity and timeframe]](assets/granularity-timeframe-weekwise.png)
-
-これらの制御を使用して、問題文を「5 月にチャネル X、Y、Z を視聴した MVPD A の購読者」として定義できます。
+これらの制御を適用すると、問題文を「10 月にチャネル X、Y、Z を視聴した MVPD A の購読者」として定義できます。
 
