@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 97928c231d5e3d4b36fb2967452b01cb8af86072
+source-git-commit: 7057aeda34b4fe0d059912ab0a71ea856427654c
 workflow-type: tm+mt
-source-wordcount: '832'
+source-wordcount: '892'
 ht-degree: 3%
 
 ---
@@ -164,6 +164,14 @@ ht-degree: 3%
    + [Adobe Pass Authentication 2.64 リリースノート](auth-rn-264.md)
    + [Adobe Pass Authentication 2.63 リリースノート](auth-rn-263.md)
    + [Adobe Pass Authentication 2.62.1リリースノート](auth-rn-2621.md)
+   + JavaScript SDK リリースノート  {#release-notes-javascript}
+      + [Adobe Pass Authentication JavaScript 3.5.0 リリースノート](authn-rn-javascript-350.md)
+      + [Adobe Pass Authentication JavaScript 4.0.0 リリースノート](authn-rn-javascript-400.md)
+      + [Adobe Pass Authentication JavaScript 4.1.0 リリースノート](authn-rn-javascript-410.md)
+      + [Adobe Pass Authentication JavaScript 4.1.1 リリースノート](authn-rn-javascript-411.md)
+      + [Adobe Pass Authentication JavaScript 4.2.0 リリースノート](authn-rn-javascript-420.md)
+      + [Adobe Pass Authentication JavaScript 4.4.0 リリースノート](authn-rn-javascript-440.md)
+      + [Adobe Pass Authentication JavaScript 4.6.0 リリースノート](authn-rn-javascript-460.md)
    + iOS/tvOS SDK リリースノート  {#release-notes-ios}
       + [Adobe Pass Authentication iOS/tvOS 3.8.3 リリースノート](authn-rn-ios-tvos-383.md)
       + [Adobe Pass Authentication iOS/tvOS 3.8.2 リリースノート](authn-rn-ios-tvos-382.md)
