@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 31620db6a05d4c7043e49c03099e9f84cdbad4fb
+source-git-commit: 2dbb45aebb1a00863a9344114963f6df95763dfc
 workflow-type: tm+mt
-source-wordcount: '901'
+source-wordcount: '915'
 ht-degree: 3%
 
 ---
@@ -155,6 +155,7 @@ ht-degree: 3%
    + [Adobe PassAdobePayTV パスの監視](monitoring-adobe-pay-tv-pass.md)
    + [最小必要システム構成](minimum-system-requirements.md)
 + リリースノート {#release-notes}
+   + [Adobe Pass Authentication 2.69 リリースノート](auth-rn-269.md)
    + [Adobe Pass Authentication 2.68 リリースノート](auth-rn-268.md)
    + [Adobe Pass Authentication 2.67 リリースノート](auth-rn-267.md)
    + [Adobe Pass Authentication 2.66 リリースノート](auth-rn-266.md)
@@ -165,13 +166,14 @@ ht-degree: 3%
    + [Adobe Pass Authentication 2.63 リリースノート](auth-rn-263.md)
    + [Adobe Pass Authentication 2.62.1リリースノート](auth-rn-2621.md)
    + JavaScript SDK リリースノート  {#release-notes-javascript}
-      + [Adobe Pass Authentication JavaScript 3.5.0 リリースノート](authn-rn-javascript-350.md)
-      + [Adobe Pass Authentication JavaScript 4.0.0 リリースノート](authn-rn-javascript-400.md)
-      + [Adobe Pass Authentication JavaScript 4.1.0 リリースノート](authn-rn-javascript-410.md)
-      + [Adobe Pass Authentication JavaScript 4.1.1 リリースノート](authn-rn-javascript-411.md)
-      + [Adobe Pass Authentication JavaScript 4.2.0 リリースノート](authn-rn-javascript-420.md)
-      + [Adobe Pass Authentication JavaScript 4.4.0 リリースノート](authn-rn-javascript-440.md)
+      + [Adobe Pass Authentication JavaScript 4.7.0 リリースノート](authn-rn-javascript-470.md)
       + [Adobe Pass Authentication JavaScript 4.6.0 リリースノート](authn-rn-javascript-460.md)
+      + [Adobe Pass Authentication JavaScript 4.4.0 リリースノート](authn-rn-javascript-440.md)
+      + [Adobe Pass Authentication JavaScript 4.2.0 リリースノート](authn-rn-javascript-420.md)
+      + [Adobe Pass Authentication JavaScript 4.1.1 リリースノート](authn-rn-javascript-411.md)
+      + [Adobe Pass Authentication JavaScript 4.1.0 リリースノート](authn-rn-javascript-410.md)
+      + [Adobe Pass Authentication JavaScript 4.0.0 リリースノート](authn-rn-javascript-400.md)
+      + [Adobe Pass Authentication JavaScript 3.5.0 リリースノート](authn-rn-javascript-350.md)
    + iOS/tvOS SDK リリースノート  {#release-notes-ios}
       + [Adobe Pass Authentication iOS/tvOS 3.8.4 リリースノート](authn-rn-ios-tvos-384.md)
       + [Adobe Pass Authentication iOS/tvOS 3.8.3 リリースノート](authn-rn-ios-tvos-383.md)
@@ -185,7 +187,7 @@ ht-degree: 3%
       + [証明書 Q&amp;A](certificates-qa.md)
       + JavaScript SDK {#javascript}
          + [Safari ブラウザーに対する JS SDK の制限](js-sdk-limitations-for-safari-browser.md)
-         + [Cookie の更新 — SameSite および Secure フラグ](cookies-updates--samesite-and-secure-flags.md)
+         + [Cookie の更新 — SameSite および Secure フラグ](cookies-updates-samesite-and-secure-flags.md)
       + Android SDK {#android}
          + [Android 10 アプリでの Enabler Android SDK シングルサインオン (SSO) へのアクセス](access-enabler-android-sdk-single-signon-sso-on-android-10-devices.md)
          + [Adobe Pass認証と Android 6 の「Marshmallow」新しい権限モデル](adobe-primetime-authentication-and-the-android-6-marshmallow-new-permissions-model.md)
@@ -202,7 +204,7 @@ ht-degree: 3%
       + [事前に実行する環境とテストの設定](setting-up-your-environment-and-testing-in-prequal.md)
       + [認証 API テストサイトを使用した認証フローと認証フローのAdobe方法](test-authn-authz-flows-using-adobes-api-test-site.md)
    + クライアントレス API {#clientless-api}
-      + [クライアントレス API 実装 — エラーコード/推定理由/原因を含むメッセージ](clientless-api-implementation-error-codes--messages-with-probable-reason--cause.md)
+      + [クライアントレス API 実装 — エラーコード/推定理由/原因を含むメッセージ](clientless-api-implementation-error-codes-messages-with-probable-reason-cause.md)
       + [デバイス ID がない場合のクライアントレス API フロー](clientless-api-flow-in-the-absence-of-device-id.md)
       + [クライアントレス： /authenticate Request での&#39;&amp;&#39;reg_code の使用を避ける](clientless-avoid-using-reg-code-in-authenticate-request.md)
       + [Xbox 360 および XboxOne クライアントレスで、プログラマー向けのAdobe Passエンタイトルメントサービスを有効化](enabling-primetime-entitlement-services-for-a-programmer-on-xbox-360-and-xboxone-clientless-solution.md)
