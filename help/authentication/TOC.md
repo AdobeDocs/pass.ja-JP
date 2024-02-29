@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 2dbb45aebb1a00863a9344114963f6df95763dfc
+source-git-commit: 579ce868b6ee94e1854bbc51145fc7840268db26
 workflow-type: tm+mt
-source-wordcount: '915'
+source-wordcount: '919'
 ht-degree: 3%
 
 ---
@@ -186,7 +186,8 @@ ht-degree: 3%
    + Adobe Pass認証 SDK {#primetime-authentication-sdks}
       + [証明書 Q&amp;A](certificates-qa.md)
       + JavaScript SDK {#javascript}
-         + [Safari ブラウザーに対する JS SDK の制限](js-sdk-limitations-for-safari-browser.md)
+         + [追跡防止の評価 — Apple Safari](tracking-prevention-assessment-apple-safari.md)
+         + [トラッキング防止評価 — Google Chrome](tracking-prevention-assessment-google-chrome.md)
          + [Cookie の更新 — SameSite および Secure フラグ](cookies-updates-samesite-and-secure-flags.md)
       + Android SDK {#android}
          + [Android 10 アプリでの Enabler Android SDK シングルサインオン (SSO) へのアクセス](access-enabler-android-sdk-single-signon-sso-on-android-10-devices.md)
