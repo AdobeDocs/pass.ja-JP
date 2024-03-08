@@ -2,9 +2,9 @@
 title: iOS/tvOS API リファレンス
 description: iOS/tvOS API リファレンス
 exl-id: 017a55a8-0855-4c52-aad0-d3d597996fcb
-source-git-commit: 854698397d9d14c1bfddcc10eecc61c7e3c32b71
+source-git-commit: 929d1cc2e0466155b29d1f905f2979c942c9ab8c
 workflow-type: tm+mt
-source-wordcount: '7018'
+source-wordcount: '6933'
 ht-degree: 0%
 
 ---
@@ -15,7 +15,7 @@ ht-degree: 0%
 >
 >このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
 
-## はじめに {#intro}
+## 概要 {#intro}
 
 このページでは、iOS/tvOS のネイティブクライアントでAdobe Pass認証用に公開されるメソッドとコールバック関数について説明します。 ここで説明するメソッドとコールバック関数は、 `AccessEnabler.h` および `EntitlementDelegate.h` ヘッダーファイル。iOS AccessEnabler SDK の次の場所にあります。 `[SDK directory]/AccessEnabler/headers/api/`
 
@@ -41,67 +41,67 @@ ht-degree: 0%
 
 * **[非推奨]** [init](#init) - AccessEnabler オブジェクトをインスタンス化します。
 
-* [setOptions:options:](#setOptions)  — プロファイルや visitorID などのグローバル SDK オプションを設定します。
+* [`setOptions:options:`](#setOptions)  — プロファイルや visitorID などのグローバル SDK オプションを設定します。
 
-* [setRequestor:](#setReqV3)[requestorID](#setReqV3),[setRequestor:requestorID:serviceProviders:](#setReqV3)  — プログラマーの ID を確立します。
+* [`setRequestor:`](#setReqV3)[`requestorID`](#setReqV3),[`setRequestor:requestorID:serviceProviders:`](#setReqV3)  — プログラマーの ID を確立します。
 
-* **[非推奨]** [setRequestor:signedRequestorId:](#setReq),[setRequestor:signedRequestorId:serviceProviders:](#setReq)  — プログラマーの ID を確立します。
+* **[非推奨]** [`setRequestor:signedRequestorId:`](#setReq),[`setRequestor:signedRequestorId:serviceProviders:`](#setReq)  — プログラマーの ID を確立します。
 
-* **[非推奨]** [setRequestor:signedRequestorId:secret:publicKey](#setReq_tvos), [setRequestor:signedRequestorId:serviceProviders:secret:publicKey](#setReq_tvos) — プログラマーの ID を確立します。
+* **[非推奨]** [`setRequestor:signedRequestorId:secret:publicKey`](#setReq_tvos), [`setRequestor:signedRequestorId:serviceProviders:secret:publicKey`](#setReq_tvos) — プログラマーの ID を確立します。
 
-* [setRequestorComplete:](#setReqComplete)  — 設定フェーズが完了したことをアプリケーションに通知します。
+* [`setRequestorComplete:`](#setReqComplete)  — 設定フェーズが完了したことをアプリケーションに通知します。
 
-* [checkAuthentication](#checkAuthN)  — 現在のユーザーの認証状態を確認します。
+* [`checkAuthentication`](#checkAuthN)  — 現在のユーザーの認証状態を確認します。
 
-* [getAuthentication](#getAuthN), [getAuthentication:withData:](#getAuthN)  — 完全な認証ワークフローを開始します。
+* [`getAuthentication`](#getAuthN), [`getAuthentication:withData:`](#getAuthN)  — 完全な認証ワークフローを開始します。
 
-* [getAuthentication:filter](#getAuthN_filter),[getAuthentication:withData:](#getAuthN)[andFilter](#getAuthN_filter)  — 完全な認証ワークフローを開始します。
+* [`getAuthentication:filter`](#getAuthN_filter),[`getAuthentication:withData:`](#getAuthN)[andFilter](#getAuthN_filter)  — 完全な認証ワークフローを開始します。
 
-* [displayProviderDialog:](#dispProvDialog)  — ユーザーが MVPD を選択するための適切な UI 要素をインスタンス化するように、アプリケーションに通知します。
+* [`displayProviderDialog:`](#dispProvDialog)  — ユーザーが MVPD を選択するための適切な UI 要素をインスタンス化するように、アプリケーションに通知します。
 
-* [setSelectedProvider:](#setSelProv) - AccessEnabler にユーザーの MVPD 選択を通知します。
+* [`setSelectedProvider:`](#setSelProv) - AccessEnabler にユーザーの MVPD 選択を通知します。
 
-* [navigateToUrl:](#nav2url)  — ユーザーに MVPD ログインページを表示する必要があることをアプリケーションに通知します。
+* [`navigateToUrl:`](#nav2url)  — ユーザーに MVPD ログインページを表示する必要があることをアプリケーションに通知します。
 
-* [navigateToUrl:useSVC:](#nav2urlSVC) - SFSafariViewController を使用して、ユーザーに MVPD ログインページを提示する必要があることをアプリケーションに通知します
+* [`navigateToUrl:useSVC:`](#nav2urlSVC) - SFSafariViewController を使用して、ユーザーに MVPD ログインページを提示する必要があることをアプリケーションに通知します
 
-* [handleExternalURL:url](#handleExternalURL)  — 認証/ログアウトのフローを完了します。
+* [`handleExternalURL:url`](#handleExternalURL)  — 認証/ログアウトのフローを完了します。
 
-* **[非推奨]** [getAuthenticationToken](#getAuthNToken)  — バックエンドサーバーから認証トークンをリクエストします。
+* **[非推奨]** [`getAuthenticationToken`](#getAuthNToken)  — バックエンドサーバーから認証トークンをリクエストします。
 
-* [setAuthenticationStatus:errorCode:](#setAuthNStatus) ：アプリケーションに認証フローのステータスを通知します。
+* [`setAuthenticationStatus:errorCode:`](#setAuthNStatus) ：アプリケーションに認証フローのステータスを通知します。
 
-* [checkPreauthorizedResources:](#checkPreauth)  — 保護された特定のリソースを表示する権限がユーザーに既にあるかどうかを判断します。
+* [`checkPreauthorizedResources:`](#checkPreauth)  — 保護された特定のリソースを表示する権限がユーザーに既にあるかどうかを判断します。
 
-* [checkPreauthorizedResources:cache:](#checkPreauthCache)  — 保護された特定のリソースを表示する権限がユーザーに既にあるかどうかを判断します。
+* [`checkPreauthorizedResources:cache:`](#checkPreauthCache)  — 保護された特定のリソースを表示する権限がユーザーに既にあるかどうかを判断します。
 
-* [preauthorizedResources:](#preauthResources)  — ユーザーが既に表示を許可しているリソースのリストを提供します。
+* [`preauthorizedResources:`](#preauthResources)  — ユーザーが既に表示を許可しているリソースのリストを提供します。
 
-* [checkAuthorization:](#checkAuthZ), [checkAuthorization:withData:](#checkAuthZ)  — 現在のユーザーの認証ステータスを確認します。
+* [`checkAuthorization:`](#checkAuthZ), [`checkAuthorization:withData:`](#checkAuthZ)  — 現在のユーザーの認証ステータスを確認します。
 
-* [getAuthorization:](#getAuthZ), [getAuthorization:withData:](#getAuthZ)  — 承認フローを開始します。
+* [`getAuthorization:`](#getAuthZ), [`getAuthorization:withData:`](#getAuthZ)  — 承認フローを開始します。
 
-* [setToken:forResource:](#setToken)  — 承認フローが正常に完了したことをアプリケーションに通知します。
+* [`setToken:forResource:`](#setToken)  — 承認フローが正常に完了したことをアプリケーションに通知します。
 
-* [tokenRequestFailed:errorCode:errorDescription:](#tokenReqFailed)  — 承認フローが失敗したことをアプリケーションに通知します。
+* [`tokenRequestFailed:errorCode:errorDescription:`](#tokenReqFailed)  — 承認フローが失敗したことをアプリケーションに通知します。
 
-* [ログアウト](#logout)  — ログアウトフローを開始します。
+* [`logout`](#logout)  — ログアウトフローを開始します。
 
-* [getSelectedProvider](#getSelProv)  — 現在選択されているプロバイダーを決定します。
+* [`getSelectedProvider`](#getSelProv)  — 現在選択されているプロバイダーを決定します。
 
-* [selectedProvider:](#selProv)  — 現在選択されている MVPD に関する情報をアプリケーションに配信します。
+* [`selectedProvider:`](#selProv)  — 現在選択されている MVPD に関する情報をアプリケーションに配信します。
 
-* [getMetadata:](#getMeta) - AccessEnabler ライブラリによってメタデータとして公開された情報を取得します。
+* [`getMetadata:`](#getMeta) - AccessEnabler ライブラリによってメタデータとして公開された情報を取得します。
 
-* [presentTvProviderDialog:](#presentTvDialog)  — アプリケーションにApple SSO ダイアログを表示するように通知します。
+* [`presentTvProviderDialog:`](#presentTvDialog)  — アプリケーションにApple SSO ダイアログを表示するように通知します。
 
-* [dismissTvProviderDialog:](#dismissTvDialog)  — アプリケーションにApple SSO ダイアログを非表示にするように通知します。
+* [`dismissTvProviderDialog:`](#dismissTvDialog)  — アプリケーションにApple SSO ダイアログを非表示にするように通知します。
 
-* [setMetadataStatus:encrypted:forKey:andArguments:](#setMetaStatus)  — がリクエストしたメタデータを配信します [getMetadata:](#getMeta) を呼び出します。
+* [`setMetadataStatus:encrypted:forKey:andArguments:`](#setMetaStatus)  — がリクエストしたメタデータを配信します [`getMetadata:`](#getMeta) を呼び出します。
 
-* [sendTrackingData:forEventType:](#sendTracking)  — トラッキングデータ情報を配信します。
+* [`sendTrackingData:forEventType:`](#sendTracking)  — トラッキングデータ情報を配信します。
 
-* [MVPD](#mvpd) - MVPD クラス。 [MVPD に関する情報を含む]
+* [`MVPD`](#mvpd) - MVPD クラス。 [MVPD に関する情報を含む]
 
 ### init:softwareStatement {#initWithSoftwareStatement}
 
@@ -170,7 +170,7 @@ ht-degree: 0%
 [トップに戻る…](#apis)
 
 
-### setRequestor:requestorID, setRequestor:requestorID:serviceProviders: {#setReqV3}
+### `setRequestor:requestorID`, `setRequestor:requestorID:serviceProviders:` {#setReqV3}
 
 **ファイル：** AccessEnabler/headers/AccessEnabler.h
 
@@ -212,7 +212,7 @@ ht-degree: 0%
 
 </br>
 
-### setRequestor:setSignedRequestorId:, setRequestor:setSignedRequestorId:serviceProviders: - [非推奨] {#setReq}
+### `setRequestor:setSignedRequestorId:`, `setRequestor:setSignedRequestorId:serviceProviders:` - [非推奨] {#setReq}
 
 **ファイル：** AccessEnabler/headers/AccessEnabler.h
 
@@ -249,7 +249,7 @@ ht-degree: 0%
 
 [トップに戻る…](#apis)
 
-### setRequestor:setSignedRequestorId:secret:publicKey, setRequestor:setSignedRequestorId:serviceProviders:secret:publicKey - [非推奨] {#setReq_tvos}
+### `setRequestor:setSignedRequestorId:secret:publicKey`, `setRequestor:setSignedRequestorId:serviceProviders:secret:publicKey` - [非推奨] {#setReq_tvos}
 
 **ファイル：** AccessEnabler/headers/AccessEnabler.h
 
@@ -354,6 +354,7 @@ ht-degree: 0%
    * `ACCESS_ENABLER_STATUS_ERROR`  — 構成フェーズが失敗しました
 
 **トリガー元：**
+
 `setRequestor:setSignedRequestorId:, `[`setRequestor:setSignedRequestorId:serviceProviders:`](#setReq)
 
 [トップに戻る…](#apis)
@@ -396,7 +397,7 @@ ht-degree: 0%
 
 </br>
 
-### getAuthentication, getAuthentication:withData: {#getAuthN}
+### `getAuthentication`, `getAuthentication:withData:` {#getAuthN}
 
 **ファイル：** AccessEnabler/headers/AccessEnabler.h
 
@@ -407,7 +408,7 @@ ht-degree: 0%
 
 ユーザーの資格情報が MVPD ログインページで検証されるので、ユーザーが MVPD のログインページで認証を行う際に実行される複数のリダイレクト操作を監視するには、アプリケーションが必要です。 正しい資格情報が入力されると、WebView コントロールは、 `ADOBEPASS_REDIRECT_URL` 定数。 この URL は、WebView によって読み込まれるものではありません。 アプリケーションは、この URL を切断し、このイベントをログインフェーズが完了したシグナルとして解釈する必要があります。 次に、認証フローを完了するために、AccessEnabler に制御を渡す必要があります ( [handleExternalURL](#handleExternalURL) メソッド )。
 
-最後に、認証ステータスは、 [setAuthenticationStatus:errorCode:](#setAuthNStatus) コールバック。
+最後に、認証ステータスは、 [`setAuthenticationStatus:errorCode:`](#setAuthNStatus) コールバック。
 
 <table class="pass_api_table">
 <colgroup>
@@ -456,23 +457,23 @@ ht-degree: 0%
 * *forceAuthn*：ユーザーが既に認証されているかどうかに関係なく、認証フローを開始するかどうかを指定するフラグ。
 * *データ*:Pay-TV パスサービスに送信されるキーと値のペアで構成される辞書。 Adobeは、このデータを使用して、SDK を変更することなく、将来の機能を有効にできます。
 
-**コールバックがトリガーされました：** ` setAuthenticationStatus:errorCode:, `[`displayProviderDialog:`](#dispProvDialog)`,`` sendTrackingData:forEventType:`
+**コールバックがトリガーされました：** `setAuthenticationStatus:errorCode:`, [`displayProviderDialog:`](#dispProvDialog), `sendTrackingData:forEventType:`
 
 
 [トップに戻る…](#apis)
 
 </br>
 
-### getAuthentication:filter, getAuthentication:withData:andFilter {#getAuthN_filter}
+### `getAuthentication:filter`, `getAuthentication:withData:andFilter` {#getAuthN_filter}
 
 **ファイル：** AccessEnabler/headers/AccessEnabler.h
 
 **説明：** 完全な認証ワークフローを開始します。 まず、認証状態を確認します。 認証済みでない場合は、認証フロー状態マシンが起動します。
 
 * [presentTvProviderDialog()](#presentTvDialog) 現在のリクエスト元に SSO をサポートする MVPD が 1 つ以上ある場合に呼び出されます。 MVPD が SSO をサポートしていない場合は、従来の認証フローが開始され、フィルタパラメータは無視されます。
-* ユーザーがApple SSO フローを完了した後 [dismissTvProviderDialog()](#dismissTvDialog) がトリガーされ、認証プロセスが完了します。
+* ユーザーがApple SSO フローを完了した後 [`dismissTvProviderDialog()`](#dismissTvDialog) がトリガーされ、認証プロセスが完了します。
 
-最後に、認証ステータスは、 [setAuthenticationStatus:errorCode:](#setAuthNStatus) コールバック。
+最後に、認証ステータスは、 [`setAuthenticationStatus:errorCode:`](#setAuthNStatus) コールバック。
 
 **可用性：** v2.4 以降
 
@@ -509,8 +510,7 @@ ht-degree: 0%
                   withData:(NSDictionary* )data
                  andFilter:(NSDictionary *)filter;</code></pre>
 <div>
-
-</div></td>
+ </div></td>
 </tr>
 </tbody>
 </table>
@@ -615,7 +615,7 @@ ht-degree: 0%
 
 * *mvpds*:MVPD 選択 UI 要素の構築にアプリケーションが使用できる MVPD 関連の情報を保持する MVPD オブジェクトのリスト。
 
-**トリガー元：** ` getAuthentication, `[getAuthentication:withData:](#getAuthN),` getAuthorization:, `[getAuthorization:withData:](#getAuthZ)
+**トリガー元：** `getAuthentication`, [`getAuthentication:withData:`](#getAuthN),`getAuthorization:`, [`getAuthorization:withData:`](#getAuthZ)
 
 
 [トップに戻る…](#apis)
@@ -632,7 +632,7 @@ ht-degree: 0%
 
 getAuthentication() メソッドで追加のパラメータが指定されるプロモーション一時パスでは、これは使用できないことに注意してください。
 
-を渡す場合 *null* パラメータとして、Access Enabler は、ユーザーが認証フローをキャンセルした（つまり「戻る」ボタンを押した）と仮定し、認証状態マシンをリセットし、 [setAuthenticationStatus:errorCode:](#setAuthNStatus) コールバック `AccessEnabler.PROVIDER_NOT_SELECTED_ERROR` エラーコード。
+を渡す場合 *null* パラメータとして、Access Enabler は、ユーザーが認証フローをキャンセルした（つまり「戻る」ボタンを押した）と仮定し、認証状態マシンをリセットし、 [`setAuthenticationStatus:errorCode:`](#setAuthNStatus) コールバック `AccessEnabler.PROVIDER_NOT_SELECTED_ERROR` エラーコード。
 
 <table class="pass_api_table">
 <colgroup>
@@ -654,7 +654,7 @@ getAuthentication() メソッドで追加のパラメータが指定されるプ
 
 **パラメーター：** なし
 
-**コールバックがトリガーされました：** ` setAuthenticationStatus:errorCode:,sendTrackingData:forEventType:,  `[`navigateToUrl:`](#nav2url)
+**コールバックがトリガーされました：** `setAuthenticationStatus:errorCode:`,`sendTrackingData:forEventType:`,  [`navigateToUrl:`](#nav2url)
 
 [トップに戻る…](#apis)
 
@@ -700,7 +700,7 @@ UIWebView/WKWebView として` `コントローラは、複数のリダイレク
 
 </br>
 
-#### navigateToUrl:useSVC: {#nav2urlSVC}
+#### `navigateToUrl:useSVC:` {#nav2urlSVC}
 
 **ファイル：** AccessEnabler/headers/EntitlementDelegate.h
 
@@ -812,7 +812,7 @@ UIWebView/WKWebView として` `コントローラは、複数のリダイレク
 
 &lt;/br
 
-#### setAuthenticationStatus:errorCode: {#setAuthNStatus}
+#### `setAuthenticationStatus:errorCode:` {#setAuthNStatus}
 
 **ファイル：** AccessEnabler/headers/EntitlementDelegate.h
 
@@ -848,7 +848,7 @@ UIWebView/WKWebView として` `コントローラは、複数のリダイレク
    * `PROVIDER_NOT_SELECTED_ERROR` - AccessEnabler は、上位レイヤ・アプリケーションが渡された後に認証状態マシンをリセットしました。 *null* から [`setSelectedProvider:`](#setSelProv) 認証フローを中止する。  おそらく、ユーザーが認証フローをキャンセルした（つまり、「戻る」ボタンを押した）と思われます。
    * `GENERIC_AUTHENTICATION_ERROR`  — ネットワークが利用できない、またはユーザーが認証フローを明示的にキャンセルしたなどの理由で、認証フローが失敗しました。
 
-**トリガー元：** ` checkAuthentication, getAuthentication, `[getAuthentication:withData:](#getAuthN),` checkAuthorization:, `[checkAuthorization:withData:](#checkAuthZ)
+**トリガー元：** `checkAuthentication`, `getAuthentication`, [`getAuthentication:withData:`](#getAuthN), `checkAuthorization:`, [`checkAuthorization:withData:`](#checkAuthZ)
 
 [トップに戻る…](#apis)
 
@@ -889,7 +889,7 @@ UIWebView/WKWebView として` `コントローラは、複数のリダイレク
 
 </br>
 
-### checkPreauthorizedResources:cache: {#checkPreauthCache}
+### `checkPreauthorizedResources:cache:` {#checkPreauthCache}
 
 **ファイル：** AccessEnabler/headers/AccessEnabler.h
 
@@ -964,11 +964,11 @@ UIWebView/WKWebView として` `コントローラは、複数のリダイレク
 
 </br>
 
-### checkAuthorization:, checkAuthorization:withData: {#checkAuthZ}
+### `checkAuthorization:`, `checkAuthorization:withData:` {#checkAuthZ}
 
 **ファイル：** AccessEnabler/headers/AccessEnabler.h
 
-**説明：** このメソッドは、アプリケーションが認証ステータスを確認するために使用します。 まず、認証状態を最初に確認します。 認証されていない場合、 [tokenRequestFailed:errorCode:errorDescription:](#tokenReqFailed) コールバックがトリガーされ、メソッドが終了します。 ユーザーが認証されると、認証フローもトリガーされます。 詳細は、 [`getAuthorization:`](#getAuthZ) メソッド。
+**説明：** このメソッドは、アプリケーションが認証ステータスを確認するために使用します。 まず、認証状態を最初に確認します。 認証されていない場合、 [`tokenRequestFailed:errorCode:errorDescription:`](#tokenReqFailed) コールバックがトリガーされ、メソッドが終了します。 ユーザーが認証されると、認証フローもトリガーされます。 詳細は、 [`getAuthorization:`](#getAuthZ) メソッド。
 
 
 <table class="pass_api_table">
@@ -1014,17 +1014,18 @@ UIWebView/WKWebView として` `コントローラは、複数のリダイレク
 * *データ*:Pay-TV パスサービスに送信されるキーと値のペアで構成される辞書。 Adobeは、このデータを使用して、SDK を変更することなく、将来の機能を有効にできます。
 
 **コールバックがトリガーされました：**
-[tokenRequestFailed:errorCode:errorDescription:](#tokenReqFailed)`,setToken:forResource:, sendTrackingData:forEventType:, setAuthenticationStatus:errorCode:`
+
+[`tokenRequestFailed:errorCode:errorDescription:`](#tokenReqFailed),`setToken:forResource:`, `sendTrackingData:forEventType:`, `setAuthenticationStatus:errorCode:`
 
 [トップに戻る…](#apis)
 
 </br>
 
-### getAuthorization:, getAuthorization:withData: {#getAuthZ}
+### `getAuthorization:`, `getAuthorization:withData:` {#getAuthZ}
 
 **ファイル：** AccessEnabler/headers/AccessEnabler.h
 
-**説明：** このメソッドは、アプリケーションで承認フローを開始するために使用されます。 ユーザーがまだ認証されていない場合は、認証フローも開始します。 ユーザーが認証されると、AccessEnabler は認証トークン（有効な認証トークンがローカルトークンキャッシュに存在しない場合）と短時間有効なメディアトークンの要求を発行します。 ショートメディアトークンが取得されると、認証フローは完了と見なされます。 The [setToken:forResource:](#setToken) コールバックがトリガーされ、ショートメディアトークンがアプリケーションのパラメーターとして配信されます。 何らかの理由で認証が失敗した場合、 [tokenRequestFailed:forEventType:](#tokenReqFailed) コールバックがトリガーされ、エラーコード/詳細が表示されます。
+**説明：** このメソッドは、アプリケーションで承認フローを開始するために使用されます。 ユーザーがまだ認証されていない場合は、認証フローも開始します。 ユーザーが認証されると、AccessEnabler は認証トークン（有効な認証トークンがローカルトークンキャッシュに存在しない場合）と短時間有効なメディアトークンの要求を発行します。 ショートメディアトークンが取得されると、認証フローは完了と見なされます。 The [`setToken:forResource:`](#setToken) コールバックがトリガーされ、ショートメディアトークンがアプリケーションのパラメーターとして配信されます。 何らかの理由で認証が失敗した場合、 [`tokenRequestFailed:forEventType:`](#tokenReqFailed) コールバックがトリガーされ、エラーコード/詳細が表示されます。
 
 <table class="pass_api_table">
 <colgroup>
@@ -1075,13 +1076,15 @@ UIWebView/WKWebView として` `コントローラは、複数のリダイレク
 **追加のコールバックがトリガーされました：**\
 このメソッドは、次のコールバックをトリガーすることもできます（認証フローも開始する場合）。 `setAuthenticationStatus:errorCode:`, `displayProviderDialog:`
 
-**注意： checkAuthorization: / checkAuthorization を使用してください。:withData: getAuthorization の代わりに： / getAuthorization:withData: 可能な限り getAuthorization: / getAuthorization:withData: メソッドは完全な認証フローを開始し（ユーザが認証されていない場合）、その結果、プログラマ側で複雑な実装が行われる可能性があります。**
+>[!NOTE]
+>
+>以下を使用してください。 `checkAuthorization:` / `checkAuthorization:withData:` の代わりに `getAuthorization:` / `getAuthorization:withData:` 可能な限り The `getAuthorization:` / `getAuthorization:withData:` メソッドは完全な認証フローを開始し（ユーザが認証されていない場合）、その結果、プログラマ側で複雑な実装が行われる可能性があります。
 
 [トップに戻る…](#apis)
 
 </br>
 
-### setToken:forResource: {#setToken}
+### `setToken:forResource:` {#setToken}
 
 **ファイル：** AccessEnabler/headers/EntitlementDelegate.h
 
@@ -1112,13 +1115,13 @@ UIWebView/WKWebView として` `コントローラは、複数のリダイレク
 * *トークン*：短時間のみ有効なメディアトークン
 * *リソース*：認証が取得されたリソース
 
-**トリガー元：** [checkAuthorization:](#checkAuthZ)` , `[checkAuthorization:withData:](#checkAuthZ),` `[getAuthorization:](#getAuthZ), [getAuthorization:withData:](#getAuthZ)
+**トリガー元：** [`checkAuthorization:`](#checkAuthZ) , [`checkAuthorization:withData:`](#checkAuthZ), [`getAuthorization:`](#getAuthZ), [`getAuthorization:withData:`](#getAuthZ)
 
 [トップに戻る…](#apis)
 
 </br>
 
-### tokenRequestFailed:errorCode:errorDescription: {#tokenReqFailed}
+### `tokenRequestFailed:errorCode:errorDescription:` {#tokenReqFailed}
 
 **ファイル：** AccessEnabler/headers/EntitlementDelegate.h
 
@@ -1152,7 +1155,7 @@ UIWebView/WKWebView として` `コントローラは、複数のリダイレク
 * *説明*：失敗シナリオに関する追加の詳細。 何らかの理由でこの説明文字列を使用できない場合、Adobe Pass Authentication は空の文字列を送信します **(&quot;&quot;)**.\
   この文字列は、MVPD がカスタムエラーメッセージや販売関連メッセージを渡すために使用できます。 例えば、あるリソースに対する承認が購読者によって拒否された場合、MVPD は次のようなメッセージを送信します。「現在、パッケージ内のこのチャネルにアクセスできません。 パッケージをアップグレードする場合は、 **ここ**.&quot; メッセージは、このコールバックを通じてAdobe Pass Authentication によってプログラマーに渡され、プログラマーは、メッセージを表示または無視するオプションを持ちます。 Adobe Pass認証では、このパラメーターを使用して、エラーの原因となった可能性のある条件を通知することもできます。 例えば、「プロバイダーの認証サービスとの通信中にネットワークエラーが発生しました」などです。
 
-**トリガー元：** ` checkAuthorization:, `[checkAuthorization:withData:](#checkAuthZ), `getAuthorization:, `[getAuthorization:withData:](#getAuthZ)
+**トリガー元：** `checkAuthorization:`, [`checkAuthorization:withData:`](#checkAuthZ), `getAuthorization:`, [`getAuthorization:withData:`](#getAuthZ)
 
 [トップに戻る…](#apis)
 
@@ -1195,7 +1198,7 @@ UIWebView/WKWebView として` `コントローラは、複数のリダイレク
 
 **パラメーター：** なし
 
-**コールバックがトリガーされました：** `navigateToUrl:, `[`setAuthenticationStatus:errorCode:`](#setAuthNStatus)
+**コールバックがトリガーされました：** `navigateToUrl:`, [`setAuthenticationStatus:errorCode:`](#setAuthNStatus)
 
 
 
@@ -1396,7 +1399,7 @@ UIWebView/WKWebView として` `コントローラは、複数のリダイレク
 
 </br>
 
-### setMetadataStatus:encrypted:forKey:andArguments: {#setMetaStatus}
+### `setMetadataStatus:encrypted:forKey:andArguments:` {#setMetaStatus}
 
 **ファイル：** AccessEnabler/headers/EntitlementDelegate.h
 
@@ -1525,7 +1528,7 @@ AccessEnablerトリガーは、エンタイトルメントフローとは必ず�
    * **mvpdSelection:** ユーザーが MVPD 選択フォームで MVPD を選択したとき ( イベントが `TRACKING_GET_SELECTED_PROVIDER`)
 * *データ*：レポートされたイベントに関連付けられた追加データ。 このデータは、値のリストの形式で表示されます。
 
-**トリガー元：** `checkAuthentication, getAuthentication, `[getAuthentication:withData:](#getAuthN), `checkAuthorization:, `[checkAuthorization:withData:](#checkAuthZ), `getAuthorization:, `[getAuthorization:withData:](#getAuthZ), `setSelectedProvider:`
+**トリガー元：** `checkAuthentication`, `getAuthentication`, [`getAuthentication:withData:`](#getAuthN), `checkAuthorization:`, [`checkAuthorization:withData:`](#checkAuthZ), `getAuthorization:`, [`getAuthorization:withData:`](#getAuthZ), `setSelectedProvider:`
 
 の値を解釈するための手順 *データ* 配列：
 

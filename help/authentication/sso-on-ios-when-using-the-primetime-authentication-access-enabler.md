@@ -2,9 +2,9 @@
 title: Adobe Pass Authentication Access Enabler を使用する場合のiOSでの SSO
 description: Adobe Pass Authentication Access Enabler を使用する場合のiOSでの SSO
 exl-id: 882f0abb-2e6e-461d-a375-3ab410991935
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 929d1cc2e0466155b29d1f905f2979c942c9ab8c
 workflow-type: tm+mt
-source-wordcount: '1164'
+source-wordcount: '1121'
 ht-degree: 0%
 
 ---
@@ -38,7 +38,7 @@ SSO の動作は次のとおりです。
    - **重要：** iOS SDK 1.9.4 リリースの [最小のiOSデプロイメントの対象をiOS 7 に増やしました。](https://tve.zendesk.com/hc/en-us/articles/204963209-iOS-Native-AccessEnabler-Library)
 - **iOS 7 以降**:SSO は次の条件で機能します。
 
-1. アプリは、同じApple配布プロファイル、または同じチームに属するプロファイルを使用して公開されます。 これは、アプリがiOS 7 以降のカスタムペーストボードを共有する唯一の方法です。 その他のシナリオでは、ペーストボードはアプリケーションごとにサンドボックス化されます。 送信者 [*https://developer.apple.com/library/IOs/releasenotes/General/RN-iOSSDK-7.0/index.html*](https://developer.apple.com/library/ios/releasenotes/General/RN-iOSSDK-7.0/index.html): \+\[UIPasteboard pastboardWithName:create:\] および+\[UIPasteboard pasteboardWithUniqueName\] は、同じアプリケーショングループ内のアプリのみがペーストボードにアクセスできるように、指定された名前を一意にします。 開発者が、既に存在する名前のペーストボードを作成しようとし、同じアプリスイートに含まれていない場合、独自のプライベートなペーストボードを取得します。 これは、システムが提供するペーストボード、一般、および検索には影響しません。
+1. アプリは、同じApple配布プロファイル、または同じチームに属するプロファイルを使用して公開されます。 これは、アプリがiOS 7 以降のカスタムペーストボードを共有する唯一の方法です。 その他のシナリオでは、ペーストボードはアプリケーションごとにサンドボックス化されます。 送信者 [*https://developer.apple.com/library/IOs/releasenotes/General/RN-iOSSDK-7.0/index.html*](https://developer.apple.com/library/ios/releasenotes/General/RN-iOSSDK-7.0/index.html): \+\[`UIPasteboard pasteboardWithName:create:\`] および+\[`UIPasteboard pasteboardWithUniqueName`\] は、同じアプリケーショングループ内のアプリのみがペーストボードにアクセスできるように、指定された名前を一意にします。 開発者が、既に存在する名前のペーストボードを作成しようとし、同じアプリスイートに含まれていない場合、独自のプライベートなペーストボードを取得します。 これは、システムが提供するペーストボード、一般、および検索には影響しません。
 
 1. アプリには、同じ Bundle ID プレフィックスが付きます（最後を除くすべてのコンポーネント）。 同じ Bundle ID プレフィックスを共有するアプリケーションのみが同じ IDFV を計算します。 送信者 [*https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDevice\_Class/index.html\#//apple\_ref/occ/instp/UIDevice/identifierForVendor*](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDevice_Class/index.html#//apple_ref/occ/instp/UIDevice/identifierForVendor):IOS 7 では、最後のコンポーネントを除く、バンドルのすべてのコンポーネントが、ベンダー ID の生成に使用されます。 バンドル ID に 1 つのコンポーネントのみが含まれている場合は、バンドル ID 全体が使用されます。
 
