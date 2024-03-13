@@ -2,9 +2,9 @@
 title: 2 画面目の Web アプリで事前に認証されたリソースのリストを取得
 description: 2 画面目の Web アプリで事前に認証されたリソースのリストを取得
 exl-id: 78eeaf24-4cc1-4523-8298-999c9effdb7a
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '244'
+source-wordcount: '254'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+
+>[!NOTE]
+>
+> REST API 実装は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md)
 
 ## REST API エンドポイント {#clientless-endpoints}
 

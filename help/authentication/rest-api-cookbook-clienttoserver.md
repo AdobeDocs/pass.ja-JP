@@ -2,9 +2,9 @@
 title: REST API クックブック（クライアント/サーバー間）
 description: Rest API クックブッククライアントからサーバーへ。
 exl-id: f54a1eda-47d5-4f02-b343-8cdbc99a73c0
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '855'
+source-wordcount: '870'
 ht-degree: 0%
 
 ---
@@ -22,6 +22,10 @@ ht-degree: 0%
 
 
 この方法では、必要なフローを完了するには、起動、登録、承認、ビューメディアフロー（ストリーミングアプリと AuthN アプリ）の 2 つのコンポーネント（ストリーミングアプリと AuthN アプリ）が必要です。
+
+### スロットルメカニズム
+
+Adobe Pass Authentication REST API は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md).
 
 ## コンポーネント {#components}
 

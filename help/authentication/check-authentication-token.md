@@ -2,9 +2,9 @@
 title: 認証トークンを確認
 description: 認証トークンを確認
 exl-id: 9020f261-44d8-4bd5-b85b-a8667679f563
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '265'
+source-wordcount: '269'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+
+>[!NOTE]
+>
+> REST API 実装は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md)
 
 ## REST API エンドポイント {#clientless-endpoints}
 

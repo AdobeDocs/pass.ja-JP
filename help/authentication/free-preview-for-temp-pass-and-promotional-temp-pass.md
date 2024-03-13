@@ -2,10 +2,10 @@
 title: 一時パスとプロモーション一時パスのフリープレビュー
 description: 一時パスとプロモーション一時パスのフリープレビュー
 exl-id: c584bf0c-15c4-4a4d-b6a2-8d15ee786fe3
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '406'
-ht-degree: 1%
+source-wordcount: '399'
+ht-degree: 0%
 
 ---
 
@@ -14,6 +14,10 @@ ht-degree: 1%
 >[!NOTE]
 >
 >このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+
+>[!NOTE]
+>
+> REST API 実装は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md)
 
 ## REST API エンドポイント {#clientless-endpoints}
 

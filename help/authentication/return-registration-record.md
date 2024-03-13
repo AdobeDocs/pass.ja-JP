@@ -2,10 +2,10 @@
 title: 登録レコードを返す
 description: 登録レコードを返す
 exl-id: 7b9e63a2-59b6-4123-a19b-ee1f021219ea
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '243'
-ht-degree: 0%
+source-wordcount: '252'
+ht-degree: 2%
 
 ---
 
@@ -15,6 +15,9 @@ ht-degree: 0%
 >
 >このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
 
+>[!NOTE]
+>
+> REST API 実装は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md)
 
 ## REST API エンドポイント {#clientless-endpoints}
 

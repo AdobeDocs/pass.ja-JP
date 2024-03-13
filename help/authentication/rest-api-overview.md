@@ -2,9 +2,9 @@
 title: REST API の概要
 description: Rest API の概要
 exl-id: 5533d852-f644-417e-bf80-6f7aa1edd6b2
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '1599'
+source-wordcount: '1612'
 ht-degree: 0%
 
 ---
@@ -20,6 +20,9 @@ ht-degree: 0%
 
 Adobe Pass Authentication REST API を使用すると、TV Everywhere(TVE) 認証および承認サービスに直接アクセスできます。 この API は、サーバー間または接続デバイス（ゲームコンソール、スマートテレビ、セットトップボックスなど）の 2 つの主要なアーキテクチャをサポートしています。 Web 閲覧機能を持たないアプリケーション。
 
+### スロットルメカニズム
+
+Adobe Pass Authentication REST API は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md).
 
 
 ### サーバー間

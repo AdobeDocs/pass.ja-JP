@@ -2,9 +2,9 @@
 title: REST API クックブック（サーバー間）
 description: サーバーに対する Rest API クックブックサーバー。
 exl-id: 36ad4a64-dde8-4a5f-b0fe-64b6c0ddcbee
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '1825'
+source-wordcount: '1847'
 ht-degree: 0%
 
 ---
@@ -20,6 +20,9 @@ ht-degree: 0%
 
 このクックブックドキュメントの目的は、サーバー間アーキテクチャを使用してAdobe Pass認証を実装する際のベストプラクティスを詳しく説明することです。  これには、基本的な要件、フローの実装、および実稼動環境と運用に関する一般的な考慮事項が含まれています。
 
+### スロットルメカニズム
+
+Adobe Pass Authentication REST API は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md).
 
 
 ## コンポーネント {#components}

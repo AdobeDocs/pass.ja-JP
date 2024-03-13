@@ -2,10 +2,10 @@
 title: Platform SSO プロファイルリクエストの取得
 description: Platform SSO プロファイルリクエストの取得
 exl-id: 44fd4e26-4d9a-4607-ac2c-b85d848f5fc6
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '183'
-ht-degree: 0%
+source-wordcount: '189'
+ht-degree: 1%
 
 ---
 
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+
+>[!NOTE]
+>
+> REST API 実装は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md)
 
 ## REST API エンドポイント {#clientless-endpoints}
 

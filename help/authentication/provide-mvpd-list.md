@@ -2,10 +2,10 @@
 title: MVPD リストを提供
 description: MVPD リストを提供
 exl-id: db2d8f19-d0b9-4195-bf0b-f9de0d96062b
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '230'
-ht-degree: 0%
+source-wordcount: '232'
+ht-degree: 2%
 
 ---
 
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+
+>[!NOTE]
+>
+> REST API 実装は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md)
 
 ## REST API エンドポイント {#clientless-endpoints}
 
@@ -35,7 +39,7 @@ ht-degree: 0%
 
 | エンドポイント | 呼び出し済み  </br>作成者 | 入力   </br>パラメーター | HTTP  </br>メソッド | 応答 | HTTP  </br>応答 |
 | --- | --- | --- | --- | --- | --- |
-| &lt;sp_fqdn>/api/v1/config/{requestorId}</br></br>例：</br></br>&lt;sp_fqdn>/api/v1/config/sampleRequestorId | Adobe Pass Authentication | 1.請求者</br>    （パスコンポーネント）</br>_2.  deviceType（非推奨）_ | GET | MVPD のリストを含む XML または JSON。 | 200 |
+| &lt;sp_fqdn>/api/v1/config/{requestorId}</br></br>例：</br></br>&lt;sp_fqdn>/api/v1/config/sampleRequestorId | Adobe Pass 認証 | 1.請求者</br>    （パスコンポーネント）</br>_2.  deviceType（非推奨）_ | GET | MVPD のリストを含む XML または JSON。 | 200 |
 
 {style="table-layout:auto"}
 

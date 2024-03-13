@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 579ce868b6ee94e1854bbc51145fc7840268db26
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '919'
+source-wordcount: '921'
 ht-degree: 3%
 
 ---
@@ -27,6 +27,7 @@ ht-degree: 3%
    + [プログラマーのエンタイトルメントフロー](entitlement-flow.md)
    + [プログラマーの使用例](programmer-use-cases.md)
    + [クライアント情報（デバイス、接続、およびアプリケーション）を渡す](passing-client-information-device-connection-and-application.md)
+   + [スロットルメカニズム](throttling-mechanism.md)
    + REST API {#restapi}
       + [REST API の概要](rest-api-overview.md)
       + [REST API クックブック（サーバー間）](rest-api-cookbook-servertoserver.md)

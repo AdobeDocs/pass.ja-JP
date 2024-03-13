@@ -2,10 +2,10 @@
 title: Adobeトークンの Platform SSO トークンの交換
 description: Adobeトークンの Platform SSO トークンの交換
 exl-id: 5ab60268-8f97-4755-8281-be45e812ed7f
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '223'
-ht-degree: 2%
+source-wordcount: '228'
+ht-degree: 0%
 
 ---
 
@@ -14,6 +14,10 @@ ht-degree: 2%
 >[!NOTE]
 >
 >このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+
+>[!NOTE]
+>
+> REST API 実装は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md)
 
 ## REST API エンドポイント {#clientless-endpoints}
 
