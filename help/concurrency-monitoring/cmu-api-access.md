@@ -1,7 +1,7 @@
 ---
 title: CMU API アクセス
 description: CMU API アクセス
-source-git-commit: 30631ac006b7944cb2eb8996c2c165343b6be5fe
+source-git-commit: 598eb878168f6e352a8eae369cbc8cb833033328
 workflow-type: tm+mt
 source-wordcount: '407'
 ht-degree: 0%
@@ -16,8 +16,7 @@ ht-degree: 0%
 
 ## アクセス手順の概要 {#api-access-procedure-overview}
 
-CMU レポートのアクセスを更新し、OAuth 2.0 Dynamic Client Registration Protocol との互換性を確保しました。
-同時実行監視アプリケーションのニーズに対応するために、カスタム OAuth 2.0 認証サーバーがデプロイされます。 \
+CMU レポートのアクセスを更新し、OAuth 2.0 Dynamic Client Registration Protocol との互換性を確保しました。 同時実行監視アプリケーションのニーズに対応するために、カスタム OAuth 2.0 認証サーバーがデプロイされます。 \
 クライアントアプリケーションで OAuth 2.0 認証を利用するには、サーバーが動的に登録して、OAuth 2.0 認証とやり取りできるようにする必要があります。 登録プロセスの一環として、クライアントは組み込みメタデータのセットをクライアント登録エンドポイントに提示する必要があります。
 このメタデータは、ソフトウェアステートメントとして伝達されます。このステートメントには、「software_id」が含まれ、同じソフトウェアステートメントを使用してアプリケーションの異なるインスタンスを関連付けるための認証サーバーが使用できます。
 ソフトウェアステートメントは、クライアントソフトウェアに関するメタデータ値をバンドルとしてアサートする JSON Web トークン (JWT) です。 クライアント登録要求の一環として認証サーバーに提示される場合、ソフトウェア文は JSON Web Signature(JWS) を使用してデジタル署名または MACed する必要があります。 \
@@ -28,7 +27,7 @@ CMU レポートのアクセスを更新し、OAuth 2.0 Dynamic Client Registrat
 
 1. Adobe Pass DCR サーバーに登録済みのアプリケーションがある。 この手順については、 [サポートチーム](mailto:tve-support@adobe.com).
 2. ソフトウェアステートメントを取得する
-   1. TVE ダッシュボードに移動 <a href="https://console-preprod.auth.adobe.com/#!/" target="_blank"> Pre-Prod </a> または <a href="https://console.auth.adobe.com/" target="_blank">PROD</a>
+   1. TVE ダッシュボードに移動 <a href="https://console-preprod.auth.adobe.com/#!/" target="_blank"> Pre-Prod </a>  または <a href="https://console.auth.adobe.com/" target="_blank">PROD</a>
    2. プログラマーを選択
    3. 「アプリケーション」タブに移動します。
    4. アプリケーションを選択
