@@ -1,42 +1,35 @@
 ---
-title: 制限事項と既知の問題
-description: 製品の既知の問題。
+title: 制限事項
+description: Account IQ のプログラマー向けの制限事項と分離モード MVPD について説明します。
 exl-id: 08d65716-8b6a-4300-acda-fec63e1e6815
-source-git-commit: 2ced89dc1f77d2c090b599c40e778f3054f1a8dd
+source-git-commit: 791d661e1495bdb6fe4eb25efbefeecd813f0f3a
 workflow-type: tm+mt
-source-wordcount: '415'
+source-wordcount: '273'
 ht-degree: 0%
 
 ---
 
-# 既知の問題と制限事項 {#known-issues}
+# 制限事項 {#limitations}
 
-Adobeは、の製品を通じて、堅牢な機能とシームレスなユーザーエクスペリエンスを提供しようとしています。 アカウント IQ の現在のバージョン（バージョン 1.0）では、使用状況とサブスクリプションの共有の分析を、高い信頼度でストリーミングプロバイダーに提供します。 ただし、今後のリリースバージョンでは、次の制限に対処する予定です。
+Account IQ の D2C バージョンと TV Everywhere バージョンは、ストリーミングプロバイダーに使用状況とサブスクリプションの共有に関する分析を提供します。 ただし、現在のバージョン 1.3 には一定の制限があり、今後のリリースで対処される予定です。
 
-* ダッシュボードまたはレポートページでコホートを定義する場合、現在、次のような指標を追加するオプションはありません。 **デバイス数** をクリックしてセグメントを絞り込みます。 この機能は、将来のバージョンで使用できる予定です。
+* この [共有の全体的なスコア](/help/accountiq/data-panels.md#overall-sharing-score) 現在インクルード中 [共有レベル](/help/accountiq/data-panels.md#sharing-level) および [共有アカウントからの使用状況](/help/accountiq/data-panels.md#usage-from-shared-accounts). 今後のリリースには、より多くの指標が含まれる予定です。
 
-* アカウント IQ は、個々のアカウントの共有スコアを見積もる際に、企業が大きな自信を持って共有に対して行動できる保守的なアプローチを取ります。 しかし、このアプローチは、多くのアカウントで集計した場合の共有の総量を過小評価する傾向があります。
+* ダッシュボードまたは使用パターンでセグメントを定義する場合、 [セグメントのビデオカテゴリ](/help/accountiq/data-panels.md#video-categories-segment), [チャネルおよび MVPD によるスコアの共有](/help/accountiq/data-panels.md#sharin-score-by-channels-and-mvpds)、および [ビデオカテゴリの使用パターンの分布](/help/accountiq/usage-patterns.md#usage-pattern-dis-video-categories) レポートには、20 までのデータのみを表示できます [ビデオカテゴリ](product-concepts.md#video-category-def). 20 を超えるビデオカテゴリを含むセグメントの場合、これらのレポートにはデータが表示されません。
 
-* The [全体的な共有スコア](/help/accountiq/dashboard.md#overall-sharing-score) 現在のところ～の要因に過ぎない [共有レベル](/help/accountiq/dashboard.md#sharing-level) および [共有アカウントからの使用状況](/help/accountiq/dashboard.md#usage-from-shared-accounts). 今後のバージョンでは、追加の指標が考慮される予定です。
+* 現在、アカウント統計を書き出すオプションは、1,000 件のアカウントの書き出しに制限されています。
 
-* ダッシュボードまたはレポートページでコホートを定義する場合、現在のところ、MVPDs およびチャネルのセレクターは検索メカニズムを備えていません。
+* 操作を定義する場合、選択するオプション [セグメントタイプ](/help/accountiq/operations.md#segment) 次に制限： **アカウントの固定数**. この **アカウントの数が可変** オプションは、今後のリリースで使用できるようになります。
 
-* ダッシュボードまたはレポートページでコホートを定義する場合、最大 10 個の MVPD およびプログラマー（または個々のチャネル）を選択できる制限があります。
+* この **ベンチマーク**, **検出モデル**, **アクション**、および **設定** 左側のナビゲーションのセクションは、現在無効になっており、今後のリリースで使用できるようになります。
 
-* 現在、アカウント統計をエクスポートするオプションは、1000 件のアカウントをエクスポートするオプションに制限されています。
+* 操作を作成する際に適用できるのは、次の 2 種類のみです [アクション](/help/accountiq/operations.md#action)  – 同時実行監視ルールと外部アクション。
 
-* 選択するオプション [セグメントタイプ](#segment-type) 操作を定義する場合は、次の値に制限されます。 **固定アカウント数**. The **アカウントの変数数** オプションは、今後のバージョンで使用できるようになります。
+* 現在、以下のみ可能です [作成](/help/accountiq/operations.md#create-new-operation) および [スケジュール](/help/accountiq/operations.md#schedule) 操作。 今後のリリースでは、一時停止、再開、完全な管理が可能になります。
 
-* 左側のナビゲーションの「Benchmarking」、「Detection Models」、「Segments」、「Snapshots」、「Rules」の各セクションは現在無効になっており、今後のバージョンで利用できる予定です。
+* 精度および時間間隔を選択する場合、一度に 1 週間または 1 か月のデータのみを分析できます。
 
-* 作成時 [運用](/help/accountiq/operation-affecting-user-segment.md)、次の 2 種類のみを識別できます [アクション](/help/accountiq/operation-affecting-user-segment.md) 現時点では、同時実行監視ルールと外部アクションが使用されます。
+* 他の MVPD を使用してセグメント定義に分離モード MVPD を追加することはできません。 一部の MVPD は、複数のプログラマーチャネルをまたいでサブスクライバーを一意に識別しません。 したがって、これらの MVPD は、TV Everywhere プログラマーのために別々に扱われます。
 
-* 現在、操作は、作成および [予定](/help/accountiq/operation-affecting-user-segment.md#action). 今後のバージョンでは、一時停止、再開、完全管理が可能になります。
 
-* 使用されるデータのセットは限られているので、分離モードは共有量を実際に反映しているわけではありません。 したがって、分離モードの MVPD は他の MVPD と比較できません。 <!--do we need to separate out this limitation, which is from a different persona i.e. only for Programmer persona?-->
 
-* 新しい [セグメント](/help/accountiq/segments-timeframe.md) 操作の場合は、指標を追加できます。 ただし、保存したセグメントを選択した場合は、その他の指標を追加してセグメントを絞り込むことはできません。
-
-* 精度と期間の選択は 1 週間または 1 ヶ月に制限されています。つまり、データは 1 週間または 1 ヶ月にのみ評価できます。
-
-* 事前定義された間隔は、現在、精度と期間の選択で無効になっており、将来のバージョンで使用できるようになります。

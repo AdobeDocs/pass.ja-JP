@@ -1,138 +1,209 @@
 ---
-title: スコアの高いアカウントの情報を書き出し
-description: スコアの高いアカウントの情報を書き出します。
+title: 共有スコアの高いアカウントの情報の書き出し
+description: 共有スコアが高いアカウントの情報の書き出し。
 exl-id: df41ddd2-fde3-4861-abd4-6e32f0be9ea5
-source-git-commit: d543bbe972944ad83f4cb28c8a17ea6e10f66975
+source-git-commit: 88b11527b2a432c2cd27bf9e29fd286969036eb0
 workflow-type: tm+mt
-source-wordcount: '697'
+source-wordcount: '676'
 ht-degree: 1%
 
 ---
 
-# スコアの高いアカウントの情報を書き出し {#export-account-info-high-score}
+# 共有スコアの高いアカウントの情報の書き出し {#export-account-info-high-score}
 
-[!UICONTROL Account IQ] には、上位 1000 件の購読者アカウントに関するアカウント共有の詳細を、それぞれのアカウントに基づいてエクスポートするオプションが用意されています [共有確率](/help/accountiq/product-concepts.md#account-sharing-probability-def). 書き出された CSV ファイル内のデータは、サブスクライバアカウントの共有確率の低い順に並べ替えられます。 [セグメント](/help/accountiq/product-concepts.md#segment-def)（の場合） [指定された時間枠](/help/accountiq/product-concepts.md#time-frame-def).
+[!UICONTROL Account IQ] 登録者アカウントの上位 1000 件に基づいて、アカウント共有の詳細を書き出すことができます [確率の共有](/help/accountiq/product-concepts.md#account-sharing-probability-def). 現在のアカウント共有情報をエクスポートできます [セグメント](/help/accountiq/product-concepts.md#segment-def) および [指定された時間間隔](/help/accountiq/product-concepts.md#time-interval-def) 日 [共有アカウントレポート](/help/accountiq/shared-acc-reports.md) ページ。
 
-アカウント共有情報を書き出すオプションは、で使用できます。 [一般使用状況レポート](/help/accountiq/general-usage-reports.md) および [共有アカウントレポート](/help/accountiq/shared-acc-reports.md) ページ。
+特定のセグメントの購読者アカウントのアカウント共有情報をエクスポートするには、次の手順に従います。
 
->[!NOTE]
->
->ダウンロードした CSV ファイルの数は、一般使用状況レポートページと共有アカウントレポートページで異なります。 これは、一般使用状況レポートページには、プログラマーがデバイス数、IP、郵便番号のしきい値を選択するためのフィルターが追加されているからです。 したがって、一般使用状況レポートから書き出されるデータは、適用された追加のしきい値フィルターに基づいています。
+1. 自分の資格情報を使用してログインします。
+1. に移動します。 **共有アカウント** タブの下 **報告書** セクション。
+1. 必要なセグメントと時間間隔をセグメントと時間間隔パネルから選択します。 学ぶ [セグメントと時間間隔の選択方法](segments-timeinterval.md).
 
-![「一般的な使用方法」の「エクスポート」オプション](assets/export.png)
+   必要に応じて、の手順を参照します。 [セグメントの作成](work-with-segments.md#create-new-segment) または [セグメントの編集](work-with-segments.md#edit-segment).
 
-購読者のアカウント共有情報を書き出すには：
+1. を選択 **[!UICONTROL Export top 1000 accounts]** セグメントと時間間隔パネルの右上隅にあります。
 
-1. 次の手順に従って、目的のセグメントを定義します。 [セグメントを定義して期間を選択する方法](/help/accountiq/howto-select-segment-timeframe.md) 評価のために [セグメントと期間](/help/accountiq/segments-timeframe.md) パネル。
+   ![上位 1000 件のアカウントの書き出し](assets/export-top-1000-accounts.png)
 
-1. を選択します。 **[!UICONTROL Export top 1000 accounts]** 共有の確率が最も高い 1,000 人の購読者のアカウント情報を書き出すオプションが追加されました。
+   *「上位 1000 件のアカウントを書き出し」オプションを選択します*
 
-エクスポートオプションを使用すると、（定義された期間の）共有確率が最も高い 1,000 件のアカウントの統計が、ローカルマシンの Downloads フォルダーにダウンロードされます。
+ファイルは.csv 形式でローカルマシンに自動的にダウンロードされます。
 
->[!NOTE]
->
->ダウンロードした CSV ファイルは、CSV ファイルを読み取る任意のアプリケーション ( 例：Microsoft Excel) を使用して開くことができます。
+このファイルには、現在のセグメントのサブスクライバーアカウントの共有確率に基づく、上位 1000 件のアカウントのデータが降順で含まれています。
 
-![csv 形式で書き出したデータ](assets/exported-csv.png)
+書き出された.csv ファイルの例を次に示します。
 
-*図：CSV 形式で書き出された共有アカウントデータ*
+![.csv ファイルで書き出されたデータ](assets/exported-csv.png)
 
-## エクスポートされたレポートの列 {#columns-in-export}
+*.csv ファイルで書き出されたデータ*
+
+## 書き出されたレポートの列 {#columns-in-export}
 
 **週/月**
 
-曜日または月（で選択した月） **[!UICONTROL Granularity and Time Frame]** オプションを使用します。
+選択した週または月 **[!UICONTROL Granularity and Time Interval]** セグメントセレクターの「」オプション
 
 **MVPD**
 
-プログラマーユーザーの場合、列には、サブスクライバーアカウントが属する MVPD が示されます。
+プログラマーの場合、列にはアカウントが購読されているディストリビューターが表示されます。
+
+>[!NOTE]
+>
+> この **MVPD** 列は、TV Everywhere バージョンでのみ使用できます。
 
 **購読者 ID**
 
-私たちが連続して話している特定のアカウント。
+特定のアカウントの一意の ID。
 
 **最小デバイス数**
 
-実際の（コンテンツをストリーミングする）デバイスの数は、特定のアカウントに指定されているデバイスの最小数よりも、ほぼ確実に多くなります。
+ユーザーがコンテンツをアクティブにストリーミングするデバイスの最小数。
 
 >[!NOTE]
 >
->実際のデバイス数（コンテンツをストリーミング）は、特定のアカウントに指定されているデバイスの最小数よりも確実に多くなります。
+>コンテンツをストリーミングする実際のデバイス数が、特定のアカウントに指定されたデバイスの最小数を超えています。
 
-**最低人数**
+**最小人数**
 
-これらのデバイスを使用してアクティブなストリーミングコンテンツを行ったユーザーの絶対最小数です。
+これらのデバイスを使用してコンテンツをアクティブにストリーミングした個人の最小数。
 
 >[!NOTE]
 >
->実際の人数（ストリーミングコンテンツ）は、特定のアカウントに指定された「最低人数」よりも、ほぼ確実に多くなります。
+>コンテンツをストリーミングする個人の実際の数が、特定のアカウントに割り当てられた個人の最小数を超えています。
 
 **[!UICONTROL # IPs]**
 
-コンテンツのストリーミング元となる IP アドレスの数。
+コンテンツのストリーミング元の IP アドレスの数。
 
 **[!UICONTROL # Locations]**
 
-コンテンツのストリーミング元となる場所（郵便番号に基づく）の数。
+コンテンツのストリーミング元の場所（郵便番号に基づく）の数。
 
 **[!UICONTROL # Cities]**
 
-ストリーミングが行われた都市の数。
+ストリーミングアクティビティが発生した都市の数。
 
 **[!UICONTROL # States]**
 
-ストリーミングが実行された状態の数。
+ストリーミングアクティビティが発生した状態の数。
 
 **[!UICONTROL # Clusters]**
 
-ユニークの数 [クラスター](/help/accountiq/product-concepts.md#cluster-def) ストリーミングが行われた場所です
+ユニーク数 [クラスター](/help/accountiq/product-concepts.md#cluster-def) ストリーミングが行われた場所。
 
 **[!UICONTROL Geographic span (miles)]**
 
-アカウントに関連付けられたストリーミングの場所間の最大距離です。
+アカウントに関連付けられたストリーミングの場所の間の最大距離。
 
 **[!UICONTROL # AuthN OK]**
 
-そのアカウントを使用して、期間中にユーザーがログインした回数。
+そのアカウントを使用して指定された期間中にユーザーが行ったログインの数。
+
+>[!NOTE]
+>
+> 一部の D2C サービスでは、が表示されない場合があります **[!UICONTROL # AuthN OK]** 会社のデータに含まれない可能性のあるデータです。
 
 **[!UICONTROL # AuthZ OK]**
 
-MVPD がそのアカウントに対してストリームまたは（コンテンツへの）アクセスを許可した回数。
+MVPD がそのアカウントのコンテンツへのストリームを承認またはアクセスを許可した回数。
 
 >[!NOTE]
 >
->The **[!UICONTROL # AuthZ OK]** は **[!UICONTROL # Play Requests]**；より小さい **[!UICONTROL # Play Requests]** Adobeは、通常 24 時間 MVPD に対して提供される認証をキャッシュするからです。
+>**[!UICONTROL # AuthZ OK]** は、D2C サービスでは使用できません。
+
+>[!NOTE]
+>
+>あらゆる場所でのテレビの場合、 **[!UICONTROL # AuthZ OK]** 次の数と相関 **[#件の再生リクエスト](/help/accountiq/product-concepts.md##play-requests-def)**. 常に次より小さくなります **[!UICONTROL # Play Requests]** Adobeは通常、MVPD から約 24 時間にわたって認証をキャッシュするので、
+
 
 **[!UICONTROL # Play Requests]**
 
-期間中のストリームの実際の数。
+指定した期間中に発生したストリームの実際の数。
+
+>[!NOTE]
+>
+>この [#件の再生リクエスト](/help/accountiq/product-concepts.md##play-requests-def) 列は、TV Everywhere MVPD バージョンでは使用できません。
 
 **[!UICONTROL # Channels]**
 
-期間中にアカウントが閲覧した様々なチャネルの合計数。
+指定された期間にアカウントが視聴したチャネルの合計数。
 
 >[!NOTE]
 >
->**[!UICONTROL # Channels]** には、必ずしもログインしたプログラマーに属していないチャネルが含まれます。
+> D2C サービス用 **[!UICONTROL # Channels]** 次の数と等しい **[!UICONTROL # Video categories]**.
+
+>[!NOTE]
 >
->アカウントがチャネルを視聴したが、その期間中に他のチャネルにもアクセスしたため、アカウントのこの数が表示されました。
+>TV Everywhere の場合、ログインしているプログラマーに属さない可能性のあるチャンネルが含まれます。 アカウントのこの数には、指定された期間中にアクセスしたチャネルとその他のチャネルが含まれます。
+
 
 **使用パターン**
 
-この列の数値は、すべてのユーザーアカウントを識別する 14 のパターンの 1 つにマッピングされる識別子です。
+これらの列内の値は、すべてのユーザーアカウントの分類に使用する 14 のパターンのいずれかに対応する識別子として機能します。
 
-*表：書き出された CSV マッピングの使用パターン識別子と使用パターン*
+<table>
+    <tbody>
+      <tr>
+        <th style="width:10%">ID</th>
+        <th style="width:30%">使用パターン</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>通常のユーザー</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>旅行者又は通勤者</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>大家族</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>家族や友だちを閉じる</td>
+      </tr>
+      </tr>
+         <td>5 と 8</td>
+         <td>ソーシャルグループ共有</td>
+      </tr>
+      </tr>
+         <td>6</td>
+         <td>多数の友人グループ</td>
+      </tr>
+      </tr>
+         <td>7</td>
+         <td>同時ストリーミング</td>
+      </tr>
+      </tr>
+         <td>9</td>
+         <td>コミュニティ共有</td>
+      </tr>
+      </tr>
+         <td>10 と 11</td>
+         <td>不確かな行動</td>
+      </tr>
+      </tr>
+         <td>12</td>
+         <td>小家族</td>
+      </tr>
+      </tr>
+         <td>13</td>
+         <td>セカンドホーム </td>
+      </tr>
+      </tr>
+         <td>14</td>
+         <td>異常な使用</td>
+      </tr>
+    </tbody>
+  </table>
 
-| ID | 1 | 2 | 3 | 4 | 5 および 8 | 6 | 7 | 9 | 10 および 11 | 12 | 13 | 14 |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 使用パターン | 通常のユーザー | 旅行者又は通勤者 | 大家族 | 親しい家族と友人 | ソーシャルグループ共有 | 多くの友人 | 同時ストリーミング | コミュニティの共有 | 不確実な動作 | 小家族 | セカンドホーム | 異常使用 |
+*使用パターンを含む、エクスポートされた.csv マッピングの使用パターン識別子*
 
-{style="table-layout:auto"}
+**共有確率**
 
-**共有の可能性**
-
-共有の可能性とは、特定のアカウントが資格情報を共有している確率を指します。
+特定のアカウントが資格情報を共有している可能性。
 
 >[!NOTE]
 >
-> （選択したセグメント内の）すべてのアカウントの共有確率の平均が、 [共有レベル](/help/accountiq/dashboard.md#sharing-level) の [集計された共有スコア](/help/accountiq/dashboard.md#aggregated-sharing).
+> 選択したセグメント内のすべてのアカウントの共有確率の平均を使用して、次の項目が計算されます [共有レベル](/help/accountiq/data-panels.md#sharing-level) の [平均共有スコア](/help/accountiq/data-panels.md#aggregated-sharing).
