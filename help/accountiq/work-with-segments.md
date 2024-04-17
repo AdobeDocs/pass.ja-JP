@@ -1,7 +1,8 @@
 ---
 title: セグメントの操作
 description: セグメントの理解と使用。 セグメントを作成および管理する方法について説明します。
-source-git-commit: cfcaa00ab05c99a64bcb0edfe5af60845a6769a9
+exl-id: 01431437-55f5-464d-8ee4-7a79ec553e4f
+source-git-commit: 38402b411dd4fad3490115cff1854faa7f3cb293
 workflow-type: tm+mt
 source-wordcount: '1970'
 ht-degree: 0%
@@ -40,7 +41,7 @@ ht-degree: 0%
 
 セグメントを作成し購読者の共有動作を分析するには、以下を選択します **[!UICONTROL Create new segment]** 右上にあります。
 
-![「新規セグメントを作成」を選択します](assets/d2c-create-new-segment.png)
+![「新規セグメントを作成」を選択します](assets/create-new-segment-d2c.png)
 
 *「新規セグメントを作成」を選択します*
 
@@ -220,7 +221,7 @@ ht-degree: 0%
 
 *編集、複製または削除するセグメントを選択*
 
-**回答：** [ビデオカテゴリ](product-concepts.md#video-category-def) **B.** [デフォルトのセグメント](#work-with-segments)
+**回答：** [デフォルトのセグメント](#work-with-segments) **B.** [ビデオカテゴリ](product-concepts.md#video-category-def)
 
 >[!NOTE]
 >
@@ -278,5 +279,3 @@ ht-degree: 0%
    >[!NOTE]
    >
    >セグメントはシステムから完全に削除されます。この操作を元に戻すことはできません。
-
-
