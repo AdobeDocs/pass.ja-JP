@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 30e2507c0622b882744cf8291525c388575df32f
+source-git-commit: 26236fbd4b2d5703bcf99fc0cc5e0460e75ed185
 workflow-type: tm+mt
-source-wordcount: '936'
+source-wordcount: '957'
 ht-degree: 3%
 
 ---
@@ -221,4 +221,16 @@ ht-degree: 3%
    + 概念 {#concepts}
       + [ユーザー ID について](understanding-user-ids.md)
 + [TVE ダッシュボードユーザーガイド](tve-dashboard-user-guide.md)
++ 新しい TVE ダッシュボードユーザーガイド {#user-guide}
+   + [TVE ダッシュボードの概要](/help/authentication/tve-dashboard-overview.md)
+   + [環境](/help/authentication/tve-dashboard-environments.md)
+   + [変更のレビューとプッシュ](/help/authentication/tve-dashboard-review-push-changes.md)
+   + [Dashboard](/help/authentication/tve-dashboard-home.md)
+   + [チャネル](/help/authentication/tve-dashboard-channels.md)
+   + [プログラマー](/help/authentication/tve-dashboard-programmers.md)
+   + [MVPD](/help/authentication/tve-dashboard-mvpds.md)
+   + [統合](/help/authentication/tve-dashboard-integrations.md)
+   + [レポート](/help/authentication/tve-dashboard-reports.md)
+   + [変更ログ](/help/authentication/tve-dashboard-changes-log.md)
 + [用語集](glossary.md)
+
