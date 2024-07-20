@@ -15,44 +15,44 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!NOTE]
 >
-> REST API 実装は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md)
+> REST API の実装には、[ スロットルメカニズム ](/help/authentication/throttling-mechanism.md) という制限があります。
 
-&lt;reggie_fqdn>:
+&lt; レジストリ_FQDN>:
 
-* 実稼動 — [api.auth.adobe.com](http://api.auth.adobe.com/)
-* ステージング — [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
+* 実稼動 – [api.auth.adobe.com](http://api.auth.adobe.com/)
+* ステージング - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
-&lt;sp_fqdn>:
+&lt;SP_FQDN>:
 
-* 実稼動 — [api.auth.adobe.com](http://api.auth.adobe.com/)
-* ステージング — [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
+* 実稼動 – [api.auth.adobe.com](http://api.auth.adobe.com/)
+* ステージング - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
 </br>
 
 ## 説明 {#create-reg-code-svc}
 
-ランダムに生成された登録コードとログインページの URI を返します。
+ランダムに生成された登録コードとログインページ URI を返します。
 
-| エンドポイント | 呼び出し済み  </br>作成者 | 入力   </br>パラメーター | HTTP  </br>メソッド | 応答 | HTTP  </br>応答 |
+| エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;reggie_fqdn>/reggie/v1/{requestor}/regcode</br>例：</br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | ストリーミングアプリ</br>または</br>プログラマーサービス | (1) 請求者  </br>    （パスコンポーネント）</br>2.  deviceId （ハッシュ化）   </br>    （必須）</br>3.  device_info/X-Device-Info （必須）</br>4.  mvpd （オプション）</br>5.  ttl （オプション）</br>6.  _deviceType_</br> 7.  _deviceUser_ （廃止）</br>8.  _appId_ （廃止） | POST | 登録コードと情報、またはエラーの詳細を含む XML または JSON が失敗した場合。 以下のスキーマとサンプルを参照してください。 | 201 |
+| &lt;REGGIE_FQDN>/reggie/v1/{requestor}/regcode</br> 例：</br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | ストリーミングアプリ </br> プログラマ </br> サービス | 1.依頼者 </br>    （パスコンポーネント） </br>2.  deviceId （ハッシュ化）   </br>    （必須） </br>3.  device_info/X-Device-Info （必須） </br>4.  mvpd （オプション） </br>5.  ttl （オプション） </br>6.  _deviceType_</br> 7.  _deviceUser_ （非推奨） </br>8。  _appId_ （非推奨） | POST | 失敗した場合に登録コードおよび情報またはエラーの詳細を含む XML または JSON。 以下のスキーマとサンプルを参照してください。 | 201 |
 
 {style="table-layout:auto"}
 
 | 入力パラメーター | 説明 |
 | --- | --- |
-| 要求者 | この操作が有効な ProgrammerRequestorId。 |
-| deviceId | デバイス ID バイト。 |
-| device_info/</br>X-Device-Info | デバイス情報のストリーミング。</br>**注意**：この INFO は、URL パラメーターとして渡すことができますが、このパラメーターの潜在的なサイズとGETURL の長さの制限により、HTTP ヘッダーで X-Device-Info として渡す必要があります。 </br>詳しくは、 [デバイスと接続情報を渡す](/help/authentication/passing-client-information-device-connection-and-application.md). |
-| mvpd | この操作が有効な MVPD ID です。 |
-| ttl | この regcode の有効期間（秒）。</br>**注意**:ttl の最大値は36000秒（10 時間）です。 値が大きいと、400 HTTP 応答が発生します（無効なリクエストです）。 次の場合 `ttl` が空の場合、Adobe Pass Authentication はデフォルト値の 30 分を設定します。 |
-| _deviceType_ | デバイスタイプ（Roku、PC など）。</br>このパラメータが正しく設定されている場合、ESM は以下の指標を提供します。 [デバイスタイプ別に分類](/help/authentication/entitlement-service-monitoring-overview.md#clientless_device_type) クライアントレスを使用する場合に、Roku、AppleTV、Xbox など、様々な種類の分析を実行できます。</br>詳しくは、 [パス指標でクライアントレスデバイスタイプパラメーターを使用するメリット&#x200B;](/help/authentication/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br>**注意**:device_info がこのパラメーターを置き換えます。 |
-| _deviceUser_ | デバイスのユーザー ID。 |
-| _appId_ | アプリケーション ID/名前。 </br>**注意**:device_info がこのパラメーターを置き換えます。 |
+| 要求者 | この操作が有効なプログラマ requestorId です。 |
+| deviceId | デバイス ID のバイト。 |
+| device_info/</br>X-Device-Info | ストリーミングデバイス情報。</br>**注意**：これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。 </br> 詳しくは、「デバイスと接続情報の受け渡し [ を参照してください ](/help/authentication/passing-client-information-device-connection-and-application.md)。 |
+| mvpd | この操作が有効な MVPD ID。 |
+| ttl | このリグレコードの有効期間（秒）。</br>**メモ**:ttl に許可されている最大値は 36000 秒（10 時間）です。 値を大きくすると、400 HTTP 応答（無効なリクエスト）が返されます。 `ttl` を空のままにすると、Adobe Pass Authentication はデフォルト値の 30 分を設定します。 |
+| _deviceType_ | デバイスタイプ（Roku、PC など）。</br> このパラメーターを正しく設定すると、ESM では、クライアントレスの使用時に [ デバイスタイプごとに分類 ](/help/authentication/entitlement-service-monitoring-overview.md#clientless_device_type) される指標を提供するので、Roku、AppleTV、Xbox など、様々なタイプの分析を実行できます。</br> 参照 [ パス指標でクライアントレスデバイスタイプパラメーターを使用するメリット ](/help/authentication/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br>**注意**:device_info はこのパラメーターを置き換えます。 |
+| _deviceUser_ | デバイスユーザー識別子。 |
+| _appId_ | アプリケーション ID/名前。 </br>**注意**：このパラメーターは device_info に置き換えられます。 |
 
 {style="table-layout:auto"}
 
@@ -61,14 +61,14 @@ ht-degree: 0%
 >
 >**ストリーミングデバイスの IP アドレス**
 ></br>
->クライアント/サーバ間実装の場合、ストリーミングデバイスの IP アドレスはこの呼び出しで暗黙的に送信されます。  サーバー間実装の場合、 **regcode** の呼び出しは、ストリーミングデバイスではなく、プログラマーサービスになります。ストリーミングデバイスの IP アドレスを渡すには、次のヘッダーが必要です。
+>クライアントからサーバーへの実装の場合、ストリーミングデバイスの IP アドレスは、この呼び出しで暗黙的に送信されます。  **regcode** 呼び出しが、ストリーミングデバイスではなくプログラマーサービスとして行われるサーバー間実装の場合、ストリーミングデバイスの IP アドレスを渡すには次のヘッダーが必要です。
 >
 >
 >```
 >X-Forwarded-For : <streaming_device_ip> 
 >```
 >
->場所 `<streaming\_device\_ip>` は、ストリーミングデバイスのパブリック IP アドレスです。
+>ここで、`<streaming\_device\_ip>` はストリーミングデバイスのパブリック IP アドレスです。
 ></br></br>
 >例：</br>
 >
@@ -117,20 +117,20 @@ ht-degree: 0%
 
 </br>
 
-| エレメント名 | 説明 |
+| 要素名 | 説明 |
 | --------------- | ------------------------------------------------------------------------------------ |
 | id | 登録コードサービスで生成された UUID |
-| コード | 登録コードサービスによって生成された登録コード |
+| コード | 登録コードサービスで生成された登録コード |
 | 要求者 | 要求者 ID |
 | mvpd | Mvpd ID |
-| 生成済み | 登録コード作成タイムスタンプ (1970 年 1 月 1 日 (GMT) からのミリ秒単位 ) |
-| 有効期限 | 登録コードの有効期限が切れたときのタイムスタンプ (1970 年 1 月 1 日 (GMT) からのミリ秒単位 ) |
-| deviceId | 一意のデバイス ID（または XSTS トークン） |
+| 生成日時 | 登録コード作成タイムスタンプ（1970 年 1 月 1 日（PT）からのミリ秒単位） |
+| expires | 登録コードの有効期限が切れる際のタイムスタンプ（1970 年 1 月 1 日（GMT）からのミリ秒単位） |
+| deviceId | 一意のデバイス ID （または XSTS トークン） |
 | deviceType | デバイスタイプ |
-| deviceUser | デバイスにログインしたユーザー |
-| appId | アプリケーション ID |
-| appVersion | アプリケーションのバージョン |
-| registrationURL | エンドユーザーに表示されるログイン Web アプリの URL |
+| deviceUser | デバイスにログインしているユーザー |
+| appId | アプリケーション Id |
+| appVersion | アプリケーション バージョン |
+| registrationurl | エンドユーザーに表示されるログイン Web アプリの URL |
 
 {style="table-layout:auto"}
 
@@ -158,7 +158,7 @@ ht-degree: 0%
 ```
 
 
-### レスポンスのサンプル {#sample-response}
+### 応答のサンプル {#sample-response}
 
 **XML:**
 

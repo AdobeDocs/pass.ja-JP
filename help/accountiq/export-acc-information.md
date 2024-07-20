@@ -11,21 +11,21 @@ ht-degree: 1%
 
 # 共有スコアの高いアカウントの情報の書き出し {#export-account-info-high-score}
 
-[!UICONTROL Account IQ] 登録者アカウントの上位 1000 件に基づいて、アカウント共有の詳細を書き出すことができます [確率の共有](/help/accountiq/product-concepts.md#account-sharing-probability-def). 現在のアカウント共有情報をエクスポートできます [セグメント](/help/accountiq/product-concepts.md#segment-def) および [指定された時間間隔](/help/accountiq/product-concepts.md#time-interval-def) 日 [共有アカウントレポート](/help/accountiq/shared-acc-reports.md) ページ。
+[!UICONTROL Account IQ] を使用すると、「共有確率 [ に基づいて、上位 1000 個の購読者アカウントのアカウント共有の詳細を書き出すことができ ](/help/accountiq/product-concepts.md#account-sharing-probability-def) す。 現在の [ セグメント ](/help/accountiq/product-concepts.md#segment-def) および [ 指定された時間間隔 ](/help/accountiq/product-concepts.md#time-interval-def) のアカウント共有情報は、「[ 共有アカウントレポート ](/help/accountiq/shared-acc-reports.md)」ページでエクスポートできます。
 
 特定のセグメントの購読者アカウントのアカウント共有情報をエクスポートするには、次の手順に従います。
 
 1. 自分の資格情報を使用してログインします。
-1. に移動します。 **共有アカウント** タブの下 **報告書** セクション。
-1. 必要なセグメントと時間間隔をセグメントと時間間隔パネルから選択します。 学ぶ [セグメントと時間間隔の選択方法](segments-timeinterval.md).
+1. 「**レポート** セクションの下の「**共有アカウント** タブに移動します。
+1. 必要なセグメントと時間間隔をセグメントと時間間隔パネルから選択します。 詳しくは [ セグメントと時間間隔の選択方法 ](segments-timeinterval.md) を参照してください。
 
-   必要に応じて、の手順を参照します。 [セグメントの作成](work-with-segments.md#create-new-segment) または [セグメントの編集](work-with-segments.md#edit-segment).
+   必要に応じて、[ セグメントの作成 ](work-with-segments.md#create-new-segment) または [ セグメントの編集 ](work-with-segments.md#edit-segment) の手順を参照してください。
 
-1. を選択 **[!UICONTROL Export top 1000 accounts]** セグメントと時間間隔パネルの右上隅にあります。
+1. セグメント **[!UICONTROL Export top 1000 accounts]** 時間間隔パネルの右上隅にある「セグメント」を選択します。
 
-   ![上位 1000 件のアカウントの書き出し](assets/export-top-1000-accounts.png)
+   ![ 上位 1000 件のアカウントの書き出し ](assets/export-top-1000-accounts.png)
 
-   *「上位 1000 件のアカウントを書き出し」オプションを選択します*
+   *「上位 1000 件のアカウントを書き出し」オプションを選択*
 
 ファイルは.csv 形式でローカルマシンに自動的にダウンロードされます。
 
@@ -33,15 +33,15 @@ ht-degree: 1%
 
 書き出された.csv ファイルの例を次に示します。
 
-![.csv ファイルで書き出されたデータ](assets/exported-csv.png)
+![.csv ファイルに書き出されたデータ ](assets/exported-csv.png)
 
-*.csv ファイルで書き出されたデータ*
+*.csv ファイルに書き出されたデータ*
 
 ## 書き出されたレポートの列 {#columns-in-export}
 
 **週/月**
 
-選択した週または月 **[!UICONTROL Granularity and Time Interval]** セグメントセレクターの「」オプション
+セグメントセレクターの「**[!UICONTROL Granularity and Time Interval]**」オプションで選択した週または月。
 
 **MVPD**
 
@@ -49,9 +49,9 @@ ht-degree: 1%
 
 >[!NOTE]
 >
-> この **MVPD** 列は、TV Everywhere バージョンでのみ使用できます。
+> **MVPD** 列は、TV Everywhere バージョンでのみ使用できます。
 
-**購読者 ID**
+**サブスクライバー ID**
 
 特定のアカウントの一意の ID。
 
@@ -89,7 +89,7 @@ ht-degree: 1%
 
 **[!UICONTROL # Clusters]**
 
-ユニーク数 [クラスター](/help/accountiq/product-concepts.md#cluster-def) ストリーミングが行われた場所。
+ストリーミングが行われた個別の [ クラスター ](/help/accountiq/product-concepts.md#cluster-def) の数。
 
 **[!UICONTROL Geographic span (miles)]**
 
@@ -101,7 +101,7 @@ ht-degree: 1%
 
 >[!NOTE]
 >
-> 一部の D2C サービスでは、が表示されない場合があります **[!UICONTROL # AuthN OK]** 会社のデータに含まれない可能性のあるデータです。
+> 一部の D2C サービスでは、会社のデータに含まれていない可能性があるので、**[!UICONTROL # AuthN OK]** のデータが表示されない場合があります。
 
 **[!UICONTROL # AuthZ OK]**
 
@@ -113,7 +113,7 @@ MVPD がそのアカウントのコンテンツへのストリームを承認ま
 
 >[!NOTE]
 >
->あらゆる場所でのテレビの場合、 **[!UICONTROL # AuthZ OK]** 次の数と相関 **[#件の再生リクエスト](/help/accountiq/product-concepts.md##play-requests-def)**. 常に次より小さくなります **[!UICONTROL # Play Requests]** Adobeは通常、MVPD から約 24 時間にわたって認証をキャッシュするので、
+>Tv Everywhere の場合、**[!UICONTROL # AuthZ OK]** れは **[#件の再生リクエスト](/help/accountiq/product-concepts.md##play-requests-def)** の数と相関します。 Adobeは通常、約 24 時間 MVPD から認証をキャッシュするので、常に **[!UICONTROL # Play Requests]** 未満になります。
 
 
 **[!UICONTROL # Play Requests]**
@@ -122,7 +122,7 @@ MVPD がそのアカウントのコンテンツへのストリームを承認ま
 
 >[!NOTE]
 >
->この [#件の再生リクエスト](/help/accountiq/product-concepts.md##play-requests-def) 列は、TV Everywhere MVPD バージョンでは使用できません。
+>[#件の再生要求 ](/help/accountiq/product-concepts.md##play-requests-def) 列は、TV Everywhere MVPD バージョンでは使用できません。
 
 **[!UICONTROL # Channels]**
 
@@ -130,7 +130,7 @@ MVPD がそのアカウントのコンテンツへのストリームを承認ま
 
 >[!NOTE]
 >
-> D2C サービス用 **[!UICONTROL # Channels]** 次の数と等しい **[!UICONTROL # Video categories]**.
+> D2C サービスの場合、**[!UICONTROL # Channels]** は **[!UICONTROL # Video categories]** 数と同じです。
 
 >[!NOTE]
 >
@@ -206,4 +206,4 @@ MVPD がそのアカウントのコンテンツへのストリームを承認ま
 
 >[!NOTE]
 >
-> 選択したセグメント内のすべてのアカウントの共有確率の平均を使用して、次の項目が計算されます [共有レベル](/help/accountiq/data-panels.md#sharing-level) の [平均共有スコア](/help/accountiq/data-panels.md#aggregated-sharing).
+> 選択したセグメント内のすべてのアカウントの共有確率の平均が、[ 平均共有スコア ](/help/accountiq/data-panels.md#sharing-level) の [ 共有レベル ](/help/accountiq/data-panels.md#aggregated-sharing) の計算に使用されます。

@@ -13,47 +13,47 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!NOTE]
 >
-> REST API 実装は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md)
+> REST API の実装には、[ スロットルメカニズム ](/help/authentication/throttling-mechanism.md) という制限があります。
 
 ## REST API エンドポイント {#clientless-endpoints}
 
-&lt;reggie_fqdn>:
+&lt; レジストリ_FQDN>:
 
-* 実稼動 — [api.auth.adobe.com](http://api.auth.adobe.com/)
-* ステージング — [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
+* 実稼動 – [api.auth.adobe.com](http://api.auth.adobe.com/)
+* ステージング - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
-&lt;sp_fqdn>:
+&lt;SP_FQDN>:
 
-* 実稼動 — [api.auth.adobe.com](http://api.auth.adobe.com/)
-* ステージング — [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
+* 実稼動 – [api.auth.adobe.com](http://api.auth.adobe.com/)
+* ステージング - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
 </br>
 
 
 ## 説明 {#description}
 
-MVPD 選択イベントを通知することで、認証プロセスを開始します。 MVPD から正常な応答を受け取った場合に紐付けされる、Adobe Pass Authentication データベースにレコードを作成します。
+MVPD 選択イベントを通知して認証プロセスを開始します。 Adobe Pass認証データベースにレコードを作成します。これは、MVPD から正常な応答を受信したときに調整されます。
 
 
 
-| エンドポイント | 呼び出し済み  </br>作成者 | 入力   </br>パラメーター | HTTP  </br>メソッド | 応答 | HTTP  </br>応答 |
+| エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;sp_fqdn>/api/v1/authenticate | AuthN モジュール | 1. requestor_id（必須）</br>2.  mso_id（必須）</br>3.  reg_code（必須）</br>4.  domain_name（必須）</br>5.  noflash=true -  </br>    （必須、残余パラメータ）</br>6.  no_iframe=true（必須、残差パラメータ）</br>7.  追加のパラメーター（オプション）</br>8.  redirect_url（必須） | GET | Login Web App が MVPD ログインページにリダイレクトされます。 | 完全なリダイレクト実装の場合は 302 |
+| &lt;SP_FQDN>/api/v1/authenticate | AuthN モジュール | 1. requestor_id （必須） </br>2.  mso_id （必須） </br>3.  reg_code （必須） </br>4.  domain_name （必須） </br>5.  noflash=true - </br>    （必須、残差パラメーター） </br>6.  no_iframe=true （必須、残差パラメーター） </br>7.  追加のパラメーター（オプション） </br>8。  redirect_url （必須） | GET | ログイン Web アプリは、MVPD ログインページにリダイレクトされます。 | 完全なリダイレクト実装用の 302 |
 
 {style="table-layout:auto"}
 
 
 | 入力パラメーター | 説明 |
 | --- | --- |
-| requestor_id | この操作が有効なプログラマー要求元。 |
-| mso_id | この操作が有効な MVPD ID です。 |
-| reg_code | Reggie サービスによって生成された登録コード。 |
+| requestor_id | この操作が有効なプログラマ要求元。 |
+| mso_id | この操作が有効な MVPD ID。 |
+| reg_code | Reggie サービスによって生成される登録コード。 |
 | domain_name | 元のドメイン。 |
-| redirect_url | 認証完了後のログイン Web アプリのリダイレクト URL。 |
+| redirect_url | 認証完了後のログイン Web アプリケーション リダイレクト URL。 |
 
 {style="table-layout:auto"}
 
@@ -61,7 +61,7 @@ MVPD 選択イベントを通知することで、認証プロセスを開始し
 
 >[!IMPORTANT]
 > 
->**重要：必須のパラメーター —** クライアント側の実装に関係なく、上記のすべてのパラメーターは必須です。
+>**重要：必須パラメーター –** クライアントサイドの実装に関係なく、上記のすべてのパラメーターは必須です。
 >
 >
 >例：
@@ -77,11 +77,11 @@ MVPD 選択イベントを通知することで、認証プロセスを開始し
 
 >[!IMPORTANT]
 > 
->**重要：オプションのパラメーター**
+>**重要：オプションパラメーター**
 >
->また、呼び出しには、次のような他の機能を有効にするオプションのパラメーターを含めることができます。
+>呼び出しには、次のような他の機能を有効にするオプションのパラメーターも含めることができます。
 >
-> * generic\_data - [プロモーション TempPass](/help/authentication/promotional-temp-pass.md)
+> * generic\_data - [ プロモーション TempPass](/help/authentication/promotional-temp-pass.md) を使用できるようにします
 >
 >```JSON
 >Example:
@@ -89,12 +89,12 @@ MVPD 選択イベントを通知することで、認証プロセスを開始し
 >```
 
 
-### **メモ** {#notes}
+### **備考** {#notes}
 
-* の値 `domain_name` パラメーターは、Adobe Pass Authentication に登録されているドメイン名の 1 つに設定する必要があります。 詳しくは、 [登録と初期化](/help/authentication/programmer-overview.md).
+* `domain_name` パラメーターの値は、Adobe Pass Authentication に登録されているドメイン名のいずれかに設定されている必要があります。 詳しくは、「登録と初期化 [ を参照してください ](/help/authentication/programmer-overview.md)。
 
-* [/authenticate request で&#39;&amp;&#39;reg\_code を使用しない（テクニカルノート）](/help/authentication/clientless-avoid-using-reg-code-in-authenticate-request.md)
+* [/authenticate リクエストで「&amp;&#39;reg\_code」を使用するのを避ける（テクニカルノート）](/help/authentication/clientless-avoid-using-reg-code-in-authenticate-request.md)
 
-* The `redirect_url` パラメーターは、順序の最後のパラメーターである必要があります
+* `redirect_url` パラメーターは最後でなければなりません
 
-* の値 `redirect_url` パラメーターは URL エンコードされている必要があります
+* `redirect_url` パラメーターの値は URL エンコードする必要があります

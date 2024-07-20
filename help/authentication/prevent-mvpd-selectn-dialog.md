@@ -1,6 +1,6 @@
 ---
-title: 選択ダイアログに MVPD が表示されないようにする
-description: 選択ダイアログに MVPD が表示されないようにする
+title: MVPD が選択ダイアログに表示されないようにする
+description: MVPD が選択ダイアログに表示されないようにする
 exl-id: 20faf501-c006-45e2-a725-fb1273ecaffe
 source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
 workflow-type: tm+mt
@@ -9,22 +9,22 @@ ht-degree: 0%
 
 ---
 
-# 選択ダイアログに MVPD が表示されないようにする
+# MVPD が選択ダイアログに表示されないようにする
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 問題 {#issue-prevent-mvpd-sel-dialog}
 
-(「block-list」) 特定の MVPD が MVPD セレクターに表示されないようにする必要があります。
+MVPD セレクターに（「ブロックリスト」）特定の MVPD が表示されないようにする必要があります。
 
 
 ## 解決策 {#solution-prevent-mvpd-sel-dialog}
 
-解決策は、次の場合にブロックリストを作成することです。 `displayProviderDialog()` が呼び出されます。
+これを解決するには、`displayProviderDialog()` が呼び出されたときにブロックリストへの登録を行います。
 
-例えば、CableCompany_1 と CableCompany_2 を MVPD セレクター内に表示しないようにする場合は、次の例に示すような処理を行います。
+たとえば、CableCompany_1 と CableCompany_2 を MVPD セレクタ内に表示しないようにするには、次の例のように操作します。
 
 ```C
 function displayProviderDialog(mvpdList) {

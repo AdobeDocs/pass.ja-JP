@@ -1,6 +1,6 @@
 ---
-title: 2 画面目の Web アプリで事前に認証されたリソースのリストを取得
-description: 2 画面目の Web アプリで事前に認証されたリソースのリストを取得
+title: 2 番目の画面の Web アプリによる事前認証済みリソースのリストの取得
+description: 2 番目の画面の Web アプリによる事前認証済みリソースのリストの取得
 exl-id: 78eeaf24-4cc1-4523-8298-999c9effdb7a
 source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
@@ -9,51 +9,51 @@ ht-degree: 0%
 
 ---
 
-# 2 画面目の Web アプリで事前に認証されたリソースのリストを取得 {#retrieve-list-of-preauthorized-resources-by-second-screen-web-app}
+# 2 番目の画面の Web アプリによる事前認証済みリソースのリストの取得 {#retrieve-list-of-preauthorized-resources-by-second-screen-web-app}
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!NOTE]
 >
-> REST API 実装は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md)
+> REST API の実装には、[ スロットルメカニズム ](/help/authentication/throttling-mechanism.md) という制限があります。
 
 ## REST API エンドポイント {#clientless-endpoints}
 
-&lt;reggie_fqdn>:
+&lt; レジストリ_FQDN>:
 
-* 実稼動 — [api.auth.adobe.com](http://api.auth.adobe.com/)
-* ステージング — [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
+* 実稼動 – [api.auth.adobe.com](http://api.auth.adobe.com/)
+* ステージング - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
-&lt;sp_fqdn>:
+&lt;SP_FQDN>:
 
-* 実稼動 — [api.auth.adobe.com](http://api.auth.adobe.com/)
-* ステージング — [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
+* 実稼動 – [api.auth.adobe.com](http://api.auth.adobe.com/)
+* ステージング - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
 </br>
 
 ## 説明 {#description}
 
-事前に認証されたリソースのリストを取得するためのAdobe Pass Authentication へのリクエスト。
+Adobe Pass Authentication に対するリクエストで、事前に許可されたリソースのリストを取得します。
 
-API には 2 つのセットがあります。1 つはストリーミングアプリ用のセット、もしくはプログラマーサービス用のセット、もう 1 つは 2 つ目のスクリーン Web アプリ用のセットです。 このページでは、AuthN アプリの API について説明します。
+API には、ストリーミングアプリまたはプログラマーサービス用の API セットと、2 番目の画面の web アプリ用の API セットの 2 つのセットがあります。 ここでは、AuthN アプリの API について説明します。
 
 
-| エンドポイント | 呼び出し済み  </br>作成者 | 入力   </br>パラメーター | HTTP  </br>メソッド | 応答 | HTTP  </br>応答 |
+| エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;sp_fqdn>/api/v1/preauthorize/{registration code} | AuthN モジュール | (1) 登録番号  </br>    （パスコンポーネント）</br>2.  requestor （必須）</br>3.  リソースリスト（必須） | GET | 個々の事前認証の決定またはエラーの詳細を含む XML または JSON。 以下のサンプルを参照してください。 | 200 — 成功</br></br>400 — 無効なリクエスト</br></br>401 — 未認証</br></br>405 — 許可されていないメソッド  </br></br>412 — 事前条件に失敗しました</br></br>500 — 内部サーバーエラー |
+| &lt;SP_FQDN>/api/v1/preauthorize/{registration code} | AuthN モジュール | （1）登録記号 </br>    （パスコンポーネント） </br>2.  要求者（必須） </br>3.  リソースリスト （必須） | GET | 個々の事前認証の決定やエラーの詳細が含まれる XML または JSON。 以下のサンプルを参照してください。 | 200 - Success</br></br>400 - Bad request</br></br>401 - Unauthorized</br></br>405 - Method not allowed </br></br>412 - Precondition failed</br></br>500 – 内部サーバーエラー |
 
 
 
 | 入力パラメーター | 説明 |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 登録コード | 認証フローの開始時にユーザーが提供する登録コード値。 |
-| 要求者 | この操作が有効な ProgrammerRequestorId。 |
-| リソースリスト | ユーザーがアクセス可能なコンテンツを識別し、MVPD 認証エンドポイントによって認識される resourceIds のコンマ区切りリストを含む文字列。 |
+| 登録コード | 認証フローの開始時にユーザーによって指定された登録コード値。 |
+| 要求者 | この操作が有効なプログラマ requestorId です。 |
+| リソースリスト | ユーザーがアクセスできる可能性があり、MVPD 認証エンドポイントによって認識されるコンテンツを識別する、resourceId のコンマ区切りリストを含む文字列。 |
 
 
-### レスポンスのサンプル {#sample-response}
+### 応答のサンプル {#sample-response}
 
 **XML:**
 

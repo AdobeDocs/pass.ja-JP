@@ -4,7 +4,7 @@ description: Amazon FireOS 統合クックブック
 exl-id: 1982c485-f0ed-4df3-9a20-9c6a928500c2
 source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '1416'
+source-wordcount: '1424'
 ht-degree: 0%
 
 ---
@@ -13,187 +13,187 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 </br>
 
 
-## はじめに {#intro}
+## 概要 {#intro}
 
-このドキュメントでは、プログラマーの上位レベルアプリケーションが、Amazon FireOS で公開される API を通じて実装できるエンタイトルメントワークフローについて説明します `AccessEnabler` ライブラリ。
+このドキュメントでは、Amazon FireOS `AccessEnabler` ライブラリで公開されている API を使用して、プログラマーの上位レベルのアプリケーションが実装できる使用権限ワークフローについて説明します。
 
-Amazon FireOS のAdobe Pass Authentication Entitlement Solution は、最終的に次の 2 つのドメインに分割されます。
+Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終的に次の 2 つのドメインに分かれます。
 
-- UI ドメイン — UI を実装し、が提供するサービスを使用する上位レベルのアプリケーションレイヤー。 `AccessEnabler` 制限されたコンテンツへのアクセスを提供するライブラリ。
-- The `AccessEnabler` ドメイン — 資格付与ワークフローは、次の形式で実装されます。
-   - Adobeのバックエンドサーバーに対しておこなわれたネットワーク呼び出し
-   - 認証ワークフローと承認ワークフローに関連するビジネスロジックルール
+- UI ドメイン - UI を実装する上位レベルのアプリケーションレイヤーで、`AccessEnabler` ライブラリが提供するサービスを使用して、制限されたコンテンツにアクセスします。
+- `AccessEnabler` ドメイン – ここで、次の形式で使用権限ワークフローが実装されます。
+   - Adobeのバックエンドサーバーに対して行われたネットワーク呼び出し
+   - 認証および承認ワークフローに関連するビジネスロジックルール
    - 様々なリソースの管理とワークフロー状態の処理（トークンキャッシュなど）
 
-の目標 `AccessEnabler` ドメインは、権限付与ワークフローの複雑さをすべて非表示にし、( `AccessEnabler` ライブラリ ) 一連のシンプルなエンタイトルメントプリミティブ。 このプロセスでは、次の権限付与ワークフローを実装できます。
+`AccessEnabler` ドメインの目的は、エンタイトルメントワークフローの複雑さをすべて非表示にし、上位層アプリケーションに（`AccessEnabler` ライブラリを通じて）シンプルなエンタイトルメントプリミティブのセットを提供することです。 このプロセスでは、次の権利付与ワークフローを実装できます。
 
 1. 要求者 ID を設定します。
 1. 特定の ID プロバイダーに対する認証を確認し、取得します。
-1. 特定のリソースの認証を確認し、取得します。
-1. ログアウトします。
+1. 特定のリソースの認証を確認および取得します。
+1. ログアウト。
 
-The `AccessEnabler`のネットワークアクティビティは別のスレッドで実行されるので、UI スレッドがブロックされることはありません。 その結果、2 つのアプリケーションドメイン間の双方向通信チャネルは、完全に非同期のパターンに従う必要があります。
+`AccessEnabler` のネットワークアクティビティは別のスレッドで行われるので、UI スレッドはブロックされません。 その結果、2 つのアプリケーションドメイン間の双方向通信チャネルは、次のような完全に非同期のパターンに従う必要があります。
 
-- UI アプリケーションレイヤーが、 `AccessEnabler` が公開する API 呼び出しを介したドメイン `AccessEnabler` ライブラリ。
-- The `AccessEnabler` は、 `AccessEnabler` UI レイヤーが登録するプロトコル `AccessEnabler` ライブラリ。
+- UI アプリケーションレイヤーは、`AccessEnabler` ライブラリによって公開される API 呼び出しを介して、`AccessEnabler` ドメインにメッセージを送信します。
+- `AccessEnabler` は、UI レイヤーが `AccessEnabler` ライブラリに登録する `AccessEnabler` プロトコルに含まれるコールバックメソッドを介して UI レイヤーに応答します。
 
-## 権利付与フロー {#entitlement}
+## 使用権限フロー {#entitlement}
 
 1. [前提条件](#prereqs)
 1. [起動フロー](#startup_flow)
 1. [認証フロー](#authn_flow)
 1. [認証フロー](#authz_flow)
-1. [メディアフローの表示](#media_flow)
+1. [メディアフローを表示](#media_flow)
 1. [ログアウトフロー](#logout_flow)
 
 ### A.前提条件 {#prereqs}
 
 1. コールバック関数を作成します。
-   - [&#39;setRequestorComplete()&#39;](#$setRequestorComplete)
+   - [`setRequestorComplete （）`](#$setRequestorComplete)
 
-      - トリガー元 `setRequestor()`の場合は、成功または失敗を返します。     成功の場合は、使用権限の呼び出しを続行できます。
+      - `setRequestor()` によってトリガーされ、成功または失敗を返します。     成功とは、資格コールを続行できることを示します。
 
-   - [displayProviderDialog(mvpds)](#$displayProviderDialog)
+   - [displayProviderDialog （mvpds）](#$displayProviderDialog)
 
-      - トリガー元 `getAuthentication()` ユーザーがプロバイダー (MVPD) を選択せず、まだ認証されていない場合にのみ有効です。 The `mvpds` パラメーターは、ユーザーが使用できるプロバイダーの配列です。
+      - ユーザーがプロバイダー（MVPD）を選択しておらず、まだ認証されていない場合にのみ、`getAuthentication()` によってトリガーされます。 `mvpds` パラメーターは、ユーザーが使用できるプロバイダーの配列です。
 
-   - [&#39;setAuthenticationStatus(status, reason)&#39;](#$setAuthNStatus)
+   - [&#39;setAuthenticationStatus （status, reason）&#39;](#$setAuthNStatus)
 
-      - トリガー元 `checkAuthentication()` 毎回 トリガー元 `getAuthentication()` は、ユーザーが既に認証済みで、プロバイダーを選択している場合にのみ有効です。
+      - 毎回 `checkAuthentication()` によってトリガーされます。 ユーザーが既に認証済みで、プロバイダーを選択している場合にのみ、`getAuthentication()` によってトリガーされます。
 
-      - 返されるステータスは認証済みまたは未認証です。理由は、認証の失敗またはログアウトアクションを示しています。
+      - 返されるステータスが認証済みまたは未認証です。この理由は、認証エラーまたはログアウトアクションを示します。
 
-   - [navigateToUrl(url)](#$navigateToUrl)
+   - [navigateToUrl （url）](#$navigateToUrl)
 
-      - AmazonFireOS SDK では無視され、メソッドは、がトリガーされる Android プラットフォームで使用されます。 `getAuthentication()` ユーザが MVPD を選択した後。  The `url` パラメータは、MVPD のログインページの場所を提供します。
+      - AmazonFireOS SDK では無視されます。このメソッドは、ユーザーが MVPD を選択した後、が `getAuthentication()` によってトリガーされるAndroid プラットフォームで使用されます。  `url` パラメーターは、MVPD のログインページの場所を指定します。
 
-   - [&#39;sendTrackingData(event, data)&#39;](#$sendTrackingData)
+   - [&#39;sendTrackingData （event, data）&#39;](#$sendTrackingData)
 
-      - トリガー元 `checkAuthentication(), getAuthentication(), checkAuthorization(), getAuthorization(), setSelectedProvider()`.
-The `event` パラメーターは、発生したエンタイトルメントイベントを示します。 `data` パラメーターは、イベントに関連する値のリストです。
+      - `checkAuthentication(), getAuthentication(), checkAuthorization(), getAuthorization(), setSelectedProvider()` によってトリガーされます。
+`event` パラメーターは、発生した使用権限イベントを示します。`data` パラメーターは、イベントに関連する値のリストです。
 
-   - [&#39;setToken(token, resource)&#39;](#$setToken)
+   - [&#39;setToken （token, resource）&#39;](#$setToken)
 
-      - トリガー元 `checkAuthorization()` および `getAuthorization()` リソースを表示するための認証が成功した後。
-      - The `token` パラメーターは短時間のみ有効なメディアトークンです。 `resource` パラメーターは、ユーザーが表示を許可されるコンテンツです。
+      - リソースを表示する認証が成功した後、`checkAuthorization()` および `getAuthorization()` によってトリガーされます。
+      - `token` パラメーターは短時間のみ有効なメディアトークンです。`resource` パラメーターは、ユーザーが表示を許可されているコンテンツです。
 
-   - [&#39;tokenRequestFailed(resource, code, description)&#39;](#$tokenRequestFailed)
+   - [&#39;tokenRequestFailed （resource, code, description）&#39;](#$tokenRequestFailed)
 
-      - トリガー元 `checkAuthorization()` および `getAuthorization()` 認証に失敗した後。
-      - The `resource` パラメーターは、ユーザーが表示しようとしたコンテンツです。 `code` パラメータは、発生したエラーの種類を示すエラーコードです。 `description` パラメーターは、エラーコードに関連するエラーを示します。
+      - 認証に失敗した後、`checkAuthorization()` および `getAuthorization()` によってトリガーされます。
+      - `resource` パラメーターは、ユーザーが表示しようとしたコンテンツです。`code` パラメーターは、エラーのタイプを示すエラーコードです。`description` パラメーターは、エラーコードに関連付けられたエラーの説明です。
 
-   - [&#39;selectedProvider(mvpd)&#39;](#$selectedProvider)
+   - [&#39;selectedProvider （mvpd）&#39;](#$selectedProvider)
 
-      - トリガー元 `getSelectedProvider()`.
-      - The `mvpd` パラメーターは、ユーザーが選択したプロバイダーに関する情報を提供します。
+      - `getSelectedProvider()` によってトリガーされます。
+      - `mvpd` パラメーターは、ユーザーが選択したプロバイダーに関する情報を提供します。
 
-   - [&#39;setMetadataStatus(metadata, key, arguments)&#39;](#$setMetadataStatus)
+   - [&#39;setMetadataStatus （metadata, key, arguments）&#39;](#$setMetadataStatus)
 
-      - トリガー元 `getMetadata().`
-      - The `metadata` パラメーターは、要求した特定のデータを提供します。 `key` パラメーターは、 `getMetadata()` 要求、および `arguments` パラメーターは、に渡された辞書と同じです。 `getMetadata()`.
+      - `getMetadata().` によってトリガー
+      - `metadata` パラメーターは、要求された特定のデータを提供します。`key` パラメーターは、`getMetadata()` 要求で使用されるキーで、`arguments` パラメーターは、`getMetadata()` に渡された辞書と同じです。
 
-   - [&#39;preauthorizedResources(resources)&#39;](#$preauthResources)
+   - [&#39;preauthorizedResources （resources）&#39;](#$preauthResources)
 
-      - トリガー元 `checkPreauthorizedResources()`.
-      - The `authorizedResources` パラメーターは、ユーザーが表示する権限を持つリソースを表示します。
+      - `checkPreauthorizedResources()` によってトリガーされます。
+      - `authorizedResources` パラメーターは、ユーザーが表示を許可されているリソースを表します。
 
 
 ![](assets/android-entitlement-flows.png)
 
 
-### B.スタートアップフロー {#startup_flow}
+### B.起動フロー {#startup_flow}
 
 1. 上位レベルのアプリケーションを起動します。
 1. Adobe Pass認証を開始します。
 
-   1. 通話 [`getInstance`](#$getInstance) Adobe Pass Authentication の単一のインスタンスを作成するには、以下を実行します。 `AccessEnabler`.
+   1. [`getInstance`](#$getInstance) を呼び出して、Adobe Pass Authentication `AccessEnabler` のインスタンスを 1 つ作成します。
 
-      - **依存関係：** Adobe Pass認証ネイティブAmazon FireOS ライブラリ (`AccessEnabler`)
+      - **依存関係：** Adobe Pass認証ネイティブ Amazon FireOS ライブラリ （`AccessEnabler`）
 
-   1. 通話` setRequestor()` プログラマの識別子を確立するには、プログラマの `requestorID` と（オプション） Adobe Pass Authentication エンドポイントの配列。
+   1. ` setRequestor()` を呼び出して、プログラマーの ID を確立します。プログラマーの `requestorID` を渡し、（オプションで）Adobe Pass Authentication エンドポイントの配列を渡します。
 
-      - **依存関係：** 有効なAdobe Pass Authentication RequestorID(Adobe Pass Authentication アカウントマネージャーにお問い合わせのうえ、この設定をおこなってください )
+      - **依存関係：** 有効なAdobe Pass認証要求者 ID （Adobe Pass認証アカウントマネージャーと協力して手配してください）
 
-      - **トリガー:** setRequestorComplete() コールバック
+      - **トリガー:** setRequestorComplete （） コールバック
 
-   要求者 ID が完全に確立されるまで、エンタイトルメントリクエストを完了できません。 つまり、setRequestor() が実行中でも、以降のすべてのエンタイトルメントリクエスト ( 例：`checkAuthentication()`) がブロックされました。
+   要求者 ID が完全に確立されるまでは、使用権限の要求を完了できません。 つまり、setRequestor （）の実行中は、それ以降のエンタイトルメントリリクエスト（`checkAuthentication()` など）がすべてブロックされます。
 
    2 つの実装オプションがあります。要求者の識別情報がバックエンドサーバーに送信されると、UI アプリケーションレイヤーは次の 2 つの方法のいずれかを選択できます。</p>
 
-   1. トリガーされるまで待つ `setRequestorComplete()` callback ( `AccessEnabler` デリゲート )。  このオプションは、 `setRequestor()` 完了したので、ほとんどの実装で推奨されます。
-   1. トリガーされるのを待たずに続行 `setRequestorComplete()` コールバックを実行し、エンタイトルメントリクエストの発行を開始します。 これらの呼び出し (checkAuthentication, checkAuthorization, getAuthorization, getAuthorization, checkPreauthorizedResource, getMetadata, logout) は、 `AccessEnabler` ライブラリに含まれます。このライブラリは、 `setRequestor()`. 例えば、ネットワーク接続が不安定な場合などに、このオプションが中断される場合があります。
+   1. `setRequestorComplete()` コールバックのトリガー（`AccessEnabler` デリゲートの一部）を待ちます。  このオプションを使用すると、最も確実性の高い処理 `setRequestor()` 完了するので、ほとんどの実装に対してこのオプションを使用することをお勧めします。
+   1. `setRequestorComplete()` コールバックのトリガーを待たずに続行し、使用権限リクエストの発行を開始します。 これらの呼び出し（checkAuthentication、checkAuthorization、getAuthentication、getAuthorization、checkPreauthorizedResource、getMetadata、logout）は `AccessEnabler` ライブラリによってキューに入れられ、`setRequestor()` の後に実際のネットワーク呼び出しを行います。 ネットワーク接続が不安定な場合など、このオプションが中断される場合があります。
 
-1. 通話 [checkAuthentication()](#$checkAuthN) をクリックして、認証フロー全体を開始せずに、既存の認証を確認します。  この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
+1. [checkAuthentication （） ](#$checkAuthN) を呼び出すと、完全な認証フローを開始せずに既存の認証を確認できます。  この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
 
-- **依存関係：** への呼び出しが成功しました `setRequestor()` （この依存関係は、後続のすべての呼び出しにも当てはまります）。
+- **依存関係：** `setRequestor()` の呼び出しが成功した（この依存関係は、後続のすべての呼び出しにも適用されます）。
 
-- **トリガー:** setAuthenticationStatus() コールバック
+- **トリガー:** setAuthenticationStatus （） コールバック
 
-### ハ。認証フロー {#authn_flow}
+### C.認証フロー {#authn_flow}
 
-1. 通話 [`getAuthentication()`](#$getAuthN) 認証フローを開始するか、ユーザーが既に認証済みであることを確認する場合。
+1. [`getAuthentication()`](#$getAuthN) を呼び出して認証フローを開始するか、ユーザーが既に認証されていることを確認します。
 
    **トリガー:**
 
-   - ユーザーが既に認証されている場合は、 setAuthenticationStatus() コールバック。  この場合は、に直接進みます。 [認証フロー](#authz_flow).
-   - ユーザーがまだ認証されていない場合は、 displayProviderDialog() コールバック。
+   - ユーザーが既に認証されている場合は、setAuthenticationStatus （） コールバック。  この場合は、[ 認証フロー ](#authz_flow) に直接進みます。
+   - ユーザーがまだ認証されていない場合の displayProviderDialog （） コールバック。
 
-1. に送信されるプロバイダーのリストをユーザーに提示する `displayProviderDialog()`.
-1. ユーザーがプロバイダを選択すると、WebView がプロバイダページを開き、ユーザーがログインできるようにします
+1. `displayProviderDialog()` に送信されたプロバイダーのリストをユーザーに提示します。
+1. ユーザーがプロバイダーを選択すると、WebView はユーザーがログインするためのプロバイダーページを開きます
 
    >[!NOTE]
    >
-   >この時点で、ユーザーは認証フローをキャンセルできます。 この場合、 `AccessEnabler` 内部状態をクリーンアップし、認証フローをリセットします。
+   >この時点で、ユーザーは認証フローをキャンセルできます。 この場合、`AccessEnabler` は内部状態をクリーンアップし、認証フローをリセットします。
 
 1. ユーザーが正常にログインすると、WebView が閉じます。
-1. 呼び出し `getAuthenticationToken(),` これは `AccessEnabler` をクリックして、バックエンドサーバーから認証トークンを取得します。
-1. [オプション] 通話 [`checkPreauthorizedResources(resources)`](#$checkPreauth) をクリックして、ユーザーが表示する権限を持つリソースを確認します。 The `resources` パラメーターは、ユーザーの認証トークンに関連付けられている保護されたリソースの配列です。
+1. バックエンドサーバーから認証トークンを取得するように `AccessEnabler` に指示する `getAuthenticationToken(),` を呼び出します。
+1. [ オプション ] [`checkPreauthorizedResources(resources)`](#$checkPreauth) を呼び出して、ユーザーが表示を許可されているリソースを確認します。 `resources` パラメーターは、ユーザーの認証トークンに関連付けられた、保護されたリソースの配列です。
 
-   **トリガー:** `preAuthorizedResources()` callback\
-   **実行ポイント：** 認証フローの完了後
+   **トリガー:** `preAuthorizedResources()` コールバック\
+   **実行ポイント：** 完了した認証フロー後
 
 1. 認証に成功した場合は、認証フローに進みます。
 
 
-### ニ。認証フロー {#authz_flow}
+### D.認証フロー {#authz_flow}
 
-1. 通話 [`getAuthorization()`](#$getAuthZ) をクリックして、認証フローを開始します。
+1. [`getAuthorization()`](#$getAuthZ) を呼び出して、認証フローを開始します。
 
-   依存関係： MVPD と合意された有効な ResourceID。
+   依存関係：有効なリソース ID が MVPD と合意されました。
 
-   **注意：** ResourceID は、他のデバイスやプラットフォームで使用されるものと同じである必要があり、MVPD 間で同じである必要があります。
+   **メモ：** ResourceID は、他のデバイスやプラットフォームで使用されるものと同じである必要があり、MVPD 間でも同じになります。
 
 1. 認証と承認を検証します。
 
-   - 次の場合、 `getAuthorization()` 呼び出しが成功しました：ユーザーに有効な AuthN および AuthZ トークンがあります（ユーザーは認証され、リクエストされたメディアを視聴する権限を持っています）。
-   - 次の場合 `getAuthorization()` 失敗：例外の種類（AuthN、AuthZ、またはその他）を確認するために、次の例外がスローされます。
-      - 認証 (AuthN) エラーの場合は、認証フローを再起動します。
-      - 認証 (AuthZ) エラーの場合、ユーザーはリクエストされたメディアを視聴する権限がなく、何らかのエラーメッセージがユーザーに表示されます。
-      - 他のタイプのエラー（接続エラー、ネットワークエラーなど）が発生した場合、 次に、適切なエラーメッセージをユーザーに表示します。
+   - `getAuthorization()` 呼び出しが成功した場合：有効な AuthN および AuthZ トークンがある（ユーザーは認証され、リクエストされたメディアを監視する権限を持ちます）。
+   - `getAuthorization()` が失敗した場合：スローされた例外を調べて、そのタイプ（AuthN、AuthZ など）を特定します。
+      - 認証（AuthN）エラーの場合は、認証フローを再開します。
+      - 認証（AuthZ）エラーの場合、ユーザーは要求されたメディアを監視する権限がなく、何らかのエラーメッセージがユーザーに表示されます。
+      - その他のタイプのエラー（接続エラー、ネットワークエラーなど）が発生した場合 次に、適切なエラーメッセージをユーザーに表示します。
 
 1. ショートメディアトークンを検証します。
 
-   Adobe Pass Authentication Media Token Verifier ライブラリを使用して、 `getAuthorization()` 上記の呼び出し：
+   上記の `getAuthorization()` 呼び出しから返された短時間のみ有効なメディアトークンを検証するには、Adobe Pass認証メディアトークンベリファイライブラリを使用します。
 
-   - 検証が成功した場合：ユーザーに要求されたメディアを再生します。
-   - 検証が失敗した場合：AuthZ トークンが無効だった場合、メディアリクエストを拒否し、エラーメッセージがユーザーに表示される必要があります。
+   - 検証に成功した場合：ユーザーに要求されたメディアを再生します。
+   - 検証に失敗した場合：AuthZ トークンが無効でした。メディアリクエストが拒否され、エラーメッセージがユーザーに表示されます。
 
 1. 通常のアプリケーションフローに戻ります。
 
-### E.メディアフローの表示 {#media_flow}
+### E. メディアフローを表示 {#media_flow}
 
-1. ユーザーが表示するメディアを選択します。
-1. メディアは保護されていますか？  選択したメディアが保護されているかどうかをアプリケーションが確認します。
-   - 選択したメディアが保護されている場合、アプリケーションは [認証フロー](#authz_flow) 上記の
-   - 選択したメディアが保護されていない場合は、ユーザーのメディアを再生します。
+1. 表示するメディアを選択します。
+1. メディアは保護されていますか？  選択したメディアが保護されているかどうかを確認します。
+   - 選択したメディアが保護されている場合、アプリケーションは上記の [ 認証フロー ](#authz_flow) を開始します。
+   - 選択したメディアが保護されていない場合は、そのユーザーのメディアを再生します。
 
-### F.ログアウトフロー {#logout_flow}
+### F. ログアウトフロー {#logout_flow}
 
-1. 通話 [`logout()`](#$logout) をクリックして、ユーザーをログアウトします。 The `AccessEnabler` は、現在の MVPD に対してユーザーが取得したキャッシュされた値とトークンを、シングルサインオンを介してログインを共有するすべてのリクエスター上で消去します。 キャッシュをクリアした後、 `AccessEnabler` は、サーバー側セッションをクリーンアップするためにサーバー呼び出しをおこないます。  サーバー呼び出しによって IdP に SAML リダイレクトが発生する可能性があるので（IdP 側でのセッションのクリーンアップが可能）、この呼び出しはすべてのリダイレクトに従う必要があります。 このため、この呼び出しは WebView コントロール内で処理されます（ユーザーには表示されません）。
+1. [`logout()`](#$logout) を呼び出してユーザーをログアウトさせます。 `AccessEnabler` は、シングルサインオン経由でログインを共有するすべてのリクエスターで、現在の MVPD に対してユーザーが取得した、キャッシュされたすべての値とトークンをクリアします。 キャッシュをクリアした後、`AccessEnabler` はサーバーコールを実行して、サーバーサイドのセッションをクリーンアップします。  サーバーコールは IdP への SAML リダイレクトを引き起こす可能性があるので（これにより、IdP 側でのセッションクリーンアップが可能になります）、このコールはすべてのリダイレクトに従う必要があります。 このため、この呼び出しは WebView コントロール内で処理され、ユーザーには表示されません。
 
-   **注意：** ログアウトフローは、ユーザーが WebView と何らかのやり取りをする必要がないという点で、認証フローとは異なります。 したがって、ログアウトプロセス中に WebView コントロールを非表示（つまり非表示）にする（推奨）ことが可能です。
+   **注意：** ログアウトフローは、ユーザーが WebView とやり取りする必要がないという点で、認証フローとは異なります。 そのため、ログアウトプロセス中に WebView コントロールを非表示（つまり、非表示）にすることが（推奨されます）可能です。

@@ -1,10 +1,10 @@
 ---
-title: 事前に実行する環境とテストの設定
-description: 事前に実行する環境とテストの設定
+title: 環境の設定と事前テスト
+description: 環境の設定と事前テスト
 exl-id: f822c0a1-045a-401f-a44f-742ed25bfcdc
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '473'
+source-wordcount: '477'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 このテクニカルノートの目的は、パートナーが環境を設定し、Adobe Systems事前認定環境に展開された新しいビルドをテストする開始を支援することです。
 
-プロダクション&#x200B;***と***&#x200B;ステージング&#x200B;***の2つのビルドフレーバー***&#x200B;があるため、このドキュメントでは、ステージングのすべての手順が同じであり、URLのみが異なることに言及して、本番環境のセットアップフォーカスするます。
+***プロダクション***&#x200B;と&#x200B;***ステージング***&#x200B;の2つのビルドフレーバーがあるため、このドキュメントでは、ステージングのすべてのステップが同じであり、URLのみが異なることに言及して、プロダクションのセットアップフォーカスするします。
 
 ステップ1と2はテストマシンの1つにテスト 環境を設定し、ステップ3は基本的なフローの検証であり、ステップ4と5はいくつかのテストガイドラインを示しています。
 
@@ -26,9 +26,9 @@ ht-degree: 0%
 > テスト 環境を変更するたびに手順 1 と 2 を実行することが非常に重要です (ステージングから運用プロファイルに切り替えるか、またはその逆)
 
 
-## 手順 1. IP に渡すドメインの解決 {#resolving-pass-domain-to-an-ip}
+## 手順 1. IP へのパスドメインの解決 {#resolving-pass-domain-to-an-ip}
 
-* スプーフィングに使用できるロードバランサー IP を見つけるには、次のコマンドを実行します。
+* スプーフィングに使用できるロードバランサーの IP を見つけるには、次のコマンドを実行します。
 
 * **Windows の場合**
 
@@ -65,21 +65,21 @@ ht-degree: 0%
 
 ## ステップ2.  本番環境となる事前認定環境のスプーフィング {#spoofing-the-prequalification-environment}
 
-* *c:\\windows\\System32\\drivers\\etc\\hosts* ファイル(Windows)または */etc/hosts* ファイル(Macintosh/Linux/Android の場合)編集、次の内容を追加します。
+* *c:\\windows\\System32\\drivers\\etc\\hosts* ファイル(Windows)または */etc/hosts* ファイル(Macintosh、Linux、Android の場合)編集、次の内容を追加します。
 
 * 実稼働プロファイルのなりすまし
    * 52.13.71.11 http://entitlement.auth.adobe.com、http://sp.auth.adobe.com、http://api.auth.adobe.com
 
-**Android でのスプーフィング：** Android でスプーフィングを行うには、Android エミュレーターを使用する必要があります。
+**Androidでのスプーフィング：** Androidでスプーフィングするには、Android エミュレーターを使用する必要があります。
 
-* スプーフィングを設定したら、次のように、実稼動およびステージングプロファイルの通常の URL を使用できます ( つまり、 `http://sp.auth-staging.adobe.com` および `http://entitlement.auth-staging.adobe.com` そして実際に *事前認定環境/実稼動環境* *の新しいビルドの。
+* スプーフィングが行われたら、実稼働プロファイルとステージングプロファイルに通常の URL （つまり、`http://sp.auth-staging.adobe.com` と `http://entitlement.auth-staging.adobe.com`）を使用するだけで、新しいビルドの *事前選定環境/実稼働* に実際にヒットします。
 
 
-## 手順 3.  適切な環境を指していることを確認します。 {#Verify-you-are-pointing-to-the-right-environment}
+## 手順 3.  正しい環境を指していることを確認します。 {#Verify-you-are-pointing-to-the-right-environment}
 
 **これは簡単なステップです。**
 
-* エンタイトルメント PREQUAL 環境](https://entitlement-prequal.auth.adobe.com/environment.html) および[エンタイトルメント](https://entitlement.auth.adobe.com/environment.html)を読み込み[ます。同じ応答が返されます。
+* [エンタイトルメント PREQUAL 環境](https://entitlement-prequal.auth.adobe.com/environment.html) と[エンタイトルメント](https://entitlement.auth.adobe.com/environment.html)を読み込みます。同じ応答が返されます。
 
 
 ## ステップ4.  プログラマーのWebサイトを使用した簡単な認証/認証フローを実行します {#peform-a-simple-auth-flow}
@@ -93,6 +93,6 @@ ht-degree: 0%
 
 ## 手順 6.  API テストサイトを使用したテストの実行 {#perform-testing-using-api-testing-site}
 
-* Adobe Pass認証のテストを詳しく調べるには、 [API テストサイト](http://entitlement-prequal.auth.adobe.com/apitest/api.html).
+* Adobe Pass認証のテストを詳しく調べる場合は、[API テストサイト ](http://entitlement-prequal.auth.adobe.com/apitest/api.html) を使用することをお勧めします。
 
-API テストサイトの詳細は、 [Adobeの API テストサイトを使用した認証フローと承認フローのテスト方法](/help/authentication/test-authn-authz-flows-using-adobes-api-test-site.md).
+API テストサイトについて詳しくは、[Adobeの API テストサイトを使用して認証および承認フローをテストする方法 ](/help/authentication/test-authn-authz-flows-using-adobes-api-test-site.md) を参照してください。

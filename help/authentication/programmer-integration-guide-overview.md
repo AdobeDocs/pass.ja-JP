@@ -1,6 +1,6 @@
 ---
 title: プログラマー統合ガイドの概要
-description: プログラマー統合ガイドの説明
+description: プログラマ統合ガイドの説明
 exl-id: 51461caf-08ef-459e-b284-8f317f45e7b1
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 >
 
 ## クックブック {#cookbooks}
@@ -23,7 +23,7 @@ ht-degree: 0%
 * AccessEnabler iOS/tvOS SDK クックブック
 * AccessEnabler Android SDK クックブック
 * REST API クックブック（サーバー間）
-* REST API クックブック（クライアント/サーバー間）
+* REST API クックブック（クライアントからサーバー）
 
 ## API リファレンス {#api-references}
 
@@ -39,7 +39,7 @@ ht-degree: 0%
 * AccessEnabler Android SDK の概要
 * REST API の概要
 
-これは、Adobe Pass Authentication 統合の技術面を扱うソフトウェアエンジニアを対象としています。
+これらは、Adobe Pass Authentication 統合の技術面を扱うソフトウェアエンジニアを対象としています。
 
 <!--
 

@@ -1,141 +1,141 @@
 ---
-title: クライアント情報（デバイス、接続、およびアプリケーション）を渡す
-description: クライアント情報（デバイス、接続、およびアプリケーション）を渡す
+title: クライアント情報（デバイス、接続、アプリケーション）を渡す
+description: クライアント情報（デバイス、接続、アプリケーション）を渡す
 exl-id: 0b21ef0e-c169-48ff-ac01-25411cfece1e
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
-source-wordcount: '1681'
-ht-degree: 0%
+source-wordcount: '1643'
+ht-degree: 1%
 
 ---
 
-# クライアント情報（デバイス、接続、およびアプリケーション）を渡す {#pass-client-info}
+# クライアント情報（デバイス、接続、アプリケーション）を渡す {#pass-client-info}
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 
 ## 範囲 {#pass-client-info-scope}
 
-このドキュメントでは、クライアント情報（デバイス、接続、アプリケーション）をプログラマーアプリケーションからAdobe Pass Authentication REST API または SDK に渡すための詳細とクックブックを集計します。
+このドキュメントでは、クライアント情報（デバイス、接続、アプリケーション）をプログラマーアプリケーションからAdobe Pass認証の REST API または SDK に渡すための詳細とクックブックを集約します。
 
-クライアント情報を提供するメリットは次のとおりです。
+クライアント情報を提供する利点は次のとおりです。
 
-* HBA をサポートできる一部のデバイスタイプと MVPD の場合に、Home Base Authentication(HBA) を適切に有効にする機能。
-* 一部のデバイスタイプで TTL を適切に適用する機能（例：TV 接続デバイスでの認証セッションの TTL を長く設定する）。
-* Entitlement Service Monitoring(ESM) を使用して、デバイスの種類をまたいで分類レポートでビジネス指標を適切に集計する機能。
-* 様々なビジネス・ルールを適切に適用する機能のブロックを解除します ( 例： 最適化 ) を使用できます。
+* 一部のデバイス・タイプや HBA をサポートする MVPD の場合に、HBA （Home Base Authentication）を適切に有効化する機能。
+* 一部のデバイスタイプの場合に TTL を適切に適用する機能（例えば、テレビに接続されたデバイスの認証セッション用に長い TTL を設定するなど）。
+* ESM （Entitlement Service Monitoring）を使用して、複数のデバイスタイプにわたる分類レポートでビジネス指標を適切に集計する機能。
+* 様々なビジネスルールを適切に適用する機能のブロックを解除します（例： （特定のデバイスタイプで低下）。
 
 ## 概要 {#pass-client-info-overview}
 
-クライアント情報は、次の要素で構成されます。
+クライアント情報は、以下で構成されます。
 
-* **デバイス** ユーザーが Programmer コンテンツを使用しようとするデバイスのハードウェアおよびソフトウェア属性に関する情報。
-* **接続** ユーザーがAdobe Pass Authentication サービスや Programmer サービス（サーバー間実装など）に接続する際の、デバイスの接続属性に関する情報。
-* **アプリ** ユーザーが Programmer コンテンツを使用しようとする登録済みアプリケーションに関する情報。
+* **デバイス** ユーザーがプログラマーのコンテンツを使用しようとしているデバイスのハードウェア属性とソフトウェア属性に関する情報。
+* **接続** ユーザーがAdobe Pass Authentication Services やプログラマーサービスに接続する元となるデバイスの接続属性に関する情報（サーバー間実装など）。
+* **アプリケーション** ユーザーがプログラマーコンテンツを使用しようとする登録済みアプリケーションに関する情報。
 
-クライアント情報は、次の表に示すキーで構築された JSON オブジェクトです。
+クライアント情報は、次の表に示すキーで作成された JSON オブジェクトです。
 
 >[!NOTE]
 >
->次の **keys** が **必須** クライアント情報 JSON オブジェクトに送信される **モデル**, **osName**.
+>次の **キー** は、クライアント情報 JSON オブジェクトで送信する **必須** です：**model**、**osName**。
 >
->次のキーは、 **制限** 値： `primaryHardwareType`, `osName`, `osFamily`, `browserName`, `browserVendor`, `connectionSecure`.
+>次のキーには **制限付き** の値があります：`primaryHardwareType`、`osName`、`osFamily`、`browserName`、`browserVendor`、`connectionSecure`。
 
-|   | キー | 制限 | 説明 | 可能な値 |
+|   | キー | 制限付き | 説明 | 可能な値 |
 |---|---|---|---|---|
-|            | primaryHardwareType | #はい | デバイスの主要なハードウェアタイプ。 | #値は制限されています： Camera DataCollectionTerminal Desktop EmbeddedNetworkModule eReader GamesConsole GeolocationTracker Glasses MediaPlayer MobilePhone PaymentTerminal PluginMonSetTopBox TV タブレット Wiressot Wristwatch Unknown |
-| #mandatory | モデル | いいえ | デバイスのモデル名。 | 例： iPhone、SM-G930V、AppleTV など。 |
-|            | version | いいえ | デバイスのバージョン。 | 例： 2.0.1 など |
-|            | 製造元 | いいえ | デバイスの製造会社または組織。 | 例：Samsung、LG、ZTE、Huawei、Motorola、Appleなど。 |
-|            | ベンダー | いいえ | デバイスの販売会社/組織。 | 例：Apple、Samsung、LG、Googleなど。 |
-| #mandatory | osName | #はい | デバイスのオペレーティングシステム (OS) 名。 | #値は制限されています： Android Chrome OS Linux Mac OS X OpenBSD Roku OS Windows iOS tvOS webOS |
-|            | osFamily | はい | デバイスのオペレーティングシステム (OS) グループ名。 | #値は制限されています： Android BSD Linux PlayStation OS Roku OS Symbian Tizen Windows iOS macOS tvOS webOS |
-|            | osVendor | いいえ | デバイスのオペレーティングシステム (OS) サプライヤー。 | Amazon Apple Google LG Microsoft Mozilla Nintendo Nokia Roku Samsung Sony Tizen Project |
-|            | osVersion | いいえ | デバイスのオペレーティングシステム (OS) のバージョン。 | 例： 10.2、9.0.1 など。 |
-|            | browserName | #はい | ブラウザーの名前。 | #値は制限されています： Android ブラウザ Chrome Edge Firefox Internet Explorer Opera Safari SeaMonkey Symbian ブラウザ |
-|            | browserVendor | #はい | ブラウザーの組織（会社）。 | #値は制限されます： Amazon Apple Google Microsoft Motorola Mozilla Nentendo Nokia Samsung Sony Ericsson |
-|            | browserVersion | いいえ | デバイスのブラウザーのバージョン。 | 例： 60.0.3112 |
-|            | userAgent | いいえ | デバイスのユーザーエージェント。 | 例：Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/602.4.8 (KHTML, like Gecko) Version/10.0.3 Safari/602.4.8 |
-|            | displayWidth | いいえ | デバイスの物理画面の幅。 |                                                                                                                                                                                                                                                                                                                                                           |
-|            | displayHeight | いいえ | デバイスの物理的な画面の高さ。 |                                                                                                                                                                                                                                                                                                                                                           |
-|            | displayPpi | いいえ | デバイスの物理画面のピクセル密度。 | 例： 294 |
-|            | diagonalScreenSize | いいえ | デバイスの物理画面の対角線の寸法（インチ単位）。 | 例： 5.5、10.1 |
-|            | connectionIp | いいえ | HTTP リクエストの送信に使用されるデバイスの IP。 | 例： 8.8.4.4 |
-|            | connectionPort | いいえ | HTTP リクエストの送信に使用されるデバイスのポート。 | 例： 53124 |
-|            | connectionType | いいえ | ネットワーク接続のタイプ。 | 例： WiFi、LAN、3G、4G、5G |
-|            | connectionSecure | #はい | ネットワーク接続のセキュリティ状態。 | #値は制限されます：true — セキュアネットワークの場合は false — パブリックホットスポットの場合は |
-|            | applicationId | いいえ | アプリケーションの一意の ID。 | 例： CNN |
+|            | primary ハードウェアタイプ | #はい | デバイスの主要なハードウェアの種類。 | #値は制限されています。                                                                     カメラ                                                      DataCollectionTerminal                                                      デスクトップ                                                      EmbeddedNetworkModule                                                      eReader                                                      ゲーム コンソール                                                      GeolocationTracker                                                      眼鏡                                                      MediaPlayer                                                      MobilePhone                                                      PaymentTerminal                                                      PluginModem                                                      SetTopBox                                                      TV                                                      タブレット                                                      WirelessHotspot                                                      腕時計                                                      不明 |
+| #mandatory | モデル | 不可 | デバイスのモデル名。 | 例：iPhone、SM-G930V、AppleTV など |
+|            | version | 不可 | デバイスのバージョン。 | 例：2.0.1 など |
+|            | 製造元 | 不可 | デバイスの製造会社/組織。 | 例：Samsung、LG、ZTE、Huawei、Motorola、Appleなど |
+|            | ベンダー | 不可 | デバイスの販売会社/組織。 | 例：Apple、Samsung、LG、Googleなど |
+| #mandatory | osName | #はい | デバイスのオペレーティングシステム（OS）名。 | #値は制限されています。                                                   Android                   CHROME OS                   Linux                   MAC OS                   OS X                   OpenBSD                   Roku OS                   Windows                   iOS                   tvOS                   webOS |
+|            | osFamily | はい | デバイスのオペレーティングシステム（OS）グループ名。 | #値は制限されています。                                                   Android                   BSD                   Linux                   PlayStation OS                   Roku OS                   Symbian                   Tizen                   Windows                   iOS                   macOS                   tvOS                   webOS |
+|            | osVendor | 不可 | デバイスのオペレーティングシステム（OS）のサプライヤ。 | Amazon                   Apple                   Google                   LG                   Microsoft                   Mozilla                   任天堂                   Nokia                   Roku                   Samsung                   ソニー                   Tizen プロジェクト |
+|            | osVersion | 不可 | デバイスのオペレーティングシステム（OS）のバージョン。 | 例：10.2、9.0.1 など |
+|            | browserName | #はい | ブラウザーの名前。 | #値は制限されています。                                                   Androidブラウザー                   Chrome                   Edge                   Firefox                   Internet Explorer                   Opera                   Safari                   海猿                   Symbian ブラウザ |
+|            | browserVendor | #はい | ブラウザーの建物会社/組織。 | #値は制限されています。                                                   Amazon                   Apple                   Google                   Microsoft                   モトローラ                   Mozilla                   Netscape                   任天堂                   Nokia                   Samsung                   ソニーエリクソン |
+|            | browserVersion | 不可 | デバイスのブラウザーのバージョン。 | 例：60.0.3112 |
+|            | userAgent | 不可 | デバイスのユーザーエージェント。 | 例：Mozilla/5.0 （Macintosh、Intel Mac OS X 10_12_3） AppleWebKit/602.4.8 （KHTML、Gecko など） Version/10.0.3 Safari/602.4.8 |
+|            | displayWidth | 不可 | デバイスの物理的な画面の幅。 |                                                                                                                                                                                                                                                                                                                                                           |
+|            | displayHeight | 不可 | デバイスの物理的な画面の高さ。 |                                                                                                                                                                                                                                                                                                                                                           |
+|            | displayPpi | 不可 | デバイスの物理的な画面のピクセル密度。 | 例：294 |
+|            | diagonalScreenSize | 不可 | デバイスの物理的な画面の斜めの寸法（インチ）。 | 例：5.5、10.1 |
+|            | connectionIp | 不可 | HTTP リクエストの送信に使用するデバイスの IP。 | 例 8.8.4.4 |
+|            | connectionPort | 不可 | HTTP リクエストの送信に使用するデバイスのポート。 | 例：53124 |
+|            | connectionType | 不可 | ネットワーク接続タイプ。 | 例：WiFi、LAN、3G、4G、5G |
+|            | connectionSecure | #はい | ネットワーク接続のセキュリティの状態。 | #値は制限されています。                                                   true – 安全なネットワークの場合                   false – 公共のホットスポットの場合 |
+|            | applicationId | 不可 | アプリケーションの一意の ID。 | 例：CNN |
 
 ## API リファレンス {#api-ref}
 
-この節では、Adobe Pass Authentication REST API または SDK を使用する際にクライアント情報を処理する API を示します。
+この節では、Adobe Pass認証 REST API または SDK を使用する際にクライアント情報を処理する API について説明します。
 
 ### REST API {#rest-api}
 
-Adobe Pass Authentication Services では、次の方法でクライアント情報を受信できます。
+Adobe Pass認証サービスは、次の方法でクライアント情報の受け取りをサポートしています。
 
-* As a **header: &quot;X-Device-Info&quot;**
-* As a **クエリパラメータ： &quot;device_info&quot;**
-* As a **post パラメータ： &quot;device_info&quot;**
+* **ヘッダー：「X-Device-Info」** として
+* **クエリパラメーター：&quot;device_info&quot;として**
+* **post パラメーターとして：&quot;device_info&quot;**
 
 >[!IMPORTANT]
 >
->3 つのシナリオのすべてで、ヘッダーまたはパラメーターのペイロードは、 **Base64 エンコード済みと URL エンコード済み**.
+>3 つのシナリオすべてで、ヘッダーまたはパラメーターのペイロードを **Base64 でエンコードし、URL でエンコード** する必要があります。
 
 **SDK**
 
-#### JavaScript SDK {#js-sdk}
+#### JAVASCRIPT SDK {#js-sdk}
 
-AccessEnabler JavaScript SDK は、上書きされない限りAdobe Pass Authentication Services に渡されるクライアント情報 JSON オブジェクトをデフォルトで構築します。
+AccessEnabler JavaScript SDK は、デフォルトでクライアント情報 JSON オブジェクトをビルドし、上書きされない限り、Adobe Pass Authentication サービスに渡されます。
 
-AccessEnabler JavaScript SDK は、 **上書きのみ** クライアント情報の JSON オブジェクトから、 [setRequestor](/help/authentication/javascript-sdk-api-reference.md#setrequestor(inRequestorID,endpoints,options))&#39;s *applicationId* options パラメーター。
+AccessEnabler JavaScript SDK は、**setRequestor** の *applicationId* オプション パラメータを介して、クライアント情報 JSON オブジェクトの [applicationId](/help/authentication/javascript-sdk-api-reference.md#setrequestor(inRequestorID,endpoints,options)) キーを上書きのみ）サポートします。
 
 >[!CAUTION]
 >
->The `applicationId` パラメータ値は、プレーンテキストの文字列値である必要があります。
->プログラマーアプリケーションが applicationId を渡す場合、残りのクライアント情報キーは AccessEnabler JavaScript SDK によって引き続き計算されます。
+>`applicationId` パラメーター値は、プレーンテキストの文字列値である必要があります。
+>プログラマーアプリケーションが applicationId を渡すことにした場合、残りのクライアント情報キーは引き続き AccessEnabler JavaScript SDK によって計算されます。
 
 #### iOS/tvOS SDK {#ios-tvos-sdk}
 
-AccessEnabler iOS/tvOS SDK は、上書きされない限りAdobe Pass Authentication Services に渡されるクライアント情報 JSON オブジェクトをデフォルトで構築します。
+AccessEnabler iOS/tvOS SDK は、デフォルトでクライアント情報の JSON オブジェクトを作成します。このオブジェクトは、上書きされない限り、Adobe Pass Authentication サービスに渡されます。
 
-AccessEnabler iOS/tvOS SDK は、 **全体を上書きする** クライアント情報 JSON オブジェクトを [setOptions](/help/authentication/iostvos-sdk-api-reference.md#setoptions)&#39;s device_info パラメーター。
+AccessEnabler iOS/tvOS SDK は、[setOptions **の device_info パラメータを使用して** クライアント情報の JSON オブジェクトを上書き ](/help/authentication/iostvos-sdk-api-reference.md#setoptions) サポートします。
 
 >[!CAUTION]
 >
->The *device_info* パラメータ値は必ず指定してください **Base64 エンコード済み** *NSString* の値です。
+>*device_info* パラメーター値は **Base64 エンコード** *NSString* 値にする必要があります。
 >
->プログラマーアプリケーションが *device_info*&#x200B;を指定した場合、AccessEnabler iOS/tvOS SDK で計算されたすべてのクライアント情報キーが上書きされます。 したがって、キーの値をできるだけ多く計算して渡すことが非常に重要です。 実装について詳しくは、 [概要](#pass-client-info-overview) テーブルと [iOS/tvOS クックブック](#ios-tvos).
+>プログラマーアプリケーションが *device_info* を渡すことにした場合、AccessEnabler iOS/tvOS SDK によって計算されたすべてのクライアント情報キーが上書きされます。 したがって、できるだけ多くのキーの値を計算して渡すことが非常に重要です。 実装について詳しくは、[ 概要 ](#pass-client-info-overview) 表および [iOS/tvOS クックブック ](#ios-tvos) を参照してください。
 
 #### Android/FireOS SDK {#and-fire-os-sdk}
 
-The `AccessEnabler` Android/FireOS SDK は、デフォルトでクライアント情報の JSON オブジェクトをビルドします。このオブジェクトは、上書きされない限りAdobe Pass Authentication Services に渡されます。
+`AccessEnabler` Android/FireOS SDK は、デフォルトでクライアント情報 JSON オブジェクトをビルドし、上書きされない限り、これをAdobe Pass Authentication サービスに渡します。
 
-The `AccessEnabler` Android/FireOS SDK は、 **全体を上書きする** クライアント情報 JSON オブジェクトを [setOptions](/help/authentication/android-sdk-api-reference.md#setOptions)&#39;s/[setOptions](/help/authentication/amazon-fireos-native-client-api-reference.md#fire_setOption)&#39;s `device_info` パラメーター。
+`AccessEnabler` Android/FireOS SDK では、**setOptions](/help/authentication/android-sdk-api-reference.md#setOptions) の/[setOptions](/help/authentication/amazon-fireos-native-client-api-reference.md#fire_setOption) の `device_info` パラメーターを使用して** クライアント情報の JSON オブジェクトを上書き [ サポートしています。
 
 >[!NOTE]
 >
->The `device_info` パラメータ値は必ず指定してください **Base64 エンコード済み** 文字列値。
+>`device_info` パラメーター値は、**Base64 エンコード** 文字列値である必要があります。
 
 >[!IMPORTANT]
 >
->プログラマーアプリケーションが `device_info`を指定した場合、 `AccessEnabler` Android/FireOS SDK は上書きされます。 したがって、キーの値をできるだけ多く計算して渡すことが非常に重要です。 実装について詳しくは、 [概要](#pass-client-info-overview) テーブルと [Android](#android) および [FireOS](#fire-tv) クックブック。
+>プログラマーアプリケーションが `device_info` を渡すことにした場合、`AccessEnabler` Android/FireOS SDK で計算されたすべてのクライアント情報キーが上書きされます。 したがって、できるだけ多くのキーの値を計算して渡すことが非常に重要です。 実装について詳しくは、[ 概要 ](#pass-client-info-overview) テーブルおよび [Android](#android) と [FireOS](#fire-tv) のクックブックを参照してください。
 
 ## クックブック {#cookbooks}
 
-この節では、異なるデバイスタイプの場合に、クライアント情報 JSON オブジェクトを構築するためのクックブックを示します。
+この節では、デバイスタイプが異なる場合にクライアント情報 JSON オブジェクトを作成するためのクックブックを示します。
 
 >[!IMPORTANT]
 >
->次のマークが付いたキー  **!** は必ず送信されます。
+>**でマークされたキー！** を送信する必要があります。
 
 ### Android {#android}
 
-デバイス情報は、次のように構築できます。
+デバイス情報は、次のように構成できます。
 
-|   | キー | ソース | 値（例） |
+|   | キー | Source | 値（例） |
 |---|---------------|-----------------------------|---------------|
 | ! | モデル | Build.MODEL | GT-I9505 |
 |   | ベンダー | Build.BRAND | samsung |
@@ -146,22 +146,22 @@ The `AccessEnabler` Android/FireOS SDK は、 **全体を上書きする** ク�
 | ! | osName | ハードコード | Android |
 | ! | osVersion | Build.VERSION.RELEASE | 5.0.1 |
 
-接続情報は、次の方法で構築できます。
+接続情報は、次のように作成できます。
 
-|   | キー | ソース | 値（例） |
+|   | キー | Source | 値（例） |
 |---|---|---|---|
 | ! | connectionType | `<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>` `getSystemService(Context.CONNECTIVITY_SERVICE).getActiveNetworkInfo().getType()` | `"WIFI","BLUETOOTH","MOBILE","ETHERNET","VPN","DUMMY","MOBILE_DUN","WIMAX","notAccessible"` |
 |   | connectionSecure |                                                                                                                                                           |                                                                                           |
 
-アプリケーション情報は、次の方法で構築できます。
+アプリケーション情報は、次の方法で作成できます。
 
-|   | キー | ソース | 値（例） |
+|   | キー | Source | 値（例） |
 |---|---------------|-----------|--------------|
 |   | applicationId | ハードコード | CNN |
 
 >[!IMPORTANT]
 >
-デバイス、接続、アプリケーションの情報を同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード済み**. また、Adobe Pass Authentication REST API の場合、値は **URL エンコード済み**.
+デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード** する必要があります。 また、Adobe Pass認証 REST API の場合は、値を **URL エンコード** する必要があります。
 
 **サンプルコード**
 
@@ -241,51 +241,51 @@ private JSONObject computeClientInformation() {
 >[!NOTE]
 >
 **リソース：**
-* 公共教室 [ビルド](https://developer.android.com/reference/android/os/Build.html){target=_blank} （Java 開発者向けドキュメント）を参照してください。
+* java 開発者向けドキュメントのパブリッククラス [build](https://developer.android.com/reference/android/os/Build.html){target=_blank}。
 
 ### FireTV {#fire-tv}
 
-デバイス情報は、次のように構築できます。
+デバイス情報は、次のように構成できます。
 
-|   | キー | ソース | 値（例： ） |
+|   | キー | Source | 値（例：） |
 |---|---------------|-----------------------------|--------------|
 | ! | モデル | Build.MODEL | AFTM |
 |   | ベンダー | Build.BRAND | Amazon |
 |   | 製造元 | Build.MANUFACTURER | Amazon |
-| ! | version | Build.DEVICE | もんとや |
+| ! | version | Build.DEVICE | montoya |
 |   | displayWidth | DisplayMetrics.widthPixels |              |
 |   | displayHeight | DisplayMetrics.heightPixels |              |
 | ! | osName | ハードコード | Android |
 | ! | osVersion | Build.VERSION.RELEASE | 5.1.1 |
 
-接続情報は、次の方法で構築できます。
+接続情報は、次のように作成できます。
 
-|   | キー | ソース | 値（例） |
+|   | キー | Source | 値（例） |
 |---|------------------|--------|---------------|
 | ! | connectionType |        |               |
 |   | connectionSecure |        |               |
 
-アプリケーション情報は、次の方法で構築できます。
+アプリケーション情報は、次の方法で作成できます。
 
-|   | キー | ソース | 値（例） |
+|   | キー | Source | 値（例） |
 |---|---------------|-----------|--------------|
 |   | applicationId | ハードコード | CNN |
 
 >[!IMPORTANT]
 >
-デバイス、接続、アプリケーションの情報を同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード済み**. また、Adobe Pass Authentication REST API の場合、値は **URL エンコード済み**.
+デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード** する必要があります。 また、Adobe Pass認証 REST API の場合は、値を **URL エンコード** する必要があります。
 
 >[!NOTE]
 >
 **リソース：**
-* 公共教室 [ビルド](https://developer.android.com/reference/android/os/Build.html){target=_blank} （Android 開発者向けドキュメント）を参照してください。
-* [FireTV デバイスの識別](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html){target=_blank}
+* Android開発者向けドキュメントのパブリッククラス [ ビルド ](https://developer.android.com/reference/android/os/Build.html){target=_blank}。
+* [FireTV デバイスの識別 ](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html){target=_blank}
 
 ### iOS/tvOS {#ios-tvos}
 
-デバイス情報は、次のように構築できます。
+デバイス情報は、次のように構成できます。
 
-|   | キー | ソース | 値（例） |
+|   | キー | Source | 値（例） |
 |---|---------------|------------------------|--------------|
 | ! | モデル | uname.machine | iPhone |
 |   | ベンダー | ハードコード | Apple |
@@ -296,23 +296,23 @@ private JSONObject computeClientInformation() {
 | ! | osName | UIDevice.systemName | iOS |
 | ! | osVersion | UIDevice.systemVersion | 10.2 |
 
-接続情報は、次の方法で構築できます。
+接続情報は、次のように作成できます。
 
-|   | キー | ソース | 値（例） |
+|   | キー | Source | 値（例） |
 |---|------------------|-------------------------------------------|--------------|
 | ! | connectionType | [Reachability currentReachabilityStatus] |              |
 |   | connectionSecure |                                           |              |
 
 
-アプリケーション情報は、次の方法で構築できます。
+アプリケーション情報は、次の方法で作成できます。
 
-|   | キー | ソース | 値（例） |
+|   | キー | Source | 値（例） |
 |---|---------------|-----------|--------------|
 |   | applicationId | ハードコード | CNN |
 
 >[!IMPORTANT]
 >
-デバイス、接続、アプリケーションの情報を同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトを Base64 エンコードする必要があります。 また、Adobe Pass Authentication REST API の場合は、値を URL エンコードする必要があります。
+デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは Base64 でエンコードする必要があります。 また、Adobe Pass認証 REST API の場合、値を URL エンコードする必要があります。
 
 **サンプルコード**
 
@@ -387,49 +387,49 @@ private JSONObject computeClientInformation() {
 **リソース：**
 * [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice){target=_blank}
 * [uname](https://man7.org/linux/man-pages/man2/uname.2.html){target=_blank}
-* [到達性について](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html){target=_blank}
+* [ 到達可能性について ](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html){target=_blank}
 
 ### Roku {#roku}
 
-デバイス情報は、次のように構築できます。
+デバイス情報は、次のように構成できます。
 
-| キー | ソース | 値（例） |                 |
+| キー | Source | 値（例） |                 |
 |-----|---------------|--------------------------------------------|-----------------|
-| ! | モデル | ハードコード | &quot;Roku&quot; |
-|     | ベンダー | ifDeviceInfo.GetModelDetails().VendorName | &quot;Sharp&quot;, &quot;Roku&quot; |
-|     | 製造元 | ifDeviceInfo.GetModelDetails().VendorName | &quot;Sharp&quot;, &quot;Roku&quot; |
+| ! | モデル | ハードコード | 「Roku」 |
+|     | ベンダー | ifDeviceInfo.GetModelDetails().VendorName | 「シャープ」「Roku」 |
+|     | 製造元 | ifDeviceInfo.GetModelDetails().VendorName | 「シャープ」「Roku」 |
 | ! | version | ifDeviceInfo.GetModelDetails().ModelNumber | &quot;5303X&quot; |
 |     | displayWidth | ifDeviceInfo.GetDisplaySize().w | 1920 |
 |     | displayHeight | ifDeviceInfo.GetDisplaySize().h | 1080 |
-| ! | osName | ハードコード | &quot;Roku&quot; |
+| ! | osName | ハードコード | 「Roku」 |
 | ! | osVersion | ifDeviceInfo.getVersion() |                 |
 
-接続情報は、次の方法で構築できます。
+接続情報は、次のように作成できます。
 
-|   | キー | ソース | 値（例） |
+|   | キー | Source | 値（例） |
 |---|---|---|---|
 | ! | connectionType | ifDeviceInfo.GetConnectionType() | &quot;WifiConnection&quot;, &quot;WiredConnection&quot; |
-|   | connectionSecure | ハードコード | 接続が接続されている場合は true |
+|   | connectionSecure | ハードコード | 接続がワイヤリングされている場合は true |
 
-アプリケーション情報は、次の方法で構築できます。
+アプリケーション情報は、次の方法で作成できます。
 
-|   | キー | ソース | 値（例） |
+|   | キー | Source | 値（例） |
 |---|---------------|-----------|--------------|
 |   | applicationId | ハードコード | CNN |
 
 >[!IMPORTANT]
 >
-デバイス、接続、アプリケーションの情報を同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード済み**. また、Adobe Pass Authentication REST API の場合は、値を URL エンコードする必要があります。
+デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード** する必要があります。 また、Adobe Pass認証 REST API の場合、値を URL エンコードする必要があります。
 
 >[!NOTE]
 >
-詳しくは、 [ifDeviceInfo](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md)
+詳しくは、「[ifDeviceInfo](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md)」を参照してください
 
 ### XBOX 1/360 {#xbox}
 
-デバイス情報は、次のように構築できます。
+デバイス情報は、次のように構成できます。
 
-|   | キー | ソース | 値（例） |
+|   | キー | Source | 値（例） |
 |---|---|---|---|
 | ! | モデル | EasClientDeviceInformation.SystemProductName |                 |
 |   | ベンダー | ハードコード | Microsoft |
@@ -440,24 +440,24 @@ private JSONObject computeClientInformation() {
 | ! | osName | EasClientDeviceInformation.OperatingSystem |                 |
 | ! | osVersion | EasClientDeviceInformation.SystemFirmwareVersion |                 |
 
-接続情報は、次の方法で構築できます。
+接続情報は、次のように作成できます。
 
-|   | キー | ソース | 例 |
+|   | キー | Source | 例 |
 |---|---|---|---|
 | ! | connectionType |                                                   |                   |
-|   | connectionSecure | NetworkAuthenticationType | &quot;なし&quot;、&quot;Wpa&quot;など |
+|   | connectionSecure | NetworkAuthenticationType | 「なし」、「Wpa」など |
 
-アプリケーション情報は、次の方法で構築できます。
+アプリケーション情報は、次の方法で作成できます。
 
-| キー | ソース | 値（例） |
+| キー | Source | 値（例） |
 |---|---|---|
 | applicationId | ハードコード | CNN |
 
 >[!IMPORTANT]
 >
-デバイス、接続、アプリケーションの情報を同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード済み**. また、Adobe Pass Authentication REST API の場合、値は **URL エンコード済み**.
+デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード** する必要があります。 また、Adobe Pass認証 REST API の場合は、値を **URL エンコード** する必要があります。
 
 **リソース**
 
-* [EasClientDeviceInformation クラス](https://docs.microsoft.com/en-us/uwp/api/windows.security.exchangeactivesyncprovisioning.easclientdeviceinformation?view=winrt-22000)
-* [DisplayInformation クラス](https://docs.microsoft.com/en-us/uwp/api/windows.graphics.display.displayinformation?view=winrt-22000)
+* [EasClientDeviceInformation クラス ](https://docs.microsoft.com/en-us/uwp/api/windows.security.exchangeactivesyncprovisioning.easclientdeviceinformation?view=winrt-22000)
+* [DisplayInformation クラス ](https://docs.microsoft.com/en-us/uwp/api/windows.graphics.display.displayinformation?view=winrt-22000)

@@ -1,28 +1,28 @@
 ---
-title: Adobe Pass Concurrency Monitoring 2.3.2 リリースノート
-description: Adobe Pass Concurrency Monitoring 2.3.2 リリースノート
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+title: Adobe Pass同時実行性モニタリング 2.3.2 リリースノート
+description: Adobe Pass同時実行性モニタリング 2.3.2 リリースノート
+exl-id: 3996da45-498c-482a-b374-3cda1c5df2f7
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '130'
-ht-degree: 0%
+source-wordcount: '141'
+ht-degree: 1%
 
 ---
 
-
-# Adobe Pass Concurrency Monitoring 2.3.2 リリースノート {#cm-232}
+# Adobe Pass同時実行性モニタリング 2.3.2 リリースノート {#cm-232}
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
-リリース日： 12/11/2015
+リリース日：2015 年 12 月 11 日（Pt）
 
-## 新機能および改善点 {#new-features}
+## 新機能と機能強化 {#new-features}
 
-* 使用状況レポートで使用できる新しい分類。 同時実行監視と統合されたアプリケーションがカスタムメタデータを送信する場合は、新しい分類が使用可能です。
-   * application — 呼び出し URL で報告されるアプリケーション ID。
-   * mvpd — 呼び出し URL で報告される MVPD
-   * channel — カスタムメタデータチャネル
-   * platform — カスタムメタデータ applicationPlatform
-* 次に関連する新しい指標： **ストリーム時間** が使用可能になる問題を修正しました。 新しい指標を使用して、ストリームの時間のヒストグラムを作成できます。 現在、次の間隔（分単位）を使用できます。
+* 使用状況レポートで新しい分類を使用できます。 同時実行の監視と統合されたアプリケーションがカスタムメタデータを送信する場合に、新しい分類を使用できます。
+   * application – 呼び出し URL でレポートされるアプリケーション ID
+   * mvpd - コール URL で報告される MVPD
+   * チャネル – カスタムメタデータチャネル
+   * platform - カスタムメタデータ applicationPlatform
+* **ストリーム時間** に関連する新しい指標が使用状況レポートで使用できます。 新しい指標を使用して、ストリーム時間のヒストグラムを作成できます。 現在、次の間隔（分単位）を使用できます。
    * duration_0-15
    * duration_15-30
    * duration_30-60

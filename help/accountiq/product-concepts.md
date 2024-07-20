@@ -1,5 +1,5 @@
 ---
-title: アカウント IQ の用語集
+title: Account IQ用語集
 description: 製品の用語。
 exl-id: 2ee54442-9538-4c30-b999-265310b3935f
 source-git-commit: cfcaa00ab05c99a64bcb0edfe5af60845a6769a9
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 ## D2C と TV Everywhere に共通する用語
 
-以下の製品用語とその定義は、すべてのものに共通です。 [アカウント IQ のバージョン](versions-aiq.md).
+以下の製品用語とその定義は、すべての [Account IQのバージョン ](versions-aiq.md) に共通です。
 
 ### [!UICONTROL Accounts Sharing Probability] {#account-sharing-probability-def}
 
@@ -21,7 +21,7 @@ ht-degree: 0%
 
 ### [!UICONTROL Action] {#action-def}
 
-関連する直接的または間接的な出来事 [操作](#operation-def) 関連する操作セグメントの特性（共有スコアや使用中のデバイス数など）に影響する情報。
+関連する操作セグメントの特性（スコアや使用中のデバイス数の共有など）に影響を与える [ 操作 ](#operation-def) に関連付けられた直接または間接のイベント。
 
 ### [!UICONTROL Aggregated sharing score] {#sharing-probability-level-def}
 
@@ -90,7 +90,7 @@ Media Company は、メディアネットワークのグループを所有する
 
 ### 操作 {#operation-def}
 
-操作は、特定の効果を追跡するために作成されたレコードです [アクション](#action-def) 関連付けられたセグメントで。 アクションの例としては、セグメントで識別されるアカウントに対して許可される同時ストリーム数の制限があります。
+操作とは、関連付けられたセグメントに対する特定の [ アクション ](#action-def) の効果を追跡するために作成されたレコードです。 アクションの例としては、セグメントで識別されるアカウントに対して許可される同時ストリーム数の制限があります。
 
 ### [!UICONTROL Overall sharing score] {#overall-sharing-score}
 

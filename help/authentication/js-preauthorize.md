@@ -1,10 +1,10 @@
 ---
 title: 事前認証
-description: JavaScript の事前認証
+description: JavaScriptを事前認証
 exl-id: b7493ca6-1862-4cea-a11e-a634c935c86e
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
-source-wordcount: '1499'
+source-wordcount: '1465'
 ht-degree: 0%
 
 ---
@@ -13,157 +13,157 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 概要 {#preauth-overview}
 
-事前認証 API メソッドは、1 つ以上のリソースの事前認証決定を取得するためにアプリケーションで使用されます。 UI ヒントやコンテンツのフィルタリングには、事前認証 API リクエストを使用する必要があります。 ユーザーが指定したリソースへのアクセスを許可する前に、実際の認証 API リクエストを実行する必要があります。
+事前認証 API メソッドは、アプリケーションが 1 つ以上のリソースに対して事前認証の決定を取得するために使用します。 事前認証 API リクエストは、UI ヒントやコンテンツフィルタリングに使用する必要があります。 指定したリソースへのユーザーアクセスを許可する前に、実際の認証 API リクエストを行う必要があります。
 
-Adobe Pass Authentication サービスで Preauthorize API リクエストが処理されると予期しないエラー（ネットワークの問題、MVPD 認証エンドポイントが使用できないなど）が発生した場合、影響を受けるリソースに対して 1 つ以上の個別のエラー情報が Preauthorize API 応答の一部として含まれます。
+事前認証 API リクエストがAdobe Pass Authentication Services によって処理される際に、予期しないエラー（ネットワークの問題、MVPD 認証エンドポイントが利用できないなど）が発生した場合は、影響を受けるリソースに関する 1 つ以上のエラー情報が事前認証 API 応答の結果の一部として含まれます。
 
-### public preauthorize(request: PreauthorizeRequest, callback: AccessEnablerCallback&lt;any>):void {#preauth-method}
+### public preauthorize （request: PreauthorizeRequest, callback: AccessEnablerCallback&lt;any>）: void {#preauth-method}
 
-**説明：** この方法は、アプリケーションの UI を修飾する（例えば、アクセス状態をロックアイコンとロック解除アイコンで示す）ために、認証済みのユーザーの事前認証（情報）決定をAdobe Pass Authentication サービスから取得するために使用されます。
+**説明：** この手法は、アプリケーションの UI を修飾する主な目的で（例えば、ロックおよびロック解除アイコンを使用したアクセスステータスの表示）、認証されたユーザーの事前認証（情報）決定をAdobe Pass認証サービスから取得して、特定の保護されたリソースを表示するために使用します。
 
-**可用性：** v4.4.0 以降
+**提供：** v4.4.0 以降
 
 **パラメーター：**
 
-* `PreauthorizeRequest`：リクエストの定義に使用するビルダーオブジェクト。
+* `PreauthorizeRequest`：リクエストの定義に使用されるビルダーオブジェクト
 * `AccessEnablerCallback`:API 応答を返すために使用されるコールバック
-* `PreauthorizeResponse`:API 応答コンテンツを返すために使用されるオブジェクト。
+* `PreauthorizeResponse`:API 応答のコンテンツを返すために使用されるオブジェクト
 
-### クラス PreauthorizeRequestBuilder {#preath-req-builder-class}
+### preauthorizeRequestBuilder クラス {#preath-req-builder-class}
 
-#### setResources(resources: string[]): PreauthorizeRequestBuilder {#set-res-preath-req-buildr}
+#### setResources （resources: string[]）: PreauthorizeRequestBuilder {#set-res-preath-req-buildr}
 
 * 事前認証の決定を取得するリソースのリストを設定します。
-* 事前認証 API の使用には設定する必要があります。
-* リスト内の各要素は、リソース ID の値、または MVPD と合意する必要があるメディア RSS フラグメントを表す文字列型 ( String ) の値である必要があります。
-* このメソッドは、現在の `PreauthorizeRequestBuilder` オブジェクトインスタンス（このメソッド呼び出しのレシーバー）。
+* 事前認証 API を使用するには、これを設定する必要があります。
+* リスト内の各要素は、MVPD と合意する必要があるリソース ID 値またはメディア RSS フラグメントを表す文字列型である必要があります。
+* このメソッドは、現在の `PreauthorizeRequestBuilder` オブジェクトインスタンス（このメソッド呼び出しの受信者）のコンテキストでのみ情報を設定します。
 
-* 実際の `PreauthorizeRequest` ご覧になれます `PreauthorizeRequestBuilder`&#39;s メソッド：
+* 実際の `PreauthorizeRequest` を作成するには、`PreauthorizeRequestBuilder` のメソッドを参照します。
 
 ```JavaScript
   build(): PreauthorizeRequest
 ```
 
 * `@param {string[]}` リソース。 事前認証の決定を取得するリソースのリスト。
-* `@returns {PreauthorizeRequestBuilder}` 同じ `PreauthorizeRequestBuilder` オブジェクトインスタンス。メソッド呼び出しのレシーバーです。
-* これは、メソッドチェーンを作成できるようにするためです。
+* `@returns {PreauthorizeRequestBuilder}` メソッド呼び出しの受信者である、同じ `PreauthorizeRequestBuilder` オブジェクトインスタンスへの参照。
+* これは、メソッドの連鎖の作成を可能にするために行います。
 
-#### disableFeatures(...features: string[]): PreauthorizeRequestBuilder {#disabl-featres-preauth-req-buildr}
+#### disableFeatures （...features: string[]）: PreauthorizeRequestBuilder {#disabl-featres-preauth-req-buildr}
 
-* 事前認証の決定を取得する際に、機能を無効にする機能を設定します。
-* この関数は、現在の `PreauthorizeRequestBuilder` オブジェクトインスタンス。この関数呼び出しのレシーバーです。
-* 実際の `PreauthorizeRequest` ご覧になれます `PreauthorizeRequestBuilder`&#39;s 関数：
+* 事前認証の決定を取得するときに無効にする機能を設定します。
+* この関数は、現在の `PreauthorizeRequestBuilder` オブジェクトインスタンス（この関数呼び出しの受信者）のコンテキストでのみ情報を設定します。
+* 実際の `PreauthorizeRequest` を作成するには、`PreauthorizeRequestBuilder` の関数を確認します。
 
 ```JavaScript
 public func build() -> PreauthorizeRequest
 ```
 
-* `@param {string[]}` 機能。 無効にする一連の機能。
-* `@returns` 同じ `PreauthorizeRequestBuilder` オブジェクトインスタンス。関数呼び出しのレシーバーです。
-* これは、関数のチェーンを作成できるようにするために実行されます。
+* `@param {string[]}` 機能。 無効にする機能のセット。
+* `@returns` 関数呼び出しの受信者である、同じ `PreauthorizeRequestBuilder` オブジェクトインスタンスへの参照。
+* これは、関数連結の作成を可能にするために行います。
 
-#### build(): PreauthorizeRequest {#preauth-req}
+#### build （）: PreauthorizeRequest {#preauth-req}
 
-* 新しいの参照を作成し、取得します `PreauthorizeRequest` オブジェクトインスタンス。
-* このメソッドは、新しい `PreauthorizeRequest` オブジェクトを呼び出すたびに、オブジェクトを呼び出します。
-* このメソッドは、現在の `PreauthorizeRequestBuilder` オブジェクトインスタンス（このメソッド呼び出しのレシーバー）。
-* この方法は副作用を生み出さないことに留意してください。
-* したがって、SDK の状態や `PreauthorizeRequestBuilder` オブジェクトインスタンス（このメソッド呼び出しのレシーバー）。
-* つまり、同じレシーバーに対してこのメソッドを連続して呼び出すと、新しい呼び出しが異なります `PreauthorizeRequest` オブジェクトインスタンスですが、同じ情報を持ちます ( 値が `PreauthorizeRequestBuilder` 呼び出しの間に変更されない。
-* 提供された情報（リソースおよびキャッシュ）を更新する必要がない場合は、事前認証 API を複数使用する際に PreauthorizeRequest インスタンスを再利用できます。
+* 新しい `PreauthorizeRequest` オブジェクト インスタンスの参照を作成および取得します。
+* このメソッドは、呼び出されるたびに新しい `PreauthorizeRequest` オブジェクトをインスタンス化します。
+* このメソッドは、このメソッド呼び出しの受信者である現在の `PreauthorizeRequestBuilder` オブジェクトインスタンスのコンテキストで、事前に設定された値を使用します。
+* この方法では副作用が生じないことを覚えておいてください。
+* したがって、このメソッド呼び出しの受信者である `PreauthorizeRequestBuilder` オブジェクトインスタンスの SDK の状態または状態は変更されません。
+* つまり、同じ受信者に対してこのメソッドを連続して呼び出すと、新しい `PreauthorizeRequest` オブジェクトのインスタンスは異なりますが、呼び出し間で値が変更されていない `PreauthorizeRequestBuilder` に設定されている場合は、同じ情報を持ちます。
+* 指定された情報（リソースとキャッシュ）を更新する必要がない場合は、事前認証 API の複数回使用するために、PreauthorizeRequest インスタンスを再利用できます。
 * `@returns {PreauthorizeRequest}`
 
-### インタフェース AccessEnablerCallback&lt;t> {#interface-access-enablr-callback}
+### インターフェイス AccessEnablerCallback&lt;T> {#interface-access-enablr-callback}
 
-#### onResponse(result: T); {#on-response-result}
+#### onResponse （result: T）; {#on-response-result}
 
-* 事前認証 API 要求が満たされたときに SDK によって呼び出される応答コールバック。
-* 結果は、成功した結果か、ステータスを含むエラーの結果のどちらかです。
+* 事前認証 API リクエストが満たされたときに SDK によって呼び出された応答コールバック。
+* 結果は、成功、またはステータスを含むエラー結果です。
 * `@param {T} result`
 
-#### onFailure(result: T); {#on-failure-result}
+#### onFailure （result: T）; {#on-failure-result}
 
-* 事前認証 API 要求を処理できなかった場合に SDK が呼び出す失敗コールバック。
-* 結果は、ステータスを含む失敗の結果です。
+* 事前承認 API リクエストの処理に失敗した場合に、SDK によって呼び出される失敗コールバック。
+* 結果は、ステータスを含む失敗結果です。
 * `@param {T} result`
 
-### PreauthorizeResponse クラス {#preauth-response-class}
+### クラス PreauthorizeResponse {#preauth-response-class}
 
-#### public status: Status; {#public-status}
+#### パブリックステータス：ステータス； {#public-status}
 
 * 戻り値：失敗した場合の追加のステータス（状態）情報。
-* Might hold a `null` の値です。
+* `null` 値を保持する可能性があります。
 
-#### 公開上の決定：決定[]; {#public-decisions}
+#### パブリック決定：決定 []; {#public-decisions}
 
-* 戻り値：事前認証の決定のリスト。 各リソースに対して 1 つの決定がおこなわれます。
-* 失敗した場合は、リストが空になる可能性があります。
+* 戻り値：事前認証の決定のリスト。 リソースごとに 1 つの決定。
+* 失敗した場合、リストは空の可能性があります。
 
-### クラスのステータス {#class-status}
+### クラスステータス {#class-status}
 
-#### public status: number; {#public-status-numbr}
+#### パブリックステータス：数値； {#public-status-numbr}
 
 * RFC 7231 に記載されている HTTP 応答ステータスコード。
-* の場合は 0 になります。 `Status` は、Adobe Pass Authentication Services の代わりに SDK から取得されます。
+* `Status` がAdobe Pass Authentication Services ではなく SDK から提供される場合は、0 になる可能性があります。
 
-#### public code: number; {#public-code-numbr}
+#### パブリックコード：number; {#public-code-numbr}
 
-* 標準のAdobe Pass Authentication Services エラーコードです。
-* 空の文字列または `null` の値です。
+* 標準のAdobe Pass認証サービスエラーコード。
+* 空の文字列または `null` の値を保持できます。
 
-#### public message: string; {#public-msg-string}
+#### パブリックメッセージ：string; {#public-msg-string}
 
-* 詳細なメッセージは、場合によっては MVPD 認証エンドポイントまたはプログラマーの劣化ルールによって提供されます。
-* 空の文字列または `null` の値です。
+* 詳細なメッセージ。場合によっては、MVPD 認証エンドポイントまたはプログラマの劣化ルールによって提供されます。
+* 空の文字列または `null` の値を保持できます。
 
-#### public details: string; {#public-details-strng}
+#### パブリックの詳細：文字列； {#public-details-strng}
 
-* 詳細なメッセージを保持します。このメッセージは、場合によっては MVPD 認証エンドポイントまたはプログラマーの劣化ルールによって提供されます。
-* 空の文字列または `null` の値です。
+* 場合によっては、MVPD 認証エンドポイントまたはプログラマの劣化ルールによって提供される詳細なメッセージを保持します。
+* 空の文字列または `null` の値を保持できます。
 
 
 #### public helpUrl: string; {#public-help-url-string}
 
-* この状態やエラーが発生した理由と考えられる解決策の詳細にリンクする URL。
-* 空の文字列または `null` の値です。
+* この状態/エラーが発生した理由と考えられる解決策に関する詳細情報にリンクする URL。
+* 空の文字列または `null` の値を保持できます。
 
-#### public trace: string; {#public-trace-string}
+#### パブリックトレース：string; {#public-trace-string}
 
-* この応答の一意の識別子。より複雑なシナリオで特定の問題を識別するためにサポートに連絡する際に使用できます。
-* 空の文字列または `null` の値です。
+* この応答の一意の ID で、より複雑なシナリオで特定の問題を特定するためにサポートに連絡する際に使用できます。
+* 空の文字列または `null` の値を保持できます。
 
-#### public action: string; {#public-action-string}
+#### パブリックアクション：string; {#public-action-string}
 
-* 状況の修正に推奨されるアクション。
-   * **なし**：残念ながら、この問題を修正するための事前定義済みのアクションはありません。 これは、パブリック API の不適切な呼び出しを示している可能性があります
-   * **設定**:TVE ダッシュボードを通じて、またはサポートに問い合わせて、設定を変更する必要があります。
-   * **出願登録**：アプリケーションは再度登録する必要があります。
-   * **認証**：ユーザーは認証するか、再認証する必要があります。
-   * **認証**：ユーザーは、特定のリソースの認証を取得する必要があります。
-   * **劣化**：何らかの形式の劣化を適用する必要があります。
-   * **再試行**：リクエストを再試行すると、問題が解決する場合があります
-   * **retry-after**：指定された時間が経過した後にリクエストを再試行すると、問題が解決する場合があります。
-* 空の文字列または `null` の値です。
+* 状況を改善するための推奨アクション。
+   * **なし**：残念ながら、この問題を修正するための事前定義済みのアクションはありません。 これは、パブリック API の呼び出しが正しくない可能性があります
+   * **設定**:TVE ダッシュボードを使用するか、サポートに連絡して、設定を変更する必要があります。
+   * **application-registration**：アプリケーションは、自分自身を再度登録する必要があります。
+   * **認証**：ユーザーは認証または再認証する必要があります。
+   * **authorization**：ユーザーは、特定のリソースに対して認証を取得する必要があります。
+   * **degradation**：何らかの形の最適化を適用する必要があります。
+   * **retry**: リクエストを再試行すると、問題が解決する場合があります
+   * **retry-after**：指定された期間が経過した後にリクエストを再試行すると、問題が解決する場合があります。
+* 空の文字列または `null` の値を保持できます。
 
 ### クラスの決定 {#class-decision}
 
-#### public id: string; {#public-id-string}
+#### パブリック id：文字列； {#public-id-string}
 
 * 決定が取得されたリソース ID。
 
-#### public authorized: boolean; {#public-auth-boolean}
+#### public authorized：ブール値； {#public-auth-boolean}
 
 * 決定が成功したかどうかを示すフラグの値。
 
-#### public error: Status; {#public-error-status}
+#### パブリックエラー：ステータス； {#public-error-status}
 
-* エラーが発生した場合の追加のステータス（状態）情報。 Might hold a `null` の値です。
+* エラーが発生した場合の追加のステータス（状態）情報。 `null` 値を保持する可能性があります。
 
-## クライアント実装の例 {#client-imp-example}
+## クライアントの実装例 {#client-imp-example}
 
 ```JavaScript
 let accessEnablerApi = new window.AccessEnabler.AccessEnabler("software statement");
@@ -197,18 +197,18 @@ accessEnablerApi.preauthorize(request, callback);
 
 ## シナリオの例 {#scenario-examples}
 
-### シナリオ 1：要求されたすべてのリソースが承認されました {#all-req-res-auth}
+### シナリオ 1：要求されたすべてのリソースが許可された {#all-req-res-auth}
 
 <table>
 <thead>
   <tr>
-    <th>エラーコードフラグの強化</th>
+    <th>強化されたエラーコードフラグ</th>
     <th>応答</th>
   </tr>
 </thead>
 <tbody>
 <tr>
-    <td>無効</td>
+    <td>Disabled</td>
     <td>
 
 ```JavaScript
@@ -235,21 +235,21 @@ accessEnablerApi.preauthorize(request, callback);
 </tbody>
 
 
-### シナリオ 2：リクエストされたリソースの一部が承認されました。 {#sm-req-res-auth}
+### シナリオ 2：リクエストされた一部のリソースが承認されました。 {#sm-req-res-auth}
 
 <table>
 <thead>
   <tr>
-    <th>エラーコードフラグの強化</th>
+    <th>強化されたエラーコードフラグ</th>
     <th>応答</th>
   </tr>
 </thead>
 <tbody>
 <tr>
-    <td>無効</td>
+    <td>Disabled</td>
     <td>
 
-    ``JavaScript
+    &quot;&#39;JavaScript
     
     {
     &quot;decisions&quot;: [
@@ -274,10 +274,10 @@ accessEnablerApi.preauthorize(request, callback);
   </tr>
 
 <tr>
-    <td>有効</td>
+    <td>Enabled</td>
     <td>
 
-    ``JavaScript
+    &quot;&#39;JavaScript
     {
     &quot;decisions&quot;: [
     {
@@ -290,40 +290,40 @@ accessEnablerApi.preauthorize(request, callback);
     &quot;error&quot;: {
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;preauthorization_denied_by_mvpd&quot;,
-    &quot;message&quot;: &quot;MVPD は、指定されたリソースに対する事前認証をリクエストする際に、\&quot;拒否\&quot;の決定を返しました。&quot;,
+    &quot;message&quot;: &quot;MVPD は、指定されたリソースの事前認証をリクエストしたときに、\&quot;Deny\&quot;決定を返しました。&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
-    &quot;action&quot;: &quot;none&quot;
+    &quot;action&quot; :&quot;none&quot;
     }
     },
     {
-    &quot;id&quot;: &quot;RES03&quot;,
-    &quot;authorized&quot;: true
-    },
-    ]
-    }
+     
+     
+     
+     
+     
     
-    &quot;&#39;
-
+     
+&quot;id&quot;: &quot;RES03&quot;,&quot;authorized&quot;: trueForce},JS 認証
 </td>
   </tr>
 </tbody>
 
 
-### シナリオ 3：リクエストされたリソースが認証されませんでした。 {#none-req-res-auth}
+### シナリオ 3：リクエストされたリソースがすべて承認されなかった。 {#none-req-res-auth}
 
 <table>
 <thead>
   <tr>
-    <th>エラーコードフラグの強化</th>
+    <th>強化されたエラーコードフラグ</th>
     <th>応答</th>
   </tr>
 </thead>
 <tbody>
 <tr>
-    <td>無効</td>
+    <td>Disabled</td>
     <td>
 
-    ``JavaScript
+    &quot;&#39;JavaScript
     
     {
     &quot;decisions&quot;: [
@@ -339,7 +339,7 @@ accessEnablerApi.preauthorize(request, callback);
     &quot;id&quot;: &quot;RES03&quot;,
     &quot;authorized&quot;: false
     }
-    ]
+    }
     }
     
     &quot;&#39;
@@ -348,47 +348,47 @@ accessEnablerApi.preauthorize(request, callback);
   </tr>
 
 <tr>
-    <td>有効</td>
+    <td>Enabled</td>
     <td>
 
-    ``JavaScript
+    &quot;&#39;JavaScript
     
     {
     &quot;decisions&quot;: [
     {
     &quot;id&quot;: &quot;RES01&quot;,
-    &quot;authorized&quot;: false,
+    &quot;authorized&quot;:false,
     &quot;error&quot;: {
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;preauthorization_denied_by_mvpd&quot;,
-    &quot;message&quot;: &quot;MVPD は、指定されたリソースに対する事前認証をリクエストする際に、\&quot;拒否\&quot;の決定を返しました。&quot;,
+    &quot;message&quot;: &quot;MVPD は、指定されたリソースの事前認証をリクエストする際に\&quot;Deny\&quot;という判断を返しました。&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;none&quot;
     }
     },
     {
-    &quot;id&quot;: &quot;RES02&quot;,
-    &quot;authorized&quot;: false,
+    &quot;id&quot;: &quot;RES 02,
+    &quot; &quot;authorized&quot;: false,
     &quot;error&quot;: {
     &quot;status&quot;: 403,
-    &quot;code&quot;: &quot;preauthorization_denied_by_mvpd&quot;,
-    &quot;message&quot;: &quot;MVPD は、指定されたリソースに対する事前認証をリクエストする際に、\&quot;拒否\&quot;の決定を返しました。&quot;,
-    &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
-    &quot;action&quot;: &quot;none&quot;
-    }
-    },
-    {
-    &quot;id&quot;: &quot;RES03&quot;,
-    &quot;authorized&quot;: false,
-    &quot;error&quot;: {
-    &quot;status&quot;: 403,
-    &quot;code&quot;: &quot;maximum_execution_time_exceeded&quot;,
-    &quot;message&quot;:&quot;許可された最大時間内にリクエストが完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。&quot;,
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    &quot;code&quot;: &quot;preauthorization_denied_by_mvpd&quot;,&quot;message&quot;: &quot;MVPD は、指定されたリソースの事前認証をリクエストする際に、\&quot;Deny\&quot;決定を返しました。&quot;,helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,&quot;action&quot;: &quot;none&quot;404},ID&quot;: &quot;RES03&quot;,error&quot;: {status&quot;: 403,&quot;code&quot; execution_time_exceeded&quot;,&quot;message&quot;: &quot;リクエストが最大許容時間内に完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;retry&quot;
     }
     }
-    ]
+    }
     }
     
     &quot;&#39;
@@ -398,12 +398,12 @@ accessEnablerApi.preauthorize(request, callback);
 </tbody>
 
 
-### シナリオ 4：クライアントリクエストが正しくありません — リソースが指定されていません。 {#bad-cl-req-no-res-sp}
+### シナリオ 4：無効なクライアントリクエスト – リソースが指定されていません。 {#bad-cl-req-no-res-sp}
 
 <table>
 <thead>
   <tr>
-    <th>エラーコードフラグの強化</th>
+    <th>強化されたエラーコードフラグ</th>
     <th>応答</th>
   </tr>
 </thead>
@@ -412,13 +412,13 @@ accessEnablerApi.preauthorize(request, callback);
     <td>無効/有効</td>
     <td>
 
-    ``JavaScript
+    &quot;&#39;JavaScript
     {
     &quot;status&quot;: {
     &quot;status&quot;: 400,
     &quot;code&quot;: &quot;internal_error&quot;,
     &quot;message&quot;: &quot;内部エラーが原因でリクエストが失敗しました。&quot;,
-    &quot;details&quot;: &quot;必須の String[] パラメーター「resource」が存在しません&quot;,
+    &quot;details&quot;: &quot;Required String[] パラメーター&#39;resource&#39;が存在しません&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;none&quot;
     },
@@ -431,12 +431,12 @@ accessEnablerApi.preauthorize(request, callback);
 </tbody>
 </table>
 
-### シナリオ 5：無効なクライアントリクエスト — 指定されたリソースが空です。 {#bad-cl-req-empt-res-sp}
+### シナリオ 5：無効なクライアントリクエスト – 空のリソースが指定されました。 {#bad-cl-req-empt-res-sp}
 
 <table>
 <thead>
   <tr>
-    <th>エラーコードフラグの強化</th>
+    <th>強化されたエラーコードフラグ</th>
     <th>応答</th>
   </tr>
 </thead>
@@ -445,12 +445,12 @@ accessEnablerApi.preauthorize(request, callback);
     <td>無効/有効</td>
     <td>
 
-    ``JavaScript
+    &quot;&#39;JavaScript
     {
     &quot;status&quot;: {
     &quot;status&quot;: 412,
     &quot;code&quot;: &quot;missing_resource&quot;,
-    &quot;message&quot;: &quot;リソースパラメータが見つかりません&quot;,
+    &quot;message&quot;: &quot;The resource parameter is missing&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;none&quot;
     },
@@ -468,16 +468,16 @@ accessEnablerApi.preauthorize(request, callback);
 <table>
 <thead>
   <tr>
-    <th>エラーコードフラグの強化</th>
+    <th>強化されたエラーコードフラグ</th>
     <th>応答</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td>有効</td>
+    <td>Enabled</td>
     <td>
 
-    ``JavaScript
+    &quot;&#39;JavaScript
     {
     &quot;decisions&quot;: [
     {
@@ -486,7 +486,7 @@ accessEnablerApi.preauthorize(request, callback);
     &quot;error&quot;: {
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;network_received_error&quot;,
-    &quot;message&quot;: &quot;関連するパートナーサービスから応答を取得する際に、読み取りエラーが発生しました。 リクエストを再試行すると、問題が解決する場合があります。&quot;,
+    &quot;message&quot;: &quot;関連するパートナーサービスから応答を取得する際に読み取りエラーが発生しました。 リクエストを再試行すると、問題が解決する場合があります。&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;retry&quot;
     }
@@ -497,12 +497,12 @@ accessEnablerApi.preauthorize(request, callback);
     &quot;error&quot;: {
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;network_received_error&quot;,
-    &quot;message&quot;: &quot;関連するパートナーサービスから応答を取得する際に、読み取りエラーが発生しました。 リクエストを再試行すると、問題が解決する場合があります。&quot;,
+    &quot;message&quot;: &quot;関連するパートナーサービスから応答を取得する際に読み取りエラーが発生しました。 リクエストを再試行すると、問題が解決する場合があります。&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;retry&quot;
     }
     }
-    ]
+    }
     }
     &quot;&#39;
 
@@ -511,12 +511,12 @@ accessEnablerApi.preauthorize(request, callback);
 </tbody>
 </table>
 
-### シナリオ 7：有効な AuthN セッションがなく、フローを事前認証が呼び出されました。
+### シナリオ 7：有効な AuthN セッションなしで、事前承認フローが呼び出された。
 
 <table>
 <thead>
   <tr>
-    <th>エラーコードフラグの強化</th>
+    <th>強化されたエラーコードフラグ</th>
     <th>応答</th>
   </tr>
 </thead>
@@ -525,12 +525,12 @@ accessEnablerApi.preauthorize(request, callback);
     <td>無効/有効</td>
     <td>
 
-    ``JavaScript
+    &quot;&#39;JavaScript
     {
     &quot;status&quot;: {
     &quot;status&quot;: 0,
     &quot;code&quot;: &quot;authentication_session_missing&quot;,
-    &quot;message&quot;:&quot;このリクエストに関連付けられた認証セッションを取得できませんでした。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。&quot;,
+    &quot;message&quot;: &quot;このリクエストに関連付けられた認証セッションを取得できませんでした。 続行するには、ユーザーは、サポートされている MVPD で再認証する必要があります。&quot;,
     &quot;action&quot;: &quot;authentication&quot;
     },
     &quot;decisions&quot;: []
@@ -545,12 +545,12 @@ accessEnablerApi.preauthorize(request, callback);
 
 
 
-### シナリオ 8: setRequestor の呼び出しが完了する前に、事前承認フローが呼び出されました。
+### シナリオ 8:setRequestor 呼び出しが完了する前に、事前承認フローが呼び出された
 
 <table>
 <thead>
   <tr>
-    <th>エラーコードフラグの強化</th>
+    <th>強化されたエラーコードフラグ</th>
     <th>応答</th>
   </tr>
 </thead>
@@ -559,12 +559,12 @@ accessEnablerApi.preauthorize(request, callback);
     <td>無効/有効</td>
     <td>
 
-    ``JavaScript
+    &quot;&#39;JavaScript
     {
     &quot;status&quot;: {
     &quot;status&quot;: 0,
     &quot;code&quot;: &quot;requestor_not_configured&quot;,
-    &quot;message&quot;: &quot;リクエスト元は未設定で、setRequestor API 以外の API を使用するための前提条件です。&quot;,
+    &quot;message&quot;: &quot;setRequestor API 以外の API を使用するための前提条件である、リクエスターがまだ設定されていません。&quot;,
     &quot;action&quot;: &quot;retry&quot;
     },
     &quot;decisions&quot;: []

@@ -1,103 +1,104 @@
 ---
-title: 追跡防止評価Google Chrome
-description: 追跡防止評価Google Chrome
-source-git-commit: 579ce868b6ee94e1854bbc51145fc7840268db26
+title: トラッキング防止評価GoogleChrome
+description: トラッキング防止評価GoogleChrome
+exl-id: f3d552da-2fd7-4ac8-9f82-876625af5d47
+source-git-commit: 8552a62f4d6d80ba91543390bf0689d942b3a6f4
 workflow-type: tm+mt
 source-wordcount: '650'
 ht-degree: 0%
 
 ---
 
-# トラッキング防止評価 — Google Chrome {#tracking-prevention-assessment-google-chrome}
+# トラッキング防止評価 – Google Chrome {#tracking-prevention-assessment-google-chrome}
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 概要
 
-このドキュメントは、有用なリソースを集約し、サードパーティ Cookie を段階的に廃止する取り組みの一環として、Google Chrome が予定している今後の変更を評価します。
+このドキュメントでは、サードパーティ cookie を段階的に廃止する取り組みの一環として、役に立つリソースを集計し、Google Chromeで予定されている今後の変更を評価します。
 
-この評価は、Google Chrome ブラウザーで実行され、Adobe Pass Access Enabler JavaScript SDK v4 を使用してAdobe Pass Authentication バックエンドサービスと統合している TV Everywhere(TVE) アプリケーションに対して実行されます。
+この評価は、Adobe Pass Chrome ブラウザーで動作し、Google Access Enabler JavaScript SDK v4 を使用してAdobe Pass Authentication のバックエンドサービスと統合している、TV Everywhere （TVE）アプリケーションに対して実行されます。
 
 ## パブリックリソース
 
-Googleの開発者向け Web サイトや公式ブログから集計したリソースのリストを以下に示します。このブログは、お客様に相談を勧めるものです。
+Googleの開発者向け web サイトと、アドビが推奨する公式ブログから集約されたリソースのリストを以下に示します。
 
-* [Chrome でサードパーティ Cookie を段階的に廃止するための次の手順](https://blog.google/products/chrome/privacy-sandbox-tracking-protection/)
-* [プライバシーサンドボックスの開発者向けドキュメント](https://developers.google.com/privacy-sandbox)
-* [サードパーティ Cookie の制限に対する準備](https://developers.google.com/privacy-sandbox/3pcd)
-* [サードパーティ Cookie のフェーズアウトの準備](https://developers.google.com/privacy-sandbox/3pcd/prepare/prepare-for-phaseout)
-* [サードパーティ Cookie の終了の準備](https://developers.google.com/privacy-sandbox/blog/cookie-countdown-2023oct)
-* [Chrome ユーザーの 1%に対し、デフォルトで制限されるサードパーティ cookie](https://developers.google.com/privacy-sandbox/blog/cookie-countdown-2024jan)
+* [Chromeでのサードパーティ cookie の廃止に向けた次のステップ ](https://blog.google/products/chrome/privacy-sandbox-tracking-protection/)
+* [ プライバシーサンドボックスに関する開発者向けドキュメント ](https://developers.google.com/privacy-sandbox)
+* [ サードパーティ cookie 制限の準備 ](https://developers.google.com/privacy-sandbox/3pcd)
+* [ サードパーティ cookie のフェーズアウトの準備 ](https://developers.google.com/privacy-sandbox/3pcd/prepare/prepare-for-phaseout)
+* [ サードパーティ cookie の提供終了に向けた準備 ](https://developers.google.com/privacy-sandbox/blog/cookie-countdown-2023oct)
+* [Chrome ユーザーの 1% に対して、デフォルトでサードパーティ Cookie が制限される ](https://developers.google.com/privacy-sandbox/blog/cookie-countdown-2024jan)
 
 ## タイムライン
 
-簡単な概要として、Google Chrome のテスト開始時 [追跡保護](https://privacysandbox.com/)：すべてのサードパーティ cookie に影響するクロスサイトトラッキングを制限する新機能。
+概要を簡単に説明するために、Google Chromeでは、すべてのサードパーティ cookie に影響を与えるクロスサイトトラッキングを制限する新機能である [ トラッキング保護 ](https://privacysandbox.com/) のテストを開始しました。
 
-最初は、2024 年の初めに開始され、ユーザーの約 1%に影響を与えます。（暫定的な）計画は、2024 年の第 3 四半期以降、最大 100%のユーザーに対してこれを拡張する予定です。
+当初は 2024 年初めに開始し、ユーザーの約 1% に影響を与えており、2024 年第 3 四半期からユーザーの最大 100% に拡張する（暫定）計画です。
 
 ## 評価
 
-Googleは、サードパーティ cookie フェーズアウトに備えて、推奨されるプレイブックをまとめたドキュメントを、 https://developers.google.com/privacy-sandbox/3pcd/prepare/prepare-for-phaseoutのリンクで公開しました。
+Googleは、サードパーティ cookie の廃止に備えて推奨プレイブックを集計したドキュメントを次のリンクで公開しました：https://developers.google.com/privacy-sandbox/3pcd/prepare/prepare-for-phaseout。
 
-Google Chrome ブラウザーで動作し、Adobe Pass Access Enabler JavaScript SDK v4 を使用してAdobe Pass認証バックエンドサービスと統合している TV Everywhere(TVE) アプリケーションの評価については、このプレイブックに従いました。
+Google Chrome ブラウザーで動作し、Adobe Pass Access Enabler JavaScript SDK v4 を使用してAdobe Pass Authentication バックエンドサービスと統合している TV Everywhere （TVE）アプリケーションを評価する際には、このプレイブックを採用しています。
 
 ### 結論
 
-アドビのテストに基づき、主な TVE ビジネスフローであるGoogle Chrome の今後のアップデートをシミュレートします **は引き続き期待どおりに機能します**.
+アドビのテストに基づき、今後のGoogle Chromeのアップデートをシミュレートすると、主要な TVE ビジネスフローは **引き続き期待どおりに機能します** です。
 
-ただし、Googleの広範な戦略を認識することが重要です。これには、サードパーティ Cookie の廃止だけでなく、サードパーティストレージのパーティション分割も含まれます。
+ただし、Googleの幅広い戦略を認識することが重要です。この戦略では、サードパーティ cookie を廃止するだけでなく、サードパーティのストレージを分割することもできます。
 
-その結果、Chrome ユーザーは、シングルサインオン (SSO)、シングルログアウト (SLO) およびパッシブ認証機能で中断が発生し、使用する TVE アプリケーションごとに別々のログイン/ログアウトアクションが必要になります（Safari での現在の操作と一致）。
+その結果、Chrome ユーザーは、シングルサインオン（SSO）、シングルログアウト（SLO）、パッシブ認証機能で混乱し、使用する TVE アプリケーションごとに個別のログイン/ログアウトアクションが必要になります（Safari の現在のエクスペリエンスに合わせて）。
 
-## 自己評価を求める
+## 自己評価の呼び出し
 
-当社は、お客様に対し、同様の評価を事前に行い、潜在的な問題を十分に特定し、改訂されたGoogle Chrome ユーザーエクスペリエンスに慣れることを強くお勧めします。
+GoogleChromeの利用者の経験を見直し、課題を事前に洗い出し、理解を深めていただくためにも、同様の検討を積極的に行っていただくことを求めます。
 
-この評価は、特にAdobe Pass Access Enabler JavaScript SDK v4 統合に関して、ファーストパーティのサービスとサードパーティのサービスの両方を対象とする必要があります。
+この評価には、特にAdobe Pass Access Enabler JavaScript SDK v4 統合に関して、ファーストパーティのサービスとサードパーティのサービスの両方が含まれる必要があります。
 
-認証、事前認証、承認、ユーザーメタデータ、ログアウトなど、TVE ビジネスフローに関する問題が発生した場合は、Zendesk チケットを通じてカスタマーケアチームとレポートを提出するようお勧めします。
+認証、事前認証、認証、ユーザーメタデータ、ログアウトなど、TVE ビジネスフローに関連する問題が発生した場合は、カスタマーケアチームの Zendesk チケットを通じてレポートを提出することをお勧めします。
 
-自己評価計画の策定に関するサポートについては、以下の節を参照してください。
+自己評価プランの作成については、以下のセクションを参照してください。
 
-### cookie の使用の監査
+### Cookie の使用の監査
 
-Chrome 118 以降、 [開発ツールの問題](https://developer.chrome.com/docs/devtools/issues/) 「 」タブで、影響を受ける可能性のある cookie が次のメッセージで強調表示されます。 `Cookie sent in cross-site context will be blocked in future Chrome versions`.
+Chrome 118 以降の「[DevTools の問題 ](https://developer.chrome.com/docs/devtools/issues/)」タブでは、影響を受ける可能性のある Cookie がハイライト表示され、次のメッセージが表示されます。`Cookie sent in cross-site context will be blocked in future Chrome versions`
 
-サードパーティの使用としてマークされた cookie は、 `SameSite=None` 属性値。
+サードパーティで使用するためにマークされた Cookie は、`SameSite=None` 属性値で識別できます。
 
-詳しくは、次のリンクを参照してください。 https://developers.google.com/privacy-sandbox/3pcd/prepare/audit-cookies
+詳しくは、https://developers.google.com/privacy-sandbox/3pcd/prepare/audit-cookiesを参照してください。
 
 ### 破損のテスト
 
-破損をテストするには、次を使用して Chrome を起動します。 `--test-third-party-cookie-phaseout` コマンドラインフラグまたは Chrome 118 から有効 `#test-third-party-cookie-phaseout` in `chrome://flags/`.
+破損のテストを行うには、`--test-third-party-cookie-phaseout` コマンドラインフラグを使用するか、Chrome 118 からChromeを起動して、`chrome://flags/` で `#test-third-party-cookie-phaseout` を有効にします。
 
-これにより、サードパーティ Cookie をブロックするGoogle Chrome が設定され、フェーズアウト後の状態を最適にシミュレートするために、将来の機能がアクティブになるようになります。
+これにより、Google Chromeがサードパーティ cookie をブロックするように設定され、フェーズ アウト後の状態を最適にシミュレーションするために、今後の機能がアクティブになります。
 
-以下の Chrome フラグの技術仕様を詳しく見てみるとよいでしょう。
+次のChrome フラグの技術仕様を詳しく調べる価値があります。
 
 * `#test-third-party-cookie-phaseout`
 * `#third-party-storage-partitioning`
 
-詳しくは、次のリンクを参照してください。 https://developers.google.com/privacy-sandbox/3pcd/prepare/test-for-breakage
+詳しくは、https://developers.google.com/privacy-sandbox/3pcd/prepare/test-for-breakageを参照してください。
 
 ## その他のブラウザー
 
 ### Firefox
 
-Firefox には、と呼ばれるメカニズムがロールアウトされていました。 `Enhanced Tracking Protection` 2 年前に
+Firefox は、数年前に `Enhanced Tracking Protection` と呼ばれるメカニズムのロールアウトを行いました。
 
-Firefox の役に立つリソースを以下に示します。
+Firefox の役立つリソースの一部を以下に示します。
 
 * https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 * https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-android
 
 ### Safari
 
-Safari には、と呼ばれるメカニズムがロールアウトされていました。 `Intelligent Tracking Prevention` 2 年前に
+Safari は彼らのメカニズムのロールアウトを呼び出しました：数年前に `Intelligent Tracking Prevention`。
 
-Safari の役に立つリソースを以下に示します。
+Safari の便利なリソースの一部を以下に示します。
 
 * https://webkit.org/blog/9521/intelligent-tracking-prevention-2-3/
 * https://webkit.org/blog/8828/intelligent-tracking-prevention-2-2/
@@ -105,6 +106,6 @@ Safari の役に立つリソースを以下に示します。
 * https://webkit.org/blog/8142/intelligent-tracking-prevention-1-1/
 * https://webkit.org/blog/7675/intelligent-tracking-prevention/
 
-Adobe Passの役に立つリソースを以下に示します。
+Adobe Passの役立つリソースの一部を以下に示します。
 
-* [追跡防止の評価 — Apple Safari](tracking-prevention-assessment-apple-safari.md)
+* [トラッキング防止の評価 – Apple Safari](tracking-prevention-assessment-apple-safari.md)

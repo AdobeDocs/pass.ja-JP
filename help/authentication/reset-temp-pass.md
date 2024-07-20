@@ -1,9 +1,10 @@
 ---
 title: 一時パスをリセット
 description: 一時パスをリセット
-source-git-commit: 4ae0b17eff2dfcf0aaa5d11129dfd60743f6b467
+exl-id: ab39e444-eab2-4338-8d09-352a1d5135b6
+source-git-commit: 28d432891b7d7855e83830f775164973e81241fc
 workflow-type: tm+mt
-source-wordcount: '0'
+source-wordcount: '439'
 ht-degree: 0%
 
 ---
@@ -12,37 +13,40 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 >
->Reset Temp Pass API を使用するには、次の操作が必要です。
->- 登録済みのアプリケーションのソフトウェア文をサポートチームに問い合わせます。
->- 次に基づいてアクセストークンを取得する [動的クライアントの登録](dynamic-client-registration.md)
+>Reset Temp Pass API を使用するには、次の手順を実行する必要があります。
+>- 登録したアプリケーションのソフトウェアに関する説明をサポートチームに問い合わせます
+>- [ 動的クライアント登録 ](dynamic-client-registration.md) に基づくアクセストークンの取得
 > 
 
-次に対して **特定の一時パスをリセットする**, Adobe Pass Authentication は、プログラマーに *公開* web API:
+**特定の一時パスをリセット** するために、Adobe Pass認証はプログラマーに *パブリック* web API を提供します。
 
-- **環境：** reset Temp PassAdobe呼び出しを受け取るネットワーク Pay-TV パスサーバーエンドポイントを指定します。 可能な値： **Prequal** (*mgmt-prequal.auth.adobe.com*), **リリース** (*mgmt.auth.adobe.com*) または **カスタム** (Adobe内部テスト用に予約 )。
-- **OAuth2 アクセストークン：** OAuth2 トークンは、AdobePay-TV 認証用のプログラマーを認証するために必要です。 このようなトークンは、 [動的クライアントの登録](dynamic-client-registration.md).
-- **一時パス ID :** リセットする一時パス MVPD の一意の ID。（プログラマは複数の Temp Pass MVPD を使用し、特定の MVPD をリセットしたい場合）
-- **汎用キー：** 一部の Temp Pass MVPDs ( 例： [プロモーション一時パス](promotional-temp-pass.md)) をクリックします。
+- **Environment:** リセットされた一時パス ネットワーク呼び出しを受け取るAdobeの Pay-TV パス サーバーエンドポイントを指定します。 使用可能な値：**Prequal** （*mgmt-prequal.auth.adobe.com*）、**リリース** （*mgmt.auth.adobe.com*）または **カスタム** （Adobeの内部テスト用に予約済み）。
+- **OAuth2 アクセストークン：** Adobeの有料テレビ認証用にプログラマーを認証するには、OAuth2 トークンが必要です。 このようなトークンは、[ 動的クライアント登録 ](dynamic-client-registration.md) から取得できます。
+- **Temp Pass ID:** リセットされる Temp Pass MVPD の一意の ID。（プログラマは複数の Temp Pass MVPD を使用でき、特定の MVPD をリセットしたい）
+- **汎用キー：** 一部の一時パス MVPD （例：[ プロモーション一時パス ](promotional-temp-pass.md)）。
 
-上記のパラメーター ( *汎用キー*) は必須です。 次に、パラメーターと関連するネットワーク呼び出しの例を示します（例は、*curl *コマンドの形式です）。
+上記のパラメーターはすべて（（汎用キー *を除く）必須* す。 パラメーターと関連するネットワーク呼び出しの例を次に示します（例は*curl *コマンドの形式です）。
 
-- **環境：** リリース (*mgmt.auth.adobe.com*)
-- **OAuth2 アクセストークン：** &lt;access_token> から [動的クライアントの登録](dynamic-client-registration.md)
-- **プログラマー ID:** REF
-- **一時パス ID :** TempPassREF
+- **環境：** リリース（*mgmt.auth.adobe.com*）
+- [ 動的クライアント登録 ](dynamic-client-registration.md) からの **OAuth2 アクセストークン：** &lt;access_token>
+- **プログラマ ID:** 参照
+- **一時パス ID:** TempPassREF
 - **汎用キー：** null （値が指定されていません）
 
 ```curl
 curl -X DELETE -H "Authorization:Bearer <access_token_here>" "https://mgmt.auth.adobe.com/reset-tempass/v3/reset?device_id=f23804a37802993fdc8e28a7f244dfe088b6a9ea21457670728e6731fa639991&requestor_id=REF&mvpd_id=TempPassREF"
 ```
 
-DELETEHTTP リクエストが **/reset** エンドポイント、を渡す *OAuth2 アクセストークン* を設定し、 *デバイス ID*, *要求者 ID* および *一時パス ID (MVPD ID)* をパラメーターとして使用します。
+認証ヘッダーの *OAuth2 アクセストークン* と、*デバイス ID **、* リクエスター ID *、* 一時渡し ID （MVPD ID）をパラメーターとして渡して、**/reset *エンドポイントに対してDELETEの HTTP リクエストが行わ* ます。
 
-プログラマが *汎用キー*&#x200B;を呼び出すと、別の HTTP 呼び出しが実行されます ( 今回は **/reset/generic** エンドポイント )、を渡す *汎用キー* 内側 *key* リクエストパラメーター。
+プログラマーが *Generic Key* の値を指定すると、別の HTTP 呼び出しが実行され（今回は **/reset/generic** エンドポイントに対して）、*key* リクエストパラメーター内の *Generic Key* を渡します。
 
-例えば、 *汎用キー* を（この種の機能をサポートする Temp Pass MVPDs 用に）電子メールアドレスハッシュに対して送信すると、次の HTTP 呼び出しが行われます ( 電子メールは `user@domain.com` その SHA-256 ハッシュは `f7ee5ec7312165148b69fcca1d29075b14b8aef0b5048a332b18b88d09069fb7`):
+例えば、*汎用キー* を電子メールアドレスハッシュに設定します（例：
+この種の機能をサポートする Temp Pass MVPD）は、
+http 呼び出しの後（メールは SHA-256`user@domain.com` 送信されます）
+ハッシュは `f7ee5ec7312165148b69fcca1d29075b14b8aef0b5048a332b18b88d09069fb7`）:
 
 ```curl
 curl -X DELETE -H "Authorization:Bearer <access_token_here>"
@@ -50,28 +54,28 @@ curl -X DELETE -H "Authorization:Bearer <access_token_here>"
 ```
 
 
-次に対して **すべてのデバイスの特定の一時パスをリセットする**, Adobe Pass Authentication は、プログラマーに *公開* web API:
+**すべてのデバイスに対して特定の一時パスをリセット** するために、Adobe Pass認証はプログラマーに *パブリック* web API を提供します。
 
 ```url
 DELETE https://mgmt.auth.adobe.com/reset-tempass/v3/reset
 ```
 
 >[!NOTE]
->上記の URL は、以前のリセット API に代わるものです。 古いリセット API(v1) はサポートされなくなりました。
+>上記の URL は、以前のリセット API より優先されます。 古いリセット API （v1）はサポートされなくなりました。
 
 - **プロトコル：** HTTPS
 - **ホスト：**
-   - リリース — mgmt.auth.adobe.com
+   - リリース - mgmt.auth.adobe.com
    - Prequal - mgmt-prequal.auth.adobe.com
 - **パス：** /reset-tempass/v3/reset
 - **クエリパラメーター：** `device_id=all&requestor_id=REQUESTOR_ID&mvpd_id=TEMPPASS_MVPD_ID`
-- **ヘッダー：** Authorization: Bearer &lt;access_token_here>
+- **ヘッダー：** 認証：ベアラー &lt;access_token_here>
 - **応答：**
-   - 成功 — HTTP 204
+   - 成功 – HTTP 204
    - 失敗：
-      - HTTP 400 が正しくないリクエストを示しています
-      - アクセスが拒否された場合は HTTP 401 クライアントは新しい access_token を MUST リクエストします。
-      - HTTP 403（クライアント ID が要求の実行を許可されなくなった場合） 新しいクライアント資格情報が生成される必要があります。
+      - 誤ったリクエストに対する HTTP 400
+      - HTTP 401：アクセスが拒否された場合。 クライアントは新しい access_token を要求する必要があります。
+      - クライアント ID がリクエストの実行を許可されなくなった場合は HTTP 403。 新しいクライアント資格情報を生成する必要があります。
 
 
 例：

@@ -11,9 +11,9 @@ ht-degree: 0%
 
 # 使用パターン {#usage-patterns}
 
-アカウント IQ は、加入者アカウントのユーザーを、その社会行動の観点から、旅行者または通勤者、大家族、コミュニティ共有などの様々なカテゴリに分類します。 この **使用パターン** このページには、これらのユーザータイポロジに関するいくつかの異なる分析およびレポートが表示されます。 例： **使用パターンの分布** レポートでは、現在のセグメントの使用状況の動作とすべてのアカウントの使用状況の比較が行われます。
+Account IQでは、購読者のアカウントのユーザーを、旅行や通勤、大家族、コミュニティシェアリングなどの社会的行動の観点から、様々なカテゴリに分類しています。 **使用パターン** ページには、これらのユーザータイポロジに関するいくつかの異なる分析およびレポートが表示されます。 例えば、**使用状況パターンの配分** レポートでは、現在のセグメントのすべてのアカウントに対する使用状況の動作を比較します。
 
-アプリの他のページと同様に、ここでの分析とレポートは、 [セグメントパネル](/help/accountiq/segments-timeinterval.md).
+アプリの他のページと同様に、ここでの分析とレポートは、[ セグメントパネル ](/help/accountiq/segments-timeinterval.md) で定義された現在のセグメントに基づいています。
 
 ## 使用パターンの分布 {#usage-pattern-dis}
 
@@ -35,13 +35,13 @@ ht-degree: 0%
 
 ![](assets/segment-users-industry.png)
 
-*使用パターン分布 – セグメントと業界のユーザー*
+*利用パターン分布 – セグメントと業界のユーザー*
 
 +++
 
 ## セグメントでの使用パターンの分布 {#usage-pattern-dis-segment}
 
-この **[!UICONTROL Usage patterns distribution in segment]** パネルには、各ユーザーパターンに関する次の情報が表形式で表示されます。
+**[!UICONTROL Usage patterns distribution in segment]** のパネルには、各ユーザーパターンに関する次の情報が一覧表示されます。
 
 * 個々のアカウントが該当する確率範囲を共有します。
 * そのパターン内のアカウントの数と割合。
@@ -49,7 +49,7 @@ ht-degree: 0%
 
 ![](assets/usage-pattern-segmentwise.png)
 
-*セグメントでの使用パターンの分布*
+*セグメントにおける使用パターンの分布*
 
 例えば、上記のビジュアライゼーションでは次のようになります。
 
@@ -63,34 +63,34 @@ ht-degree: 0%
 
 +++D2C サービス：地域の使用パターンの分布
 
-この **[!UICONTROL Usage pattern distribution]** 表は、での使用パターンを比較したものです [ビデオカテゴリ](product-concepts.md##video-category-def) 現在のセグメント内。
+**[!UICONTROL Usage pattern distribution]** の表は、現在のセグメントにおける [ ビデオカテゴリ ](product-concepts.md##video-category-def) の使用パターンを比較したものです。
 
 ![](assets/d2c-usage-patterns-regions.png)
 
-*地域の使用パターンの分布*
+*地域における利用パターンの分布*
 
 >[!NOTE]
 >
->前の画像に表示されるビデオカテゴリ（など）。 **地域** は一例です。 アカウント IQ にログインすると、ラベルに会社の特定のビデオカテゴリが表示されます。
+>前の画像で示したビデオカテゴリ（例：**地域** は、一例です。 Account IQにログインすると、会社の特定のビデオカテゴリがラベルに表示されます。
 
 +++
 
 +++プログラマー：MVPD の使用パターンの分布
 
-この **[!UICONTROL Usage pattern distribution]** 現在のセグメントにおける MVPD の使用パターン分布の比較を表に示します。
+**[!UICONTROL Usage pattern distribution]** の表は、現在のセグメントにおける MVPD の使用パターン分布の比較を示しています。
 
 ![](assets/usage-patterns-mvpdwise.png)
 
-*プログラマー向けの使用パターンの分布*
+*プログラマー向け使用パターン分布*
 
 +++
 
 +++MVPD：プログラマー向けの使用パターンの分布
 
-この **[!UICONTROL Usage pattern distribution]** 表は、現在のセグメントのプログラマーまたはチャネルの使用パターン分布の比較を示しています。
+**[!UICONTROL Usage pattern distribution]** の表は、現在のセグメントのプログラマーまたはチャネルの使用パターン分布を比較したものです。
 
 ![](assets/usage-patterns-programmerwise.png)
 
-*MVPD の使用パターンの分布*
+*MVPD の利用パターン分布*
 
 +++

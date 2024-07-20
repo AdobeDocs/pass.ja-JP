@@ -1,6 +1,6 @@
 ---
-title: Android の事前認証
-description: Android の事前認証
+title: Androidを事前認証
+description: Androidを事前認証
 exl-id: b5337595-135f-4981-a578-2da432f125d6
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
@@ -13,16 +13,16 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 </br>
 
 
-1 つ以上のリソースの事前認証決定を取得するには、アプリケーションが事前認証 API メソッドを使用する必要があります。 UI ヒントやコンテンツのフィルタリングには、事前認証 API リクエストを使用する必要があります。 指定したリソースへのアクセス権をユーザーに付与する前に、実際の認証 API リクエストを実行する必要があります。
+1 つ以上のリソースの事前認証の決定を取得するには、アプリケーションで事前認証 API メソッドを使用する必要があります。 事前認証 API リクエストは、UI ヒントやコンテンツフィルタリングに使用する必要があります。 指定したリソースへのアクセス権をユーザーに付与する前に、実際の認証 API リクエストを行う必要があります。
 
 
 
-予期しないエラー（ネットワークの問題、MVPD 認証エンドポイントが使用できないなど）が発生した場合、 Preauthorize API リクエストがAdobe Pass Authentication Services によって処理される際に発生する、影響を受けるリソースの 1 つ以上の区切られたエラー情報が、Preauthorize API の応答結果に含まれます。
+予期しないエラーが発生した場合（ネットワークの問題、MVPD 認証エンドポイントが利用できないなど） 事前認証 API リクエストがAdobe Pass認証サービスによって処理される際に、影響を受けるリソースの 1 つ以上のエラー情報が事前認証 API 応答の結果の一部として含まれます。
 
 
 ## `public void preauthorize(PreauthorizeRequest request, AccessEnablerCallback<PreauthorizeResponse> callback);`
@@ -30,18 +30,19 @@ ht-degree: 0%
 
 **説明：**
 
-**可用性：** v3.6.0 以降
+**提供：** v3.6.0 以降
 
 **パラメーター：**
 
-- *PreauthorizeRequest*：リクエストの定義に使用するビルダーオブジェクト。
+- *PreauthorizeRequest*：リクエストの定義に使用されるビルダーオブジェクト
 - AccessEnablerCallback :API 応答を返すために使用されるコールバック
-- PreauthorizeResponse :API 応答コンテンツを返すために使用されるオブジェクト
+- PreauthorizeResponse :API を返すために使用されるオブジェクト
+応答コンテンツ
 
 
 ### public クラス PreauthorizeRequest {#androidpreauthorizerequest}
 
-**クラス PreauthorizeRequest.Builder**
+**PreauthorizeRequest.Builder クラス**
 
 ```java
     ///
@@ -62,7 +63,7 @@ ht-degree: 0%
     ///
 ```
 
-**public Builder setResources(List\&lt;string> リソース )**
+**public Builder setResources （List\&lt;String\> resources）**
 
 ```
     ///
@@ -84,8 +85,8 @@ ht-degree: 0%
 ```
 
 
-**public Builder disableFeatures(Set\&lt;preauthorizerequest.feature>
-機能 )**
+**パブリック ビルダー disableFeatures （Set\&lt;PreauthorizeRequest.Feature\>
+機能）**
 
 ```
     ///
@@ -105,7 +106,7 @@ ht-degree: 0%
     ///
 ```
 
-**public PreauthorizeRequest build()**
+**public PreauthorizeRequest build （）**
 
 **enum PreauthorizeRequest.Feature**
 
@@ -141,7 +142,7 @@ ht-degree: 0%
 
 
 
-### PreauthorizeResponse クラス {#preauthorizeresponse}
+### クラス PreauthorizeResponse {#preauthorizeresponse}
 
 ```java
     ///
@@ -162,7 +163,7 @@ ht-degree: 0%
 ```
 
 
-**クラスのステータス** {#status}
+**クラスの状態** {#status}
 
 ```java
 ///
@@ -226,7 +227,7 @@ ht-degree: 0%
 
 </br>
 
->**クラスの決定** {#decision}
+>**級決**{#decision}
 
 ```
     ///

@@ -1,24 +1,24 @@
 ---
-title: Adobe Pass Concurrency Monitoring 2.2.2 リリースノート
-description: Adobe Pass Concurrency Monitoring 2.2.2 リリースノート
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+title: Adobe Pass同時実行性モニタリング 2.2.2 リリースノート
+description: Adobe Pass同時実行性モニタリング 2.2.2 リリースノート
+exl-id: 32a333bf-557e-48d0-bfcd-770f3879fe34
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '70'
-ht-degree: 0%
+source-wordcount: '77'
+ht-degree: 2%
 
 ---
 
-
-# Adobe Pass Concurrency Monitoring 2.2.2 リリースノート {#cm-222}
+# Adobe Pass同時実行性モニタリング 2.2.2 リリースノート {#cm-222}
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
-リリース日： 08/27/2015
+リリース日：2015 年 8 月 27 日（Pt）
 
 ## 新機能 {#new-features}
 
-* 新しい API 製品：同時実行監視使用 API( 詳しくは、Adobe Pass Enablement にお問い合わせください )。
-* 要件を削除して、セッション初期化呼び出しのイニシエーター要求パラメーターを設定します。
+* 新しい API 製品：同時実行性モニタリングの使用状況 API （詳しくは、Adobe Pass イネーブルメントにお問い合わせください）。
+* セッション初期化呼び出しのイニシエーターリクエストパラメーターを設定する要件を削除します。
 
 ## バグの修正 {#bug-fixes}
 

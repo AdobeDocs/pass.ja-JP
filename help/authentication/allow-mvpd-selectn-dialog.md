@@ -1,31 +1,31 @@
 ---
-title: 選択ダイアログで MVPD を許可
-description: 選択ダイアログで MVPD を許可
+title: 選択ダイアログの MVPD を許可
+description: 選択ダイアログの MVPD を許可
 exl-id: 2c0e0f06-ddc6-4bea-90dc-d7ef8e78d27e
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '129'
+source-wordcount: '128'
 ht-degree: 0%
 
 ---
 
-# 選択ダイアログで MVPD を許可 {#allow-mvpds-selection-dialog}
+# 選択ダイアログの MVPD を許可 {#allow-mvpds-selection-dialog}
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 問題 {#issue}
 
-プログラマーは、エンドユーザーに公開する前に、新しい MVPD 統合のユーザーエクスペリエンスをテストまたは確認したい場合があります。
+プログラマーは、エンドユーザーに公開する前に、新しい MVPD 統合のユーザーエクスペリエンスをテストまたは確認する必要があります。
 
 ## 解決策 {#solution}
 
-Adobe Analytics の `displayProviderDialog()` コールバックを返すと、Adobe Pass認証は、選択したプログラマー（要求者 ID）と統合されたすべての MVPD を返します。 しかし、プログラマは MVPDs の戻り配列にフィルタを適用し、両方のリストにあるものだけを表示することができます。
+`displayProviderDialog()` コールバックで、Adobe Pass認証は、選択したプログラマー（リクエスター ID）と統合されているすべての MVPD を返します。 ただし、プログラマは MVPD の戻り値の配列にフィルタを適用し、両方のリストに含まれる配列のみを表示できます。
 
 ## 例 {#example}
 
-この例では、MVPD セレクタダイアログ内に CableCompany_1 と CableCompany_2 のみを表示し、CableCompany_NewIntegration を表示しない方法を示します。
+この例では、MVPD 選択ダイアログ内で CableCompany_1 と CableCompany_2 のみを表示し、CableCompany_NewIntegration を表示しない方法を示します。
 
 ```C
 function displayProviderDialog(mvpdList) {

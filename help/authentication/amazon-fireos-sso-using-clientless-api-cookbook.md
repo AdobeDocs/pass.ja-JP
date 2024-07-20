@@ -4,7 +4,7 @@ description: クライアントレス API クックブックを使用したAmazo
 exl-id: 4c65eae7-81c1-4926-9202-a36fd13af6ec
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
-source-wordcount: '762'
+source-wordcount: '755'
 ht-degree: 0%
 
 ---
@@ -13,32 +13,32 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 </br>
 
-## はじめに {#Introduction}
+## 概要 {#Introduction}
 
-このドキュメントでは、クライアントレス API を使用してAmazonの SSO バージョンのAdobe Pass認証フローを実装する手順を説明します。 このドキュメントの最初の部分では、Amazonバージョンのアーキテクチャに対する特異性に焦点を当てます。これは、実装に既に慣れており、経験豊富な多くのパートナーが対象とします。
+このドキュメントでは、クライアントレス API を使用してAmazonの SSO バージョンのAdobe Pass認証フローを実装する手順を説明します。 このドキュメントの最初の部分では、すでにAmazonの実装に精通し、経験を積んでいる多くのパートナー向けに、アーキテクチャの Aem Architecture バージョンの特異性について説明します。
 
-このドキュメントの第 2 部では、Adobe Pass Authentication クライアントレス API を実装する主な手順を説明します。
+このドキュメントの第 2 部では、Adobe Pass認証クライアントレス API を実装するための主な手順について説明します。
 
-クライアントレスソリューションの動作に関する幅広い技術概要については、 [REST API の概要](/help/authentication/rest-api-overview.md). Adobeは、アーキテクチャ全体と最初の実装に関するサポートを受ける際に推奨される連絡先です。
+クライアントレスソリューションの仕組みに関する技術的な概要については、[REST API の概要 ](/help/authentication/rest-api-overview.md) を参照してください。 アーキテクチャ全体と最初の実装に関するサポートについては、Adobeにお問い合わせください。
 
-## Amazon Clientless SSO {#AMZ-Clientless-SSO}
+## Amazon クライアントレス SSO {#AMZ-Clientless-SSO}
 
 ### アーキテクチャの概要 {#High-Level-Arch}
 
-Amazonクライアントレス SSO の実装はシンプルで、主に通常のAdobe Primetime認証クライアントレス API と同じです。
+Amazon クライアントレス SSO 実装はシンプルで、通常のAdobe Primetime認証クライアントレス API とほとんど同じです。
 
-Amazon SDK を使用してパーソナライズされたペイロードを取得し、Adobeクライアントレス API を呼び出す際に使用する必要があります。
+パーソナライズされたペイロードを取得し、Adobeのクライアントレス API を呼び出す際に使用するには、Amazon SDK を使用する必要があります。
 
-ペイロードが認識され、認証済みセッションに対応している場合、クライアントレス API はセッションのトークンと共にすぐに返されます。
+ペイロードが認識され、認証済みセッションに対応している場合、クライアントレス API はすぐにセッションのトークンを返します。
 
-### Amazon SDK を使用するアプリケーションの構築方法 {#Build-entries}
+### Amazon SDK を使用するアプリケーションの作成方法 {#Build-entries}
 
-* 最新のをダウンロードしてコピーする [Amazon Stub SDK](https://tve.zendesk.com/hc/en-us/article_attachments/360064368131/ottSSOTokenLib_v1.jar) を/SSOEnabler フォルダーにアプリディレクトリと並行して追加します。
-* マニフェスト/gradle ファイルを更新して、ライブラリを使用します。
+* 最新の [Amazon スタブ SDK](https://tve.zendesk.com/hc/en-us/article_attachments/360064368131/ottSSOTokenLib_v1.jar) をダウンロードして、アプリ ディレクトリと並行して/SSOEnabler フォルダーにコピーします
+* manifest/gradle ファイルを更新してライブラリを使用します。
 
   **マニフェストファイルに次の行を追加します。**
 
@@ -46,9 +46,9 @@ Amazon SDK を使用してパーソナライズされたペイロードを取得
   <uses-library android:name="com.amazon.ottssotokenlib" android:required="false"/\>
   ```
 
-  **Gradle ファイルのエントリ：**
+  **Gradle ファイルエントリ：**
 
-  リポジトリ内：
+  リポジトリで：
 
   ```java
   flatDir {
@@ -56,30 +56,30 @@ Amazon SDK を使用してパーソナライズされたペイロードを取得
   }
   ```
 
-  dependencies の下に、以下を追加します。
+  「dependencies」で、次のコマンドを追加します。
 
   ```Java
   provided fileTree(include: \['ottSSOTokenStub.jar'\], dir: '../SSOEnabler')
   ```
 
 
-* Amazonコンパニオンアプリがない場合の処理：
+* Amazon コンパニオンアプリがない場合の処理：
 
-  コンパニオンがAmazonデバイス上に存在しない可能性は低いものの、アプリケーションが実行中の場合は、次のクラスで実行時に ClassNotFoundException が発生する必要があります。 `com.amazon.ottssotokenlib.SSOEnabler`.
+  該当する可能性は低いですが、アプリケーションを実行しているAmazon デバイスにコンパニオンが存在しない場合、次のクラス `com.amazon.ottssotokenlib.SSOEnabler` で、実行時に ClassNotFoundException が発生する可能性があります。
 
-  これが発生した場合、必要な操作は、ペイロードの手順をスキップし、通常の PrimeTime フローにフォールバックするだけです。 SSO は有効になりませんが、通常の認証フローは正常に実行されます。
+  この場合は、ペイロードステップをスキップして通常の PrimeTime フローにフォールバックするだけで済みます。 SSO は有効になりませんが、通常の認証フローは正常に行われます。
 
 </br>
 
-### Amazon SDK を使用したAmazon SSO ペイロードの取得方法 {#UseAmazonSSO}
+### Amazon SDK を使用してAmazon SSO ペイロードを取得する方法 {#UseAmazonSSO}
 
-アプリケーションの初期化中に、SSOEnabler のインスタンスを取得します。 アプリケーションのアーキテクチャに基づいて、同期実装と非同期実装のどちらを使用するかを決定する必要があります。
+アプリケーションの初期化中に、SSOEnabler のインスタンスを取得します。 アプリケーションのアーキテクチャに応じて、同期実装と非同期実装のどちらを選択するかを決定する必要があります。
 
-何らかの理由で、API 呼び出しがペイロードを返さない場合は、通常の非 SSO フローを使用し、AmazonおよびAdobeパートナーに連絡して調査してください。
+何らかの理由で API 呼び出しがペイロードを返さない場合は、通常の非 SSO フローを使用し、AmazonおよびAdobeパートナーに問い合わせて調査してください。
 
 **非同期 API**
 
-* SSO Enabler インスタンスを取得：
+* SSO イネーブラ インスタンスの取得：
 
   ```Java
   ssoEnabler = SSOEnabler.getInstance(context);
@@ -98,11 +98,11 @@ Amazon SDK を使用してパーソナライズされたペイロードを取得
   }
   ```
 
-   * 成功応答バンドルには、次が含まれます。
-      * キー「SSOToken」を持つ文字列としての SSO トークン
-   * 失敗応答バンドルには次が含まれます。
+   * 成功応答バンドルには、次の内容が含まれます。
+      * キー「SSOoken」を含む文字列としての SSO トークン
+   * 失敗の応答バンドルには、次の内容が含まれます。
       * キー「ErrorCode」を持つ整数としてのエラーコード
-      * エラーの説明をキー「ErrorDescription」を持つ文字列として表示
+      * 「ErrorDescription」キーを持つ文字列としてのエラーの説明
 
 
 * SSO トークンの取得
@@ -113,7 +113,7 @@ Amazon SDK を使用してパーソナライズされたペイロードを取得
 
 * この API は、初期化時に設定されたコールバックを介して応答を提供します。
 
-  **Ex**. init 中に作成された singleton インスタンスを使用してを呼び出します。
+  **例**。 初期化中に作成されたシングルトンインスタンスを使用した呼び出し：
 
   ```JAVA
   ssoEnabler.getSSOTokenAsync().
@@ -122,7 +122,7 @@ Amazon SDK を使用してパーソナライズされたペイロードを取得
 
 **同期 API**
 
-* SSO Enabler インスタンスを取得し、コールバックを設定します。
+* SSO イネーブラ・インスタンスの取得とコールバックの設定
 
   ```JAVA
   ssoEnabler = SSOEnabler.getInstance(context);</span>
@@ -134,28 +134,28 @@ Amazon SDK を使用してパーソナライズされたペイロードを取得
   Bundle getSSOTokenSync(Void);
   ```
 
-   * この API は呼び出し元のスレッドをブロックし、結果のバンドルで応答します。 これは同期呼び出しなので、必ずメインスレッドで使用しないでください。
+   * この API は呼び出し元スレッドをブロックし、結果のバンドルで応答します。 これは同期呼び出しなので、メインスレッドでは使用しないでください。
 
   ```JAVA
   void setSSOTokenTimeout(long);
   ```
 
-   * ミリ秒単位の値。 設定した場合、同期 API のデフォルトのタイムアウト値である 1 分を上書きします。
+   * ミリ秒単位の値。 設定した場合、同期 API のデフォルトのタイムアウト値 1 分を上書きします。
 
 
-### 動的なクライアント登録を使用するAdobe Passクライアントレス API の更新 {#clientlessdcr}
+### Dynamic Client Registration を使用するためのAdobe Pass クライアントレス API アップデート {#clientlessdcr}
 
-これが初めての実装の場合は、 **クライアントレスの技術概要** サポートが必要な場合は、Adobeにお問い合わせください。
+初めて実装する場合は、**クライアントレス技術概要** を参照し、サポートが必要な場合はAdobeにお問い合わせください。
 
-Adobeクライアントレス API では、アプリケーションサーバーを呼び出すために動的クライアント登録を使用するAdobeが必要です。
+Adobeクライアントレス API では、Adobeサーバーを呼び出すために、アプリケーションで Dynamic Client Registration を使用する必要があります。
 
-* アプリケーションで Dynamic Client 登録を使用するには、 [Dynamic Client 登録管理を使用してアプリケーションを登録](/help/authentication/dynamic-client-registration-management.md).
+* アプリケーションで動的クライアント登録を使用するには、[ 動的クライアント登録管理 ](/help/authentication/dynamic-client-registration-management.md) の手順に従ってアプリケーションを登録します。
 
-* Adobe Passサーバーに対して認証と承認のリクエストを実行するために Dynamic Client Registration API を実装するには、 [動的クライアント登録 API](/help/authentication/dynamic-client-registration-api.md) .
+* Dynamic Client Registration API を実装してAdobe Pass サーバーに対する認証および承認リクエストを実行するには、[Dynamic Client Registration API](/help/authentication/dynamic-client-registration-api.md) の手順に従います。
 
-### Adobe Pass SSO を使用するためのAmazon Clientless API の更新 {#clientlesssso}
+### Amazon SSO を使用するためのAdobe Pass クライアントレス API アップデート {#clientlesssso}
 
-Amazon SDK から取得したAmazon SSO ペイロードは、 Adobe Pass Authentication エンドポイントに対するリクエストに存在する必要があります。
+Amazon SDK から取得されたAmazon SSO ペイロードは、Adobe Pass認証エンドポイントへのリクエストに存在する必要があります。
 
 ```
       /adobe-services/*
@@ -164,20 +164,20 @@ Amazon SDK から取得したAmazon SSO ペイロードは、 Adobe Pass Authent
 ```
 
 
-すべてのAdobe Pass認証エンドポイントは、デバイススコープ識別子またはプラットフォームスコープ識別子 (Amazon SSO ペイロードに存在 ) を受け取るために、次のメソッドをサポートしています。
+すべてのAdobe Pass認証エンドポイントは、デバイススコープの ID またはプラットフォームスコープの ID （Amazon SSO ペイロードに存在）を受け取るために次のメソッドをサポートしています。
 
-* ヘッダーとして：&quot;Adobe — 件名 — トークン&quot;
-* クエリパラメーターとして： &quot;ast&quot;
-* POST パラメーターとして： &quot;ast&quot;
+* As a ヘッダー：「Adobe – 件名 – トークン」
+* クエリパラメーターとして：「ast」
+* Post パラメーターとして：&quot;ast&quot;
 
-
->[!NOTE]
->
->デバイス範囲の識別子またはプラットフォーム範囲の識別子がクエリ/POST パラメーターとして送信される場合は、要求の署名を生成する際にその識別子を含める必要があります。
 
 >[!NOTE]
 >
->クエリパラメーター「ast」を使用すると、URL 全体が非常に長くなり、拒否される場合があります。 /authenticate 呼び出し時に、このパラメーターは/regcode 呼び出しで指定されたので、スキップできます。
+>デバイススコープの識別子または Platform スコープの識別子が query/post パラメーターとして送信される場合、リクエスト署名の生成時にそれが含まれる必要があります。
+
+>[!NOTE]
+>
+>クエリパラメーター「ast」を使用すると、url 全体が非常に長くなり、拒否される場合があります。 /authenticate 呼び出し時に、/regcode 呼び出しで指定されたので、このパラメーターをスキップできます
 
 **例：**
 
@@ -189,7 +189,7 @@ GET /adobe-services/config/requestor HTTP/1.1 Host: sp-preprod.auth.adobe.com
 Adobe-Subject-Token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2t1IiwiaWF0IjoxNTExMzY4ODAyLCJleHAiOjE1NDI5MDQ4MDIsImF1ZCI6ImFkb2JlIiwic3ViIjoiNWZjYzMwODctYWJmZi00OGU4LWJhZTgtODQzODViZTFkMzQwIiwiZGlkIjoiY2FmZjQ1ZDAtM2NhMy00MDg3LWI2MjMtNjFkZjNhMmNlOWM4In0.JlBFhNhNCJCDXLwBjy5tt3PtPcqbMKEIGZ6sr2NA
 ```
 
-**クエリパラメーターとして送信中**
+**クエリパラメーターとして送信**
 
 ```HTTPS
 GET /adobe-services/config/requestor?ast=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2t1IiwiaWF0IjoxNTExMzY4ODAyLCJleHAiOjE1NDI5MDQ4MDIsImF1ZCI6ImFkb2JlIiwic3ViIjoiNWZjYzMwODctYWJmZi00OGU4LWJhZTgtODQzODViZTFkMzQwIiwiZGlkIjoiY2FmZjQ1ZDAtM2NhMy00MDg3LWI2MjMtNjFkZjNhMmNlOWM4In0.JlBFhNhNCJCDXLwBjy5tt3PtPcqbMKEIGZ6sr2NA
@@ -199,7 +199,7 @@ Host: sp.auth.adobe.com
 ```
 
 
-**POST パラメーターとして送信中**
+**POST パラメーターとして送信**
 
 
 ```HTTPS
@@ -212,4 +212,4 @@ boundary=---- WebKitFormBoundary7MA4YWxkTrZu0gW
 
 >[!NOTE]
 >
->Amazon SSO が存在しないか無効な場合、Adobe Pass Authentication は属性を無視し、SSO が存在しない場合と同じように呼び出しが実行されます。
+>Amazon SSO が存在しない場合または無効な場合、Adobe Pass認証は属性を無視し、呼び出しは SSO が存在しないかのように実行されます。

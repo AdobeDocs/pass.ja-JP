@@ -1,99 +1,101 @@
 ---
-title: 動的クライアント登録 API
-description: 動的クライアント登録 API
+title: Dynamic Client Registration API
+description: Dynamic Client Registration API
 exl-id: 06a76c71-bb19-4115-84bc-3d86ebcb60f3
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '930'
+source-wordcount: '904'
 ht-degree: 0%
 
 ---
 
-# 動的クライアント登録 API {#dynamic-client-registration-api}
+# Dynamic Client Registration API {#dynamic-client-registration-api}
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 概要 {#overview}
 
-現在、Adobe Pass Authentication がアプリケーションを識別して登録する方法は 2 つあります。
+現在、Adobe Pass認証でアプリケーションを識別して登録する方法は 2 つあります。
 
-* ブラウザーベースのクライアントは、許可されたを介して登録されます。 [ドメインリスト](/help/authentication/programmer-overview.md)
-* iOSや Android アプリケーションなどのネイティブアプリケーションクライアントは、署名付きの要求者メカニズムを通じて登録されます。
+* ブラウザーベースのクライアントは、許可された [ ドメインリスト ](/help/authentication/programmer-overview.md) で登録されます
+* iOSやAndroid アプリケーションなどのネイティブアプリケーションクライアントは、署名済みのリクエストメカニズムを使用して登録されます。
 
-Adobe Pass Authentication は、アプリケーションを登録するための新しいメカニズムを提案します。 このメカニズムについては、次の段落で説明します。
+Adobe Pass認証は、アプリケーションを登録するための新しいメカニズムを提案します。 このメカニズムについては、次の段落で説明します。
 
-## 出願登録機構 {#appRegistrationMechanism}
+## アプリケーション登録メカニズム {#appRegistrationMechanism}
 
 ### 技術的な理由 {#reasons}
 
-Adobe Pass Authentication の認証メカニズムはセッション cookie に依存していましたが、原因は次のとおりです。 [Android Chrome カスタムタブ](https://developer.chrome.com/multidevice/android/customtabs){target=_blank} and [Apple Safari View Controller](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller){target=_blank}に設定した場合、この目標はもはや達成できません。
+Adobe Pass認証の認証機構は、セッション Cookie に依存していましたが、[Android Chromeのカスタムタブ ](https://developer.chrome.com/multidevice/android/customtabs){target=_blank}[Apple Safari ビューコントローラー ](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller){target=_blank} により、この目標は達成できなくなりました。
 
-これらの制限を考慮し、Adobeでは、すべてのクライアントに新しい登録メカニズムが導入されました。 OAuth 2.0 RFC に基づいており、次の手順で構成されています。
+これらの制限を考慮すると、Adobeでは、すべてのクライアントに対して新しい登録メカニズムを導入します。 OAuth 2.0 RFC に基づいており、次の要素で構成されています
+（次の手順）
 
-1. TVE ダッシュボードからのソフトウェア文の取得
+1. TVE からソフトウェア ステートメントを取得しています
+Dashboard
 1. クライアント資格情報の取得
 1. アクセストークンの取得
 
-### TVE ダッシュボードからのソフトウェア文の取得 {#softwareStatement}
+### TVE ダッシュボードからソフトウェア ステートメントを取得しています {#softwareStatement}
 
-リリースするアプリケーションごとに、ソフトウェア文を取得する必要があります。 すべてのソフトウェア文は、アプリケーションが作成されると、TVE ダッシュボードを通じて提供されます。 ソフトウェア文は、ユーザーのデバイス上のアプリケーションと共にデプロイする必要があります。
+リリースするアプリケーションごとに、ソフトウェア・ステートメントを取得する必要があります。 すべてのソフトウェア ステートメントは、アプリケーションが作成されると、TVE ダッシュボードを通じて提供されます。 ソフトウェアステートメントは、ユーザーのデバイス上のアプリケーションと共にデプロイする必要があります。
 
 >[!IMPORTANT]
 >
->ソフトウェア文を使用する場合、署名された要求者 ID メカニズムは不要になります。
+>ソフトウェアステートメントを使用する場合、署名済みリクエスター ID メカニズムは不要になります。
 
-ソフトウェア文の作成方法の詳細については、 [TVE ダッシュボードでのクライアント登録](/help/authentication/dynamic-client-registration.md).
+ソフトウェア ステートメントの作成方法の詳細については、[TVE Dashboard のクライアント登録 ](/help/authentication/dynamic-client-registration.md) を参照してください。
 
 ### クライアント資格情報の取得 {#clientCredentials}
 
-TVE ダッシュボードからソフトウェア文を取得したら、アプリケーションをAdobe Pass認証サーバーに登録する必要があります。 これを行うには、 /register 呼び出しを実行し、一意のクライアント識別子を取得します。
+TVE Dashboard からソフトウェア ステートメントを取得したら、Adobe Pass認証サーバにアプリケーションを登録する必要があります。 これを行うには、/register 呼び出しを実行し、一意のクライアント ID を取得します。
 
 **リクエスト**
 
-| HTTP 呼び出し |                    |
+| HTTP コール |                    |
 |-----------|--------------------|
 | パス | /o/client/register |
 | メソッド | POST |
 
 | フィールド |                                                                           |           |
 |--------------------|---------------------------------------------------------------------------|-----------|
-| software_statement | TVE ダッシュボードで作成されたソフトウェア文。 | 必須 |
-| redirect_uri | アプリケーションが認証フローの完了に使用する URI。 | オプション |
+| software_statement | TVE ダッシュボードで作成されたソフトウェア ステートメント。 | mandatory |
+| redirect_uri | アプリケーションが認証フローを完了するために使用する URI です。 | optional |
 
 | リクエストヘッダー |                                                                                |           |
 |-----------------|--------------------------------------------------------------------------------|-----------|
-| Content-Type | application/json | 必須 |
-| X-Device-Info | 「デバイスと接続情報を渡す」で定義されるデバイス情報 | 必須 |
-| User-Agent | ユーザーエージェント | 必須 |
+| Content-Type | application/json | mandatory |
+| X-Device-Info | デバイスおよび接続情報を渡すで定義されたデバイス情報 | mandatory |
+| User-Agent | ユーザーエージェント | mandatory |
 
 **応答**
 
 | 応答ヘッダー |                  |           |
 |------------------|------------------|-----------|
-| Content-Type | application/json | 必須 |
+| Content-Type | application/json | mandatory |
 
 | 応答フィールド |                 |                            |
 |---------------------|-----------------|----------------------------|
-| client_id | 文字列 | 必須 |
-| client_secret | 文字列 | 必須 |
-| client_id_issued_at | long | 必須 |
-| redirect_uris | 文字列のリスト | 必須 |
-| grant_types | 文字列のリスト<br/> **受け入れられた値**<br/> `client_credentials`:Android SDK など、安全でないクライアントで使用されます。 | 必須 |
-| エラー | **受け入れられた値**<ul><li>invalid_request</li><li>invalid_redirect_uri</li><li>invalid_software_statement</li><li>unapproved_software_statement</li></ul> | エラーフローで必須 |
+| client_id | 文字列 | mandatory |
+| client_secret | 文字列 | mandatory |
+| client_id_issued_at | long | mandatory |
+| redirect_uri | 文字列のリスト | mandatory |
+| grant_types | 文字列のリスト <br/> **許容値**<br/> `client_credentials`:Android SDK など、安全でないクライアントで使用されます。 | mandatory |
+| エラー | **使用できる値**<ul><li>invalid_request</li><li>invalid_redirect_uri</li><li>invalid_software_statement</li><li>unapproved_software_statement</li></ul> | エラーフローでは必須 |
 
 
-#### エラー応答 {#error-response}
+#### エラーの応答 {#error-response}
 
-エラーが発生した場合、登録サーバーは HTTP 400（無効なリクエスト）ステータスコードで応答し、応答内に次のパラメーターを含めます。
+エラーが発生した場合、登録サーバーは HTTP 400 （無効なリクエスト）ステータスコードで応答し、応答内に次のパラメーターを含めます。
 
 | ステータスコード | 応答本文 | 説明 |
 | --- | --- | --- |
-| HTTP 400 | {&quot;error&quot;: &quot;invalid_request&quot;} | リクエストに必須のパラメーターがない、サポートされていないパラメーター値が含まれている、パラメーターを繰り返す、またはその他の形式ではありません。 |
-| HTTP 400 | {&quot;error&quot;: &quot;invalid_redirect_uri&quot;} | redirect_uri は、登録済みのアプリケーションに基づいて、このクライアントでは許可されていません。 |
-| HTTP 400 | {&quot;error&quot;: &quot;invalid_software_statement&quot;} | ソフトウェア文が無効です。 |
-| HTTP 400 | {&quot;error&quot;: &quot;unapproved_software_statement&quot;} | software_id が設定に見つかりません。 |
+| HTTP 400 | {&quot;error&quot;: &quot;invalid_request&quot;} | リクエストに必須パラメーターがないか、サポートされていないパラメーター値が含まれている、パラメーターが繰り返されている、または形式が正しくありません。 |
+| HTTP 400 | {&quot;エラー&quot;: &quot;invalid_redirect_uri&quot;} | 登録済みのアプリケーションに基づいて、このクライアントに redirect_uri を使用することはできません。 |
+| HTTP 400 | {&quot;error&quot;: &quot;invalid_software_statement&quot;} | ソフトウェア ステートメントが無効です。 |
+| HTTP 400 | {&quot;エラー&quot;: &quot;unapproved_software_statement&quot;} | 構成に software_id が見つかりません。 |
 
 #### クライアント資格情報の例 {#client-credentials-example}
 
@@ -151,7 +153,7 @@ Pragma: no-cache
 
 ### アクセストークンの取得 {#accessToken}
 
-アプリケーションの一意のクライアント識別子（クライアント ID とクライアント秘密鍵）を取得したら、アクセストークンを取得する必要があります。 アクセストークンは必須の OAuth 2.0 トークンで、Adobe Pass Authentication API の呼び出しに使用されます。
+アプリケーションの一意のクライアント識別子（クライアント ID およびクライアント秘密鍵）を取得した後、アクセストークンを取得する必要があります。 アクセストークンは必須の OAuth 2.0 トークンで、Adobe Pass Authentication API の呼び出しに使用されます。
 
 >[!NOTE]
 >
@@ -160,14 +162,14 @@ Pragma: no-cache
 **リクエスト**
 
 
-| **HTTP 呼び出し** | |
+| **HTTP コール** | |
 | --- | --- |
 | パス | `/o/client/token` |
 | メソッド | POST |
 
 | **リクエストパラメーター** | |
 | --- | --- |
-| `grant_type` | クライアント登録プロセスで受け取りました。<br/> **許可された値**<br/>`client_credentials`:Android SDK など、安全でないクライアントに使用されます。 |
+| `grant_type` | クライアント登録プロセスで受信しました。<br/> **許容値**<br/>`client_credentials`:Android SDK など、安全でないクライアントに使用されます。 |
 | `client_id` | クライアント登録プロセスで取得されたクライアント識別子。 |
 | `client_secret` | クライアント登録プロセスで取得されたクライアント識別子。 |
 
@@ -175,24 +177,24 @@ Pragma: no-cache
 
 | 応答フィールド | | |
 | --- | --- | --- |
-| `access_token` | Adobe Pass API の呼び出しに使用する必要があるアクセストークンの値 | 必須 |
-| `expires_in` | access_token の有効期限が切れるまでの時間（秒） | 必須 |
-| `token_type` | トークンのタイプ **無記名者** | 必須 |
-| `created_at` | トークンの発行時間 | 必須 |
+| `access_token` | Adobe Pass API の呼び出しに使用する必要があるアクセストークン値 | mandatory |
+| `expires_in` | access_token の有効期限が切れるまでの時間（秒） | mandatory |
+| `token_type` | トークンのタイプ **bearer** | mandatory |
+| `created_at` | トークンの発行時間 | mandatory |
 | **応答ヘッダー** | | |
-| `Content-Type` | application/json | 必須 |
+| `Content-Type` | application/json | mandatory |
 
 **エラー応答**
 
-エラーが発生した場合、認証サーバーは HTTP 400（無効なリクエスト）ステータスコードで応答し、応答内に次のパラメーターを含めます。
+エラーが発生した場合、認証サーバーは HTTP 400 （無効なリクエスト）ステータスコードで応答し、応答内に次のパラメーターが含まれます。
 
 | ステータスコード | 応答本文 | 説明 |
 | --- | --- | --- |
-| HTTP 400 | {&quot;error&quot;: &quot;invalid_request&quot;} | リクエストに必須のパラメーターがない、サポートされていないパラメーター値（付与タイプ以外）が含まれている、パラメーターを繰り返す、複数の資格情報を含む、クライアントを認証する複数のメカニズムを利用する、またはその他の形式が正しくありません。 |
-| HTTP 400 | {&quot;error&quot;: &quot;invalid_client&quot;} | クライアントが不明なため、クライアント認証に失敗しました。 SDK は、認証サーバーに再度登録する必要があります。 |
-| HTTP 400 | {&quot;error&quot;: &quot;unauthorized_client&quot;} | 認証済みのクライアントは、この認証付与タイプの使用を許可されていません。 |
+| HTTP 400 | {&quot;error&quot;: &quot;invalid_request&quot;} | 要求に必須パラメーターがないか、サポートされていないパラメーター値（許可タイプ以外）が含まれているか、パラメーターを繰り返しているか、複数の資格情報が含まれているか、クライアントの認証に複数のメカニズムが使用されているか、その他の形式が正しくありません。 |
+| HTTP 400 | {&quot;error&quot;: &quot;invalid_client&quot;} | クライアントが不明なため、クライアント認証に失敗しました。 SDK は、再度認証サーバーに登録する必要があります。 |
+| HTTP 400 | {&quot;error&quot;: &quot;unauthorized_client&quot;} | 認証済みクライアントには、この認証付与タイプの使用が許可されていません。 |
 
-#### アクセストークンの取得の例： {#obt-access-token}
+#### アクセストークンの取得例： {#obt-access-token}
 
 **リクエスト：**
 
@@ -232,23 +234,23 @@ Pragma: no-cache
 
 ## 認証リクエストの実行 {#autheticationRequests}
 
-アクセストークンを使用したAdobe Passの実行 [認証 API 呼び出し](/help/authentication/initiate-authentication.md). これをおこなうには、次のいずれかの方法で、アクセストークンを API リクエストに追加する必要があります。
+アクセストークンを使用して、Adobe Pass[ 認証 API 呼び出し ](/help/authentication/initiate-authentication.md) を実行します。 これを行うには、次のいずれかの方法で、アクセストークンを API リクエストに追加する必要があります。
 
-* 新しいクエリパラメーターをリクエストに追加することによって。 この新しいパラメーターは、 **access_token**.
+* リクエストに新しいクエリパラメーターを追加する。 この新しいパラメーターは **access_token** と呼ばれます。
 
-* 新しい HTTP ヘッダーをリクエストに追加します (Authorization: Bearer)。 クエリー文字列はサーバーログに表示されるので、HTTP ヘッダーを使用することをお勧めします。
+* リクエスト：Authorization:Bearer に新しい HTTP ヘッダーを追加する。 クエリ文字列はサーバーログに表示される傾向があるので、HTTP ヘッダーを使用することをお勧めします。
 
-エラーの場合、次のエラー応答が返される可能性があります。
+エラーが発生した場合は、次のエラー応答が返されます。
 
-| エラー応答 |     |                                                                                                        |
+| エラーの応答 |     |                                                                                                        |
 |-----------------|-----|--------------------------------------------------------------------------------------------------------|
 | invalid_request | 400 | リクエストの形式が正しくありません。 |
-| invalid_client | 403 | クライアント ID は、要求を実行できなくなりました。 新しいクライアント資格情報が生成される必要があります。 |
-| access_denied | 401 | access_token が無効です（期限切れまたは無効です）。 クライアントは新しい access_token を MUST リクエストします。 |
+| invalid_client | 403 | このクライアント ID は、要求の実行が許可されなくなりました。 新しいクライアント資格情報を生成する必要があります。 |
+| access_denied | 401 | access_token が無効です（期限切れまたは無効）。 クライアントは新しい access_token を要求する必要があります。 |
 
-### 認証リクエストの実行の例：
+### 認証リクエストの実行例：
 
-**リクエストパラメーターとしてアクセストークンを送信中：**
+**アクセストークンをリクエストパラメーターとして送信しています：**
 
 ```HTTPS
 GET adobe-services/config?access_token=<access_token>&requestor_id=... HTTP/1.1
@@ -256,7 +258,7 @@ GET adobe-services/config?access_token=<access_token>&requestor_id=... HTTP/1.1
 Host: sp.auth.adobe.com
 ```
 
-**HTTP ヘッダーとしてアクセストークンを送信しています。**
+**アクセストークンを HTTP ヘッダーとして送信：**
 
 ```HTTPS
 POST adobe-services/sessionDevice?device_id=platformDeviceId HTTP/1.1

@@ -53,8 +53,8 @@ ht-degree: 3%
          + [トークン交換](token-exchange.md)
          + [Temp Pass とプロモーション Temp Pass の無料プレビュー](free-preview-for-temp-pass-and-promotional-temp-pass.md)
    + AccessEnabler SDK {#accessenabler-sdk}
-      + Javascript SDK {#javascriptsdk}
-         + [Javascript SDK の概要](javascript-sdk-overview.md)
+      + JavaScript SDK {#javascriptsdk}
+         + [JavaScript SDK の概要](javascript-sdk-overview.md)
          + [JavaScript SDK クックブック](javascript-sdk-cookbook.md)
          + [JavaScript SDK API リファレンス](javascript-sdk-api-reference.md)
          + ガイドライン {#js-sdk-guidelines}
@@ -64,24 +64,24 @@ ht-degree: 3%
       + iOS/tvOS SDK {#ios-sdk}
          + [iOS/tvOS SDK の概要](iostvos-sdk-overview.md)
          + [iOS/tvOS SDK クックブック](iostvos-sdk-cookbook.md)
-         + [iOS/tvOS SDK API リファレンス](iostvos-sdk-api-reference.md)
+         + [iOS/tvOS SDK API リファレンス ](iostvos-sdk-api-reference.md)
          + ガイドライン {#ios-tvos-sdk-guidelines}
             + [iOS/tvOS アプリケーションの登録](iostvos-application-registration.md)
-            + 移行のガイドライン {#migration-guidelines}
+            + 移行ガイドライン {#migration-guidelines}
                + [iOS/tvOS v3.x 移行ガイド](iostvos-v3x-migration-guide.md)
             + [iOS/tvOS ストレージの整合性チェック](iostvos-sdk-storage-integrity-checks.md)
          + iOS/tvOS API {#ios-tvos-api}
-            + [事前認証](preauthorize.md)
+            + [ 事前認証 ](preauthorize.md)
       + Android SDK {#androidsdk}
          + [Android SDK の概要](android-sdk-overview.md)
          + [Android SDK クックブック](android-sdk-cookbook.md)
          + [Android SDK API リファレンス](android-sdk-api-reference.md)
          + ガイドライン {#androidguidelines}
             + [Android アプリケーションの登録](android-application-registration.md)
-            + [Dynamic Client Registration を使用した Android SDK](android-sdk-with-dynamic-client-registration.md)
+            + [Dynamic Client Registration を使用したAndroid SDK](android-sdk-with-dynamic-client-registration.md)
          + Android API{#androidapi}
             + [事前認証](preauthorize-android.md)
-      + Amazon Fireos SDK {#fireossdk}
+      + Amazon FireOS SDK {#fireossdk}
          + [Amazon FireOS SSO - プログラマー向けキックオフガイド](amazon-firetv-sso-programmer-kickoff-guide.md)
          + [クライアントレス API クックブックを使用したAmazon FireOS SSO](amazon-fireos-sso-using-clientless-api-cookbook.md)
          + [Amazon FireOS 技術概要](amazon-fireos-technical-overview.md)
@@ -90,15 +90,15 @@ ht-degree: 3%
          + [Amazon FireOS アプリケーションの登録](amazon-fireos-application-registration.md)
          + [FireOS SDK と Dynamic Client Registration](fireos-sdk-with-dynamic-client-registration.md)
    + Platform SSO {#platform-sso}
-      + APPLE SSO {#apple-sso}
+      + Apple SSO {#apple-sso}
          + [Apple SSO の概要](apple-sso-overview.md)
          + [Apple SSO クックブック（REST API）](apple-sso-cookbook-rest-api.md)
          + [Apple SSO クックブック（iOS/tvOS SDK）](apple-sso-cookbook-iostvos-sdk.md)
       + Roku SSO {#roku-sso}
          + [Roku SSO](roku-sso-overview.md)
-   + コンテンツのメタデータ {#content-metadata}
+   + コンテンツメタデータ {#content-metadata}
       + [保護されたリソースの識別](identify-protected-resources.md)
-   + Content server の統合 {#content-serv-int}
+   + Content server integration {#content-serv-int}
       + [メディアトークンベリファイアの統合方法](media-token-verifier-int.md)
    + 付録 {#appendices}
       + [デバッグのヒント](appendix-b-debugging-tips.md)
@@ -116,7 +116,7 @@ ht-degree: 3%
    + [サービスプロバイダーの範囲](serv-provider-scoping.md)
    + [MVPD 許可 IP アドレス](mvpd-listing-ip-addres.md)
 + Adobe Pass認証機能 {#auth-features}
-   + Adobe Analyticsの統合 {#analytics-int}
+   + Adobe Analytics統合 {#analytics-int}
       + [Adobe Pass Authentication サーバーサイドのデータのAdobe Analyticsへの統合](integrate-authn-servr-data-analytics.md)
       + [Adobe Pass認証でのExperience CloudID の使用](exp-cloud-id-authn.md)
    + 使用権限サービスの監視 {#entitlement-service-monitoring}
@@ -126,7 +126,7 @@ ht-degree: 3%
    + 一時パス {#temp-pass}
       + [一時パス](temp-pass.md)
       + [プロモーションの一時パス](promotional-temp-pass.md)
-      + [一時パスをリセット](reset-temp-pass.md)
+      + [ 一時パスのリセット ](reset-temp-pass.md)
    + シングルサインオン {#sso}
       + [シングルサインオンサポート](sso-support.md)
       + [受動認証を介した SSO](sso-passive-authn.md)
@@ -136,19 +136,19 @@ ht-degree: 3%
    + ユーザーメタデータ {#user-metadat}
       + [ユーザーメタデータ](user-metadata-feature.md)
    + [プリフライト認証](preflight-authz.md)
-   + エラーレポート {#error-reportn}
+   + エラー報告 {#error-reportn}
       + [エラーレポート](error-reporting.md)
       + [拡張エラーコード](enhanced-error-codes.md)
    + クライアント登録 {#client-regn}
       + [動的なクライアント登録](dynamic-client-registration.md)
       + [Dynamic Client Registration API](dynamic-client-registration-api.md)
       + [動的なクライアント登録管理](dynamic-client-registration-management.md)
-   + サービスの低下 {#degrn-service}
+   + サービス {#degrn-service} の低下
       + [低下 API の概要](degradation-api-overview.md)
    + プライバシー対応 {#privacy-readiness}
       + [プライバシーサポートの概要](privacy-supp-overview.md)
       + [プライバシーリクエストの作成方法](make-privacy-req.md)
-+ ヒントとトラブルシューティング {#tips-troubleshoot}
++ ヒントとトラブルシューティ {#tips-troubleshoot} グ
    + [選択ダイアログの MVPD を許可](allow-mvpd-selectn-dialog.md)
    + [MVPD が選択ダイアログに表示されないようにする](prevent-mvpd-selectn-dialog.md)
 + サポート {#support}
@@ -167,7 +167,7 @@ ht-degree: 3%
    + [Adobe Pass Authentication 2.64 リリースノート](auth-rn-264.md)
    + [Adobe Pass Authentication 2.63 リリースノート](auth-rn-263.md)
    + [Adobe Pass Authentication 2.62.1 リリースノート](auth-rn-2621.md)
-   + JavaScript SDK リリースノート  {#release-notes-javascript}
+   + JavaScript SDK リリースノート {#release-notes-javascript}
       + [Adobe Pass Authentication JavaScript 4.7.0 リリースノート](authn-rn-javascript-470.md)
       + [Adobe Pass Authentication JavaScript 4.6.0 リリースノート](authn-rn-javascript-460.md)
       + [Adobe Pass Authentication JavaScript 4.4.0 リリースノート](authn-rn-javascript-440.md)
@@ -176,7 +176,7 @@ ht-degree: 3%
       + [Adobe Pass Authentication JavaScript 4.1.0 リリースノート](authn-rn-javascript-410.md)
       + [Adobe Pass Authentication JavaScript 4.0.0 リリースノート](authn-rn-javascript-400.md)
       + [Adobe Pass Authentication JavaScript 3.5.0 リリースノート](authn-rn-javascript-350.md)
-   + iOS/tvOS SDK リリースノート  {#release-notes-ios}
+   + iOS/tvOS SDK リリースノート {#release-notes-ios}
       + [Adobe Pass認証iOS/tvOS 3.9.2 リリースノート](authn-rn-ios-tvos-392.md)
       + [Adobe Pass認証iOS/tvOS 3.8.4 リリースノート](authn-rn-ios-tvos-384.md)
       + [Adobe Pass認証iOS/tvOS 3.8.3 リリースノート](authn-rn-ios-tvos-383.md)
@@ -186,15 +186,15 @@ ht-degree: 3%
    + Android SDK リリースノート {#release-notes-android}
       + [Adobe Pass Authentication Android 3.7.3 リリースノート](authn-rn-android-373.md)
 + テクニカルノート {#tech-notes}
-   + Adobe Pass認証 SDK {#primetime-authentication-sdks}
+   + Adobe Pass Authentication SDKs {#primetime-authentication-sdks}
       + [証明書に関する Q&amp;A](certificates-qa.md)
-      + Javascript SDK {#javascript}
+      + JavaScript SDK {#javascript}
          + [トラッキング防止の評価 – Apple Safari](tracking-prevention-assessment-apple-safari.md)
          + [トラッキング防止評価 – Google Chrome](tracking-prevention-assessment-google-chrome.md)
          + [Cookie の更新 – SameSite およびセキュアフラグ](cookies-updates-samesite-and-secure-flags.md)
       + Android SDK {#android}
-         + [Android 10 アプリでの Enabler Android SDK Single Sign-On （SSO; シングル サインオン）へのアクセス](access-enabler-android-sdk-single-signon-sso-on-android-10-devices.md)
-         + [Adobe Pass認証と Android 6 「Marshmallow」新しい権限モデル](adobe-primetime-authentication-and-the-android-6-marshmallow-new-permissions-model.md)
+         + [Android 10 アプリケーションでの Enabler Android SDK Single Sign-On （SSO）](access-enabler-android-sdk-single-signon-sso-on-android-10-devices.md)
+         + [Adobe Pass認証とAndroid 6 「Marshmallow」新しい権限モデル](adobe-primetime-authentication-and-the-android-6-marshmallow-new-permissions-model.md)
       + iOS/tvOS SDK {#iostvos}
          + [iOS SDK 3.1 以降での WKWebView のサポート](wkwebview-support-on-ios-sdk-31.md)
          + [iOS SDK 3.2 以降での SFSafariViewController のサポート](sfsafariviewcontroller-support-on-ios-sdk-32.md)
@@ -202,8 +202,8 @@ ht-degree: 3%
          + [iOS認証エラー – adobepass.ios.app が見つかりません](ios-authentication-error-adobepassiosapp-cannot-be-found.md)
          + [iOSの一時パスをリセット](reset-temp-pass-on-ios.md)
          + [コンソールアプリログを使用した AccessEnabler iOS/tvOS SDK のデバッグ](debugging-the-accessenabler-iostvos-sdk-using-console-app-logs.md)
-         + [AccessEnabler iOS/tvOS 3.7.0 アップグレード・パス](accessenabler-iostvos-370-upgrade-path.md)
-   + 認証環境の受け渡し {#primetime-authentication-environments}
+         + [AccessEnabler iOS/tvOS 3.7.0 アップグレード パス ](accessenabler-iostvos-370-upgrade-path.md)
+   + Pass Authentication Environments {#primetime-authentication-environments}
       + [Adobe環境について](understanding-the-adobe-environments.md)
       + [環境の設定と事前テスト](setting-up-your-environment-and-testing-in-prequal.md)
       + [AdobeAPI テストサイトを使用して認証フローと承認フローをテストする方法](test-authn-authz-flows-using-adobes-api-test-site.md)
@@ -213,13 +213,13 @@ ht-degree: 3%
       + [クライアントレス：/authenticate リクエストで「&amp;&#39;reg_code」を使用しないでください](clientless-avoid-using-reg-code-in-authenticate-request.md)
       + [Xbox 360 および XboxOne クライアントレスでのプログラマーに対するAdobe Pass使用権サービスの有効化](enabling-primetime-entitlement-services-for-a-programmer-on-xbox-360-and-xboxone-clientless-solution.md)
       + [クライアントレスのデバイスタイプと指標](benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)
-   + ユーザーエクスペリエンス {#user-exp}
+   + User experience {#user-exp}
       + [MVPD ログインページを iFrame からポップアップに移行する方法](migr-mvpd-login-iframe-popup.md)
       + [プリフライト機能：問題を有効化、トラブルシューティング、または特定する方法](preflight-feature.md)
    + ツールとユーティリティ {#tools-and-utilities}
       + [Charles プロキシの使用](using-charles-proxy.md)
    + 概念 {#concepts}
-      + [ユーザー ID について](understanding-user-ids.md)
+      + [ ユーザー ID について ](understanding-user-ids.md)
 + [TVE ダッシュボードユーザーガイド](tve-dashboard-user-guide.md)
 + 新しい TVE ダッシュボードユーザーガイド {#user-guide}
    + [TVE ダッシュボードの概要](/help/authentication/tve-dashboard-overview.md)

@@ -1,7 +1,8 @@
 ---
 title: Adobe Pass Authentication JavaScript 4.6.0 リリースノート
 description: Adobe Pass Authentication JavaScript 4.6.0 リリースノート
-source-git-commit: 7057aeda34b4fe0d059912ab0a71ea856427654c
+exl-id: 09b79384-2385-48ce-9ee2-6db93bbce15d
+source-git-commit: 8552a62f4d6d80ba91543390bf0689d942b3a6f4
 workflow-type: tm+mt
 source-wordcount: '126'
 ht-degree: 0%
@@ -12,7 +13,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -20,17 +21,17 @@ ht-degree: 0%
 
 Adobe Pass認証：JavaScript 4.6.0
 
-リリース日： **09/20/2022 - 09/22/2022**
+リリース日：**09/20/20/20 - 2022/9/22**
 
 
 ## リリースの概要 {#overview-javascript-sdk-460}
 
-* の使用を削除しました。 `eval` 関数を使用して、SDK をコンテンツセキュリティポリシーに準拠させることができます。
-* ブラウザーのローカルストレージがパートナーアプリケーションによって明示的にクリアされた場合に、認証フローが正常に完了しない問題を修正しました。
+* `eval` 関数の使用を削除し、SDK がコンテンツセキュリティポリシーに準拠するようになりました。
+* ブラウザーのローカルストレージがパートナーアプリケーションによって明示的に消去された場合に、認証フローが成功して終了しない問題を修正しました。
 
 
 ## リリースパッケージ {#rel-pkg-javascript-sdk-460}
 
-実稼動 URL は、 https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.jsです。
+実稼動 URL はhttps://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.jsです。
 
 ステージング URL はhttps://entitlement.auth-staging.adobe.com/entitlement/v4/AccessEnabler.jsです。

@@ -1,6 +1,6 @@
 ---
-title: iOS認証エラー — adobepass.ios.app が見つかりません
-description: iOS認証エラー — adobepass.ios.app が見つかりません
+title: iOS認証エラー – adobepass.ios.app が見つかりません
+description: iOS認証エラー – adobepass.ios.app が見つかりません
 exl-id: cd97c6fb-f0fa-45c2-82c1-f28aa6b2fd12
 source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
 workflow-type: tm+mt
@@ -9,36 +9,36 @@ ht-degree: 0%
 
 ---
 
-# iOS認証エラー — adobepass.ios.app が見つかりません {#ios-authentication-error-adobepass.ios.app-cannot-be-found}
+# iOS認証エラー – adobepass.ios.app が見つかりません {#ios-authentication-error-adobepass.ios.app-cannot-be-found}
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 問題 {#issue}
 
-ユーザーは認証フローを経て、プロバイダーに資格情報を入力すると、エラーページ、検索ページ、またはその他のカスタムページにリダイレクトされ、 `adobepass.ios.app` が見つからなかったか、解決されませんでした。
+ユーザーは認証フローを実行中で、プロバイダーを使用して資格情報を正常に入力した後、エラーページ、検索ページ、またはその他のカスタムページにリダイレクトされ、見つからなかったこ `adobepass.ios.app` や解決できなかったことが通知されます。
 
 ## 説明 {#explanation}
 
-iOS `adobepass.ios.app` は、AuthN フローが完了したことを示す最終的なリダイレクト URL として使用されます。 この時点で、アプリケーションは AuthN トークンを取得し、AuthN フローを最終決定するために、AccessEnabler にリクエストを送信する必要があります。
+iOSでは、AuthN フローが完了したことを示す最終的なリダイレクト URL として `adobepass.ios.app` が使用されます。 この時点で、AuthN トークンの取得と AuthN フローの最終処理を行うために、アプリケーションは AccessEnabler に対してリクエストを行う必要があります。
 
-問題は `adobepass.ios.app` は実際には存在せず、 `webView`. iOS DemoApp の古いバージョンでは、このエラーは常に AuthN フローの最後にトリガーされ、それに応じて処理するように設定されていると想定していました (`indidFailLoadWithError`) をクリックします。
+問題は、`adobepass.ios.app` が実際には存在せず、`webView` にエラーメッセージがトリガーされることです。 iOS DemoApp の以前のバージョンは、このエラーが常に AuthN フローの最後にトリガーされると想定し、適切に処理するように設定されていました（`indidFailLoadWithError`）。
 
-**注意：** この問題は、後のバージョンの DemoApp(iOS SDK ダウンロードに含まれる ) で修正されました。
+**メモ：** この問題は、DemoApp の後続バージョン（iOS SDK のダウンロードに含まれる）で修正されました。
 
-残念ながら、この想定は正しくありません。 いわゆる「スマート」DNS またはプロキシサーバーの中には、単に発生したエラーを渡すのではなく、次のいずれかを行うものがあります。
+残念ながら、この仮定は正しくありません。 いわゆる「スマート」な DNS またはプロキシサーバーには、発生したエラーを単純に渡さず、代わりに次のいずれかを行うものがあります。
 
 - カスタムエラーページの作成
-- 検索ページ、またはその他のタイプの顧客ページやポータルに転送します。
+- 検索ページ、またはその他のタイプの顧客ページまたはポータルに転送します。
 
-この場合、iOS webView に返される応答は、webView に関する限り完全に有効な応答となり、古い DemoApp が依存していたエラーはトリガーされません。
+その場合、webView に関する限り、iOS webView に戻る応答は完全に有効な応答であり、古い DemoApp が依存していたエラーはトリガーしません。
 
 ## 解決策 {#solution}
 
-DemoApp と同じ想定をしないでください。 代わりに、実行前にリクエストを切り取ります ( `shouldStartLoadWithRequest`) を参照し、適切に処理します。
+DemoApp と同じ想定をしないでください。 代わりに、（`shouldStartLoadWithRequest` で）実行する前にリクエストをインターセプトし、適切に処理します。
 
-実行前のリクエストの切断方法の例：
+実行前にリクエストをインターセプトする方法の例：
 
 ```obj-c
 - (BOOL)webView:(UIWebView*)localWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -58,8 +58,8 @@ return YES;
 }
 ```
 
-注意事項を以下に示します。
+注意すべき点は次のとおりです。
 
-- 使用しない `adobepass.ios.app` コードの任意の場所に直接配置できます。 代わりに、定数を使用します。 `ADOBEPASS_REDIRECT_URL`
-- The `return NO;` 文は、ページの読み込みを妨げます
-- 必ず `getAuthenticationToken` の呼び出しは、コード内で 1 回だけ呼び出されます。 への複数の呼び出し `getAuthenticationToken` は未定義の結果になります。
+- コード内の任意の場所で直接 `adobepass.ios.app` を使用しないでください。 代わりに、定数 `ADOBEPASS_REDIRECT_URL` を使用します
+- `return NO;` ステートメントは、ページの読み込みを防ぎます
+- `getAuthenticationToken` 呼び出しは、コード内で 1 回だけ呼び出してください。 `getAuthenticationToken` に対して複数の呼び出しを行うと、結果が未定義になります。

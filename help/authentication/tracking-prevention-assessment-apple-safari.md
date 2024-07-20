@@ -1,30 +1,33 @@
 ---
-title: 追跡防止評価Apple Safari
-description: 追跡防止評価Apple Safari
-source-git-commit: 579ce868b6ee94e1854bbc51145fc7840268db26
+title: トラッキング防止の評価：Apple Safari
+description: トラッキング防止の評価：Apple Safari
+exl-id: a3362020-92ff-4232-b923-e462868730d5
+source-git-commit: 8552a62f4d6d80ba91543390bf0689d942b3a6f4
 workflow-type: tm+mt
 source-wordcount: '1826'
 ht-degree: 0%
 
 ---
 
-# 追跡防止の評価 — Apple Safari {#tracking-prevention-assessment-apple-safari}
+# トラッキング防止の評価 – Apple Safari {#tracking-prevention-assessment-apple-safari}
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 ## Safari 10 {#safari10}
 
 **詳細**
 
-Safari 10 以降、デフォルトのブラウザープライバシー設定により、シングルサインオン (SSO)、シングルログアウト (SLO) およびパッシブ認証機能が動作を停止します。 シングルサインオン (SSO) とパッシブ認証は、複数のタブやブラウザーウィンドウ間の同じセッションでも機能しません。
+Safari 10 以降、デフォルトのブラウザープライバシー設定により、シングルサインオン（SSO）、シングルログアウト（SLO）、パッシブ認証機能が動作を停止します。 でも、シングルサインオン（SSO）とパッシブ認証は機能しません
+複数のタブまたはブラウザーウィンドウ間の同じセッション。
 
-これらの変更は、AccessEnabler JavaScript SDK の次のバージョンのAdobe Pass認証プロセスに影響を与え、また、影響を与えます：v2（バージョン 2.x）、v3（バージョン 3.x）、v4（バージョン 4.x）。
+これらの変更は、Adobe Passの認証プロセスに影響を与え、その影響を受けています
+AccessEnabler JavaScript SDK の v2 （バージョン 2.x）、v3 （バージョン 3.x）、v4 （バージョン 4.x）の各バージョンについて説明します。
 
-### 緩和策 {#mitigation-safari10}
+### 軽減 {#mitigation-safari10}
 
-これらの制限を軽減するために、Safari 10 ブラウザーのプライバシー設定を変更し、「**常に許可**&quot; &quot;のオプション&#x200B;**Cookie と Web サイトデータ**」というエントリが追加されました。
+これらの制限を軽減するために、以下の画像に示すように、Safari 10 ブラウザープライバシー設定を変更し、環境設定からブラウザーのプライバシータブの「**Cookie と Web サイトデータ**」エントリに対して「**常に許可**」オプションを使用するようにユーザーに指示できます。
 
 ![](assets/always-allow-safari10.png)
 
@@ -35,32 +38,32 @@ Safari 10 以降、デフォルトのブラウザープライバシー設定に�
 
 >[!IMPORTANT]
 >
->Safari 10 のセクションの上記の詳細は、Safari 11 の場合には、引き続き適用されます。
+>Safari 10 のセクションからの上記の詳細はすべて、Safari 11 の場合は引き続き適用されます。
 
-Safari 11 以降、ブラウザーは [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/)(ITP) メカニズム。クロスサイトトラッキングを防ぐためにヒューリスティックを使用する技術。 これらの発見的方法は、サードパーティ Cookie が保存され、ネットワーク呼び出しで再生される方法に影響します。つまり、ITP のメカニズムに応じて、Safari ブラウザーはクライアント — サーバーモデル通信でサードパーティ Cookie をブロックします。
+Safari 11 以降、ブラウザーは、クロスサイトトラッキングを防ぐためにヒューリスティックを使用する技術 [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/) （ITP）メカニズムを導入します。 これらのヒューリスティックは、サードパーティ cookie の保存およびネットワーク呼び出し時の再生方法に影響します。つまり、ITP メカニズムのアクティベーションに応じて、Safari ブラウザーはクライアント – サーバーモデル通信でサードパーティ cookie をブロックします。
 
-Adobe Pass認証サービスは認証プロセスの一部として cookie を使用し、cookie に依存します **機能するために**. 認証プロセスが自動的におこなわれる状況（Temp Pass など）、または iFrames 機能や「refressless」機能を使用する実装では、Adobeの cookie はサードパーティ cookie と見なされ、デフォルトでブロックされます。 その他の場合、Safari は機械学習アルゴリズムを使用します。このアルゴリズムにより、すべてのAdobeの認証を渡す Cookie がトラッキング Cookie としてフラグ付けされるので、ITP のブロックの対象になる場合があります。
+Adobe Pass Authentication サービスは、（機能するために **認証プロセスの一部として Cookie を使用し、これに依存し** す。 認証プロセスが自動的に実行される状況（Temp Pass など）や、iFrames または「リフレスレス」機能を使用する実装では、Adobeの Cookie はサードパーティ Cookie と見なされ、デフォルトでブロックされます。 その他のケースでは、Safari は機械学習アルゴリズムを使用して、すべてのAdobeーのパス認証サービス Cookie にトラッキング Cookie としてフラグを立て、ITP のブロックの対象となる可能性があります。
 
-結論として、Safari 11 ブラウザーのユーザーは、特に複数のAdobe Pass認証対応 Web サイトを使用している場合、Intelligent Tracking Prevention(ITP) メカニズムを有効にした後で、Adobe Pass Authentication 対応 Web サイトで認証できない可能性があります。 したがって、ログインできないから予想よりも短い認証時間まで、ユーザーの認証エクスペリエンスは予期せぬもので未定義のものになる場合があります。
+最後に、Safari 11 ブラウザーのユーザーは、Intelligent Tracking Prevention （ITP）メカニズムのアクティブ化後、特にユーザーが複数のAdobe Pass認証が有効な web サイトを使用している場合、Adobe Pass認証が有効な web サイトで認証できない可能性があります。 したがって、ユーザーの認証操作は、予期せず未定義である可能性があります。例えば、ログインできない場合や、予想される認証時間よりも短い場合などです。
 
-これらの変更は、AccessEnabler JavaScript SDK の次のバージョンのAdobe Pass認証プロセスに影響を与え、また影響を与えます：v2（バージョン 2.x）、v3（バージョン 3.x）。
+これらの変更は、AccessEnabler JavaScript SDK の v2 （バージョン 2.x）、v3 （バージョン 3.x）の各バージョンのAdobe Pass認証プロセスに影響を与え、その影響を受けています。
 
-### 緩和策 {#mitigation-safari11}
+### 軽減 {#mitigation-safari11}
 
-AccessEnabler JavaScript SDK v3（バージョン 3.x）と AccessEnabler JavaScript SDK v4（バージョン 4.x）の両方で、ライブラリには、必要な cookie が見つからず、ユーザーの認証がブロックされた状況を識別するメカニズムが含まれています。 このような状況では、ライブラリは特定のエラートリガーコールバックを呼び出します。 [N130](/help/authentication/error-reporting.md#advanced-error-codes-reference):Adobe Pass Authentication 対応 Web サイトに返され、問題を軽減できるアクションを実行するようユーザーに指示するシグナルとして使用されます。 このメカニズムを活用するには、Web サイトで [エラーレポート](/help/authentication/error-reporting.md) 仕様。
+AccessEnabler JavaScript SDK v3 （バージョン 3.x）および AccessEnabler JavaScript SDK v4 （バージョン 4.x）の両方について、ライブラリには、必要な Cookie がないためにユーザーの認証がブロックされた状況を特定するためのメカニズムが含まれています。 このような状況で、ライブラリは特定のエラーコールバック [N130](/help/authentication/error-reporting.md#advanced-error-codes-reference) をトリガーし、Adobe Pass認証が有効な web サイトに返されて、問題を軽減できるアクションを実行するようにユーザーに指示するシグナルとして使用されます。 このメカニズムを活用するために、web サイトでは [ エラーレポート ](/help/authentication/error-reporting.md) 仕様を実装する必要があります。
 
-AccessEnabler JavaScript SDK v2（バージョン 2.x）の場合、ライブラリに上記のメカニズムが提供されないので、Adobe Pass Authentication が有効になった Web サイトは、ユーザーに問題を軽減するためのアクションを指示するタイミングを通知できません。
+AccessEnabler JavaScript SDK v2 （バージョン 2.x）の場合、ライブラリでは前述のメカニズムが提供されないので、問題を軽減するアクションを実行するようユーザーに指示する際に、Adobe Pass認証が有効な Web サイトを通知することができません。
 
-前述の問題を軽減できるアクションのリスト **3 つのバージョンすべてに適用されます** AccessEnabler JavaScript SDK のサポート。
+AccessEnabler JavaScript SDK の前述の問題 **3 つのバージョンすべてに適用** を軽減できるアクションのリストです。
 
-条件 [N130](/help/authentication/error-reporting.md#advanced-error-codes-reference) error コールバックを実装者の Web サイトが受け取る場合は、次の方法で、Intelligent Tracking Prevention(ITP) を無効にし、サードパーティ Cookie を有効にするようにユーザーに指示する必要があります。
+[N130](/help/authentication/error-reporting.md#advanced-error-codes-reference) エラーコールバックが実装者の web サイトによって受信された場合は、次の方法で Intelligent Tracking Prevention （ITP）を無効にし、サードパーティ Cookie を有効にするようにユーザーに指示する必要があります。
 
-* Mac OS X High Sierra 以降の場合：**クロスサイトトラッキングを防ぐ**&quot; &quot;のオプション&#x200B;**Web サイトトラッキング**」というエントリが追加されました。
+* Mac OS X High Sierra 以降の場合：以下の図に示すように、ブラウザーの環境設定から、ブラウザーのプライバシータブにある「**Website tracking**」エントリに対する「**クロスサイトトラッキングを防ぐ**」オプションのチェックを外します。
 
   ![](assets/uncheck-prvnt-cr-st-tr-safari11.png)
 
 
-* Mac OS X Sierra 以前の場合：**常に許可**&quot; &quot;のオプション&#x200B;**Cookie と Web サイトデータ**」というエントリが追加されました。
+* Mac OS X Sierra およびそれ以前の場合：以下の図に示すように、環境設定からブラウザーのプライバシータブの「**Cookies and website data**」エントリに対して「**Always allow**」オプションをオンにします。
 
   ![](assets/always-allow-safari11.png)
 
@@ -70,63 +73,63 @@ AccessEnabler JavaScript SDK v2（バージョン 2.x）の場合、ライブラ
 
 >[!IMPORTANT]
 >
->Safari 10 および Safari 11 のセクションの上記の詳細は、Safari 12 の場合でも、すべて同じです。
+>Safari 10 および Safari 11 のセクションからの上記の詳細はすべて、Safari 12 の場合に引き続き適用されます。
 
-この節では、の互換性の問題について詳しく説明します。 **AccessEnabler JavaScript SDK バージョン 4.x** (Safari 12)
-
->[!NOTE]
->
->AccessEnabler JavaScript SDK バージョン 2.x および AccessEnabler JavaScript SDK バージョン 3.x の場合、両方とも認証プロセスにサードパーティ cookie を使用し、Safari 11 以降の ITP およびサードパーティ cookie のため、ユーザーの認証エクスペリエンスは予期せず、ログの記録不可能、予期しない期間。
-
-
-### Safari 12 上の AccessEnabler JavaScript SDK v4（バージョン 4.x）の認定機能 {#certified-functionality-of-accessenabler-javacscript=sdk-v4}
-
-**認証** バージョン 4.0 以降、AccessEnabler JavaScript SDK は認証プロセスにサードパーティ cookie を使用しなくなるので、ユーザーのブラウザーでサードパーティ cookie が無効になっている場合でも、ユーザー操作を利用するフローは常に機能します。
+ここでは、Safari 12 における **AccessEnabler JavaScript SDK バージョン 4.x** の互換性の問題について説明します。
 
 >[!NOTE]
 >
->ログインポップアップを開いたり、MVPD ログインページとやり取りするには、ユーザーがサイトとやり取りする必要があります。
+>AccessEnabler JavaScript SDK version 2.x および AccessEnabler JavaScript SDK version 3.x の場合、両方ともサードパーティ Cookie を認証処理に使用します。Safari 11 以降の ITP およびサードパーティ Cookie ポリシーにより、ログインできないなど、予想されない認証時間や予想されない認証時間など、ユーザーの認証体験が未定義になる場合があります。
+
+
+### Safari 12 {#certified-functionality-of-accessenabler-javacscript=sdk-v4} ージでの AccessEnabler JavaScript SDK v4 （バージョン 4.x）の認定機能
+
+**認証** ユーザーの操作を利用するフローは、ユーザーのブラウザーでサードパーティ Cookie が無効になっていても常に機能します。これは、バージョン 4.0 以降、AccessEnabler JavaScript SDK が認証プロセスにサードパーティ Cookie を使用しなくなったためです。
+
+>[!NOTE]
+>
+>ユーザーは、ログインポップアップを開いたり、MVPD ログインページを操作したりするために、サイトとやり取りする必要があります。
 
 **認証/プリフライト/ユーザーメタデータ** ユーザーが既に認証されている場合、操作は完全に機能します。
 
-### Safari 12 での AccessEnabler JavaScript SDK v4（バージョン 4.x）の既知の問題 {#known-issues-of-accessenabler-javascript-sdk-4}
+### Safari 12 での AccessEnabler JavaScript SDK v4 （バージョン 4.x）の既知の問題 {#known-issues-of-accessenabler-javascript-sdk-4}
 
-* SSO および SLO
+* SSO と SLO
 
-   * Safari 10 以降、Safari で localStorage が実装される仕組みにより、JS SDK は、共通のドメイン iFrame を介してログイン状態を共有できなくなりました。 つまり、AccessEnabler JavaScript SDK を使用するすべてのサイトにログインする必要があります。 また、ログアウトでは、複数のサイトにわたる認証トークンは削除されないので、ユーザーはAdobe Pass Authentication が有効になっている各 Web サイトからログアウトする必要があります。
+   * Safari 10 以降の Safari における localStorage の実装により、JS SDK は共通ドメイン iFrame を介してログイン状態を共有できなくなりました。 つまり、AccessEnabler JavaScript SDK を使用するすべてのサイトにログインする必要があります。 また、ログアウトしてもサイト間で認証トークンが削除されないので、Adobe Pass認証が有効な各 web サイトからログアウトする必要があります。
 
 * 一時パス
 
-   * 一時的なパスの場合、AccessEnabler JavaScript SDK は個別化メカニズムを使用して、認証トークンを特定のデバイス（ブラウザーインスタンス）にロックします。 追跡を防ぐように設計された Safari 12 の新しいメカニズムにより、個別化メカニズムで計算および使用するフィンガープリントが生成されました。 **は、同じ IP アドレスを持つすべてのユーザーで同じになります**. 個別化のためにクライアント IP を考慮に入れていますが、同じパブリック IP アドレスを共有するユーザーに影響が及ぶ場合もあります。 これらのユーザーに対して、同じ個別化 ID を計算し、一時パスがそれに結び付けられます。 つまり、このようなユーザーが一時パスを使用すると、他のユーザーはそのパスにアクセスできなくなります。 これは、特に、企業のユーザー、教育機関、または NAT を使用する複数のユーザーや、インターネットにアクセスする共通のプロキシを持つその他の組織に影響を与えます。
+   * 一時的なパスの場合、AccessEnabler JavaScript SDK は個別化メカニズムを使用して、特定のデバイス（ブラウザーインスタンス）に認証トークンをロックします。 トラッキングを防ぐように設計された Safari 12 の新しいメカニズムにより、個人化メカニズムで計算および使用している指紋 **同じ IP アドレスを持つすべてのユーザーで同じになります**。 クライアントの IP は個人に合わせたものとして扱いますが、同じパブリック IP アドレスを共有するユーザーに対する影響は大きくなります。 これらのユーザーについては、同じ個人化 ID を計算し、一時パスがそれに関連付けられます。 つまり、そのようなユーザーが一時パスを使用すると、他のユーザーは誰もアクセスできなくなります\! これは、特に企業ユーザー、教育機関、または NAT または共通のプロキシを使用してインターネットにアクセスする複数のユーザーを持つその他の組織に影響を与えます。
 
 >[!NOTE]
 >
->この問題は、ユーザーの操作の結果として実装者が Temp Pass を使用する場合にのみユーザーに影響します。それ以外の場合は、Temp Pass 認証が **自動フロー** 下
+>この問題がユーザーに影響するのは、ユーザー操作の結果として実装担当者が一時パスを使用した場合のみです。それ以外の場合、一時パス認証は以下の **自動フロー** の対象となります。
 
 * 自動フロー
 
-   * JS SDK 4.0 を使用している場合、Safari 12 では、ユーザーの操作がなく、自動モードで試行された認証フローは成功しません。今後の JS SDK 4.1 では、自動フローの問題がすべて修正されました。
+   * JS SDK 4.0 を使用している場合、Safari 12 では、自動モードで試行された認証フローは、ユーザーのインタラクションがないと成功しません。今後の JS SDK 4.1 では、自動フローに関するすべての問題が修正されます。
 
 この問題の影響を受ける使用例：
 
-* 自動 TempPass（自由プレビュー）認証 — このようなフローでは、SDK は N130 エラーをスローします。
+* 自動 TempPass （無料プレビュー）認証 – このようなフローの場合、SDK は N130 エラーをスローします。
 
-* パッシブ認証（警告なしで失敗） — ユーザーはこの MVPD を選択し、資格情報を入力するように求められます。
+* パッシブ認証（サイレントに失敗）：ユーザーはこの MVPD を選択し、認証情報を入力するよう求められます
 
-### 緩和策 {#mitigation-safari12}
+### 軽減 {#mitigation-safari12}
 
-**SSO および SLO**
+**SSO と SLO**
 
-これらの書き込みの現時点では、使用可能な既知の緩和策はありません。 Appleが Safari 12(`https://webkit.org/blog/8124/introducing-storage-access-api`) ですが、現在の実装は localStorage には適用されず、cookie にのみ適用されます。 また、API を使用するにはユーザー操作が必要です。使用すると、次のような権限ダイアログが表示されます。
+このドキュメントの作成時点では、軽減策は利用できないか、利用できる可能性もありません。 Appleでは、Safari 12 （`https://webkit.org/blog/8124/introducing-storage-access-api`）で「ストレージアクセス API」を導入しましたが、現在の実装は localStorage には適用されず、cookie にのみ適用されます。 さらに、API を使用するにはユーザーの操作が必要です。また、API を使用すると、以下のような権限ダイアログも表示されます。
 
 ![](assets/permission-dialog-apple.png)
 
 
-この時点で、これらの Safari の要件/プロンプトは UX の要件と一致せず、他のブラウザーとは異なり、SSO が共通のドメイン localStorage にトークンを保存すると「正常に機能」するという一貫した動作はありません。
+この時点では、これらの Safari の要件/プロンプトは UX の要件と一致せず、共通ドメイン localStorage にトークンを保存すると SSO が「機能」する他のブラウザーの場合とは異なります。
 
 **一時パス**
 
-個別化の問題を軽減し、ユーザーの操作を可能にするために、 **[プロモーション一時パス](/help/authentication/promotional-temp-pass.md)** インタラクティブな方法で、ユーザーに関する少なくとも 1 つの追加情報（電子メールアドレスなど）を提供します。
+個人化の問題を軽減し、ユーザーとのインタラクションを実現するために、**[プロモーション一時パス](/help/authentication/promotional-temp-pass.md)** をインタラクティブな方法で使用し、ユーザーに関する 1 つ以上の追加情報（メールアドレスなど）を提供することをお勧めします。
 
 ## Safari 13 {#safari13}
 
@@ -134,31 +137,31 @@ AccessEnabler JavaScript SDK v2（バージョン 2.x）の場合、ライブラ
 
 >[!IMPORTANT]
 >
->Safari 10 から Safari 12 までのセクションの上記の詳細は、Safari 13 の場合には、まだ適用されます。
+>Safari 10 のセクションから Safari 12 のセクションまでのすべての詳細は、Safari 13 の場合も引き続き適用されます。
 
 
-Safari 13 以降、ブラウザーでは [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/) (ITP) の場合、クロスサイトトラッキングを防ぐために、サードパーティ Cookie をトラッキング Cookie としてフラグ設定する過程で、このメカニズムの背後にある発見的方法をより厳格にします。
+Safari 13 以降、ブラウザーは [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/) （ITP）に新しい変更を導入し、クロスサイトトラッキングを防ぐためにサードパーティ cookie にトラッキング cookie のフラグを設定するプロセスで、メカニズムの背後にあるヒューリスティックを強化しました。
 
-前の節で説明したように、Adobe Pass Authentication Service では、実装者が AccessEnabler JavaScript SDK v2（バージョン 2.x）と AccessEnabler JavaScript SDK v3（バージョン 3.x）を使用する場合、認証プロセスの一部としてサードパーティ cookie を使用し、使用します。 ユーザーと関係者 ( プログラマーの Web サイトやAdobe) とのやり取りについて「学ぶ」ためにしばらく時間をかけて ITP が初めて「知る」ときの Safari ブラウザーの旧バージョンと比較すると、Safari 13 ブラウザーは、クライアント — サーバーモデル通信で cookie の追跡と見なされるサードパーティ cookie をブロックします。
+前の節で説明したように、Adobe Pass Authentication サービスでは、AccessEnabler JavaScript SDK v2 （バージョン 2.x）と AccessEnabler JavaScript SDK v3 （バージョン 3.x）を実装者が使用する場合の認証プロセスの一部として、サードパーティ Cookie を使用してそれに依存します。 ユーザーと関係者（プログラマーの web サイトやAdobe）の間のやり取りについて「学ぶ」ために少し時間を費やした後に ITP が立ち上がった以前のバージョンの Safari ブラウザーと比較して、Safari 13 ブラウザーは、クライアント – サーバーモデルの通信で Cookie のトラッキングと見なされるサードパーティ Cookie を最初からブロックしています。
 
-最後に、Safari 13 ブラウザーのユーザーは、AccessEnabler JavaScript SDK、v2（バージョン 2.x）または v3（バージョン 3.x）の古いバージョンを使用しているAdobe Pass Authentication が有効な Web サイトで新しい認証を開始できない可能性が高くなります。 この問題は、必要なすべてのAdobeの Primetime Authentication サービス Cookie が ITP によってブロックされ、その結果、サービスが認証要求を満たせなくなることが原因で発生しています。
+最後に、Safari 13 ブラウザーのユーザーは、古いバージョンの AccessEnabler JavaScript SDK、v2 （バージョン 2.x）または v3 （バージョン 3.x）を使用しているAdobe Pass認証が有効な web サイトで新しい認証を開始できない可能性が高くなります。 これは、必要なAdobeの Primetime Authentication Service Cookie がすべて ITP によってブロックされ、サービスが認証リクエストを満たすことができないことが原因で発生します。
 
-AccessEnabler JavaScript SDK v4（バージョン 4.x）ライブラリは、認証プロセスにサードパーティ Cookie を使用しないので、Safari 13 の変更による操作への影響はありません。
+AccessEnabler JavaScript SDK v4 （バージョン 4.x）ライブラリでは、認証プロセスにサードパーティ Cookie を使用しないので、Safari 13 の変更点によって、その処理は影響を受けません。
 
-### 緩和策 {#mitigation-safari13}
+### 軽減 {#mitigation-safari13}
 
-まず第一に、我々は強く推薦する **AccessEnabler JavaScript SDK バージョン 4.x への移行** Safari ブラウザーで安定した予測可能な動作を実現する。
+まず第一に、Safari ブラウザーで安定した予測可能な動作を実現するには、**AccessEnabler JavaScript SDK バージョン 4.x への移行** を強くお勧めします。
 
-次に、AccessEnabler JavaScript SDK v3（バージョン 3.x）の場合、必要な Cookie が見つからず、ユーザー認証がブロックされた状況を識別するメカニズムがライブラリに含まれています。 このような状況では、ライブラリは特定のトリガーコールバック ([N130](/help/authentication/error-reporting.md#advanced-error-codes-reference)) に返されます。これは、問題を軽減できるアクションを実行するようユーザーに指示するシグナルとして使用されるために、Adobe Pass Authentication 対応 Web サイトに渡されます。 このメカニズムを活用するには、Web サイトで [エラーレポート](/help/authentication/error-reporting.md) 仕様。
+次に、AccessEnabler JavaScript SDK v3 （バージョン 3.x）の場合、必要な Cookie がないためにユーザー認証がブロックされた状況を特定するメカニズムが含まれます。 このような状況で、ライブラリは特定のエラーコールバック（[N130](/help/authentication/error-reporting.md#advanced-error-codes-reference)）をトリガーし、Adobe Pass認証が有効な web サイトに返されて、問題を軽減できるアクションを実行するようにユーザーに指示するシグナルとして使用されます。 このメカニズムを活用するために、web サイトでは [ エラーレポート ](/help/authentication/error-reporting.md) 仕様を実装する必要があります。
 
-AccessEnabler JavaScript SDK v2（バージョン 2.x）の場合、ライブラリに上記のメカニズムが提供されないので、Adobe Pass Authentication が有効になった Web サイトは、ユーザーに問題を軽減するためのアクションを指示するタイミングを通知できません。
+AccessEnabler JavaScript SDK v2 （バージョン 2.x）の場合、ライブラリでは前述のメカニズムが提供されないので、問題を軽減するアクションを実行するようユーザーに指示する際に、Adobe Pass認証が有効な Web サイトを通知することができません。
 
-条件 [N130](/help/authentication/error-reporting.md#advanced-error-codes-reference) error コールバックを実装者の Web サイトが受け取る場合は、次の方法で、Intelligent Tracking Prevention(ITP) を無効にし、サードパーティ Cookie を有効にするようにユーザーに指示する必要があります。
+[N130](/help/authentication/error-reporting.md#advanced-error-codes-reference) エラーコールバックが実装者の web サイトによって受信された場合は、次の方法で Intelligent Tracking Prevention （ITP）を無効にし、サードパーティ Cookie を有効にするようにユーザーに指示する必要があります。
 
-* Mac OS X High Sierra 以降の場合：**クロスサイトトラッキングを防ぐ**&quot; &quot;のオプション&#x200B;**Web サイトトラッキング**」というエントリが追加されました。
+* Mac OS X High Sierra 以降の場合：以下の図に示すように、ブラウザーの環境設定から、ブラウザーのプライバシータブにある「**Website tracking**」エントリに対する「**クロスサイトトラッキングを防ぐ**」オプションのチェックを外します。
 
   ![](assets/prvnt-cross-site-tr-safari13.png)
 
-* Mac OS X Sierra 以前の場合： t をチェックします。</span>彼は&quot;**常に許可**&quot; &quot;のオプション&#x200B;**Cookie と Web サイトデータ**」というエントリが追加されました。
+* Mac OS X Sierra およびそれ以前の場合：以下の図に示すように、環境設定からブラウザーのプライバシータブの「**Cookies and website data**」エントリの「**Always allow**」オプションをオンにします </span>
 
   ![](assets/always-allow-safari13.png)

@@ -1,39 +1,39 @@
 ---
-title: Android 10 アプリでの Enabler Android SDK シングルサインオン (SSO) へのアクセス
-description: Android 10 アプリでの Enabler Android SDK シングルサインオン (SSO) へのアクセス
+title: Android 10 アプリケーションでの Enabler Android SDK Single Sign-On （SSO）
+description: Android 10 アプリケーションでの Enabler Android SDK Single Sign-On （SSO）
 exl-id: dedade15-c451-4757-b684-d3728e11dd87
 source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '374'
+source-wordcount: '383'
 ht-degree: 0%
 
 ---
 
-# Android 10 アプリでの Enabler Android SDK シングルサインオン (SSO) へのアクセス {#access-enabler-android-sdk-single-sign-on-sso-on-android-10-apps}
+# Android 10 アプリケーションでの Enabler Android SDK Single Sign-On （SSO） {#access-enabler-android-sdk-single-sign-on-sso-on-android-10-apps}
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 概要
 
-Adobe Pass認証を利用したアプリ間のシングルサインオン (SSO) は、Android OS を使用するデバイスで、Access Enabler Android SDK を通じて使用できます。 Android デバイスでシングルサインオン (SSO) を提供するには、Access Enabler Android SDK バージョン 3.2.1（最新）以前のバージョンで、Android ストレージ実装に保存された共有データベースファイルを使用します。このファイルは、すべてのAdobe Pass Authentication を利用したアプリでアクセスできます。
+Adobe Pass Authentication を利用したアプリ間のシングルサインオン（SSO）は、Android OS を使用しているデバイスでは、Access Enabler Android SDK を介して利用できます。 Android デバイスでシングルサインオン （SSO）を提供するために、Access Enabler Android SDK バージョン 3.2.1 （最新）およびそれ以前のバージョンでは、Adobe Pass ストレージ実装に保存された共有データベースファイルを使用します。このファイルには、Android認証を利用したすべてのアプリからアクセスできます。
 
-ただし、最新の Android 10 リリースのGoogleでは、「ユーザーがファイルをより制御し、ファイルを整理するために、Android 10（API レベル 29）以降を対象とするアプリは、デフォルトで外部ストレージデバイスまたはスコープストレージにアクセスできます。 このようなアプリは、アプリ固有のディレクトリのみを表示できます `\[...\]`&quot;. これらの Android 10 ストレージの変更に関する詳細については、 [Android 向けのデータおよびファイルストレージに関するドキュメント](https://developer.android.com/training/data-storage/files/external-scoped).
+ただし、最新のAndroid 10 リリースのGoogleでは、「ファイルをより詳細に制御し、ファイルの混乱を制限するために、Android 10 （API レベル 29）以降をターゲットにするアプリには、デフォルトで外部ストレージデバイス（スコープストレージ）へのスコープアクセスが許可されるようになりました。 このようなアプリは、アプリ固有のディレクトリ `\[...\]`」のみを表示できます。 Android 10 のストレージに関するこれらの変更点について詳しくは、[Androidのデータおよびファイルストレージのドキュメント ](https://developer.android.com/training/data-storage/files/external-scoped) を参照してください。
 
-これらの変更の結果、Access Enabler Android バージョンで提供されるシングルサインオン (SSO) が変更されました。 **3.2.1 SDK（最新）** および以前のバージョンは、次の節で説明するように、Android 10 デバイスで影響を受ける可能性があります。
+これらの変更の結果、Access Enabler Android バージョン **3.2.1 SDK （最新）で提供されるシングル サインオン（SSO）と以前のバージョンは** 次のセクションで説明するように、Android 10 デバイスで影響を受ける可能性があります。
 
-詳しくは、 [Roku SSO の概要](/help/authentication/roku-sso-overview.md).
+[Roku SSO の概要 ](/help/authentication/roku-sso-overview.md) を参照してください。
 
 ## 動作
 
-アプリの **[!UICONTROL target SDK level]** または **android:requestLegacyExternalStorage** manifest 属性は、Access Enabler Android バージョン 3.2.1 SDK（最新）および以前のバージョンで提供されるシングルサインオン (SSO) は、現在、次のように動作します。
+アプリの **[!UICONTROL target SDK level]** または **android:requestLegacyExternalStorage** マニフェスト属性に応じて、Access Enabler Android バージョン 3.2.1 SDK （最新）および以前のバージョンで提供されるシングル サインオン （SSO）は、現在、次のように動作します。
 
-- アプリのターゲット **Android 9（API レベル 28）** またはそれ以下 **-\>** シングルサインオン (SSO) **動く**
-- アプリのターゲット **Android 10** **（API レベル 29）** および **設定** 値 **requestLegacyExternalStorage を true に設定** をアプリのマニフェストファイルに追加します。 **-\>** シングルサインオン (SSO) **動く**
-- アプリのターゲット **Android 10** **（API レベル 29）** および **未設定** 値 **requestLegacyExternalStorage を true に設定** をアプリのマニフェストファイルに追加します。 **-\>** シングルサインオン (SSO) **動作しない**
+- アプリのターゲットは **Android 9 （API レベル 28）** 以下 **-\>** シングルサインオン （SSO） **です**
+- アプリは **Android 10** **（API レベル 29）をターゲットにしており** アプリのマニフェスト ファイル **-\>** Single Sign-On （SSO） **で** requestLegacyExternalStorage の値を true に設定 **** し **動作し** す。
+- アプリは **Android 10** **（API レベル 29）を対象としていますが** アプリのマニフェスト ファイル **-\>** Single Sign-On （SSO） **で** requestLegacyExternalStorage の値を true に設定し **い****ので、機能しません**
 
 
 >[!TIP]
 >
-> Adobe Pass Authentication Access Enabler Android SDK がスコープストレージとの互換性を完全に保つ前に、アプリのターゲット SDK レベルまたは requestLegacyExternalStorage マニフェスト属性（パブリックで説明）に基づいて、一時的にオプトアウトできます [Android ドキュメント](https://developer.android.com/training/data-storage/files/external-scoped#opt-out-of-scoped-storage).
+> Adobe Pass Authentication Access Enabler Android SDK がスコーピングされたストレージと完全に互換性を持つ前に、公開 [Android ドキュメント ](https://developer.android.com/training/data-storage/files/external-scoped#opt-out-of-scoped-storage) に記載されているように、アプリの target SDK レベルまたは requestLegacyExternalStorage マニフェスト属性に基づいて一時的にオプトアウトできます。

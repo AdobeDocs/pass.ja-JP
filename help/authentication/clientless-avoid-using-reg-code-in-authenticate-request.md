@@ -1,19 +1,19 @@
 ---
-title: /authenticate リクエストでの「&'reg_code」の使用の回避
-description: /authenticate リクエストでの「&'reg_code」の使用の回避
+title: /authenticate 要求で'&'reg_code を使用しない
+description: /authenticate 要求で'&'reg_code を使用しない
 exl-id: c0ecb6f9-2167-498c-8a2d-a692425b31c5
 source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
 workflow-type: tm+mt
-source-wordcount: '235'
+source-wordcount: '223'
 ht-degree: 0%
 
 ---
 
-# /authenticate リクエストでの「&amp;&#39;reg_code」の使用の回避 {#clientless-avoid-using-reg_code-in-authenticate-request}
+# /authenticate 要求で&#39;&amp;&#39;reg_code を使用しない {#clientless-avoid-using-reg_code-in-authenticate-request}
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 </br>
 
@@ -21,11 +21,11 @@ ht-degree: 0%
 
 ## 問題
 
-IE 9 ブラウザは、「\®」を特別なコマンドとして解釈し、®に変換します。
+IE 9 ブラウザーは「\&amp;reg」を特別なコマンドとして解釈し、® に変換します。
 
 ## 説明
 
-次の場合、 `/authenticate` リクエストは次のように構成されます。
+`/authenticate` リクエストが次のように構成されている場合…
 
 
 ```
@@ -33,7 +33,7 @@ IE 9 ブラウザは、「\®」を特別なコマンドとして解釈し、®�
 ```
 
 
-IE ブラウザーは以下のように解釈し、この形式でAdobeに送信します。
+IE ブラウザーによって以下のように解釈され、Adobeに次のフォーマットで送信されます。
 
 
 ```
@@ -41,22 +41,22 @@ IE ブラウザーは以下のように解釈し、この形式でAdobeに送信
 ```
 
 
-requestor\_id は univision®\_code=EKAFMFI と解釈されます。これは、&#39;&amp;&#39;がないため、Adobeは `regCode` パラメーターを使用してトークンを関連付けます。  AuthN トークンがまったく作成されない場合があります。その場合は、 `/checkauthn` の呼び出しは、トークンを見つけることができません。
+&#39;&amp;&#39;がないため、要求者\_id は univision®\_code=EKAFMFI と解釈され、Adobeはトークンを関連付ける `regCode` のパラメーターを見つけることができません。  AuthN トークンがまったく作成されない可能性があり、その場合、`/checkauthn` 呼び出しでトークンが見つからない可能性があります。
 
 
 
 ## 解決策
 
-この問題は、次のいずれかのオプションで解決する必要があります。
+この問題は、次のいずれかのオプションで解決できます。
 
-1. を使用しない `&reg_code` 他のクエリー文字列パラメーター間のパラメーター。  代わりに、リクエスト URL の最初のクエリー文字列パラメーターに移動し、次のようにリクエスト URL を作成します。
+1. 他のクエリ文字列パラメーターの間に `&reg_code` パラメーターを使用しないでください。  代わりに、リクエスト URL の最初のクエリ文字列パラメーターに移動し、リクエスト URL を次のようになります。
 
 
-       &lt;fqdn>authenticate?reg_code =EKAFMFI&amp;requestor_id=someRequestor&amp;domain_name=someRequestor.com&amp;noflash=true&amp;mso_id=someMvpd&amp;redirect_url=someRequestor.redirect.url.html
+       &lt;FQDN>authenticate?reg_code =EKAFMFI&amp;requestor_id=someRequestor&amp;domain_name=someRequestor.com&amp;noflash=true&amp;mso_id=someMvpd&amp;redirect_url=someRequestor.redirect.url.html
    
 
-   この方法で、 `&reg` param が正しく解釈されない問題を修正しました。
+   これにより、`&reg` パラメーターが正しく解釈されなくなります。
 
-1. Normalize `&reg_code` 使用中 `&amp;reg_code`.
+1. `&amp;reg_code` を使用して `&reg_code` を正規化します。
 
-1. Adobeでは、AuthN トークンの作成に失敗した場合、認証呼び出しに応じてエラーコードを 2 番目の画面に送り返す新しい機能が導入される可能性がありました。
+1. Adobeは、AuthN トークンの作成に失敗した場合、認証呼び出しに応じてエラーコードを 2 番目の画面に送り返す新機能を導入できます。

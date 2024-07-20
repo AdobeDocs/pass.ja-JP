@@ -1,23 +1,23 @@
 ---
-title: Adobe Pass Concurrency Monitoring - 2.8.2 リリースノート
-description: Adobe Pass Concurrency Monitoring - 2.8.2 リリースノート
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+title: Adobe Pass同時実行性の監視 – 2.8.2 リリースノート
+description: Adobe Pass同時実行性の監視 – 2.8.2 リリースノート
+exl-id: bc1086ba-cd75-4c00-8632-33b8178b429b
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '48'
+source-wordcount: '55'
 ht-degree: 0%
 
 ---
 
-
-# Adobe Pass Concurrency Monitoring - 2.8.2 リリースノート {#cm-rns-282}
+# Adobe Pass同時実行性の監視 – 2.8.2 リリースノート {#cm-rns-282}
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
-**リリース日：** 11/06/2018
+**リリース日：** 2018 年 6 月 11 日
 
 ## リリースの概要 {#overview}
 
 このリリースでは、次の機能が追加されました。
 
-* 一部のタイプのポリシー使用例に対するサポートを実装する。
-* バグを修正しました。
+* 一部のタイプのポリシーのユースケースのサポートを実装する。
+* バグの修正。

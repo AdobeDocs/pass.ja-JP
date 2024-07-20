@@ -4,7 +4,7 @@ description: Apple SSO の概要
 exl-id: 7cf47d01-a35a-4c85-b562-e5ebb6945693
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
-source-wordcount: '1452'
+source-wordcount: '1417'
 ht-degree: 0%
 
 ---
@@ -13,109 +13,110 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
-## はじめに {#Introduction}
+## 概要 {#Introduction}
 
-Appleは、ユーザーがデバイスのシステムレベルで TV プロバイダーアカウントにログインできる API を提供しており、アプリごとに認証する必要はありません。
+Appleは、ユーザーがデバイスシステムレベルで TV プロバイダーアカウントにログインできる API を提供し、アプリ単位の認証を不要にします。
 
-したがって、AppleとAdobe Passの認証は、iPhone、iPad、Appleの各 TV 所有者向けの TV Everywhere エコシステムで、プラットフォームのシングルサインオン (SSO) ユーザーエクスペリエンスを作成するために提携しました。
+したがって、AppleとAdobe Pass Authentication は提携し、iPhone、iPad、Appleの各テレビ所有者を対象に、TV Everywhere エコシステムでプラットフォームのシングルサインオン（SSO）ユーザーエクスペリエンスを構築しました。
 
-Appleデバイスでのシングルサインオン (SSO) ユーザーエクスペリエンスを活用するには、前提条件のリストが用意されています。このリストは必須です。
+Apple デバイスでシングルサインオン（SSO）ユーザーエクスペリエンスを活用するには、完了する必要のある前提条件のリストがあります。
 
 </br>
 
 ## 前提条件 {#Prerequisites}
 
-前提条件は、TVE ビジネスに関係する 1 つ以上のエンティティ (Programmers、MVPDs、Adobe Pass Authentication、Appleなど ) に適用される場合があります。
+前提条件は、プログラマー、MVPD、Adobe Pass認証、Appleなど、TVE ビジネスに関与する 1 つまたは複数のエンティティに適用される場合があります。
 
 </br>
 
-### プログラマー {#Programmer}
+### プログラマ {#Programmer}
 
-シングルサインオン (SSO) のユーザーエクスペリエンスを活用するには、1 人のプログラマーが次の操作を行う必要があります。
+シングルサインオン（SSO）ユーザーエクスペリエンスを活用するには、1 人のプログラマーが次の操作を行う必要があります。
 
 1. Xcode バージョン 8 およびiOS/tvOS バージョン 10 以降を使用してください。
 
-1. 以下をおこなう [ビデオ購読者のシングルサインオンの使用権限](https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_developer_video-subscriber-single-sign-on) をApple Developer Account に設定する必要があります。 有効にするには、Appleにお問い合わせください [ビデオ購読者のアカウントフレームワーク](https://developer.apple.com/documentation/videosubscriberaccount) をApple Team ID に追加します。
+1. Apple開発者アカウントに [ ビデオ購読者のシングルサインオン権限 ](https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_developer_video-subscriber-single-sign-on) が設定されている。 Appleに連絡して、Apple チーム ID の [ ビデオ購読者のアカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) を有効にしてください。
 
-1. を通じて、必要な統合 (Channel x MVPD) および目的のプラットフォーム (iOS/tvOS) ごとにシングルサインオン (YES) を有効にする [Adobe Primetime TVE Dashboard](https://console.auth.adobe.com/).
+1. [Adobe Primetime TVE Dashboard](https://console.auth.adobe.com/) を使用して、目的の統合（Channel x MVPD）および目的のプラットフォーム（iOS/tvOS）ごとにシングルサインオン（はい）を有効にします。
 
-1. Adobe Pass認証チームが提供する次の 2 つのソリューションのいずれかを使用して、Apple SSO ワークフローを統合します。
+1. Apple Authentication team が提供する次の 2 つのソリューションのいずれかを使用して、Adobe Pass SSO ワークフローを統合します。
 
-   - Adobe Pass Authentication REST API は、iOS、iPadOS または tvOS で実行されているクライアントアプリケーションのエンドユーザーに対して、プラットフォームのシングルサインオン (SSO) 認証をサポートできます。 詳しくは、 [Apple SSO クックブック (REST API)](/help/authentication/apple-sso-cookbook-rest-api.md).
+   - Adobe Pass認証 REST API は、iOS、iPadOS または tvOS で動作するクライアントアプリケーションのエンドユーザーに対して、Platform シングルサインオン（SSO）認証をサポートできます。 [Apple SSO クックブック（REST API） ](/help/authentication/apple-sso-cookbook-rest-api.md) も参照してください。
 
-   - Adobe Pass Authentication AccessEnabler iOS/tvOS SDK は、iOS、iPadOS、tvOS で実行されるクライアントアプリケーションのエンドユーザーに対する、プラットフォームのシングルサインオン (SSO) 認証をサポートします。 詳しくは、 [Apple SSO クックブック (iOS/tvOS SDK)](/help/authentication/apple-sso-cookbook-iostvos-sdk.md).
+   - Adobe Pass Authentication AccessEnabler iOS/tvOS SDK は、iOS、iPadOS、tvOS で動作するクライアントアプリケーションのエンドユーザーに対して、Platform Single Sign-On （SSO）認証をサポートします。 [Apple SSO クックブック（iOS/tvOS SDK） ](/help/authentication/apple-sso-cookbook-iostvos-sdk.md) も参照してください。
 
-   - **<u>ヒント：</u>** ユーザーのサブスクリプション情報にアクセスするには、デバイスのカメラまたはマイクへのアクセスを提供するのと同様に、ユーザーはアプリケーションに続行の権限を付与する必要があります。 この権限は、アプリケーションごとにリクエストする必要があります。デバイスは、ユーザーの選択内容を保存します。 ユーザーは、アプリケーション設定（TV Provider 権限のアクセス）または次のセクションに移動して、決定を変更できます。 *`Settings -> TV Provider`* iOS/iPadOS または *`Settings -> Accounts -> TV Provider`* tvOS の場合。
+   - **<u>プロのヒント：</u>** ユーザーの購読情報にアクセスするには、ユーザーは、デバイスのカメラまたはマイクへのアクセスを提供するのと同様に、続行する権限をアプリケーションに与える必要があります。 この権限はアプリケーションごとにリクエストされる必要があり、デバイスはユーザーの選択を保存します。 お客様は、iOS/iPadOS の *`Settings -> TV Provider`* または tvOS の *`Settings -> Accounts -> TV Provider`* のセクションにアクセスして、アプリの設定（TV プロバイダーの権限へのアクセス）を変更することができます。
 
-   - **<u>ヒント：</u>** アプリケーションがフォアグラウンド状態になった場合は、ユーザーの権限をリクエストすることをお勧めしますが、アプリケーションはをチェックできるので、これは単なる提案です。 [アクセス権](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) ユーザー認証を必要とする前の任意の時点でのユーザーの購読情報。 また、AccessEnabler iOS/tvOS SDK API は、必要に応じて、ユーザーの権限を自動的に要求します。
+   - **<u>ヒント：</u>** アプリケーションがフォアグラウンド状態に入ったときにユーザーの許可を要求することをお勧めしますが、アプリケーションはユーザー認証を要求する前にいつでもユーザーの購読情報の [ アクセス許可 ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認できるので、これは提案にすぎません。 また、AccessEnabler iOS/tvOS SDK API は、必要に応じて自動的にユーザーのアクセス権をリクエストします。
 
-   - **<u>ヒント：</u>** シングルサインオン (SSO) ユーザーエクスペリエンスの利点を説明し、サブスクリプション情報へのアクセス権の付与を拒否するユーザーに対しては、その利点を説明することをお勧めします。 ユーザーは、アプリケーション設定（TV Provider 権限のアクセス）または次のセクションに移動して、決定を変更できます。 *`Settings -> TV Provider`* iOS/iPadOS または *`Settings -> Accounts -> TV Provider`* tvOS の場合。
+   - **<u>ヒント：</u>** シングルサインオン（SSO）ユーザーエクスペリエンスの利点を説明することで、購読情報へのアクセス許可を拒否するユーザーにインセンティブを与えることをお勧めします。 お客様は、iOS/iPadOS の *`Settings -> TV Provider`* または tvOS の *`Settings -> Accounts -> TV Provider`* のセクションにアクセスして、アプリの設定（TV プロバイダーの権限へのアクセス）を変更することができます。
 
-その結果、次のユーザーフローに従ってエクスペリエンスが作成されます。アプリケーションの開発を開始する前に、これを確認することをお勧めします。
+その結果、次のユーザーフローに沿ったエクスペリエンスが作成されます。アプリケーションの開発を開始する前に、これを参照することをお勧めします。
 
-- [IPHONE/IPAD](http://tve.zendesk.com/hc/article_attachments/205624966/User_flows_AppleSSO_iOS_v2.pdf) ユーザーフロー
+- [iPhone/iPad](http://tve.zendesk.com/hc/article_attachments/205624966/User_flows_AppleSSO_iOS_v2.pdf) のユーザーフロー
 - [Apple TV](http://tve.zendesk.com/hc/article_attachments/206669126/User_flows_tvOS.pdf) ユーザーフロー
 
 
 >[!IMPORTANT]
 >
-> シングルサインオン機能が **有効** iOS/tvOS の場合 **および** Appleの場合は **オンボード済み（サポート）またはピッカー** Apple SSO ワークフローからの認証/ログアウトフローは、AppleとAdobe Passの両方の認証ソリューションに影響しますが、他のすべてのフロー（認証、事前認証、メタデータなど）は、 は、Adobe Pass Authentication によってのみサービスされます。
+> iOS/tvOS のシングルサインオン機能が **有効** の場合 **および** Apple **オンボード（サポート）またはピッカーの場合** MVPD のApple SSO ワークフローからの認証/ログアウトフローには、AppleとAdobe Passの両方の認証ソリューションが含まれ、その他のすべてのフロー（認証、事前認証、メタデータなど）が含まれます は、Adobe Pass Authentication によってのみ処理されます。
 
 
 >[!IMPORTANT]
 >
-> シングルサインオン機能が **無効** iOS/tvOS の場合 **または** Appleの場合は **オンボーディングされていない（サポート対象外）** 認証/ログアウトフローの MVPD は、Apple SSO ワークフローから、Adobe Pass Authentication のみで提供される通常のワークフローにフォールバックします。
+> iOS/tvOS のシングルサインオン機能が **無効** の場合 **または** Apple **オンボードされていない（サポートされていない）場合）** MVPD では、認証/ログアウトフローは、Apple SSO ワークフローから、Adobe Pass Authentication のみで処理される通常のワークフローにフォールバックします。
 
 
 >[!IMPORTANT]
 >
-> Apple SSO ワークフローの主な利点の 1 つは、1 画面認証のユーザーフローで表されます。これは、シングルサインオン機能が使用されている場合にApple TV で配信することもできます **有効** tvOS の場合 **および** Appleの場合は **オンボード（サポート）** MVPDs。
+> Apple SSO ワークフローの主なメリットの 1 つは、one screen authentication user flow です。このフローは、tvOS のシングルサインオン機能が **有効** の場合や、Appleがオンボード **サポート）されている場合****Apple TV で配信でき** す。
 
 
 ### MVPD {#MVPD}
 
-シングルサインオン (SSO) のユーザーエクスペリエンスを活用するには、1 つの MVPD が次の条件を満たす必要があります。
+シングルサインオン（SSO）のユーザーエクスペリエンスを活用するには、次の手順を実行します
+MVPD には次の条件があります。
 
 
 
-1. Apple側のApple SSO ワークフローにオンボーディングする。 オンボーディングプロセスを容易にするには、Appleにお問い合わせください。
-1. ユーザーログインフォームを処理できる JavaScript TVML アプリケーションを提供します。 適切なドキュメントを受け取るには、Appleにお問い合わせください。
-1. オンボーディングプロセス中にAppleによって割り当てられたプロバイダー識別子を表す string 値を指定します。 設定の変更を実行するには、Adobe Pass認証に問い合わせてください。
+1. Apple側でApple SSO ワークフローにオンボーディングされる。 オンボーディングプロセスを容易にするには、Appleにお問い合わせください。
+1. ユーザーログインフォームを処理できるJavaScript TVML アプリケーションを提供します。 適切なドキュメントを受け取るには、Appleにお問い合わせください。
+1. オンボーディングプロセス中にAppleによって割り当てられたプロバイダー ID を表す文字列値を指定します。 設定の変更を行うには、Adobe Pass Authentication にお問い合わせください。
 
 </br>
 
 ## FAQ {#FAQ}
 
-1. Apple SSO ワークフローで問題が発生した場合、AccessEnabler iOS/tvOS SDK を使用するアプリケーションで通常の認証フローにフォールバックできるか。
-   - これは可能ですが、 [Adobe Primetime TVE Dashboard](https://console.auth.adobe.com/). The *シングルサインオンを有効にする* は、に設定されている必要があります *いいえ* 目的の統合 (Channel x MVPD) および目的のプラットフォーム (iOS/tvOS) 用。
-   - アプリケーションは、を呼び出した後にのみ、設定の変更を確認します。 [setRequestor](/help/authentication/iostvos-sdk-api-reference.md#setReqV3) AccessEnabler iOS/tvOS SDK を使用している場合の API。
-1. 別のデバイスまたは別のアプリケーションで、プラットフォーム SSO を介したログインが原因で認証が発生した場合に、アプリケーションはその時点を認識しますか？
+1. Appleの SSO ワークフローで問題が発生した場合、AccessEnabler iOS/tvOS SDK を使用しているアプリケーションは通常の認証フローにフォールバックできますか？
+   - これは可能ですが、[Adobe Primetime TVE ダッシュボード ](https://console.auth.adobe.com/) で設定変更を行う必要があります。 目的の統合（Channel x MVPD）と目的のプラットフォーム（iOS/tvOS）では、*シングルサインオンを有効にする* を *いいえ* に設定する必要があります。
+   - AccessEnabler iOS/tvOS SDK を使用している場合、アプリケーションは [setRequestor](/help/authentication/iostvos-sdk-api-reference.md#setReqV3) API を呼び出した後にのみ、設定の変更を認識します。
+1. 別のデバイスまたは別のアプリケーションでの Platform SSO を介したログインの結果として認証が発生したタイミングをアプリケーションに通知しますか？
    - この情報は利用できません。
-1. 同じデバイス上のプラットフォーム SSO を介したログインの結果、アプリケーションはいつ認証が発生したかを把握しますか。
-   - この情報は、ユーザーメタデータキーの一部として使用できます。 *tokenSource*&#x200B;を呼び出し、この場合、文字列値「Apple」を返します。
-1. ユーザーが *`Settings -> TV Provider`* iOS/iPadOS または *`Settings -> Accounts -> TV Provider`* アプリケーションと統合されていない MVPD を使用する tvOS セクションで、
-   - ユーザーがアプリケーションを起動しても、そのユーザーはApple SSO ワークフローで認証されません。 したがって、アプリケーションは通常の認証フローにフォールバックし、独自の MVPD ピッカーを提示する必要があります。
-1. ユーザーが *`Settings -> TV Provider`* iOS/iPadOS または *`Settings -> Accounts -> TV Provider`* tvOS セクションで、 *シングルサインオンを有効にする* ～に取り掛かる *いいえ* の [Adobe Primetime TVE Dashboard](https://console.auth.adobe.com/) iOS/tvOS プラットフォームの場合
-   - ユーザーがアプリケーションを起動しても、そのユーザーはApple SSO ワークフローで認証されません。 したがって、アプリケーションは通常の認証フローにフォールバックし、独自の MVPD ピッカーを提示する必要があります。
-1. Appleがオンボーディング（サポート対象外）していない (Appleピッカーに存在する )MVPD がユーザーにある場合はどうなりますか？
-   - ユーザーがアプリケーションを起動すると、ユーザーはApple SSO ワークフロー経由でのみ MVPD を選択し、認証フローを完了しません。 したがって、アプリケーションは通常の認証フローにフォールバックする必要がありますが、既に選択されている MVPD を使用する可能性があります。
-1. Appleがオンボーディング（サポート対象外）していない MVPD がユーザーに含まれている場合はどうなりますか？
-   - ユーザーがアプリケーションを起動すると、Apple SSO ワークフローで「その他の TV プロバイダー」ピッカーオプションが選択されます。 したがって、アプリケーションは通常の認証フローにフォールバックし、独自の MVPD ピッカーを提示する必要があります。
-1. ユーザーが MVPD を持ち、MVPD が [Adobe Primetime TVE Dashboard](https://console.auth.adobe.com/)?
-   - ユーザーがアプリケーションを起動すると、ユーザーの認証は、Apple SSO ワークフローではなく、劣化メカニズムを使用しておこなわれます。
-   - アプリケーションは、 *N010* AccessEnabler iOS/tvOS SDK を使用している場合の警告コード。
-1. MVPD ユーザー ID は、Apple SSO と非Apple SSO 認証フローの間で変更されますか？
-   - ユーザー ID は変更されないことが予想されますが、選択したプロバイダーごとに検証する必要があります。
-1. 認証 TTL に変更はありますか。
-   - Adobe Pass認証は、各 MVPD との統合に関してプログラマーが必要とする TTL を引き続き尊重します。
-   - あるプログラマーアプリケーションから別のプログラマーアプリケーションにApple SSO を通じて移動する場合、2 つ目のアプリケーションは対応する Programmer x MVPD 統合の TTL を持ちます（認証する最初のアプリケーションの TTL は共有されません）。
+1. 同じデバイス上の Platform SSO を介したログインの結果として認証が発生したタイミングをアプリケーションに通知しますか？
+   - この情報は、ユーザーメタデータキー *tokenSource* の一部として利用でき、文字列値（この場合は「Apple」）を返す必要があります。
+1. アプリケーションに統合されていない MVPD を使用して、iOS/iPadOS の *`Settings -> TV Provider`* または tvOS の *`Settings -> Accounts -> TV Provider`* のセクションに移動してログインするとどうなりますか？
+   - ユーザーがアプリケーションを起動しても、Apple SSO ワークフロー経由でユーザーが認証されることはありません。 したがって、アプリケーションは通常の認証フローにフォールバックし、独自の MVPD ピッカーを提示する必要があります。
+1. iOS/tvOS プラットフォームの [Adobe Primetime TVE Dashboard](https://console.auth.adobe.com/) で *Enable Single Sign-On* が *NO* に設定されている MVPD を使用して、iOS/iPadOS の *`Settings -> TV Provider`* または tvOS の *`Settings -> Accounts -> TV Provider`* のセクションに移動してログインするとどうなりますか？
+   - ユーザーがアプリケーションを起動しても、Apple SSO ワークフロー経由でユーザーが認証されることはありません。 したがって、アプリケーションは通常の認証フローにフォールバックし、独自の MVPD ピッカーを提示する必要があります。
+1. Appleでオンボードされていない（サポートされていない） MVPD がApple ピッカーに表示されている場合はどうなりますか。
+   - ユーザーがアプリケーションを起動すると、ユーザーは、認証フローを完了せずに、Apple SSO ワークフローを介してのみ MVPD を選択します。 したがって、アプリケーションは通常の認証フローにフォールバックする必要がありますが、既に選択されている MVPD を使用することもできます。
+1. Appleでオンボードされていない（サポートされていない） MVPD がある場合はどうなりますか？
+   - Appleの SSO ワークフローを使って「その他の TV プロバイダー」のピッカーオプションを選択します。 したがって、アプリケーションは通常の認証フローにフォールバックし、独自の MVPD ピッカーを提示する必要があります。
+1. [Adobe Primetime TVE Dashboard](https://console.auth.adobe.com/) を介して劣化する MVPD がある場合、どうなりますか？
+   - ユーザーがアプリケーションを起動すると、ユーザーは、Apple SSO ワークフローではなく、低下メカニズムを介して認証されます。
+   - AccessEnabler iOS/tvOS SDK を使用している場合、アプリケーションは *N010* 警告コードを通じて通知されます。
+1. MVPD ユーザー ID は、Apple SSO と非Apple SSO の間で変わりますか？
+   - ユーザー ID は変更されないことが想定されますが、選択したプロバイダーごとに確認する必要があります。
+1. 認証 TTL に何か変更はありますか？
+   - Adobe Pass認証では、各 MVPD との統合にプログラマーが必要とする TTL を引き続き考慮します。
+   - Apple SSO を使用して、あるプログラマーアプリケーションから別のプログラマーアプリケーションに移動する場合、2 番目のアプリケーションは、対応するプログラマー x MVPD 統合の TTL を持ちます（認証する最初のアプリケーションの TTL は共有されません）
 
-|                                      | Adobe Pass Authentication TTL 期限切れ | Adobe Pass認証 TTL が有効です |
+|                                      | Adobe Pass認証 TTL の有効期限が切れました | Adobe Pass認証の TTL が有効です |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| **Appleデバイストークンの TTL が期限切れです** | ユーザーが認証されていません（MVPD ピッカーが表示されます） | ユーザーが認証済みで、TTL はAdobe Pass認証トークンの残り時間です。 |
-| **Appleデバイストークンの TTL が有効です** | ユーザーは通知なしで認証され、TVE ダッシュボードで指定された TTL を使用して別のAdobe Pass認証トークンを取得します。 | ユーザーが認証済みで、TTL はAdobe Pass認証トークンの残り時間です。 |
+| **Apple デバイストークン TTL の有効期限が切れました** | ユーザーが認証されません（MVPD ピッカーが表示されます） | ユーザーが認証され、TTL はAdobe Pass認証トークンの残り時間です |
+| **Apple デバイストークン TTL が有効です** | ユーザーはサイレントに認証され、TVE Dashboard で指定された TTL を持つ別のAdobe Pass認証トークンを取得します | ユーザーが認証され、TTL はAdobe Pass認証トークンの残り時間です |
 
 <!--
 

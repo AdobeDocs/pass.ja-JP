@@ -1,7 +1,8 @@
 ---
 title: Adobe Pass Authentication JavaScript 4.7.0 リリースノート
 description: Adobe Pass Authentication JavaScript 4.7.0 リリースノート
-source-git-commit: 9c491478a5560d1f9208e786de285733997bb24b
+exl-id: 07f90270-e64a-4c6b-a072-183af0f53352
+source-git-commit: 8552a62f4d6d80ba91543390bf0689d942b3a6f4
 workflow-type: tm+mt
 source-wordcount: '121'
 ht-degree: 0%
@@ -12,7 +13,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -20,11 +21,11 @@ ht-degree: 0%
 
 Adobe Pass認証：JavaScript 4.7.0
 
-リリース日： **02/27/2024 - 02/29/2024**
+リリース日：2024 年 2 月 27 日（**）～2024 年 2 月 29 日（PT）**
 
 ## リリースの概要 {#overview-javascript-sdk-470}
 
-* セキュリティの脆弱性が原因で、Access Enabler JavaScript SDK の廃止されたバージョン 2.0.1 が削除されました。
+* セキュリティの脆弱性により、Access Enabler JavaScript SDK の非推奨バージョン 2.0.1 を削除しました。
 次の URL はサポートされなくなり、HTTP 410 ステータスコードを返します。
    * https://entitlement.auth.adobe.com/entitlement/AccessEnabler.js
    * http://entitlement.auth.adobe.com/entitlement/AccessEnabler.js
@@ -33,6 +34,6 @@ Adobe Pass認証：JavaScript 4.7.0
 
 ## リリースパッケージ {#rel-pkg-javascript-sdk-470}
 
-実稼動 URL は、 https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.jsです。
+実稼動 URL はhttps://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.jsです。
 
 ステージング URL はhttps://entitlement.auth-staging.adobe.com/entitlement/v4/AccessEnabler.jsです。

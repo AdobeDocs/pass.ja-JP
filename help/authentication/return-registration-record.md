@@ -1,6 +1,6 @@
 ---
-title: 登録レコードを返す
-description: 登録レコードを返す
+title: 登記記録を返還する
+description: 登記記録を返還する
 exl-id: 7b9e63a2-59b6-4123-a19b-ee1f021219ea
 source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
@@ -9,27 +9,27 @@ ht-degree: 2%
 
 ---
 
-# 登録レコードを返す {#return-registration-record}
+# 登記記録を返還する {#return-registration-record}
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!NOTE]
 >
-> REST API 実装は、 [スロットルメカニズム](/help/authentication/throttling-mechanism.md)
+> REST API の実装には、[ スロットルメカニズム ](/help/authentication/throttling-mechanism.md) という制限があります。
 
 ## REST API エンドポイント {#clientless-endpoints}
 
 `<REGGIE_FQDN>`:
 
-* 実稼動 — [api.auth.adobe.com](http://api.auth.adobe.com/)
-* ステージング — [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
+* 実稼動 – [api.auth.adobe.com](http://api.auth.adobe.com/)
+* ステージング - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
 `<SP_FQDN>`:
 
-* 実稼動 — [api.auth.adobe.com](http://api.auth.adobe.com/)
-* ステージング — [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
+* 実稼動 – [api.auth.adobe.com](http://api.auth.adobe.com/)
+* ステージング - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
 
 
@@ -43,9 +43,9 @@ ht-degree: 2%
 
 
 
-| エンドポイント | 呼び出し済み  </br>作成者 | 入力   </br>パラメーター | HTTP  </br>メソッド | 応答 | HTTP  </br>応答 |
+| エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| `<REGGIE_FQDN>`;/reggie/v1/`{requestorId}`/regcode/`{registrationCode}`<p>例：<p>`<REGGIE_FQDN>`/reggie/v1/sampleRequestorId/regcode/TJJCFK?format=xml | ストリーミングアプリ</br></br>または</br></br>プログラマーサービス | (1) 請求者  </br>    （パスコンポーネント）</br>2.  登録コード  </br>    （パスコンポーネント） | GET | 登録コードと情報を含む XML または JSON。 以下のスキーマとサンプルを参照してください。 | 200 |
+| `<REGGIE_FQDN>`;/reggie/v1/`{requestorId}`/regcode/`{registrationCode}`<p>例：<p>`<REGGIE_FQDN>`/reggie/v1/sampleRequestorId/regcode/TJCFK?format=xml | ストリーミングアプリ </br></br> プログラマ </br></br> サービス | 1.依頼者 </br>    （パスコンポーネント） </br>2.  登録コード </br>    （パスコンポーネント） | GET | 登録コードと情報を含む XML または JSON。 以下のスキーマとサンプルを参照してください。 | 200 |
 
 {style="table-layout:auto"}
 
@@ -54,8 +54,8 @@ ht-degree: 2%
 
 | 入力パラメーター | 説明 |
 | --- | --- |
-| 要求者 | この操作が有効な ProgrammerRequestorId。 |
-| 登録コード | ストリーミングデバイスに表示される登録コード値（認証フローに入力される値）です。 |
+| 要求者 | この操作が有効なプログラマ requestorId です。 |
+| 登録コード | ストリーミングデバイスに表示される（認証フローに入力される）登録コード値。 |
 
 
 
@@ -96,24 +96,24 @@ ht-degree: 2%
     </xs:schema>
 ```
 
-| エレメント名 | 説明 |
+| 要素名 | 説明 |
 | --- | --- |
 | id | 登録コードサービスで生成された UUID |
-| コード | 登録コードサービスによって生成された登録コード |
+| コード | 登録コードサービスで生成された登録コード |
 | 要求者 | 要求者 ID |
 | mvpd | MVPD ID |
-| 生成済み | 登録コード作成タイムスタンプ (1970 年 1 月 1 日 (GMT) からのミリ秒単位 ) |
-| 有効期限 | 登録コードの有効期限が切れたときのタイムスタンプ (1970 年 1 月 1 日 (GMT) からのミリ秒単位 ) |
-| deviceId | 一意のデバイス ID（または XSTS トークン） |
+| 生成日時 | 登録コード作成タイムスタンプ（1970 年 1 月 1 日（PT）からのミリ秒単位） |
+| expires | 登録コードの有効期限が切れるタイムスタンプ（1970 年 1 月 1 日（GMT）からのミリ秒単位） |
+| deviceId | 一意のデバイス ID （または XSTS トークン） |
 | deviceType | デバイスタイプ |
-| deviceUser | デバイスにログインしたユーザー |
-| appId | アプリケーション ID |
-| appVersion | アプリケーションのバージョン |
-| registrationURL | エンドユーザーに表示されるログイン Web アプリの URL |
+| deviceUser | デバイスにログインしているユーザー |
+| appId | アプリケーション Id |
+| appVersion | アプリケーション バージョン |
+| registrationurl | エンドユーザーに表示されるログイン Web アプリの URL |
 
 {style="table-layout:auto"}
 
-### レスポンスのサンプル {#sample-response}
+### 応答のサンプル {#sample-response}
 
 ```XML
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>

@@ -1,9 +1,10 @@
 ---
 title: Adobe Pass Authentication 2.66 リリースノート
 description: Adobe Pass Authentication 2.66 リリースノート
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+exl-id: 7c3cd007-ed2b-455f-8f70-6ec5d0a6552a
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '148'
+source-wordcount: '154'
 ht-degree: 0%
 
 ---
@@ -12,11 +13,11 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
-## サーバー側および Web クライアント {#server-side-web-clients-266}
+## サーバーサイドと Web クライアント {#server-side-web-clients-266}
 
 * [ビルド番号](#build-number-266)
 * [リリースの概要](#release-overview-266)
@@ -24,7 +25,7 @@ ht-degree: 0%
 ### ビルド番号 {#build-number-266}
 
 Adobe Pass認証：adobe-pass-**2.66.0.1**
-リリース日： **07/11/2023 - 07/13/2023**
+リリース日：**07/11/2023 - 07/13/2023**
 
 ### リリースの概要 {#release-overview-266}
 
@@ -32,6 +33,6 @@ Adobe Pass認証：adobe-pass-**2.66.0.1**
 
 #### バグの修正 {#release-overview-bugfixes-266}
 
-* ログアウトリクエストに RelayState パラメーターがない SAML ベースの MVPD のログアウトフローを修正しました。 リリース後に設定の更新をターゲットにして、影響を受ける MVPD のログアウトフローを復元します。
-* SOAP 認証エンドポイントの設定で SSL 証明書を更新する機能が追加されました。
-* 一部の ESM レポートの「Programmer」フィールドに誤ったデータが記録されるコーナーケースを修正しました。
+* SAML ベースの MVPD のログアウトフローを修正しました。ログアウトリクエストに RelayState パラメーターがありませんでした。 リリース後の設定のアップデートを対象に、影響を受ける MVPD のログアウトフローを復元します。
+* SOAP認証エンドポイントの設定で SSL 証明書を更新できるようになりました。
+* 一部の ESM レポートの「プログラマー」フィールドに間違ったデータが記録されるコーナーケースを修正しました。

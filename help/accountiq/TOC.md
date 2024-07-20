@@ -10,11 +10,11 @@ ht-degree: 28%
 
 ---
 
-# アカウント IQ のヘルプ {#aiq-help}
+# Account IQ ヘルプ {#aiq-help}
 
-+ [アカウント IQ の概要](/help/accountiq/home.md)
-+ [Account IQ のバージョン](/help/accountiq/versions-aiq.md)
-+ [Account IQ の概要](/help/accountiq/get-started.md)
++ [Account IQの概要](/help/accountiq/home.md)
++ [Account IQのバージョン](/help/accountiq/versions-aiq.md)
++ [Account IQの概要](/help/accountiq/get-started.md)
 + [セグメントの操作](/help/accountiq/work-with-segments.md)
 + Dashboard {#dashboard}
    + [ダッシュボードの概要](/help/accountiq/introduction-dashboard.md)
@@ -26,7 +26,7 @@ ht-degree: 28%
    + [共有アカウントレポート](/help/accountiq/shared-acc-reports.md)
    + [高共有アカウントのエクスポート](/help/accountiq/export-acc-information.md)
 + [使用パターン](/help/accountiq/usage-patterns.md)
-+ [運用](/help/accountiq/operations.md)
++ [ 運営 ](/help/accountiq/operations.md)
 + [ベストプラクティス](/help/accountiq/best-practices.md)
 + [制限事項](/help/accountiq/limitations.md)
 + [分離モード MVPD](/help/accountiq/isolation-mode.md)

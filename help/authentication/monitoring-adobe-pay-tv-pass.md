@@ -13,30 +13,30 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
-## はじめに {#intro}
+## 概要 {#intro}
 
-お客様は、 [ナギオス](http://www.nagios.org) Adobe Pass認証が有効か、無効かを確認する他のツール。
+[Nagios](http://www.nagios.org) やその他のツールを使用して、Adobe Pass認証がアップまたはダウンしているかどうかを確認できます。
 
 ## エンドポイントの監視 {#monitoring-endpoints}
 
-### 監視できるエンドポイント {#endpoints-to-monitor}
+### 監視可能なエンドポイント {#endpoints-to-monitor}
 
-* すべてのプラットフォームの設定エンドポイント： `https://sp.auth.adobe.com/adobe-services/config/[your-config-ID]`- HTTP または HTTPS（コンテンツプロバイダーの開発者が選択した内容に応じて）で使用できます。 このエンドポイントが見つからない場合は、すべてのプラットフォームとすべての MVPD でコンテンツが使用できなくなります。 クライアントレス REST API の場合は、次のエンドポイントも持ちます。  `https://api.auth.adobe.com/adobe-services/config your-config-ID]`.
+* すべてのプラットフォームの設定エンドポイント：`https://sp.auth.adobe.com/adobe-services/config/[your-config-ID]` - HTTP または HTTPS で使用できます（コンテンツプロバイダーの開発者の選択によって異なります）。 このエンドポイントがない場合は、コンテンツがすべてのプラットフォームとすべての MVPD で使用できるわけではありません。 クライアントレス REST API の場合、エンドポイント `https://api.auth.adobe.com/adobe-services/config your-config-ID]` もあります。
 
-* 次のエンドポイントは、Adobe Pass Authentication Web SDK に含まれています。  これが見つからない場合は、すべてのプログラマーとすべての Web プロパティに対して pay-TVass が停止します。
+* 次のエンドポイントは、Adobe Pass Authentication web SDK の一部です。  ない場合は、すべてのプログラマーおよびすべての web プロパティに対して有料 TVpass がダウンしていることを意味します。
 
    * `https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.js`
    * `https://entitlement.auth.adobe.com/entitlement/js/AccessEnabler.js`
 
 
-### 監視する必要のないエンドポイント {#endpoints-not-monitor}
+### 監視すべきでないエンドポイント {#endpoints-not-monitor}
 
 * `https://sp.auth.adobe.com/sp/saml/SAMLAssertionConsumer`
 
   このエンドポイントには MVPD SAML 応答が必要なので、常に 503 エラーが発生します。
 
-* その他の使用権限エンドポイント — `adobe-services/1.0/authenticate/`, `adobe-services/1.0/deviceShortAuthorize`, `adobe-services/1.0/authorize`
+* その他の使用権限エンドポイント - `adobe-services/1.0/authenticate/`、`adobe-services/1.0/deviceShortAuthorize`、`adobe-services/1.0/authorize`
 
-これらのエンドポイントは、関連する応答のペイロードが必要なので、監視できません。
+これらのエンドポイントは、関連する返信のペイロードが必要なので、監視できません。

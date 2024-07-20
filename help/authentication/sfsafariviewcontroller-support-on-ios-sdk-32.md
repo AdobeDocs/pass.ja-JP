@@ -9,35 +9,35 @@ ht-degree: 0%
 
 ---
 
-# iOS SDK 3.2 以降での SFSafariViewController のサポート {#sfsafariviewcontroller-support-on-ios-sdk-3.2}
+# iOS SDK 3.2 以降での SFSafariViewController のサポー {#sfsafariviewcontroller-support-on-ios-sdk-3.2}
 
 >[!NOTE]
 >
->このページのコンテンツは、情報提供の目的でのみ提供されます。 この API を使用するには、Adobeの現在のライセンスが必要です。 不正な使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 </br>
 
 
-**セキュリティ要件のため、一部の MVPD のログインページは、Web ビューではなく SFSafariViewController で提示する必要があります。**
+**セキュリティ要件により、一部の MVPD のログインページは、Web ビューではなく SFSafariViewController で表示する必要があります。**
 
-一部の MVPD では、SFSafariViewController のような安全なブラウザコントロールでログインページを提示する必要があります。 Web ビューをアクティブにブロックしているため、認証を行うには SVC を使用する必要があります。
+一部の MVPD では、ログインページを SFSafariViewController のような安全なブラウザ制御で表示する必要があります。 Web ビューはアクティブにブロックされているため、認証を行うためには SVC を使用する必要があります。
 
 ## 互換性 {#compatiblity}
 
-iOS SDK バージョン 3.1 以降、AccessEnabler SDK は、サーバの設定に基づいて、SFSafariViewController 内の特定の MVPD のログインページを自動的に表示します。
+iOS SDK Version 3.1 以降、AccessEnabler SDK は、サーバの構成に基づいて、SFSafariViewController 内の特定の MVPD のログイン・ページを自動的に表示します。
 
-SDK のバージョン 3.1 では、アプリケーションのルートビューコントローラから SFSafariViewController が自動的に表示されます。 これにより実装者のログインページ管理が簡単になりますが、アプリの特殊な実装（既に表示されているモーダルコントローラーなど）が原因で、ルートビューコントローラーから SFSafariViewController を提示できない場合があります。
+SDK のバージョン 3.1 では、アプリケーションのルート ビューコントローラから SFSafariViewController が自動的に表示されます。 これにより、実装者のログインページ管理は簡素化されますが、アプリケーションの特別な実装（既に表示されているモーダルコントローラなど）が原因で、ルートビューコントローラから SFSafariViewController を提示できない場合があります。
 
-このような場合、3.2 バージョンでは、プログラマが SVC を手動で管理する機能が導入されます。
+このような場合、3.2 バージョンでは、プログラマが SVC を手動で管理する機能が導入されています。
 
 ## 手動による SVC 管理 {#manual-svc-management}
 
-SVC を手動で管理するには、実装者が次の手順を実行する必要があります。
+SVC を手動で管理するには、実装担当者は次の手順を実行する必要があります。
 
 
-1. 呼び出し **setOptions([&quot;handleSVC&quot;:true])** AccessEnabler の初期化後（認証を開始する前に、この呼び出しを必ず実行してください）。 これにより、「手動」の SVC 管理が有効になり、SDK は自動的に SVC を提示しませんが、必要に応じてを呼び出します **navigate(toUrl:*{url}* useSVC:true)**.
+1. accessEnabler の初期化後に **setOptions （[&quot;handleSVC&quot;:true]）** を呼び出します（この呼び出しが実行されていることを確認してから認証が開始されます）。 これにより、「手動」の SVC 管理が可能になります。SDK は SVC を自動的に表示するのではなく、必要に応じて表示します     **navigate （toUrl:*{url}* useSVC:true）** を呼び出します。
 
-1. オプションのコールバックの実装 **`navigateToUrl:useSVC:`** 実装内で、指定された url を使用して SFSafariViewController インスタンスを作成し、画面に表示する必要があります。
+1. オプションのコールバック **`navigateToUrl:useSVC:`** を実装内に実装するには、指定された URL で SFSafariViewController インスタンスを使用して svc インスタンスを作成し、それを画面に表示する必要があります。
 
    ```obj-c
    func navigate(toUrl url: String!, useSVC: Bool) {
@@ -47,14 +47,14 @@ SVC を手動で管理するには、実装者が次の手順を実行する必�
        }
    ```
 
-   ***メモ：***
+   ***注：***
 
-   - *SFSafariViewController は、任意の方法でカスタマイズできます。 例えば、iOS 11 以降では、「完了」ラベルを「キャンセル」に変更できます。*
-   - *svc を解除するには、その svc への参照が必要です。**navigateToUrl:useSVC***
-   - *「myController」に対して独自のビューコントローラを使用する*
+   - *SFSafariViewController は好きなようにカスタマイズできます。 例えば、iOS 11 以降では、「完了」ラベルを「キャンセル」に変更できます。*
+   - *svc を解除するには、svc への参照が必要です。**navigateToUrl:useSVC のスコープ内に svc を作成しないでください***
+   - *「myController」用に独自のビューコントローラを使用*
 
 
-1. アプリケーションの委任実装で、 **application(\_app: UIApplication, open url: URL, options: \[UIApplicationOpenURLOptionsKey: Any\]) -\> Bool**、 svc を閉じるコードを追加します。 を呼び出すコードが既に存在するはずです。 **accessEnabler.handleExternalURL()**. 追加のすぐ下：
+1. アプリケーションの **application （\_app: UIApplication, open url: URL, options: \[UIApplicationOpenURLOptionsKey: Any\]） -\> Bool** のデリゲート実装で、svc を閉じるコードを追加します。 **accessEnabler.handleExternalURL （）** を呼び出すコードが既に存在しているはずです。 の下に、次を追加します。
 
    ```obj-c
    if(svc != nil) {
@@ -62,10 +62,10 @@ SVC を手動で管理するには、実装者が次の手順を実行する必�
    }
    ```
 
-   この場合も、svc は、手順 2 で作成した SFSafariViewController への参照です。
+   ここでも、svc は手順 2 で作成した SFSafariViewController への参照です。
 
 
-1. 実装方法 **safariViewControllerDidFinish(\_ controller: SFSafariViewController)** から **SFSafariViewControllerDelegate** ユーザが「完了」ボタンを使用して svc をキャンセルした際にキャッチするために。 この関数では、認証がキャンセルされたことを SDK に通知するために、を呼び出す必要があります。
+1. ユーザーが **完了」ボタンを使用して svc をキャンセルしたときに検出するために、** SFSafariViewControllerDelegate **から** safariViewControllerDidFinish （\_ controller: SFSafariViewController）を実装します。 この関数で、認証がキャンセルされたことを SDK に通知するには、次を呼び出す必要があります。
 
    ```obj-c
    accessEnabler.setSelectedProvider(nil)

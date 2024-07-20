@@ -1,10 +1,11 @@
 ---
 title: Harman Primetime の概要
-description: Harman は Primetime の広告および公開製品を管理し、Adobeは AccountIQ、認証、同時監視用にAdobe Pass製品を管理します。
-source-git-commit: f24e0a7e81ed23e69d038e14fb8585e89e248e27
+description: Harman は Primetime の広告商品と公開商品を管理し、Adobeは AccountIQ、認証、同時実行モニタリング用のAdobe Pass商品を管理しています。
+exl-id: e9215d1b-00bc-44ee-82d7-c0df20796818
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '144'
-ht-degree: 0%
+source-wordcount: '139'
+ht-degree: 48%
 
 ---
 
@@ -14,7 +15,7 @@ ht-degree: 0%
 NOTE: Don't change Primetime to Pass in this file. All the stuff that belongs to Harman is still Primetime.
 -->
 
-Harman は Primetime の広告および公開製品を管理し、Adobeは AccountIQ、認証、同時監視用にAdobe Pass製品を管理します。
+Harman は Primetime の広告商品と公開商品を管理し、Adobeは AccountIQ、認証、同時実行モニタリング用のAdobe Pass商品を管理しています。
 
 ## ハーマンAdobe Passガイド
 
@@ -22,10 +23,10 @@ Harman は Primetime の広告および公開製品を管理し、Adobeは Accou
 |--- |--- |
 | [Primetime 動的Ad Insertion](https://experienceleague.adobe.com/docs/primetime/ad-insertion/home.html) | Adobe PassAd Insertionヘルプ |
 
-## Adobe Passガイド
+## Adobe Pass ガイド
 
 | ガイド | 説明 |
 |--- |--- |
-| [Adobe Pass Authentication](/help/authentication/home.md) | Adobe Pass認証は、TV Everywhere の使用権限付与ソリューションで、リソースへのアクセスを要求するユーザーがそのリソースに対する使用権限を付与されているかどうかを判断するためのモジュラーフレームワークを提供します。 |
-| [Adobe Pass Concurrency Monitoring](/help/concurrency-monitoring/cm-home.md) | 複数のアプリケーションでの同時使用に関する制限を定義し、適用する方法を説明します。 |
-| [Adobe Pass Account IQ](/help/accountiq/home.md) | Adobe Pass Account IQ のヘルプでは、 Account IQ コンポーネントに関する情報を提供し、様々なコンポーネントを使用するためのユーザージャーニーに関する情報を提供します。 |
+| [Adobe Pass認証 ](/help/authentication/home.md) | Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。 |
+| [Adobe Pass同時実行監視 ](/help/concurrency-monitoring/cm-home.md) | 複数のアプリケーションでの同時使用に関する制限を定義し、適用する方法を説明します。 |
+| [Adobe Pass Account IQ](/help/accountiq/home.md) | Adobe Pass アカウント IQ のヘルプは、アカウント IQ コンポーネントに関する情報を提供し、様々なコンポーネントを使用するためのユーザージャーニーについて説明します。 |
