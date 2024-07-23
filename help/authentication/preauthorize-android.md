@@ -2,7 +2,7 @@
 title: Androidを事前認証
 description: Androidを事前認証
 exl-id: b5337595-135f-4981-a578-2da432f125d6
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+source-git-commit: 89d21e2456b4fa08eb4ee10372479bd2d451b146
 workflow-type: tm+mt
 source-wordcount: '195'
 ht-degree: 0%
@@ -126,7 +126,7 @@ ht-degree: 0%
 ```
 
 
-### `abstract class AccessEnablerCallback<PreauthorizeResponse> {#accessenablercallback}`
+### `abstract class AccessEnablerCallback<PreauthorizeResponse>` {#accessenablercallback}
 
 ```java
     /// Response callback called by the SDK when the preauthorize API request was fulfilled. The result is either a successful or an error result containing a status.
