@@ -2,7 +2,7 @@
 title: 環境の設定と事前テスト
 description: 環境の設定と事前テスト
 exl-id: f822c0a1-045a-401f-a44f-742ed25bfcdc
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 3a6a5633c728398a3847ee3e341e82aba915f0d9
 workflow-type: tm+mt
 source-wordcount: '477'
 ht-degree: 0%
@@ -68,7 +68,7 @@ ht-degree: 0%
 * *c:\\windows\\System32\\drivers\\etc\\hosts* ファイル(Windows)または */etc/hosts* ファイル(Macintosh、Linux、Android の場合)編集、次の内容を追加します。
 
 * 実稼働プロファイルのなりすまし
-   * 52.13.71.11 http://entitlement.auth.adobe.com、http://sp.auth.adobe.com、http://api.auth.adobe.com
+   * 52.13.71.11 entitlement.auth.adobe.com sp.auth.adobe.com api.auth.adobe.com
 
 **Androidでのスプーフィング：** Androidでスプーフィングするには、Android エミュレーターを使用する必要があります。
 
