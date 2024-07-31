@@ -2,7 +2,7 @@
 title: MVPD の統合機能
 description: MVPD の統合機能
 exl-id: fcd65940-9a86-49b2-9d52-9031fb763338
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: e4567dd870790d11b9c5904d635fc00bdd1a23d2
 workflow-type: tm+mt
 source-wordcount: '1733'
 ht-degree: 2%
@@ -84,8 +84,8 @@ Adobe Pass Authentication OLCA のコンプライアンスと、Adobeの OATC �
 | 3.3 | インラインアカウント登録 | MVPD は、Federated AuthN フローにインラインで新しいアカウントを作成する手段を提供します。 | A |                                                                                                                                                           |
 | 3.4 | インラインヘルプ/サポート | MVPD は、Federated AuthN フロー中にヘルプを提供する手段を提供します。 | A |                                                                                                                                                           |
 | 3.5 | モデム ベースの家庭内認証 | MVPD は、デバイスが登録済みモデルのローカル ネットワーク上にある場合に、デバイスを自動的に認証します（ISP MVPD のみ）。 | B | これは、まだ多くの人がサポートできない最適化であり、詐欺行為の軽減やペアレンタルコントロールにいくつかの課題を引き起こすので、優先度が低くなります |
-ファイル/テーブルデータを貼り付け… ダイアログを使用して、Markdown テーブルコードを直接読み込めるようになりました。
 
+ファイル/テーブルデータを貼り付け… ダイアログを使用して、Markdown テーブルコードを直接読み込めるようになりました。
 
 
 ## 4. Analytics の機能 {#analytics-features}
