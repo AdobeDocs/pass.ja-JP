@@ -4,10 +4,10 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 26236fbd4b2d5703bcf99fc0cc5e0460e75ed185
+source-git-commit: c3aa2a24b242669ce0818b95ec34de2adec8001b
 workflow-type: tm+mt
-source-wordcount: '957'
-ht-degree: 3%
+source-wordcount: '1125'
+ht-degree: 2%
 
 ---
 
@@ -28,7 +28,7 @@ ht-degree: 3%
    + [プログラマーのユースケース](programmer-use-cases.md)
    + [クライアント情報（デバイス、接続、アプリケーション）を渡す](passing-client-information-device-connection-and-application.md)
    + [スロットルメカニズム](throttling-mechanism.md)
-   + REST API {#restapi}
+   + REST API V1 {#rest-api-v1}
       + [REST API の概要](rest-api-overview.md)
       + [REST API クックブック（サーバー間）](rest-api-cookbook-servertoserver.md)
       + [REST API クックブック（クライアントからサーバー）](rest-api-cookbook-clienttoserver.md)
@@ -52,6 +52,52 @@ ht-degree: 3%
          + [profile-request の取得](retrieve-profilerequest.md)
          + [トークン交換](token-exchange.md)
          + [Temp Pass とプロモーション Temp Pass の無料プレビュー](free-preview-for-temp-pass-and-promotional-temp-pass.md)
+   + REST API V2 {#rest-api-v2}
+      + API の {#rest-api-v2-apis}
+         + 設定 {#rest-api-v2-configuration-apis}
+            + [特定のサービスプロバイダーの設定の取得](./rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)
+         + Sessions {#rest-api-v2-sessions-apis}
+            + [認証セッションの作成](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
+            + [認証セッションの再開](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
+            + [認証セッションの取得](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md)
+         + Profiles {#rest-api-v2-profiles-apis}
+            + [プロファイルの取得](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
+            + [特定の mvpd のプロファイルの取得](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles-for-specific-mvpd.md)
+            + [特定のコードのプロファイルの取得](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles-for-specific-code.md)
+         + 決定 {#rest-api-v2-decisions-apis}
+            + [特定の mvpd を使用した認証決定の取得](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
+            + [ 特定の mvpd を使用した事前認証決定の取得 ](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
+         + ログアウト {#rest-api-v2-logout-apis}
+            + [特定の mvpd に対するログアウトの開始](./rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)
+         + パートナーシングル サインオン {#rest-api-v2-partner-single-sign-on-apis}
+            + [パートナー認証要求の取得](rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)
+            + [パートナー認証応答を使用したプロファイルの取得](rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)
+      + フロー {#rest-api-v2-flows}
+         + 基本フロー {#rest-api-v2-basic-flows}
+            + [プライマリアプリケーション内で実行される基本プロファイルフロー](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
+            + [セカンダリアプリケーション内で実行される基本プロファイルフロー](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
+            + [プライマリアプリケーション内で実行される基本認証フロー](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
+            + [セカンダリ・アプリケーション内で実行される基本認証フロー](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
+            + [プライマリアプリケーション内で実行される基本認証フロー](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
+            + [プライマリアプリケーション内で実行される基本的な事前認証フロー](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)
+            + [プライマリアプリケーション内で実行される基本的なログアウトフロー](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-logout-primary-application-flow.md)
+         + アクセス フローの低下 {#rest-api-v2-degraded-access-flows}
+            + [アクセスフローの低下](rest-api-v2/flows/access-degraded-flows/rest-api-v2-access-degraded-flows.md)
+         + 一時的なアクセスフロー {#rest-api-v2-temporary-access-flows}
+            + [ 一時的なアクセスフロー ](rest-api-v2/flows/access-temporary-flows/rest-api-v2-access-temporary-flows.md)
+         + シングルサインオンフロー {#rest-api-v2-single-sign-on-flows}
+            + [パートナーフローを使用したシングルサインオン](./rest-api-v2/flows/single-sign-on-flows/rest-api-v2-single-sign-on-partner-flows.md)
+            + [プラットフォーム ID フローを使用したシングルサインオン](./rest-api-v2/flows/single-sign-on-flows/rest-api-v2-single-sign-on-platform-identity-flows.md)
+            + [サービストークンフローを使用したシングルサインオン](./rest-api-v2/flows/single-sign-on-flows/rest-api-v2-single-sign-on-service-token-flows.md)
+            + [シングルログアウトフロー](./rest-api-v2/flows/single-sign-on-flows/rest-api-v2-single-sign-on-logout-flow.md)
+      + 付録 {#rest-api-v2-appendix}
+         + ヘッダー {#rest-api-v2-appendix-headers}
+            + [ヘッダー – AD-Service-Token](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md)
+            + [Header - Adobeの件名トークン](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)
+            + [ヘッダー – AP デバイス識別子](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md)
+            + [ヘッダー – AP-Partner-Framework-Status](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)
+            + [ヘッダー – AP-TempPass-Identity](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
+            + [ヘッダー – X-Device-Info](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md)
    + AccessEnabler SDK {#accessenabler-sdk}
       + JavaScript SDK {#javascriptsdk}
          + [JavaScript SDK の概要](javascript-sdk-overview.md)
