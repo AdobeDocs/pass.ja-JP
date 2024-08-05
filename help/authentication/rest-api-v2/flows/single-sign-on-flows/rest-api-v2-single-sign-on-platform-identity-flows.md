@@ -1,15 +1,19 @@
 ---
 title: シングルサインオン - Platform Id - フロー
 description: REST API V2 - シングルサインオン - Platform Id - フロー
-source-git-commit: c3aa2a24b242669ce0818b95ec34de2adec8001b
+source-git-commit: 4d1ce1301d6baf7309e8ee52c43b02403aa2fab9
 workflow-type: tm+mt
-source-wordcount: '1793'
+source-wordcount: '1819'
 ht-degree: 0%
 
 ---
 
 
 # プラットフォーム ID フローを使用したシングルサインオン {#single-sign-on-platform-identity-full-flows}
+
+>[!NOTE]
+>
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 Platform ID 方式を使用すると、複数のアプリケーションで一意の Platform ID を使用して、Adobe Pass サービスの使用時にデバイスレベルまたはプラットフォームレベルでシングルサインオン（SSO）を実現できます。
 

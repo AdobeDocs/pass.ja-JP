@@ -1,15 +1,19 @@
 ---
 title: シングル ログアウト – フロー
 description: REST API V2 - シングルログアウト – フロー
-source-git-commit: c3aa2a24b242669ce0818b95ec34de2adec8001b
+source-git-commit: 4d1ce1301d6baf7309e8ee52c43b02403aa2fab9
 workflow-type: tm+mt
-source-wordcount: '540'
+source-wordcount: '566'
 ht-degree: 0%
 
 ---
 
 
 # シングルログアウトフロー {#single-logout-flow}
+
+>[!NOTE]
+>
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 特定の mvpd に対するシングルログアウトの開始 {#initiate-single-logout-for-specific-mvpd}
 

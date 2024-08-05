@@ -1,15 +1,19 @@
 ---
 title: アクセス フローの低下
 description: REST API V2 – 低下したアクセスフロー
-source-git-commit: c3aa2a24b242669ce0818b95ec34de2adec8001b
+source-git-commit: 4d1ce1301d6baf7309e8ee52c43b02403aa2fab9
 workflow-type: tm+mt
-source-wordcount: '1568'
+source-wordcount: '1594'
 ht-degree: 0%
 
 ---
 
 
 # アクセスフローの低下 {#degraded-access-flows}
+
+>[!NOTE]
+>
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 劣化は、特定の MVPD 認証および承認エンドポイントを一時的にバイパスすることを提供します。 通常、プログラマはこのアクションを開始しますが、誰がデグレード イベントをトリガーしているかに関係なく、このアクションは影響を受ける MVPD との事前の取り決めに依存します。
 

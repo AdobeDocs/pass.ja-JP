@@ -1,15 +1,19 @@
 ---
 title: 基本認証 – プライマリ申請 – フロー
 description: REST API V2 – 基本認証 – プライマリアプリケーション – フロー
-source-git-commit: c3aa2a24b242669ce0818b95ec34de2adec8001b
+source-git-commit: 4d1ce1301d6baf7309e8ee52c43b02403aa2fab9
 workflow-type: tm+mt
-source-wordcount: '566'
+source-wordcount: '592'
 ht-degree: 0%
 
 ---
 
 
 # プライマリアプリケーション内で実行される基本認証フロー {#basic-authorization-flow-performed-within-primary-application}
+
+>[!NOTE]
+>
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 Adobe Pass認証使用権内の **認証フロー** により、ストリーミングアプリケーションは、MVPD がコンテンツのストリーミングをユーザーにリクエストすることを許可するか拒否するかを判断できます。 決定が `Permit` の場合、応答にはメディアトークンが含まれます。 Adobe Pass サーバーがメディアトークンに署名すると、ストリーミングアプリケーションでメディアトークン検証用ライブラリを使用して、ストリームがリリースされる前に信頼性を確認できます。
 
