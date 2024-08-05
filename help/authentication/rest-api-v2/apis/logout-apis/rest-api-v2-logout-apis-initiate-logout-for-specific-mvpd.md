@@ -1,7 +1,7 @@
 ---
 title: 特定の mvpd に対するログアウトの開始
 description: REST API V2 – 特定の mvpd のログアウトの開始
-source-git-commit: 4598aaa0827b943de83a9e7d847227edf6b0b387
+source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
 workflow-type: tm+mt
 source-wordcount: '911'
 ht-degree: 0%
@@ -11,7 +11,7 @@ ht-degree: 0%
 
 # 特定の mvpd に対するログアウトの開始 {#initiate-logout-for-specific-mvpd}
 
->[!NOTE]
+>[!IMPORTANT]
 >
 > このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
@@ -110,7 +110,7 @@ ht-degree: 0%
       <td>
         Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobeの件名のトークン </a> ドキュメントに記載されています。
         <br/><br/>
-        プラットフォーム ID を使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> プラットフォーム ID フローを使用したシングルサインオン </a> ドキュメントを参照してください。
+        プラットフォーム ID を使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> プラットフォーム ID フローを使用したシングルサインオン </a> ドキュメントを参照してください。
       </td>
       <td>optional</td>
    </tr>
@@ -119,7 +119,7 @@ ht-degree: 0%
       <td>
         サービストークンメソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md">AD-Service-Token</a> ドキュメントに記載されています。
         <br/><br/>
-        サービストークンを使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-flows/rest-api-v2-single-sign-on-service-token-flows.md"> サービストークンフローを使用したシングルサインオン </a> ドキュメントを参照してください。
+        サービストークンを使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md"> サービストークンフローを使用したシングルサインオン </a> ドキュメントを参照してください。
       </td>
       <td>optional</td>
    </tr>

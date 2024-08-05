@@ -1,7 +1,7 @@
 ---
 title: パートナー認証要求の取得
 description: REST API V2 - パートナー認証リクエストの取得
-source-git-commit: 4598aaa0827b943de83a9e7d847227edf6b0b387
+source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
 workflow-type: tm+mt
 source-wordcount: '1104'
 ht-degree: 0%
@@ -11,7 +11,7 @@ ht-degree: 0%
 
 # パートナー認証要求の取得 {#retrieve-partner-authentication-request}
 
->[!NOTE]
+>[!IMPORTANT]
 >
 > このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
@@ -123,7 +123,7 @@ ht-degree: 0%
       <td>
         パートナーメソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md">AP-Partner-Framework-Status</a> ドキュメントを参照してください。
         <br/><br/>
-        パートナーを使用したシングルサインオン有効フローについて詳しくは、<a href="../../flows/single-sign-on-flows/rest-api-v2-single-sign-on-partner-flows.md"> パートナーフローを使用したシングルサインオン </a> ドキュメントを参照してください。</td>
+        パートナーを使用したシングルサインオン有効フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md"> パートナーフローを使用したシングルサインオン </a> ドキュメントを参照してください。</td>
       <td>optional</td>
    </tr>
    <tr>

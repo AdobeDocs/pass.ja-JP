@@ -1,7 +1,7 @@
 ---
 title: ヘッダー – AD-Service-Token
 description: REST API V2 - ヘッダー – AD-Service-Token
-source-git-commit: 4d1ce1301d6baf7309e8ee52c43b02403aa2fab9
+source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
 workflow-type: tm+mt
 source-wordcount: '252'
 ht-degree: 1%
@@ -21,7 +21,7 @@ ht-degree: 1%
 
 このヘッダーは、サービストークンメソッドを活用するシングルサインオン（SSO）対応フローで使用するように設計されています。
 
-サービストークンメソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[ サービストークンフローを使用したシングルサインオン ](../../flows/single-sign-on-flows/rest-api-v2-single-sign-on-service-token-flows.md) ドキュメントを参照してください。
+サービストークンメソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[ サービストークンフローを使用したシングルサインオン ](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md) ドキュメントを参照してください。
 
 ## 構文 {#syntax}
 

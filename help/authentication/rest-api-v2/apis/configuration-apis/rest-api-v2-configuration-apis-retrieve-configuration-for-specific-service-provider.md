@@ -1,7 +1,7 @@
 ---
 title: 特定のサービスプロバイダーの設定の取得
 description: REST API V2 – 特定のサービスプロバイダーの設定を取得します
-source-git-commit: 4598aaa0827b943de83a9e7d847227edf6b0b387
+source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
 workflow-type: tm+mt
 source-wordcount: '521'
 ht-degree: 1%
@@ -11,7 +11,7 @@ ht-degree: 1%
 
 # 特定のサービスプロバイダーの設定の取得 {#retrieve-configuration-for-specific-service-provider}
 
->[!NOTE]
+>[!IMPORTANT]
 >
 > このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 

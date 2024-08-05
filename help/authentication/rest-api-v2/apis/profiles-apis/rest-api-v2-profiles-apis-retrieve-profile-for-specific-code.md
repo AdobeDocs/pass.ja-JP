@@ -1,15 +1,15 @@
 ---
-title: コードを使用した認証セッションの取得
-description: REST API V2 - コードを使用した認証セッションの取得
+title: 特定のコードのプロファイルの取得
+description: REST API V2 – 特定のコードのプロファイルを取得
 source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
 workflow-type: tm+mt
-source-wordcount: '409'
+source-wordcount: '570'
 ht-degree: 1%
 
 ---
 
 
-# コードを使用した認証セッションの取得 {#retrieve-authentication-session-using-code}
+# 特定のコードのプロファイルの取得 {#retrieve-profile-for-specific-code}
 
 >[!IMPORTANT]
 >
@@ -29,7 +29,7 @@ ht-degree: 1%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">パス</td>
-      <td>/api/v2/{serviceProvider}/sessions/{code}</td>
+      <td>/api/v2/{serviceProvider}/profiles/{code}</td>
       <td></td>
    </tr>
    <tr>
@@ -47,7 +47,7 @@ ht-degree: 1%
       <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部の一意の ID。</td>
       <td><i>必須</i></td>
    </tr>
-    <tr>
+   <tr>
       <td style="background-color: #DEEBFF;">コード</td>
       <td>ストリーミングデバイスで認証セッションを作成した後に取得した認証コード。</td>
       <td><i>必須</i></td>
@@ -70,7 +70,7 @@ ht-degree: 1%
          サーバーからサーバーへの実装には常に使用することを強くお勧めします。特に、呼び出しがストリーミングデバイスではなくプログラマーサービスによって行われる場合に強くお勧めします。
          <br/><br/>
          クライアントからサーバーへの実装の場合、ストリーミングデバイスの IP アドレスは暗黙的に送信されます。
-      </td> 
+      </td>
       <td>optional</td>
    </tr>
    <tr>
@@ -101,7 +101,7 @@ ht-degree: 1%
       <td>200</td>
       <td>OK</td>
       <td>
-        応答本文には、認証セッションに関する情報が含まれます。
+        応答本文には、有効なプロファイルのマップが含まれています。このマップは空の場合があります。
       </td>
    </tr>
    <tr>
@@ -148,14 +148,34 @@ ht-degree: 1%
       <td><i>必須</i></td>
    </tr>
    <tr>
+      <td style="background-color: #DEEBFF;">Content-Type</td>
+      <td>application/json</td>
+      <td><i>必須</i></td>
+   </tr>
+   <tr>
       <th style="background-color: #EFF2F7; width: 15%;">本文</th>
       <th style="background-color: #EFF2F7"></th>
       <th style="background-color: #EFF2F7; width: 10%;"></th>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">パラメーター</td>
+      <td style="background-color: #DEEBFF;">プロファイル</td>
       <td>
-         次の属性を持つ JSON オブジェクト。
+        キーと値のペアのマップを含む JSON。
+        <br/><br/>
+        キー要素は、次の値で定義されます。
+        <table>
+            <tr>
+               <th style="background-color: #EFF2F7; width: 20%;">値</th>
+               <th style="background-color: #EFF2F7"></th>
+               <th style="background-color: #EFF2F7; width: 15%;"></th>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">mvpd</td>
+               <td>オンボーディングプロセス中に ID プロバイダーに関連付けられた内部の一意の ID。</td>
+               <td><i>必須</i></td>
+            </tr>
+         </table>
+         value 要素は、次の属性で定義されます。
          <table>
             <tr>
                <th style="background-color: #EFF2F7; width: 20%;">属性</th>
@@ -163,13 +183,106 @@ ht-degree: 1%
                <th style="background-color: #EFF2F7; width: 15%;"></th>
             </tr>
             <tr>
-               <td style="background-color: #DEEBFF;">既存</td>
-               <td>既に指定されている既存のパラメーター。</td>
+               <td style="background-color: #DEEBFF;">notBefore</td>
+               <td>プロファイルが無効になる前のタイムスタンプ。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
-               <td style="background-color: #DEEBFF;">なし</td>
-               <td>認証フローを完了するために指定する必要がある、不足しているパラメーター。</td>
+               <td style="background-color: #DEEBFF;">notAfter</td>
+               <td>プロファイルが無効になった後のタイムスタンプ。</td>
+               <td><i>必須</i></td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">発行者</td>
+               <td>
+                  プロファイルを所有するエンティティ。
+                  <br/><br/>
+                  使用可能な値は次のとおりです。
+                  <table>
+                     <tr>
+                        <th style="background-color: #EFF2F7; width: 30%;">値</th>
+                        <th style="background-color: #EFF2F7;"></th>
+                     </tr>
+                     <tr>
+                        <td style="background-color: #DEEBFF;">mvpd<br/><br/> 例：Spectrum、Cablevision など</td>
+                        <td>
+                            プロファイルは次の結果として作成されました。
+                            <ul>
+                                <li>基本認証</li>
+                            </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="background-color: #DEEBFF;">Adobe</td>
+                        <td>
+                            プロファイルは次の結果として作成されました。
+                            <ul>
+                                <li>アクセスが低下しました</li>
+                                <li>一時アクセス</li>
+                            </ul>
+                        </td>
+                     </tr>
+                  </table>
+               <td><i>必須</i></td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">タイプ</td>
+               <td>
+                  プロファイルのタイプ。
+                  <br/><br/>
+                  使用可能な値は次のとおりです。
+                  <table>
+                     <tr>
+                        <th style="background-color: #EFF2F7; width: 30%;">値</th>
+                        <th style="background-color: #EFF2F7;"></th>
+                     </tr>
+                     <tr>
+                        <td style="background-color: #DEEBFF;">標準</td>
+                        <td>
+                            プロファイルは次の結果として作成されました。
+                            <ul>
+                                <li>基本認証</li>
+                            </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="background-color: #DEEBFF;">機能低下</td>
+                        <td>
+                            プロファイルは次の結果として作成されました。
+                            <ul>
+                                <li>アクセスが低下しました</li>
+                            </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="background-color: #DEEBFF;">一時的</td>
+                        <td>
+                            プロファイルは次の結果として作成されました。
+                            <ul>
+                                <li>一時アクセス</li>
+                            </ul>
+                        </td>
+                     </tr>
+                  </table>
+               <td><i>必須</i></td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">属性</td>
+               <td>
+                    ユーザーメタデータ属性のリスト。
+                    <br/><br/>
+                    次の属性があります。
+                    <ul>
+                        <li>必須（「userId」など）</li>
+                        <li>非必須（「zip」、「householdId」、「maxRating」など）。</li>
+                    </ul>
+                    属性の値には次の種類があります。
+                    <ul>
+                        <li>シンプル</li>
+                        <li>list</li>
+                        <li>マップ</li>
+                    </ul>
+               </td>
                <td><i>必須</i></td>
             </tr>
          </table>
@@ -209,34 +322,54 @@ ht-degree: 1%
 
 ## サンプル {#samples}
 
-### 1. コードを使用して既存の認証セッションの情報を取得する
+### 1.基本認証の実行後、セカンダリデバイス上の既存の有効な認証済みプロファイルを取得します
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
 ```JSON
-GET /api/v2/sessions/REF30/8BLW4RW
+GET /api/v2/REF30/profiles/Cablevision/XTC98W
  
 Authorization: Bearer ....
 AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
 X-Device-Info ....
 Accept: application/json
-Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
 ```
 
 >[!TAB  応答 ]
 
 ```JSON
 HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
  
-"parameters" : {
-    "existing" : {           
-         "mvpd" : "Cablevision",
-         "domain" : "adobe.com"
-    },
-    "missing" : ["redirectUrl"]
+{
+    "profiles" : {
+        "Cablevision" : {
+            "notBefore" : 1623943955,
+            "notAfter" : 1623951155,
+            "issuer" : "Cablevision",
+            "type" : "regular",
+            "attributes" : {
+                "userId" : {
+                    "value" : "BASE64_value_userId",
+                    "state" : "plain"
+                },
+                "householdId" : {
+                    "value" : "BASE64_value_householdId",
+                    "state" : "plain"
+                },
+                "zip" : {
+                    "value" : "BASE64_value_zip",
+                    "state" : "enc"
+                },
+                "parental-controls" : {
+                    "value" : BASE64_value_parental-controls,
+                    "state" : "plain"
+                }
+            }
+        }
+     }
 }
 ```
 

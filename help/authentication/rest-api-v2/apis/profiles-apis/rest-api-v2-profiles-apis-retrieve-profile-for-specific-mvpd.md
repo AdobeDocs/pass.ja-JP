@@ -1,15 +1,15 @@
 ---
-title: プロファイルの取得
-description: REST API V2 - プロファイルの取得
+title: 特定の mvpd のプロファイルの取得
+description: REST API V2 – 特定の mvpd のプロファイルを取得します
 source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
 workflow-type: tm+mt
-source-wordcount: '823'
+source-wordcount: '965'
 ht-degree: 0%
 
 ---
 
 
-# プロファイルの取得 {#retrieve-profiles}
+# 特定の mvpd のプロファイルの取得 {#retrieve-profile-for-specific-mvpd}
 
 >[!IMPORTANT]
 >
@@ -29,7 +29,7 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">パス</td>
-      <td>/api/v2/{serviceProvider}/profiles</td>
+      <td>/api/v2/{serviceProvider}/profiles/{mvpd}</td>
       <td></td>
    </tr>
    <tr>
@@ -48,6 +48,11 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
+      <td style="background-color: #DEEBFF;">mvpd</td>
+      <td>オンボーディングプロセス中に ID プロバイダーに関連付けられた内部の一意の ID。</td>
+      <td><i>必須</i></td>
+   </tr>
+   <tr>
       <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
       <th style="background-color: #EFF2F7; width: 10%;"></th>
@@ -59,7 +64,7 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>デバイス識別子ペイロードの生成については、 <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP デバイス識別情報</a> のドキュメントを参照してください。</td>
+      <td>デバイス識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a> ドキュメントに記載されています。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -78,12 +83,16 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">X-Forwarded-For</td>
       <td>
-         ストリーミングデバイスの IP アドレス。         <br/><br/>特に呼び出しがストリーミングデバイスではなくプログラマーサービスによって行われる場合は、サーバー間の実装に常に使用することを強くお勧めします。         <br/><br/>クライアントからサーバーへの実装では、ストリーミングデバイスの IP アドレスが暗黙的に送信されます。
+         ストリーミングデバイスの IP アドレス。
+         <br/><br/>
+         サーバーからサーバーへの実装には常に使用することを強くお勧めします。特に、呼び出しがストリーミングデバイスではなくプログラマーサービスによって行われる場合に強くお勧めします。
+         <br/><br/>
+         クライアントからサーバーへの実装の場合、ストリーミングデバイスの IP アドレスは暗黙的に送信されます。
       </td>
-      <td>随意</td>
+      <td>optional</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Adobe Systems-件名-トークン</td>
+      <td style="background-color: #DEEBFF;">Adobe件名トークン</td>
       <td>
         Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobeの件名のトークン </a> ドキュメントに記載されています。
         <br/><br/>
@@ -106,6 +115,11 @@ ht-degree: 0%
         パートナーメソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md">AP-Partner-Framework-Status</a> ドキュメントを参照してください。
         <br/><br/>
         パートナーを使用したシングルサインオン有効フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md"> パートナーフローを使用したシングルサインオン </a> ドキュメントを参照してください。</td>
+      <td>optional</td>
+    </tr>
+   <tr>
+      <td style="background-color: #DEEBFF;">AP-TempPass-Identity</td>
+      <td>ユーザー固有 ID ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md">AP-TempPass-Identity</a> ドキュメントに記載されています。</td>
       <td>optional</td>
    </tr>
    <tr>
@@ -206,7 +220,7 @@ ht-degree: 0%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">mvpd</td>
-               <td>オンボーディングプロセス中にIDサービスプロバイダーに関連付けられた内部の一意の識別子。</td>
+               <td>オンボーディングプロセス中に ID プロバイダーに関連付けられた内部の一意の ID。</td>
                <td><i>必須</i></td>
             </tr>
          </table>
@@ -224,7 +238,7 @@ ht-degree: 0%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notAfter</td>
-               <td>プロファイルが無効になるまでのタイムスタンプ。</td>
+               <td>プロファイルが無効になった後のタイムスタンプ。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -250,6 +264,16 @@ ht-degree: 0%
                         </td>
                      </tr>
                      <tr>
+                        <td style="background-color: #DEEBFF;">Adobe</td>
+                        <td>
+                            プロファイルは次の結果として作成されました。
+                            <ul>
+                                <li>アクセスが低下しました</li>
+                                <li>一時アクセス</li>
+                            </ul>
+                        </td>
+                     </tr>
+                     <tr>
                         <td style="background-color: #DEEBFF;">Apple</td>
                         <td>
                             プロファイルは次の結果として作成されました。
@@ -262,12 +286,14 @@ ht-degree: 0%
                <td><i>必須</i></td>
             </tr>
             <tr>
-               <td style="background-color: #DEEBFF;">種類</td>
+               <td style="background-color: #DEEBFF;">タイプ</td>
                <td>
-                  プロファイルの種類。                  <br/><br/>指定できる値を次に示します。
+                  プロファイルのタイプ。
+                  <br/><br/>
+                  使用可能な値は次のとおりです。
                   <table>
                      <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">価値</th>
+                        <th style="background-color: #EFF2F7; width: 30%;">値</th>
                         <th style="background-color: #EFF2F7;"></th>
                      </tr>
                      <tr>
@@ -276,6 +302,24 @@ ht-degree: 0%
                             プロファイルは次の結果として作成されました。
                             <ul>
                                 <li>基本認証</li>
+                            </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="background-color: #DEEBFF;">機能低下</td>
+                        <td>
+                            プロファイルは次の結果として作成されました。
+                            <ul>
+                                <li>アクセスが低下しました</li>
+                            </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="background-color: #DEEBFF;">一時的</td>
+                        <td>
+                            プロファイルは次の結果として作成されました。
+                            <ul>
+                                <li>一時アクセス</li>
                             </ul>
                         </td>
                      </tr>
@@ -358,22 +402,22 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">エラー</td>
-      <td>このエラーは、 <a href="../../../enhanced-error-codes.md">強化機能 エラーコード</a> ドキュメントに準拠した追加情報を提供します。</td>
+      <td>このエラーは、<a href="../../../enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加情報を提供します。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
 
 ## サンプル {#samples}
 
-### 1.基本認証で取得した、既存の有効な認証済みプロファイルをすべて取得します
+### 1.特定の mvpd の基本認証で取得した、既存の有効な認証済みプロファイルをすべて取得する
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
 ```JSON
-GET /api/v2/REF30/profiles
- 
+GET /api/v2/REF30/profiles/Spectrum  
+
 Authorization: Bearer ....
 AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
 X-Device-Info ....
@@ -381,7 +425,7 @@ Accept: application/json
 User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
 ```
 
->[!TAB 応答]
+>[!TAB  応答 ]
 
 ```JSON
 HTTP/1.1 200 OK
@@ -389,10 +433,10 @@ Content-Type: application/json; charset=utf-8
  
 {
     "profiles" : {
-        "Cablevision" : {
+        "Spectrum" : {
             "notBefore" : 1623943955,
             "notAfter" : 1623951155,
-            "issuer" : "Cablevision",
+            "issuer" : "Spectrum",
             "type" : "regular",
             "attributes" : {
                 "userId" : {
@@ -410,18 +454,6 @@ Content-Type: application/json; charset=utf-8
                 "parental-controls" : {
                     "value" : BASE64_value_parental-controls,
                     "state" : "plain"
-                }          
-            }
-        },
-        "Spectrum" : {
-            "notBefore" : 1623943955,
-            "notAfter" : 1623951155,
-            "issuer" : "Spectrum",
-            "type" : "regular",
-            "attributes" : {
-                "userId" : {
-                    "value" : "BASE64_value_userId",
-                    "state" : "plain"
                 }
             }
         }
@@ -431,15 +463,15 @@ Content-Type: application/json; charset=utf-8
 
 >[!ENDTABS]
 
-### 2. サービス トークン メソッドを使用した シングルサインオン認証で取得したものを含め、既存の有効な認証済みプロファイルをすべて取得します
+### 2.特定の mvpd に対してサービストークン方式を使用したシングルサインオン認証で取得されたプロファイルを含む、既存の有効なすべての認証プロファイルを取得する
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
 ```JSON
-GET /api/v2/REF30/profiles
- 
+GET /api/v2/REF30/profiles/AdobeShibboleth  
+
 Authorization: Bearer ....
 AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
 X-Device-Info ....
@@ -475,18 +507,6 @@ Content-Type: application/json; charset=utf-8
                "state": "plain"
             }
          }
-      },
-      "Spectrum": {
-         "notBefore": 1623943955,
-         "notAfter": 1623951155,
-         "issuer": "Spectrum",
-         "type": "regular",
-         "attributes": {
-            "userId": {
-               "value": "BASE64_value_userId",
-               "state": "plain"
-            }
-         }
       }
    }
 }
@@ -494,14 +514,14 @@ Content-Type: application/json; charset=utf-8
 
 >[!ENDTABS]
 
-### 3. Platform ID 方法を使用したシングルサインオン認証で取得されたプロファイルを含む、既存の有効なすべての認証プロファイルを取得する
+### 3.特定の mvpd に対して、Platform Identity Method を使用したシングルサインオン認証を通じて取得されたプロファイルを含む、既存の有効なすべての認証プロファイルを取得する
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
 ```JSON
-GET /api/v2/REF30/profiles
+GET /api/v2/REF30/profiles/AdobePass_SMI  
  
 Authorization: Bearer ....
 AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
@@ -538,21 +558,320 @@ Content-Type: application/json; charset=utf-8
                "state": "plain"
             }
          }
-      },
-      "Cablevision": {
-         "notBefore": 1623943955,
-         "notAfter": 1623951155,
-         "issuer": "Spectrum",
-         "type": "regular",
-         "attributes": {
-            "userId": {
-               "value": "BASE64_value_userId",
-               "state": "plain"
-            }
-         }
       }
    }
 }
 ```
+
+>[!ENDTABS]
+
+### 4.一時的な受け渡し用のプロファイル情報の取得
+
+>[!BEGINTABS]
+
+>[!TAB  リクエスト ]
+
+```JSON
+GET /api/v2/REF30/profiles/TempPass_TEST40
+ 
+Authorization: Bearer ....
+AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+X-Device-Info ....
+Accept: application/json
+User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```
+
+>[!TAB Response – 利用可能 ]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "profiles": {
+        "TempPass_TEST40": {
+            "notBefore": 1697718650206,
+            "notAfter": 1697718710206,
+            "issuer": "Adobe",
+            "type": "temporary",
+            "attributes": {
+                "expiration_date": {
+                    "value": 1697718710206,
+                    "state": "plain"
+                },
+                "userID": {
+                    "value": "temppass_0bdf451aa9c8fa60e80f6b99ab48310c73b480f1",
+                    "state": "plain"
+                }
+            }
+        }
+    }
+}
+```
+
+>[!TAB  応答 – 開始 ]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8  
+ 
+{
+    "profiles": {
+        "TempPass_TEST40": {
+            "notBefore": 1697719584085,
+            "notAfter": 1697719704085,
+            "issuer": "Adobe",
+            "type": "temporary",
+            "attributes": {
+                "expiration_date": {
+                    "value": 1697719704085,
+                    "state": "plain"
+                },
+                "userID": {
+                    "value": "temppass_0bdf451aa9c8fa60e80f6b99ab48310c73b480f1",
+                    "state": "plain"
+                }
+            }
+        }
+    }
+}
+```
+
+>[!TAB  応答 – 期限切れ ]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8    
+ 
+{
+    "status": 200,
+    "code": "temppass_expired",
+    "message": "TempPass has expired.",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+    "action": "none"
+}
+```
+
+>[!TAB  応答 – 無効な設定 ]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8      
+ 
+{
+    "status": 500,
+    "code": "temppass_invalid_configuration",
+    "message": "TempPass configuration is invalid.",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+    "action": "none"
+}
+```
+
+>[!ENDTABS]
+
+### 5.プロモーションの一時パスのプロファイル情報を取得する
+
+>[!BEGINTABS]
+
+>[!TAB  リクエスト ]
+
+```JSON
+GET /api/v2/REF30/profiles/flexibleTempPass
+ 
+Authorization: Bearer ....
+AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+X-Device-Info ....
+AP-TempPass-Identity: eyJlbWFpbCI6ImZvb0BiYXIuY29tIn0=
+Accept: application/json
+User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```
+
+>[!TAB Response – 利用可能 ]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "profiles": {
+        "flexibleTempPass": {
+            "notBefore": 1697719042666,
+            "notAfter": 1697719102666,
+            "issuer": "Adobe",
+            "type": "temporary",
+            "attributes": {
+                "remaining_resources": {
+                    "value": 5,
+                    "state": "plain"
+                },
+                "used_assets": {
+                    "value": 0,
+                    "state": "plain"
+                },
+                "expiration_date": {
+                    "value": 1697719102666,
+                    "state": "plain"
+                },
+                "userID": {
+                    "value": "temppass_0bdf451aa9c8fa60e80f6b99ab48310c73b480f1",
+                    "state": "plain"
+                }
+            }
+        }
+    }
+}
+```
+
+>[!TAB  応答 – 開始 ]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "profiles": {
+        "flexibleTempPass": {
+            "notBefore": 1697720528524,
+            "notAfter": 1697720588524,
+            "issuer": "Adobe",
+            "type": "temporary",
+            "attributes": {
+                "remaining_resources": {
+                    "value": 1,
+                    "state": "plain"
+                },
+                "used_assets": {
+                    "value": [
+                        "res04",
+                        "res02",
+                        "res03",
+                        "res01"
+                    ],
+                    "state": "plain"
+                },
+                "expiration_date": {
+                    "value": 1697720528524,
+                    "state": "plain"
+                },
+                "userID": {
+                    "value": "temppass_0bdf451aa9c8fa60e80f6b99ab48310c73b480f1",
+                    "state": "plain"
+                }
+            }
+        }
+    }
+}
+```
+
+>[!TAB  応答 – 期限切れ ]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "status": 200,
+    "code": "temppass_expired",
+    "message": "TempPass has expired.",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+    "action": "none"
+}
+```
+
+>[!TAB Response - Consumed]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "decisions": [
+        {
+            "authorized": false,
+            "error": {
+                "status": 200,
+                "code": "temppass_max_resources_exceeded",
+                "message": "Flexible TempPass maximum resources exceeded.",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+                "action": "none"
+            }
+        }
+    ]
+}
+```
+
+>[!TAB  応答 – 無効な設定 ]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8      
+ 
+{
+    "status": 500,
+    "code": "temppass_invalid_configuration",
+    "message": "TempPass configuration is invalid.",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+    "action": "none"
+}
+```
+
+>[!TAB  応答 – 無効な ID]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "status": 400,
+    "code": "temppass_invalid_identity",
+    "message": "TempPass is not available for the specified identity.",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+    "action": "none"
+}
+```
+
+>[!ENDTABS]
+
+### 6.劣化した mvpd のプロファイル情報の取得
+
+>[!BEGINTABS]
+
+>[!TAB  リクエスト ]
+
+```JSON
+GET /api/v2/REF30/profiles/degradedMvpd
+ 
+Authorization: Bearer ....
+AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+X-Device-Info ....
+Accept: application/json
+User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```
+
+>[!TAB  応答 – AuthNAll の低下 ]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "profiles": {
+        "degradedMvpd": {
+            "notBefore": 1697719042666,
+            "notAfter": 1697719102666,
+            "issuer": "Adobe",
+            "type": "degraded",
+            "attributes":
+                "userID": {
+                    "value": "95cf93bcd183214a0bdf451aa9c8fa60e80f6b99ab48310c73b480f1",
+                    "state": "plain"
+                }
+            }
+        }
+    }
+}
+```
+
+**注：** 95cf93bcd183214a は劣化固有のプレフィックスです。
 
 >[!ENDTABS]

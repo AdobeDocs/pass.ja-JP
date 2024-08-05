@@ -1,7 +1,7 @@
 ---
 title: Header - Adobeの件名トークン
 description: REST API V2 - ヘッダー – Adobe – 件名 – トークン
-source-git-commit: 4d1ce1301d6baf7309e8ee52c43b02403aa2fab9
+source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
 workflow-type: tm+mt
 source-wordcount: '156'
 ht-degree: 1%
@@ -21,7 +21,7 @@ ht-degree: 1%
 
 このヘッダーは、Platform ID メソッドを活用するシングルサインオン（SSO）対応フローで使用するように設計されています。
 
-Platform ID メソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[ プラットフォーム ID フローを使用したシングルサインオン ](../../flows/single-sign-on-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) ドキュメントを参照してください。
+Platform ID メソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[ プラットフォーム ID フローを使用したシングルサインオン ](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) ドキュメントを参照してください。
 
 ## 構文 {#syntax}
 
