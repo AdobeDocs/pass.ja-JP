@@ -1,7 +1,7 @@
 ---
 title: 認証セッションの再開
 description: REST API V2 – 認証セッションの再開
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: 4afd8492c77fdceae3c2504ba392fbcfc0979b22
 workflow-type: tm+mt
 source-wordcount: '755'
 ht-degree: 1%
@@ -11,7 +11,7 @@ ht-degree: 1%
 
 # 認証セッションの再開 {#resume-authentication-session}
 
->[!NOTE]
+>[!IMPORTANT]
 >
 > このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
