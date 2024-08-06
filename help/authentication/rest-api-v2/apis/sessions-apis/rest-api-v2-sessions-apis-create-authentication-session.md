@@ -1,15 +1,15 @@
 ---
 title: 認証セッションの作成
 description: REST API V2 – 認証セッションの作成
-source-git-commit: 4afd8492c77fdceae3c2504ba392fbcfc0979b22
+source-git-commit: 9c04ec17c848d6734dc2ca2d6357ed5fb49341ec
 workflow-type: tm+mt
-source-wordcount: '966'
+source-wordcount: '967'
 ht-degree: 0%
 
 ---
 
 
-# 認証セッションの作成 {#create-authentication-session}
+# 認証セッションの作成 – テスト {#create-authentication-session}
 
 >[!IMPORTANT]
 >
