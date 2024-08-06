@@ -1,9 +1,9 @@
 ---
 title: 認証セッションの作成
 description: REST API V2 – 認証セッションの作成
-source-git-commit: 9c04ec17c848d6734dc2ca2d6357ed5fb49341ec
+source-git-commit: cf479236cbd43d5e4585bf0eac18a12dbe4bc6c4
 workflow-type: tm+mt
-source-wordcount: '967'
+source-wordcount: '965'
 ht-degree: 0%
 
 ---
@@ -246,24 +246,20 @@ ht-degree: 0%
                   認証フローを完了するためにストリーミングデバイスが実行する必要があるアクション。
                   <br/><br/>
                   使用可能な値は次のとおりです。
-                  <table style="table-layout:auto">
-                     <tr>
-                        <th style="background-color: #EFF2F7;">値</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">認証</td>
-                        <td>ストリーミングデバイスまたは別のデバイスが、指定された URL をユーザーエージェントで開く必要があります。</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">再開</td>
-                        <td>ストリーミングデバイスまたは別のデバイスは、不足しているパラメーターを指定し、コードを使用して認証セッションを再開する必要があります。</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">承認する</td>
-                        <td>ストリーミングデバイスは、決定フローを直接続行できます。</td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>認証</b></li>
+                    <ul>
+                        <li>ストリーミングデバイスまたは別のデバイスが、指定された URL をユーザーエージェントで開く必要があります。</li>
+                    </ul>
+                    <li><b>再開</b></li>
+                    <ul>
+                        <li>ストリーミングデバイスまたは別のデバイスは、不足しているパラメーターを指定し、コードを使用して認証セッションを再開する必要があります。</li>
+                    </ul>
+                    <li><b>承認する</b></li>
+                    <ul>
+                        <li>ストリーミングデバイスは、決定フローを直接続行できます。</li>
+                    </ul>
+                  </ul>
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -272,20 +268,16 @@ ht-degree: 0%
                   「actionName」属性で指定されたアクションでフローを続行するために、ストリーミングデバイスが実行する必要があるインタラクションのタイプ。
                   <br/><br/>
                   使用可能な値は次のとおりです。
-                  <table style="table-layout:auto">
-                     <tr>
-                        <th style="background-color: #EFF2F7;">値</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">ダイレクト</td>
-                        <td>フローは、クライアント実装で使用可能な HTTP クライアントを使用して、指定された URL への直接呼び出しを続行します。</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">対話型</td>
-                        <td>フローは、ユーザーエージェントを使用して、指定された URL へのナビゲーションを続行します。</td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>対話型</b></li>
+                    <ul>
+                        <li>フローは、ユーザーエージェントを使用して、指定された URL へのナビゲーションを続行します。</li>
+                    </ul>
+                    <li><b>ダイレクト</b></li>
+                    <ul>
+                        <li>フローは、クライアント実装で使用可能な HTTP クライアントを使用して、指定された URL への直接呼び出しを続行します。</li>
+                    </ul>
+                  </ul>
                <td><i>必須</i></td>
             </tr>
             <tr>
