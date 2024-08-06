@@ -1,9 +1,9 @@
 ---
 title: 認証セッションの再開
 description: REST API V2 – 認証セッションの再開
-source-git-commit: 4afd8492c77fdceae3c2504ba392fbcfc0979b22
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
-source-wordcount: '755'
+source-wordcount: '753'
 ht-degree: 1%
 
 ---
@@ -21,11 +21,11 @@ ht-degree: 1%
 
 ## リクエスト {#request}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">HTTP</th>
+      <th style="background-color: #EFF2F7;">HTTP</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">パス</td>
@@ -38,9 +38,9 @@ ht-degree: 1%
       <td></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">パスパラメーター</th>
+      <th style="background-color: #EFF2F7;">パスパラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
@@ -53,9 +53,9 @@ ht-degree: 1%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文パラメーター</th>
+      <th style="background-color: #EFF2F7;">本文パラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">mvpd</td>
@@ -87,9 +87,9 @@ ht-degree: 1%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
@@ -134,10 +134,10 @@ ht-degree: 1%
 
 ## 応答 {#response}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 10%;">コード</th>
-      <th style="background-color: #EFF2F7; width: 20%;">テキスト</th>
+      <th style="background-color: #EFF2F7;">コード</th>
+      <th style="background-color: #EFF2F7;">テキスト</th>
       <th style="background-color: #EFF2F7;">説明</th>
    </tr>
    <tr>
@@ -179,11 +179,11 @@ ht-degree: 1%
 
 ### 成功 {#success}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -191,19 +191,19 @@ ht-degree: 1%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
       <td>
          次の属性を持つ JSON オブジェクト。
-         <table>
+         <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">属性</th>
+               <th style="background-color: #EFF2F7;">属性</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">actionName</td>
@@ -211,24 +211,11 @@ ht-degree: 1%
                   認証フローを完了するためにストリーミングデバイスが実行する必要があるアクション。
                   <br/><br/>
                   使用可能な値は次のとおりです。
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">値</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">認証</td>
-                        <td>ストリーミングデバイスまたは別のデバイスが、指定された URL をユーザーエージェントで開く必要があります。</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">再試行</td>
-                        <td>ストリーミングデバイスまたは別のデバイスが、不足しているパラメーターを指定し、コードを使用して認証セッションを再開する必要があります。</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">承認する</td>
-                        <td>ストリーミングデバイスは、決定フローを直接続行できます。</td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b> 認証 </b><br/> ストリーミングデバイスまたは別のデバイスが、指定された URL をユーザーエージェントで開く必要があります。</li>
+                    <li><b>retry</b><br/> ストリーミングデバイスまたは別のデバイスが、不足しているパラメーターを指定し、コードを使用して認証セッションを再開する必要があります。</li>
+                    <li><b>authorize</b><br/> ストリーミングデバイスは、決定フローを直接続行できます。</li>
+                  </ul> 
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -237,20 +224,10 @@ ht-degree: 1%
                   「actionName」属性で指定されたアクションでフローを続行するために、ストリーミングデバイスが実行する必要があるインタラクションのタイプ。
                   <br/><br/>
                   使用可能な値は次のとおりです。
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">値</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">ダイレクト</td>
-                        <td>フローは、クライアント実装で使用可能な HTTP クライアントを使用して、指定された URL への直接呼び出しを続行します。</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">対話型</td>
-                        <td>フローは、ユーザーエージェントを使用して、指定された URL へのナビゲーションを続行します。</td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>interactive</b><br/> フローは、ユーザーエージェントを使用して、指定された URL へのナビゲーションを続行します。</li>
+                    <li><b>direct</b><br/> フローは、クライアント実装で使用可能な HTTP クライアントを使用して、指定された URL への直接呼び出しを続行します。</li>
+                  </ul>
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -290,11 +267,11 @@ ht-degree: 1%
 
 ### エラー {#error}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -307,9 +284,9 @@ ht-degree: 1%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">エラー</td>

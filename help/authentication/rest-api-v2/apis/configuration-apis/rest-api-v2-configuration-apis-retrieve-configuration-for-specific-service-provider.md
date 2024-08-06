@@ -1,7 +1,7 @@
 ---
 title: 特定のサービスプロバイダーの設定の取得
 description: REST API V2 – 特定のサービスプロバイダーの設定を取得します
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
 source-wordcount: '521'
 ht-degree: 1%
@@ -21,11 +21,11 @@ ht-degree: 1%
 
 ## リクエスト {#request}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">HTTP</th>
+      <th style="background-color: #EFF2F7;">HTTP</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">パス</td>
@@ -38,9 +38,9 @@ ht-degree: 1%
       <td></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">パスパラメーター</th>
+      <th style="background-color: #EFF2F7;">パスパラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
@@ -48,9 +48,9 @@ ht-degree: 1%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">クエリパラメーター</th>
+      <th style="background-color: #EFF2F7;">クエリパラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">profile</td>
@@ -58,9 +58,9 @@ ht-degree: 1%
       <td>optional</td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
@@ -114,10 +114,10 @@ ht-degree: 1%
 
 ## 応答 {#response}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 10%;">コード</th>
-      <th style="background-color: #EFF2F7; width: 20%;">テキスト</th>
+      <th style="background-color: #EFF2F7;">コード</th>
+      <th style="background-color: #EFF2F7;">テキスト</th>
       <th style="background-color: #EFF2F7;">説明</th>
    </tr>
    <tr>
@@ -159,11 +159,11 @@ ht-degree: 1%
 
 ### 成功 {#success}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -176,19 +176,19 @@ ht-degree: 1%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
       <td>
          要素のリストを含む JSON。各要素は次の属性を持ちます。
-         <table>
+         <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">属性</th>
+               <th style="background-color: #EFF2F7;">属性</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                 <td style="background-color: #DEEBFF;">デバイス</td>
@@ -207,62 +207,32 @@ ht-degree: 1%
             </tr>
             <tr>
                 <td style="background-color: #DEEBFF;">要求者</td>
-                <td>次の属性を持つ JSON:
-                <table>
-                    <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">属性</th>
-                    </tr>
-                    <tr>
-                        <td>id</td>
-                    </tr>
-                    <tr>
-                        <td>name</td>
-                    </tr>
-                    <tr>
-                        <td>ドメイン</td>
-                    </tr>
-                </table>
+                <td>
+                    次の属性を持つ JSON オブジェクト。
+                    <ul>
+                        <li><b>id</b></li>
+                        <li><b>name</b></li>
+                        <li><b>ドメイン</b></li>
+                    </ul>
                 </td>
                 <td><i>必須</i></td>
             </tr>
             <tr>
                 <td style="background-color: #DEEBFF;">mvpds</td>
-                <td>次の属性を持つ JSON:
-                <table>
-                    <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">属性</th>
-                    </tr>
-                    <tr>
-                        <td>id</td>
-                    </tr>
-                    <tr>
-                        <td>displayName</td>
-                    </tr>
-                    <tr>
-                        <td>logoUrl</td>
-                    </tr>
-                    <tr>
-                        <td>isTempPass</td>
-                    </tr>
-                    <tr>
-                        <td>isProxy</td>
-                    </tr>
-                    <tr>
-                        <td>boardingStatus</td>
-                    </tr>
-                    <tr>
-                        <td>platformMappingId</td>
-                    </tr>
-                    <tr>
-                        <td>enablePlatformServices</td>
-                    </tr>
-                    <tr>
-                        <td>displayInPlatformPicker</td>
-                    </tr>
-                    <tr>
-                        <td>enforcePlatformPermissions</td>
-                    </tr>
-                </table>
+                <td>
+                    次の属性を持つ JSON オブジェクト。
+                    <ul>
+                        <li><b>id</b></li>
+                        <li><b>displayName</b></li>
+                        <li><b>logoUr</b></li>
+                        <li><b>isTempPass</b></li>
+                        <li><b>isProxy</b></li>
+                        <li><b>boardingStatus</b></li>
+                        <li><b>platformMappingId</b></li>
+                        <li><b>enablePlatformServices</b></li>
+                        <li><b>displayInPlatformPicker</b></li>
+                        <li><b>enforcePlatformPermissions</b></li>
+                    </ul>
                 </td>
                 <td><i>必須</i></td>
             </tr>
@@ -278,11 +248,11 @@ ht-degree: 1%
 
 ### エラー {#error}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -295,9 +265,9 @@ ht-degree: 1%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">エラー</td>

@@ -1,9 +1,9 @@
 ---
 title: 特定の mvpd のプロファイルの取得
 description: REST API V2 – 特定の mvpd のプロファイルを取得します
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
-source-wordcount: '965'
+source-wordcount: '966'
 ht-degree: 0%
 
 ---
@@ -21,11 +21,11 @@ ht-degree: 0%
 
 ## リクエスト {#request}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">HTTP</th>
+      <th style="background-color: #EFF2F7;">HTTP</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">パス</td>
@@ -38,9 +38,9 @@ ht-degree: 0%
       <td></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">パスパラメーター</th>
+      <th style="background-color: #EFF2F7;">パスパラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
@@ -53,9 +53,9 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
@@ -140,10 +140,10 @@ ht-degree: 0%
 
 ## 応答 {#response}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 10%;">コード</th>
-      <th style="background-color: #EFF2F7; width: 20%;">テキスト</th>
+      <th style="background-color: #EFF2F7;">コード</th>
+      <th style="background-color: #EFF2F7;">テキスト</th>
       <th style="background-color: #EFF2F7;">説明</th>
    </tr>
    <tr>
@@ -185,11 +185,11 @@ ht-degree: 0%
 
 ### 成功 {#success}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -202,9 +202,9 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">プロファイル</td>
@@ -212,11 +212,11 @@ ht-degree: 0%
         キーと値のペアのマップを含む JSON。
         <br/><br/>
         キー要素は、次の値で定義されます。
-        <table>
+        <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">値</th>
+               <th style="background-color: #EFF2F7;">値</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">mvpd</td>
@@ -225,11 +225,11 @@ ht-degree: 0%
             </tr>
          </table>
          value 要素は、次の属性で定義されます。
-         <table>
+         <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">属性</th>
+               <th style="background-color: #EFF2F7;">属性</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notBefore</td>
@@ -247,42 +247,11 @@ ht-degree: 0%
                   プロファイルを所有するエンティティ。
                   <br/><br/>
                   使用可能な値は次のとおりです。
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">値</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">mvpd<br/><br/> 例：Spectrum、Cablevision など</td>
-                        <td>
-                            プロファイルは次の結果として作成されました。
-                            <ul>
-                                <li>基本認証</li>
-                                <li>プラットフォーム ID を使用したシングルサインオン</li>
-                                <li>サービストークンを使用したシングルサインオン</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">Adobe</td>
-                        <td>
-                            プロファイルは次の結果として作成されました。
-                            <ul>
-                                <li>アクセスが低下しました</li>
-                                <li>一時アクセス</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">Apple</td>
-                        <td>
-                            プロファイルは次の結果として作成されました。
-                            <ul>
-                                <li>パートナーAppleを使用したシングルサインオン</li>
-                            </ul>
-                        </td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>mvpd （Spectrum、Cablevision など）</b><br/> プロファイルは、基本認証、Platform ID を使用したシングルサインオン、サービストークンを使用したシングルサインオンの結果として作成されました。</li>
+                    <li><b>Adobe</b><br/> 次の結果としてプロファイルが作成されました：縮退アクセス、一時アクセス。</li>
+                    <li><b>Apple</b><br/> プロファイルは次の結果として作成されました：パートナーAppleを使用したシングル サインオン。</li>
+                  </ul>
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -291,66 +260,14 @@ ht-degree: 0%
                   プロファイルのタイプ。
                   <br/><br/>
                   使用可能な値は次のとおりです。
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">値</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">標準</td>
-                        <td>
-                            プロファイルは次の結果として作成されました。
-                            <ul>
-                                <li>基本認証</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">機能低下</td>
-                        <td>
-                            プロファイルは次の結果として作成されました。
-                            <ul>
-                                <li>アクセスが低下しました</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">一時的</td>
-                        <td>
-                            プロファイルは次の結果として作成されました。
-                            <ul>
-                                <li>一時アクセス</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">appleSSO</td>
-                        <td>
-                            プロファイルは次の結果として作成されました。
-                            <ul>
-                                <li>パートナーAppleを使用したシングルサインオン</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">platformSSO</td>
-                        <td>
-                            プロファイルは次の結果として作成されました。
-                            <ul>
-                                <li>プラットフォーム ID を使用したシングルサインオン</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">serviceTokenSSO</td>
-                        <td>
-                            プロファイルは次の結果として作成されました。
-                            <ul>
-                                <li>サービストークンを使用したシングルサインオン</li>
-                            </ul>
-                        </td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b> 通常 </b><br/> プロファイルは、基本認証の結果として作成されました。</li>
+                    <li><b>degraded</b><br/> 次の理由でプロファイルが作成されました：縮退アクセス。</li>
+                    <li><b>temporary</b><br/> プロファイルは、次の結果として作成されました。一時アクセス。</li>
+                    <li><b>appleSSO</b><br/> プロファイルは次の結果として作成されました：パートナーのAppleを使用したシングルサインオン。</li>
+                    <li><b>platformSSO</b><br/> プロファイルは次の結果として作成されました：プラットフォーム ID を使用したシングルサインオン。</li>
+                    <li><b>serviceTokenSSO</b><br/> プロファイルは次の結果として作成されました：サービストークンを使用したシングルサインオン。</li>
+                  </ul>
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -379,11 +296,11 @@ ht-degree: 0%
 
 ### エラー {#error}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -396,9 +313,9 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">エラー</td>

@@ -1,9 +1,9 @@
 ---
 title: コードを使用した認証セッションの取得
 description: REST API V2 - コードを使用した認証セッションの取得
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
-source-wordcount: '409'
+source-wordcount: '406'
 ht-degree: 1%
 
 ---
@@ -21,11 +21,11 @@ ht-degree: 1%
 
 ## リクエスト {#request}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">HTTP</th>
+      <th style="background-color: #EFF2F7;">HTTP</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">パス</td>
@@ -38,9 +38,9 @@ ht-degree: 1%
       <td></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">パスパラメーター</th>
+      <th style="background-color: #EFF2F7;">パスパラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
@@ -53,9 +53,9 @@ ht-degree: 1%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
@@ -91,10 +91,10 @@ ht-degree: 1%
 
 ## 応答 {#response}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 10%;">コード</th>
-      <th style="background-color: #EFF2F7; width: 20%;">テキスト</th>
+      <th style="background-color: #EFF2F7;">コード</th>
+      <th style="background-color: #EFF2F7;">テキスト</th>
       <th style="background-color: #EFF2F7;">説明</th>
    </tr>
    <tr>
@@ -136,11 +136,11 @@ ht-degree: 1%
 
 ### 成功 {#success}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -148,42 +148,29 @@ ht-degree: 1%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">パラメーター</td>
       <td>
          次の属性を持つ JSON オブジェクト。
-         <table>
-            <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">属性</th>
-               <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
-            </tr>
-            <tr>
-               <td style="background-color: #DEEBFF;">既存</td>
-               <td>既に指定されている既存のパラメーター。</td>
-               <td><i>必須</i></td>
-            </tr>
-            <tr>
-               <td style="background-color: #DEEBFF;">なし</td>
-               <td>認証フローを完了するために指定する必要がある、不足しているパラメーター。</td>
-               <td><i>必須</i></td>
-            </tr>
-         </table>
+         <ul>
+            <li><b>existing</b><br/> 既に指定されている既存のパラメーター。</li>
+            <li><b>missing</b><br/> 認証フローを完了するために指定する必要がある、欠落しているパラメーター。</li>
+         </ul>
       </td>
       <td><i>必須</i></td>
 </table>
 
 ### エラー {#error}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -196,9 +183,9 @@ ht-degree: 1%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">エラー</td>

@@ -1,9 +1,9 @@
 ---
 title: 特定の mvpd に対するログアウトの開始
 description: REST API V2 – 特定の mvpd のログアウトの開始
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
-source-wordcount: '911'
+source-wordcount: '909'
 ht-degree: 0%
 
 ---
@@ -21,11 +21,11 @@ ht-degree: 0%
 
 ## リクエスト {#request}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">HTTP</th>
+      <th style="background-color: #EFF2F7;">HTTP</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">パス</td>
@@ -38,9 +38,9 @@ ht-degree: 0%
       <td></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">パスパラメーター</th>
+      <th style="background-color: #EFF2F7;">パスパラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
@@ -53,9 +53,9 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">クエリパラメーター</th>
+      <th style="background-color: #EFF2F7;">クエリパラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">redirectUrl</td>
@@ -67,9 +67,9 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
@@ -141,10 +141,10 @@ ht-degree: 0%
 
 ## 応答 {#response}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 10%;">コード</th>
-      <th style="background-color: #EFF2F7; width: 20%;">テキスト</th>
+      <th style="background-color: #EFF2F7;">コード</th>
+      <th style="background-color: #EFF2F7;">テキスト</th>
       <th style="background-color: #EFF2F7;">説明</th>
    </tr>
    <tr>
@@ -186,11 +186,11 @@ ht-degree: 0%
 
 ### 成功 {#success}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -203,9 +203,9 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ログアウト</td>
@@ -213,11 +213,11 @@ ht-degree: 0%
          キーと値のペアのマップを含む JSON。
          <br/><br/>
          キー要素は、次の値で定義されます。
-         <table>
+         <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">値</th>
+               <th style="background-color: #EFF2F7;">値</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">mvpd</td>
@@ -225,11 +225,11 @@ ht-degree: 0%
                <td><i>必須</i></td>
          </table>
          value 要素は、次の属性で定義されます。
-         <table>
+         <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">属性</th>
+               <th style="background-color: #EFF2F7;">属性</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">actionName</td>
@@ -237,47 +237,11 @@ ht-degree: 0%
                   ログアウトフローを完了するためにストリーミングデバイスで実行する必要があるアクション。
                   <br/><br/>
                   使用可能な値は次のとおりです。
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">値</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">ログアウト</td>
-                        <td>
-                            ストリーミングデバイスは、指定された URL をユーザーエージェントで開く必要があります。
-                            <br/><br/>
-                            このアクションは、次のシナリオに適用されます。
-                            <ul>
-                                <li>ログアウトエンドポイントを使用して MVPD からログアウトします。</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">完了</td>
-                        <td>
-                            ストリーミングデバイスは後続のアクションを実行する必要はありません。
-                            <br/><br/>
-                            このアクションは、次のシナリオに適用されます。
-                            <ul>\
-                                <li>ログアウトエンドポイントを使用せずに MVPD からログアウトする（ダミーログアウト機能）</li>
-                                <li>縮退アクセス中にログアウトする</li>
-                                <li>一時的アクセス中にログアウト</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">無効</td>
-                        <td>
-                            ストリーミングデバイスは後続のアクションを実行する必要はありません。
-                            <br/><br/>
-                            このアクションは、次のシナリオに適用されます。
-                            <ul>
-                                <li>有効なプロファイルが見つからないときに MVPD からログアウトする</li>
-                            </ul>
-                        </td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b> ログアウト </b><br/> ストリーミングデバイスは、指定された URL をユーザーエージェントで開く必要があります。<br/> このアクションは、次のシナリオに適用されます：ログアウトエンドポイントを使用して MVPD からログアウトします。</li>
+                    <li><b> 完了 </b><br/> ストリーミングデバイスは後続のアクションを実行する必要はありません。<br/> このアクションは、ログアウトエンドポイントを使用せずに MVPD からログアウトする（ダミーのログアウト機能）、縮退アクセス時にログアウトする、一時アクセス時にログアウトする、といったシナリオに適用されます。</li>
+                    <li><b> 無効 </b><br/> ストリーミングデバイスは後続のアクションを実行する必要はありません。<br/> このアクションは、次のシナリオに適用されます。有効なプロファイルが見つからない場合に MVPD からログアウトします。</li>
+                  </ul>  
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -286,31 +250,10 @@ ht-degree: 0%
                   「actionName」属性で指定されたアクションでフローを続行するために、ストリーミングデバイスが実行する必要があるインタラクションのタイプ。
                   <br/><br/>
                   使用可能な値は次のとおりです。
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">値</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">対話型</td>
-                        <td>
-                            このタイプは、「actionName」属性の次の値に適用されます。
-                            <ul>
-                                <li>ログアウト</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">なし</td>
-                        <td>
-                            このタイプは、「actionName」属性の次の値に適用されます。
-                            <ul>
-                                <li>完了</li>
-                                <li>無効</li>
-                            </ul>
-                        </td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>interactive</b><br/> このタイプは、「actionName」属性の次の値に適用されます：<b>logout</b>。</li>
+                    <li><b>none</b><br/> このタイプは、「actionName」属性の次の値に適用されます。<b>complete</b>、<b>invalid</b>。</li>
+                  </ul>
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -325,8 +268,8 @@ ht-degree: 0%
                   <br/><br/>
                   これは、「actionName」属性の次の値には存在しません。
                   <ul>
-                    <li>完了</li>
-                    <li>無効</li>
+                    <li><b>完了</b></li>
+                    <li><b>無効</b></li>
                   </ul>
                </td>
                <td>optional</td>
@@ -338,11 +281,11 @@ ht-degree: 0%
 
 ### エラー {#error}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -355,9 +298,9 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">エラー</td>

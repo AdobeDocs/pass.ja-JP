@@ -1,23 +1,23 @@
 ---
 title: 認証セッションの作成
 description: REST API V2 – 認証セッションの作成
-source-git-commit: cf479236cbd43d5e4585bf0eac18a12dbe4bc6c4
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
-source-wordcount: '965'
+source-wordcount: '964'
 ht-degree: 0%
 
 ---
 
 
-# 認証セッションの作成 – テスト {#create-authentication-session}
+# 認証セッションの作成 {#create-authentication-session}
 
 >[!IMPORTANT]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
->REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/throttling-mechanism.md) のドキュメントで制限されています。
 
 ## リクエスト {#request}
 
@@ -247,18 +247,9 @@ ht-degree: 0%
                   <br/><br/>
                   使用可能な値は次のとおりです。
                   <ul>
-                    <li><b>認証</b></li>
-                    <ul>
-                        <li>ストリーミングデバイスまたは別のデバイスが、指定された URL をユーザーエージェントで開く必要があります。</li>
-                    </ul>
-                    <li><b>再開</b></li>
-                    <ul>
-                        <li>ストリーミングデバイスまたは別のデバイスは、不足しているパラメーターを指定し、コードを使用して認証セッションを再開する必要があります。</li>
-                    </ul>
-                    <li><b>承認する</b></li>
-                    <ul>
-                        <li>ストリーミングデバイスは、決定フローを直接続行できます。</li>
-                    </ul>
+                    <li><b> 認証 </b><br/> ストリーミングデバイスまたは別のデバイスが、指定された URL をユーザーエージェントで開く必要があります。</li>
+                    <li><b>resume</b><br/> ストリーミングデバイスまたは別のデバイスが、不足しているパラメーターを指定し、コードを使用して認証セッションを再開する必要があります。</li>
+                    <li><b>authorize</b><br/> ストリーミングデバイスは、決定フローを直接続行できます。</li>
                   </ul>
                <td><i>必須</i></td>
             </tr>
@@ -269,14 +260,8 @@ ht-degree: 0%
                   <br/><br/>
                   使用可能な値は次のとおりです。
                   <ul>
-                    <li><b>対話型</b></li>
-                    <ul>
-                        <li>フローは、ユーザーエージェントを使用して、指定された URL へのナビゲーションを続行します。</li>
-                    </ul>
-                    <li><b>ダイレクト</b></li>
-                    <ul>
-                        <li>フローは、クライアント実装で使用可能な HTTP クライアントを使用して、指定された URL への直接呼び出しを続行します。</li>
-                    </ul>
+                    <li><b>interactive</b><br/> フローは、ユーザーエージェントを使用して、指定された URL へのナビゲーションを続行します。</li>
+                    <li><b>direct</b><br/> フローは、クライアント実装で使用可能な HTTP クライアントを使用して、指定された URL への直接呼び出しを続行します。</li>
                   </ul>
                <td><i>必須</i></td>
             </tr>

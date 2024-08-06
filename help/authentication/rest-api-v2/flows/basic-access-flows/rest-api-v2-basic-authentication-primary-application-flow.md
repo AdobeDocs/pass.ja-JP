@@ -1,7 +1,7 @@
 ---
 title: 基本認証 – プライマリアプリケーション – フロー
 description: REST API V2 – 基本認証 – プライマリアプリケーション – フロー
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
 source-wordcount: '894'
 ht-degree: 0%
@@ -91,6 +91,8 @@ MVPD を選択し、ユーザーエージェントで選択された MVPD を使
    >
    > * _required_ パラメーターおよびヘッダーは有効である必要があります。
    > * 指定した `serviceProvider` と `mvpd` の統合はアクティブである必要があります。
+   > 
+   > <br/>
    > 
    > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 

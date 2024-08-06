@@ -1,9 +1,9 @@
 ---
 title: 特定の mvpd を使用した認証決定の取得
 description: REST API V2 – 特定の mvpd を使用した認証決定の取得
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
-source-wordcount: '921'
+source-wordcount: '929'
 ht-degree: 0%
 
 ---
@@ -21,11 +21,11 @@ ht-degree: 0%
 
 ## リクエスト {#request}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">HTTP</th>
+      <th style="background-color: #EFF2F7;">HTTP</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">パス</td>
@@ -38,9 +38,9 @@ ht-degree: 0%
       <td></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">パスパラメーター</th>
+      <th style="background-color: #EFF2F7;">パスパラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
@@ -53,9 +53,9 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文パラメーター</th>
+      <th style="background-color: #EFF2F7;">本文パラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">リソース</td>
@@ -63,9 +63,9 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
@@ -159,10 +159,10 @@ ht-degree: 0%
 
 ## 応答 {#response}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 10%;">コード</th>
-      <th style="background-color: #EFF2F7; width: 20%;">テキスト</th>
+      <th style="background-color: #EFF2F7;">コード</th>
+      <th style="background-color: #EFF2F7;">テキスト</th>
       <th style="background-color: #EFF2F7;">説明</th>
    </tr>
    <tr>
@@ -204,11 +204,11 @@ ht-degree: 0%
 
 ### 成功 {#success}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -221,19 +221,19 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">決定</td>
       <td>
          要素のリストを含む JSON。各要素は次の属性を持ちます。
-         <table>
+         <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">属性</th>
+               <th style="background-color: #EFF2F7;">属性</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                 <td style="background-color: #DEEBFF;">resource</td>
@@ -258,53 +258,28 @@ ht-degree: 0%
             <tr>
                <td style="background-color: #DEEBFF;">ソース</td>
                <td>
-                  決定ソースに関する情報：
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">値</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">mvpd</td>
-                        <td>決定は、MVPD 認証エンドポイントによって発行されます。</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">分解</td>
-                        <td>アクセスが低下した結果、決定が発行されます。</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">temppass</td>
-                        <td>決定は一時的なアクセスの結果として発行されます。</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">代替</td>
-                        <td>決定は、ダミーの認証機能の結果として発行されます。</td>
-                     </tr>
-                  </table>
+                  決定ソースに関する情報。
+                  <br/><br/>
+                  使用可能な値は次のとおりです。
+                  <ul>
+                    <li><b>mvpd</b><br/>Decision は、MVPD 認証エンドポイントによって発行されます。</li>
+                    <li><b>degradation</b><br/>Decision は、アクセスが低下した結果として発行されます。</li>
+                    <li><b>tempass</b><br/>Decision は、一時的なアクセスの結果として発行されます。</li>
+                    <li><b>dummy</b><br/>Decision は、ダミー認証機能の結果として発行されます。</li>
+                  </ul>
                <td><i>必須</i></td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">トークン</td>
                <td>
-                  メディアトークンに関する情報：
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">属性</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">notBefore</td>
-                        <td>メディアトークンが無効となる前のタイムスタンプ。</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">notAfter</td>
-                        <td>メディアトークンが無効になった後のタイムスタンプ。</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">serializedToken</td>
-                        <td>Base64 にエンコードされたメディアトークン。</td>
-                     </tr>
-                  </table>
+                  メディアトークンに関する情報。
+                  <br/><br/>
+                  次の属性を持つ JSON オブジェクト。
+                  <ul>
+                    <li><b>notBefore</b><br/> メディアトークンが無効になる前のタイムスタンプ。</li>
+                    <li><b>notAfter</b><br/> メディアトークンが無効になるまでのタイムスタンプ。</li>
+                    <li><b>serializedToken</b><br/>Base64 エンコードされたメディアトークン。</li>
+                  </ul>
                <td>optional</td>
             </tr>
             <tr>
@@ -329,11 +304,11 @@ ht-degree: 0%
 
 ### エラー {#error}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -346,9 +321,9 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">エラー</td>

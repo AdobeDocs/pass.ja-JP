@@ -1,9 +1,9 @@
 ---
 title: パートナー認証要求の取得
 description: REST API V2 - パートナー認証リクエストの取得
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
-source-wordcount: '1104'
+source-wordcount: '1092'
 ht-degree: 0%
 
 ---
@@ -21,11 +21,11 @@ ht-degree: 0%
 
 ## リクエスト {#request}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">HTTP</th>
+      <th style="background-color: #EFF2F7;">HTTP</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">パス</td>
@@ -38,9 +38,9 @@ ht-degree: 0%
       <td></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">パスパラメーター</th>
+      <th style="background-color: #EFF2F7;">パスパラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
@@ -53,9 +53,9 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文パラメーター</th>
+      <th style="background-color: #EFF2F7;">本文パラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">domainName</td>
@@ -82,9 +82,9 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
@@ -155,10 +155,10 @@ ht-degree: 0%
 
 ## 応答 {#response}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 10%;">コード</th>
-      <th style="background-color: #EFF2F7; width: 20%;">テキスト</th>
+      <th style="background-color: #EFF2F7;">コード</th>
+      <th style="background-color: #EFF2F7;">テキスト</th>
       <th style="background-color: #EFF2F7;">説明</th>
    </tr>
    <tr>
@@ -200,11 +200,11 @@ ht-degree: 0%
 
 ### 成功 {#success}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -217,19 +217,19 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
       <td>
          次の属性を持つ JSON オブジェクト。
-         <table>
+         <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">属性</th>
+               <th style="background-color: #EFF2F7;">属性</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">actionName</td>
@@ -237,36 +237,12 @@ ht-degree: 0%
                   認証フローを完了するためにストリーミングデバイスが実行する必要があるアクション。
                   <br/><br/>
                   使用可能な値は次のとおりです。
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">値</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">partner_profile</td>
-                        <td>ストリーミングデバイスは、提供されたパートナー認証要求を使用して、プロファイルを取得するために利用可能なパートナー認証応答を取得することができる。</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">認証</td>
-                        <td>
-                            パートナーのシングルサインオンフローが続行できない場合、ストリーミングデバイスは基本認証フローにフォールバックする可能性があります。
-                            <br/><br/>
-                            ストリーミングデバイスまたは別のデバイスが、指定された URL をユーザーエージェントで開く必要があります。
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">再開</td>
-                        <td>
-                            パートナーのシングルサインオンフローが続行できない場合、ストリーミングデバイスは基本認証フローにフォールバックする可能性があります。
-                            <br/><br/>
-                            ストリーミングデバイスまたは別のデバイスは、不足しているパラメーターを指定し、コードを使用して認証セッションを再開する必要があります。
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">承認する</td>
-                        <td>ストリーミングデバイスは、決定フローを直接続行できます。</td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>partner_profile</b><br/> ストリーミングデバイスは、提供されたパートナー認証要求を使用して、プロファイルの取得に利用できるパートナー認証応答を取得できます。</li>
+                    <li><b> 認証 </b><br/> パートナーのシングルサインオンフローが続行できない場合、ストリーミングデバイスは基本認証フローにフォールバックする可能性があります。<br/> ストリーミングデバイスまたは別のデバイスが、指定された URL をユーザーエージェントで開く必要があります。</li>
+                    <li><b> 再開 </b><br/> パートナーのシングルサインオンフローが続行できない場合、ストリーミングデバイスは基本認証フローにフォールバックする可能性があります。<br/> ストリーミングデバイスまたは別のデバイスは、不足しているパラメーターを指定し、コードを使用して認証セッションを再開する必要があります。</li>
+                    <li><b>authorize</b><br/> ストリーミングデバイスは、決定フローを直接続行できます。</li>
+                  </ul>
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -275,20 +251,10 @@ ht-degree: 0%
                   「actionName」属性で指定されたアクションでフローを続行するために、ストリーミングデバイスが実行する必要があるインタラクションのタイプ。
                   <br/><br/>
                   使用可能な値は次のとおりです。
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">値</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">ダイレクト</td>
-                        <td>フローは、クライアント実装で使用可能な HTTP クライアントを使用して、指定された URL への直接呼び出しを続行します。</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">対話型</td>
-                        <td>フローは、ユーザーエージェントを使用して、指定された URL へのナビゲーションを続行します。</td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>interactive</b><br/> フローは、ユーザーエージェントを使用して、指定された URL へのナビゲーションを続行します。</li>
+                    <li><b>direct</b><br/> フローは、クライアント実装で使用可能な HTTP クライアントを使用して、指定された URL への直接呼び出しを続行します。</li>
+                  </ul>
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -322,38 +288,11 @@ ht-degree: 0%
                     このフィールドは、パートナーのシングルサインオンフローが続行できる場合に存在します。
                     <br/><br/>
                     次の属性を持つ JSON オブジェクト。
-                    <table>
-                        <tr>
-                            <th style="background-color: #EFF2F7; width: 30%;">属性</th>
-                            <th style="background-color: #EFF2F7;"></th>
-                        </tr>
-                        <tr>
-                            <td style="background-color: #DEEBFF;">タイプ</td>
-                            <td>
-                                MVPD でサポートされるプロトコルの種類を示します。
-                                <br/><br/>
-                                使用可能な値は次のとおりです。
-                                <table>
-                                    <tr>
-                                        <th style="background-color: #EFF2F7; width: 30%;">値</th>
-                                        <th style="background-color: #EFF2F7;"></th>
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #DEEBFF;">saml</td>
-                                        <td>MVPD は、SAML プロトコルをサポートしています。</td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: #DEEBFF;">リクエスト</td>
-                            <td>SAML リクエスト。</td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: #DEEBFF;">属性</td>
-                            <td>SAML リクエスト属性。</td>
-                        </tr>
-                    </table>
+                    <ul>
+                        <li><b>type</b><br/>MVPD でサポートされるプロトコルのタイプを示します（SAML のみ）。</li>
+                        <li><b>request</b><br/>SAML リクエスト。</li>
+                        <li><b>attributes</b><br/>SAML リクエストの属性。</li>
+                    </ul>
                </td>
                <td>optional</td>
             </tr>
@@ -378,11 +317,11 @@ ht-degree: 0%
 
 ### エラー {#error}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">ヘッダー</th>
+      <th style="background-color: #EFF2F7;">ヘッダー</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
@@ -395,9 +334,9 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">本文</th>
+      <th style="background-color: #EFF2F7;">本文</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">エラー</td>
