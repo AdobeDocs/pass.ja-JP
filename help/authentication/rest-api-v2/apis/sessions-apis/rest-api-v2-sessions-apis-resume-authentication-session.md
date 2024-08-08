@@ -1,7 +1,7 @@
 ---
 title: 認証セッションの再開
 description: REST API V2 – 認証セッションの再開
-source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
+source-git-commit: c849882286c88d16a5652717d381700287c53277
 workflow-type: tm+mt
 source-wordcount: '753'
 ht-degree: 1%
@@ -47,7 +47,7 @@ ht-degree: 1%
       <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部の一意の ID。</td>
       <td><i>必須</i></td>
    </tr>
-    <tr>
+   <tr>
       <td style="background-color: #DEEBFF;">コード</td>
       <td>ストリーミングデバイスで認証セッションを作成した後に取得した認証コード。</td>
       <td><i>必須</i></td>
