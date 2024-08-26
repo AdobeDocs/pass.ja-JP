@@ -2,9 +2,9 @@
 title: Amazon FireOS アプリケーションの登録
 description: Amazon FireOS アプリケーションの登録
 exl-id: 650fd4a2-dfc3-4c74-9b5b-6bea832a28ca
-source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '514'
+source-wordcount: '515'
 ht-degree: 0%
 
 ---
@@ -21,7 +21,7 @@ ht-degree: 0%
 
 FireOS AccessEnabler SDK のバージョン 3.0 以降、Adobeのサーバで認証メカニズムを変更しています。 公開鍵と秘密鍵システムを使用して requestorID に署名する代わりに、SDK がサーバーに対して行うすべての呼び出しに後で使用されるアクセストークンを取得するために使用できるソフトウェアステートメント文字列の概念を導入します。 ソフトウェアのステートメントに加えて、アプリケーションのディープリンクを作成する必要があります。
 
-詳しくは、[ 動的クライアント登録 ](/help/authentication/dynamic-client-registration.md) を参照してください。
+詳しくは、[ 動的クライアント登録の概要 ](./dcr-api/dynamic-client-registration-overview.md) を参照してください。
 
 ## ソフトウェア ステートメントとは {#what}
 
@@ -55,7 +55,7 @@ FireOS AccessEnabler SDK のバージョン 3.0 以降、Adobeのサーバで認
 
    テキストファイルがダウンロードされます。 その内容をソフトウェアのステートメントとして使用します。
 
-詳しくは、[Dynamic Client Registration Management](/help/authentication/dynamic-client-registration-management.md) を参照してください
+詳しくは、[Dynamic Client Registration Management](./dcr-api/dynamic-client-registration-overview.md#dynamic-client-registration-management) を参照してください。
 
 ### ダッシュボードの TVE Adobeへのアクセス権がない場合：
 

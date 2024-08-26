@@ -2,9 +2,9 @@
 title: REST API リファレンス
 description: Rest api リファレンス
 exl-id: 67e4639e-db0b-4400-bb81-e214263e8395
-source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '641'
+source-wordcount: '646'
 ht-degree: 2%
 
 ---
@@ -77,4 +77,4 @@ Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authent
 
 ## REST API セキュリティ {#security}
 
-すべてのAdobe Pass認証クライアントレス API は、安全な通信のために HTTPS プロトコルを使用して呼び出す必要があります。 さらに、と呼ばれるほとんどの API には、[Dynamic Client Registration](/help/authentication/dynamic-client-registration.md) から提供されるアクセストークンが含まれている必要があります。
+すべてのAdobe Pass認証 REST API は、安全な通信のために HTTPS プロトコルを使用して呼び出す必要があります。 さらに、と呼ばれるほとんどの API には、[ アクセストークンの取得 ](./dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントで説明されているように取得されたアクセストークンが含まれている必要があります。

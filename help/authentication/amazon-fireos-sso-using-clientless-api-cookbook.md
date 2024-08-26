@@ -2,9 +2,9 @@
 title: クライアントレス API クックブックを使用したAmazon FireOS SSO
 description: クライアントレス API クックブックを使用したAmazon FireOS SSO
 exl-id: 4c65eae7-81c1-4926-9202-a36fd13af6ec
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '755'
+source-wordcount: '761'
 ht-degree: 0%
 
 ---
@@ -149,9 +149,9 @@ Amazon クライアントレス SSO 実装はシンプルで、通常のAdobe Pr
 
 Adobeクライアントレス API では、Adobeサーバーを呼び出すために、アプリケーションで Dynamic Client Registration を使用する必要があります。
 
-* アプリケーションで動的クライアント登録を使用するには、[ 動的クライアント登録管理 ](/help/authentication/dynamic-client-registration-management.md) の手順に従ってアプリケーションを登録します。
+* アプリケーションで動的クライアント登録を使用するには、[ 動的クライアント登録管理 ](./dcr-api/dynamic-client-registration-overview.md#dynamic-client-registration-management) の手順に従って、登録済みのアプリケーションを作成し、ソフトウェア文をダウンロードします。
 
-* Dynamic Client Registration API を実装してAdobe Pass サーバーに対する認証および承認リクエストを実行するには、[Dynamic Client Registration API](/help/authentication/dynamic-client-registration-api.md) の手順に従います。
+* Dynamic Client Registration API を実装してAdobe Pass サーバーに対する認証および承認リクエストを実行するには、[Dynamic Client Registration Flow](./dcr-api/flows/dynamic-client-registration-flow.md) の手順に従います。
 
 ### Amazon SSO を使用するためのAdobe Pass クライアントレス API アップデート {#clientlesssso}
 

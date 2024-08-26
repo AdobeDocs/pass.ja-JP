@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: d59afc0384a1c3617143efcef4ab5fb1a323e511
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '1142'
+source-wordcount: '1149'
 ht-degree: 2%
 
 ---
@@ -54,7 +54,7 @@ ht-degree: 2%
          + [Temp Pass とプロモーション Temp Pass の無料プレビュー](free-preview-for-temp-pass-and-promotional-temp-pass.md)
    + REST API V2 {#rest-api-v2}
       + API の {#rest-api-v2-apis}
-         + [REST API V2 - API – 概要 ](./rest-api-v2/apis/rest-api-v2-apis-overview.md)
+         + [REST API V2 - API – 概要](./rest-api-v2/apis/rest-api-v2-apis-overview.md)
          + 設定 {#rest-api-v2-configuration-apis}
             + [特定のサービスプロバイダーの設定の取得](./rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)
          + Sessions {#rest-api-v2-sessions-apis}
@@ -68,7 +68,7 @@ ht-degree: 2%
             + [特定のコードのプロファイルの取得](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
          + 決定 {#rest-api-v2-decisions-apis}
             + [特定の mvpd を使用した認証決定の取得](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
-            + [ 特定の mvpd を使用した事前認証決定の取得 ](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
+            + [特定の mvpd を使用した事前認証決定の取得](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
          + ログアウト {#rest-api-v2-logout-apis}
             + [特定の mvpd に対するログアウトの開始](./rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)
          + パートナーシングル サインオン {#rest-api-v2-partner-single-sign-on-apis}
@@ -87,7 +87,7 @@ ht-degree: 2%
          + アクセス フローの低下 {#rest-api-v2-degraded-access-flows}
             + [アクセスフローの低下](rest-api-v2/flows/degraded-access-flows/rest-api-v2-access-degraded-flows.md)
          + 一時的なアクセスフロー {#rest-api-v2-temporary-access-flows}
-            + [ 一時的なアクセスフロー ](rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md)
+            + [一時的なアクセスフロー](rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md)
          + シングルサインオンアクセスフロー {#rest-api-v2-single-sign-on-access-flows}
             + [パートナーフローを使用したシングルサインオン](rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md)
             + [プラットフォーム ID フローを使用したシングルサインオン](rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md)
@@ -95,12 +95,13 @@ ht-degree: 2%
             + [シングルログアウトフロー](rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-logout-flow.md)
       + 付録 {#rest-api-v2-appendix}
          + ヘッダー {#rest-api-v2-appendix-headers}
+            + [ヘッダー – 認証](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md)
+            + [ヘッダー – AP デバイス識別子](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md)
+            + [ヘッダー – X-Device-Info](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md)
             + [ヘッダー – AD-Service-Token](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md)
             + [Header - Adobeの件名トークン](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)
-            + [ヘッダー – AP デバイス識別子](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md)
             + [ヘッダー – AP-Partner-Framework-Status](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)
             + [ヘッダー – AP-TempPass-Identity](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
-            + [ヘッダー – X-Device-Info](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md)
    + AccessEnabler SDK {#accessenabler-sdk}
       + JavaScript SDK {#javascriptsdk}
          + [JavaScript SDK の概要](javascript-sdk-overview.md)
@@ -113,14 +114,14 @@ ht-degree: 2%
       + iOS/tvOS SDK {#ios-sdk}
          + [iOS/tvOS SDK の概要](iostvos-sdk-overview.md)
          + [iOS/tvOS SDK クックブック](iostvos-sdk-cookbook.md)
-         + [iOS/tvOS SDK API リファレンス ](iostvos-sdk-api-reference.md)
+         + [iOS/tvOS SDK API リファレンス](iostvos-sdk-api-reference.md)
          + ガイドライン {#ios-tvos-sdk-guidelines}
             + [iOS/tvOS アプリケーションの登録](iostvos-application-registration.md)
             + 移行ガイドライン {#migration-guidelines}
                + [iOS/tvOS v3.x 移行ガイド](iostvos-v3x-migration-guide.md)
             + [iOS/tvOS ストレージの整合性チェック](iostvos-sdk-storage-integrity-checks.md)
          + iOS/tvOS API {#ios-tvos-api}
-            + [ 事前認証 ](preauthorize.md)
+            + [事前認証](preauthorize.md)
       + Android SDK {#androidsdk}
          + [Android SDK の概要](android-sdk-overview.md)
          + [Android SDK クックブック](android-sdk-cookbook.md)
@@ -175,7 +176,7 @@ ht-degree: 2%
    + 一時パス {#temp-pass}
       + [一時パス](temp-pass.md)
       + [プロモーションの一時パス](promotional-temp-pass.md)
-      + [ 一時パスのリセット ](reset-temp-pass.md)
+      + [一時パスをリセット](reset-temp-pass.md)
    + シングルサインオン {#sso}
       + [シングルサインオンサポート](sso-support.md)
       + [受動認証を介した SSO](sso-passive-authn.md)
@@ -188,10 +189,13 @@ ht-degree: 2%
    + エラー報告 {#error-reportn}
       + [エラーレポート](error-reporting.md)
       + [拡張エラーコード](enhanced-error-codes.md)
-   + クライアント登録 {#client-regn}
-      + [動的なクライアント登録](dynamic-client-registration.md)
-      + [Dynamic Client Registration API](dynamic-client-registration-api.md)
-      + [動的なクライアント登録管理](dynamic-client-registration-management.md)
+   + Client Registration {#dcr-api}
+      + [動的なクライアント登録の概要](./dcr-api/dynamic-client-registration-overview.md)
+      + API の {#dcr-api-apis}
+         + [クライアント資格情報の取得](./dcr-api/apis/dynamic-client-registration-apis-retrieve-client-credentials.md)
+         + [アクセストークンの取得](./dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md)
+      + フロー {#dcr-api-flows}
+         + [動的なクライアント登録フロー](./dcr-api/flows/dynamic-client-registration-flow.md)
    + サービス {#degrn-service} の低下
       + [低下 API の概要](degradation-api-overview.md)
    + プライバシー対応 {#privacy-readiness}
@@ -251,7 +255,7 @@ ht-degree: 2%
          + [iOS認証エラー – adobepass.ios.app が見つかりません](ios-authentication-error-adobepassiosapp-cannot-be-found.md)
          + [iOSの一時パスをリセット](reset-temp-pass-on-ios.md)
          + [コンソールアプリログを使用した AccessEnabler iOS/tvOS SDK のデバッグ](debugging-the-accessenabler-iostvos-sdk-using-console-app-logs.md)
-         + [AccessEnabler iOS/tvOS 3.7.0 アップグレード パス ](accessenabler-iostvos-370-upgrade-path.md)
+         + [AccessEnabler iOS/tvOS 3.7.0 アップグレード・パス](accessenabler-iostvos-370-upgrade-path.md)
    + Pass Authentication Environments {#primetime-authentication-environments}
       + [Adobe環境について](understanding-the-adobe-environments.md)
       + [環境の設定と事前テスト](setting-up-your-environment-and-testing-in-prequal.md)
@@ -268,7 +272,7 @@ ht-degree: 2%
    + ツールとユーティリティ {#tools-and-utilities}
       + [Charles プロキシの使用](using-charles-proxy.md)
    + 概念 {#concepts}
-      + [ ユーザー ID について ](understanding-user-ids.md)
+      + [ユーザー ID について](understanding-user-ids.md)
 + [TVE ダッシュボードユーザーガイド](tve-dashboard-user-guide.md)
 + 新しい TVE ダッシュボードユーザーガイド {#user-guide}
    + [TVE ダッシュボードの概要](/help/authentication/tve-dashboard-overview.md)
@@ -282,4 +286,3 @@ ht-degree: 2%
    + [レポート](/help/authentication/tve-dashboard-reports.md)
    + [変更ログ](/help/authentication/tve-dashboard-changes-log.md)
 + [用語集](glossary.md)
-

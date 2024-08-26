@@ -2,9 +2,9 @@
 title: Android アプリケーションの登録
 description: Android アプリケーションの登録
 exl-id: 6238bd87-ac97-4a5c-9d92-3631f7b2d46a
-source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '585'
+source-wordcount: '586'
 ht-degree: 0%
 
 ---
@@ -19,7 +19,7 @@ ht-degree: 0%
 
 Android AccessEnabler SDK のバージョン 3.0 以降、Adobeのサーバで認証メカニズムを変更しています。 公開鍵と秘密鍵システムを使用して requestorID に署名する代わりに、SDK がサーバーに対して行うすべての呼び出しに後で使用されるアクセストークンを取得するために使用できるソフトウェアステートメント文字列の概念を導入します。 ソフトウェアのステートメントに加えて、アプリケーションのディープリンクを作成する必要があります。
 
-詳しくは、「動的なクライアント登録 [ を参照してください ](/help/authentication/dynamic-client-registration.md)
+詳しくは、[ 動的なクライアント登録の概要 ](./dcr-api/dynamic-client-registration-overview.md) を参照してください。
 
 ## ソフトウェア ステートメントとは {#what}
 
@@ -57,7 +57,7 @@ Android AccessEnabler SDK のバージョン 3.0 以降、Adobeのサーバで�
 
    テキストファイルがダウンロードされます。 その内容をソフトウェアのステートメントとして使用します。
 
-詳しくは、[ 動的なクライアント登録管理 ](/help/authentication/dynamic-client-registration-management.md) を参照してください。
+詳しくは、[Dynamic Client Registration Management](./dcr-api/dynamic-client-registration-overview.md#dynamic-client-registration-management) を参照してください。
 
 ### ダッシュボードの TVE Adobeへのアクセス権がない場合
 

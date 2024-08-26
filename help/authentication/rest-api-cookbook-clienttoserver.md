@@ -2,9 +2,9 @@
 title: REST API クックブック（クライアントからサーバー）
 description: Rest API クックブッククライアントからサーバーへ。
 exl-id: f54a1eda-47d5-4f02-b343-8cdbc99a73c0
-source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '870'
+source-wordcount: '868'
 ht-degree: 0%
 
 ---
@@ -50,7 +50,7 @@ Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authent
 
 ### 動的クライアント登録（DCR）
 
-Adobe Passは、DCR を使用して、プログラマーアプリケーションまたはサーバーとAdobe Pass サービスの間のクライアント通信を保護します。 DCR フローは、独立した依存フローおよび前提条件フローであり、[ 動的クライアント登録 ](/help/authentication/dynamic-client-registration.md) にあります。
+Adobe Passは、DCR を使用して、プログラマーアプリケーションまたはサーバーとAdobe Pass サービスの間のクライアント通信を保護します。 DCR フローは独立しており、[Dynamic Client Registration Overview](./dcr-api/dynamic-client-registration-overview.md) ドキュメントで説明されています。
 
 
 ### ストリーミング（スマートデバイス）アプリフロー

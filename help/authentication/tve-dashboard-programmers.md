@@ -2,9 +2,9 @@
 title: プログラマー
 description: TVE ダッシュボード内のプログラマーとその設定について説明します。
 exl-id: b450d7cc-d5b5-4454-8f95-8047856bfb98
-source-git-commit: c2dcea9e4170a3e10654bcd3f8d2f5cdb82c9603
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '717'
+source-wordcount: '701'
 ht-degree: 0%
 
 ---
@@ -120,11 +120,11 @@ TVE ダッシュボードの「**プログラマー**」セクションでは、
 
 ### 登録アプリケーション {#registered-applications}
 
-このタブには、アプリケーション登録のリストが表示されます。 詳しくは、[ 動的なクライアント登録管理 ](/help/authentication/dynamic-client-registration-management.md) を参照してください。
+このタブには、アプリケーション登録のリストが表示されます。
 
 ### カスタムスキーム {#custom-schemes}
 
-このタブには、カスタム スキーマの一覧が表示されます。 詳しくは、[iOS/tvOS のアプリケーション登録 ](/help/authentication/iostvos-application-registration.md) および [Dynamic client registration management](/help/authentication/dynamic-client-registration-management.md) を参照してください。
+このタブには、カスタム スキーマの一覧が表示されます。 [iOS/tvOS アプリケーションの登録 ](/help/authentication/iostvos-application-registration.md) を表示します。
 
 ## 新しいプログラマの追加 {#add-new-programmer}
 

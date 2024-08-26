@@ -2,18 +2,27 @@
 title: 使用権限サービスモニタリング API
 description: 使用権限サービスモニタリング API
 exl-id: a9572372-14a6-4caa-9ab6-4a6baababaa1
-source-git-commit: 1ad2a4e75cd64755ccbde8f3b208148b7d990d82
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '2010'
+source-wordcount: '2070'
 ht-degree: 0%
 
 ---
 
 # 使用権限サービスモニタリング API {#entitlement-service-monitoring-api}
 
->[!NOTE]
+>[!IMPORTANT]
 >
 >このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+
+>[!IMPORTANT]
+>
+> Degradation API を使用する前に、次の前提条件が満たされていることを確認してください。
+>
+> * [ クライアント資格情報の取得 ](./dcr-api/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメントの説明に従って、クライアント資格情報を取得します。
+> * [ アクセストークンの取得 ](./dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って、アクセストークンを取得します。
+>
+> 登録されたアプリケーションを作成してソフトウェアのステートメントをダウンロードする方法について詳しくは、[ 動的クライアント登録の概要 ](./dcr-api/dynamic-client-registration-overview.md) ドキュメントを参照してください。
 
 ## API の概要 {#api-overview}
 

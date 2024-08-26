@@ -2,9 +2,9 @@
 title: Dynamic Client Registration を使用したAndroid SDK
 description: Dynamic Client Registration を使用したAndroid SDK
 exl-id: 8d0c1507-8e80-40a4-8698-fb795240f618
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '1277'
+source-wordcount: '1278'
 ht-degree: 0%
 
 ---
@@ -33,7 +33,7 @@ Androidの場合、Chromeのカスタムタブを使用すると、他のアプ�
 
 ## 動的なクライアント登録 {#DCR}
 
-Android SDK v3.0 以降では、[ 動的クライアント登録 ](/help/authentication/dynamic-client-registration.md) で定義されている動的クライアント登録手順を使用します。
+Android SDK v3.0 以降では、[Dynamic Client Registration Overview](./dcr-api/dynamic-client-registration-overview.md) で定義されている動的クライアント登録手順を使用します。
 
 
 ## 機能デモ {#Demo}

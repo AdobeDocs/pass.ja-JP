@@ -1,9 +1,9 @@
 ---
 title: 特定の mvpd のプロファイルの取得
 description: REST API V2 – 特定の mvpd のプロファイルを取得します
-source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '966'
+source-wordcount: '972'
 ht-degree: 0%
 
 ---
@@ -59,18 +59,18 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="../../../dynamic-client-registration-api.md"> 動的クライアント登録 </a> ドキュメントを参照してください。</td>
+      <td>ベアラートークンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-authorization.md">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>デバイス識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a> ドキュメントに記載されています。</td>
+      <td>デバイス識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">X-Device-Info</td>
       <td>
-         デバイス情報ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-x-device-info.md">X-Device-Info</a> ドキュメントを参照してください。
+         デバイス情報ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-x-device-info.md">X-Device-Info</a> ヘッダーのドキュメントを参照してください。
          <br/><br/>
          アプリケーションのデバイスプラットフォームで有効な値を明示的に指定できる場合は、常に使用することを強くお勧めします。
          <br/><br/>
@@ -94,7 +94,7 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">Adobe件名トークン</td>
       <td>
-        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobeの件名のトークン </a> ドキュメントに記載されています。
+        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Header-Subject-Token</a> Adobeドキュメントを参照してください。
         <br/><br/>
         プラットフォーム ID を使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> プラットフォーム ID フローを使用したシングルサインオン </a> ドキュメントを参照してください。
       </td>
@@ -103,7 +103,7 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">AD-Service-Token</td>
       <td>
-        サービストークンメソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md">AD-Service-Token</a> ドキュメントに記載されています。
+        サービストークンメソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md">AD-Service-Token</a> ヘッダーのドキュメントを参照してください。
         <br/><br/>
         サービストークンを使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md"> サービストークンフローを使用したシングルサインオン </a> ドキュメントを参照してください。
       </td>
@@ -112,14 +112,14 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">AP-Partner-Framework-Status</td>
       <td>
-        パートナーメソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md">AP-Partner-Framework-Status</a> ドキュメントを参照してください。
+        パートナーメソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md">AP-Partner-Framework-Status</a> ヘッダードキュメントを参照してください。
         <br/><br/>
         パートナーを使用したシングルサインオン有効フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md"> パートナーフローを使用したシングルサインオン </a> ドキュメントを参照してください。</td>
       <td>optional</td>
     </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-TempPass-Identity</td>
-      <td>ユーザー固有 ID ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md">AP-TempPass-Identity</a> ドキュメントに記載されています。</td>
+      <td>ユーザー固有 ID ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md">AP-TempPass-Identity</a> ヘッダードキュメントを参照してください。</td>
       <td>optional</td>
    </tr>
    <tr>
@@ -164,7 +164,7 @@ ht-degree: 0%
       <td>401</td>
       <td>未認証</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="../../../dynamic-client-registration-api.md"> 動的クライアント登録 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="../../../dcr-api/dynamic-client-registration-overview.md"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
       </td>
    </tr>
    <tr>

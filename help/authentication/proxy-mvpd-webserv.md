@@ -2,29 +2,28 @@
 title: プロキシ MVPD Web サービス
 description: プロキシ MVPD Web サービス
 exl-id: f75cbc4d-4132-4ce8-a81c-1561a69d1d3a
-source-git-commit: f8cef3c41fb7132204c4fa499301c3010f62ca14
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
 source-wordcount: '1003'
 ht-degree: 0%
 
 ---
 
+
 # プロキシ MVPD Web サービス {#proxy-mvpd-wbservice}
 
->[!NOTE]
+>[!IMPORTANT]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
->プロキシ MVPD Web サービスを使用するには、次の操作が必要です。
->- 登録したアプリケーションのソフトウェアに関する説明をサポートチームに問い合わせます
->- [ 動的クライアント登録 ](dynamic-client-registration.md) に基づくアクセストークンの取得
-> 
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
->[!NOTE]
+>[!IMPORTANT]
 >
->プロキシ MVPD Web サービスを使用するには、次の操作が必要です。
->- 登録したアプリケーションのソフトウェアに関する説明をサポートチームに問い合わせます
->- [ 動的クライアント登録 ](dynamic-client-registration.md) に基づくアクセストークンの取得
-> 
+> プロキシ MVPD Web サービスを使用する前に、次の前提条件が満たされていることを確認してください。
+>
+> * [ クライアント資格情報の取得 ](./dcr-api/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメントの説明に従って、クライアント資格情報を取得します。
+> * [ アクセストークンの取得 ](./dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って、アクセストークンを取得します。
+>
+> 登録されたアプリケーションを作成してソフトウェアのステートメントをダウンロードする方法について詳しくは、[ 動的クライアント登録の概要 ](./dcr-api/dynamic-client-registration-overview.md) ドキュメントを参照してください。
 
 ## 概要 {#overview-proxy-mvpd-webserv}
 
@@ -232,7 +231,7 @@ Adobeでは、公開 web サービスとの間でプロキシ化された MVPD �
 
 リクエストを有効と見なすには、次のルールを遵守する必要があります。
 
-- リクエストヘッダーには、[ 動的クライアント登録 ](dynamic-client-registration.md) からのセキュリティ Oauth2 アクセストークンが含まれている必要があります。
+- リクエストヘッダーには、[ アクセストークンの取得 ](./dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントで説明されているように取得されたセキュリティ Oauth2 アクセストークンが含まれている必要があります。
  – このリクエストは、許可されている特定の IP アドレスから送信される必要があります。
 - リクエストは、SSL プロトコルを使用して送信する必要があります。
 

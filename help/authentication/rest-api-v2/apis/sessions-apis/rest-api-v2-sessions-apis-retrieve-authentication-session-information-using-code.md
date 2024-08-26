@@ -1,7 +1,7 @@
 ---
 title: コードを使用した認証セッションの取得
 description: REST API V2 - コードを使用した認証セッションの取得
-source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
 source-wordcount: '406'
 ht-degree: 1%
@@ -59,7 +59,7 @@ ht-degree: 1%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="../../../dynamic-client-registration-api.md"> 動的クライアント登録 </a> ドキュメントを参照してください。</td>
+      <td>ベアラートークンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-authorization.md">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -115,7 +115,7 @@ ht-degree: 1%
       <td>401</td>
       <td>未認証</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="../../../dynamic-client-registration-api.md"> 動的クライアント登録 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="../../../dcr-api/dynamic-client-registration-overview.md"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
       </td>
    </tr>
    <tr>

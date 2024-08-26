@@ -2,29 +2,28 @@
 title: 低下 API の概要
 description: 低下 API の概要
 exl-id: c7d6685b-a235-42eb-9c9c-0ffa1747f614
-source-git-commit: f918d7f9f7b2af5b4364421f6703211e413eafb4
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '431'
+source-wordcount: '427'
 ht-degree: 0%
 
 ---
 
+
 # 低下 API の概要 {#degradation-api-overview}
 
->[!NOTE]
+>[!IMPORTANT]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
->低下 API を使用するには、次の操作が必要です。
->- 登録したアプリケーションのソフトウェアに関する説明をサポートチームに問い合わせます
->- [ 動的クライアント登録 ](dynamic-client-registration.md) に基づくアクセストークンの取得
-> 
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
->[!NOTE]
+>[!IMPORTANT]
 >
->低下 API を使用するには、次の操作が必要です。
->- 登録したアプリケーションのソフトウェアに関する説明をサポートチームに問い合わせます
->- [ 動的クライアント登録 ](dynamic-client-registration.md) に基づくアクセストークンの取得
-> 
+> Degradation API を使用する前に、次の前提条件が満たされていることを確認してください。
+>
+> * [ クライアント資格情報の取得 ](./dcr-api/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメントの説明に従って、クライアント資格情報を取得します。
+> * [ アクセストークンの取得 ](./dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って、アクセストークンを取得します。
+>
+> 登録されたアプリケーションを作成してソフトウェアのステートメントをダウンロードする方法について詳しくは、[ 動的クライアント登録の概要 ](./dcr-api/dynamic-client-registration-overview.md) ドキュメントを参照してください。
 
 ## 一般情報 {#general_info}
 
@@ -42,7 +41,7 @@ ht-degree: 0%
 
  – この機能は、使用状況の監視 API と共に使用するように設計されています。この API は、MVPD あたりの認証と承認の数、平均認証待ち時間、および完全なサービス概要に必要なその他の指標に関するリアルタイム情報を提供します。
  – この機能を使用すると、AdobePrimetim 認証サービスをバイパスすることはできません。 Adobe Pass認証がダウンしている場合、サービス内には、ユーザーがコンテンツを表示できるメカニズムはありません。 ただし、サイトやアプリは、自分でAdobe Pass認証を迂回することができます。
- – 現在、Adobeは直接トリガーを低下させません。この判断は、常に MVPD でこのような条件に同意した特定のプログラマーが行う必要があります。 今後、MVPD と契約（SLA 保護）に到達できる場合は、Adobe Pass認証が積極的に劣化ルールをトリガーする可能性があります。
+ – 現在、Adobeは直接トリガーを低下させません。この判断は、常に MVPD でこのような条件に同意した特定のプログラマーが行う必要があります。 今後、MVPD と契約（Adobe Pass対策）を結ぶことができれば、SLA認証が積極的に劣化ルールをトリガーする可能性があります。
 
 <!--
 ## Related Information {#related}

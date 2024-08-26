@@ -2,12 +2,13 @@
 title: iOS/tvOS アプリケーションの登録
 description: iOS/tvOS アプリケーションの登録
 exl-id: 89ee6b5a-29fa-4396-bfc8-7651aa3d6826
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '608'
+source-wordcount: '609'
 ht-degree: 0%
 
 ---
+
 
 # iOS/tvOS アプリケーションの登録 {#iostvos-application-registration}
 
@@ -17,9 +18,9 @@ ht-degree: 0%
 
 ## 概要 {#Intro}
 
-iOS/tvOS AccessEnabler SDK のバージョン 3.0 以降、Adobeのサーバで認証メカニズムを変更しています。 公開鍵と秘密鍵システムを使用して requestorID に署名する代わりに、SDK がサーバーに対して行うすべての呼び出しに後で使用されるアクセストークンを取得するために使用できるソフトウェア文文字列の概念を導入します。 ソフトウェアのステートメントに加えて、アプリケーションのカスタム URL スキームも必要です。
+iOS/tvOS AccessEnabler SDK のバージョン 3.0 以降、Adobeのサーバで認証メカニズムを変更しています。 公開鍵と秘密鍵システムを使用して requestorID に署名する代わりに、SDK がサーバーに対して行うすべての呼び出しに後で使用されるアクセストークンを取得するために使用できるソフトウェアステートメント文字列の概念を導入します。 ソフトウェアのステートメントに加えて、アプリケーションのカスタム URL スキームも必要です。
 
-詳しくは、「動的なクライアント登録 [ を参照してください ](/help/authentication/dynamic-client-registration.md)
+詳しくは、[ 動的なクライアント登録の概要 ](./dcr-api/dynamic-client-registration-overview.md) を参照してください。
 
 ## ソフトウェア ステートメントとは {#Soft_state}
 
@@ -40,7 +41,7 @@ iOS/tvOS AccessEnabler SDK のバージョン 3.0 以降、Adobeのサーバで�
 - すべての登録済みアプリケーションのリストが表示されます。 「」をクリックします   作成 `Download` たアプリケーションのボタン。 ソフトウェアのステートメントをダウンロードする準備が整うまで、数分待つ必要がある場合があります。
 - テキストファイルがダウンロードされます。 その内容をソフトウェアのステートメントとして使用します。
 
-詳しくは、[ 動的なクライアント登録管理 ](/help/authentication/dynamic-client-registration-management.md) を参照してください。
+詳しくは、[ 動的なクライアント登録管理 ](./dcr-api/dynamic-client-registration-overview.md#dynamic-client-registration-management) を参照してください。
 
 ### ダッシュボードの TVE Adobeへのアクセス権がない場合：
 
