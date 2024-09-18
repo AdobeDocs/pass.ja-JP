@@ -2,7 +2,7 @@
 title: Adobe&reg; Pass Authentication へようこそ。
 description: 「認証&reg; パスAdobeの概要」へようこそ
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: 6699f37915551a19252dc84b6a37cc4565011fd5
+source-git-commit: acff285f7db1bdd32d5da3e01a770d9581d3ba75
 workflow-type: tm+mt
 source-wordcount: '331'
 ht-degree: 0%
@@ -27,7 +27,7 @@ Adobe Pass Authentication は、TV Everywhere の使用権限管理ソリュー�
 
 | **おすすめアイテム** |
 |-|
-| <ul><li>[iOSのシングルサインオン ](/help/authentication/apple-sso-overview.md)</li><li>[ プロモーション一時パス ](/help/authentication/promotional-temp-pass.md)</li><li>[HBA （ホーム・ベースの認証） ](/help/authentication/home-based-authn-tve.md)</li><li>[HBA の情報 ](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf)</li><li>[Adobe Pass TVE ダッシュボードユーザーガイド ](/help/authentication/tve-dashboard-user-guide.md)</li></ul> |
+| <ul><li>[iOSのシングルサインオン ](/help/authentication/apple-sso-overview.md)</li><li>[ プロモーション一時パス ](/help/authentication/promotional-temp-pass.md)</li><li>[HBA （ホーム・ベースの認証） ](/help/authentication/home-based-authn-tve.md)</li><li>[HBA の情報 ](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf)</li><li>[Adobe Pass TVE ダッシュボードユーザーガイド ](/help/authentication/tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md)</li></ul> |
 
 | **プログラマーの場合** | **MVPD の場合** |
 |------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|

@@ -4,7 +4,7 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 82fd63a0e208a90753235b81fa52757283c9d314
+source-git-commit: acff285f7db1bdd32d5da3e01a770d9581d3ba75
 workflow-type: tm+mt
 source-wordcount: '1155'
 ht-degree: 2%
@@ -274,16 +274,16 @@ ht-degree: 2%
       + [Charles プロキシの使用](using-charles-proxy.md)
    + 概念 {#concepts}
       + [ユーザー ID について](understanding-user-ids.md)
-+ [TVE ダッシュボードユーザーガイド](tve-dashboard-user-guide.md)
++ [TVE ダッシュボードユーザーガイド](tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md)
 + 新しい TVE ダッシュボードユーザーガイド {#user-guide}
-   + [TVE ダッシュボードの概要](/help/authentication/tve-dashboard-overview.md)
-   + [環境](/help/authentication/tve-dashboard-environments.md)
-   + [変更のレビューとプッシュ](/help/authentication/tve-dashboard-review-push-changes.md)
-   + [Dashboard](/help/authentication/tve-dashboard-home.md)
-   + [チャネル](/help/authentication/tve-dashboard-channels.md)
-   + [プログラマー](/help/authentication/tve-dashboard-programmers.md)
-   + [MVPD](/help/authentication/tve-dashboard-mvpds.md)
-   + [統合](/help/authentication/tve-dashboard-integrations.md)
-   + [レポート](/help/authentication/tve-dashboard-reports.md)
-   + [変更ログ](/help/authentication/tve-dashboard-changes-log.md)
+   + [TVE ダッシュボードの概要](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-overview.md)
+   + [環境](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-environments.md)
+   + [変更のレビューとプッシュ](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-review-push-changes.md)
+   + [Dashboard](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-home.md)
+   + [チャネル](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-channels.md)
+   + [プログラマー](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-programmers.md)
+   + [MVPD](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-mvpds.md)
+   + [統合](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-integrations.md)
+   + [レポート](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-reports.md)
+   + [変更ログ](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-changes-log.md)
 + [用語集](glossary.md)
