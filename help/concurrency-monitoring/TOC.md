@@ -4,9 +4,9 @@ feature: Concurrency Monitoring
 audience: end-user
 user-guide-title: Adobe Pass 同時実行モニタリング
 user-guide-description: 複数のアプリケーションでの同時使用に関する制限を定義し、適用する方法を説明します。
-source-git-commit: 37ad9151d404d58b7d4df2c959f3f8fcaa5c011f
+source-git-commit: 452ac2ebe140497464869f7cf9d579ecaf4018af
 workflow-type: tm+mt
-source-wordcount: '166'
+source-wordcount: '171'
 ht-degree: 9%
 
 ---
@@ -25,6 +25,7 @@ ht-degree: 9%
 + [エスカレーション手順](cm-escalation-procedures.md)
 + 同時実行監視の使用 {#cmu}
    + [同時実行監視の使用状況レポート](cm-usage-reports.md)
+   + [同時実行監視の使用状況レポートの例](cm-usage-reports-examples.md)
    + [同時実行性の監視使用状況 API](cmu-api.md)
    + [同時実行性の監視の使用 API アクセス](cmu-api-access.md)
 + バージョン 1 API{#v1-api}

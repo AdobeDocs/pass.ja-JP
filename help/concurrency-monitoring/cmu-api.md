@@ -2,7 +2,7 @@
 title: API の概要
 description: API の概要
 exl-id: 3fe6f6d8-5b2f-47e5-a8da-06fb18a5d46b
-source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
+source-git-commit: 301825253b21746684df9b6372a239b03305d50e
 workflow-type: tm+mt
 source-wordcount: '2043'
 ht-degree: 0%
@@ -24,7 +24,7 @@ ht-degree: 0%
 >
 >CMU API は一般には使用できません。 可用性に関する質問については、Adobe担当者にお問い合わせください。
 
-CMU API は、基礎となる OLAP キューブの階層ビューを提供します。 URL パスセグメントとしてマッピングされたディメンション階層内の各リソース [ ディメンション ](/help/authentication/entitlement-service-monitoring-overview.md#progr-filter-metrics)）は、現在の選択対象の（集計） [ 指標 ](/help/authentication/entitlement-service-monitoring-overview.md#programmers-can-monitor-the-following-metrics) を含むレポートを生成します。 各リソースは、親リソース（ロールアップの場合）とそのサブリソース（ドリルダウンの場合）を指します。 スライスとダイシングは、ディメンションを特定の値や範囲にピン留めするクエリ文字列パラメーターによって実現されます。
+CMU API は、基礎となる OLAP キューブの階層ビューを提供します。 URL パスセグメントとしてマッピングされたディメンション階層内の各リソース [ ディメンション ](/help/concurrency-monitoring/cm-usage-reports.md#dimensions-2-filter-metrics)）は、現在の選択対象の（集計） [ 指標 ](/help/concurrency-monitoring/cm-usage-reports.md#monitor-metrics) を含むレポートを生成します。 各リソースは、親リソース（ロールアップの場合）とそのサブリソース（ドリルダウンの場合）を指します。 スライスとダイシングは、ディメンションを特定の値や範囲にピン留めするクエリ文字列パラメーターによって実現されます。
 
 REST API は、ディメンションパス、提供されたフィルターおよび選択された指標に従って、リクエストで指定された期間内に使用可能なデータを提供します（提供されていない場合はデフォルト値にフォールバックします）。 時間範囲は、時間ディメンション（年、月、日、時間、分、秒）を含まないレポートには適用されません。
 
