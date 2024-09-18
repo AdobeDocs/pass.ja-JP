@@ -1,7 +1,7 @@
 ---
 title: REST API V2 - クックブック – クライアント/サーバー実装手順
 description: REST API V2 - クックブック – クライアント/サーバー実装手順
-source-git-commit: 5ba888b35731ef64b3dd1878f2fa55083989f857
+source-git-commit: 5ba538bdb13d121ba27005df82d4ae604f912241
 workflow-type: tm+mt
 source-wordcount: '698'
 ht-degree: 0%
@@ -26,6 +26,7 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
 ## A.登録フェーズ {#registration-phase}
 
 ### 手順 1：アプリケーションを登録 {#step-1-register-your-application}
+
 アプリケーションがAdobe Pass REST API V2 を呼び出すには、API セキュリティレイヤーに必要なアクセストークンが必要です。
 アクセストークンを取得するには、アプリケーションが次の手順に従う必要があります。
 [ 動的なクライアント登録 ](./dynamic-client-registration.md)
@@ -33,6 +34,7 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
 ## B.認証フェーズ {#authentication-phase}
 
 ### 手順 2：既存の認証済みプロファイルを確認する {#step-2-check-for-existing-authenticated-profiles}
+
 ストリーミングアプリケーションによる既存の認証済みプロファイルの確認：<b>/api/v2/{serviceProvider}/profiles</b><br>
 （[ 認証プロファイルの取得 ](./apis/profiles-apis/rest-api-v2-retrieve-authenticated-profiles.md)）
 
@@ -49,6 +51,7 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
       * プロファイルが見つかった場合、ストリーミングアプリケーションは <a href="#preauthorization-phase">C に進む場合があります。事前承認フェーズ </a> または <a href="#authorization-phase">D。承認フェーズ </a>
 
 ### 手順 3：ユーザーの認証 {#step-3-authenticate-the-user}
+
 ブラウザーまたは 2 番目の画面の Web ベースのアプリケーションを使用する場合：
 
 * オプション 1。 ストリーミングアプリケーションは、ブラウザーまたは web ビューを開き、認証する URL を読み込むことができ、ユーザーは資格情報を送信する必要がある MVPD ログインページに移動します
@@ -57,6 +60,7 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
    * ユーザーがログイン/パスワードを入力します。最終リダイレクトで成功ページを表示します
 
 ### 手順 4：認証済みプロファイルを確認 {#step-4-check-for-authenticated-profiles}
+
 ストリーミングアプリケーションは、MVPD による認証チェックを実行して、ブラウザーまたは 2 番目の画面で完了します
 
 * <b>/api/v2/{serviceProvider}/profiles/{mvpd}</b><br> では、15 秒ごとにポーリングすることをお勧めします
@@ -70,8 +74,10 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
 ## C.事前認証フェーズ {#preauthorization-phase}
 
 ### 手順 5：事前承認済みリソースの確認 {#step-5-check-for-preauthorized-resources}
+
 ストリーミングアプリケーションは、認証済みユーザーが使用できるビデオを表示する準備を行い、のチェックボックスをオンにする可能性があります。
 アクセス （これらのリソースへの）。
+
 * ステップはオプションで、認証済みユーザーパッケージでは使用できないリソースをアプリケーションがフィルタリングする場合に実行されます
 * <b>/api/v2/{serviceProvider}/decisions/preauthorize/{mvpd}</b><br> の呼び出し
 （[ 特定の MVPD を使用した事前認証決定の取得 ](.apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)）
@@ -80,6 +86,7 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
 ## D.承認フェーズ {#authorization-phase}
 
 ### 手順 6：許可されたリソースの確認 {#step-6-check-for-authorized-resources}
+
 ストリーミングアプリケーションは、ユーザーが選択したビデオ/アセット/リソースを再生する準備をします。
 
 * すべてのプレイ開始にステップが必要です
@@ -91,6 +98,7 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
 ## E. ログアウトフェーズ {#logout-phase}
 
 ### 手順 7：ログアウト {#step-7-logout}
+
 ストリーミングデバイス：ユーザーが MVPD からログアウトします
 
 * <b>/api/v2/{serviceProvider}/logout/{mvpd}</b><br> を呼び出します
