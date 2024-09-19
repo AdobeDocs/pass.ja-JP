@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 94fcb4e8c94330561596cd4006738c4f4d75e371
+source-git-commit: 837276ce85445da5c3877592b194e37adf35fa32
 workflow-type: tm+mt
-source-wordcount: '1159'
+source-wordcount: '1165'
 ht-degree: 2%
 
 ---
@@ -94,6 +94,8 @@ ht-degree: 2%
             + [プラットフォーム ID フローを使用したシングルサインオン](rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md)
             + [サービストークンフローを使用したシングルサインオン](rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md)
             + [シングルログアウトフロー](rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-logout-flow.md)
+      + クックブックス {#rest-api-v2-cookbooks}
+         + [REST API V2 クックブック（クライアントからサーバー）](rest-api-v2/cookbooks/rest-api-v2-cookbooks-client-server.md)
       + 付録 {#rest-api-v2-appendix}
          + ヘッダー {#rest-api-v2-appendix-headers}
             + [ヘッダー – 認証](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md)
