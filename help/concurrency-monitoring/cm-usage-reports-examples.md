@@ -1,9 +1,9 @@
 ---
 title: 同時実行監視の使用状況レポートの例
 description: 同時実行監視の使用状況レポートの例
-source-git-commit: 1ee6ba156364b183e7b5271e38af2c34687fca65
+source-git-commit: 7adfa5c803d27ac63f4fde64cf86edfb6bfca9cd
 workflow-type: tm+mt
-source-wordcount: '2400'
+source-wordcount: '2387'
 ht-degree: 0%
 
 ---
@@ -37,8 +37,6 @@ ht-degree: 0%
 | アクティビティレベルの月次レポート | 「年」、「月」、「アクティビティレベル」 | cmu/v2/年/月/アクティビティレベル | 「アクティビティレベル」、「ユーザー」 |
 | テナントごとのアクティビティレベルの月次レポート | 「year」、「month」、「activity-level」、「tenant」 | cmu/v2/年/月/アクティビティレベル/テナント | 「activity-level」、「tenant」、「users」 |
 | テナント mvpd ごとのアクティビティレベルの月次レポート | 「year」、「month」、「activity-level」、「tenant」、「mvpd」 | cmu/v2/year/month/activity-level/tenant/mvpd | 「activity-level」、「tenant」、「mvpd」、「users」 |
-
-*TODO：同時実行性レポートとアクティビティレベル レポートが正しいかどうかを BG に確認します*
 
 ## 日別レポートの例 {#daily-reports-examples}
 
