@@ -2,9 +2,9 @@
 title: あらゆる場所でテレビを使用する場合のホームベースの認証
 description: あらゆる場所でテレビを使用する場合のホームベースの認証
 exl-id: abdc7724-4290-404a-8f93-953662cdc2bc
-source-git-commit: acff285f7db1bdd32d5da3e01a770d9581d3ba75
+source-git-commit: 7107d4a915113fb237602143aafc350b776c55d6
 workflow-type: tm+mt
-source-wordcount: '1638'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
@@ -115,7 +115,7 @@ SAML 認証プロトコルの HBA 認証フローの説明
 ## HBA をアクティブにする方法 {#how-to-activate-hba}
 
 * **OAuth プロトコル：**
-   * HBA の有効化については、[Adobe Pass TVE Dashboard User Guide を参照してください ](/help/authentication/tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md)
+   * HBA の有効化については、[Adobe Pass TVE Dashboard User Guide を参照してください ](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-overview.md)
 * **SAML プロトコル：** ホームベースの認証は、MVPD 側でアクティブ化されます。 プログラマまたはAdobeは操作を行う必要はありません。
 Home Based Authentication をサポートする MVPD の詳細については、「[MVPD の HBA ステータス ](/help/authentication/hba-status-mvpds.md)」を参照してください。
 
@@ -156,5 +156,5 @@ Home Based Authentication をサポートする MVPD の詳細については、
 * [ ホームベースの認証のインフォグラフィック ](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf?dc=201604260953-2640){target=_blank} - Adobe別
 * [OAuth 2.0 プロトコルを使用した認証](/help/authentication/authn-oauth2-protocol.md)
 * [SAML MVPD を使用した認証](/help/authentication/authn-usecase.md)
-* [Adobe Pass TVE ダッシュボードユーザーガイド](/help/authentication/tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md)
+* [Adobe Pass TVE ダッシュボードユーザーガイド](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-overview.md)
 * [hba_status ユーザー・メタデータ](/help/authentication/user-metadata-feature.md#obtaining)

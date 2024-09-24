@@ -2,9 +2,9 @@
 title: Android アプリケーションの登録
 description: Android アプリケーションの登録
 exl-id: 6238bd87-ac97-4a5c-9d92-3631f7b2d46a
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+source-git-commit: 7107d4a915113fb237602143aafc350b776c55d6
 workflow-type: tm+mt
-source-wordcount: '586'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
@@ -37,7 +37,7 @@ Android AccessEnabler SDK のバージョン 3.0 以降、Adobeのサーバで�
 
 ### ダッシュボードの TVE Adobeにアクセスできる場合
 
-1. ブラウザーを開き、[Adobe Pass TVE Dashboard](https://console.auth.adobe.com) に移動します。
+1. ブラウザーを開き、[Adobe Pass TVE Dashboard](https://experience.adobe.com/#/pass/authentication) に移動します。
 
 1. 「」セクション **[!UICONTROL Channels]** 移動し、チャネルを選択します。
 

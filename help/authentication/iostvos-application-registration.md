@@ -2,9 +2,9 @@
 title: iOS/tvOS アプリケーションの登録
 description: iOS/tvOS アプリケーションの登録
 exl-id: 89ee6b5a-29fa-4396-bfc8-7651aa3d6826
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+source-git-commit: 7107d4a915113fb237602143aafc350b776c55d6
 workflow-type: tm+mt
-source-wordcount: '609'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
@@ -32,7 +32,7 @@ iOS/tvOS AccessEnabler SDK のバージョン 3.0 以降、Adobeのサーバで�
 
 ### ダッシュボードの TVE Adobeにアクセスできる場合：
 
-- ブラウザーを開き、<https://console.auth.adobe.com> に移動します。
+- ブラウザーを開き、<https://experience.adobe.com/#/pass/authentication> に移動します。
 - 「」セクション `Channels` 移動し、チャネルを選択します。
 - 「」タブに移動 `Registered Applications` ます。
 - 「`Add new application`」をクリックします。
@@ -55,7 +55,7 @@ iOS/tvOS AccessEnabler SDK のバージョン 3.0 以降、Adobeのサーバで�
 
 ### ダッシュボードの TVE Adobeにアクセスできる場合：
 
-- ブラウザーを開き、<https://console.auth.adobe.com> に移動します。
+- ブラウザーを開き、<https://experience.adobe.com/#/pass/authentication> に移動します。
 - 「」セクション `Channels` 移動し、チャネルを選択します。
 - 「」タブに移動 `Custom Schemes` ます。
 - 「`Generate a new custom scheme`」をクリックします。

@@ -2,9 +2,9 @@
 title: CMU API アクセス
 description: CMU API アクセス
 exl-id: 8d216703-aabc-489e-93fe-d4d105616b1d
-source-git-commit: 52c0ffe75f6ac9fda3da39ff08b0dc4c5d5ca428
+source-git-commit: 7107d4a915113fb237602143aafc350b776c55d6
 workflow-type: tm+mt
-source-wordcount: '407'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
@@ -27,20 +27,22 @@ OAuth 2.0 動的クライアント登録プロトコルと互換性を持たせ�
 ## アクセス手順 {#access-procedure-steps}
 
 1. Adobe Pass DCR サーバーにアプリケーションを登録してある。 この手順については、アドビの [ サポートチーム ](mailto:tve-support@adobe.com) にお問い合わせください。
+
 2. ソフトウェアのステートメントを取得
-   1. TVE Dashboard <a href="https://console-preprod.auth.adobe.com/#!/" target="_blank"> Pre-Prod </a> または <a href="https://console.auth.adobe.com/" target="_blank">PROD</a> に移動します。
+   1. [Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication) に移動
    2. プログラマーを選択
-   3. 「アプリケーション」タブに移動します
+   3. *登録済みアプリケーション* タブに移動します
    4. アプリケーションを選択
-   5. DownLoad Software Statement をクリックすると、以下のキャプチャに類似したファイルが取得されます
+   5. ソフトウェア文を取得する登録済みアプリケーション行で「ダウンロード」をクリックし、ローカルマシンにファイルとして保存します
       <figure>
-          <img src="assets/software_statement_1_download.png"
+          <img src="assets/programmer-download-software-statement-button.png"
                alt="ソフトウェアのダウンロード ステートメント">
-       </figure>
+      </figure>
+
       <figure>
           <img src="assets/software_statement_2.png"
                alt="ソフトウェア明細書のサンプル">
-       </figure>
+      </figure>
 
 3. アクセストークンの取得
    1. 上記で取得したソフトウェア ステートメントを使用し、次の呼び出しを実行して、クライアント資格情報を取得します。 このようにして、client_id と client_secret のペアが取得され、アクセストークンを取得するために使用できます。

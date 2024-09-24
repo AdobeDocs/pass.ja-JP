@@ -1,13 +1,13 @@
 ---
 title: クライアント資格情報の取得
 description: Dynamic Client Registration API - クライアント資格情報を取得します
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+exl-id: 0b39768b-25b8-47b9-8080-59c56fb829fb
+source-git-commit: 7107d4a915113fb237602143aafc350b776c55d6
 workflow-type: tm+mt
-source-wordcount: '431'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
-
 
 # クライアント資格情報の取得 {#retrieve-client-credentials}
 
@@ -45,7 +45,7 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">software_statement</td>
       <td>
-            <a href="https://console.auth.adobe.com/">Adobe Pass TVE Dashboard</a> から作成およびダウンロードされた、登録済みアプリケーションに関連付けられたソフトウェア ステートメント。
+            <a href="https://experience.adobe.com/#/pass/authentication">Adobe Pass TVE Dashboard</a> から作成およびダウンロードされた、登録済みアプリケーションに関連付けられたソフトウェア ステートメント。
             <br/><br/>
             登録済みアプリケーションの管理については、<a href="../dynamic-client-registration-overview.md">Dynamic Client Registration Overview</a> ドキュメントを参照してください。
       </td>

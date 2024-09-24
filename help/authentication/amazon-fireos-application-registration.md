@@ -2,9 +2,9 @@
 title: Amazon FireOS アプリケーションの登録
 description: Amazon FireOS アプリケーションの登録
 exl-id: 650fd4a2-dfc3-4c74-9b5b-6bea832a28ca
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+source-git-commit: 7107d4a915113fb237602143aafc350b776c55d6
 workflow-type: tm+mt
-source-wordcount: '515'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
@@ -33,7 +33,7 @@ FireOS AccessEnabler SDK のバージョン 3.0 以降、Adobeのサーバで認
 
 ### ダッシュボードの TVE Adobeにアクセスできる場合：
 
-1. ブラウザーを開き、`https://console.auth.adobe.com` に移動します。
+1. ブラウザーを開き、`https://experience.adobe.com/#/pass/authentication` に移動します。
 
 1. **[!UICONTROL Channels]** セクションに移動し、チャネルを選択します。
 
