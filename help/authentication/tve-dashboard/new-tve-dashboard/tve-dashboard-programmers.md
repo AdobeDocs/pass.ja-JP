@@ -2,9 +2,9 @@
 title: プログラマー
 description: TVE ダッシュボード内のプログラマーとその設定について説明します。
 exl-id: b450d7cc-d5b5-4454-8f95-8047856bfb98
-source-git-commit: acff285f7db1bdd32d5da3e01a770d9581d3ba75
+source-git-commit: c29af84963b010ef9d2a2d318486aae8fffccecc
 workflow-type: tm+mt
-source-wordcount: '701'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
@@ -122,11 +122,87 @@ TVE ダッシュボードの「**プログラマー**」セクションでは、
 
 ### 登録アプリケーション {#registered-applications}
 
-このタブには、アプリケーション登録のリストが表示されます。
+このタブには、登録済みアプリケーションのリストが表示されます。 登録されたアプリケーションの使用状況について詳しくは、[ 動的クライアント登録の概要 ](../../dcr-api/dynamic-client-registration-overview.md) ドキュメントを参照してください。
+
+登録済みアプリケーションでは、次のアクションを実行できます。
+
+* [新しい登録済みアプリケーションを追加](#add-registered-applications)
+* [ソフトウェアのステートメントのダウンロード](#download-software-statement)
+
+#### 新しい登録済みアプリケーションを追加 {#add-registered-applications}
+
+新しい登録済みアプリケーションを追加するには、次の手順に従います。
+
+1. **登録済みアプリケーション** セクションの右上隅にある **新しいアプリケーションを追加** を選択します。
+
+   ![ 新しいアプリケーションの追加 ](../../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-application-button.png)
+
+   *新しいアプリケーションの追加*
+
+1. **新規アプリケーション** ダイアログボックスのドロップダウンメニューから **チャネルに割り当て** を選択します。
+
+   >[!IMPORTANT]
+   >
+   > セキュリティを強化し、不正アクセスを防ぐために、より具体的で制限された権限を持つ登録済みアプリケーションを作成することをお勧めします。 したがって、登録済みアプリケーションを作成する場合は、割り当てられたアプリケーションに対して、より狭いオプショ `channel` を使用することを検討してください。
+
+1. ドロップダウンメニューから「**プラットフォーム**」を選択します。
+
+   >[!IMPORTANT]
+   >
+   > セキュリティを強化し、不正アクセスを防ぐために、より具体的で制限された権限を持つ登録済みアプリケーションを作成することをお勧めします。 したがって、登録済みアプリケーションを作成する場合は、割り当てられたアプリケーションに対して、より狭いオプショ `platforms` を使用することを検討してください。
+
+1. ドロップダウンメニューから **ドメイン** を選択します。
+
+   >[!IMPORTANT]
+   >
+   > クライアント登録プロセスでは、認証フローの最終処理にリダイレクト URL を使用することをクライアントアプリケーションに許可するリクエストを実行できます。 クライアントアプリケーションで特定のリダイレクト URL を使用すると、この選択で選択された `domains` に対して検証されます。
+
+1. アプリケーションの **名前** を入力します。
+
+1. アプリケーションの **バージョン** を入力します。
+
+   >[!IMPORTANT]
+   >
+   > クライアントアプリケーションのライフサイクルと使用状況を管理するには、クライアントアプリケーションのメジャーアップデートごとに新しい登録アプリケーションを作成することをお勧めします。 必要に応じて、アドビの [Zendesk](https://adobeprimetime.zendesk.com) を通じてチケットを作成し、テクニカルアカウントマネージャー（TAM）に依頼して、特定のクライアントアプリケーションバージョンの機能をブロックするために、登録されたアプリケーションを失効させます。
+
+1. ドロップダウンメニューから **タイプ** 値「ダイレクト」を選択します。
+
+1. **アプリケーションを追加** を選択します。
+
+新しい設定変更が作成され、サーバーを更新する準備が整いました。 「**登録済みアプリケーション**」セクションにリストされている新しい登録済みアプリケーションを使用するには、[ 変更のレビューとプッシュ ](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-review-push-changes.md) フローを続行します。
+
+#### ソフトウェアのダウンロードに関する声明 {#download-software-statement}
+
+ソフトウェア・ステートメントをダウンロードするには、次の手順に従います。
+
+1. **登録済みアプリケーション** のリストからソフトウェアのステートメントをダウンロードする登録済みアプリケーションにポインタを合わせます。
+
+1. 「**ダウンロード**」を選択します。
+
+   ![ ソフトウェアに関する声明のダウンロード ](../../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-download-software-statement-button.png)
+
+   *ソフトウェアに関する声明のダウンロード*
+
 
 ### カスタムスキーム {#custom-schemes}
 
-このタブには、カスタム スキーマの一覧が表示されます。 [iOS/tvOS アプリケーションの登録 ](/help/authentication/iostvos-application-registration.md) を表示します。
+このタブには、カスタム スキーマの一覧が表示されます。 カスタムスキームの使用方法について詳しくは、[iOS/tvOS アプリケーションの登録 ](/help/authentication/iostvos-application-registration.md) を参照してください。
+
+カスタムスキームには、次の変更を加えることができます。
+
+* [新しいカスタムスキームの生成](#generate-custom-schemes)
+
+#### 新しいカスタムスキームを生成 {#generate-custom-schemes}
+
+次の手順に従って、新しいカスタムスキームを生成します。
+
+1. **新しいカスタムスキームを生成** を選択します。
+
+   ![ 新しいカスタムスキームの生成 ](../../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-custom-scheme-button.png)
+
+   *新しいカスタムスキームの生成*
+
+新しい設定変更が作成され、サーバーを更新する準備が整いました。 「**カスタムスキーム**」セクションにリストされている新しいカスタムスキームを使用するには、[ 変更のレビューとプッシュ ](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-review-push-changes.md) フローを続行します。
 
 ## 新しいプログラマの追加 {#add-new-programmer}
 
