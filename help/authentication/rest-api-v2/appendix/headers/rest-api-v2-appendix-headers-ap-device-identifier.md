@@ -1,13 +1,13 @@
 ---
 title: ヘッダー – AP デバイス識別子
 description: REST API V2 - ヘッダー – AP デバイス識別子
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+exl-id: 90a5882b-2e6d-4e67-994a-050465cac6c6
+source-git-commit: 8f4fb5d6cc8b45b300010438c56d4af2e8fc0a76
 workflow-type: tm+mt
-source-wordcount: '103'
+source-wordcount: '413'
 ht-degree: 0%
 
 ---
-
 
 # ヘッダー – AP デバイス識別子 {#header-ap-device-identifier}
 
@@ -50,7 +50,11 @@ ht-degree: 0%
    </tr>
    <tr>
       <td>指紋</td>
-      <td>デバイス識別子は、不透明な識別子で構成され、クライアントアプリケーションによって作成されます。</td>
+      <td>
+            デバイス識別子は、クライアントアプリケーションによって作成および管理される、安定した一意の識別子で構成されます。
+            <br/>
+            クライアントアプリケーションは、アプリケーションのアンインストール、再インストール、アップグレードなどのユーザーアクションによって発生する値の変更を防ぐ必要があります。
+      </td>
    </tr>
 </table>
 
@@ -70,3 +74,63 @@ ht-degree: 0%
 
 AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
 ```
+
+## クックブック {#cookbooks}
+
+>[!IMPORTANT]
+>
+> ドキュメントリソースは、参照用に提供されています。
+>
+> ドキュメントリソースは完全なものではなく、プロジェクトで機能するために追加の変更が必要になる場合があります。
+> 
+> 実際の実装に関係なく、`AP-Device-Identifier` ヘッダーには、[ ディレクティブ ](#directives) の節で説明されているように書式設定された値が含まれている必要があります。
+
+### ブラウザー {#browsers}
+
+ブラウザーで実行されるデバイスの `AP-Device-Identifier` ヘッダーを作成するには、クライアントアプリケーションが、ブラウザー、デバイス、ユーザー固有のデータなどの使用可能なデータに基づいて、安定した一意の ID を計算する必要があります。
+
+_（*） ブラウザーまたはデバイスのフィンガープリントのメカニズムを提供するライブラリまたはサービスを統合することをお勧めします。_
+
+### モバイルデバイス {#mobile-devices}
+
+#### iOSと iPadOS {#ios-ipados}
+
+[iOSまたは iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes) が稼働するデバイス用の `AP-Device-Identifier` ヘッダーを作成するには、次のドキュメントを参照してください。
+
+* [identifierForVendor](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor) に関するApple開発者向けドキュメント。
+
+_（*） OS で指定された値に対して SHA-256 ハッシュ関数を適用することをお勧めします。_
+
+#### Android {#android}
+
+[Android](https://developer.android.com/about/versions) を実行するデバイスの `AP-Device-Identifier` ヘッダーを作成するには、次のドキュメントを参照してください。
+
+* Android開発者向けドキュメント [ANDROID_ID](https://developer.android.com/reference/android/provider/Settings.Secure#ANDROID_ID)。
+
+_（*） OS で指定された値に対して SHA-256 ハッシュ関数を適用することをお勧めします。_
+
+### テレビ接続デバイス {#tv-connected-devices}
+
+#### tvOS {#tvos}
+
+[tvOS](https://developer.apple.com/documentation/tvos-release-notes) を実行しているデバイスの `AP-Device-Identifier` ヘッダーを作成するには、次のドキュメントを参照してください。
+
+* [identifierForVendor](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor) に関するApple開発者向けドキュメント。
+
+_（*） OS で指定された値に対して SHA-256 ハッシュ関数を適用することをお勧めします。_
+
+#### Fire OS {#fireos}
+
+[Fire OS](https://developer.amazon.com/docs/fire-tv/fire-os-overview.html) を実行するデバイスの `AP-Device-Identifier` ヘッダーを作成するには、次のドキュメントを参照してください。
+
+* Android開発者向けドキュメント [ANDROID_ID](https://developer.android.com/reference/android/provider/Settings.Secure#ANDROID_ID)。
+
+_（*） OS で指定された値に対して SHA-256 ハッシュ関数を適用することをお勧めします。_
+
+#### Roku OS {#rokuos}
+
+[Roku OS](https://developer.roku.com/docs/developer-program/release-notes/roku-os-release-notes.md) を実行するデバイスの `AP-Device-Identifier` ヘッダーを作成するには、次のドキュメントを参照してください。
+
+* [GetChannelClientId](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md#getchannelclientid-as-string) に関する Roku 開発者向けドキュメント。
+
+_（*） OS で指定された値に対して SHA-256 ハッシュ関数を適用することをお勧めします。_
