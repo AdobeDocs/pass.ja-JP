@@ -1,21 +1,21 @@
 ---
-title: REST API V2 - フロー – 概要
-description: REST API V2 - フロー – 概要
+title: REST API V2 フローの概要
+description: REST API V2 フローの概要
 exl-id: 84a9ac0f-c26a-4159-82a8-3a31bb31f529
-source-git-commit: 94fcb4e8c94330561596cd4006738c4f4d75e371
+source-git-commit: dd3451f8761ce6183e9a11099fb3094abae09466
 workflow-type: tm+mt
-source-wordcount: '167'
+source-wordcount: '170'
 ht-degree: 0%
 
 ---
 
-# REST API V2 - フロー – 概要 {#rest-api-v2-flows-overview}
+# REST API V2 フローの概要 {#rest-api-v2-flows-overview}
 
 >[!IMPORTANT]
 >
 > このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
-開始するには、以下のリストから各エントリの公開ドキュメントを参照してください。
+開始するには、以下のリストに関心があるフローの公開ドキュメントを参照してください。
 
 ## 基本的なアクセスフロー {#rest-api-v2-flows-access-basic}
 

@@ -1,14 +1,14 @@
 ---
-title: REST API V2 – 概要
-description: REST API V2 – 概要
-source-git-commit: 94fcb4e8c94330561596cd4006738c4f4d75e371
+title: REST API V2 の概要
+description: REST API V2 の概要
+source-git-commit: dd3451f8761ce6183e9a11099fb3094abae09466
 workflow-type: tm+mt
-source-wordcount: '494'
+source-wordcount: '490'
 ht-degree: 0%
 
 ---
 
-# REST API V2 – 概要 {#rest-api-v2-overview}
+# REST API V2 の概要 {#rest-api-v2-overview}
 
 >[!IMPORTANT]
 >
@@ -70,7 +70,11 @@ SDK または REST 呼び出しを通じて現在 API を使用しているす�
 
 ## 詳細情報
 
-開始するには、アドビの公開ドキュメントにアクセスして [ フローの説明 ](./flows/rest-api-v2-flows-overview.md) および [API リファレンス ](./apis/rest-api-v2-apis-overview.md) にアクセスしてください。
+開始するには、アドビの公開ドキュメントを参照してください。
+
+- [用語集](rest-api-v2-glossary.md)
+- [API](./apis/rest-api-v2-apis-overview.md)
+- [フロー](./flows/rest-api-v2-flows-overview.md)
 
 また、アドビの専任サポートチームが、必要な質問や技術サポートをお手伝いします。
 

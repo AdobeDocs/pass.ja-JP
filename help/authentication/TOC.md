@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 837276ce85445da5c3877592b194e37adf35fa32
+source-git-commit: dd3451f8761ce6183e9a11099fb3094abae09466
 workflow-type: tm+mt
-source-wordcount: '1165'
+source-wordcount: '1169'
 ht-degree: 2%
 
 ---
@@ -53,9 +53,10 @@ ht-degree: 2%
          + [トークン交換](token-exchange.md)
          + [Temp Pass とプロモーション Temp Pass の無料プレビュー](free-preview-for-temp-pass-and-promotional-temp-pass.md)
    + REST API V2 {#rest-api-v2}
-      + [REST API V2 – 概要](./rest-api-v2/rest-api-v2-overview.md)
+      + [REST API V2 の概要](./rest-api-v2/rest-api-v2-overview.md)
+      + [REST API V2 の用語集](./rest-api-v2/rest-api-v2-glossary.md)
       + API の {#rest-api-v2-apis}
-         + [REST API V2 - API – 概要](./rest-api-v2/apis/rest-api-v2-apis-overview.md)
+         + [REST API V2 API の概要](./rest-api-v2/apis/rest-api-v2-apis-overview.md)
          + 設定 {#rest-api-v2-configuration-apis}
             + [特定のサービスプロバイダーの設定の取得](./rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)
          + Sessions {#rest-api-v2-sessions-apis}
@@ -76,7 +77,7 @@ ht-degree: 2%
             + [パートナー認証要求の取得](rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)
             + [パートナー認証応答を使用したプロファイルの取得](rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)
       + フロー {#rest-api-v2-flows}
-         + [REST API V2 - フロー – 概要](./rest-api-v2/flows/rest-api-v2-flows-overview.md)
+         + [REST API V2 フローの概要](./rest-api-v2/flows/rest-api-v2-flows-overview.md)
          + の基本的なアクセスフロ {#rest-api-v2-basic-access-flows}
             + [プライマリアプリケーション内で実行される基本プロファイルフロー](rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
             + [セカンダリアプリケーション内で実行される基本プロファイルフロー](rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
