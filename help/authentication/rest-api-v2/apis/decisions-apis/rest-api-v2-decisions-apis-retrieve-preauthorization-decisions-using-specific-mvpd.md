@@ -1,13 +1,13 @@
 ---
 title: 特定の mvpd を使用した事前認証決定の取得
 description: REST API V2 – 特定の mvpd を使用した事前認証決定の取得
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+exl-id: 8647e4fb-00b6-45cd-b81b-d00618b2e08b
+source-git-commit: 6c328eb2c635a1d76fc7dae8148a4de291c126e0
 workflow-type: tm+mt
-source-wordcount: '821'
+source-wordcount: '823'
 ht-degree: 0%
 
 ---
-
 
 # 特定の mvpd を使用した事前認証決定の取得 {#retrieve-preauthorization-decisions-using-specific-mvpd}
 
@@ -298,8 +298,8 @@ ht-degree: 0%
       <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">エラー</td>
-      <td>このエラーは、<a href="../../../enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加情報を提供します。</td>
+      <td style="background-color: #DEEBFF;"></td>
+      <td>応答本文には、<a href="../../../enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>

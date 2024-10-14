@@ -1,13 +1,13 @@
 ---
 title: 特定の mvpd を使用した認証決定の取得
 description: REST API V2 – 特定の mvpd を使用した認証決定の取得
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+exl-id: e8889395-4434-4bec-a212-a8341bb9c310
+source-git-commit: 6c328eb2c635a1d76fc7dae8148a4de291c126e0
 workflow-type: tm+mt
-source-wordcount: '935'
+source-wordcount: '937'
 ht-degree: 0%
 
 ---
-
 
 # 特定の mvpd を使用した認証決定の取得 {#retrieve-authorization-decisions-using-specific-mvpd}
 
@@ -326,8 +326,8 @@ ht-degree: 0%
       <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">エラー</td>
-      <td>このエラーは、<a href="../../../enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加情報を提供します。</td>
+      <td style="background-color: #DEEBFF;"></td>
+      <td>応答本文には、<a href="../../../enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>

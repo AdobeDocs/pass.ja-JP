@@ -2,193 +2,369 @@
 title: 拡張エラーコード
 description: 拡張エラーコード
 exl-id: 2b0a9095-206b-4dc7-ab9e-e34abf4d359c
-source-git-commit: 87639ad93d8749ae7b1751cd13a099ccfc2636ac
+source-git-commit: 6c328eb2c635a1d76fc7dae8148a4de291c126e0
 workflow-type: tm+mt
-source-wordcount: '2207'
+source-wordcount: '2593'
 ht-degree: 2%
 
 ---
 
 # 拡張エラーコード {#enhanced-error-codes}
 
->[!NOTE]
+>[!IMPORTANT]
 >
 >このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
-## 概要 {#overview}
+拡張エラーコードは、Adobe Passの認証機能を表し、と統合されたクライアントアプリケーションに追加のエラー情報を提供します。
 
-このドキュメントでは、API エラーコードのリストと、アプリケーションに返される追加のエラー情報について説明します。
+* Adobe Pass認証 REST API:
+   * [REST API v1](./rest-api-overview.md)
+   * [REST API v2](./rest-api-v2/apis/rest-api-v2-apis-overview.md)
+* Adobe Pass認証 SDK による API の事前認証：
+   * [JavaScript SDK （事前認証 API）](./preauthorize-api-javascript-sdk.md)
+   * [iOS/tvOS SDK （事前認証 API）](./preauthorize-api-ios-tvos-sdk.md)
+   * [Android SDK （事前認証 API）](./preauthorize-api-android-sdk.md)
 
-プログラマーアプリケーションで拡張エラーコードを使用するには、設定変更を有効にするために、サポートチームに対してリクエストを行う必要があります。
+  _（*） Preauthorize API は、拡張エラーコードのサポートを提供する唯一のAdobe Pass Authentication SDK API です。_
 
-## 応答エラー処理 {#response-error-handling}
+>[!IMPORTANT]
+>
+> Adobe Pass認証 REST API v2 を統合するアプリケーションでは、追加の設定を行わなくてもデフォルトで拡張エラーコードのメリットが得られます。
+>
+> <br/>
+>
+> Adobe Pass認証 REST API v1 または SDK 事前認証 API を統合するアプリケーションでは、この機能が明示的に有効になっている場合にのみ、拡張エラーコードのメリットを受けることができます。
+>
+> <br/>
+>
+> この機能を明示的に有効にするには、アドビの [Zendesk](https://adobeprimetime.zendesk.com) からチケットを作成し、テクニカルアカウントマネージャー（TAM）にお問い合わせください。
 
-ほとんどの場合、Adobe Pass Authentication API には、特定のエラーが発生した理由や、問題を自動修正するための解決策に関する **意味のあるコンテキスト** を提供するために、応答本文にエラー情報が含まれています。  *ただし、認証またはログアウトフローが関連する特定のケースでは、Adobe Pass Authentication サービスがHTMLレスポンスまたは空の本文を返す場合があります。詳しくは、API のドキュメントを参照してください。*
+## 表示域 {#enhanced-error-codes-representation}
 
-特定のタイプのエラーは自動的に処理できますが（ネットワークタイムアウトの場合に認証リクエストを再試行したり、セッションの有効期限が切れた場合にユーザーの再認証を必要とするなど）、他のタイプでは、設定の変更やカスタマーケアチームとのインタラクションが必要になる場合があります。 このような場合、プログラマーは完全なエラー情報を収集して提供することが重要です。
+拡張エラーコードは、統合Adobe Pass認証 API と使用されている「Accept」ヘッダー値（`application/json` または `application/xml`）に応じて、`JSON` 形式または `XML` 形式で表すことができます。
 
-Adobe Pass Authentication API は、エラーまたはエラーを示す HTTP ステータスコードを 400 ～ 500 の範囲で返します。 各 HTTP ステータスコードには、特定の影響があります。
+| Adobe Pass認証 API | JSON | XML |
+|-------------------------------|---------|---------|
+| REST API v1 | &amp;check; | &amp;check; |
+| REST API v2 | &amp;check; |         |
+| SDK 事前認証 API | &amp;check; |         |
 
-- 4xx エラーコードは、エラーがクライアントによって生成され、エラーを修正するためにクライアントが追加の作業を行う必要があることを意味します（例えば、保護された API を呼び出す前にアクセストークンを取得したり、必要なパラメーターを指定するなど）
+>[!IMPORTANT]
+>
+> Adobe Pass認証は、次の 2 つの形式で、拡張エラーコードをクライアントアプリケーションに通信できます。
+>
+> <br/>
+>
+> * **最上位レベルのエラー情報**：この場合、***&quot;error&quot;*** オブジェクトは最上位レベルにあるので、応答本文には ***&quot;error&quot;*** オブジェクトのみを含めることができます。
+> * **項目レベルのエラー情報**：この場合、***&quot;error&quot;*** オブジェクトは項目レベルにあるので、応答本文には、サービス中にエラーが発生したすべての項目の ***&quot;error&quot;*** オブジェクトを含めることができます。
+>
+> <br/>
+>
+> 統合された各Adobe Pass認証 API の公開ドキュメントを確認して、拡張エラーコード表現の詳細を判断します。
 
-- 5xx エラーコードは、エラーがサーバーによって生成され、エラーを修正するためにサーバーが追加の作業を行う必要があることを意味します。
+`JSON` または `XML` で表された拡張エラーコードを含む次の HTTP 応答の例を参照してください。
 
-追加のエラー情報は、応答本文内の「エラー」フィールドに含まれます。
+>[!BEGINTABS]
 
-<table>
-<thead>
-  <tr>
-    <th>名前</th>
-    <th>タイプ</th>
-    <th>例</th>
-    <th>説明</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>エラー</td>
-    <td><i>オブジェクト</i></td>
-    <td><strong>JSON</strong>
-    <br>
-    <code>{<br>&nbsp;&nbsp;&nbsp;&nbsp;"status" : 403,<br>&nbsp;&nbsp;&nbsp;&nbsp;"code" : "network_connection_failure",<br>&nbsp;&nbsp;&nbsp;&nbsp;"message" : "Unable to contact your TV provider<br>&nbsp;&nbsp;&nbsp;&nbsp;services",<br>&nbsp;&nbsp;&nbsp;&nbsp;"helpUrl" : "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",<br>&nbsp;&nbsp;&nbsp;&nbsp;"trace" : "12f6fef9-d2e0-422b-a9d7-60d799abe353",<br>&nbsp;&nbsp;&nbsp;&nbsp;"action" : "retry"<br>}
-    </code>
-    <p>
-    <p>
-    <strong>XML</strong>
-    <br>
-    <code>&lt;error&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;status&gt;403&lt;/status&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;code&gt;network_connection_failure&lt;/code&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;message&gt;Unable to contact your TV provider services&lt;/message&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;helpUrl&gt;https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html&lt;/helpUrl&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;trace>12f6fef9-d2e0-422b-a9d7-60d799abe353&lt;/trace&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;action>retry&lt;/action&gt;<br>&lt;/error&gt;
-    </code>
-    </td>
-    <td>リクエストの完了中に収集されたコレクションまたはエラーオブジェクトを参照します。</td>
-  </tr>
-</tbody>
-</table>
+>[!TAB REST API v1 – 最上位のエラー情報（JSON） ]
 
-</br>
-
-複数の項目を処理するAdobe Pass API （事前認証 API など）では、特定の項目の処理が失敗し、項目レベルのエラー情報を使用して他の項目の処理が成功したかどうかを示す場合があります。 この場合、***&quot;error&quot;*** オブジェクトは項目レベルにあり、応答本文には複数の ***&quot;errors&quot;*** オブジェクトが含まれる可能性があります。API ドキュメントを参照してください。
-
-</br>
-
-**部分的な成功と項目レベルのエラーを含む例**
-
-```json
+```JSON
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+        
 {
-   "resources" : [
-        {
-            "id" : "TestStream1",
-            "authorized" : true
-        },
-        {
-            "id" : "TestStream2",
-            "authorized" : false,
-            "error" : {
- 
-               "status" : 403,
-               "code" : "network_connection_failure",
-               "message" : "Unable to contact your TV provider services",
-               "details" : "",
-               "helpUrl" : "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-               "trace" : "8bcb17f9-b172-47d2-86d9-3eb146eba85e",
-               "action" : "retry"
-            }
- 
-        }
-    ]
+  "action": "none",
+  "status": 400,
+  "code": "invalid_requestor",
+  "message": "The requestor parameter is missing or invalid.",
+  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+  "trace": "8bcb17f9-b172-47d2-86d9-3eb146eba85e"
 }
 ```
 
-</br>
+>[!TAB REST API v1 – 最上位レベルのエラー情報（XML） ]
 
-各エラーオブジェクトには、次のパラメーターがあります。
+```XML
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+
+<error>
+  <action>none</action>
+  <status>400</status>
+  <code>invalid_requestor</code>
+  <message>The requestor parameter is missing or invalid.</message>
+  <helpUrl>https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html</helpUrl>
+  <trace>8bcb17f9-b172-47d2-86d9-3eb146eba85e</trace>
+</error>
+```
+
+>[!TAB REST API v1 – 項目レベルのエラー情報（JSON） ]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "resources": [
+    {
+      "id": "TestStream1",
+      "authorized": true
+    },
+    {
+      "id": "TestStream2",
+      "authorized": false,
+      "error": {
+        "action": "retry",
+        "status": 403,
+        "code": "network_connection_failure",
+        "message": "Unable to contact your TV provider services",
+        "details": "Your subscription package does not include the \"Live\" channel",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+        "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
+      }
+    }
+  ]
+}
+```
+
+>[!TAB REST API v2 – 最上位のエラー情報（JSON） ]
+
+```JSON
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+  "action": "none",
+  "status": 400,
+  "code": "invalid_parameter_service_provider",
+  "message": "The service provider parameter value is missing or invalid.",
+  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+  "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
+}
+```
+
+>[!TAB REST API v2 – 項目レベルのエラー情報（JSON） ]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "decisions": [
+    {
+      "resource": "REF30",
+      "serviceProvider": "REF30",
+      "mvpd": "Cablevision",
+      "source": "mvpd",
+      "authorized": true,
+      "token": {
+        "issuedAt": 1697094207324,
+        "notBefore": 1697094207324,
+        "notAfter": 1697094802367,
+        "serializedToken": "PHNpZ25hdHVyZUluZm8..."
+      }
+    },
+    {
+      "resource": "REF40",
+      "serviceProvider": "REF40",
+      "mvpd": "Cablevision",
+      "source": "mvpd",
+      "authorized": false,
+      "error" : {
+        "action": "retry",
+        "status": 403,
+        "code": "network_connection_failure",
+        "message": "Unable to contact your TV provider services",
+        "details": "Your subscription package does not include the \"Live\" channel",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+        "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
+      }
+    }
+  ]
+}
+```
+
+>[!ENDTABS]
+
+拡張エラーコードには、次の `JSON` フィールドまたは `XML` 属性が含まれます。
 
 | 名前 | タイプ | 例 | 制限付き | 説明 |
-|---|---|----|:---:|---|
-| *ステータス* | *整数* | *403* | &amp;check; | RFC 7231 に記載されている応答 HTTP ステータスコード（<https://tools.ietf.org/html/rfc7231#section-6>） <ul><li>400 無効なリクエスト</li><li>401 未認証</li><li>403 Forbidden</li><li>404 が見つかりません</li><li>405 メソッドは許可されていません</li><li>409 の競合</li><li>410 削除</li><li>412 事前条件が失敗しました</li><li>429 リクエストが多すぎます</li><li>500 間隔サーバーエラー</li><li>503 サービスを利用できません</li></ul> |
-| *code* | *文字列* | *network_connection_failure* | &amp;check; | 標準のAdobe Pass認証エラーコード。 エラーコードの完全なリストは、次のとおりです。 |
-| *message* | *文字列* | *テレビ プロバイダ サービスに接続できません* | | エンドユーザーに表示できる、人間が判読できるメッセージ。 |
-| *詳細* | *文字列* | *サブスクリプションパッケージに「ライブ」チャネルが含まれていません* | | 場合によっては、詳細なメッセージが MVPD 認証エンドポイントによって、またはプログラマによって劣化ルールを介して提供されます。 <p> パートナーサービスからカスタムメッセージを受信しなかった場合、このフィールドはエラーフィールドに存在しない可能性があることに注意してください。 |
-| *helpUrl* | *url* | &quot;`http://`&quot; | | このエラーが発生した理由と考えられる解決策に関する詳細情報へのリンクを示す URL。 <p>URI は絶対 URL を表すので、エラーコードから推論しないでください。 エラーコンテキストに応じて、別の URL を指定できます。 例えば、同じ bad_request エラーコードは、認証サービスと承認サービスで異なる url を生成します。 |
-| *トレース* | *文字列* | *12f6fef9-d2e0-422b-a9d7-60d799abe353* | | より複雑なシナリオで特定の問題を特定するためにサポートに連絡する際に使用できる、この応答の一意の ID。 |
-| *アクション* | *文字列* | *再試行* | &amp;check; | 状況を修正するための推奨アクション： <ul><li> *なし* – 残念ながら、この問題を修正するための事前定義されたアクションはありません。 これは、パブリック API の呼び出しが正しくない可能性があります</li><li>*設定* - TVE ダッシュボードを使用するか、サポートに連絡して、設定を変更する必要があります。 </li><li>*application-registration* - アプリケーションは、自分自身を再度登録する必要があります。 </li><li>*認証* - ユーザーは認証または再認証する必要があります。 </li><li>*authorization* - ユーザーは、特定のリソースに対して認証を取得する必要があります。 </li><li>*degradation* – 何らかの形の最適化を適用する必要があります。 </li><li>*retry* - リクエストを再試行すると、問題が解決する場合があります</li><li>*retry-after* – 指定された期間の経過後にリクエストを再試行すると、問題が解決する場合があります。</li></ul> |
+|-----------|-----------|---------------------------------------------------------------------------------------------------------------------|:----------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *アクション* | *文字列* | *再試行* | &amp;check; | Adobe Pass認証は、このドキュメントで定義されている状況を修正する可能性のある、推奨されるアクションを行います。 <br/><br/> 詳しくは、[ アクション ](#enhanced-error-codes-action) の節を参照してください。 |
+| *ステータス* | *整数* | *403* | &amp;check; | [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6) ドキュメントで定義されている HTTP 応答ステータスコード。 <br/><br/> 詳しくは、[ ステータス ](#enhanced-error-codes-status) の節を参照してください。 |
+| *code* | *文字列* | *network_connection_failure* | &amp;check; | このドキュメントで定義されているように、エラーに関連付けられたAdobe Pass認証の一意の ID コード。 <br/><br/> 詳しくは、[ コード ](#enhanced-error-codes-code) の節を参照してください。 |
+| *message* | *文字列* | *テレビ プロバイダ サービスに接続できません* |            | 場合によってはエンドユーザーに表示される可能性がある、人間が判読できるメッセージ。 <br/><br/> 詳しくは、[ 応答の処理 ](#enhanced-error-codes-response-handling) の節を参照してください。 |
+| *詳細* | *文字列* | *サブスクリプションパッケージに「ライブ」チャネルが含まれていません* |            | サービスパートナーが提供できる場合がある詳細なメッセージ <br/><br/> サービスパートナーがカスタムメッセージを提供しない場合、このフィールドは存在しない可能性があります。 |
+| *helpUrl* | *url* | *https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html* |            | このエラーが発生した理由と考えられる解決策の詳細に関するリンクのAdobe Pass認証の公開ドキュメント URL。 <br/><br/> このフィールドには絶対 URL が格納されます。エラーコードから推論しないでください。エラーコンテキストに応じて、別の URL を指定できます。 |
+| *トレース* | *文字列* | *12f6fef9-d2e0-422b-a9d7-60d799abe353* |            | 特定の問題のトラブルシューティングのためにAdobe Pass Authentication サポートに連絡する際に使用できる、レスポンスの一意の ID。 |
 
-</br>
+>[!IMPORTANT]
+>
+> **Restricted** 列は、各フィールドに有限セットの値が保持されているかどうかを示し、無制限フィールドには任意のデータを含めることができます。
+>
+> <br/>
+>
+> このドキュメントを今後更新すると、有限セットに値が追加される可能性がありますが、既存の値は削除または変更されません。
 
-**注：**
+### アクション {#enhanced-error-codes-representation-action}
 
-- ***制限付き*** 列 *それぞれのフィールド値が有限セットを表しているかどうかを示します* （「*status*」フィールドの既存の HTTP ステータスコードなど）。 この仕様を今後更新した場合、制限リストに値が追加されることがありますが、既存の値は削除または変更されません。 制限のないフィールドには通常、任意のデータを含めることができますが、適切なサイズを確保するための制限が存在する場合があります。
+拡張エラーコードには、状況を修正する可能性のある推奨アクションを提供する「アクション」フィールドが含まれています。
 
-- 各AdobeAdobeには、HTTP サービス全体を通してクライアントリクエストを特定する「Response-Request-Id」が含まれます。 「**trace**」フィールドはそれを補完し、それらを一緒に報告する必要があります。
+「アクション」フィールドには、次の値を使用できます。
 
-## HTTP ステータスコードとエラーコード {#http-status-codes-and-error-codes}
+| アクション | 説明 | カテゴリ |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
+| なし | この問題を修正するための事前定義されたアクションはありませんが、場合によっては、API の不適切な呼び出しを示す可能性があります。 | リクエストコンテキストを修正します。 |
+| 設定 | クライアントアプリケーションでは、設定を変更する必要があります。ほとんどの場合、設定変更はAdobe Pass TVE ダッシュボードで行われます。 | 統合設定コンテキストを修正します。 |
+| application-registration | クライアントアプリケーションは、自分自身を再度登録する必要があります。 | クライアントアプリケーションコンテキストを修正します。 |
+| 認証 | クライアントアプリケーションでは、ユーザーの認証または再認証が必要です。 | クライアントアプリケーションコンテキストを修正します。 |
+| 認証 | クライアントアプリケーションは、指定されたリソースの認証を取得する必要があります。 | クライアントアプリケーションコンテキストを修正します。 |
+| 再試行 | クライアントアプリケーションはリクエストを再試行する必要があります。 | リクエストコンテキストを修正します。 |
 
-様々なエラーコードと関連する HTTP ステータスコードの不一致は、古い SDK およびアプリケーションとの後方互換性に関する要件（
-例 *unknown\_application* は 400 Bad Request を返しますが *unknown\_software\_statement* は 401 Unauthorized）を返します。 これらの不整合の解決は、今後のイテレーションでターゲットに設定されます。
+_（*）エラーによっては、複数のアクションが解決策になる場合がありますが、「アクション」フィールドは、エラーを修正する可能性が最も高いアクションを示します。_
 
-## アクションとエラーコード {#actions-and-error-codes}
+### ステータス {#enhanced-error-codes-representation-status}
 
-ほとんどのエラーコードでは、複数のアクションが手元の問題を修正するためのパスとして適格であったり、自動的に修正するために複数のアクションが必要であったりする場合があります。 エラーを修正する可能性が最も高いものを指定することを選択しました。 **アクション** は、次の 3 つのカテゴリに分けることができます。
+拡張エラーコードには、エラーに関連付けられた HTTP ステータスコードを示す「ステータス」フィールドが含まれます。
 
-1. リクエストコンテキストを修正しようとするもの（再試行、再試行後）
-1. アプリケーション内でユーザーコンテキストの修正を試みるもの
-（出願・登録・認証・認可）
-1. アプリケーション間の統合コンテキストの修正を試みるもの
-および ID プロバイダー（設定、低下）
+「ステータス」フィールドに指定可能な値は次のとおりです。
 
-第 1 カテゴリ（retry と retry-after）の場合は、同じリクエストを再試行するだけで問題が解決する可能性があります。 複数の項目を処理する API の場合、アプリケーションはリクエストを繰り返し、「retry」または「retry-after」アクションを持つ項目のみを含める必要があります。 「*retry-after*」アクションの場合、「<u>Retry-After</u>」ヘッダーは、アプリケーションがリクエストを繰り返すまでに待機する秒数を示します。
+| コード | 理由フレーズ |
+|------|-----------------------|
+| 400 | リクエストが正しくありません |
+| 401 | 未認証 |
+| 403 | 禁止 |
+| 404 | 見つかりません |
+| 405 | 許可されていないメソッド |
+| 410 | 廃止 |
+| 412 | 事前条件が失敗しました |
+| 500 | 内部サーバーエラー |
 
-2 番目と 3 番目のカテゴリの場合、実際のアクションの実装は、アプリケーションの機能に大きく依存します。 例えば、「*degradation*」は、「15 分間の一時パスに切り替えてユーザーがコンテンツを再生できるようにする」または「automatic tool to apply AUTHN-ALL or AUTHZ-ALL degradation for its integration with the specified MVPD」として実装できます。 同様に、「*認証*」アクションでは、タブレットではパッシブ認証（バックチャネル認証）、接続された TV では完全な 2 画面目の認証フローをトリガーにすることができます。 だからこそ、スキーマとすべてのパラメーターを含む本格的な URL の提供を選択しました。
+「ステータス」が 4xx の拡張エラーコードは、通常、エラーがクライアントによって生成された場合に表示され、ほとんどの場合、クライアントがそれを修正するために追加の作業を必要とすることを意味します。
 
-## エラーコード {#error-codes}
+通常、5xx の「ステータス」を含む拡張エラーコードは、サーバーによってエラーが生成されたときに表示され、ほとんどの場合、サーバーがそれを修正するために追加の作業を必要とすることを意味します。
 
-以下のエラーの表に、考えられるエラーコード、関連するメッセージ、考えられるアクションを示します。
+>[!IMPORTANT]
+>
+> HTTP レスポンスのステータスコードが、拡張エラーコードの「ステータス」フィールドと異なる場合があります。特に、拡張エラーコードを項目レベルのエラー情報として通信するAdobe Pass認証 API とやり取りする場合に発生します。
 
-| アクション | エラーコード | HTTP ステータスコード | 説明 |
-|---|---|---|---|
-| **なし** | *authorization_denied_by_mvpd* | 403 | MVPD は、指定されたリソースの認証を要求したときに「拒否」の決定を返しました。 |
-|  | *authorization_denied_by_parental_controls* | 403 | MVPD は、指定されたリソースのペアレンタルコントロール設定が原因で「拒否」決定を返しました。 |
-|  | *authorization_denied_by_programmer* | 403 | プログラマによって適用される最適化規則は、現在のユーザーに対して「拒否」の決定を強制します。 |
-|  | *bad_request* | 400 | API リクエストが無効か、正しい形式ではありません。 API ドキュメントを確認して、リクエスト要件を決定します。 |
-|  | *individualization_service_unavailable* | 503 | 個人化サービスを利用できないので、リクエストは失敗しました。 |
-|  | *internal_error* | 500 | 内部サーバーエラーが発生したため、リクエストは失敗しました。 |
-|  | *invalid_client_time* | 400 | クライアントマシンの日付/時刻/タイムゾーンが正しく設定されていません。 これにより、認証/承認エラーが発生する可能性があります。 |
-|  | *invalid_custom_scheme* | 400 | アプリケーション登録で使用されている指定されたカスタム スキームが認識されません。 TVE ダッシュボード設定で、適切なカスタムスキーム値を確認してください。 |
-|  | *invalid_domain* | 400 | リクエスターが無効なドメインを使用しています。 特定の要求者 ID で使用されるすべてのドメインは、Adobeで許可リストに登録する必要があります。 |
-|  | *invalid_header* | 400 | 無効なヘッダーが含まれているため、要求は失敗しました。 API ドキュメントを参照して、リクエストに有効なヘッダーとその値に制限があるかどうかを判断してください。 |
-|  | *invalid_http_method* | 405 | リクエストに関連付けられている HTTP メソッドはサポートされていません。 API ドキュメントを参照して、リクエストでサポートされる HTTP メソッドを判断してください。 |
-|  | *invalid_parameter_value* | 400 | 無効なパラメーターまたはパラメーター値が含まれているため、要求は失敗しました。 API ドキュメントを参照して、リクエストに有効なパラメーターとその値に制限があるかどうかを判断してください。 |
-|  | *invalid_resource_value* | 400 | 無効なリソースまたは形式が正しくないリソースが使用されたため、要求は失敗しました。 API ドキュメントを参照して、リクエストに対して複雑なリソースをエンコードする必要があるか、また、その値やサイズに制限があるかどうかを判断してください。 |
-|  | *invalid_registration_code* | 404 | 指定された登録コードは無効であるか、有効期限が切れています。 |
-|  | *invalid_service_configuration* | 500 | サービス設定が正しくないため、リクエストは失敗しました。 |
-|  | *missing_authentication_header* | 400 | 特定の API に必要な認証ヘッダーが含まれていないので、リクエストは失敗しました。 |
-|  | *missing_resource_mapping* | 400 | 指定されたリソースに対応するマッピングがありません。 必要なマッピングを修正するには、サポートにお問い合わせください。 |
-|  | *preauthorization_denied_by_mvpd* | 403 | MVPD は、指定されたリソースの事前認証を要求したときに「拒否」決定を返しました。 |
-|  | *preauthorization_denied_by_programmer* | 403 | プログラマーによって適用される最適化規則は、現在のユーザーに対して「拒否」の決定を強制します。 |
-|  | *registration_code_service_unavailable* | 503 | 登録コード サービスが利用できないため、要求に失敗しました。 |
-|  | *service_unavailable* | 503 | 認証サービスまたは承認サービスが利用できないので、要求は失敗しました。 |
-|  | *access_token_unavailable* | 400 | アクセストークンの取得中に予期しないエラーが発生したため、リクエストに失敗しました。 使用可能なソフトウェア ステートメントおよび登録済みのカスタム スキームについては、TVE ダッシュボードの構成を確認してください。 |
-|  | *unsupported_client_version* | 400 | このバージョンのAdobe Pass Authentication SDK は古すぎるので、サポートされなくなりました。 最新バージョンにアップグレードするために必要な手順については、API ドキュメントを確認してください。 |
-| **設定** | *network_required_ssl* | 403 | ターゲット パートナーサービスの SSL 接続に問題があります。 サポートチームにお問い合わせください。 |
-|  | *too_many_resources* | 403 | クエリされたリソースが多すぎるため、承認または事前承認の要求に失敗しました。 認証および事前認証制限を適切に設定するには、サポートチームにお問い合わせください。 |
-|  | *unknown_programmer* | 400 | プログラマまたはサービス プロバイダが認識されていません。 TVE ダッシュボードを使用して、指定されたプログラマを登録します。 |
-|  | *unknown_application* | 400 | アプリケーションが認識されません。 TVE ダッシュボードを使用して、指定されたアプリケーションを登録します。 |
-|  | *unknown_integration* | 400 | 指定されたプログラマーと ID プロバイダーの統合が存在しません。 TVE ダッシュボードを使用して、必要な統合を作成します。 |
-|  | *unknown_software_statement* | 401 | アクセス トークンに関連付けられたソフトウェア ステートメントが認識されません。 ソフトウェアのステータスを明確にするには、サポートチームにお問い合わせください。 |
-| **application-registration** | *access_token_expired* | 401 | アクセストークンの有効期限が切れています。 API ドキュメントに示されているように、アプリケーションはアクセストークンを更新する必要があります。 |
-|  | *invalid_access_token_signature* | 401 | アクセストークン署名が無効になりました。 API ドキュメントに示されているように、アプリケーションはアクセストークンを更新する必要があります。 |
-|  | *invalid_client_id* | 401 | 関連付けられたクライアント識別子が認識されません。 アプリケーションは、API ドキュメントに記載されているアプリケーション登録プロセスに従う必要があります。 |
-| **認証** | *authentication_session_expired* | 410 | 現在の認証セッションの有効期限が切れています。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
-|  | *authentication_session_missing* | 401 | この要求に関連付けられている認証セッションを取得できませんでした。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
-|  | *authentication_session_invalidated* | 401 | 認証セッションは ID プロバイダーによって無効化されました。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
-|  | *authentication_session_issuer_mismatch* | 400 | 認証フローに対して示された MVPD が認証セッションを発行した MVPD と異なるため、認証リクエストは失敗しました。 続行するには、ユーザーは目的の MVPD で再認証する必要があります。 |
-|  | *authorization_denied_by_hba_policies* | 403 | MVPD が、ホームベースの認証ポリシーが原因で「拒否」決定を返しました。 現在の認証はホームベースの認証フロー（HBA）を使用して取得されましたが、指定されたリソースの認証を要求する際にデバイスは自宅に存在しなくなりました。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
-|  | *identity_not_recognized_by_mvpd* | 403 | ユーザー ID が MVPD によって認識されなかったため、承認要求は失敗しました。 |
-| **認証** | *authorization_expired* | 410 | 指定されたリソースの以前の認証の有効期限が切れています。 続行するには、ユーザーが新しい認証を取得する必要があります。 |
-|  | *authorization_not_found* | 404 | 指定されたリソースの承認が見つかりませんでした。 続行するには、ユーザーが新しい認証を取得する必要があります。 |
-|  | *device_identifier_mismatch* | 403 | 指定されたデバイス識別子が承認デバイス識別子と一致しません。 続行するには、ユーザーが新しい認証を取得する必要があります。 |
-| **再試行** | *network_connection_failure* | 403 | 関連付けられたパートナーサービスとの接続に失敗しました。 リクエストを再試行すると、問題が解決する場合があります。 |
-|  | *network_connection_timeout* | 403 | 関連付けられたパートナーサービスで接続タイムアウトが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
-|  | *network_received_error* | 403 | 関連付けられたパートナーサービスから応答を取得する際に読み取りエラーが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
-|  | *maximum_execution_time_exceeded* | 403 | 最大許容時間内にリクエストが完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。 |
-| **retry-after** | *too_many_requests* | 429 | 指定された間隔内に送信されたリクエストが多すぎます。 アプリケーションは、提案された期間の経過後にリクエストを再試行できます。 |
-|  | *user_rate_limit_exceeded* | 429 | 指定された期間内に特定のユーザーによって発行されたリクエストが多すぎます。 アプリケーションは、提案された期間の経過後にリクエストを再試行できます。 |
+### コード {#enhanced-error-codes-representation-code}
+
+拡張エラーコードには、エラーに関連付けられたAdobe Pass認証の一意の ID を提供する「コード」フィールドが含まれています。
+
+「code」フィールドに指定可能な値は、統合Adobe Pass認証 API に基づいて [ 以下 ](#enhanced-error-codes-list)2 つのリストに集約されます。
+
+## リスト {#enhanced-error-codes-lists}
+
+### REST API v1 {#enhanced-error-codes-lists-rest-api-v1}
+
+次の表に、Adobe Pass認証 REST API v1 と統合した場合にクライアントアプリケーションで発生する可能性のある拡張エラーコードを示します。
+
+| アクション | コード | ステータス | メッセージ |
+|--------------------|---------------------------------------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **なし** | *invalid_requestor* | 400 | 要求者パラメーターがないか、無効です。 |
+|                    | *invalid_device_info* | 400 | デバイス情報がないか、無効です。 |
+|                    | *invalid_device_id* | 400 | デバイス識別子がないか、無効です。 |
+|                    | *missing_resource* | 400、412 | リソースパラメーターがありません。 |
+|                    | *malformed_authz_request* | 400、412 | 認証リクエストが null または無効です。 |
+|                    | *preauthorization_denied_by_mvpd* | 403 | MVPD は、指定されたリソースの事前認証を要求したときに「拒否」決定を返しました。 |
+|                    | *authorization_denied_by_mvpd* | 403 | MVPD は、指定されたリソースの認証を要求したときに「拒否」の決定を返しました。 |
+|                    | *authorization_denied_by_parental_controls* | 403 | MVPD は、指定されたリソースのペアレンタルコントロール設定が原因で「拒否」決定を返しました。 |
+|                    | *internal_error* | 400、405、500 | 内部サーバーエラーが発生したため、リクエストは失敗しました。 |
+| **設定** | *unknown_integration* | 400、412 | 指定されたプログラマーと ID プロバイダーの統合が存在しません。 TVE ダッシュボードを使用して、必要な統合を作成します。 |
+|                    | *too_many_resources* | 403 | クエリされたリソースが多すぎるため、承認または事前承認の要求に失敗しました。 認証および事前認証制限を適切に設定するには、サポートチームにお問い合わせください。 |
+| **認証** | *authentication_session_issuer_mismatch* | 400 | 認証フローに対して示された MVPD が認証セッションを発行した MVPD と異なるため、認証リクエストは失敗しました。 続行するには、ユーザーは目的の MVPD で再認証する必要があります。 |
+|                    | *authorization_denied_by_hba_policies* | 403 | MVPD が、ホームベースの認証ポリシーが原因で「拒否」決定を返しました。 現在の認証はホームベースの認証フロー（HBA）を使用して取得されましたが、指定されたリソースの認証を要求する際にデバイスは自宅に存在しなくなりました。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
+|                    | *authorization_denied_by_session_invalidated* | 403 | 認証セッションは ID プロバイダーによって無効化されました。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
+|                    | *identity_not_recognized_by_mvpd* | 403 | ユーザー ID が MVPD によって認識されなかったため、承認要求は失敗しました。 |
+|                    | *authentication_session_invalidated* | 403 | 認証セッションは ID プロバイダーによって無効化されました。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
+|                    | *authentication_session_missing* | 403、412 | この要求に関連付けられている認証セッションを取得できませんでした。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
+|                    | *authentication_session_expired* | 403、412 | 現在の認証セッションの有効期限が切れています。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
+|                    | *preauthorization_authentication_session_missing* | 412 | この要求に関連付けられている認証セッションを取得できませんでした。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
+|                    | *preauthorization_authentication_session_expired* | 412 | 現在の認証セッションの有効期限が切れています。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
+| **認証** | *authorization_not_found* | 403、404 | 指定されたリソースの承認が見つかりませんでした。 続行するには、ユーザーが新しい認証を取得する必要があります。 |
+|                    | *authorization_expired* | 410 | 指定されたリソースの以前の認証の有効期限が切れています。 続行するには、ユーザーが新しい認証を取得する必要があります。 |
+| **再試行** | *network_received_error* | 403 | 関連付けられたパートナーサービスから応答を取得する際に読み取りエラーが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
+|                    | *network_connection_timeout* | 403 | 関連付けられたパートナーサービスで接続タイムアウトが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
+|                    | *maximum_execution_time_exceeded* | 403 | 最大許容時間内にリクエストが完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。 |
+
+### SDK 事前認証 API {#enhanced-error-codes-lists-sdks-preauthorize-api}
+
+Adobe Pass Authentication SDK の事前認証 API と統合した場合にクライアントアプリケーションで発生する可能性のある拡張エラーコードについては、前の [ 節 ](#enhanced-error-codes-list-rest-api-v1) を参照してください。
+
+### REST API v2 {#enhanced-error-codes-lists-rest-api-v2}
+
+次の表に、Adobe Pass Authentication REST API v2 と統合した場合にクライアントアプリケーションで発生する可能性のある拡張エラーコードを示します。
+
+| アクション | コード | ステータス | メッセージ |
+|------------------------------|--------------------------------------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **なし** | *invalid_parameter_service_provider* | 400 | サービスプロバイダーパラメーター値がないか、無効です。 |
+|                              | *invalid_parameter_mvpd* | 400 | mvpd パラメーター値がないか、無効です。 |
+|                              | *invalid_parameter_code* | 400 | コードパラメーター値がないか、無効です。 |
+|                              | *invalid_parameter_resources* | 400 | リダイレクト URL パラメーター値がないか、無効です。 |
+|                              | *invalid_parameter_redirect_url* | 400 | リソースパラメーター値がないか、無効です。 |
+|                              | *invalid_parameter_partner* | 400 | パートナーパラメーター値がないか、無効です。 |
+|                              | *invalid_parameter_saml_response* | 400 | SAML 応答パラメーター値がないか、無効です。 |
+|                              | *invalid_header_device_info* | 400 | デバイス情報ヘッダー値がないか、無効です。 |
+|                              | *invalid_header_device_identifier* | 400 | デバイス識別子ヘッダー値がないか、無効です。 |
+|                              | *invalid_header_identity_for_temporary_access* | 400 | 一時アクセスヘッダー値の ID がないか、無効です。 |
+|                              | *invalid_header_pfs_permission_access_not_present* | 400 | パートナーフレームワーク状態ヘッダーからのアクセス許可状態の値がありません。 |
+|                              | *invalid_header_pfs_permission_access_not_determined* | 400 | パートナーフレームワークステータスヘッダーの権限アクセスステータス値が不明です。 |
+|                              | *invalid_header_pfs_permission_access_not_granted* | 400 | パートナーフレームワークステータスヘッダーの権限アクセスステータス値が付与されません。 |
+|                              | *invalid_header_pfs_provider_id_not_determined* | 400 | パートナーフレームワーク状態ヘッダーのプロバイダー ID 値は、既知の mvpd に関連付けられていません。 |
+|                              | *invalid_header_pfs_provider_id_mismatch* | 400 | パートナーフレームワーク状態ヘッダーのプロバイダー ID 値が、パラメーターとして送信された mvpd と一致しません。 |
+|                              | *invalid_integration* | 400 | 指定されたサービス プロバイダーと mvpd の統合が存在しないか、無効です。 |
+|                              | *invalid_authentication_session* | 400 | この要求に関連付けられている認証セッションが見つからないか無効です。 |
+|                              | *preauthorization_denied_by_mvpd* | 403 | MVPD は、指定されたリソースの事前認証を要求したときに「拒否」決定を返しました。 |
+|                              | *authorization_denied_by_mvpd* | 403 | MVPD は、指定されたリソースの認証を要求したときに「拒否」の決定を返しました。 |
+|                              | *authorization_denied_by_parental_controls* | 403 | MVPD は、指定されたリソースのペアレンタルコントロール設定が原因で「拒否」決定を返しました。 |
+|                              | *authorization_denied_by_degradation_rule* | 403 | 指定されたサービス プロバイダと mvpd の統合には、要求されたリソースの承認を拒否する最適化規則が適用されています。 |
+|                              | *internal_server_error* | 500 | 内部サーバーエラーが発生したため、リクエストは失敗しました。 |
+| **設定** | *too_many_resources* | 403 | クエリされたリソースが多すぎるため、承認または事前承認の要求に失敗しました。 認証および事前認証制限を適切に設定するには、サポートチームにお問い合わせください。 |
+|                              | *invalid_configuration_user_metadata_certificate* | 500 | ユーザーメタデータ証明書の構成が見つからないか無効です。 |
+|                              | *invalid_configuration_temporary_access* | 500 | 一時アクセス設定が無効です。 |
+|                              | *invalid_configuration_platform* | 500 | プラットフォーム設定がないか、統合に対して無効です。 |
+|                              | *invalid_configuration_platform_id* | 500 | プラットフォーム ID 設定がないか、無効です。 |
+|                              | *invalid_configuration_platform_trait* | 500 | プラットフォーム特性設定がないか、無効です。 |
+|                              | *invalid_configuration_platform_category_trait* | 500 | プラットフォームカテゴリ特性の設定がないか、無効です。 |
+|                              | *invalid_configuration_platform_services* | 500 | Platform サービス設定がないか、統合に対して無効です。 |
+|                              | *invalid_configuration_mvpd_platform* | 500 | mvpd プラットフォーム設定が見つからないか、mvpd およびプラットフォームで無効です。 |
+|                              | *invalid_configuration_mvpd_platform_boarding_status* | 500 | mvpd プラットフォームのボーディングステータス設定が、mvpd とプラットフォームでは見つからないか無効です。 |
+|                              | *invalid_configuration_mvpd_platform_profile_exchange* | 500 | mvpd プラットフォームプロファイル交換の設定が、mvpd およびプラットフォームに対して見つからないか無効です。 |
+| **application-registration** | *invalid_access_token_service_provider* | 401 | サービスプロバイダーが無効なため、アクセストークンが無効です。 |
+|                              | *invalid_access_token_client_application* | 401 | クライアントアプリケーションが無効なため、アクセストークンが無効です。 |
+| **認証** | *authenticated_profile_missing* | 403 | このリクエストに関連付けられている認証済みプロファイルがありません。 |
+|                              | *authenticated_profile_expired* | 403 | このリクエストに関連付けられている認証済みプロファイルの有効期限が切れています。 |
+|                              | *authenticated_profile_invalidated* | 403 | このリクエストに関連付けられている認証済みプロファイルが無効化されました。 |
+|                              | *temporary_access_duration_limit_exceeded* | 403 | 一時アクセス期間の制限を超えています。 |
+|                              | *temporary_access_resources_limit_exceeded* | 403 | 一時アクセスリソースの制限を超えています。 |
+|                              | *authorization_denied_by_hba_policies* | 403 | MVPD が、ホームベースの認証ポリシーが原因で「拒否」決定を返しました。 現在の認証はホームベースの認証フローを通じて取得されたものですが、指定されたリソースの認証を要求したときにデバイスはホームに存在しなくなりました。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
+|                              | *authorization_denied_by_session_invalidated* | 403 | 認証セッションは ID プロバイダーによって無効化されました。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
+|                              | *identity_not_recognized_by_mvpd* | 403 | ユーザー ID が MVPD によって認識されなかったため、承認要求は失敗しました。 |
+| **再試行** | *network_received_error* | 403 | 関連付けられたパートナーサービスから応答を取得する際に読み取りエラーが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
+|                              | *network_connection_timeout* | 403 | 関連付けられたパートナーサービスで接続タイムアウトが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
+|                              | *maximum_execution_time_exceeded* | 403 | 最大許容時間内にリクエストが完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。 |
+
+## 応答処理 {#enhanced-error-codes-response-handling}
+
+>[!IMPORTANT]
+>
+> ネットワークタイムアウトが発生した場合の認証リクエストの再試行や、セッションの有効期限が切れたときにユーザーに再認証を求めるなど、クライアントアプリケーションコードで自動的に処理できる拡張エラーコードがありますが、それ以外のタイプでは、設定の変更やAdobe Pass認証カスタマーケアチームとのインタラクションが必要になる場合があります。
+>
+> <br/>
+>
+> したがって、アドビの [Zendesk](https://adobeprimetime.zendesk.com) を使用してチケットを作成する際に、完全なエラー情報を収集して提供し、新しいアプリケーションや新機能を起動する前に、必要な変更がおこなわれるようにすることが重要です。
+
+要約すると、拡張エラーコードを含む応答を処理する場合は、次の点を考慮する必要があります。
+
+1. **両方のステータス値を確認**：常に、HTTP 応答のステータスコードと拡張エラーコードの「ステータス」フィールドの両方を確認します。 これらは異なる場合があり、どちらも貴重な情報を提供します。
+
+1. **トップレベルと項目レベルのエラー情報に依存しない**：トップレベルおよび項目レベルのエラー情報を通信方法に依存せずに処理し、拡張エラーコードの両方の送信形式を確実に処理します。
+
+1. **再試行ロジック**：再試行が必要なエラーの場合は、サーバーが圧倒されるのを避けるために、再試行が指数バックオフで行われることを確認します。 また、複数の項目を一度に処理するAdobe Pass Authentication API の場合（例：事前認証 API）、繰り返しリクエストには、リスト全体ではなく、「再試行」とマークされた項目のみを含める必要があります。
+
+1. **設定の変更**：設定の変更が必要なエラーの場合は、新しいアプリケーションまたは新機能を起動する前に、必要な変更が行われていることを確認します。
+
+1. **認証と承認**：認証と承認に関連するエラーの場合、必要に応じて、再認証を行うか新しい承認を取得するようにユーザーに促す必要があります。
+
+1. **ユーザーのフィードバック**：任意。人間が判読できる「メッセージ」フィールドと（潜在的な）「詳細」フィールドを使用して、問題についてユーザーに通知します。 「詳細」テキスト メッセージは、MVPD 事前認証または認証エンドポイントから、または劣化ルールを適用する際にプログラマから渡される場合があります。

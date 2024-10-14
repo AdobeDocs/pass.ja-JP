@@ -4,7 +4,7 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 8c5203aa4a897a5e119a9886afc64a1b1556ee4f
+source-git-commit: 6c328eb2c635a1d76fc7dae8148a4de291c126e0
 workflow-type: tm+mt
 source-wordcount: '1174'
 ht-degree: 2%
@@ -113,8 +113,8 @@ ht-degree: 2%
          + [JavaScript SDK API リファレンス](javascript-sdk-api-reference.md)
          + ガイドライン {#js-sdk-guidelines}
             + [更新なしのログインとログアウト](refreshless-login-and-logout.md)
-         + JavaScript API {#js-api}
-            + [事前認証](js-preauthorize.md)
+         + JavaScript API {#javascript-sdk-api}
+            + [事前認証](preauthorize-api-javascript-sdk.md)
       + iOS/tvOS SDK {#ios-sdk}
          + [iOS/tvOS SDK の概要](iostvos-sdk-overview.md)
          + [iOS/tvOS SDK クックブック](iostvos-sdk-cookbook.md)
@@ -124,8 +124,8 @@ ht-degree: 2%
             + 移行ガイドライン {#migration-guidelines}
                + [iOS/tvOS v3.x 移行ガイド](iostvos-v3x-migration-guide.md)
             + [iOS/tvOS ストレージの整合性チェック](iostvos-sdk-storage-integrity-checks.md)
-         + iOS/tvOS API {#ios-tvos-api}
-            + [事前認証](preauthorize.md)
+         + iOS/tvOS API {#ios-tvos-sdk-api}
+            + [事前認証](preauthorize-api-ios-tvos-sdk.md)
       + Android SDK {#androidsdk}
          + [Android SDK の概要](android-sdk-overview.md)
          + [Android SDK クックブック](android-sdk-cookbook.md)
@@ -133,8 +133,8 @@ ht-degree: 2%
          + ガイドライン {#androidguidelines}
             + [Android アプリケーションの登録](android-application-registration.md)
             + [Dynamic Client Registration を使用したAndroid SDK](android-sdk-with-dynamic-client-registration.md)
-         + Android API{#androidapi}
-            + [事前認証](preauthorize-android.md)
+         + Android API{#android-sdk-api}
+            + [事前認証](preauthorize-api-android-sdk.md)
       + Amazon FireOS SDK {#fireossdk}
          + [Amazon FireOS SSO - プログラマー向けキックオフガイド](amazon-firetv-sso-programmer-kickoff-guide.md)
          + [クライアントレス API クックブックを使用したAmazon FireOS SSO](amazon-fireos-sso-using-clientless-api-cookbook.md)
