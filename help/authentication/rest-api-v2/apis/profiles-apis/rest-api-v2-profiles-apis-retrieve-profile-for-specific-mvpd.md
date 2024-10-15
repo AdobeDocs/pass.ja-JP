@@ -2,9 +2,9 @@
 title: 特定の mvpd のプロファイルの取得
 description: REST API V2 – 特定の mvpd のプロファイルを取得します
 exl-id: ed1abc33-c279-4465-b5a0-b4e5b892076e
-source-git-commit: 6c328eb2c635a1d76fc7dae8148a4de291c126e0
+source-git-commit: ca8eaff83411daab5f136f01394e1d425e66f393
 workflow-type: tm+mt
-source-wordcount: '974'
+source-wordcount: '1006'
 ht-degree: 0%
 
 ---
@@ -168,6 +168,13 @@ ht-degree: 0%
       </td>
    </tr>
    <tr>
+      <td>403</td>
+      <td>禁止</td>
+      <td>
+        一時アクセスの有効期間（TTL）が切れているか、最大リソース数を超えています。クライアントは、通常の MVPD を使用して基本認証フローを開始するようにユーザーに指示する必要があります。 応答本文には、<a href="../../../enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+      </td>
+   </tr>
+   <tr>
       <td>405</td>
       <td>許可されていないメソッド</td>
       <td>
@@ -304,7 +311,7 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>400、401、405、500</td>
+      <td>400、401、403、405、500</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -326,51 +333,52 @@ ht-degree: 0%
 
 ## サンプル {#samples}
 
-### 1.特定の mvpd の基本認証で取得した、既存の有効な認証済みプロファイルをすべて取得する
+### 1.基本認証で取得した、特定の mvpd のプロファイルを取得する
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
-```JSON
-GET /api/v2/REF30/profiles/Spectrum  
+```HTTPS
+GET /api/v2/REF30/profiles/Spectrum HTTP/1.1 
 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
 >[!TAB  応答 ]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
- 
+
+Content-Type: application/json;charset=UTF-8
+
 {
-    "profiles" : {
-        "Spectrum" : {
-            "notBefore" : 1623943955,
-            "notAfter" : 1623951155,
-            "issuer" : "Spectrum",
-            "type" : "regular",
-            "attributes" : {
-                "userId" : {
-                    "value" : "BASE64_value_userId",
-                    "state" : "plain"
+    "profiles": {
+        "Spectrum": {
+            "notBefore": 1623943955,
+            "notAfter": 1623951155,
+            "issuer": "Spectrum",
+            "type": "regular",
+            "attributes": {
+                "userId": {
+                    "value": "BASE64_value_userId",
+                    "state": "plain"
                 },
                 "householdId" : {
-                    "value" : "BASE64_value_householdId",
-                    "state" : "plain"
+                    "value": "BASE64_value_householdId",
+                    "state": "plain"
                 },
                 "zip" : {
-                    "value" : "BASE64_value_zip",
-                    "state" : "enc"
+                    "value": "BASE64_value_zip",
+                    "state": "enc"
                 },
                 "parental-controls" : {
-                    "value" : BASE64_value_parental-controls,
-                    "state" : "plain"
+                    "value": BASE64_value_parental-controls,
+                    "state": "plain"
                 }
             }
         }
@@ -380,28 +388,29 @@ Content-Type: application/json; charset=utf-8
 
 >[!ENDTABS]
 
-### 2.特定の mvpd に対してサービストークン方式を使用したシングルサインオン認証で取得されたプロファイルを含む、既存の有効なすべての認証プロファイルを取得する
+### 2. サービストークン方式を使用した基本認証またはシングルサインオンにより取得した、特定の mvpd のプロファイルを取得する
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
-```JSON
-GET /api/v2/REF30/profiles/AdobeShibboleth  
+```HTTPS
+GET /api/v2/REF30/profiles/AdobeShibboleth HTTP/1.1
 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-AD-Service-Token : eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJkZDNmYWIyN2NmMjg0ZmU2ZWU0ZDY3ZmExZjY4MzE3YyIsImlzcyI6IkFkb2JlIiw.....
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    AD-Service-Token: eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJkZDNmYWIyN2NmMjg0ZmU2ZWU0ZDY3ZmExZjY4MzE3YyIsImlzcyI6IkFkb2JlIiw.....
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
 >[!TAB  応答 ]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
+
+Content-Type: application/json;charset=UTF-8
 
 {
    "profiles": {
@@ -431,29 +440,30 @@ Content-Type: application/json; charset=utf-8
 
 >[!ENDTABS]
 
-### 3.特定の mvpd に対して、Platform Identity Method を使用したシングルサインオン認証を通じて取得されたプロファイルを含む、既存の有効なすべての認証プロファイルを取得する
+### 3.基本認証または Platform ID 方式を使用したシングルサインオンにより取得した、特定の mvpd のプロファイルを取得する
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
-```JSON
-GET /api/v2/REF30/profiles/AdobePass_SMI  
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Adobe-Subject-Token : eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyMmM4MDU1MjEzMDIwYzhmZGYzOGZkMTI1YWViMzUzYSIsImlzcyI6....
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```HTTPS
+GET /api/v2/REF30/profiles/AdobePass_SMI HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Adobe-Subject-Token: eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyMmM4MDU1MjEzMDIwYzhmZGYzOGZkMTI1YWViMzUzYSIsImlzcyI6....
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
 >[!TAB  応答 ]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8    
- 
+
+Content-Type: application/json;charset=UTF-8
+
 {
    "profiles": {
       "AdobePass_SMI": {
@@ -482,28 +492,29 @@ Content-Type: application/json; charset=utf-8
 
 >[!ENDTABS]
 
-### 4.一時的な受け渡し用のプロファイル情報の取得
+### 4.基本的な TempPass のプロファイルを取得
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
-```JSON
-GET /api/v2/REF30/profiles/TempPass_TEST40
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```HTTPS
+GET /api/v2/REF30/profiles/TempPass_TEST40 HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
 >[!TAB Response – 利用可能 ]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
- 
+
+Content-Type: application/json;charset=UTF-8
+
 {
     "profiles": {
         "TempPass_TEST40": {
@@ -526,125 +537,64 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
->[!TAB  応答 – 開始 ]
+>[!TAB  応答 – 期間の制限を超えました ]
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8  
- 
+```HTTPS
+HTTP/1.1 403 Forbidden
+
+Content-Type: application/json;charset=UTF-8
+
 {
-    "profiles": {
-        "TempPass_TEST40": {
-            "notBefore": 1697719584085,
-            "notAfter": 1697719704085,
-            "issuer": "Adobe",
-            "type": "temporary",
-            "attributes": {
-                "expiration_date": {
-                    "value": 1697719704085,
-                    "state": "plain"
-                },
-                "userID": {
-                    "value": "temppass_0bdf451aa9c8fa60e80f6b99ab48310c73b480f1",
-                    "state": "plain"
-                }
-            }
-        }
-    }
-}
-```
-
->[!TAB  応答 – 期限切れ ]
-
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8    
- 
-{
-    "status": 200,
-    "code": "temppass_expired",
-    "message": "TempPass has expired.",
+    "status": 403,
+    "code": "temporary_access_duration_limit_exceeded",
+    "message": "The temporary access duration limit has been exceeded.",
     "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-    "action": "none"
+    "action": "authentication"
 }
 ```
 
 >[!TAB  応答 – 無効な設定 ]
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8      
- 
+```HTTPS
+HTTP/1.1 500 Internal Server Error
+
+Content-Type: application/json;charset=UTF-8
+
 {
     "status": 500,
-    "code": "temppass_invalid_configuration",
-    "message": "TempPass configuration is invalid.",
+    "code": "invalid_configuration_temporary_access",
+    "message": "The temporary access configuration is invalid.",
     "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-    "action": "none"
+    "action": "configuration"
 }
 ```
 
 >[!ENDTABS]
 
-### 5.プロモーションの一時パスのプロファイル情報を取得する
+### 5.プロモーション TempPass のプロファイルを取得
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
-```JSON
-GET /api/v2/REF30/profiles/flexibleTempPass
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-AP-TempPass-Identity: eyJlbWFpbCI6ImZvb0BiYXIuY29tIn0=
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```HTTPS
+GET /api/v2/REF30/profiles/flexibleTempPass HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    AP-TempPass-Identity: eyJlbWFpbCI6ImZvb0BiYXIuY29tIn0=
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
 >[!TAB Response – 利用可能 ]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
- 
-{
-    "profiles": {
-        "flexibleTempPass": {
-            "notBefore": 1697719042666,
-            "notAfter": 1697719102666,
-            "issuer": "Adobe",
-            "type": "temporary",
-            "attributes": {
-                "remaining_resources": {
-                    "value": 5,
-                    "state": "plain"
-                },
-                "used_assets": {
-                    "value": 0,
-                    "state": "plain"
-                },
-                "expiration_date": {
-                    "value": 1697719102666,
-                    "state": "plain"
-                },
-                "userID": {
-                    "value": "temppass_0bdf451aa9c8fa60e80f6b99ab48310c73b480f1",
-                    "state": "plain"
-                }
-            }
-        }
-    }
-}
-```
 
->[!TAB  応答 – 開始 ]
+Content-Type: application/json;charset=UTF-8
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
- 
 {
     "profiles": {
         "flexibleTempPass": {
@@ -680,53 +630,49 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
->[!TAB  応答 – 期限切れ ]
+>[!TAB  応答 – 期間の制限を超えました ]
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
- 
+```HTTPS
+HTTP/1.1 403 Forbidden
+
+Content-Type: application/json;charset=UTF-8
+
 {
-    "status": 200,
-    "code": "temppass_expired",
-    "message": "TempPass has expired.",
+    "status": 403,
+    "code": "temporary_access_duration_limit_exceeded",
+    "message": "The temporary access duration limit has been exceeded.",
     "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "none"
 }
 ```
 
->[!TAB Response - Consumed]
+>[!TAB  応答 – リソースの制限を超えました ]
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
- 
+```HTTPS
+HTTP/1.1 403 Forbidden
+
+Content-Type: application/json;charset=UTF-8
+
 {
-    "decisions": [
-        {
-            "authorized": false,
-            "error": {
-                "status": 200,
-                "code": "temppass_max_resources_exceeded",
-                "message": "Flexible TempPass maximum resources exceeded.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-                "action": "none"
-            }
-        }
-    ]
+    "status": 403,
+    "code": "temporary_access_resources_limit_exceeded",
+    "message": "The temporary access resources limit has been exceeded.",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+    "action": "authentication"
 }
 ```
 
 >[!TAB  応答 – 無効な設定 ]
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8      
- 
+```HTTPS
+HTTP/1.1 500 Internal Server Error
+
+Content-Type: application/json;charset=UTF-8
+
 {
     "status": 500,
-    "code": "temppass_invalid_configuration",
-    "message": "TempPass configuration is invalid.",
+    "code": "invalid_configuration_temporary_access",
+    "message": "The temporary access configuration is invalid.",
     "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "none"
 }
@@ -734,14 +680,15 @@ Content-Type: application/json; charset=utf-8
 
 >[!TAB  応答 – 無効な ID]
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
- 
+```HTTPS
+HTTP/1.1 400 Bad Request
+
+Content-Type: application/json;charset=UTF-8
+
 {
     "status": 400,
-    "code": "temppass_invalid_identity",
-    "message": "TempPass is not available for the specified identity.",
+    "code": "invalid_header_identity_for_temporary_access",
+    "message": "The identity for temporary access header value is missing or invalid.",
     "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "none"
 }
@@ -749,31 +696,32 @@ Content-Type: application/json; charset=utf-8
 
 >[!ENDTABS]
 
-### 6.劣化した mvpd のプロファイル情報の取得
+### 6.最適化中に、特定の mvpd のプロファイルを取得する
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
-```JSON
-GET /api/v2/REF30/profiles/degradedMvpd
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```HTTPS
+GET /api/v2/REF30/profiles/${degradedMvpd} HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
 >[!TAB  応答 – AuthNAll の低下 ]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
- 
+
+Content-Type: application/json;charset=UTF-8
+
 {
     "profiles": {
-        "degradedMvpd": {
+        "${degradedMvpd}": {
             "notBefore": 1697719042666,
             "notAfter": 1697719102666,
             "issuer": "Adobe",
@@ -789,6 +737,8 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-**注：** 95cf93bcd183214a は劣化固有のプレフィックスです。
+>[!IMPORTANT]
+>
+> `95cf93bcd183214a` は劣化固有のプレフィックスです。
 
 >[!ENDTABS]

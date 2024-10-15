@@ -2,9 +2,9 @@
 title: 特定の mvpd を使用した認証決定の取得
 description: REST API V2 – 特定の mvpd を使用した認証決定の取得
 exl-id: e8889395-4434-4bec-a212-a8341bb9c310
-source-git-commit: 6c328eb2c635a1d76fc7dae8148a4de291c126e0
+source-git-commit: ca8eaff83411daab5f136f01394e1d425e66f393
 workflow-type: tm+mt
-source-wordcount: '937'
+source-wordcount: '907'
 ht-degree: 0%
 
 ---
@@ -334,21 +334,21 @@ ht-degree: 0%
 
 ## サンプル {#samples}
 
-### 1.通常の mvpd を使用して認証決定を取得する
+### 1.特定の mvpd を使用した認証決定の取得
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
-```JSON
-POST /api/v2/REF30/decisions/authorize/Cablevision
+```HTTPS
+POST /api/v2/REF30/decisions/authorize/Cablevision HTTP/1.1
 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-Content-Type: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/json
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
         
 Body:
 
@@ -357,12 +357,13 @@ Body:
 }
 ```
 
->[!TAB Response – 利用可能 ]
+>[!TAB  応答 ]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8     
- 
+
+Content-Type: application/json;charset=UTF-8
+
 {
     "decisions": [
         {
@@ -372,11 +373,12 @@ Content-Type: application/json; charset=utf-8
             "source": "mvpd",
             "authorized": true,
             "token": {
-                "issuedAt": 1697094207324,
                 "notBefore": 1697094207324,
                 "notAfter": 1697094802367,
                 "serializedToken": "PHNpZ25hdHVyZUluZm8..."
-            }
+            },
+            "notBefore": 1697094207324,
+            "notAfter": 1697098802367
         }
     ]
 }
@@ -384,281 +386,21 @@ Content-Type: application/json; charset=utf-8
 
 >[!ENDTABS]
 
-### 2.一時パスを使用して認証決定を取得する
+### 2.特定の mvpd を使用して、劣化が適用されている場合に認証決定を取得する
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
-```JSON
-POST /api/v2/apasstest1/decisions/authorize/TempPass_TEST40 HTTP/1.1
+```HTTPS
+POST /api/v2/REF30/decisions/authorize/${degradedMvpd} HTTP/1.1
 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-Content-Type: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
-
-Body:
-
-{
-    "resources": ["REF30"]
-}
-```
-
->[!TAB Response – 利用可能 ]
-
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8     
- 
-{
-    "decisions": [
-        {
-            "resource": "REF30",
-            "serviceProvider": "apasstest1",
-            "mvpd": "TempPass_TEST40",
-            "source": "temppass",
-            "authorized": true,
-            "token": {
-                "issuedAt": 1697094207324,
-                "notBefore": 1697094207324,
-                "notAfter": 1697094802367,
-                "serializedToken": "PHNpZ25hdHVyZUluZm8..."
-            }
-        }
-    ]
-}
-```
-
->[!TAB  応答 – 開始 ]
-
-```JSON
-HTTP/1.1 200 OK
-Content-Type: applicationjson
- 
-{
-    "decisions": [
-        {
-            "resource": "REF30",
-            "serviceProvider": "apasstest1",
-            "mvpd": "TempPass_TEST40",
-            "source": "temppass",
-            "authorized": true,
-            "token": {
-                "issuedAt": 1695360527896,
-                "notBefore": 1695360527896,
-                "notAfter": 1695360707896,
-                "serializedToken": "PHNpZ25hdHVyZUluZm8..."
-            }
-        }
-    ]
-}
-```
-
->[!TAB  応答 – 期限切れ ]
-
-```JSON
-HTTP/1.1 400 Bad Request
-Content-Type: application/json; charset=utf-8
- 
-{
-    "decisions": [
-        {
-            "authorized": false,
-            "error": {
-                "status": 200,
-                "code": "temppass_expired",
-                "message": "TempPass has expired.",
-                 "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-                "action": "none"
-            }
-        }
-    ]
-}
-```
-
->[!TAB  応答 – 無効な設定 ]
-
-```JSON
-HTTP/1.1 500 Internal Server Error
-Content-Type: application/json; charset=utf-8
- 
-{
-    "status": 500,
-    "code": "temppass_invalid_configuration",
-    "message": "TempPass configuration is invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-    "action": "none"
-}
-```
-
->[!ENDTABS]
-
-### 3.プロモーションの一時パスを使用して承認の決定を取得する
-
->[!BEGINTABS]
-
->[!TAB  リクエスト ]
-
-```JSON
-POST /api/v2/apasstest1/decisions/authorize/flexibleTempPass HTTP/1.1
-
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-AP-TempPass-Identity: eyJlbWFpbCI6ImZvb0BiYXIuY29tIn0=
-Accept: application/json
-Content-Type: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
-
-Body:
-
-{
-    "resources": ["REF30"]
-}
-```
-
->[!TAB Response – 利用可能 ]
-
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8  
- 
-{
-    "decisions": [
-        {
-            "resource": "REF30",
-            "serviceProvider": "apasstest1",
-            "mvpd": "flexibleTempPass",
-            "source": "temppass",
-            "authorized": true,
-            "token": {
-                "notBefore": 1697543318183,
-                "notAfter": 1697543918183,
-                "serializedToken": "PHNpZ25hdHVyZUluZm8+..."
-            }
-        }
-    ]
-}
-```
-
->[!TAB  応答 – 開始 ]
-
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8  
- 
-{
-    "decisions": [
-        {
-            "resource": "REF30",
-            "serviceProvider": "apasstest1",
-            "mvpd": "flexibleTempPass",
-            "source": "temppass",
-            "authorized": true,
-            "token": {
-                "notBefore": 1697543318183,
-                "notAfter": 1697543918183,
-                "serializedToken": "PHNpZ25hdHVyZUluZm8+..."
-            }
-        }
-    ]
-}
-```
-
->[!TAB  応答 – 期限切れ ]
-
-```JSON
-HTTP/1.1 400 Bad Request
-Content-Type: application/json; charset=utf-8  
- 
-{
-    "decisions": [
-        {
-            "authorized": false,
-            "error": {
-                "status": 200,
-                "code": "temppass_expired",
-                "message": "TempPass has expired.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-                "action": "none"
-            }
-        }
-    ]
-}
-```
-
->[!TAB Response - Consumed]
-
-```JSON
-HTTP/1.1 400 Bad Request
-Content-Type: application/json; charset=utf-8  
- 
-{
-    "decisions": [
-        {
-            "authorized": false,
-            "error": {
-                "status": 200,
-                "code": "temppass_max_resources_exceeded",
-                "message": "Flexible TempPass maximum resources exceeded.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-                "action": "none"
-            }
-        }
-    ]
-}
-```
-
->[!TAB  応答 – 無効な設定 ]
-
-```JSON
-HTTP/1.1 500 Internal Server Error
-Content-Type: application/json; charset=utf-8      
- 
-{
-    "status": 500,
-    "code": "temppass_invalid_configuration",
-    "message": "TempPass configuration is invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-    "action": "none"
-}
-```
-
->[!TAB  応答 – 無効な ID]
-
-```JSON
-HTTP/1.1 400 Bad Request
-Content-Type: application/json; charset=utf-8 
- 
-{
-    "status": 400,
-    "code": "temppass_invalid_identity",
-    "message": "TempPass is not available for the specified identity.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-    "action": "none"
-}
-```
-
->[!ENDTABS]
-
-### 4.劣化した mvpd を使用して認証決定を取得する
-
->[!BEGINTABS]
-
->[!TAB  リクエスト ]
-
-```JSON
-POST /api/v2/REF30/decisions/authorize/degradedMvpd
-
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/json
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
         
 Body:
 
@@ -669,54 +411,58 @@ Body:
 
 >[!TAB  応答 – AuthNAll の低下 ]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8  
- 
+
+Content-Type: application/json;charset=UTF-8
+
 {
     "decisions": [
         {
             "resource": "REF30",
             "serviceProvider": "REF30",
-            "mvpd": "degradedMvpd",
+            "mvpd": "${degradedMvpd}",
             "source": "degradation",
             "authorized": true,
             "token": {
                 "notBefore": 1697543318183,
                 "notAfter": 1697543918183,
                 "serializedToken": "PHNpZ25hdHVyZUluZm8+..."
-            }
+            },
+            "notBefore": 1697543318183,
+            "notAfter": 1697549918183
         }
         {
             "resource": "apasstest1",
             "serviceProvider": "REF30",
-            "mvpd": "degradedMvpd",
+            "mvpd": "${degradedMvpd}",
             "source": "degradation",
             "authorized": true,
             "token": {
                 "notBefore": 1697543318183,
                 "notAfter": 1697543918183,
                 "serializedToken": "TYGjZ33jjLPi78yuX99+..."
-            }
+            },
+            "notBefore": 1697543318183,
+            "notAfter": 1697549918183
         }
     ]
 }
 ```
-
-**メモ：** この場合、AuthZAll ルールには「channel」 : 「apastest1」があります
 
 >[!TAB  応答 – AuthZAll の低下 ]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8  
- 
+
+Content-Type: application/json;charset=UTF-8
+
 {
     "decisions": [
         {
             "resource": "REF30",
             "serviceProvider": "REF30",
-            "mvpd": "degradedMvpd",
+            "mvpd": "${degradedMvpd}",
             "source": "degradation",
             "authorized": true,
             "token": {
@@ -728,7 +474,7 @@ Content-Type: application/json; charset=utf-8
         {
             "resource": "apasstest1",
             "serviceProvider": "REF30",
-            "mvpd": "degradedMvpd",
+            "mvpd": "${degradedMvpd}",
             "source": "degradation",
             "authorized": true,
             "token": {
@@ -741,23 +487,23 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-**メモ：** この場合、AuthZAll ルールには「channel」 : 「apastest1」があります
-
 >[!TAB  応答 – AuthZNone の低下 ]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8  
- 
+
+Content-Type: application/json;charset=UTF-8
+
 {
     "decisions": [
         {
             "resource": "REF30",
             "serviceProvider": "REF30",
-            "mvpd": "degradedMvpd",
+            "mvpd": "${degradedMvpd}",
+            "source": "degradation",
             "authorized": false,
             "error": {
-                "status": 200,
+                "status": 403,
                 "code": "authorization_denied_by_degradation_rule",
                 "message": "The integration has an AuthZNone rule applied for the requested resources",
                 "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
@@ -767,37 +513,280 @@ Content-Type: application/json; charset=utf-8
         {
             "resource": "apasstest1",
             "serviceProvider": "REF30",
-            "mvpd": "degradedMvpd",
+            "mvpd": "${degradedMvpd}",
+            "source": "degradation",
             "authorized": false,
             "error": {
-                "status": 200,
+                "status": 403,
                 "code": "authorization_denied_by_degradation_rule",
                 "message": "The integration has an AuthZNone rule applied for the requested resources",
                 "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "none"
             }
         }
- 
     ]
 }
 ```
 
-**メモ：** この場合、AuthZNone ルールには「channel」 : 「apastest1」があります
+>[!ENDTABS]
 
->[!TAB  応答 – 期限切れの劣化ルール ]
+### 3.基本的な TempPass を使用した認証決定の取得
 
-```JSON
-HTTP/1.1 400 Bad Request
-Content-Type: application/json; charset=utf-8  
- 
+>[!BEGINTABS]
+
+>[!TAB  リクエスト ]
+
+```HTTPS
+POST /api/v2/apasstest1/decisions/authorize/TempPass_TEST40 HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/json
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
+
+Body:
+
+{
+    "resources": ["REF30"]
+}
+```
+
+>[!TAB Response – 利用可能 ]
+
+```HTTPS
+HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
 {
     "decisions": [
         {
+            "resource": "REF30",
+            "serviceProvider": "apasstest1",
+            "mvpd": "TempPass_TEST40",
+            "source": "temppass",
+            "authorized": true,
+            "token": {
+                "notBefore": 1697094207324,
+                "notAfter": 1697094802367,
+                "serializedToken": "PHNpZ25hdHVyZUluZm8..."
+            },
+            "notBefore": 1697094207324,
+            "notAfter": 1697594802367
+        }
+    ]
+}
+```
+
+>[!TAB  応答 – 期間の制限を超えました ]
+
+```HTTPS
+HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "decisions": [
+        {
+            "resource": "REF30",
+            "serviceProvider": "apasstest1",
+            "mvpd": "TempPass_TEST40",
+            "source": "temppass",
             "authorized": false,
             "error": {
-                "status": 200,
-                "code": "authorization_denied_by_degradation_configuration_change",
-                "message": "AuthXAll degradation configuration changed, please try again!",
+                "status": 403,
+                "code": "temporary_access_duration_limit_exceeded",
+                "message": "The temporary access duration limit has been exceeded.",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+                "action": "authentication"
+            }
+        }
+    ]
+}
+```
+
+>[!TAB  応答 – 無効な設定 ]
+
+```HTTPS
+HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "decisions": [
+        {
+            "resource": "REF30",
+            "serviceProvider": "apasstest1",
+            "mvpd": "TempPass_TEST40",
+            "source": "temppass",
+            "authorized": false,
+            "error": {
+                "status": 500,
+                "code": "invalid_configuration_temporary_access",
+                "message": "The temporary access configuration is invalid.",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+                "action": "configuration"
+            }
+        }
+    ]
+}
+```
+
+>[!ENDTABS]
+
+### 4.プロモーション TempPass を使用して承認の決定を取得する
+
+>[!BEGINTABS]
+
+>[!TAB  リクエスト ]
+
+```HTTPS
+POST /api/v2/apasstest1/decisions/authorize/flexibleTempPass HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/json
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    AP-TempPass-Identity: eyJlbWFpbCI6ImZvb0BiYXIuY29tIn0=
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
+
+Body:
+
+{
+    "resources": ["REF30"]
+}
+```
+
+>[!TAB Response – 利用可能 ]
+
+```HTTPS
+HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "decisions": [
+        {
+            "resource": "REF30",
+            "serviceProvider": "apasstest1",
+            "mvpd": "flexibleTempPass",
+            "source": "temppass",
+            "authorized": true,
+            "token": {
+                "notBefore": 1697543318183,
+                "notAfter": 1697543918183,
+                "serializedToken": "PHNpZ25hdHVyZUluZm8+..."
+            },
+            "notBefore": 1697543318183,
+            "notAfter": 1697843918183
+        }
+    ]
+}
+```
+
+>[!TAB  応答 – 期間の制限を超えました ]
+
+```HTTPS
+HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "decisions": [
+        {
+            "resource": "REF30",
+            "serviceProvider": "apasstest1",
+            "mvpd": "flexibleTempPass",
+            "source": "temppass",
+            "authorized": false,
+            "error": {
+                "status": 403,
+                "code": "temporary_access_duration_limit_exceeded",
+                "message": "The temporary access duration limit has been exceeded.",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+                "action": "authentication"
+            }
+        }
+    ]
+}
+```
+
+>[!TAB  応答 – リソースの制限を超えました ]
+
+```HTTPS
+HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "decisions": [
+        {
+            "resource": "REF30",
+            "serviceProvider": "apasstest1",
+            "mvpd": "flexibleTempPass",
+            "source": "temppass",
+            "authorized": false,
+            "error": {
+                "status": 403,
+                "code": "temporary_access_resources_limit_exceeded",
+                "message": "The temporary access resources limit has been exceeded.",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+                "action": "authentication"
+            }
+        }
+    ]
+}
+```
+
+>[!TAB  応答 – 無効な設定 ]
+
+```HTTPS
+HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "decisions": [
+        {
+            "resource": "REF30",
+            "serviceProvider": "apasstest1",
+            "mvpd": "flexibleTempPass",
+            "source": "temppass",
+            "authorized": false,
+            "error": {
+                "status": 500,
+                "code": "invalid_configuration_temporary_access",
+                "message": "The temporary access configuration is invalid.",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+                "action": "configuration"
+            }
+        }
+    ]
+}
+```
+
+>[!TAB  応答 – 無効な ID]
+
+```HTTPS
+HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "decisions": [
+        {
+            "resource": "REF30",
+            "serviceProvider": "apasstest1",
+            "mvpd": "flexibleTempPass",
+            "source": "temppass",
+            "authorized": false,
+            "error": {
+                "status": 400,
+                "code": "invalid_header_identity_for_temporary_access",
+                "message": "The identity for temporary access header value is missing or invalid.",
                 "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "none"
             }

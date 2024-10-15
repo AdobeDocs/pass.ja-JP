@@ -1,13 +1,13 @@
 ---
 title: ヘッダー – AP-TempPass-Identity
 description: REST API V2 - ヘッダー – AP-TempPass-Identity
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+exl-id: a6238a58-a3f1-495d-a9d1-82475f5ffc60
+source-git-commit: ca8eaff83411daab5f136f01394e1d425e66f393
 workflow-type: tm+mt
 source-wordcount: '84'
 ht-degree: 2%
 
 ---
-
 
 # ヘッダー – AP-TempPass-Identity {#header-ap-temppass-identity}
 
@@ -50,5 +50,5 @@ ht-degree: 2%
 // Base64-encoded
 // eyJlbWFpbCI6ICJleGFtcGxlQGRvbWFpbi5jb20ifQ==
 
-AP-TempPass-Identity: eyJlbWFpbCI6ICJleGFtcGxlQGRvbWFpbi5jb20ifQ==
+X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==eyJlbWFpbCI6ICJleGFtcGxlQGRvbWFpbi5jb20ifQ==
 ```

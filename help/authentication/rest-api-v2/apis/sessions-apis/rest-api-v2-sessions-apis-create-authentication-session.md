@@ -2,9 +2,9 @@
 title: 認証セッションの作成
 description: REST API V2 – 認証セッションの作成
 exl-id: bb2a6bb4-0778-4748-a674-df9d0e8242c8
-source-git-commit: 6c328eb2c635a1d76fc7dae8148a4de291c126e0
+source-git-commit: ca8eaff83411daab5f136f01394e1d425e66f393
 workflow-type: tm+mt
-source-wordcount: '970'
+source-wordcount: '954'
 ht-degree: 0%
 
 ---
@@ -332,21 +332,21 @@ ht-degree: 0%
 
 ## サンプル {#samples}
 
-### 1.必要なすべてのパラメーターに値を指定して、認証セッションを作成する
+### 1. パラメーターなしで認証セッションを作成する
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
-```JSON
-POST /api/v2/REF30/sessions
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```HTTPS
+POST /api/v2/REF30/sessions HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
  
 Body:
 
@@ -355,113 +355,78 @@ mvpd=Cablevision&domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
 
 >[!TAB  応答 ]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
- 
-{           
-   "actionName" : "authenticate",
-   "actionType" : "interactive",
-   "url" : "/v2/authenticate/REF30/8ER640M",
-   "code" : "8ER640M",
-   "sessionId" : "3453453354jkopey",
-   "mvpd" : "Cablevision",
-   "serviceProvider" : "REF30"
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "actionName": "authenticate",
+    "actionType": "interactive",
+    "url": "/api/v2/authenticate/REF30/8ER640M",
+    "code": "8ER640M",
+    "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
+    "mvpd": "Cablevision",
+    "serviceProvider": "REF30"
 }
 ```
 
 >[!ENDTABS]
 
-### 2.認証セッションを作成し、none または一部の必須パラメーターに値を指定する
+### 2. パラメーターがない認証セッションを作成する
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
-```JSON
-POST /api/v2/REF30/sessions
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```HTTPS
+POST /api/v2/REF30/sessions HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
  
 Body:
 ```
 
 >[!TAB  応答 ]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
- 
-{           
-   "actionName" : "resume",
-   "actionType" : "direct",
-   "url" : "/v2/REF30/sessions/8ER640M",
-   "code" : "8ER640M",
-   "sessionId" : "3453453354jkopey",
-   "missingParameters" : ["mvpd","domain","redirectUrl"],
-   "serviceProvider" : "REF30"
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "actionName": "resume",
+    "actionType": "direct",
+    "url": "/api/v2/REF30/sessions/8ER640M",
+    "missingParameters": ["mvpd", "domain", "redirectUrl"],
+    "code": "8ER640M",
+    "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
+    "serviceProvider": "REF30"
 }
 ```
 
 >[!ENDTABS]
 
-### 3. mvpd パラメーターに値を指定し、有効な認証済みプロファイルが既に存在する場合に、認証セッションを作成する
+### 3.有効なプロファイルが既に存在する場合に認証セッションを作成する
 
 >[!BEGINTABS]
 
 >[!TAB  リクエスト ]
 
-```JSON
-POST /api/v2/REF30/sessions
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
- 
-Body:
+```HTTPS
+POST /api/v2/REF30/sessions HTTP/1.1
 
-mvpd=Cablevision&domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
-```
-
->[!TAB  応答 ]
-
-```JSON
-HTTP/1.1 200 OK
- 
-{           
-   "actionName" : "profile",
-   "actionType" : "direct",
-   "url" : "/v2/REF30/profiles/8ER640M",
-   "code" : "8ER640M",
-   "sessionId" : "3453453354jkopey",
-   "mvpd" : "Cablevision",
-   "serviceProvider" : "REF30"
-}
-```
-
->[!ENDTABS]
-
-### 4. mvpd パラメーターに値を指定し、最適化が行われている場合に、認証セッションを作成する
-
->[!BEGINTABS]
-
->[!TAB  リクエスト ]
-
-```JSON
-POST /api/v2/REF30/sessions
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
  
 Body:
 
@@ -470,17 +435,96 @@ mvpd=Cablevision&domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
 
 >[!TAB  応答 ]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "actionName": "authorize",
+    "actionType": "direct",
+    "url": "/api/v2/REF30/decisions/authorize/Cablevision",
+    "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
+    "mvpd": "Cablevision",
+    "serviceProvider": "REF30"
+}
+```
+
+### 4.基本またはプロモーションの TempPass を使用して認証セッションを作成する（必須ではありません）
+
+>[!BEGINTABS]
+
+>[!TAB  リクエスト ]
+
+```HTTPS
+POST /api/v2/REF30/sessions HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
  
-{           
-   "actionName" : "authorize",
-   "actionType" : "direct",
-   "url" : "/v2/REF30/decisions/authorize",
-   "code" : "8ER640M",
-   "sessionId" : "3453453354jkopey",
-   "mvpd" : "Cablevision",
-   "serviceProvider" : "REF30"
+Body:
+
+mvpd=TempPass_TEST40&domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
+```
+
+>[!TAB  応答 ]
+
+```HTTPS
+HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "actionName": "authorize",
+    "actionType": "direct",
+    "url": "/api/v2/REF30/decisions/authorize/TempPass_TEST40",
+    "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
+    "mvpd": "TempPass_TEST40",
+    "serviceProvider": "REF30"
+}
+```
+
+>[!ENDTABS]
+
+### 5.最適化中に認証セッションを作成する
+
+>[!BEGINTABS]
+
+>[!TAB  リクエスト ]
+
+```HTTPS
+POST /api/v2/REF30/sessions HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
+ 
+Body:
+
+mvpd=Cablevision&domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
+```
+
+>[!TAB  応答 ]
+
+```HTTPS
+HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "actionName": "authorize",
+    "actionType": "direct",
+    "url": "/api/v2/REF30/decisions/authorize/Cablevision",
+    "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
+    "mvpd": "Cablevision",
+    "serviceProvider": "REF30"
 }
 ```
 

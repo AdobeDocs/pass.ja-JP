@@ -1,13 +1,13 @@
 ---
 title: ユーザーエージェントでの認証の実行
 description: REST API V2 - ユーザーエージェントで認証を実行します
-source-git-commit: d59afc0384a1c3617143efcef4ab5fb1a323e511
+exl-id: d615dde0-71a8-4b6c-a12e-1e3b5e20728c
+source-git-commit: ca8eaff83411daab5f136f01394e1d425e66f393
 workflow-type: tm+mt
 source-wordcount: '230'
 ht-degree: 2%
 
 ---
-
 
 # ユーザーエージェントでの認証の実行 {#perform-authentication-in-user-agent}
 
@@ -144,16 +144,16 @@ ht-degree: 2%
 
 >[!TAB  リクエスト ]
 
-```JSON
-GET /api/v2/authenticate/REF30/8KHP9RW
+```HTTPS
+GET /api/v2/authenticate/REF30/8KHP9RW HTTP/1.1
 
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
 >[!TAB  応答 ]
 
-```JSON
-HTTP/1.1 302 OK
+```HTTPS
+HTTP/1.1 302 Found
 
 Location :  https://sp.auth.adobe.com/adobe-services/authenticate/saml?noflash=true&mso_id=Cablevision&requestor_id=REF30&no_iframe=false&domain_name=adobe.com&redirect_url=http%3A%2F%2Fadobe.com%2Fapitest%2Flive.html
 ```

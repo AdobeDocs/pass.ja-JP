@@ -1,13 +1,13 @@
 ---
 title: 一時的なアクセスフロー
 description: REST API V2 – 一時的なアクセスフロー
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+exl-id: 387fcdb0-3a42-4893-ba83-e809426f92be
+source-git-commit: ca8eaff83411daab5f136f01394e1d425e66f393
 workflow-type: tm+mt
-source-wordcount: '3210'
+source-wordcount: '3215'
 ht-degree: 0%
 
 ---
-
 
 # 一時的なアクセスフロー {#temporary-access-flows}
 
@@ -369,7 +369,7 @@ TempPass 機能の詳細については、[TempPass](../../../temp-pass.md) ド�
 > <br/>
 > 
 > * 指定された `serviceProvider` と `mvpd` の統合には、基本またはプロモーションの TempPass の有効な設定設定が適用されている必要があります。
-> * 基本またはプロモーション TempPass 用に設定された有効期間（TTL）の有効期限が切れました。
+> * 基本またはプロモーション用に設定された有効期間（TTL）一時アクセス期間の制限を超えています。
 
 ### ワークフロー {#workflow-retrieve-authorization-decisions-when-basic-or-promotional-temppass-expires}
 
