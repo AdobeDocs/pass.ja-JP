@@ -1,9 +1,9 @@
 ---
 title: REST API V2 クックブック（クライアントからサーバー）
 description: REST API V2 クックブック（クライアントからサーバー）
-source-git-commit: 709835276710ec4b92abec3e39aaecae99872e77
+source-git-commit: 0d6693d51887c9e794401e984f3a4075be091ee5
 workflow-type: tm+mt
-source-wordcount: '689'
+source-wordcount: '695'
 ht-degree: 0%
 
 ---
@@ -21,7 +21,7 @@ ht-degree: 0%
 
 ## クライアントサイドアプリケーションに REST API V2 を実装する手順 {#steps-to-implement-the-rest-api-v2-in-client-side-applications}
 
-Adobe Pass REST API V2 を実装するには、以下の手順（フェーズにグループ化）に従う必要があります。
+Adobe Pass REST API V2 を実装するには、次の手順に従い、いくつかの段階にグループ化する必要があります。
 
 ## A.登録フェーズ {#registration-phase}
 
@@ -40,12 +40,12 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
 
 * プロファイルが見つからず、ストリーミングアプリケーションが TempPass フローを実装している場合
    * [ 一時的アクセスフロー ](../flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md) の実装方法に関するドキュメントに従います
-* プロファイルが見つからない場合、ストリーミングアプリケーションは認証フローを実装します
+* プロファイルが見つからず、ストリーミングアプリケーションが認証フローを実装している場合
    * ストリーミングアプリケーションは、serviceProvider:<b>/api/v2/{serviceProvider}/configuration で使用可能な MVPD のリストを取得 </b><br> ます。
 （[ 使用可能な MVPD のリストの取得 ](../apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)）
    * ストリーミングアプリケーションは、MVPD のリストにフィルタリングを実装し、他の MVPD （TempPass、テスト MVPD、開発中の MVPD など）を非表示にすることを目的とした MVPD のみを表示できます。
-   * ストリーミングアプリケーションの表示ピッカー、ユーザーが MVPD を選択します
-   * ストリーミングアプリケーションでセッションを作成：<b>/api/v2/{serviceProvider}/sessions</b><br>
+   * ストリーミングアプリケーションがピッカーを表示し、ユーザーが MVPD を選択する
+   * ストリーミングアプリケーションがセッション <b>/api/v2/{serviceProvider}/sessions を作成する </b><br>
 （[ 認証セッションの作成 ](../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)） <br>
       * 認証に使用するコードと URL が返されます
       * プロファイルが見つかった場合、ストリーミングアプリケーションは <a href="#preauthorization-phase">C に進む場合があります。事前承認フェーズ </a> または <a href="#authorization-phase">D。承認フェーズ </a>
@@ -55,7 +55,7 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
 ブラウザーまたは 2 番目の画面の Web ベースのアプリケーションを使用する場合：
 
 * オプション 1。 ストリーミングアプリケーションは、ブラウザーまたは web ビューを開き、認証する URL を読み込むことができ、ユーザーは資格情報を送信する必要がある MVPD ログインページに移動します
-   * ユーザーがログイン/パスワードを入力します。最終リダイレクトで成功ページを表示します
+   * ユーザーがログイン/パスワードを入力すると、最終リダイレクトで成功ページが表示される
 * オプション 2. ストリーミングアプリケーションでは、ブラウザーを開いてコードを表示することはできません。 <b> 別の web アプリケーションを開発する必要があります </b>。ユーザーに CODE を入力し、URL をビルドして開くよう依頼します：<b>/api/v2/authenticate/{serviceProvider}/{CODE}</b>
    * ユーザーがログイン/パスワードを入力します。最終リダイレクトで成功ページを表示します
 
