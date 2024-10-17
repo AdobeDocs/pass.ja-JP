@@ -2,9 +2,9 @@
 title: 使用権限サービスモニタリング API
 description: 使用権限サービスモニタリング API
 exl-id: a9572372-14a6-4caa-9ab6-4a6baababaa1
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+source-git-commit: 8fa1e63619f4e22794d701a218c77649f73d9f60
 workflow-type: tm+mt
-source-wordcount: '2070'
+source-wordcount: '2027'
 ht-degree: 0%
 
 ---
@@ -36,13 +36,13 @@ ESM API は、基盤となる OLAP キューブの階層ビューを提供しま
 
 REST API は、ディメンションパス、提供されたフィルターおよび選択された指標に従って、リクエストで指定された期間内に使用可能なデータを提供します（提供されていない場合はデフォルト値にフォールバックします）。 時間範囲は、時間ディメンション（年、月、日、時間、分、秒）を含まないレポートには適用されません。
 
-エンドポイント URL のルートパスは、使用可能なドリルダウンオプションへのリンクと共に、1 つのレコード内の全体的な集計指標を返します。 API のバージョンは、エンドポイント URI パスの末尾のセグメントとしてマッピングされます。 例えば、`https://mgmt.auth.adobe.com/*v2*` は、クライアントが WOLAP バージョン 2 にアクセスすることを意味します。
+エンドポイント URL のルートパスは、使用可能なドリルダウンオプションへのリンクと共に、1 つのレコード内の全体的な集計指標を返します。 API のバージョンは、エンドポイント URI パスの末尾のセグメントとしてマッピングされます。 例えば、`https://mgmt.auth.adobe.com/esm/v3` は、クライアントが WOLAP バージョン 3 にアクセスすることを意味します。
 
 使用可能な URL パスは、応答に含まれるリンクを介して検出できます。 有効な URL パスは、（事前に）集計指標を保持する基になるドリルダウンツリー内のパスをマッピングするために保持されます。 形式 `/dimension1/dimension2/dimension3` のパスは、これら 3 つのディメンションの事前集計を反映します（SQL `clause GROUP` BY `dimension1`、`dimension2`、`dimension3` と同等）。 このような事前集計が存在せず、システムがその場で計算できない場合、API は 404 Not Found 応答を返します。
 
 ## ドリルダウン・ツリー {#drill-down-tree}
 
-次のドリル・ダウン・ツリーでは、ESM 2.0 で [Programmers](#progr-dimensions) および [MVPD](#mvpd-dimensions) に使用できる次元（リソース）を示します。
+次のドリル・ダウン・ツリーでは、ESM 3.0 で [Programmers](#progr-dimensions) および [MVPD](#mvpd-dimensions) に使用できる次元（リソース）を示します。
 
 
 ### プログラマーが使用できるDimension {#progr-dimensions}
@@ -63,13 +63,13 @@ REST API は、ディメンションパス、提供されたフィルターお�
 
 ![](assets/esm-mvpd-dimensions.png)
 
-`https://mgmt.auth.adobe.com/v2` API エンドポイントへのGETは、次を含む表現を返します。
+`https://mgmt.auth.adobe.com/esm/v3` API エンドポイントへのGETは、次を含む表現を返します。
 
 * 使用可能なルート・ドリルダウン・パスへのリンク：
 
-   * `<link rel="drill-down" href="/v2/dimensionA"/>`
+   * `<link rel="drill-down" href="/v3/dimensionA"/>`
 
-   * `<link rel="drill-down" href="/v2/dimensionB"/>`
+   * `<link rel="drill-down" href="/v3/dimensionB"/>`
 
 * すべての指標の概要（集計値） （デフォルト）
 クエリ文字列パラメーターが提供されていないので、間隔については、以下を参照してください）。
@@ -119,8 +119,8 @@ REST API は、ディメンションパス、提供されたフィルターお�
 ### ESM API 予約クエリ文字列パラメーター
 
 | パラメーター | オプション | 説明 | デフォルト値 | 例 |
-| --- | ---- | --- | ---- | --- |
-| access_token | はい | IMS OAuth 保護が有効になっている場合、IMS トークンは、標準の認証ベアラートークンまたはクエリ文字列パラメーターとして渡すことができます。 | なし | access_token=XXXXXX |
+| --- | ---- |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ---- | --- |
+| access_token | はい | DCR トークンは、標準の認証ベアラートークンとして渡すことができます。 | なし | access_token=XXXXXX |
 | dimension-name | はい | 任意のディメンション名 – 現在の URL パスまたは有効なサブパスに含まれます。値は「次に等しい」フィルターとして扱われます。 値を指定しない場合、指定したディメンションが現在のパスに含まれていないか隣接していたとしても、強制的に出力に含められます | なし | someDimension=someValue&amp;someOtherDimension |
 | 終了 | はい | レポートの終了時間（ミリ秒） | サーバーの現在の時刻 | 終了=（2012-07-30） |
 | 形式 | はい | コンテンツネゴシエーションに使用されます（効果は同じですが、「拡張」パスより優先順位が低くなります。以下を参照してください）。 | なし：コンテンツ・ネゴシエーションでは他の戦略が試行されます | format=json |
@@ -128,8 +128,7 @@ REST API は、ディメンションパス、提供されたフィルターお�
 | 指標 | はい | 返される指標名のコンマ区切りリスト。これは、使用可能な指標のサブセットのフィルタリング（ペイロードサイズの削減）と、（デフォルトの最適なプロジェクションではなく）リクエストされた指標を含むプロジェクションを返すように API を強制する場合に使用します。 | このパラメーターが指定されていない場合、現在のプロジェクションで使用可能なすべての指標が返されます。 | metrics=m1,m2 |
 | 開始 | はい | レポートの開始時刻を ISO8601 として指定します。プレフィックスのみを指定した場合、サーバーは残りの部分を入力します（例：start=2012 は start=2012-01-01:00:00:00） | サーバーによってセルフリンクでレポートされます。サーバーは、選択された時間精度に基づいて適切なデフォルトの提供を試みます | 開始=2012-07-15 |
 
-現在利用可能な HTTP メソッドはGETのみです。 OPTIONSのサポート /
-HEAD方法は、将来のバージョンで提供される可能性があります。
+現在利用可能な HTTP メソッドはGETのみです。
 
 ## ESM API ステータス・コード {#esm-api-status-codes}
 
@@ -156,7 +155,7 @@ HEAD方法は、将来のバージョンで提供される可能性がありま�
 
 クライアントは次のコンテンツ ネゴシエーション戦略を使用できます（優先順位はリスト内の位置によって決まります。最初のものです）。
 
-1. URL パスの最後のセグメントに追加される「ファイル拡張子」。例：`/esm/v2/media-company/year/month/day.xml`。 URL にクエリ文字列が含まれる場合、拡張子は疑問符の前にする必要があります：`/esm/v2/media-company/year/month/day.csv?mvpd= SomeMVPD`
+1. URL パスの最後のセグメントに追加される「ファイル拡張子」。例：`/esm/v3/media-company/year/month/day.xml`。 URL にクエリ文字列が含まれる場合、拡張子は疑問符の前にする必要があります：`/esm/v3/media-company/year/month/day.csv?mvpd= SomeMVPD`
 1. 形式クエリ文字列パラメーター：例：`/esm/report?format=json`
 1. 標準の HTTP Accept ヘッダー：例：`Accept: application/xml`
 
@@ -205,13 +204,13 @@ XML および JSON 形式の場合、レコード内のフィールド（ディ�
 
 例（`clients` という指標が 1 つあり、`year/month/day/...` に事前集計があるとします）。
 
-* https://mgmt.auth.adobe.com/esm/v2/year/month.xml
+* https://mgmt.auth.adobe.com/esm/v3/year/month.xml
 
 ```XML
-   <resource href="/esm/v2/year/month?start=2012-07-20T00:00:00&end=2012-08-20T14:35:21">
+   <resource href="/esm/v3/year/month?start=2012-07-20T00:00:00&end=2012-08-20T14:35:21">
    <links>
-   <link rel="roll-up" href="/esm/v2/year"/>
-   <link rel="drill-down" href="/esm/v2/year/month/day"/>
+   <link rel="roll-up" href="/esm/v3/year"/>
+   <link rel="drill-down" href="/esm/v3/year/month/day"/>
    </links>
    <report>
    <record month="6" year="2012" clients="205"/>
@@ -220,19 +219,19 @@ XML および JSON 形式の場合、レコード内のフィールド（ディ�
    </resource>
 ```
 
-* https://mgmt.auth.adobe.com/esm/v2/year/month.json
+* https://mgmt.auth.adobe.com/esm/v3/year/month.json
 
   ```JSON
       {
         "_links" : {
           "self" : {
-            "href" : "/esm/v2/year/month?start=2012-07-20T00:00:00&end=2012-08-20T14:35:21"
+            "href" : "/esm/v3/year/month?start=2012-07-20T00:00:00&end=2012-08-20T14:35:21"
           },
           "roll-up" : {
-            "href" : "/esm/v2/year"
+            "href" : "/esm/v3/year"
           },
           "drill-down" : {
-            "href" : "/esm/v2/year/month/day"
+            "href" : "/esm/v3/year/month/day"
           }
         },
         "report" : [ {
@@ -260,7 +259,7 @@ CSV にはヘッダー行が含まれ、レポートデータは後続の行と�
 ヘッダー行のフィールドの順序は、テーブルデータの並べ替え順を反映しています。
 
 
-例：https://mgmt.auth.adobe.com/v2/year/month.csvは、次の内容を含む `report__2012-07-20_2012-08-20_1000.csv` という名前のファイルを生成します。
+例：https://mgmt.auth.adobe.com/esm/v3/year/month.csvは、次の内容を含む `report__2012-07-20_2012-08-20_1000.csv` という名前のファイルを生成します。
 
 
 | 年 | 月 | クライアント |
@@ -273,8 +272,6 @@ CSV にはヘッダー行が含まれ、レポートデータは後続の行と�
 成功した HTTP 応答には、本文のレポートが最後に更新された時刻を示す `Last-Modified` ヘッダーが含まれています。 Last-Modified ヘッダーがないことは、レポートデータがリアルタイムで計算されることを示します。
 
 通常、粗い粒度のデータは、細かい粒度のデータよりも頻繁に更新されません（例：分単位の値、または 1 時間ごとの値は、毎日の値よりも最新の場合があります。特に、ユニーク数など、より小さな粒度に基づいて計算できない指標の場合）。
-
-今後のバージョンの ESM では、標準の「If-Modified-Since」ヘッダーを指定することで、クライアントが条件付き GET を実行できる可能性があります。
 
 ## GZIP 圧縮 {#gzip-compression}
 
