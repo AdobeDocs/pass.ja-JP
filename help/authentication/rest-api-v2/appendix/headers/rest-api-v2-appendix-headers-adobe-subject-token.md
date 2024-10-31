@@ -1,13 +1,13 @@
 ---
 title: Header - Adobeの件名トークン
 description: REST API V2 - ヘッダー – Adobe – 件名 – トークン
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+exl-id: 906d88f4-3b8f-491a-ab58-8e63d3b958d8
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
-source-wordcount: '156'
+source-wordcount: '166'
 ht-degree: 1%
 
 ---
-
 
 # Header - Adobeの件名トークン {#header-adobe-subject-token}
 
@@ -47,10 +47,10 @@ Platform ID メソッドを活用したシングルサインオン（SSO）有�
 
 これは、次のプラットフォームで使用できます。
 
-* [Amazon](../../../amazon-fireos-sso-using-clientless-api-cookbook.md)
+* [Amazon SSO クックブック（REST API V2）](../../../single-sign-on/platform-single-sign-on/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v1.md)
 
 ## 例 {#examples}
 
 次のプラットフォームについて説明した例を参照してください。
 
-* [Amazon](../../../amazon-fireos-sso-using-clientless-api-cookbook.md)
+* [Amazon SSO クックブック（REST API V2）](../../../single-sign-on/platform-single-sign-on/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v1.md)

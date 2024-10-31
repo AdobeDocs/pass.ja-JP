@@ -2,9 +2,9 @@
 title: REST API クックブック（クライアントからサーバー）
 description: Rest API クックブッククライアントからサーバーへ。
 exl-id: f54a1eda-47d5-4f02-b343-8cdbc99a73c0
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
-source-wordcount: '868'
+source-wordcount: '876'
 ht-degree: 0%
 
 ---
@@ -130,16 +130,22 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 1. ユーザーをスマートデバイスアプリに送り返して、認証フローを完了します。
 
-## Platform SSO {#platform-sso}
+## パートナーのシングル サインオン {#partner-sso}
 
-一部のプラットフォームは、シングルサインオン（SSO）専用のサポートを提供しています。 実装の詳細については、各プラットフォームに関するページを参照してください。
+一部のデバイスは、パートナーのシングルサインオン （SSO）に対する専用のサポートを提供しています。
 
-* [APPLE SSO](/help/authentication/apple-sso-cookbook-rest-api.md)
-* AMAZON SSO
+* [APPLE SSO](/help/authentication/single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-cookbook-rest-api-v1.md)
+
+## Platform のシングルサインオン {#platform-sso}
+
+一部のデバイスは、Platform シングルサインオン（SSO）用の専用サポートを提供しています。
+
+* [AMAZON SSO](./single-sign-on/platform-single-sign-on/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v1.md)
+* [Roku SSO](./single-sign-on/platform-single-sign-on/roku-single-sign-on/roku-sso-overview.md)
 
 ## REST API の TempPass およびプロモーション TempPass {#temppass}
 
-TempPass およびプロモーション TempPass の実装で、ユーザーが資格情報を入力する必要がない場合、認証をストリーミングアプリに直接実装できます。
+ユーザーが資格情報を入力する必要がない TempPass およびプロモーション TempPass 実装の場合、認証をストリーミングアプリに直接実装できます。
 
 **この API を使用するには、ストリーミングアプリでデバイス ID が一意であることを確認する必要があります。これは、オプションの追加データと共に、トークンの識別に使用されるためです。**
 

@@ -1,13 +1,13 @@
 ---
 title: シングルサインオン – パートナー – フロー
 description: REST API V2 - シングルサインオン – パートナー – フロー
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+exl-id: 5735d67f-a311-4d03-ad48-93c0fcbcace5
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
-source-wordcount: '1317'
+source-wordcount: '1444'
 ht-degree: 0%
 
 ---
-
 
 # パートナーフローを使用したシングルサインオン {#single-sign-on-partner-flows}
 
@@ -18,6 +18,18 @@ ht-degree: 0%
 >[!IMPORTANT]
 >
 > REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/throttling-mechanism.md) のドキュメントで制限されています。
+
+パートナーメソッドを使用すると、複数のアプリケーションでパートナーフレームワークステータスペイロードを使用して、Adobe Pass サービスの使用時にデバイスレベルでシングルサインオン（SSO）を実現できます。
+
+Adobe Pass システム外のパートナー固有のフレームワークやライブラリを使用して、パートナーフレームワークステータスペイロードを取得する役割を持ちます。
+
+アプリケーションは、このパートナーフレームワークステータスペイロードを指定するすべてのリクエストの `AP-Partner-Framework-Status` ヘッダーの一部として含める責任があります。
+
+ヘッダーについて詳 `AP-Partner-Framework-Status` くは、[AP-Partner-Framework-Status](../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md) ドキュメントを参照してください。
+
+Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライアントアプリケーションのエンドユーザー向けに、パートナーシングルサインオン（SSO）をサポートしています。
+
+Apple プラットフォームのシングルサインオン （SSO）について詳しくは、[Apple SSO クックブック （REST API V2） ](/help/authentication/single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-cookbook-rest-api-v2.md) ドキュメントを参照してください。
 
 ## パートナー認証要求の取得 {#retrieve-partner-authentication-request}
 
@@ -61,7 +73,7 @@ ht-degree: 0%
    > 次の項目について詳しくは、[ パートナー認証リクエストの取得 ](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md) API ドキュメントを参照してください。
    >
    > * `serviceProvider` や `partner` など、すべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier`、`AP-Partner-Framework-Status` などのすべての _必須_ ヘッダー
+   > * `Authorization`、`AP-Device-Identifier`、`Content-Type`、`X-Device-Info`、`AP-Partner-Framework-Status` など、すべての _必須_ ヘッダー
    > * すべての _オプション_ ヘッダーとパラメーター
    >
    > <br/>
@@ -175,7 +187,7 @@ ht-degree: 0%
    > 次について詳しくは、[ パートナー認証応答を使用したプロファイルの取得 ](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)API ドキュメントを参照してください。
    >
    > * `serviceProvider`、`partner`、`SAMLResponse` など、すべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier`、`AP-Partner-Framework-Status` など、すべての _必須_ ヘッダー
+   > * `Authorization`、`AP-Device-Identifier`、`Content-Type`、`X-Device-Info`、`AP-Partner-Framework-Status` など、すべての _必須_ ヘッダー
    > * すべての _オプション_ ヘッダーとパラメーター
    >
    > <br/>

@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 2f5e511f774e1a2d8b8b60084844edfe27be6c76
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
-source-wordcount: '1181'
+source-wordcount: '1199'
 ht-degree: 2%
 
 ---
@@ -56,28 +56,28 @@ ht-degree: 2%
       + [REST API V2 の概要](./rest-api-v2/rest-api-v2-overview.md)
       + [REST API V2 の用語集](./rest-api-v2/rest-api-v2-glossary.md)
       + API の {#rest-api-v2-apis}
-         + [REST API V2 API の概要](./rest-api-v2/apis/rest-api-v2-apis-overview.md)
+         + [REST API V2 API の概要](rest-api-v2/apis/rest-api-v2-apis-overview.md)
          + 設定 {#rest-api-v2-configuration-apis}
-            + [特定のサービスプロバイダーの設定の取得](./rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)
+            + [特定のサービスプロバイダーの設定の取得](rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)
          + Sessions {#rest-api-v2-sessions-apis}
-            + [認証セッションの作成](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
-            + [認証セッションの再開](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
-            + [認証セッションの取得](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md)
-            + [ユーザーエージェントでの認証の実行](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)
+            + [認証セッションの作成](rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
+            + [認証セッションの再開](rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
+            + [認証セッションの取得](rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md)
+            + [ユーザーエージェントでの認証の実行](rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)
          + Profiles {#rest-api-v2-profiles-apis}
-            + [プロファイルの取得](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
-            + [特定の mvpd のプロファイルの取得](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
-            + [特定のコードのプロファイルの取得](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
+            + [プロファイルの取得](rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
+            + [特定の mvpd のプロファイルの取得](rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
+            + [特定のコードのプロファイルの取得](rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
          + 決定 {#rest-api-v2-decisions-apis}
-            + [特定の mvpd を使用した認証決定の取得](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
-            + [特定の mvpd を使用した事前認証決定の取得](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
+            + [特定の mvpd を使用した認証決定の取得](rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
+            + [特定の mvpd を使用した事前認証決定の取得](rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
          + ログアウト {#rest-api-v2-logout-apis}
-            + [特定の mvpd に対するログアウトの開始](./rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)
+            + [特定の mvpd に対するログアウトの開始](rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)
          + パートナーシングル サインオン {#rest-api-v2-partner-single-sign-on-apis}
             + [パートナー認証要求の取得](rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)
             + [パートナー認証応答を使用したプロファイルの取得](rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)
       + フロー {#rest-api-v2-flows}
-         + [REST API V2 フローの概要](./rest-api-v2/flows/rest-api-v2-flows-overview.md)
+         + [REST API V2 フローの概要](rest-api-v2/flows/rest-api-v2-flows-overview.md)
          + の基本的なアクセスフロ {#rest-api-v2-basic-access-flows}
             + [プライマリアプリケーション内で実行される基本プロファイルフロー](rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
             + [セカンダリアプリケーション内で実行される基本プロファイルフロー](rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
@@ -99,13 +99,13 @@ ht-degree: 2%
          + [REST API V2 クックブック（クライアントからサーバー）](rest-api-v2/cookbooks/rest-api-v2-cookbooks-client-server.md)
       + 付録 {#rest-api-v2-appendix}
          + ヘッダー {#rest-api-v2-appendix-headers}
-            + [ヘッダー – 認証](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md)
-            + [ヘッダー – AP デバイス識別子](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md)
-            + [ヘッダー – X-Device-Info](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md)
-            + [ヘッダー – AD-Service-Token](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md)
-            + [Header - Adobeの件名トークン](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)
-            + [ヘッダー – AP-Partner-Framework-Status](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)
-            + [ヘッダー – AP-TempPass-Identity](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
+            + [ヘッダー – 認証](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md)
+            + [ヘッダー – AP デバイス識別子](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md)
+            + [ヘッダー – X-Device-Info](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md)
+            + [ヘッダー – AD-Service-Token](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md)
+            + [Header - Adobeの件名トークン](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)
+            + [ヘッダー – AP-Partner-Framework-Status](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)
+            + [ヘッダー – AP-TempPass-Identity](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
    + AccessEnabler SDK {#accessenabler-sdk}
       + JavaScript SDK {#javascriptsdk}
          + [JavaScript SDK の概要](javascript-sdk-overview.md)
@@ -136,20 +136,24 @@ ht-degree: 2%
          + Android API{#android-sdk-api}
             + [事前認証](preauthorize-api-android-sdk.md)
       + Amazon FireOS SDK {#fireossdk}
-         + [Amazon FireOS SSO - プログラマー向けキックオフガイド](amazon-firetv-sso-programmer-kickoff-guide.md)
-         + [クライアントレス API クックブックを使用したAmazon FireOS SSO](amazon-fireos-sso-using-clientless-api-cookbook.md)
          + [Amazon FireOS 技術概要](amazon-fireos-technical-overview.md)
          + [Amazon FireOS 統合クックブック](amazon-fireos-integration-cookbook.md)
          + [Amazon FireOS API リファレンス](amazon-fireos-native-client-api-reference.md)
          + [Amazon FireOS アプリケーションの登録](amazon-fireos-application-registration.md)
          + [FireOS SDK と Dynamic Client Registration](fireos-sdk-with-dynamic-client-registration.md)
-   + Platform SSO {#platform-sso}
-      + Apple SSO {#apple-sso}
-         + [Apple SSO の概要](apple-sso-overview.md)
-         + [Apple SSO クックブック（REST API）](apple-sso-cookbook-rest-api.md)
-         + [Apple SSO クックブック（iOS/tvOS SDK）](apple-sso-cookbook-iostvos-sdk.md)
-      + Roku SSO {#roku-sso}
-         + [Roku SSO](roku-sso-overview.md)
+         + [Amazon FireOS SSO - プログラマー向けキックオフガイド](amazon-firetv-sso-programmer-kickoff-guide.md)
+   + シングルサインオン {#sso}
+      + パートナーシングル サインオン {#partner-sso}
+         + Appleのシングルサインオン {#apple-sso}
+            + [Apple SSO の概要](single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-overview.md)
+            + [Apple SSO クックブック（REST API V2）](single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-cookbook-rest-api-v2.md)
+            + [Apple SSO クックブック（REST API V1）](single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-cookbook-rest-api-v1.md)
+            + [Apple SSO クックブック（iOS/tvOS SDK）](single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-cookbook-iostvos-sdk.md)
+      + Platform シングルサインオン {#platform-sso}
+         + Amazonのシングルサインオン {#amazon-sso}
+            + [Amazon SSO クックブック（REST API V1）](single-sign-on/platform-single-sign-on/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v1.md)
+         + Roku のシングルサインオン {#roku-sso}
+            + [Roku SSO の概要](single-sign-on/platform-single-sign-on/roku-single-sign-on/roku-sso-overview.md)
    + コンテンツメタデータ {#content-metadata}
       + [保護されたリソースの識別](identify-protected-resources.md)
    + Content server integration {#content-serv-int}

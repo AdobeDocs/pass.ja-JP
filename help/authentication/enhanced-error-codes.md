@@ -2,7 +2,7 @@
 title: 拡張エラーコード
 description: 拡張エラーコード
 exl-id: 2b0a9095-206b-4dc7-ab9e-e34abf4d359c
-source-git-commit: 6c328eb2c635a1d76fc7dae8148a4de291c126e0
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
 source-wordcount: '2593'
 ht-degree: 2%
@@ -301,8 +301,8 @@ Adobe Pass Authentication SDK の事前認証 API と統合した場合にクラ
 | **なし** | *invalid_parameter_service_provider* | 400 | サービスプロバイダーパラメーター値がないか、無効です。 |
 |                              | *invalid_parameter_mvpd* | 400 | mvpd パラメーター値がないか、無効です。 |
 |                              | *invalid_parameter_code* | 400 | コードパラメーター値がないか、無効です。 |
-|                              | *invalid_parameter_resources* | 400 | リダイレクト URL パラメーター値がないか、無効です。 |
-|                              | *invalid_parameter_redirect_url* | 400 | リソースパラメーター値がないか、無効です。 |
+|                              | *invalid_parameter_resources* | 400 | リソースパラメーター値がないか、無効です。 |
+|                              | *invalid_parameter_redirect_url* | 400 | リダイレクト URL パラメーター値がないか、無効です。 |
 |                              | *invalid_parameter_partner* | 400 | パートナーパラメーター値がないか、無効です。 |
 |                              | *invalid_parameter_saml_response* | 400 | SAML 応答パラメーター値がないか、無効です。 |
 |                              | *invalid_header_device_info* | 400 | デバイス情報ヘッダー値がないか、無効です。 |

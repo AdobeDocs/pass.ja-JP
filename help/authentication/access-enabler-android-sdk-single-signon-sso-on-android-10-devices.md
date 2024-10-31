@@ -2,9 +2,9 @@
 title: Android 10 アプリケーションでの Enabler Android SDK Single Sign-On （SSO）
 description: Android 10 アプリケーションでの Enabler Android SDK Single Sign-On （SSO）
 exl-id: dedade15-c451-4757-b684-d3728e11dd87
-source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
-source-wordcount: '383'
+source-wordcount: '379'
 ht-degree: 0%
 
 ---
@@ -23,8 +23,6 @@ Adobe Pass Authentication を利用したアプリ間のシングルサインオ
 
 これらの変更の結果、Access Enabler Android バージョン **3.2.1 SDK （最新）で提供されるシングル サインオン（SSO）と以前のバージョンは** 次のセクションで説明するように、Android 10 デバイスで影響を受ける可能性があります。
 
-[Roku SSO の概要 ](/help/authentication/roku-sso-overview.md) を参照してください。
-
 ## 動作
 
 アプリの **[!UICONTROL target SDK level]** または **android:requestLegacyExternalStorage** マニフェスト属性に応じて、Access Enabler Android バージョン 3.2.1 SDK （最新）および以前のバージョンで提供されるシングル サインオン （SSO）は、現在、次のように動作します。
@@ -32,7 +30,6 @@ Adobe Pass Authentication を利用したアプリ間のシングルサインオ
 - アプリのターゲットは **Android 9 （API レベル 28）** 以下 **-\>** シングルサインオン （SSO） **です**
 - アプリは **Android 10** **（API レベル 29）をターゲットにしており** アプリのマニフェスト ファイル **-\>** Single Sign-On （SSO） **で** requestLegacyExternalStorage の値を true に設定 **** し **動作し** す。
 - アプリは **Android 10** **（API レベル 29）を対象としていますが** アプリのマニフェスト ファイル **-\>** Single Sign-On （SSO） **で** requestLegacyExternalStorage の値を true に設定し **い****ので、機能しません**
-
 
 >[!TIP]
 >

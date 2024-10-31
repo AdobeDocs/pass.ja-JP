@@ -1,13 +1,13 @@
 ---
 title: シングルサインオン – サービストークン – フロー
 description: REST API V2 - シングルサインオン – サービストークン – フロー
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+exl-id: b0082d2a-e491-4cb5-bb40-35ba10db6b1a
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
 source-wordcount: '1848'
 ht-degree: 0%
 
 ---
-
 
 # サービストークンフローを使用したシングルサインオン{#single-sign-on-service-token-full-flows}
 
@@ -120,7 +120,7 @@ ht-degree: 0%
    > * `Authorization`、`AP-Device-Identifier` などのすべての _必須_ ヘッダー
    > * すべての _オプション_ パラメーターおよびヘッダー
 
-   >[!NOTE]
+   >[!TIP]
    >
    > 提案：ストリーミングアプリケーションは、ユーザーエージェントが指定された `redirectUrl` に到達するのを待って、通常のプロファイルが正常に生成および保存されたかどうかを確認できます。
 

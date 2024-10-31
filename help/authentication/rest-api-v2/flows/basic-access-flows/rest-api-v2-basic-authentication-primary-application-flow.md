@@ -1,13 +1,13 @@
 ---
 title: 基本認証 – プライマリアプリケーション – フロー
 description: REST API V2 – 基本認証 – プライマリアプリケーション – フロー
-source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
+exl-id: 8122108d-e9da-43c5-9abb-ab177cb21eb6
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
 source-wordcount: '894'
 ht-degree: 0%
 
 ---
-
 
 # プライマリアプリケーション内で実行される基本認証フロー {#basic-authentication-flow-performed-within-primary-application}
 
@@ -121,7 +121,7 @@ MVPD を選択し、ユーザーエージェントで選択された MVPD を使
    > * `Authorization`、`AP-Device-Identifier` などのすべての _必須_ ヘッダー
    > * すべての _オプション_ パラメーターおよびヘッダー
 
-   >[!NOTE]
+   >[!TIP]
    >
    > 提案：ストリーミングアプリケーションは、ユーザーエージェントが指定された `redirectUrl` に到達するのを待って、通常のプロファイルが正常に生成および保存されたかどうかを確認できます。
 
