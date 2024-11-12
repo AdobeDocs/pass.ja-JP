@@ -1,13 +1,13 @@
 ---
 title: REST API V2 クックブック（クライアントからサーバー）
 description: REST API V2 クックブック（クライアントからサーバー）
-source-git-commit: e1e1835d0d523377c48b39170919f7120cc3ef90
+exl-id: 6a5a89d2-ea54-4f9c-9505-e575ced4301c
+source-git-commit: 563e0b17de3be9290a661242355b4835b8c386e1
 workflow-type: tm+mt
-source-wordcount: '695'
+source-wordcount: '699'
 ht-degree: 0%
 
 ---
-
 
 # REST API V2 クックブック（クライアントからサーバー） {#rest-api-v2-cookbook-clientserver}
 
@@ -29,7 +29,7 @@ Adobe Pass REST API V2 を実装するには、次の手順に従い、いくつ
 
 アプリケーションがAdobe Pass REST API V2 を呼び出すには、API セキュリティレイヤーに必要なアクセストークンが必要です。
 
-アクセストークンを取得するには、アプリケーションが次の手順に従う必要があります。[ 動的なクライアント登録 ](../../dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md)
+アクセストークンを取得するには、[ 動的クライアント登録 ](../../dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md) ドキュメントに記載されている手順にアプリケーションが従う必要があります。
 
 ## B.認証フェーズ {#authentication-phase}
 
@@ -54,10 +54,10 @@ Adobe Pass REST API V2 を実装するには、次の手順に従い、いくつ
 
 ブラウザーまたは 2 番目の画面の Web ベースのアプリケーションを使用する場合：
 
-* オプション 1。 ストリーミングアプリケーションは、ブラウザーまたは web ビューを開き、認証する URL を読み込むことができ、ユーザーは資格情報を送信する必要がある MVPD ログインページに移動します
+* オプション 1。 ストリーミングアプリケーションは、ブラウザーまたは web ビューを開き、認証する URL を読み込むことができます。そして、ユーザーは資格情報を送信する必要がある MVPD ログインページにアクセスします
    * ユーザーがログイン/パスワードを入力すると、最終リダイレクトで成功ページが表示される
-* オプション 2. ストリーミングアプリケーションでは、ブラウザーを開いてコードを表示することはできません。 <b> 別の web アプリケーションを開発する必要があります </b>。ユーザーに CODE を入力し、URL をビルドして開くよう依頼します：<b>/api/v2/authenticate/{serviceProvider}/{CODE}</b>
-   * ユーザーがログイン/パスワードを入力します。最終リダイレクトで成功ページを表示します
+* オプション 2. ストリーミングアプリケーションでは、ブラウザーを開いてコードを表示することはできません。 <b> 別の web アプリケーションを開発する必要があります </b>。ユーザーに CODE の入力、URL のビルドとオープンを依頼します。<b>/api/v2/authenticate/{serviceProvider}/{CODE}</b>
+   * ユーザーがログイン/パスワードを入力すると、最終リダイレクトで成功ページが表示される
 
 ### 手順 4：認証済みプロファイルを確認 {#step-4-check-for-authenticated-profiles}
 
@@ -67,7 +67,7 @@ Adobe Pass REST API V2 を実装するには、次の手順に従い、いくつ
 （[ 特定の MVPD の認証済みプロファイルの取得 ](../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)）
    * MVPD ピッカーが 2 番目の画面アプリケーションに表示されるので、ストリーミングアプリケーションで MVPD が選択されていない場合、ポーリングは CODE <b>/api/v2/{serviceProvider}/profiles/code/{CODE}</b><br> で発生します。
 （[ 特定のコードの認証済みプロファイルの取得 ](../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)）
-* ポーリングは 30 分を超えないようにします。30 分に達してもストリーミングアプリケーションがアクティブな場合は、新しいセッションを開始し、新しいコードと URL を返します
+* ポーリングは、30 分に達したときにストリーミングアプリケーションがまだアクティブである場合は、30 分を超えてはなりません。新しいセッションを開始する必要があり、新しいコードと URL が返されます
 * 認証が完了すると、返される値は認証済みプロファイルで 200 になります
 * ストリーミングアプリケーションは <a href="#preauthorization-phase">C に進む場合があります。事前承認フェーズ </a> または <a href="#authorization-phase">D。承認フェーズ </a>
 
@@ -78,7 +78,7 @@ Adobe Pass REST API V2 を実装するには、次の手順に従い、いくつ
 ストリーミングアプリケーションは、認証済みユーザーが使用できるビデオを表示する準備を行い、のチェックボックスをオンにする可能性があります。
 アクセス （これらのリソースへの）。
 
-* 手順はオプションで、認証済みユーザーパッケージでは使用できないリソースをアプリケーションがフィルタリングする場合に実行されます
+* 認証済みユーザーパッケージに含まれていないリソースをアプリケーションが除外する場合は、この手順をオプションで実行します
 * <b>/api/v2/{serviceProvider}/decisions/preauthorize/{mvpd}</b><br> の呼び出し
 （[ 特定の MVPD を使用した事前認証決定の取得 ](../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)）
 
@@ -98,7 +98,7 @@ Adobe Pass REST API V2 を実装するには、次の手順に従い、いくつ
 
 ### 手順 7：ログアウト {#step-7-logout}
 
-ストリーミングデバイス：ユーザーが MVPD からのログアウトを希望している
+ストリーミングデバイス：ユーザーが MVPD からログアウトしたい
 
 * <b>/api/v2/{serviceProvider}/logout/{mvpd}</b><br> を呼び出します
 （[ 特定の MVPD のログアウトの開始 ](../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)）
