@@ -2,9 +2,9 @@
 title: 拡張エラーコード
 description: 拡張エラーコード
 exl-id: 2b0a9095-206b-4dc7-ab9e-e34abf4d359c
-source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
+source-git-commit: ce9659074bfa3fac3ea62a70a6da470f15bad3fe
 workflow-type: tm+mt
-source-wordcount: '2593'
+source-wordcount: '2606'
 ht-degree: 2%
 
 ---
@@ -313,6 +313,7 @@ Adobe Pass Authentication SDK の事前認証 API と統合した場合にクラ
 |                              | *invalid_header_pfs_permission_access_not_granted* | 400 | パートナーフレームワークステータスヘッダーの権限アクセスステータス値が付与されません。 |
 |                              | *invalid_header_pfs_provider_id_not_determined* | 400 | パートナーフレームワーク状態ヘッダーのプロバイダー ID 値は、既知の mvpd に関連付けられていません。 |
 |                              | *invalid_header_pfs_provider_id_mismatch* | 400 | パートナーフレームワーク状態ヘッダーのプロバイダー ID 値が、パラメーターとして送信された mvpd と一致しません。 |
+|                              | *invalid_header_pfs_provider_info_expired* | 400 | パートナーフレームワーク状態ヘッダーのプロバイダー情報の有効期限が切れました。 |
 |                              | *invalid_integration* | 400 | 指定されたサービス プロバイダーと mvpd の統合が存在しないか、無効です。 |
 |                              | *invalid_authentication_session* | 400 | この要求に関連付けられている認証セッションが見つからないか無効です。 |
 |                              | *preauthorization_denied_by_mvpd* | 403 | MVPD は、指定されたリソースの事前認証を要求したときに「拒否」決定を返しました。 |
