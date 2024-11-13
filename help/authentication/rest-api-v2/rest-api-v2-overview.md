@@ -1,9 +1,10 @@
 ---
 title: REST API V2 の概要
 description: REST API V2 の概要
-source-git-commit: dd3451f8761ce6183e9a11099fb3094abae09466
+exl-id: a5595193-82c4-4033-bd98-596b4908b401
+source-git-commit: f2bbcaf979080bbde8e4de52b069454042959437
 workflow-type: tm+mt
-source-wordcount: '490'
+source-wordcount: '493'
 ht-degree: 0%
 
 ---
@@ -75,6 +76,7 @@ SDK または REST 呼び出しを通じて現在 API を使用しているす�
 - [用語集](rest-api-v2-glossary.md)
 - [API](./apis/rest-api-v2-apis-overview.md)
 - [フロー](./flows/rest-api-v2-flows-overview.md)
+- [必要なシステム構成](/help/authentication/minimum-system-requirements.md)
 
 また、アドビの専任サポートチームが、必要な質問や技術サポートをお手伝いします。
 
