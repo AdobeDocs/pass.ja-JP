@@ -1,23 +1,22 @@
 ---
-title: Amazon SSO クックブック（REST API V1）
-description: Amazon SSO クックブック（REST API V1）
-exl-id: 4c65eae7-81c1-4926-9202-a36fd13af6ec
+title: Amazon SSO クックブック（REST API V2）
+description: Amazon SSO クックブック（REST API V2）
 source-git-commit: e5ef8c0cba636ac4d2bda1abe0e121d0ecc1b795
 workflow-type: tm+mt
-source-wordcount: '590'
+source-wordcount: '542'
 ht-degree: 0%
 
 ---
 
-# Amazon SSO クックブック（REST API V1） {#amazon-sso-cookbook-rest-api-v1}
+# Amazon SSO クックブック（REST API V2） {#amazon-sso-cookbook-rest-api-v2}
 
 >[!IMPORTANT]
 >
 >このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
-Adobe Pass認証 REST API V1 は、FireOS で動作するクライアントアプリケーションのエンドユーザーに対して、Platform シングルサインオン（SSO）をサポートしています。
+Adobe Pass認証 REST API V2 は、FireOS で動作するクライアントアプリケーションのエンドユーザーに対して、Platform シングルサインオン（SSO）をサポートしています。
 
-このドキュメントは、既存の [REST API V1 概要 ](/help/authentication/rest-api-overview.md) の拡張機能として機能し、概要を示します。
+このドキュメントは、既存の [REST API V2 概要の拡張機能として機能し ](/help/authentication/rest-api-v2/rest-api-v2-overview.md) 概要の概要と、[ プラットフォーム ID フローを使用したシングルサインオン ](/help/authentication/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) の実装方法を説明するドキュメントを提供します。
 
 ## platform id フローを使用したAmazonのシングルサインオン {#cookbook}
 
@@ -139,56 +138,31 @@ Amazon SSO SDK は、SSO トークン（プラットフォーム ID）ペイロ�
 
 ### ワークフロー {#workflow}
 
-Amazon SSO トークン（プラットフォーム ID）ペイロードは、Adobe Pass認証エンドポイントに対して行われたすべての HTTP リクエストに存在する必要があります。
+Amazon SSO トークン（プラットフォーム ID）ペイロードは、Adobe Pass認証 REST API V2 エンドポイントに対して行われたすべての HTTP リクエストに存在する必要があります。
 
 ```
-/adobe-services/*
-/reggie/*
-/api/*
+/api/v2/*
 ```
+
+Adobe Pass認証 REST API V2 は、デバイススコープまたはプラットフォームスコープの識別子である SSO トークン（Platform ID）ペイロードを受け取るために次のメソッドをサポートしています。
+
+* `Adobe-Subject-Token` という名前のヘッダーとして。
 
 >[!IMPORTANT]
 > 
-> ストリーミングアプリケーションでは、`/authenticate` 呼び出し時に提供されたように、Amazon SSO トークン（プラットフォーム ID）ペイロードの送信をスキ `/regcode` プする場合があります。
-
-Adobe Pass認証は、デバイススコープまたはプラットフォームスコープの識別子である SSO トークン（platform id）ペイロードを受け取るために次のメソッドをサポートしています。
-
-* `Adobe-Subject-Token` という名前のヘッダーとして。
-* `ast` という名前のクエリパラメーターとして
-* 次の名前の post パラメーターとして、`ast`
-
->[!IMPORTANT]
->
-> クエリパラメーターとして送信すると、URL 全体が非常に長くなり、拒否される場合があります。
->
-> クエリ/POST パラメーターとして送信される場合は、リクエスト署名の生成時にそれを含める必要があります。
+> `Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe – 件名 – トークン ](/help/authentication/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
 
 #### サンプル
 
 **ヘッダーとしての送信**
 
 ```HTTPS
-GET /api/v1/config/{requestorId} HTTP/1.1 
+GET /api/v2/{serviceProvider}/sessions HTTP/1.1 
 Host: sp-preprod.auth.adobe.com
 
 Adobe-Subject-Token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2t1IiwiaWF0IjoxNTExMzY4ODAyLCJleHAiOjE1NDI5MDQ4MDIsImF1ZCI6ImFkb2JlIiwic3ViIjoiNWZjYzMwODctYWJmZi00OGU4LWJhZTgtODQzODViZTFkMzQwIiwiZGlkIjoiY2FmZjQ1ZDAtM2NhMy00MDg3LWI2MjMtNjFkZjNhMmNlOWM4In0.JlBFhNhNCJCDXLwBjy5tt3PtPcqbMKEIGZ6sr2NA
 ```
 
-**クエリパラメーターとして送信**
-
-```HTTPS
-GET /api/v1/config/{requestorId}?ast=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2t1IiwiaWF0IjoxNTExMzY4ODAyLCJleHAiOjE1NDI5MDQ4MDIsImF1ZCI6ImFkb2JlIiwic3ViIjoiNWZjYzMwODctYWJmZi00OGU4LWJhZTgtODQzODViZTFkMzQwIiwiZGlkIjoiY2FmZjQ1ZDAtM2NhMy00MDg3LWI2MjMtNjFkZjNhMmNlOWM4In0.JlBFhNhNCJCDXLwBjy5tt3PtPcqbMKEIGZ6sr2NA HTTP/1.1
-Host: sp.auth.adobe.com
-```
-
-**POST パラメーターとして送信**
-
-```HTTPS
-POST /api/v1/config/{requestorId}?ast=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2t1IiwiaWF0IjoxNTExMzY4ODAyLCJleHAiOjE1NDI5MDQ4MDIsImF1ZCI6ImFkb2JlIiwic3ViIjoiNWZjYzMwODctYWJmZi00OGU4LWJhZTgtODQzODViZTFkMzQwIiwiZGlkIjoiY2FmZjQ1ZDAtM2NhMy00MDg3LWI2MjMtNjFkZjNhMmNlOWM4In0.Jl\_BFhN\_h\_NCJCDXLwBjy5tt3PtPcqbMKEIGZ6sr2NA HTTP/1.1
-Host: sp.auth.adobe.com 
-Content-Type: multipart/form-data;
-```
-
 >[!IMPORTANT]
 >
-> `Adobe-Subject-Token` ヘッダーまたは `ast` パラメーターの値が見つからないか無効な場合、Adobe Pass Authentication は、シングルサインオンを考慮せずにリクエストを処理します。
+> `Adobe-Subject-Token` ヘッダー値がない場合や無効な場合、Adobe Pass Authentication はシングルサインオンを考慮せずにリクエストを処理します。

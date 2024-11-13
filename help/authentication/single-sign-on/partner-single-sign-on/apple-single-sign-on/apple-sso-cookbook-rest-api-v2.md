@@ -1,9 +1,10 @@
 ---
 title: Apple SSO クックブック（REST API V2）
 description: Apple SSO クックブック（REST API V2）
-source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
+exl-id: 81476312-9ba4-47a0-a4f7-9a557608cfd6
+source-git-commit: e5ef8c0cba636ac4d2bda1abe0e121d0ecc1b795
 workflow-type: tm+mt
-source-wordcount: '3402'
+source-wordcount: '3410'
 ht-degree: 0%
 
 ---
@@ -16,11 +17,11 @@ ht-degree: 0%
 
 Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライアントアプリケーションのエンドユーザー向けに、パートナーシングルサインオン（SSO）をサポートしています。
 
-このドキュメントは、[ パートナーフローを使用したシングルサインオン ](/help/authentication/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md) の実装方法を説明している既存の REST API V2 ドキュメントの拡張機能として機能します。
+このドキュメントは、既存の [REST API V2 概要の拡張機能として機能し ](/help/authentication/rest-api-v2/rest-api-v2-overview.md) 概要の概要と、[ パートナーフローを使用したシングルサインオン ](/help/authentication/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md) を実装する方法を説明するドキュメントを提供します。
 
-## パートナーフローを使用したAppleのシングルサインオン {#apple-sso-cookbook-rest-api-v2-cookbook}
+## パートナーフローを使用したAppleのシングルサインオン {#cookbook}
 
-### 前提条件 {#apple-sso-cookbook-rest-api-v2-prerequisites}
+### 前提条件 {#prerequisites}
 
 パートナーフローを使用してAppleのシングルサインオンを続行する前に、次の前提条件が満たされていることを確認してください。
 
@@ -40,7 +41,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 >
 > * ストリーミングアプリケーションは、プログラマーに適用され、Appleのシングルサインオンユーザーエクスペリエンスを有効にするために必要な [ オンボーディングの前提条件 ](/help/authentication/single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-overview.md#apple-sso-prerequisites-programmer) を完了しています。
 
-### ワークフロー {#apple-sso-cookbook-rest-api-v2-workflow}
+### ワークフロー {#workflow}
 
 次の図に示すパートナーフローを使用してAppleのシングルサインオンを実装するには、指定された手順を実行します。
 

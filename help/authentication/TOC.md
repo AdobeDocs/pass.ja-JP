@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: e1e1835d0d523377c48b39170919f7120cc3ef90
+source-git-commit: e5ef8c0cba636ac4d2bda1abe0e121d0ecc1b795
 workflow-type: tm+mt
-source-wordcount: '1204'
+source-wordcount: '1210'
 ht-degree: 2%
 
 ---
@@ -152,6 +152,7 @@ ht-degree: 2%
             + [Apple SSO クックブック（iOS/tvOS SDK）](single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-cookbook-iostvos-sdk.md)
       + Platform シングルサインオン {#platform-sso}
          + Amazonのシングルサインオン {#amazon-sso}
+            + [Amazon SSO クックブック（REST API V2）](single-sign-on/platform-single-sign-on/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
             + [Amazon SSO クックブック（REST API V1）](single-sign-on/platform-single-sign-on/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v1.md)
          + Roku のシングルサインオン {#roku-sso}
             + [Roku SSO の概要](single-sign-on/platform-single-sign-on/roku-single-sign-on/roku-sso-overview.md)
