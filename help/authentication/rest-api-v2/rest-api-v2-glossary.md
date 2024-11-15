@@ -1,9 +1,10 @@
 ---
 title: REST API V2 の用語集
 description: REST API V2 の用語集
-source-git-commit: dd3451f8761ce6183e9a11099fb3094abae09466
+exl-id: 8b3bd2de-1ff8-4c57-b18d-27ecdf2b0de2
+source-git-commit: 1370554c66116a357970fb05c046608e261f0ed3
 workflow-type: tm+mt
-source-wordcount: '1872'
+source-wordcount: '1964'
 ht-degree: 0%
 
 ---
@@ -34,6 +35,8 @@ ht-degree: 0%
 
 認証コードは、[プライマリ（プログラマー）アプリケーションまたは [セカンダリ（プログラマー）アプリケーションの両方で使用でき ](#primary-application)[ 認証 ](#authentication) プロセスを完了したり ](#secondary-application)[ 認証セッション ](#session) に関する情報を取得したり、ユーザー [ プロファイル ](#profile) にアクセスしたりできます。
 
+以前の用語と同義で、登録コードを使用します。
+
 #### 認証セッション {#session}
 
 認証セッションは、[ プログラマ ](#programmer) アプリケーションから開始（または継続）されたユーザーの認証プロセスに関する情報を格納するAdobe Pass認証コンセプトであり、[ 認証コード ](#code) によって一意に識別されます。
@@ -45,6 +48,10 @@ ht-degree: 0%
 承認とは、[MVPD](#resource) でユーザー権限を検証した後、所有している [MVPD](#mvpd) サブスクリプションに基づいて、ユーザーが [Programmer](#programmer) カタログから保護されたコンテンツ（[resource](#mvpd)）にアクセスできるようにするプロセスです。
 
 ### C {#c}
+
+#### クライアント資格情報 {#client-credentials}
+
+クライアント資格情報は、[Dynamic Client Registration （DCR） ](#dcr) プロセス中に生成される一意の値のセットであり、[ アクセストークン ](#access-token) の取得に使用されることを目的としています。
 
 #### 設定 {#configuration}
 
@@ -114,6 +121,8 @@ ID プロバイダーは、[TV Everywhere （TVE） ](#tve) のコンテキス�
 
 メディアトークンは [ プログラマー ](#programmer) に渡され、次にその [ リソース ](#resource) のアクセスのセキュリティを確保するために検証されます。
 
+以前の用語と同義で、短い認証トークンを使用します。
+
 #### メディアトークン検証子 {#media-token-verifier}
 
 メディアトークンベリファイアは、Adobe Pass認証によって配布されるライブラリで、[ メディアトークン ](#media-token) の信頼性の検証を担当します。
@@ -138,7 +147,15 @@ MVPD は、MVPD とAdobeの間のオンボーディングプロセス中に定�
 
 #### 事前認証 {#preauthorization}
 
-事前認証とは、[MVPD](#resource) でユーザー権限を検証した後、ユーザーがアクセス権を持つ [ プログラマー ](#programmer) カタログから [ リソース ](#mvpd) のリストをプレビューできるようにするプロセスです。
+事前認証とは、ユーザーが [MVPD](#mvpd) でユーザー権限を検証した後、アクセス権を持つ ](#resource) プログラマー ](#programmer) カタログから [ リソース [ のサブセットをプレビューできるようにするプロセスです。
+
+[ プリフライト ](#preflight) と同義。
+
+#### Preflight {#preflight}
+
+プリフライトは、[MVPD](#mvpd) でユーザー権限を検証した後、ユーザーがアクセスする資格のある [ プログラマー ](#programmer) カタログから [ リソース ](#resource) のサブセットをプレビューできるプロセスです。
+
+[ 事前認証 ](#preauthorization) と同義。
 
 #### プライマリ（プログラマ）アプリケーション {#primary-application}
 
@@ -147,6 +164,8 @@ MVPD は、MVPD とAdobeの間のオンボーディングプロセス中に定�
 #### Profile {#profile}
 
 プロファイルは、ユーザーの認証開始日と終了日、[ ユーザーのメタデータ ](#user-metadata) および認証の取得方法を示すその他のフィールド（「通常」、「機能縮退」、「一時」、「シングルサインオン」など）に関する情報を保存するAdobe Pass認証コンセプトです。
+
+以前の用語と同義で、認証トークンを使用します。
 
 #### プログラマ {#programmer}
 
@@ -270,7 +289,7 @@ TV プロバイダーは、TV プロバイダーとAdobeの間のオンボーデ
 
 #### ユーザーメタデータ {#user-metadata}
 
-ユーザーメタデータは、ユーザー固有の属性（郵便番号、保護者による制限、ユーザー ID など）を参照します。 このプロファイルは [MVPD](#mvpd) によって維持管理され、[profile](#profile) の一部としてAdobe Pass Authentication から提供されます。
+ユーザーメタデータとは、ユーザー固有の属性（郵便番号、保護者の制限、ユーザー ID など）を指し、[MVPD](#mvpd) によって維持管理され、Adobe Pass認証が [ プロファイル ](#profile) の一部として提供します。
 
 詳しくは、[ ユーザーメタデータ ](/help/authentication/user-metadata-feature.md) ドキュメントを参照してください。
 

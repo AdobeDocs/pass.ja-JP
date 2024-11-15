@@ -2,7 +2,7 @@
 title: TVE ダッシュボードの統合
 description: チャネルと MVPD 間の統合と、統合の管理方法について説明します。
 exl-id: 0add340b-120c-4e82-8e3c-6c190d77cf7e
-source-git-commit: acff285f7db1bdd32d5da3e01a770d9581d3ba75
+source-git-commit: 1370554c66116a357970fb05c046608e261f0ed3
 workflow-type: tm+mt
 source-wordcount: '2093'
 ht-degree: 0%
@@ -328,7 +328,7 @@ MVPD ピッカーを作成せず、提供された設定に依存するプログ
 新しい統合は、「レビューとプッシュの変更 [ の後にのみ作成さ ](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-review-push-changes.md) ます。
 
 
-## 統合を無効にする {#disable-integratgion}
+## 統合を無効にする {#disable-integration}
 
 統合を無効にするには、次の手順に従います。
 
