@@ -2,7 +2,7 @@
 title: 標準メタデータ属性
 description: 標準メタデータ属性
 exl-id: 99ffa98c-213f-47a5-a6e7-fbacb77875d0
-source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
+source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
 workflow-type: tm+mt
 source-wordcount: '1053'
 ht-degree: 0%
@@ -24,7 +24,7 @@ ht-degree: 0%
 |-------------|---------------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | applicationId | 75b4-431b-adb2-eb6b9e546013 | 認証ヘッダー | 統合時の Zendesk チケット |
 | mvpdName | Sample_MVPD | URI パス | ユーザーが MVPD を選択した場合の、config エンドポイントからのAdobe Pass認証 |
-| accountId | 12345 | URI パス | ユーザーログイン後のAdobe Pass Authentication upstreamUserID メタデータ [User Metadata upstreamUserID - Adobe Pass Authentication](/help/authentication/user-metadata-feature.md) |
+| accountId | 12345 | URI パス | ユーザーログイン後のAdobe Pass Authentication upstreamUserID メタデータ [User Metadata upstreamUserID - Adobe Pass Authentication](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md) |
 
 
 ## メタデータ属性 {#metadata-attr}
