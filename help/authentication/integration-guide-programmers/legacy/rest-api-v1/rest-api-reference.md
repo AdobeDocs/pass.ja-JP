@@ -2,9 +2,9 @@
 title: REST API リファレンス
 description: Rest api リファレンス
 exl-id: 67e4639e-db0b-4400-bb81-e214263e8395
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3e69473bdb9818416e67b03e6c35d24dc3e0f991
 workflow-type: tm+mt
-source-wordcount: '654'
+source-wordcount: '647'
 ht-degree: 2%
 
 ---
@@ -66,7 +66,7 @@ Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authent
 | 10. | [&lt;SP_FQDN>/api/v1/checkauthn](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/check-authentication-token.md) | デバイスに期限切れでない AuthN トークンがあるかどうかを示します。 |                                                                                             | Adobe Pass </br>authentication </br>Service | スマートデバイス |
 | 11. | [&lt;SP_FQDN>/api/v1/tokens/authn](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) | 見つかった場合は、AuthN トークンを返します。 |                                                                                             | Adobe Pass </br>authentication </br>Service | スマートデバイス |
 | 12. | [&lt;SP_FQDN>/api/v1/tokens/authz](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authorization-token.md) | 見つかった場合は、AuthZ トークンを返します。 |                                                                                             | Adobe Pass </br>authentication </br>Service | スマートデバイス |
-| 13. | [&lt;SP_FQDN>/api/v1/tokens/media] （/help/authentication/integration-guide-programmer/rest-apis/rest-api-v1/apis/obtain-short-media-token.md | 見つかった場合、短いメディアトークンを返します – /api/v1/mediatoken と同じ |                                                                                             | Adobe Pass </br>authentication </br>Service | スマートデバイス |
+| 13. | [&lt;SP_FQDN>/api/v1/tokens/media](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/obtain-short-media-token.md) | 見つかった場合、短いメディアトークンを返します – /api/v1/mediatoken と同じ |                                                                                             | Adobe Pass </br>authentication </br>Service | スマートデバイス |
 | 14。 | [&lt;SP_FQDN>/api/v1/mediatoken](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/obtain-short-media-token.md) | ショートメディアトークンを取得 |                                                                                             | Adobe Pass </br>authentication </br>Service | スマートデバイス |
 | 15. | [&lt;SP_FQDN>/api/v1/preauthorize](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-list-of-preauthorized-resources.md) | 事前承認済みリソースのリストを取得します |                                                                                             | Adobe Pass </br>authentication </br>Service | スマートデバイス |
 | 16。 | [&lt;SP_FQDN>/api/v1/preauthorize/{code}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-list-of-preauthorized-resources-by-second-screen-web-app.md) | 事前承認済みリソースのリストを取得します |                                                                                             | Adobe Pass </br>authentication </br>Service | ログイン Web アプリ |
