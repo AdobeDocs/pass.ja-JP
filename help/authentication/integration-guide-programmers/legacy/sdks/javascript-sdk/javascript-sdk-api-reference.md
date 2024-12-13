@@ -2,14 +2,14 @@
 title: JavaScript SDK API リファレンス
 description: JavaScript SDK API リファレンス
 exl-id: 48d48327-14e6-46f3-9e80-557f161acd8a
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '2860'
+source-wordcount: '2861'
 ht-degree: 0%
 
 ---
 
-# JavaScript SDK API リファレンス {#javascript-sdk-api-reference}
+# （従来の）JavaScript SDK API リファレンス {#javascript-sdk-api-reference}
 
 >[!NOTE]
 >
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 ## API リファレンス {#api-reference}
 
-これらの関数は、MVPD とのインタラクションリクエストを開始します。 すべての呼び出しは非同期です。応答を処理するには [callbacks](#callbacks) を実装する必要があります。
+これらの関数は、MVPDとのインタラクションリクエストを開始します。 すべての呼び出しは非同期です。応答を処理するには [callbacks](#callbacks) を実装する必要があります。
 
 - [setRequestor （）](#setReq)
 - [getAuthorization （）](#getAuthZ)
@@ -40,12 +40,12 @@ ht-degree: 0%
 
 - *endpoints* – このパラメーターはオプションです。 次のいずれかの値を指定できます。
 
-   - Adobeが提供する認証および承認サービスのエンドポイントを指定できる配列（デバッグ目的で別のインスタンスが使用される場合があります）。 複数の URL が指定されている場合、MVPD リストはすべてのサービスプロバイダーのエンドポイントで構成されます。 各 MVPD は、最速のサービスプロバイダー、つまり、最初に応答し、その MVPD をサポートするプロバイダーに関連付けられます。 デフォルトでは（値を指定しない場合）、Adobe サービスプロバイダーが使用されます（<http://sp.auth.adobe.com/>）。
+   - Adobeが提供する認証および承認サービスのエンドポイントを指定できる配列（デバッグ目的で別のインスタンスが使用される場合があります）。 複数の URL が指定されている場合、MVPDリストはすべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー（最初に応答し、そのMVPDをサポートするプロバイダー）に関連付けられます。 デフォルトでは（値を指定しない場合）、Adobe サービスプロバイダーが使用されます（<http://sp.auth.adobe.com/>）。
 
   例：
    - `setRequestor("IFC", ["http://sp.auth-dev.adobe.com/adobe-services"])`
 
-- *options* - アプリケーション ID 値、訪問者 ID 値の更新なしの設定（バックグラウンドログインログアウト）および MVPD 設定（iFrame）を含む JSON オブジェクト。 値はすべてオプションです。
+- *options* - アプリケーション ID 値、訪問者 ID 値の更新なしの設定（バックグラウンドログインログアウト）およびMVPD設定（iFrame）を含む JSON オブジェクト。 値はすべてオプションです。
    1. これを指定すると、Experience Cloudで実行されるすべてのネットワーク呼び出しでライブラリの visitorID がレポートされます。 この値は、後で高度な分析レポートに使用できます。
    2. アプリケーションの一意の識別子が – `applicationId` に指定されている場合、この値は、X-Device-Info HTTP ヘッダーの一部としてアプリケーションによって行われる後続のすべての呼び出しに追加されます。 この値は、後で適切なクエリを使用して [ESM](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md) レポートから取得できます。
 
@@ -60,7 +60,7 @@ ht-degree: 0%
   })
 ```
 
-- プログラマーは、ログインに iFrame が必要かどうかを指定し（*iFrameRequired* キー）、iFrame のサイズ（*iFrameWidth* キーと *iFrameHeight* キー）を指定することで、Adobe Pass Authentication で設定された MVPD 設定を上書きできます。 JSON オブジェクトには次のテンプレートがあります。
+- プログラマーは、ログインに iFrame が必要かどうかを指定し（*iFrameRequired* キー）、iFrame のサイズ（*iFrameWidth* キーと *iFrameHeight* キー）を指定することで、Adobe Pass Authentication で設定されたMVPD設定を上書きできます。 JSON オブジェクトには次のテンプレートがあります。
 
 ```JSON
     {  
@@ -84,14 +84,14 @@ ht-degree: 0%
 ```
 
 
-上記のテンプレートの最上位レベルのキーはすべてオプションで、デフォルト値（*backgroundLogin*、*backgroundLogut* はデフォルトで false、mvpdConfig は null です。つまり、MVPD 設定は上書きされません）。
+上記のテンプレートの最上位キーはすべてオプションで、デフォルト値（*backgroundLogin*、*backgroundLogut* はデフォルトで false、mvpdConfig は null です。つまり、MVPDの設定は上書きされません）。
 
 
 - **注意**：上記のパラメーターに無効な値/タイプを指定すると、未定義の動作が発生します。
 
 
 
-次のシナリオの設定例を示します。更新なしのログインとログアウトのアクティブ化、MVPD1 を完全なページ リダイレクト ログイン（iFrame 以外）への変更、MVPD2 を iFrame ログインへの変更（幅=500、高さ=300）
+更新なしのログインとログアウトをアクティブ化し、MVPD1 を完全なページのリダイレクトログイン（iFrame 以外）に、MVPD2 を幅=500、高さ=300 の iFrame ログインに変更するシナリオの設定例を次に示します。
 
 ```JSON
     {  
@@ -120,14 +120,14 @@ ht-degree: 0%
 
 ## getAuthorization （inResourceID, redirect_url） {#getauthorization(inresourceid,redirect_url)}
 
-**説明：** 指定されたリソースの認証をリクエストします。 ユーザーが認証可能なリソースにアクセスしようとするたびに、この関数を呼び出して Access Enabler から短期間有効な認証トークンを取得します。 リソース ID は、認可を提供する MVPD と合意されます。
+**説明：** 指定されたリソースの認証をリクエストします。 ユーザーが認証可能なリソースにアクセスしようとするたびに、この関数を呼び出して Access Enabler から短期間有効な認証トークンを取得します。 リソース ID は、MVPDによる認証と同意されます。
 
 現在の顧客のキャッシュされた認証トークンを使用します。 そのようなトークンが見つからない場合、は最初に認証プロセスを開始し、次に認証を続行します。
 
 **パラメーター：**
 
 - `inResourceID` - ユーザーが認証をリクエストするリソースの ID。
-- `redirect_url` - （オプション）リダイレクト URL を指定すると、MVPD の認証プロセスが、認証が開始されたページではなく、そのページにユーザーを返します。
+- `redirect_url` - （オプション）リダイレクト URL を指定すると、MVPD認証プロセスは、認証が開始されたページではなく、そのページにユーザーを返します。
 
 
 **Callbacks triggered:** [setToken （） ](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken) on success, [tokenRequestFailed](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage) on failed
@@ -144,13 +144,13 @@ ht-degree: 0%
 
 ## getAuthentication （redirect_url） {#getauthentication(redirect_url}
 
-**説明：** 現在の顧客の認証を要求します。 通常、「ログイン」ボタンのクリックに応答して呼び出されます。 現在の顧客のキャッシュされた認証トークンを確認します。 そのようなトークンが見つからない場合は、認証プロセスを開始します。 これにより、デフォルトまたはカスタムのプロバイダー選択ダイアログが呼び出され、選択されたプロバイダーを使用して MVPD のログインインターフェイスにリダイレクトされます。
+**説明：** 現在の顧客の認証を要求します。 通常、「ログイン」ボタンのクリックに応答して呼び出されます。 現在の顧客のキャッシュされた認証トークンを確認します。 そのようなトークンが見つからない場合は、認証プロセスを開始します。 これにより、デフォルトまたはカスタムの provider-selection ダイアログが呼び出され、選択されたプロバイダーを使用してMVPDのログインインターフェイスにリダイレクトされます。
 
 成功すると、はユーザーの認証トークンを作成して保存します。 認証が失敗した場合、プロバイダーは適切なエラーメッセージを [setAuthenticationStatus （） ](#setauthenticationstatusisauthenticated-errorcode) コールバックに返します。
 
 **パラメーター：**
 
-- redirect_url - オプションでリダイレクト URL を指定し、MVPD の認証プロセスが認証を開始したページではなく、そのページにユーザーを返すようにします。
+- redirect_url - オプションで、リダイレクト URL を指定します。これにより、MVPD認証プロセスは、認証が開始されたページではなく、そのページにユーザーを返します。
 
 **コールバックがトリガーされました：** [setAuthenticationStatus （） ](#setauthenticationstatusisauthenticated-errorcode), [displayProviderDialog （） ](#displayproviderdialogproviders-displayproviderdialogproviders), [sendTrackingData （） ](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
 
@@ -197,7 +197,7 @@ ht-degree: 0%
 
 **パラメーター：**
 
-- *resources*: resources パラメーターは、認証を確認する必要があるリソースの配列です。 リストの各要素は、リソース ID を表す文字列である必要があります。 リソース ID には、`getAuthorization()` 呼び出しのリソース ID と同じ制限が適用されます。つまり、プログラマと MVPD の間で確立された合意値や、メディア RSS フラグメントです。
+- *resources*: resources パラメーターは、認証を確認する必要があるリソースの配列です。 リストの各要素は、リソース ID を表す文字列である必要があります。 リソース ID には、`getAuthorization()` 呼び出しのリソース ID と同じ制限が適用されます。つまり、プログラマーとMVPDの間で確立された同意値や、メディア RSS フラグメントです。
 
 </br>
 
@@ -208,7 +208,7 @@ ht-degree: 0%
 
 **パラメーター：**
 
-- *resources*: resources パラメーターは、認証を確認する必要があるリソースの配列です。 リストの各要素は、リソース ID を表す文字列である必要があります。 リソース ID には、`getAuthorization()` 呼び出しのリソース ID と同じ制限が適用されます。つまり、プログラマと MVPD の間で確立された合意値や、メディア RSS フラグメントです。
+- *resources*: resources パラメーターは、認証を確認する必要があるリソースの配列です。 リストの各要素は、リソース ID を表す文字列である必要があります。 リソース ID には、`getAuthorization()` 呼び出しのリソース ID と同じ制限が適用されます。つまり、プログラマーとMVPDの間で確立された同意値や、メディア RSS フラグメントです。
 
 - *キャッシュ*：事前承認されたリソースを確認する際に内部キャッシュを使用するかどうか。 これはオプションのパラメーターで、デフォルトは **true** です。 true の場合、動作は上記の API と同じです。つまり、この関数への後続の呼び出しは、内部キャッシュを使用して事前承認済みリソースを解決します。 このパラメーターに **false** を渡すと、内部キャッシュが無効になり、**checkPreauthorizedResources** API が呼び出されるたびにサーバーが呼び出されます。
 
@@ -226,7 +226,7 @@ ht-degree: 0%
 メタデータには次の 2 種類があります。
 
 - **静的** （認証トークン TTL、認証トークン TTL およびデバイス ID）
-- **ユーザーメタデータ** （認証または承認のフロー中に、MVPD からユーザーのデバイスに渡されるユーザー固有の情報を含みます）
+- **ユーザーメタデータ** （認証フローや承認フローの最中に、MVPDからユーザーのデバイスに渡されるユーザー固有の情報を含みます）
 
 **詳細情報：**[ ユーザーメタデータ ](#UserMetadata)
 
@@ -245,11 +245,11 @@ ht-degree: 0%
 
    - `"encryptedZip"` – 暗号化された郵便番号
 
-   - `"householdID"` – 世帯の識別子。 MVPD がサブアカウントをサポートしていない場合、これは userID と同じです。
+   - `"householdID"` – 世帯の識別子。 MVPDがサブアカウントをサポートしていない場合、これは userID と同一になります。
 
    - `"maxRating"` - ユーザーの保護者による制限の上限
 
-   - `"userID"` - ユーザー ID。 MVPD がサブアカウントをサポートし、ユーザーがメインアカウントでない場合、userID は householdID とは異なります。
+   - `"userID"` - ユーザー ID。 MVPDがサブアカウントをサポートし、ユーザーがメインアカウントでない場合、userID は householdID とは異なります。
 
    - `"channelID"` - ユーザーが表示できるチャネルのリスト
 
@@ -267,7 +267,7 @@ ht-degree: 0%
 
    - `"acctParentID"` - アカウント親 ID
 
-  **注意**：プログラマーが実際に利用できるユーザーメタデータは、MVPD が提供する内容によって異なります。  使用可能なユーザーメタデータの現在のリストについては、[ ユーザーメタデータ ](#UserMetadata) を参照してください。
+  **メモ**：プログラマーが使用できる実際のユーザーメタデータは、MVPDが提供する内容によって異なります。  使用可能なユーザーメタデータの現在のリストについては、[ ユーザーメタデータ ](#UserMetadata) を参照してください。
 
 
 例：
@@ -302,7 +302,7 @@ ht-degree: 0%
 
 ## setSelectedProvider （providerid） {#setSelectedProvider}
 
-**説明：** この関数は、ユーザーがプロバイダ選択 UI から MVPD を選択し、アクセス イネーブラにプロバイダ選択を送信した場合は、この関数を呼び出します。または、ユーザーがプロバイダを選択せずにプロバイダ選択 UI を閉じた場合は、null パラメータを指定してこの関数を呼び出します。
+**説明：** この関数は、ユーザーがプロバイダ選択 UI からMVPDを選択してアクセス イネーブラにプロバイダ選択を送信した場合は、この関数を呼び出します。または、ユーザーがプロバイダ選択 UI を閉じてもプロバイダを選択できない場合は、null パラメータを指定してこの関数を呼び出します。
 
 **コールバック
 triggered:**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenticated-errorcode), [sendTrackingData （） ](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
@@ -319,7 +319,7 @@ triggered:**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenti
 
 この関数は非同期であり、その結果を `selectedProvider()` コールバック関数に返します。
 
-- **MVPD** 現在選択されている MVPD。MVPD が選択されていない場合は null。
+- **MVPD** 現在選択されているMVPD。MVPDが選択されていない場合は null。
 - **AE_State** 「新規ユーザー」、「ユーザー未認証」または「ユーザー認証済み」のうちの現在の顧客の認証結果
 
 **コールバックがトリガーされました：** [selectedProvider （） ](#getselectedprovider-getselectedprovider)
@@ -370,11 +370,11 @@ triggered:**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenti
 
 ## setConfig （configXML） {#setconfig(configXML)}
 
-**説明：** このコールバックを実装して、設定情報と MVPD リストを受け取ります。
+**説明：** このコールバックを実装して、設定情報およびMVPD リストを受け取ります。
 
 **パラメーター：**
 
-- *configXML*:MVPD リストを含む現在のリクエスターの設定を保持している xml オブジェクト。
+- *configXML*:MVPD リストを含む、現在のリクエスターの設定を保持している xml オブジェクト。
 
 
 **トリガー：** [setRequestor （） ](#setrequestor-inrequestorid-endpoints-optionssetreq)
@@ -409,7 +409,7 @@ triggered:**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenti
 
 ## createIFrame （inWidth, inHeight） {#createIFrame(inWidth,inHeight)}
 
-**説明：** 認証ログインページの UI を表示する iFrame を必要とする MVPD をユーザーが選択した場合に、このコールバックを実装します。
+**説明：** 認証ログインページの UI を表示する iFrame を必要とするMVPDをユーザーが選択した場合に、このコールバックを実装します。
 
 **トリガー：:**[ setSelectedProvider （） ](#setselectedproviderproviderid-setselectedprovider)
 
@@ -423,7 +423,7 @@ triggered:**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenti
 
 >[!NOTE]
 > 
->現在の [ 事前エラーレポート ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/error-reporting.md) システムを使用している場合は、この関数に送信された errorCode パラメーターを無視できます。  ただし、isAuthenticated フラグは、使用権フローでのユーザーの認証状態の追跡にまだ使用されています
+>現在の [ 事前エラーレポート ](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) システムを使用している場合は、この関数に送信された errorCode パラメーターを無視できます。  ただし、isAuthenticated フラグは、使用権フローでのユーザーの認証状態の追跡にまだ使用されています
 
 
 **パラメーター：**
@@ -463,7 +463,7 @@ triggered:**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenti
 
 イベントタイプと、関連付けられた情報の配列を渡します。 イベントタイプは次のとおりです。
 
-| mvpdSelection | ユーザーがプロバイダ選択ダイアログで MVPD を選択した。 |
+| mvpdSelection | プロバイダー選択ダイアログで、MVPDが選択されました。 |
 | ----------------------- | --------------------------------------------------------- |
 | authenticationDetection | 認証チェックが完了しました。 |
 | authorizationDetection | 認証リクエストが完了しました。 |
@@ -474,19 +474,19 @@ triggered:**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenti
 
 | イベントタイプ （String） | データ （配列） |
 |:--- | :--- |
-| mvpdSelection | 0：選択された MVPD |
+| mvpdSelection | 0：選択されたMVPD |
 |  | 1: デバイスタイプ |
 |  | 2: アクセス イネーブラ クライアント タイプ |
 |  | 3: OS |
 | authenticationDetection | 0：トークンリクエストが成功したかどうか（true/false） |
-|  | 1: MVPD ID |
+|  | 1:MVPD ID |
 |  | 2: GUID |
 |  | 3: トークンは既にキャッシュにあります（true/false） |
 |  | 4: デバイスタイプ |
 |  | 5: アクセス イネーブラ クライアント タイプ |
 |  | 6: OS |
 | authorizationDetection | 0：トークンリクエストが成功したかどうか（true/false） |
-|  | 1: MVPD ID |
+|  | 1:MVPD ID |
 |  | 2: GUID |
 |  | 3: トークンは既にキャッシュにあります（true/false） |
 |  | 4 : エラー |
@@ -517,7 +517,7 @@ triggered:**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenti
 
 ## tokenRequestFailed （inRequestedResourceID, inRequestErrorCode, inRequestDetailedErrorMessage） {#token-request-failed-error-msg}
 
-**説明：** 認証または承認確認リクエストが失敗したときに呼び出される、このコールバックを実装します。 オプションで、プログラマが表示するカスタム メッセージを MVPD で提供するために使用できます。
+**説明：** 認証または承認確認リクエストが失敗したときに呼び出される、このコールバックを実装します。 オプションで、MVPDで使用し、プログラマーが表示するカスタムメッセージを提供できます。
 
 >[!IMPORTANT]
 >
@@ -527,7 +527,7 @@ triggered:**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenti
 
 - *inRequestedResourceID* – 承認リクエストで使用されたリソース ID を提供する文字列。
 - *inRequestErrorCode* - エラーの理由を示すAdobe Pass認証エラーコードを表示する文字列。使用可能な値は「User Not Authenticated Error」と「User Not Authorized Error」です。詳しくは、以下の「Callback error codes」を参照してください。
-- *inRequestDetailedErrorMessage* – 表示に適した追加の説明文字列。 何らかの理由でこの記述文字列が使用できない場合、Adobe Pass認証は空の文字列 **（&quot;）** を送信します。  これは、MVPD がカスタムエラーメッセージや営業関連のメッセージを渡すために使用できます。 例えば、ある購読者がリソースの認証を拒否された場合、MVPD は次のような `*inRequestDetailedErrorMessage*` を返すことがあります。**「現在、パッケージ内のこのチャネルにはアクセスできません。 パッケージをアップグレードするには、\*こちら\*をクリックしてください。** メッセージは、このコールバックを通じてAdobe Pass認証によってプログラマーのサイトに渡されます。 その後、プログラマーは表示または無視するオプションを選択できます。 Adobe Pass認証では、`*inRequestDetailedErrorMessage*` を使用して、エラーの原因となった可能性のある状態をプログラマーに通知することもできます。 例えば、**A network error occurred when communication with the provider&#39;s authorization service」のように指定します。**
+- *inRequestDetailedErrorMessage* – 表示に適した追加の説明文字列。 何らかの理由でこの記述文字列が使用できない場合、Adobe Pass認証は空の文字列 **（&quot;）** を送信します。  これは、MVPDでカスタムエラーメッセージや営業関連のメッセージを渡すために使用できます。 例えば、ある購読者がリソースの認証を拒否された場合、MVPDは次のような `*inRequestDetailedErrorMessage*` を返すことがあります。**「現在、パッケージ内のこのチャネルへのアクセス権はありません。 パッケージをアップグレードするには、\*こちら\*をクリックしてください。** メッセージは、このコールバックを通じてAdobe Pass認証によってプログラマーのサイトに渡されます。 その後、プログラマーは表示または無視するオプションを選択できます。 Adobe Pass認証では、`*inRequestDetailedErrorMessage*` を使用して、エラーの原因となった可能性のある状態をプログラマーに通知することもできます。 例えば、**A network error occurred when communication with the provider&#39;s authorization service」のように指定します。**
 
 
 
@@ -607,9 +607,9 @@ triggered:**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenti
 
 ## selectedProvider （result） {#selectedProvider(result)}
 
-**説明：** 現在選択されている MVPD と、`result` パラメーターにラップされた現在のユーザーの認証結果を受け取るには、このコールバックを実装します。 `result` パラメーターは、次のプロパティを持つオブジェクトです。
+**説明：** 現在選択されているMVPDと、`result` パラメーターにラップされた現在のユーザーの認証結果を受け取るには、このコールバックを実装します。 `result` パラメーターは、次のプロパティを持つオブジェクトです。
 
-- **MVPD** 現在選択されている MVPD。MVPD が選択されていない場合は null。
+- **MVPD** 現在選択されているMVPD。MVPDが選択されていない場合は null。
 - **AE\_State** 現在のユーザーの認証結果（「新規ユーザー」、「ユーザー未認証」、「ユーザー認証済み」）
 
 **トリガー：** [getSelectedProvider （） ](#getSelProv)

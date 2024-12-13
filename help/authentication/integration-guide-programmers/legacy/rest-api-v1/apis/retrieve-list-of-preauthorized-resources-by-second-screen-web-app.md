@@ -2,14 +2,14 @@
 title: 2 番目の画面の Web アプリによる事前認証済みリソースのリストの取得
 description: 2 番目の画面の Web アプリによる事前認証済みリソースのリストの取得
 exl-id: 78eeaf24-4cc1-4523-8298-999c9effdb7a
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '254'
+source-wordcount: '255'
 ht-degree: 0%
 
 ---
 
-# 2 番目の画面の Web アプリによる事前認証済みリソースのリストの取得 {#retrieve-list-of-preauthorized-resources-by-second-screen-web-app}
+# （レガシー） 2 番目の画面の Web アプリによる事前承認済みリソースのリストの取得 {#retrieve-list-of-preauthorized-resources-by-second-screen-web-app}
 
 >[!NOTE]
 >
@@ -50,7 +50,7 @@ API には、ストリーミングアプリまたはプログラマーサービ�
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 登録コード | 認証フローの開始時にユーザーによって指定された登録コード値。 |
 | 要求者 | この操作が有効なプログラマ requestorId です。 |
-| リソースリスト | ユーザーがアクセスできる可能性があり、MVPD 認証エンドポイントによって認識されるコンテンツを識別する、resourceId のコンマ区切りリストを含む文字列。 |
+| リソースリスト | ユーザーがアクセス可能で、MVPD認証エンドポイントによって認識されるコンテンツを識別する resourceId のコンマ区切りリストを含む文字列。 |
 
 
 ### 応答のサンプル {#sample-response}

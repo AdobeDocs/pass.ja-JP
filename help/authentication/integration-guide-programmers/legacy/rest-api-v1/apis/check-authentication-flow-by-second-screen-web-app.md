@@ -2,14 +2,14 @@
 title: 2 番目の画面の Web アプリによる認証フローの確認
 description: 2 番目の画面の Web アプリによる認証フローの確認
 exl-id: 5807f372-a520-4069-b837-67ae41b7f79b
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '211'
+source-wordcount: '212'
 ht-degree: 0%
 
 ---
 
-# 2 番目の画面の Web アプリによる認証フローの確認 {#check-authentication-flow-by-second-screen-web-app}
+# （レガシー） 2 番目の画面の Web アプリによる認証フローの確認 {#check-authentication-flow-by-second-screen-web-app}
 
 >[!NOTE]
 >
@@ -35,7 +35,7 @@ ht-degree: 0%
 
 ## 説明 {#description}
 
-この API は、2 番目の画面のログイン Web アプリで使用され、Adobe Pass Authentication が MVPD からの正常なログインを確認したことを確認します。 エンドユーザーに対して、ワークフローを続行するにはデバイスコンソールに進むようにという成功メッセージを表示する前に、この API を呼び出すことをお勧めします。
+この API は、2 番目の画面のログイン web アプリで使用し、Adobe Pass認証がMVPDからの正常なログインを確認したことを確認する必要があります。 エンドユーザーに対して、ワークフローを続行するにはデバイスコンソールに進むようにという成功メッセージを表示する前に、この API を呼び出すことをお勧めします。
 
 
 | エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |

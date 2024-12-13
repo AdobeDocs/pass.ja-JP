@@ -2,14 +2,14 @@
 title: 登録ページ
 description: 登録ページ
 exl-id: 581b8e2e-7420-4511-88b9-f2cd43a41e10
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '493'
+source-wordcount: '494'
 ht-degree: 0%
 
 ---
 
-# 登録ページ {#registration-page}
+# （レガシー）登録ページ {#registration-page}
 
 ## REST API エンドポイント {#clientless-endpoints}
 
@@ -49,8 +49,8 @@ ht-degree: 0%
 | 承諾 | Header <br> Value: application/json | クライアントが理解できるコンテンツタイプを示します |
 | 要求者 | クエリパラメーター | この操作が有効なプログラマ requestorId です。 |
 | deviceId | クエリパラメーター | デバイス ID のバイト。 |
-| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: ヘッダー | ストリーミングデバイス情報。<br>**注意**：これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。 <br> 詳しくは、「デバイスと接続情報の受け渡し [ を参照してください ](/help/authentication/integration-guide-programmers/passing-client-information-device-connection-and-application.md)。 |
-| mvpd | クエリパラメーター | この操作が有効な MVPD ID。 |
+| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: ヘッダー | ストリーミングデバイス情報。<br>**注意**：これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。 <br> 詳しくは、「デバイスと接続情報の受け渡し [ を参照してください ](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。 |
+| mvpd | クエリパラメーター | この操作が有効なMVPD ID。 |
 | ttl | クエリパラメーター | このリグレコードの有効期間（秒）。<br>**メモ**:ttl に許可されている最大値は 36000 秒（10 時間）です。 値を大きくすると、400 HTTP 応答（無効なリクエスト）が返されます。 `ttl` を空のままにすると、Adobe Pass Authentication はデフォルト値の 30 分を設定します。 |
 | _deviceType_ | クエリパラメーター | 非推奨（廃止予定）です。使用しないでください。 |
 | _deviceUser_ | クエリパラメーター | 非推奨（廃止予定）です。使用しないでください。 |

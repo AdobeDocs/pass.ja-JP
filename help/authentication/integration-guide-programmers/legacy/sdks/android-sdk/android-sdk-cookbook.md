@@ -2,14 +2,14 @@
 title: Android SDK クックブック
 description: Android SDK クックブック
 exl-id: 7f66ab92-f52c-4dae-8016-c93464dd5254
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '1681'
+source-wordcount: '1682'
 ht-degree: 0%
 
 ---
 
-# Android SDK クックブック {#android-sdk-cookbook}
+# （従来の）Android SDK クックブック {#android-sdk-cookbook}
 
 >[!NOTE]
 >
@@ -76,7 +76,7 @@ AccessEnabler のネットワーク アクティビティは別のスレッド�
 
    - [navigateToUrl （url）](#$navigateToUrl)
 
-     ユーザーが MVPD を選択した後、`getAuthentication()` によってトリガーされます。 `url` パラメーターは、MVPD のログインページの場所を指定します。
+     ユーザーがMVPDを選択した後、`getAuthentication()` によってトリガーされます。 `url` パラメーターは、MVPDのログインページの場所を指定します。
 
    - [&#39;sendTrackingData （event, data）&#39;](#$sendTrackingData)
 
@@ -148,9 +148,9 @@ Androidライブラリ（AccessEnabler）
 
 1. `displayProviderDialog()` に送信されたプロバイダーのリストをユーザーに提示します。
 
-1. ユーザーがプロバイダーを選択したら、`navigateToUrl()` コールバックからユーザーの MVPD の URL を取得します。  WebView を開き、その WebView コントロールを URL に誘導します。
+1. ユーザーがプロバイダーを選択したら、`navigateToUrl()` コールバックからユーザーのMVPDの URL を取得します。  WebView を開き、その WebView コントロールを URL に誘導します。
 
-1. 前のステップでインスタンス化された WebView を通じて、ユーザーは MVPD のログインページに移動し、ログイン資格情報を入力します。 WebView 内では、いくつかのリダイレクト操作が行われます。
+1. 前の手順でインスタンス化した WebView を使用して、MVPDのログインページに移動し、ログイン資格情報を入力します。 WebView 内では、いくつかのリダイレクト操作が行われます。
 
    **メモ：** この時点で、ユーザーは認証フローをキャンセルできます。 この場合、UI レイヤは、`null` をパラメータとして `setSelectedProvider()` を呼び出すことにより、AccessEnabler にこのイベントを通知します。 これにより、AccessEnabler は内部状態をクリーンアップし、認証フローをリセットできます。
 
@@ -171,7 +171,7 @@ Androidライブラリ（AccessEnabler）
 1. [getAuthorization （） ](#$getAuthZ) を呼び出して認証を開始します
 フロー。
 
-   依存関係：有効なリソース ID が MVPD と合意されました。
+   依存関係：有効な ResourceID がMVPDと合意されました。
 
    **メモ：** ResourceID は、他のデバイスやプラットフォームで使用されるものと同じである必要があり、MVPD 間でも同じになります。
 
@@ -203,7 +203,7 @@ Androidライブラリ（AccessEnabler）
 ### F. ログアウトフロー {#logout_flow}
 
 1. [`logout()`](#$logout) を呼び出してユーザーをログアウトさせます。\
-   AccessEnabler は、現在のリクエスタおよびシングル サインオンを使用するリクエスタの現在の MVPD に対して、キャッシュされたすべての値とトークンをクリアします。 キャッシュをクリアした後、AccessEnabler はサーバ・コールを実行してサーバ・サイド・セッションをクリーンアップします。  サーバーコールは IdP への SAML リダイレクトを引き起こす可能性があるので（これにより、IdP 側でのセッションクリーンアップが可能になります）、このコールはすべてのリダイレクトに従う必要があります。 このため、この呼び出しは WebView コントロール内で処理する必要があります。
+   AccessEnabler は、現在のリクエスタおよびシングル サインオンを使用するリクエスタに対して、現在のMVPDのすべてのキャッシュされた値とトークンをクリアします。 キャッシュをクリアした後、AccessEnabler はサーバ・コールを実行してサーバ・サイド・セッションをクリーンアップします。  サーバーコールは IdP への SAML リダイレクトを引き起こす可能性があるので（これにより、IdP 側でのセッションクリーンアップが可能になります）、このコールはすべてのリダイレクトに従う必要があります。 このため、この呼び出しは WebView コントロール内で処理する必要があります。
 
    a.認証ワークフローと同じパターンに従って、AccessEnabler ドメインが（`navigateToUrl()` コールバックを介して） UI アプリケーション レイヤにリクエストを送信し、WebView コントロールを作成して、そのコントロールにバックエンド サーバ上のログアウト エンドポイントの URL をロードするように指示します。
 

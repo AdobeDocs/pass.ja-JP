@@ -2,14 +2,14 @@
 title: iOS/tvOS クックブック
 description: iOS/tvOS クックブック
 exl-id: 4743521e-d323-4d1d-ad24-773127cfbe42
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '2402'
+source-wordcount: '2403'
 ht-degree: 0%
 
 ---
 
-# iOS/tvOS SDK クックブック {#iostvos-sdk-cookbook}
+# （従来の）iOS/tvOS SDK クックブック {#iostvos-sdk-cookbook}
 
 >[!NOTE]
 >
@@ -44,7 +44,7 @@ AccessEnabler のネットワーク・アクティビティは独自のスレッ
 
 ## 訪問者 ID サービスの設定（Experience CloudID） {#visitorIDSetup}
 
-[Experience CloudID](https://experienceleague.adobe.com/docs/id-service/using/home.html) の値の設定は、[!DNL Analytics] の観点から重要です。 `visitorID` 値が設定されると、SDK はネットワーク呼び出しごとにこの情報を送信し、[!DNL Adobe Pass] 認証サーバーがこの情報を収集します。 Adobe Pass Authentication Service の Analytics を、他のアプリケーションや Web サイトからの他の分析レポートと関連付けることができます。 visitorID の設定方法について詳しくは、[ こちら ](#setOptions) を参照してください。
+[Experience CloudID](https://experienceleague.adobe.com/docs/id-service/using/home.html) の値の設定は、[!DNL Analytics] の観点から重要です。 `visitorID` の値が設定されると、SDKはネットワーク呼び出しごとにこの情報を送信し、[!DNL Adobe Pass] Authentication Server がこの情報を収集します。 Adobe Pass Authentication Service の Analytics を、他のアプリケーションや Web サイトからの他の分析レポートと関連付けることができます。 visitorID の設定方法について詳しくは、[ こちら ](#setOptions) を参照してください。
 
 ## 使用権限フロー {#entitlement}
 
@@ -76,7 +76,7 @@ I. [Apple SSO でのログアウトフロー ](#logout_flow_with_AppleSSO) </br>
       * 返されるステータスは成功または失敗です。エラーコードは失敗のタイプを示します。
 
    * [`navigateToUrl(url)`](#$nav2url) </br>
-      * ユーザーが MVPD を選択した後、[`getAuthentication()`](#$getAuthN) によってトリガーされます。 `url` パラメーターは、MVPD のログインページの場所を指定します。
+      * ユーザーがMVPDを選択した後、[`getAuthentication()`](#$getAuthN) によってトリガーされます。 `url` パラメーターは、MVPDのログインページの場所を指定します。
 
    * `sendTrackingData(event, data)` </br>
       * `checkAuthentication()`、[`getAuthentication()`](#$getAuthN)、`checkAuthorization()`、[`getAuthorization()`](#$getAuthZ)、`setSelectedProvider()` によってトリガーされます。
@@ -108,7 +108,7 @@ I. [Apple SSO でのログアウトフロー ](#logout_flow_with_AppleSSO) </br>
 
    * [`presentTvProviderDialog （viewController）`](#presentTvDialog)
 
-      * 現在のリクエスターが ](#getAuthN)SSO サポートを持つ MVPD で少なくともサポートしている場合に、[getAuthentication （）によってトリガーされます。
+      * 現在のリクエスターが ](#getAuthN)SSO サポートを持つMVPDで少なくともサポートしている場合に、[getAuthentication （）によってトリガーされます。
       * viewController パラメーターはAppleの SSO ダイアログであり、メインビューコントローラーで表示する必要があります。
 
    * [&#39;dismissTvProviderDialog （viewController）&#39;](#dismissTvDialog)
@@ -165,9 +165,9 @@ I. [Apple SSO でのログアウトフロー ](#logout_flow_with_AppleSSO) </br>
 1. に送信されたプロバイダーのリストをユーザーに表示します
    [`displayProviderDialog()`](#dispProvDialog)。
 
-1. ユーザーがプロバイダーを選択したら、`navigateToUrl:` または `navigateToUrl:useSVC:` コールバックからユーザーの MVPD の URL を取得し、`UIWebView/WKWebView` または `SFSafariViewController` コントローラーを開いて、そのコントローラーをその URL に誘導します。
+1. ユーザーがプロバイダーを選択したら、`navigateToUrl:` または `navigateToUrl:useSVC:` コールバックからユーザーのMVPDの URL を取得し、`UIWebView/WKWebView` または `SFSafariViewController` コントローラーを開いて、そのコントローラーを URL に誘導します。
 
-1. 前の手順でインスタンス化された `UIWebView/WKWebView` または `SFSafariViewController` を使用して、ユーザーは MVPD のログインページに移動し、ログイン資格情報を入力します。 コントローラ内では、いくつかのリダイレクト操作が行われます。</br>
+1. 前の手順でインスタンス化した `UIWebView/WKWebView` または `SFSafariViewController` を使用して、MVPDのログインページに移動し、ログイン資格情報を入力します。 コントローラ内では、いくつかのリダイレクト操作が行われます。</br>
 
 >[!NOTE]
 >
@@ -177,7 +177,7 @@ I. [Apple SSO でのログアウトフロー ](#logout_flow_with_AppleSSO) </br>
 
 1. UIWebView/WKWebView または SFSafariViewController コントローラを閉じて、AccessEnabler の `handleExternalURL:url` API メソッドを呼び出します。このメソッドは、AccessEnabler にバックエンド サーバから認証トークンを取得するように指示します。
 
-1. （オプション） [`checkPreauthorizedResources(resources)`](#$checkPreauth) を呼び出して、ユーザーが表示を許可されているリソースを確認します。 `resources` パラメーターは、ユーザーの認証トークンに関連付けられた、保護されたリソースの配列です。 ユーザーの MVPD から取得する認証情報の用途の 1 つは、UI を装飾することです（例えば、保護されたコンテンツの横にあるロックされた記号やロック解除された記号など）。
+1. （オプション） [`checkPreauthorizedResources(resources)`](#$checkPreauth) を呼び出して、ユーザーが表示を許可されているリソースを確認します。 `resources` パラメーターは、ユーザーの認証トークンに関連付けられた、保護されたリソースの配列です。 ユーザーのMVPDから取得する認証情報の 1 つの用途は、UI の装飾です（例えば、保護されたコンテンツの横にあるロック済み/ロック解除済みの記号など）。
 
    * **トリガー:** [`preauthorizedResources()`](#preauthResources) コールバック
    * **実行ポイント：** 完了した認証フロー後
@@ -189,13 +189,13 @@ I. [Apple SSO でのログアウトフロー ](#logout_flow_with_AppleSSO) </br>
 1. [`getAuthentication()`](#$getAuthN) を呼び出して認証フローを開始するか、ユーザーが既に認証されていることを確認します。
    **トリガー:**
 
-   * [presentTvProviderDialog （） ](#presentTvDialog) コールバック（ユーザーが認証されておらず、現在のリクエスターに SSO をサポートする MVPD が存在する場合）。 MVPD が SSO をサポートしていない場合は、クラシック認証フローが使用されます。
+   * [presentTvProviderDialog （） ](#presentTvDialog) コールバック（ユーザーが認証されておらず、現在のリクエスターに少なくとも SSO をサポートするMVPDがある場合）。 MVPD が SSO をサポートしていない場合は、クラシック認証フローが使用されます。
 
 1. ユーザーがプロバイダを選択すると、AccessEnabler ライブラリは、Appleの VSA フレームワークから提供された情報を使用して認証トークンを取得します。
 
 1. [setAuthenticatiosStatus （） ](#setAuthNStatus) コールバックがトリガーされます。 この時点で、ユーザーはApple SSO で認証される必要があります。
 
-1. [ オプション ] [`checkPreauthorizedResources(resources)`](#$checkPreauth) を呼び出して、ユーザーが表示を許可されているリソースを確認します。 `resources` パラメーターは、ユーザーの認証トークンに関連付けられた、保護されたリソースの配列です。 ユーザーの MVPD から取得する認証情報の用途の 1 つは、UI を装飾することです（例えば、保護されたコンテンツの横にあるロックされた記号やロック解除された記号など）。
+1. [ オプション ] [`checkPreauthorizedResources(resources)`](#$checkPreauth) を呼び出して、ユーザーが表示を許可されているリソースを確認します。 `resources` パラメーターは、ユーザーの認証トークンに関連付けられた、保護されたリソースの配列です。 ユーザーのMVPDから取得する認証情報の 1 つの用途は、UI を装飾することです（例えば、保護されたコンテンツの横にあるロックされた記号やロック解除された記号など）。
 
    * **トリガー:** [`preauthorizedResources()`](#preauthResources) コールバック
    * **実行ポイント：** 完了した認証フロー後
@@ -208,12 +208,12 @@ I. [Apple SSO でのログアウトフロー ](#logout_flow_with_AppleSSO) </br>
 認証フロー、またはユーザーが既に存在することを確認するために使用します
 認証済み。
    **トリガー:**
-   * [`presentTvProviderDialog()`](#presentTvDialog) コールバック（ユーザーが認証されておらず、現在のリクエスターに SSO をサポートする MVPD が少なくとも存在する場合）。 MVPD が SSO をサポートしていない場合は、クラシック認証フローが使用されます。
+   * [`presentTvProviderDialog()`](#presentTvDialog) コールバック（ユーザーが認証されておらず、現在のリクエスターに SSO をサポートするMVPDが少なくとも存在する場合）。 MVPD が SSO をサポートしていない場合は、クラシック認証フローが使用されます。
 
 1. ユーザーがプロバイダーを選択すると、[`status()`](#status_callback_implementation) コールバックが呼び出されます。 登録コードが提供され、AccessEnabler ライブラリが 2 番目の画面の認証を正常に行うためにサーバのポーリングを開始します。
 
 1. 指定した登録コードを使用して 2 番目の画面で正常に認証された場合は、[`setAuthenticatiosStatus()`](#setAuthNStatus) コールバックがトリガーされます。 この時点で、ユーザーはApple SSO で認証される必要があります。
-1. [ オプション ] [`checkPreauthorizedResources(resources)`](#$checkPreauth) を呼び出して、ユーザーが表示を許可されているリソースを確認します。 `resources` パラメーターは、ユーザーの認証トークンに関連付けられた、保護されたリソースの配列です。 ユーザーの MVPD から取得する認証情報の用途の 1 つは、UI を装飾することです（例えば、保護されたコンテンツの横にあるロックされた記号やロック解除された記号など）。
+1. [ オプション ] [`checkPreauthorizedResources(resources)`](#$checkPreauth) を呼び出して、ユーザーが表示を許可されているリソースを確認します。 `resources` パラメーターは、ユーザーの認証トークンに関連付けられた、保護されたリソースの配列です。 ユーザーのMVPDから取得する認証情報の 1 つの用途は、UI を装飾することです（例えば、保護されたコンテンツの横にあるロックされた記号やロック解除された記号など）。
 
    * **トリガー:** [`preauthorizedResources()`](#preauthResources) コールバック
 
@@ -224,7 +224,7 @@ I. [Apple SSO でのログアウトフロー ](#logout_flow_with_AppleSSO) </br>
 
 1. [getAuthorization （） ](#$getAuthZ) を呼び出して、認証フローを開始します。
 
-   * **依存関係：** 有効なリソース ID が MVPD と合意されました。
+   * **依存関係：** 有効な ResourceID がMVPDと合意されました。
    * リソース ID は、他のデバイスまたはプラットフォームで使用される ID と同じである必要があり、MVPD 間でも同じになります。 リソース ID について詳しくは、「[ 保護されたリソースの識別 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/identify-protected-resources.md)」を参照してください
 
 1. 認証と承認を検証します。

@@ -2,14 +2,14 @@
 title: 認証の開始
 description: 認証の開始
 exl-id: 55dddd29-68d6-4aae-8744-307fea285e29
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '291'
+source-wordcount: '292'
 ht-degree: 0%
 
 ---
 
-# 認証の開始 {#initiate-authentication}
+# （レガシー）認証の開始 {#initiate-authentication}
 
 >[!NOTE]
 >
@@ -36,13 +36,13 @@ ht-degree: 0%
 
 ## 説明 {#description}
 
-MVPD 選択イベントを通知して認証プロセスを開始します。 Adobe Pass認証データベースにレコードを作成します。これは、MVPD から正常な応答を受信したときに調整されます。
+MVPD選択イベントを通知して認証プロセスを開始します。 Adobe Pass認証データベースにレコードを作成します。これは、MVPDから応答が成功すると紐付けされます。
 
 
 
 | エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/authenticate | AuthN モジュール | 1. requestor_id （必須） </br>2.  mso_id （必須） </br>3.  reg_code （必須） </br>4.  domain_name （必須） </br>5.  noflash=true - </br>    （必須、残差パラメーター） </br>6.  no_iframe=true （必須、残差パラメーター） </br>7.  追加のパラメーター（オプション） </br>8。  redirect_url （必須） | GET | ログイン Web アプリは、MVPD ログインページにリダイレクトされます。 | 完全なリダイレクト実装用の 302 |
+| &lt;SP_FQDN>/api/v1/authenticate | AuthN モジュール | 1. requestor_id （必須） </br>2.  mso_id （必須） </br>3.  reg_code （必須） </br>4.  domain_name （必須） </br>5.  noflash=true - </br>    （必須、残差パラメーター） </br>6.  no_iframe=true （必須、残差パラメーター） </br>7.  追加のパラメーター（オプション） </br>8。  redirect_url （必須） | GET | ログイン Web アプリケーションは、MVPDのログインページにリダイレクトされます。 | 完全なリダイレクト実装用の 302 |
 
 {style="table-layout:auto"}
 
@@ -50,7 +50,7 @@ MVPD 選択イベントを通知して認証プロセスを開始します。 Ad
 | 入力パラメーター | 説明 |
 | --- | --- |
 | requestor_id | この操作が有効なプログラマ要求元。 |
-| mso_id | この操作が有効な MVPD ID。 |
+| mso_id | この操作が有効なMVPD ID。 |
 | reg_code | Reggie サービスによって生成される登録コード。 |
 | domain_name | 元のドメイン。 |
 | redirect_url | 認証完了後のログイン Web アプリケーション リダイレクト URL。 |
@@ -93,7 +93,7 @@ MVPD 選択イベントを通知して認証プロセスを開始します。 Ad
 
 * `domain_name` パラメーターの値は、Adobe Pass Authentication に登録されているドメイン名のいずれかに設定されている必要があります。 詳しくは、「登録と初期化 [ を参照してください ](/help/authentication/kickstart/programmer-overview.md)。
 
-* [/authenticate リクエストで「&amp;&#39;reg\_code」を使用するのを避ける（テクニカルノート）](/help/authentication/notes-technical/clientless-avoid-using-reg-code-in-authenticate-request.md)
+* [/authenticate リクエストで「&amp;&#39;reg\_code」を使用するのを避ける（テクニカルノート）](/help/authentication/integration-guide-programmers/legacy/notes-technical/clientless-avoid-using-reg-code-in-authenticate-request.md)
 
 * `redirect_url` パラメーターは最後でなければなりません
 

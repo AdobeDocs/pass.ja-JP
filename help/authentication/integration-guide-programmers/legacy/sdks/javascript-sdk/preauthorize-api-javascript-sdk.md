@@ -2,14 +2,14 @@
 title: 事前認証
 description: JavaScriptを事前認証
 exl-id: b7493ca6-1862-4cea-a11e-a634c935c86e
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '1465'
+source-wordcount: '1466'
 ht-degree: 0%
 
 ---
 
-# 事前認証 {#js-preauthorize}
+# （レガシー）事前認証 {#js-preauthorize}
 
 >[!NOTE]
 >
@@ -19,7 +19,7 @@ ht-degree: 0%
 
 事前認証 API メソッドは、アプリケーションが 1 つ以上のリソースに対して事前認証の決定を取得するために使用します。 事前認証 API リクエストは、UI ヒントやコンテンツフィルタリングに使用する必要があります。 指定したリソースへのユーザーアクセスを許可する前に、実際の認証 API リクエストを行う必要があります。
 
-事前認証 API リクエストがAdobe Pass Authentication Services によって処理される際に、予期しないエラー（ネットワークの問題、MVPD 認証エンドポイントが利用できないなど）が発生した場合は、影響を受けるリソースに関する 1 つ以上のエラー情報が事前認証 API 応答の結果の一部として含まれます。
+事前認証 API リクエストがAdobe Pass Authentication Services によって処理される際に、予期しないエラー（ネットワークの問題、MVPD認証エンドポイントが利用できないなど）が発生した場合は、事前認証 API 応答の結果の一部として、影響を受けるリソースに関する 1 つ以上のエラー情報が個別に含まれます。
 
 ### public preauthorize （request: PreauthorizeRequest, callback: AccessEnablerCallback&lt;any>）: void {#preauth-method}
 
@@ -39,7 +39,7 @@ ht-degree: 0%
 
 * 事前認証の決定を取得するリソースのリストを設定します。
 * 事前認証 API を使用するには、これを設定する必要があります。
-* リスト内の各要素は、MVPD と合意する必要があるリソース ID 値またはメディア RSS フラグメントを表す文字列型である必要があります。
+* リストの各要素は、MVPDと合意する必要があるリソース ID 値またはメディア RSS フラグメントを表す文字列である必要があります。
 * このメソッドは、現在の `PreauthorizeRequestBuilder` オブジェクトインスタンス（このメソッド呼び出しの受信者）のコンテキストでのみ情報を設定します。
 
 * 実際の `PreauthorizeRequest` を作成するには、`PreauthorizeRequestBuilder` のメソッドを参照します。
@@ -72,7 +72,7 @@ public func build() -> PreauthorizeRequest
 * このメソッドは、呼び出されるたびに新しい `PreauthorizeRequest` オブジェクトをインスタンス化します。
 * このメソッドは、このメソッド呼び出しの受信者である現在の `PreauthorizeRequestBuilder` オブジェクトインスタンスのコンテキストで、事前に設定された値を使用します。
 * この方法では副作用が生じないことを覚えておいてください。
-* したがって、このメソッド呼び出しの受信者である `PreauthorizeRequestBuilder` オブジェクトインスタンスの SDK の状態または状態は変更されません。
+* したがって、このメソッド呼び出しの受信者であるSDKのステートまたは `PreauthorizeRequestBuilder` オブジェクトインスタンスのステートは変更されません。
 * つまり、同じ受信者に対してこのメソッドを連続して呼び出すと、新しい `PreauthorizeRequest` オブジェクトのインスタンスは異なりますが、呼び出し間で値が変更されていない `PreauthorizeRequestBuilder` に設定されている場合は、同じ情報を持ちます。
 * 指定された情報（リソースとキャッシュ）を更新する必要がない場合は、事前認証 API の複数回使用するために、PreauthorizeRequest インスタンスを再利用できます。
 * `@returns {PreauthorizeRequest}`
@@ -81,13 +81,13 @@ public func build() -> PreauthorizeRequest
 
 #### onResponse （result: T）; {#on-response-result}
 
-* 事前認証 API リクエストが満たされたときに SDK によって呼び出された応答コールバック。
+* 事前認証 API リクエストが満たされたときにSDKによって呼び出された応答コールバック。
 * 結果は、成功、またはステータスを含むエラー結果です。
 * `@param {T} result`
 
 #### onFailure （result: T）; {#on-failure-result}
 
-* 事前承認 API リクエストの処理に失敗した場合に、SDK によって呼び出される失敗コールバック。
+* 事前認証 API リクエストを処理できなかった場合に、SDKによって呼び出されるエラーコールバック。
 * 結果は、ステータスを含む失敗結果です。
 * `@param {T} result`
 
@@ -108,7 +108,7 @@ public func build() -> PreauthorizeRequest
 #### パブリックステータス：数値； {#public-status-numbr}
 
 * RFC 7231 に記載されている HTTP 応答ステータスコード。
-* `Status` がAdobe Pass Authentication Services ではなく SDK から提供される場合は、0 になる可能性があります。
+* `Status` がAdobe Pass Authentication Services ではなくSDKから送信される場合は、0 である可能性があります。
 
 #### パブリックコード：number; {#public-code-numbr}
 
@@ -117,12 +117,12 @@ public func build() -> PreauthorizeRequest
 
 #### パブリックメッセージ：string; {#public-msg-string}
 
-* 詳細なメッセージ。場合によっては、MVPD 認証エンドポイントまたはプログラマの劣化ルールによって提供されます。
+* 詳細なメッセージ。MVPD認証エンドポイントによって提供される場合もあれば、プログラマーの劣化規則によって提供される場合もあります。
 * 空の文字列または `null` の値を保持できます。
 
 #### パブリックの詳細：文字列； {#public-details-strng}
 
-* 場合によっては、MVPD 認証エンドポイントまたはプログラマの劣化ルールによって提供される詳細なメッセージを保持します。
+* 場合によっては、MVPD認証エンドポイントまたはプログラマー劣化ルールによって提供される詳細なメッセージを保持します。
 * 空の文字列または `null` の値を保持できます。
 
 
@@ -290,9 +290,9 @@ accessEnablerApi.preauthorize(request, callback);
     &quot;error&quot;: {
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;preauthorization_denied_by_mvpd&quot;,
-    &quot;message&quot;: &quot;MVPD は、指定されたリソースの事前認証をリクエストしたときに、\&quot;Deny\&quot;決定を返しました。&quot;,
+    &quot;message&quot;: &quot;MVPDは、指定されたリソースの事前認証をリクエストする際に、\&quot;Deny\&quot;判断をを返しました。&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
-    &quot;action&quot; :&quot;none&quot;
+    &quot;action&quot; &quot;none&quot;
     }
     },
     {
@@ -303,7 +303,7 @@ accessEnablerApi.preauthorize(request, callback);
      
     
      
-&quot;id&quot;: &quot;RES03&quot;,&quot;authorized&quot;: trueForce},JS 認証
+&quot;id&quot;: &quot;RES03&quot;,&quot;authorized&quot;: trueID}，次の値を使用します
 </td>
   </tr>
 </tbody>
@@ -361,14 +361,14 @@ accessEnablerApi.preauthorize(request, callback);
     &quot;error&quot;: {
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;preauthorization_denied_by_mvpd&quot;,
-    &quot;message&quot;: &quot;MVPD は、指定されたリソースの事前認証をリクエストする際に\&quot;Deny\&quot;という判断を返しました。&quot;,
+    &quot;message&quot;: &quot;MVPDは、指定されたリソースの事前認証をリクエストする際に\&quot;Deny\&quot;決定を返しました。&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;none&quot;
     }
-    },
+    }},
     {
-    &quot;id&quot;: &quot;RES 02,
-    &quot; &quot;authorized&quot;: false,
+    &quot;id&quot;: &quot;RES02&quot;,
+    &quot;authorized&quot;: false,
     &quot;error&quot;: {
     &quot;status&quot;: 403,
      
@@ -383,7 +383,7 @@ accessEnablerApi.preauthorize(request, callback);
      
      
      
-    &quot;code&quot;: &quot;preauthorization_denied_by_mvpd&quot;,&quot;message&quot;: &quot;MVPD は、指定されたリソースの事前認証をリクエストする際に、\&quot;Deny\&quot;決定を返しました。&quot;,helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,&quot;action&quot;: &quot;none&quot;404},ID&quot;: &quot;RES03&quot;,error&quot;: {status&quot;: 403,&quot;code&quot; execution_time_exceeded&quot;,&quot;message&quot;: &quot;リクエストが最大許容時間内に完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。&quot;,
+    &quot;code&quot;: &quot;preauthorization_denied_by_mvpd&quot;,and&quot;message&quot;: &quot;MVPDは、指定されたリソースの事前認証をリクエストする際に、\&quot;Deny\&quot;決定を返しました。&quot;,&quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,&quot;action&quot;: &quot;none&quot;403&quot;,error&quot;: {preauthorization&quot;status&quot;: 403,correct&quot;code&quot;: &quot;maximum_execution_time_exceeded&quot;,&quot;message&quot;: &quot;リクエストが最大許容時間内に完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;retry&quot;
     }
@@ -530,7 +530,7 @@ accessEnablerApi.preauthorize(request, callback);
     &quot;status&quot;: {
     &quot;status&quot;: 0,
     &quot;code&quot;: &quot;authentication_session_missing&quot;,
-    &quot;message&quot;: &quot;このリクエストに関連付けられた認証セッションを取得できませんでした。 続行するには、ユーザーは、サポートされている MVPD で再認証する必要があります。&quot;,
+    &quot;message&quot;: &quot;このリクエストに関連付けられた認証セッションを取得できませんでした。 続行するには、サポートされているMVPDで再認証する必要があります。&quot;,
     &quot;action&quot;: &quot;authentication&quot;
     },
     &quot;decisions&quot;: []

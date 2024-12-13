@@ -1,15 +1,15 @@
 ---
-title: MVPD リストの提供
-description: MVPD リストの提供
+title: MVPDリストを指定
+description: MVPDリストを指定
 exl-id: db2d8f19-d0b9-4195-bf0b-f9de0d96062b
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '232'
+source-wordcount: '233'
 ht-degree: 2%
 
 ---
 
-# MVPD リストの提供 {#provide-mvpd-list}
+# （従来の）MVPDリストの提供 {#provide-mvpd-list}
 
 >[!NOTE]
 >
@@ -53,12 +53,12 @@ ht-degree: 2%
 
 ### 応答のサンプル {#sample-response}
 
-/config サーブレットへの既存の MVPD XML 応答と同じ
+/config サーブレットに対する既存のMVPD XML 応答と同様
 
 メモ：Platform SSO を使用するように設定されたすべての MVPD では、対応するノード（JSON/XML）内に次の追加のプロパティが含まれます。
 
-* **enablePlatformServices （boolean）：この MVPD が Platform SSO 経由で統合されているかどうかを示す** フラグ
-* **boardingStatus （string）:** が MVPD が Platform SSO を完全にサポートしているか（サポート対象）、または MVPD がプラットフォームピッカーにのみ表示されているかを示すフラグ
-* **displayInPlatformPicker （boolean）：この MVPD がプラットフォームピッカーに表示される** 要があります
-* **platformMappingId （string）:** プラットフォームで認識されるこの MVPD の識別子
+* **enablePlatformServices （boolean）：このMVPDが Platform SSO で統合されるかどうかを示す** フラグ
+* **boardingStatus （string）:MVPDが Platform SSO を完全にサポートしているか（サポート対象）、MVPDがプラットフォームピッカーにのみ表示されるかを示す** フラグ
+* **displayInPlatformPicker （ブール値）：このMVPD** プラットフォームピッカーに表示されるかどうか
+* **platformMappingId （string）:** プラットフォームで認識されるこのMVPDの識別子
 * **requiredMetadataFields （文字列配列）:** ログインが成功した場合に使用できるユーザーメタデータフィールド

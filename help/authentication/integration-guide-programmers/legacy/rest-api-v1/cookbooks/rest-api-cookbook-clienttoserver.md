@@ -2,14 +2,14 @@
 title: REST API クックブック（クライアントからサーバー）
 description: Rest API クックブッククライアントからサーバーへ。
 exl-id: f54a1eda-47d5-4f02-b343-8cdbc99a73c0
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '876'
+source-wordcount: '877'
 ht-degree: 0%
 
 ---
 
-# REST API クックブック（クライアントからサーバー） {#rest-api-cookbook-client-to-server}
+# （レガシー） REST API クックブック（クライアントからサーバー） {#rest-api-cookbook-client-to-server}
 
 >[!NOTE]
 >
@@ -18,7 +18,7 @@ ht-degree: 0%
 
 ## 概要 {#overview}
 
-このドキュメントでは、プログラマーのエンジニアリングチームが、REST API サービスを使用して「スマートデバイス」（ゲームコンソール、スマート TV アプリ、セットトップボックスなど）をAdobe Pass認証と統合する手順を順を追って説明します。 このクライアントからサーバーへのアプローチは、クライアント SDK ではなく REST API を使用するので、一意の SDK を数多く開発することは不可能な、様々なプラットフォームの幅広いサポートが可能になります。 クライアントレスソリューションの仕組みに関する技術的な概要については、[ クライアントレス技術概要 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/rest-api-overview.md) を参照してください。
+このドキュメントでは、プログラマーのエンジニアリングチームが、REST API サービスを使用して「スマートデバイス」（ゲームコンソール、スマート TV アプリ、セットトップボックスなど）をAdobe Pass認証と統合する手順を順を追って説明します。 このクライアントからサーバーへのアプローチは、クライアント SDKではなく REST API を使用するので、一意の SDK を数多く開発することは不可能な、様々なプラットフォームの幅広いサポートが可能になります。 クライアントレスソリューションの仕組みに関する技術的な概要については、[ クライアントレス技術概要 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md) を参照してください。
 
 
 このアプローチでは、必要なフローを完了するために 2 つのコンポーネント（ストリーミングアプリと AuthN アプリ）が必要です。ストリーミングアプリでの起動、登録、承認、ビューメディアフローと、AuthN アプリでの認証フローです。
@@ -36,11 +36,11 @@ Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authent
 | タイプ | コンポーネント | 説明 |
 | --- | --- | --- |
 | ストリーミングデバイス | ストリーミングアプリ | ユーザーのストリーミングデバイス上に存在し、認証済みビデオを再生するプログラマーアプリケーション。 |
-| | \[ オプション\] AuthN モジュール | ストリーミングデバイスにユーザーエージェント（Web ブラウザー）がある場合、AuthN モジュールは MVPD IdP 上でユーザーを認証する役割を果たします。 |
+| | \[ オプション\] AuthN モジュール | streaming Device にユーザーエージェント（Web ブラウザー）がある場合、MVPD IdP 上でユーザーの認証は AuthN モジュールが行います。 |
 | \[ オプション\] AuthN デバイス | AuthN アプリ | ストリーミングデバイスにユーザーエージェント（Web ブラウザー）がない場合、AuthN アプリケーションは、Web ブラウザーを使用して別のユーザーのデバイスからアクセスする、プログラマー向けの Web アプリケーションです。 |
 | Adobe基盤 | Adobe Pass サービス | MVPD IdP および AuthZ サービスと統合され、認証と承認の決定を行うサービス。 |
-| MVPD インフラストラクチャ | MVPD IdP | ユーザーの ID を検証するために、資格情報ベースの認証サービスを提供する MVPD エンドポイント。 |
-| | MVPD AuthZ サービス | ユーザーの購読、保護者による制限などに基づいて認証の決定を行う MVPD エンドポイント。 |
+| MVPD インフラストラクチャ | MVPD IdP | ユーザーの ID を検証するために、資格情報ベースの認証サービスを提供するMVPD エンドポイント。 |
+| | MVPD AuthZ サービス | ユーザーの購読、保護者による制限などに基づいて認証の決定を行うMVPD エンドポイント。 |
 
 
 
@@ -134,13 +134,13 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 一部のデバイスは、パートナーのシングルサインオン （SSO）に対する専用のサポートを提供しています。
 
-* [APPLE SSO](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v1.md)
+* [APPLE SSO](/help/authentication/integration-guide-programmers/legacy/sso-access/apple-sso-cookbook-rest-api-v1.md)
 
 ## Platform のシングルサインオン {#platform-sso}
 
 一部のデバイスは、Platform シングルサインオン（SSO）用の専用サポートを提供しています。
 
-* [AMAZON SSO](../../../features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v1.md)
+* [AMAZON SSO](../../sso-access/amazon-sso-cookbook-rest-api-v1.md)
 * [Roku SSO](../../../features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-overview.md)
 
 ## REST API の TempPass およびプロモーション TempPass {#temppass}

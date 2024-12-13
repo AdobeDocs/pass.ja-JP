@@ -2,14 +2,14 @@
 title: Amazon FireOS 統合クックブック
 description: Amazon FireOS 統合クックブック
 exl-id: 1982c485-f0ed-4df3-9a20-9c6a928500c2
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '1424'
+source-wordcount: '1425'
 ht-degree: 0%
 
 ---
 
-# Amazon FireOS 統合クックブック {#amazon-fireos-integration-cookbook}
+# （従来の）Amazon FireOS 統合クックブック {#amazon-fireos-integration-cookbook}
 
 >[!NOTE]
 >
@@ -70,7 +70,7 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
 
    - [navigateToUrl （url）](#$navigateToUrl)
 
-      - AmazonFireOS SDK では無視されます。このメソッドは、ユーザーが MVPD を選択した後、が `getAuthentication()` によってトリガーされるAndroid プラットフォームで使用されます。  `url` パラメーターは、MVPD のログインページの場所を指定します。
+      - AmazonFireOS SDKでは無視されます。このメソッドは、ユーザーがMVPDを選択した後、が `getAuthentication()` によってトリガーされるAndroid プラットフォームで使用されます。  `url` パラメーターは、MVPDのログインページの場所を指定します。
 
    - [&#39;sendTrackingData （event, data）&#39;](#$sendTrackingData)
 
@@ -164,7 +164,7 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
 
 1. [`getAuthorization()`](#$getAuthZ) を呼び出して、認証フローを開始します。
 
-   依存関係：有効なリソース ID が MVPD と合意されました。
+   依存関係：有効な ResourceID がMVPDと合意されました。
 
    **メモ：** ResourceID は、他のデバイスやプラットフォームで使用されるものと同じである必要があり、MVPD 間でも同じになります。
 
@@ -194,6 +194,6 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
 
 ### F. ログアウトフロー {#logout_flow}
 
-1. [`logout()`](#$logout) を呼び出してユーザーをログアウトさせます。 `AccessEnabler` は、シングルサインオン経由でログインを共有するすべてのリクエスターで、現在の MVPD に対してユーザーが取得した、キャッシュされたすべての値とトークンをクリアします。 キャッシュをクリアした後、`AccessEnabler` はサーバーコールを実行して、サーバーサイドのセッションをクリーンアップします。  サーバーコールは IdP への SAML リダイレクトを引き起こす可能性があるので（これにより、IdP 側でのセッションクリーンアップが可能になります）、このコールはすべてのリダイレクトに従う必要があります。 このため、この呼び出しは WebView コントロール内で処理され、ユーザーには表示されません。
+1. [`logout()`](#$logout) を呼び出してユーザーをログアウトさせます。 `AccessEnabler` は、シングルサインオン経由でログインを共有するすべてのリクエスターで、現在のMVPDに対してユーザーが取得した、キャッシュされたすべての値とトークンをクリアします。 キャッシュをクリアした後、`AccessEnabler` はサーバーコールを実行して、サーバーサイドのセッションをクリーンアップします。  サーバーコールは IdP への SAML リダイレクトを引き起こす可能性があるので（これにより、IdP 側でのセッションクリーンアップが可能になります）、このコールはすべてのリダイレクトに従う必要があります。 このため、この呼び出しは WebView コントロール内で処理され、ユーザーには表示されません。
 
    **注意：** ログアウトフローは、ユーザーが WebView とやり取りする必要がないという点で、認証フローとは異なります。 そのため、ログアウトプロセス中に WebView コントロールを非表示（つまり、非表示）にすることが（推奨されます）可能です。

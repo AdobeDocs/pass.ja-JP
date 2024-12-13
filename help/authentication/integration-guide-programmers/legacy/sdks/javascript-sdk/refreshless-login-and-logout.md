@@ -2,14 +2,14 @@
 title: 更新なしのログインとログアウト
 description: 更新なしのログインとログアウト
 exl-id: 3ce8dfec-279a-4d10-93b4-1fbb18276543
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '1761'
+source-wordcount: '1762'
 ht-degree: 0%
 
 ---
 
-# 更新なしのログインとログアウト {#tefresh-less-login-and-logout}
+# （レガシー）更新なしのログインとログアウト {#tefresh-less-login-and-logout}
 
 >[!NOTE]
 >
@@ -17,10 +17,10 @@ ht-degree: 0%
 
 ## 概要 {#overview}
 
-Web アプリケーションの場合、ユーザーの認証およびログアウトに使用できる様々なシナリオを考慮する必要があります。  MVPD では、ユーザーが MVPD の web ページにログインして認証を行う必要がありますが、次の追加要因が生じます。
+Web アプリケーションの場合、ユーザーの認証およびログアウトに使用できる様々なシナリオを考慮する必要があります。  MVPD では、ユーザーがMVPDの web ページにログインして認証を行う必要がありますが、次の追加要因が生じます。
 
 - 一部の MVPD は、サイトからログインページへの完全なリダイレクトを必要とします
-- 一部の MVPD では、MVPD のログインページを表示するために、サイトで iFrame を開く必要があります
+- 一部の MVPD では、MVPDのログインページを表示するために、サイトで iFrame を開く必要があります
 - 一部のブラウザーでは、iFrame シナリオが適切に処理されないので、これらのブラウザーに対しては、iFrame の代わりにポップアップウィンドウを使用する方が良い方法です
 
 Adobe Pass Authentication 2.7 以前は、ユーザーを認証するこれらのシナリオはすべて、プログラマーのページの完全な更新を伴っていました。2.7 以降のリリースでは、Adobe Pass Authentication チームは、ユーザーがログインおよびログアウト中にアプリのページを更新する必要がなくなるよう、これらのフローを改善しました。
@@ -44,10 +44,10 @@ Adobe Pass Authentication 2.7 以前は、ユーザーを認証するこれら�
 
 Adobe Pass認証 Web クライアントには、MVPD の要件に応じて、2 つの認証方法があります。
 
-1. **全ページリダイレクト -** ユーザーがプロバイダーを選択した後    の MVPD ピッカーから（フルページリダイレクトで設定）    AccessEnabler 上で起動され `setSelectedProvider(<mvpd>)` プログラマの Web サイト。ユーザーは MVPD のログイン・ページにリダイレクトされます。 ユーザーが有効な資格情報を指定すると、プログラマーの web サイトにリダイレクトされます。 AccessEnabler が初期化され、`setRequestor` の実行中にAdobe Pass Authentication から認証トークンが取得されます。
-1. **iFrame / ポップアップウィンドウ -** ユーザーがプロバイダー（iFrame で設定）を選択し `setSelectedProvider(<mvpd>)` 後、AccessEnabler で呼び出されます。 この操作により、`createIFrame(width, height)` コールバックがトリガーされ、名前 `"mvpdframe"` と指定されたサイズを使用して iFrame （またはブラウザーや環境設定に応じてポップアップ）を作成するようにプログラマーに通知されます。 iFrame/popup の作成後、AccessEnabler は iFrame/popup に MVPD のログイン ページをロードします。 ユーザーは有効な資格情報を提供し、iFrame/popup はAdobe Pass Authentication にリダイレクトされます。これにより、iFrame/popup を閉じて親ページ（プログラマーの web サイト）をリロードする JS スニペットが返されます。 フロー 1 と同様に、認証トークンは `setRequestor` 信中に取得されます。
+1. **全ページリダイレクト -** ユーザーがプロバイダーを選択した後    のMVPD ピッカーから（フルページリダイレクトで設定）    AccessEnabler 上で起動され `setSelectedProvider(<mvpd>)` プログラマの Web サイトは、MVPDのログイン・ページにリダイレクトされます。 ユーザーが有効な資格情報を指定すると、プログラマーの web サイトにリダイレクトされます。 AccessEnabler が初期化され、`setRequestor` の実行中にAdobe Pass Authentication から認証トークンが取得されます。
+1. **iFrame / ポップアップウィンドウ -** ユーザーがプロバイダー（iFrame で設定）を選択し `setSelectedProvider(<mvpd>)` 後、AccessEnabler で呼び出されます。 この操作により、`createIFrame(width, height)` コールバックがトリガーされ、名前 `"mvpdframe"` と指定されたサイズを使用して iFrame （またはブラウザーや環境設定に応じてポップアップ）を作成するようにプログラマーに通知されます。 iFrame/popup の作成後、AccessEnabler は iFrame/popup にMVPDのログイン・ページをロードします。 ユーザーは有効な資格情報を提供し、iFrame/popup はAdobe Pass Authentication にリダイレクトされます。これにより、iFrame/popup を閉じて親ページ（プログラマーの web サイト）をリロードする JS スニペットが返されます。 フロー 1 と同様に、認証トークンは `setRequestor` 信中に取得されます。
 
-`displayProviderDialog` コールバック（`getAuthentication`/`getAuthorization` によってトリガー）は、MVPD のリストと適切な設定を返します。 MVPD の `iFrameRequired` プロパティを使用すると、プログラマはフロー 1 またはフロー 2 をアクティブにする必要があるかどうかを知ることができます。 プログラマーは、フロー 2 に対してのみ追加のアクション（iFrame/ポップアップの作成）を実行する必要があります。
+`displayProviderDialog` コールバック（`getAuthentication`/`getAuthorization` によってトリガー）は、MVPD のリストと適切な設定を返します。 MVPDの `iFrameRequired` プロパティを使用すると、プログラマーはフロー 1 とフロー 2 のどちらをアクティブ化する必要があるかを知ることができます。 プログラマーは、フロー 2 に対してのみ追加のアクション（iFrame/ポップアップの作成）を実行する必要があります。
 
 **認証のキャンセル**
 
@@ -61,7 +61,7 @@ Adobe Pass認証 Web クライアントには、MVPD の要件に応じて、2 �
 
 ## 元のログアウトフロー {#orig_logout}
 
-AccessEnabler のログアウト API は、ライブラリのローカル状態をクリアし、現在のタブ/ウィンドウに MVPD のログアウト URL をロードします。 ブラウザーは MVPD のログアウトエンドポイントに移動し、プロセスが完了すると、ユーザーはプログラマーの web サイトにリダイレクトされます。 ユーザーの代わりに必要なアクションは、ログアウトボタン/リンクを押してフローを開始することのみです。MVPD のログアウトエンドポイントではユーザーの操作は必要ありません。
+AccessEnabler のログアウト API は、ライブラリのローカル・ステートをクリアし、現在のタブ/ウィンドウにMVPDのログアウト URL をロードします。 ブラウザーがMVPDのログアウトエンドポイントに移動し、プロセスが完了すると、ユーザーはプログラマーの web サイトにリダイレクトされます。 ユーザーの代わりに必要な唯一のアクションは、ログアウト ボタン/リンクを押し、フローを開始することです。MVPDのログアウトエンドポイントでは、ユーザーの操作は必要ありません。
 
 **ページ更新を含む元の認証/ログアウトフロー**
 
@@ -92,7 +92,7 @@ AccessEnabler のログアウト API は、ライブラリのローカル状態�
 
 次のポイントは、元の認証フローと改善されたフローの間の移行を説明します。
 
-1. フルページリダイレクトは、MVPD ログインが実行される新しいブラウザータブに置き換えられます。 プログラマーは、ユーザーが（`iFrameRequired = false` を使用して） MVPD を選択すると、`mvpdwindow` という名前の新しいタブを（`window.open` を使用して）作成する必要があります。 次に、プログラマは `setSelectedProvider(<mvpd>)` を実行し、AccessEnabler が MVPD ログイン URL を新しいタブにロードできるようにします。 ユーザーが有効な認証情報を指定すると、Adobe Pass Authentication はタブを閉じ、window.postMessage をプログラマーの Web サイトに送信し、認証フローが完了したことを AccessEnabler に知らせます。 次のコールバックがトリガーされます。
+1. フルページリダイレクトは、MVPDへのログインを実行する新しいブラウザータブに置き換えられます。 プログラマーは、ユーザーが（`iFrameRequired = false` を使用して）MVPDを選択すると、`mvpdwindow` という名前の新しいタブを（`window.open` を使用して）作成する必要があります。 次に、プログラマは `setSelectedProvider(<mvpd>)` を実行し、AccessEnabler が新しいタブにMVPDのログイン URL をロードできるようにします。 ユーザーが有効な認証情報を指定すると、Adobe Pass Authentication はタブを閉じ、window.postMessage をプログラマーの Web サイトに送信し、認証フローが完了したことを AccessEnabler に知らせます。 次のコールバックがトリガーされます。
 
    - フローが `getAuthentication` によって開始された場合：`setAuthenticationStatus` および `sendTrackingData(AUTHENTICATION_DETECTION...)` がトリガーされて、認証の成功/失敗が通知されます。
 
@@ -104,7 +104,7 @@ AccessEnabler のログアウト API は、ライブラリのローカル状態�
 
 >[!IMPORTANT]
 > 
->MVPD のログイン iFrame またはポップアップ・ウィンドウを、AccessEnabler インスタンスを含むページの直接の子としてロードする必要があります。 MVPD のログイン iFrame またはポップアップ・ウィンドウが、AccessEnabler インスタンスを含むページの下の 2 つ以上のレベルにネストされている場合、フローがハングする可能性があります。 たとえば、メイン ページと MVPD iFrame （Page =\> iFrame =\> MVPD iFrame）の間に iFrame がある場合、ログイン フローは失敗する可能性があります。
+>MVPDのログイン iFrame またはポップアップ・ウィンドウを、AccessEnabler インスタンスを含むページの直接の子としてロードする必要があります。 AccessEnabler インスタンスを含むページの下に、MVPDのログイン iFrame またはポップアップ・ウィンドウが 2 つ以上のレベル下にネストされている場合、フローが停止する可能性がある。 例えば、メインページとMVPD iFrame の間に iFrame がある場合（Page =\> iFrame =\> MVPD iFrame）、ログインフローが失敗する可能性があります。
 
 </br>
 
@@ -122,11 +122,11 @@ AccessEnabler のログアウト API は、ライブラリのローカル状態�
 
 ## ログアウトフローの改善 {#improved_logout}
 
-新しいログアウトフローは非表示の iFrame で実行されるので、ページ全体のリダイレクトが不要になります。  これは、ユーザーが MVPD のログアウトページで特定のアクションを実行する必要がないために可能です。
+新しいログアウトフローは非表示の iFrame で実行されるので、ページ全体のリダイレクトが不要になります。  これは、ユーザーがMVPDのログアウトページで特定のアクションを実行する必要がないことが原因で発生する可能性があります。
 
 ログアウトフローが完了すると、カスタム Adobe Pass認証エンドポイントに iFrame がリダイレクトされます。 これにより、親に対して `window.postMessage` を実行する JS スニペットが提供され、ログアウトが完了したことが AccessEnabler に通知されます。 次のコールバックがトリガーされます。`setAuthenticationStatus()` および `sendTrackingData(AUTHENTICATION_DETECTION ...)` は、ユーザーが認証されなくなったことを示します。
 
-次の図は、アプリケーションのメインページを更新せずに MVPD にログインできる更新なしのフローを示しています。
+次の図は、アプリケーションのメインページを更新せずにMVPDにログインできる更新なしのフローを示しています。
 
 **改善された（更新のない）認証/ログアウトフロー**
 
@@ -142,11 +142,11 @@ TempPass フローでは、ウィンドウを自動的に作成し、明示的�
 
 更新なしログインおよびログアウト用に TempPass を実装する際に、プログラマーが認識する必要がある側面を次に示します。
 
-- 認証を開始する前に、iFrame またはポップアップウィンドウは TempPass 以外の MVPD に対してのみ作成する必要があります。 プログラマは、MVPD オブジェクトの `tempPass` プロパティ （`setConfig()` / `displayProviderDialog()` で返される）を読み取ることで、MVPD が TempPass かどうかを検出できます。
+- 認証を開始する前に、iFrame またはポップアップウィンドウは TempPass 以外の MVPD に対してのみ作成する必要があります。 プログラマーは、MVPD オブジェクトの `tempPass` プロパティ（`setConfig()` / `displayProviderDialog()` で返される）を読み取ることで、MVPDが TempPass かどうかを検出できます。
 
-- `createIFrame()` コールバックは TempPass のチェックを含み、MVPD が TempPass でない場合にのみロジックを実行する必要があります。
+- `createIFrame()` コールバックには、TempPass のチェックが含まれ、MVPDが TempPass でない場合にのみロジックを実行する必要があります。
 
-- `destroyIFrame()` コールバックは TempPass のチェックを含み、MVPD が TempPass でない場合にのみロジックを実行する必要があります。
+- `destroyIFrame()` コールバックには、TempPass のチェックが含まれ、MVPDが TempPass でない場合にのみロジックを実行する必要があります。
 
 - `setAuthenticationStatus()` コールバックと `sendTrackingData()` コールバックは、認証が完了した後に呼び出されます（通常の MVPD のリフレッシュレスフローとまったく同じ）。
 
@@ -156,7 +156,7 @@ TempPass フローでは、ウィンドウを自動的に作成し、明示的�
 
 </br>
 
-次のコード例は、プログラマーの web サイト上で MVPD ウィンドウを処理する方法を示しています（通常の MVPD の場合と TempPass の場合の両方）。
+次のコード例は、プログラマーの web サイト上でMVPD ウィンドウを処理する方法を示しています（通常の MVPD の場合も TempPass の場合も）。
 
 ```javascript
     var aeHostname = "https://entitlement.auth.adobe.com";

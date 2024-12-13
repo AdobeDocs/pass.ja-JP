@@ -1,15 +1,15 @@
 ---
-title: Dynamic Client Registration を使用したAndroid SDK
-description: Dynamic Client Registration を使用したAndroid SDK
+title: Dynamic Client Registration のAndroid SDK
+description: Dynamic Client Registration のAndroid SDK
 exl-id: 8d0c1507-8e80-40a4-8698-fb795240f618
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '1278'
+source-wordcount: '1279'
 ht-degree: 0%
 
 ---
 
-# Dynamic Client Registration を使用したAndroid SDK {#android-sdk-with-dynamic-client-registration}
+# （従来の） Dynamic Client Registration を使用したAndroid SDK {#android-sdk-with-dynamic-client-registration}
 
 >[!NOTE]
 >
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 ## 概要 {#Intro}
 
-Android用Android AccessEnabler SDK は、セッション Cookie を使用せずに認証を有効にするように変更されました。 cookie へのアクセスを制限するブラウザーが増えているので、認証を許可するには別の方法を使用する必要があります。
+Android AccessEnabler SDK for Androidは、セッション Cookie を使用せずに認証を有効にするように変更されました。 cookie へのアクセスを制限するブラウザーが増えているので、認証を許可するには別の方法を使用する必要があります。
 
 Androidの場合、Chromeのカスタムタブを使用すると、他のアプリケーションからの Cookie へのアクセスが制限されます。
 
@@ -28,17 +28,17 @@ Androidの場合、Chromeのカスタムタブを使用すると、他のアプ�
 
 >[!NOTE]
 >
->Chromeを使用していない古いバージョンのAndroidの場合、カスタムタブのサポートでは、古い AccessEnabler SDK バージョンと同様の WebView 認証を使用します。
+>Chromeを使用していない古いバージョンのAndroidの場合、カスタムタブのサポートでは、古いバージョンの AccessEnabler SDKと同様の WebView 認証を使用します。
 
 
 ## 動的なクライアント登録 {#DCR}
 
-Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) で定義されている動的クライアント登録手順を使用します。
+Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) で定義されている Dynamic Client Registration 手順を使用します。
 
 
 ## 機能デモ {#Demo}
 
-機能のコンテキストを詳しく説明する [ このウェビナー ](https://my.adobeconnect.com/pzkp8ujrigg1/) をご覧ください。これには、TVE ダッシュボードを使用してソフトウェアステートメントを管理する方法と、Android SDK の一部としてAdobeから提供されるデモアプリケーションを使用して生成されたステートメントをテストする方法のデモが含まれています。
+機能のコンテキストを詳しく説明する [ このウェビナー ](https://my.adobeconnect.com/pzkp8ujrigg1/) をご覧ください。これには、TVE ダッシュボードを使用してソフトウェアステートメントを管理する方法と、Android SDKの一部としてAdobeが提供するデモアプリケーションを使用して生成されたステートメントをテストする方法のデモが含まれています。
 
 ## API の変更点 {#API}
 
@@ -73,7 +73,7 @@ Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../
 
 *urls* パラメーターを使用しない場合、生成されるネットワーク呼び出しは、デフォルトのサービスプロバイダー URL （Adobeリリース/実稼動環境）をターゲットにします。
 
-*urls* パラメーターに値を指定すると、結果として得られるネットワーク呼び出しは、*urls* パラメーターで指定されるすべての URL をターゲットにします。 すべての設定要求が、別々のスレッドで同時にトリガーされます。 MVPD のリストをコンパイルする場合は、最初のレスポンダーが優先されます。 Access Enabler は、リスト内の各 MVPD に対して、関連するサービス プロバイダの URL を記憶します。 以降のすべての使用権限リクエストは、設定段階でターゲット MVPD とペアになったサービスプロバイダーに関連付けられた URL に送られます。
+*urls* パラメーターに値を指定すると、結果として得られるネットワーク呼び出しは、*urls* パラメーターで指定されるすべての URL をターゲットにします。 すべての設定要求が、別々のスレッドで同時にトリガーされます。 MVPD のリストをコンパイルする場合は、最初のレスポンダーが優先されます。 Access Enabler は、リスト内の各MVPDについて、関連するサービス プロバイダの URL を記憶します。 以降のすべての使用権限リクエストは、設定段階でターゲット MVPDとペアになっていた、サービスプロバイダーに関連付けられた URL に送られます。
 
 | API 呼び出し：リクエスター設定 |
 | --- |
@@ -90,7 +90,7 @@ Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../
 **パラメーター：**
 
 - *requestorID*：チャネルに関連付けられた一意の ID。 Adobe Pass Authentication サービスに初めて登録したときに、Adobeによって割り当てられた一意の ID をサイトに渡します。
-- *urls*：オプションのパラメーターです。デフォルトでは、Adobe サービスプロバイダーが使用されます [http://sp.auth.adobe.com/](http://sp.auth.adobe.com/)。 この配列を使用すると、Adobeが提供する認証サービスと承認サービスのエンドポイントを指定できます（デバッグ目的で別のインスタンスを使用することもできます）。 これを使用して、複数のAdobe Pass Authentication サービスプロバイダーインスタンスを指定できます。 その場合、MVPD リストはすべてのサービスプロバイダーのエンドポイントで構成されます。 各 MVPD は、最速のサービスプロバイダー、つまり、最初に応答し、その MVPD をサポートするプロバイダーに関連付けられます。
+- *urls*：オプションのパラメーターです。デフォルトでは、Adobe サービスプロバイダーが使用されます [http://sp.auth.adobe.com/](http://sp.auth.adobe.com/)。 この配列を使用すると、Adobeが提供する認証サービスと承認サービスのエンドポイントを指定できます（デバッグ目的で別のインスタンスを使用することもできます）。 これを使用して、複数のAdobe Pass Authentication サービスプロバイダーインスタンスを指定できます。 その場合、MVPDのリストは、すべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー（最初に応答し、そのMVPDをサポートするプロバイダー）に関連付けられます。
 
 非推奨（廃止予定）:
 
@@ -100,7 +100,7 @@ Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../
 
 ### ログアウト
 
-**説明：** このメソッドを使用して、ログアウトフローを開始します。 ログアウトは、ユーザーがAdobe Pass認証サーバーと MVPD の両方のサーバーからログアウトする必要があるために、一連の HTTP リダイレクト操作の結果です。 その結果、このフローでは、ログアウトを実行するための ChromeCustomTab ウィンドウが開きます。
+**説明：** このメソッドを使用して、ログアウトフローを開始します。 ログアウトは、ユーザーがAdobe PassMVPDサーバーと認証サーバーの両方からログアウトする必要があるために、一連の HTTP リダイレクト操作の結果です。 その結果、このフローでは、ログアウトを実行するための ChromeCustomTab ウィンドウが開きます。
 
 | API 呼び出し：ログアウトフローの開始 |
 | --- |
@@ -119,7 +119,7 @@ Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../
 
 a. Adobe Passから software\_statement と redirect\_uri を取得する（TVE Dashboard）
 
-b.これらの値をAdobe Pass SDK に渡す方法は 2 つあります。
+b.これらの値をAdobe Pass SDKに渡す方法は 2 つあります。
 
 strings.xml に次を追加します。
 
@@ -136,28 +136,28 @@ redirectUrl）
 
 a. setRequestor （requestor\_id）
 
-SDK は次の操作を実行します。
+SDKは次の操作を実行します。
 
-- アプリケーションの登録：**software\_statement** を使用して、SDK は **client\_id、client\_secret、client\_id\_issued\_at、redirect\_uris、grant\_types** を取得します。 この情報は、アプリケーションの内部ストレージに保存されます。
+- アプリケーションを登録：**software\_statement** を使用して、SDKは **client\_id、client\_secret、client\_id\_issued\_at、redirect\_uris、grant\_types** を取得します。 この情報は、アプリケーションの内部ストレージに保存されます。
 
-- client\_id、client\_secret および grant\_type=&quot;client\_credentials **を使用して、** access\_token&quot;を取得します。 この access\_token は、SDK がAdobe Pass サーバーに対して行う各呼び出しで使用されます
+- client\_id、client\_secret および grant\_type=&quot;client\_credentials **を使用して、** access\_token&quot;を取得します。 この access\_token は、SDKがAdobe Pass サーバーに対して行う各コールで使用されます
 
 **トークンエラー応答：**
 
 | エラーの応答 | | |
 | --- | --- | --- |
 | HTTP 400 （無効なリクエスト） | {&quot;error&quot;: &quot;invalid\_request&quot;} | 要求に必須パラメーターがないか、サポートされていないパラメーター値（許可タイプ以外）が含まれているか、パラメーターを繰り返しているか、複数の資格情報が含まれているか、クライアントの認証に複数のメカニズムが使用されているか、その他の形式が正しくありません。 |
-| HTTP 400 （無効なリクエスト） | {&quot;error&quot;: &quot;invalid\_client&quot;} | クライアントが不明なため、クライアント認証に失敗しました。 SDK は、再度認証サーバーに登録する必要があります。 |
+| HTTP 400 （無効なリクエスト） | {&quot;error&quot;: &quot;invalid\_client&quot;} | クライアントが不明なため、クライアント認証に失敗しました。 SDKは、再度認証サーバーに登録する必要があります。 |
 | HTTP 400 （無効なリクエスト） | {&quot;error&quot;: &quot;unauthorized\_client&quot;} | 認証済みクライアントには、この認証付与タイプの使用が許可されていません。 |
 
-- mvpd がパッシブ認証を必要とする場合、Chromeのカスタムタブが開き、その MVPD でパッシブ認証を実行し、完了すると閉じます
+- MVPDでパッシブ認証が必要な場合は、Chrome カスタムタブが開き、そのMVPDでパッシブに実行され、完了すると閉じられます
 
 b. checkAuthentication （）
 
 - true：認証に移動します
-- false : MVPD の選択に移動します。
+- false :「MVPDを選択」に移動します。
 
-c. getAuthentication :SDK は、呼び出しパラメーターに **access_token** を含めます
+c. getAuthentication :SDKの呼び出しパラメーターに **access_token** を含めます
 
 - mvpd remembered : setSelectedProvider （mvpd_id）に移動します
 - mvpd が選択されていません：displayProviderDialog
@@ -167,26 +167,26 @@ d. setSelectedProvider
 
 - mvpd\_id 認証 URL は、ChromeCustomTabs に読み込まれる
 - ログイン成功：delegate.setAuthenticationStatus （成功）
-- ログインがキャンセルされました：MVPD 選択をリセット
+- ログインがキャンセルされました：MVPDの選択をリセット
 - 認証が完了したときにキャプチャするための URL スキームが「adobepass://redirect_uri」として確立されています
 
-e. get/checkAuthorization :SDK は、ヘッダーの **access_token** を Authorization:Bearer **access_token** として含めます。
+e. get/checkAuthorization :SDKは、ヘッダーの **access_token** を Authorization:Bearer **access_token** として含めます。
 
 - 認証に成功した場合、
 メディアトークン
 
 f. ログアウト :
 
-- SDK は、現在の要求者の有効なトークンを削除します（SSO を介さずに他のアプリケーションによって取得された認証は有効なままです）
-- SDK は、mvpd_id ログアウトエンドポイントに到達するために、Chromeのカスタムタブを開きます。 完了すると、Chromeのカスタムタブは閉じられます
+- SDKによって、現在の要求者の有効なトークンが削除されます（SSO を介さずに他のアプリケーションによって取得された認証は有効なままです）
+- SDKは、mvpd_id ログアウトエンドポイントに到達するために、Chromeのカスタムタブを開きます。 完了すると、Chromeのカスタムタブは閉じられます
 - ログアウトが完了した瞬間をキャプチャするために、URL スキームは「adobepass://logout」として確立されます
 - logout は、sendTrackingData （new Event （EVENT_LOGOUT,USER_NOT_AUTHENTICATED_ERROR）と callback : setAuthenticationStatus （0,&quot;Logout&quot;）をトリガーにします。
 
-**注意：** 各呼び出しには **access_token が必要なため** 以下のエラーコードが SDK で処理されます。
+**メモ：** 各呼び出しには **access_token が必要なため** 以下のエラーコードがSDKで処理されます。
 
 
 | エラーの応答 | | |
 | --- | ---|--- |
-| invalid_request | 400 | リクエストの形式が正しくありません。 SDK は、サーバーへの呼び出しの実行を停止する必要があります。 |
+| invalid_request | 400 | リクエストの形式が正しくありません。 SDKは、サーバーへの呼び出しを実行しなくなるはずです。 |
 | invalid_client | 403 | このクライアント ID は、要求の実行が許可されなくなりました。 SDK は、クライアント登録を再度実行する必要があります。 |
 | access_denied | 401 | access\_token が無効です。 sdk は、新しい access_token をリクエストする必要があります。 |

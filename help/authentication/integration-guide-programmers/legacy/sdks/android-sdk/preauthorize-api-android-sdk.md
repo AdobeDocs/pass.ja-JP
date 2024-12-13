@@ -2,14 +2,14 @@
 title: Androidを事前認証
 description: Androidを事前認証
 exl-id: b5337595-135f-4981-a578-2da432f125d6
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '195'
+source-wordcount: '196'
 ht-degree: 0%
 
 ---
 
-# 事前認証 {#preuthorize-android}
+# （レガシー）事前認証 {#preuthorize-android}
 
 >[!NOTE]
 >
@@ -22,7 +22,7 @@ ht-degree: 0%
 
 
 
-事前認証 API リクエストがAdobe Pass Authentication サービスによって処理される際に、予期しないエラー（ネットワークの問題、MVPD 認証エンドポイントが利用できないなど）が発生した場合、事前認証 API 応答結果の一部として、影響を受けるリソースに 1 つ以上のエラー情報を区切って含めます。
+事前認証 API リクエストがAdobe Pass Authentication Services によって処理される際に、予期しないエラー（ネットワークの問題、MVPD認証エンドポイントが利用できないなど）が発生した場合、影響を受けるリソースに対する 1 つ以上のエラー情報が事前認証 API 応答の結果の一部として含まれます。
 
 
 ## `public void preauthorize(PreauthorizeRequest request, AccessEnablerCallback<PreauthorizeResponse> callback);`

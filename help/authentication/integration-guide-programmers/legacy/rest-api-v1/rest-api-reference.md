@@ -2,14 +2,14 @@
 title: REST API リファレンス
 description: Rest api リファレンス
 exl-id: 67e4639e-db0b-4400-bb81-e214263e8395
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '653'
+source-wordcount: '654'
 ht-degree: 2%
 
 ---
 
-# REST API リファレンス {#rest-api-reference}
+# （レガシー） REST API リファレンス {#rest-api-reference}
 
 >[!NOTE]
 >
@@ -57,8 +57,8 @@ Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authent
 | 1. | [&lt;REGGIE_FQDN>/reggie/v1/ </br> {requestorId}/regcode](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) | ランダムに生成された登録コードとログインページ URI を返します | 2 | Adobe </br>Reg コード サービス | スマートデバイス |
 | 2. | [&lt;REGGIE_FQDN>/reggie/v1/ </br> {requestorId}/regcode/ </br> {registrationCode}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/return-registration-record.md) | 登録コード UUID、登録コード、ハッシュ化されたデバイス ID を含む登録コードレコードを返します | 8 | Adobe </br>Reg コード サービス | Adobe Pass 認証 |
 | 3. | [&lt;SP_FQDN>/api/v1/config/ </br> {requestorId}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/provide-mvpd-list.md) | リクエスターに設定された MVPD のリストを返します | 5 | Adobe</br>Adobe Pass </br>authentication </br>Service | ログイン </br>Web </br>App |
-| 4. | [&lt;SP_FQDN>/api/v1/authenticate](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authentication.md) | MVPD 選択イベントを通知して AuthN プロセスを開始します。 認証データベースにレコードを作成します。このレコードは、MVPD から応答が成功したときに紐付けされます（ステップ 13） | 7 | Adobe</br>Adobe Pass </br>authentication </br>Service | ログイン </br>Web </br>App |
-| 5. | SAML アサーションコンシューマー | Adobe Pass認証と MVPD の間の既存の SAML ワークフロー | 13 | Adobe Pass </br>authentication </br>Service | Adobe Pass 認証 |
+| 4. | [&lt;SP_FQDN>/api/v1/authenticate](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authentication.md) | MVPD選択イベントを通知して AuthN プロセスを開始します。 認証データベースにレコードを作成します。このレコードは、MVPDからリクエストが成功した場合に紐付けされます（手順 13） | 7 | Adobe</br>Adobe Pass </br>authentication </br>Service | ログイン </br>Web </br>App |
+| 5. | SAML アサーションコンシューマー | Adobe Pass認証とMVPDの間の既存の SAML ワークフロー | 13 | Adobe Pass </br>authentication </br>Service | Adobe Pass 認証 |
 | 6. | [&lt;SP_FQDN>/api/v1/checkauthn/ </br> {registrationCode}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/check-authentication-flow-by-second-screen-web-app.md) | ログイン Web アプリケーションは、試行されたログインフローが成功したかどうかを確認できます |                                                                                             | Adobe Pass </br> 認証   </br> サービス | ログイン   </br>Web   </br> アプリ |
 | 7. | [&lt;SP_FQDN>/api/v1/tokens/authn](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) | AuthN トークン関連メタデータを取得します | 15 | Adobe Pass </br>authentication </br>Service | スマートデバイス |
 | 8. | [&lt;REGGIE_FQDN>/reggie/v1/ </br> {requestorId}/regcode/ </br> {registrationCode}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/delete-registration-record.md) | 登録コードレコードを削除し、再利用のために登録コードを解放します | 16 | Adobe </br>Reg コード サービス | Adobe Pass 認証 |

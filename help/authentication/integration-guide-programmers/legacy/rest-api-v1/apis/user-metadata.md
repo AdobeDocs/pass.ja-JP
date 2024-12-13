@@ -2,14 +2,14 @@
 title: ユーザーメタデータ
 description: ユーザーメタデータ
 exl-id: 3d7b6429-972f-4ccb-80fd-a99870a02f65
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '495'
+source-wordcount: '496'
 ht-degree: 0%
 
 ---
 
-# ユーザーメタデータ {#user-metadata}
+# （従来の）ユーザーメタデータ {#user-metadata}
 
 >[!NOTE]
 >
@@ -35,7 +35,7 @@ ht-degree: 0%
 
 ## 説明 {#description}
 
-MVPD が認証済みユーザーに関して共有したメタデータを取得します。
+認証済みユーザーに関してMVPDが共有したメタデータを取得します。
 
 
 | エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
@@ -47,14 +47,14 @@ MVPD が認証済みユーザーに関して共有したメタデータを取得
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 要求者 | この操作が有効なプログラマ requestorId です。 |
 | deviceId | デバイス ID のバイト。 |
-| device_info/<p>X-Device-Info | ストリーミングデバイス情報。</br></br> **注意：** これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。 </br></br> 詳しくは、「デバイスと接続の情報を渡す [ を参照してください ](/help/authentication/integration-guide-programmers/passing-client-information-device-connection-and-application.md)。 |
-| _deviceType_ | デバイスタイプ（Roku、PC など）。</br></br> このパラメーターが正しく設定されている場合、ESM では、クライアントレスの使用時に [ デバイスタイプごとに分類 ](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#progr-filter-metrics) される指標を提供し、Roku、AppleTV、Xbox など、様々なタイプの分析を実行できるようにします。</br></br> しくは、[ パス指標でクライアントレスデバイスタイプパラメーターを使用するメリット ](/help/authentication/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md) を参照してください </br></br> **メモ：** このパラメーターは `device_info` で置き換えられます。 |
+| device_info/<p>X-Device-Info | ストリーミングデバイス情報。</br></br> **注意：** これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。 </br></br> 詳しくは、「デバイスと接続の情報を渡す [ を参照してください ](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。 |
+| _deviceType_ | デバイスタイプ（Roku、PC など）。</br></br> このパラメーターが正しく設定されている場合、ESM では、クライアントレスの使用時に [ デバイスタイプごとに分類 ](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#progr-filter-metrics) される指標を提供し、Roku、AppleTV、Xbox など、様々なタイプの分析を実行できるようにします。</br></br> しくは、[ パス指標でクライアントレスデバイスタイプパラメーターを使用するメリット ](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md) を参照してください </br></br> **メモ：** このパラメーターは `device_info` で置き換えられます。 |
 | _deviceUser_ | デバイスユーザー ID。</br></br> **メモ：** 使用する場合、`deviceUser` は [ 登録コードの作成 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) リクエストと同じ値を持つ必要があります。 |
 | _appId_ | アプリケーション ID/名前。</br></br> **メモ：** このパラメーターは `device_info` で置き換えられます。 `appId` を使用する場合は、[ 登録コードの作成 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) リクエストと同じ値を指定する必要があります。 |
 
 >[!NOTE]
 > 
->ユーザーメタデータ情報は、認証フローが完了した後で使用できますが、MVPD およびメタデータタイプに応じて、認証フローで更新できます。
+>ユーザーメタデータは、認証フローが完了した後で使用できますが、MVPDとメタデータタイプに応じて、認証フローで更新できます。
 
 
 

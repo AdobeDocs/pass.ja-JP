@@ -1,15 +1,15 @@
 ---
-title: iOS/tvOS SDK の概要
-description: iOS/tvOS SDK の概要
+title: iOS/tvOS SDKの概要
+description: iOS/tvOS SDKの概要
 exl-id: b02a6234-d763-46c0-bc69-9cfd65917a19
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '3731'
+source-wordcount: '3732'
 ht-degree: 0%
 
 ---
 
-# iOS/tvOS SDK の概要 {#iostvos-sdk-overview}
+# （従来の）iOS/tvOS SDKの概要 {#iostvos-sdk-overview}
 
 >[!NOTE]
 >
@@ -25,7 +25,7 @@ iOS AccessEnabler は、モバイルアプリが TV Everywhere の権利付与�
 
 ## iOSと tvOS の要件 {#reqs}
 
-iOS、tvOS プラットフォーム、Adobe Pass認証に関する現在の技術要件については、[ プラットフォーム/デバイス/ツールの要件 ](#ios) を参照し、SDK ダウンロードに含まれるリリースノートを参照してください。 このページの残りの部分には、特定の SDK バージョン以降に適用される変更に注意が必要な節が表示されます。 例えば、以下は 1.7.5 SDK に関する正当な注意事項です。
+iOS、tvOS プラットフォーム、Adobe Pass認証に関する現在の技術要件については、[ プラットフォーム/デバイス/ツールの要件 ](#ios) を参照し、SDKのダウンロードに含まれているリリースノートを参照してください。 以降のページには、特定のSDK バージョン以降に適用される変更点に関する注意事項が記載された節が表示されます。 例えば、以下は 1.7.5 SDKに関する正当な注意事項です。
 
 ## ネイティブクライアントワークフローについて {#flows}
 
@@ -55,17 +55,17 @@ iOS ネイティブクライアントの場合、[`setRequestor()`](#setReq) へ
 
 ### 汎用初期認証ワークフロー {#generic}
 
-このワークフローの目的は、MVPD を使用してユーザーにログインすることです。 ログインに成功すると、バックエンドサーバーはユーザーに認証トークンを発行します。 認証は通常、認証プロセスの一部として行われますが、次に認証が単独で機能する方法を説明します。には認証手順は含まれていません。
+このワークフローの目的は、MVPDを使用してユーザーにログインすることです。 ログインに成功すると、バックエンドサーバーはユーザーに認証トークンを発行します。 認証は通常、認証プロセスの一部として行われますが、次に認証が単独で機能する方法を説明します。には認証手順は含まれていません。
 
 このワークフローは、ネイティブクライアントと一般的なブラウザーベースの認証ワークフローでは異なりますが、手順 1～5 は、ネイティブクライアントとブラウザーベースのクライアントで同じです。
 
 1. アプリケーションは、AccessEnabler の `getAuthentication() `API メソッドを呼び出して認証ワークフローを開始します。このメソッドは、有効なキャッシュされた認証トークンをチェックします。
 1. ユーザーが現在認証されている場合、AccessEnabler は [`setAuthenticationStatus()`](#setAuthNStatus) コールバック関数を呼び出し、成功を示す認証ステータスを渡してフローを終了します。
-1. ユーザーが現在認証されていない場合、AccessEnabler は、ユーザーの最後の認証試行が特定の MVPD で成功したかどうかを確認することによって、認証フローを続行します。 MVPD ID がキャッシュされていて、`canAuthenticate` フラグが true であるか、または [`setSelectedProvider()`](#setSelProv) を使用して MVPD が選択されている場合、MVPD 選択ダイアログが表示されません。 認証フローは、MVPD のキャッシュされた値（最後に認証が成功したときに使用されたのと同じ MVPD）を使用して続行されます。 バックエンドサーバーに対してネットワーク呼び出しが実行され、ユーザーが MVPD ログインページにリダイレクトされます（以下の手順 6）。
-1. MVPD ID がキャッシュされておらず、MVPD が [`setSelectedProvider()`](#setSelProv) を使用して選択されていない場合、または `canAuthenticate` フラグが false に設定されている場合、[`displayProviderDialog()`](#dispProvDialog) コールバックが呼び出されます。 このコールバックは、選択する MVPD のリストをユーザーに提示する UI を作成するようにアプリケーションに指示します。 MVPD セレクターを構築するために必要な情報を含む、MVPD オブジェクトの配列が提供されます。 各 MVPD オブジェクトは、MVPD エンティティを記述し、MVPD の ID （例：XFINITY、AT\&amp;T など）や MVPD ロゴが見つかる URL などの情報を含みます。
-1. 特定の MVPD が選択されたら、アプリケーションはユーザーが選択した AccessEnabler に通知する必要があります。 ユーザーが目的の MVPD を選択したら、[`setSelectedProvider()`](#setSelProv) メソッドを呼び出して、AccessEnabler にユーザー選択を通知します。
+1. ユーザーが現在認証されていない場合、AccessEnabler は、ユーザーの最後の認証試行が特定のMVPDで成功したかどうかを確認することにより、認証フローを続行します。 MVPD ID がキャッシュされていて、`canAuthenticate` フラグが true であるか、またはMVPDが [`setSelectedProvider()`](#setSelProv) を使用して選択されている場合、MVPD選択ダイアログが表示されません。 認証フローは、MVPDのキャッシュされた値（最後に成功した認証で使用したMVPDと同じ）を使用して続行されます。 バックエンドサーバーに対してネットワーク呼び出しが実行され、ユーザーがMVPDのログインページにリダイレクトされます（以下の手順 6）。
+1. MVPD ID がキャッシュされておらず、[`setSelectedProvider()`](#setSelProv) を使用してMVPDが選択されていない場合、または `canAuthenticate` フラグが false に設定されている場合、[`displayProviderDialog()`](#dispProvDialog) コールバックが呼び出されます。 このコールバックは、選択する MVPD のリストをユーザーに提示する UI を作成するようにアプリケーションに指示します。 MVPD セレクターを構築するために必要な情報を含む、MVPD オブジェクトの配列が提供されます。 各MVPD オブジェクトは 1 つのMVPD エンティティを表し、MVPDの ID （XFINITY、AT\&amp;T など）やMVPDのロゴが見つかる URL などの情報を含みます。
+1. 特定のMVPDを選択したら、AccessEnabler にユーザーが選択した旨を通知する必要があります。 ユーザーが目的のMVPDを選択したら、[`setSelectedProvider()`](#setSelProv) メソッドを呼び出して、AccessEnabler に通知します。
 1. iOS AccessEnabler は、`navigateToUrl:` コールバックまたは `navigateToUrl:useSVC:` コールバックを呼び出して、MVPD ログインページにユーザーをリダイレクトします。 AccessEnabler は、どちらかを起動することにより、アプリケーションに対して `UIWebView/WKWebView or SFSafariViewController` コントローラの作成と、コールバックの `url` パラメータで指定された URL のロードを要求します。 これは、バックエンドサーバー上の認証エンドポイントの URL です。 tvOS AccessEnabler の場合、`statusDictionary` のパラメータで [status （） ](#status_callback_implementation) コールバックが呼び出され、2 番目の画面認証のポーリングが直ちに開始されます。 `statusDictionary` には、2 番目の画面認証に使用する必要がある `registration code` が含まれています。
-1. iOS AccessEnabler の場合は、MVPD のログインページにアクセスし、Application `UIWebView/WKWebView or SFSafariViewController `Controller を使用して資格情報を入力します。 この転送中にいくつかのリダイレクト操作が発生し、アプリケーションは、複数のリダイレクト操作中にコントローラによって読み込まれる URL を監視する必要があることに注意してください。
+1. iOS AccessEnabler の場合は、MVPDのログインページに移動し、Application `UIWebView/WKWebView or SFSafariViewController `Controller を使用して資格情報を入力します。 この転送中にいくつかのリダイレクト操作が発生し、アプリケーションは、複数のリダイレクト操作中にコントローラによって読み込まれる URL を監視する必要があることに注意してください。
 1. iOS AccessEnabler の場合、`UIWebView/WKWebView or SFSafariViewController` コントローラが特定のカスタム URL をロードすると、アプリケーションはコントローラを閉じて AccessEnabler の `handleExternalURL:url `API メソッドを呼び出す必要があります。 この特定のカスタム URL は、実際には無効であり、コントローラーが実際に読み込むことを目的としたものではないことに注意してください。 認証フローが完了したこと、および `UIWebView/WKWebView or SFSafariViewController` コントローラを安全に閉じることができることを示すシグナルとして、アプリケーションが解釈する必要があります。 アプリケーションで `SFSafariViewController `controller を使用する必要がある場合、特定のカスタム URL は `application's custom scheme` で定義されます（例：`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com`）。そうでない場合、この特定のカスタム URL は `ADOBEPASS_REDIRECT_URL` 定数で定義されます（例：`adobepass://ios.app`）。
 1. アプリケーションが `UIWebView/WKWebView or SFSafariViewController` コントローラを閉じ、AccessEnabler の `handleExternalURL:url `API メソッドを呼び出すと、AccessEnabler はバックエンド サーバから認証トークンを取得し、認証フローが完了したことをアプリケーションに通知します。 AccessEnabler は、ステータス コードが 1 の [`setAuthenticationStatus()`](#setAuthNStatus) コールバックを呼び出し、成功を示します。 これらの手順の実行中にエラーが発生した場合、[`setAuthenticationStatus()`](#setAuthNStatus) コールバックは、認証失敗を示すステータスコード 0 と対応するエラーコードでトリガーされます。
 
@@ -79,7 +79,7 @@ iOS ネイティブクライアントの場合、[`setRequestor()`](#setReq) へ
 
 ネイティブクライアントの場合、ログアウトは、上記の認証プロセスと同様に処理されます。
 
-1. アプリケーションは、AccessEnabler の `logout() `API メソッドを呼び出してログアウト ワークフローを開始します。 ログアウトは、ユーザーがAdobe Pass認証サーバーと MVPD の両方のサーバーからログアウトする必要があるという事実による、一連の HTTP リダイレクト操作の結果です。 AccessEnabler ライブラリによって発行された単純な HTTP 要求では、このフローを完了できないため、HTTP リダイレクト操作に従うには、`UIWebView/WKWebView or SFSafariViewController` コントローラをインスタンス化する必要があります。
+1. アプリケーションは、AccessEnabler の `logout() `API メソッドを呼び出してログアウト ワークフローを開始します。 ログアウトは、ユーザーがAdobe PassMVPDサーバーと認証サーバーの両方からログアウトする必要があるために、一連の HTTP リダイレクト操作の結果です。 AccessEnabler ライブラリによって発行された単純な HTTP 要求では、このフローを完了できないため、HTTP リダイレクト操作に従うには、`UIWebView/WKWebView or SFSafariViewController` コントローラをインスタンス化する必要があります。
 
 1. 認証フローと同様のパターンを採用する。 iOS AccessEnabler は、`navigateToUrl:` コールバックまたは `navigateToUrl:useSVC:` をトリガーして、`UIWebView/WKWebView or SFSafariViewController` コントローラを作成し、コールバックの `url` パラメータで指定された URL をロードします。 これは、バックエンドサーバー上のログアウトエンドポイントの URL です。 tvOS AccessEnabler の場合、`navigateToUrl:` コールバックも `navigateToUrl:useSVC:` コールバックも呼び出されません。
 
@@ -127,13 +127,13 @@ Adobe Pass認証使用権限ソリューションでは、認証および承認�
 
 #### 認証トークン
 
-- **AccessEnabler 1.7:** この SDK では、新しいトークン ストレージ方法が導入され、複数のプログラマ MVPD バケットが有効になるため、複数の認証トークンが有効になります。 現在は、「リクエスターごとの認証」シナリオと通常の認証フローの両方で同じストレージレイアウトが使用されています。 この 2 つの違いは、認証の実行方法にあります。「要求者ごとの認証」には、ストレージ内に（異なるプログラマの）認証トークンが存在することに基づいて、AccessEnabler がバックチャネル認証を実行できるようにする新しい改善点（パッシブ認証）が含まれています。 ユーザーの認証は 1 回だけでかまいません。追加のアプリで認証トークンを取得するために、このセッションが使用されます。 このバックチャネルフローは、[`setRequestor()`](#setReq) 呼び出し時に発生し、プログラマーに対してほとんど透過的です。 **ただし、ここで重要な要件は 1 つあります。プログラマーは、メイン UI スレッドから setRequestor （）を呼び出す必要があります**。
-- **AccessEnabler 1.6 以前：** デバイス上で認証トークンをキャッシュする方法は、現在の MVPD に関連づけられている「**Authentication per Requestor」** フラグによって異なります。
+- **AccessEnabler 1.7:** このSDKでは、新しいトークン・ストレージ方式が導入され、複数のプログラマーMVPD・バケットを使用できるため、複数の認証トークンが使用可能になります。 現在は、「リクエスターごとの認証」シナリオと通常の認証フローの両方で同じストレージレイアウトが使用されています。 この 2 つの違いは、認証の実行方法にあります。「要求者ごとの認証」には、ストレージ内に（異なるプログラマの）認証トークンが存在することに基づいて、AccessEnabler がバックチャネル認証を実行できるようにする新しい改善点（パッシブ認証）が含まれています。 ユーザーの認証は 1 回だけでかまいません。追加のアプリで認証トークンを取得するために、このセッションが使用されます。 このバックチャネルフローは、[`setRequestor()`](#setReq) 呼び出し時に発生し、プログラマーに対してほとんど透過的です。 **ただし、ここで重要な要件は 1 つあります。プログラマーは、メイン UI スレッドから setRequestor （）を呼び出す必要があります**。
+- **AccessEnabler 1.6 以前：** 認証トークンがデバイス上でキャッシュされる方法は、現在のMVPDに関連づけられている「**Authentication per Requestor」** フラグによって異なります。
 
 <!-- end list -->
 
-1. 「要求者ごとの認証」機能が無効になっている場合、1 つの認証トークンがグローバルなペーストボードにローカルに格納されます。このトークンは、現在の MVPD に統合されているすべてのアプリケーション間で共有されます。
-1. 「要求者ごとの認証」機能が有効な場合、トークンは認証フローを実行したプログラマーに明示的に関連付けられます（トークンはグローバルなペーストボードには保存されず、そのプログラマーのアプリケーションにのみ表示可能なプライベートファイルに表示されます）。 より具体的には、異なるアプリケーション間のシングルサインオン（SSO）は無効になります。ユーザーは、新しいアプリに切り替える際に認証フローを明示的に実行する必要があります（2 番目のアプリのプログラマーが現在の MVPD と統合されており、そのプログラマーの認証トークンがローカルキャッシュに存在しない場合）。
+1. 「要求者ごとの認証」機能が無効になっている場合、1 つの認証トークンがグローバルなペーストボードにローカルで保存されます。このトークンは、現在のMVPDに統合されているすべてのアプリケーション間で共有されます。
+1. 「要求者ごとの認証」機能が有効な場合、トークンは認証フローを実行したプログラマーに明示的に関連付けられます（トークンはグローバルなペーストボードには保存されず、そのプログラマーのアプリケーションにのみ表示可能なプライベートファイルに表示されます）。 具体的には、異なるアプリケーション間でのシングルサインオン（SSO）は無効になります。ユーザーは、新しいアプリに切り替える際に、認証フローを明示的に実行する必要があります（2 番目のアプリのプログラマーが現在のMVPDに統合されており、そのプログラマーの認証トークンがローカルキャッシュに存在しない場合）。
 
 
 
@@ -186,7 +186,7 @@ tvOS ではペーストボードが使用できないため、tvOS AccessEnabler
 
 - バンドルシード ID/チーム ID は、同じプロビジョニングプロファイルで生成される場合、2 つのアプリで同じになります。 詳しくは、次のリンクを参照してください。
   [http://developer.apple.com/library/ios/\#documentation/general/conceptual/DevPedia-CocoaCore/AppID.html](http://developer.apple.com/library/ios/#documentation/general/conceptual/DevPedia-CocoaCore/AppID.html)
-- この「クロス SSO」制限は、使用するAdobe Pass Authentication SDK に関係なく、iOS 7 に存在します。
+- この「クロス SSO」制限は、使用されるAdobe Pass認証SDKに関係なく、iOS 7 に存在します。
 
 iOS 7 以降で SSO を構成する方法の詳細については、このテクニカル ノートを参照してください（テクニカル ノートはアクセス イネーブラ v1.8 以降に適用されます）。<https://tve.zendesk.com/entries/58233434-Configuring-Pay-TV-pass-SSO-on-iOS>
 
@@ -194,21 +194,21 @@ iOS 7 以降で SSO を構成する方法の詳細については、このテク
 
 ### トークン・ストレージ（AccessEnabler 1.7）
 
-AccessEnabler 1.7 以降のトークン・ストレージでは、複数の認証トークンを保持できるマルチレベルのネストされたマップ構造に基づいて、複数の Programmer-MVPD の組み合わせをサポートできます。 この新しいストレージは、AccessEnabler パブリック API に影響を与えず、プログラマ側での変更も必要ありません。 次に例を示します
+AccessEnabler 1.7 以降、トークン・ストレージは、複数の認証トークンを保持できるマルチレベルのネストされたマップ構造に基づいて、複数の Programmer-MVPDの組み合わせをサポートできます。 この新しいストレージは、AccessEnabler パブリック API に影響を与えず、プログラマ側での変更も必要ありません。 次に例を示します
 に、この新しい機能を示します。
 
 1. App1 （プログラマー 1 が開発）を開きます。
-1. MVPD1 （Programmer1 と統合）を使用して認証します。
+1. （Programmer1 と統合された）MVPD1 を使用して認証します。
 1. 現在のアプリケーションを中断/閉じて、App2 （Programmer2 が開発）を開きます。
-1. Programmer2 が MVPD2 と統合されていないので、ユーザーは App2 で認証されないとします。
-1. App2 の MVPD2 （Programmer2 と統合）を使用して認証します。
+1. Programmer2 がMVPD2 と統合されていないので、App2 では認証されないとします。
+1. App2 でMVPD2 （Programmer2 と統合）を使用して認証します。
 1. App1 に切り替えます。ユーザーは Programmer1 で認証されます。
 
 以前のバージョンの AccessEnabler では、トークン・ストレージでサポートされていた認証トークンは 1 つのみのため、ステップ 6 ではユーザーが未認証と表示されていました。
 
 
 
-1 つのプログラマー/MVPD セッションからログアウトすると、デバイス上の他のすべてのプログラマー/MVPD 認証トークンを含む、基礎となるストレージ全体がクリアされます。 一方、認証フローをキャンセル（[`setSelectedProvider(null)`](#setSelProv) を呼び出す）しても、基になるストレージはクリアされませんが、現在のプログラマ/MVPD 認証の試行にのみ影響します（現在のプログラマの MVPD を消去することによって）。
+1 つのプログラマー/MVPD セッションからログアウトすると、デバイス上の他のすべてのプログラマー/MVPD認証トークンを含む、基礎となるストレージ全体がクリアされます。 一方、認証フローを取り消す（[`setSelectedProvider(null)`](#setSelProv) を呼び出す）と、基になるストレージはクリアされませんが、（現在のプログラマーのMVPDを消去することで）現在のプログラマー/MVPDの認証の試行にのみ影響を与えます。
 
 
 

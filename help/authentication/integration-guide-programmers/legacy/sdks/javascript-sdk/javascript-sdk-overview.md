@@ -1,15 +1,15 @@
 ---
-title: JavaScript SDK の概要
-description: JavaScript SDK の概要
+title: JavaScript SDKの概要
+description: JavaScript SDKの概要
 exl-id: 8756c804-a4c1-4ee3-b2b9-be45f38bdf94
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '510'
+source-wordcount: '511'
 ht-degree: 0%
 
 ---
 
-# JavaScript SDK の概要 {#javascript-sdk-overview}
+# （従来の）JavaScript SDKの概要 {#javascript-sdk-overview}
 
 >[!NOTE]
 >
@@ -27,11 +27,11 @@ Adobe Pass Authentication JavaScript統合は、使い慣れた JS web アプリ
 >
 >このドキュメントでは、デスクトップ web ソリューションの実装について説明します。 JavaScript ライブラリは、モバイルプラットフォームではサポートされません（例えば、iOSの Safari、AndroidのChrome）。 モバイルプラットフォーム（iOS、Android、Windows）をターゲットにする場合は、ネイティブ SDK を使用してください。
 
-## MVPD 選択ダイアログの作成 {#creating-the-mvpd-selection-dialog}
+## MVPD選択ダイアログの作成 {#creating-the-mvpd-selection-dialog}
 
-ユーザーが MVPD にログインして認証されるようにするには、ページまたはプレーヤーがユーザーに MVPD を識別する方法を提供する必要があります。 MVPD 選択ダイアログのデフォルトのバージョンが開発用に提供されます。 実稼動環境で使用するには、独自の MVPD セレクターを実装する必要があります。
+ユーザーがMVPDにログインして認証されるようにするには、ページまたはプレーヤーが、ユーザーがMVPDを識別する方法を提供する必要があります。 MVPDの選択ダイアログのデフォルトバージョンが、開発用に提供されています。 実稼動で使用するには、独自のMVPD セレクターを実装する必要があります。
 
-顧客のプロバイダーが既にわかっている場合は、ユーザーの操作なしで [ プログラムによって MVPD を設定 ](/help/authentication/home.md) できます。 この方法も同じですが、プロバイダーセレクターダイアログを呼び出して顧客に MVPD を選択するように求める手順は省略されます。
+顧客のプロバイダーが既にわかっている場合は、ユーザーの操作なしで [ プログラムによってMVPDを設定 ](/help/authentication/home.md) できます。 方法は同じですが、プロバイダーセレクターダイアログを呼び出して顧客にMVPDを選択するように依頼する手順は省略されます。
 
 ## サービスプロバイダーの表示 {#displaying-the-service-provider}
 
@@ -76,7 +76,7 @@ Adobe Pass Authentication JavaScript統合は、使い慣れた JS web アプリ
 ```
 
 
-**JavaScript** このJavaScript ファイルは、ユーザーが既にログインしている場合、現在のプロバイダーのアクセス イネーブラを照会し、その結果をページ セクションに表示します。 また、MVPD セレクターダイアログも実装しています。
+**JavaScript** このJavaScript ファイルは、ユーザーが既にログインしている場合、現在のプロバイダーのアクセス イネーブラを照会し、その結果をページ セクションに表示します。 また、MVPDのセレクターダイアログも実装されています。
 
 ```JS
     $(function() {
@@ -203,11 +203,11 @@ Adobe Pass Authentication JavaScript統合は、使い慣れた JS web アプリ
 
 
 
-- **Adobe Pass認証と統合されていないサイトからログアウトが開始された場合。** この場合、MVPD は、ブラウザーリダイレクトを介してAdobe Pass Authentication Single Logout サービスを呼び出すことができます。 （バックチャネル呼び出しを使用した SLO の呼び出しは、現在サポートされていません）。
+- **Adobe Pass認証と統合されていないサイトからログアウトが開始された場合。** この場合、MVPDは、ブラウザーリダイレクトを通じてAdobe Pass Authentication Single Logout サービスを呼び出すことができます。 （バックチャネル呼び出しを使用した SLO の呼び出しは、現在サポートされていません）。
 
 >[!NOTE]
 >
->ユーザーがトークンの有効期限が切れるまでマシンをアイドル状態のままにしても、セッションに戻ってログアウトを正常に開始できます。 Adobe Pass Authentication は、すべてのトークンが削除されることを確認し、セッションを削除するように MVPD に通知します。
+>ユーザーがトークンの有効期限が切れるまでマシンをアイドル状態のままにしても、セッションに戻ってログアウトを正常に開始できます。 Adobe Pass認証を使用すると、すべてのトークンが削除され、セッションを削除するようにMVPDに通知されます。
 
 次のJavaScript コードは、現在認証されているユーザーのログアウト（認証の解除）を示しています。
 

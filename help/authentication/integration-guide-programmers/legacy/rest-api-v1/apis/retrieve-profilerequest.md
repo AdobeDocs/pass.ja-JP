@@ -2,14 +2,14 @@
 title: Platform SSO profile-request の取得
 description: Platform SSO profile-request の取得
 exl-id: 44fd4e26-4d9a-4607-ac2c-b85d848f5fc6
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '189'
+source-wordcount: '190'
 ht-degree: 1%
 
 ---
 
-# Platform SSO profile-request の取得 {#retrieve-platform-sso-profile-request}
+# （レガシー） Platform SSO profile-request の取得 {#retrieve-platform-sso-profile-request}
 
 >[!NOTE]
 >
@@ -35,7 +35,7 @@ ht-degree: 1%
 
 ## 説明 {#description}
 
-このリソースは、リクエスター ID と MVPD の組に対するプロファイルリクエストを生成します。
+このリソースは、リクエスター ID とMVPD タプルのプロファイルリクエストを生成します。
 
 
 | エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
@@ -46,5 +46,5 @@ ht-degree: 1%
 | 入力パラメーター | 説明 |
 | --------------- | -------------------------------------------------------------------------------------------------------- |
 | 要求者 | この操作が有効なプログラマ requestorId です。 |
-| mvpd | この操作が有効な MVPD ID です。 |
+| mvpd | この操作が有効なMVPD ID。 |
 | deviceType | プロファイルリクエストを取得しようとしているApple プラットフォーム。  **iOS** または **tvOS**。 |

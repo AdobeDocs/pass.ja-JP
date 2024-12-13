@@ -2,14 +2,14 @@
 title: iOS/tvOS API の事前認証
 description: iOS/tvOS API の事前認証
 exl-id: 79c596a4-0e38-4b6c-bb85-f97c6af45ed8
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '391'
+source-wordcount: '392'
 ht-degree: 0%
 
 ---
 
-# 事前認証 {#preauthorize}
+# （レガシー）事前認証 {#preauthorize}
 
 >[!NOTE]
 >
@@ -273,7 +273,7 @@ Adobe Pass認証サービスが事前認証 API リクエストのサービス�
 
 #### 失敗
 
-Adobe Pass認証 SDK が事前認証 API リクエストのサービス中にエラーをヒットしました
+Adobe Pass認証SDKが、事前認証 API リクエストのサービス中にエラーをヒットしました
 
 ```JSON
     {

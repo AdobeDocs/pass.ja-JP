@@ -2,14 +2,14 @@
 title: Amazon FireOS 技術概要
 description: Amazon FireOS 技術概要
 exl-id: 939683ee-0dd9-42ab-9fde-8686d2dc0cd0
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '2166'
+source-wordcount: '2167'
 ht-degree: 0%
 
 ---
 
-# Amazon FireOS 技術概要 {#amazon-fireos-technical-overview}
+# （従来の）Amazon FireOS 技術概要 {#amazon-fireos-technical-overview}
 
 >[!NOTE]
 >
@@ -40,17 +40,17 @@ AccessEnabler でサポートされるすべての使用権限ワークフロー
 
 ### 汎用初期認証ワークフロー {#generic}
 
-このワークフローの目的は、MVPD を使用してユーザーにログインすることです。  ログインに成功すると、バックエンドサーバーはユーザーに認証トークンを発行します。 認証は通常、認証プロセスの一部として行われますが、次に認証が単独で機能する方法を説明します。には認証手順は含まれていません。
+このワークフローの目的は、MVPDを使用してユーザーにログインすることです。  ログインに成功すると、バックエンドサーバーはユーザーに認証トークンを発行します。 認証は通常、認証プロセスの一部として行われますが、次に認証が単独で機能する方法を説明します。には認証手順は含まれていません。
 
 次のネイティブクライアントワークフローは、一般的なブラウザーベースの認証ワークフローとは異なりますが、手順 1～5 はネイティブクライアントとブラウザーベースのクライアントで同じです。
 
 1. ページまたはプレーヤーが、[getAuthentication （） ](#getAuthN) を呼び出して認証ワークフローを開始します。これにより、有効なキャッシュ済み認証トークンが確認されます。 このメソッドにはオプションの `redirectURL` パラメーターがあります。`redirectURL` の値を指定しない場合、認証が成功すると、認証が初期化された URL にユーザーが返されます。
 1. AccessEnabler は、現在の認証ステータスを決定します。 ユーザーが現在認証されている場合、AccessEnabler は `setAuthenticationStatus()` コールバック関数を呼び出し、成功を示す認証ステータスを渡します（次の手順 7）。
-1. ユーザーが認証されていない場合、AccessEnabler は、ユーザーの最後の認証試行が特定の MVPD で成功したかどうかを確認することにより、認証フローを続行します。 MVPD ID がキャッシュされていて、`canAuthenticate` フラグが true であるか、または [`setSelectedProvider()`](#setSelectedProvider) を使用して MVPD が選択されている場合、MVPD 選択ダイアログが表示されません。 認証フローは、MVPD のキャッシュされた値（最後に認証が成功したときに使用されたのと同じ MVPD）を使用して続行されます。 バックエンドサーバーに対してネットワーク呼び出しが実行され、ユーザーが MVPD ログインページにリダイレクトされます（以下の手順 6）。
-1. MVPD ID がキャッシュされておらず、MVPD が [`setSelectedProvider()`](#setSelectedProvider) を使用して選択されていない場合、または `canAuthenticate` フラグが false に設定されている場合、[`displayProviderDialog()`](#displayProviderDialog) コールバックが呼び出されます。 このコールバックは、ページまたはプレーヤーに対して、選択できる MVPD のリストをユーザーに提示する UI の作成を指示します。 MVPD セレクターを構築するために必要な情報を含む、MVPD オブジェクトの配列が提供されます。 各 MVPD オブジェクトは MVPD エンティティを記述し、MVPD の ID （XFINITY、AT\&amp;T など）や MVPD ロゴが見つかる URL などの情報を含みます。
-1. 特定の MVPD が選択されたら、ページまたはプレーヤーは、ユーザーが選択した AccessEnabler に通知する必要があります。 Flash以外のクライアントの場合、ユーザーが目的の MVPD を選択すると、[`setSelectedProvider()`](#setSelectedProvider) メソッドを呼び出して AccessEnabler に通知します。 代わりに、Flashクライアントは「`mvpdSelection`」タイプの共有 `MVPDEvent` をディスパッチし、選択したプロバイダーを渡します。
+1. ユーザーが認証されていない場合、AccessEnabler は、ユーザーの最後の認証試行が特定のMVPDで成功したかどうかを確認することにより、認証フローを続行します。 MVPD ID がキャッシュされていて、`canAuthenticate` フラグが true であるか、またはMVPDが [`setSelectedProvider()`](#setSelectedProvider) を使用して選択されている場合、MVPD選択ダイアログが表示されません。 認証フローは、MVPDのキャッシュされた値（最後に成功した認証で使用したMVPDと同じ）を使用して続行されます。 バックエンドサーバーに対してネットワーク呼び出しが実行され、ユーザーがMVPDのログインページにリダイレクトされます（以下の手順 6）。
+1. MVPD ID がキャッシュされておらず、[`setSelectedProvider()`](#setSelectedProvider) を使用してMVPDが選択されていない場合、または `canAuthenticate` フラグが false に設定されている場合、[`displayProviderDialog()`](#displayProviderDialog) コールバックが呼び出されます。 このコールバックは、ページまたはプレーヤーに対して、選択できる MVPD のリストをユーザーに提示する UI の作成を指示します。 MVPD セレクターを構築するために必要な情報を含む、MVPD オブジェクトの配列が提供されます。 各MVPD オブジェクトは 1 つのMVPD エンティティを表し、MVPDの ID （XFINITY、AT\&amp;T など）やMVPDのロゴが見つかる URL などの情報を含みます。
+1. 特定のMVPDを選択したら、ユーザーが選択したことを AccessEnabler に通知する必要があります。 Flash以外のクライアントの場合は、目的のMVPDを選択すると、[`setSelectedProvider()`](#setSelectedProvider) メソッドを呼び出して AccessEnabler に通知します。 代わりに、Flashクライアントは「`mvpdSelection`」タイプの共有 `MVPDEvent` をディスパッチし、選択したプロバイダーを渡します。
 1. Amazon アプリケーションの場合、[`navigateToUrl()`](#navigagteToUrl) コールバックは無視されます。 Access Enabler ライブラリを使用すると、ユーザーを認証するための共通の WebView コントロールへのアクセスが容易になります。
-1. `WebView` を介して、ユーザーが MVPD のログインページに到達し、資格情報を入力します。 この転送中に複数のリダイレクト操作が発生することに注意してください。
+1. `WebView` を使用して、MVPDのログインページにアクセスし、資格情報を入力します。 この転送中に複数のリダイレクト操作が発生することに注意してください。
 1. WebView は認証を完了すると、閉じて、ユーザーが正常にログインしたことを AccessEnabler に通知し、AccessEnabler はバックエンド・サーバから実際の認証トークンを取得します。 AccessEnabler は、ステータス コードが 1 の [`setAuthenticationStatus()`](#setAuthNStatus) コールバックを呼び出し、成功を示します。 これらの手順の実行中にエラーが発生した場合、[`setAuthenticationStatus()`](#setAuthNStatus) コールバックは、ステータスコード 0 と対応するエラーコードでトリガーされ、ユーザーが認証されていないことを示します。
 
 ### ログアウトワークフロー {#logout}
@@ -80,7 +80,7 @@ Adobe Pass認証使用権限ソリューションでは、認証および承認�
 
 #### 認証トークン
 
-- **AccessEnabler 1.10.1 for FireOS** は、AccessEnabler for Android 1.9.1 に基づいています。この SDK では、新しいトークン ストレージ方式が導入されており、複数のプログラマ MVPD バケットが可能になるため、複数の認証トークンが可能になります。
+- **AccessEnabler 1.10.1 for FireOS** は、AccessEnabler for Android 1.9.1 に基づいています。このSDKでは、新しいトークン・ストレージ方式が導入されており、複数のプログラマー向けMVPDバケットが可能になるため、複数の認証トークンが可能になります。
 
 #### 認証トークン
 
@@ -104,13 +104,13 @@ AccessEnabler によってキャッシュされるのは、リソースごとに
 - トークンの TTL が期限切れではありません
 - トークンの発行者は、許可された ID プロバイダーのリストに含まれます
 
-トークンストレージは、複数の認証トークンを保持できるマルチレベルのネストされたマップ構造に基づいて、複数の Programmer-MVPD の組み合わせをサポートできます。 この新しいストレージは、AccessEnabler パブリック API に影響を与えず、プログラマ側での変更も必要ありません。 次に、この新しい機能を示す例を示します。
+トークンストレージは、複数の認証トークンを保持できるマルチレベルのネストされたマップ構造に基づいて、複数のプログラマーとMVPDの組み合わせをサポートできます。 この新しいストレージは、AccessEnabler パブリック API に影響を与えず、プログラマ側での変更も必要ありません。 次に、この新しい機能を示す例を示します。
 
 1. App1 （プログラマー 1 が開発）を開きます。
-1. MVPD1 （Programmer1 と統合）を使用して認証します。
+1. （Programmer1 と統合された）MVPD1 を使用して認証します。
 1. 現在のアプリケーションを中断/閉じて、App2 （Programmer2 が開発）を開きます。
-1. Programmer2 が MVPD2 と統合されていないので、ユーザーは App2 で認証されないとします。
-1. App2 の MVPD2 （Programmer2 と統合）を使用して認証します。
+1. Programmer2 がMVPD2 と統合されていないので、App2 では認証されないとします。
+1. App2 でMVPD2 （Programmer2 と統合）を使用して認証します。
 1. App1 に切り替えます。ユーザーは Programmer1 で認証されます。
 
 ### 書式設定 {#format}

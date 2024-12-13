@@ -2,14 +2,14 @@
 title: 登録レコードの削除
 description: 登録リソースの削除
 exl-id: 42707070-2e1f-4847-93fd-30025aef56c1
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '153'
+source-wordcount: '154'
 ht-degree: 1%
 
 ---
 
-# 登録レコードの削除 {#delete-registration-record}
+# （従来）登記記録の削除 {#delete-registration-record}
 
 >[!NOTE]
 >

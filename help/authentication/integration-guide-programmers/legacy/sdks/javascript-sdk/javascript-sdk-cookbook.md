@@ -2,14 +2,14 @@
 title: JavaScript SDK クックブック
 description: JavaScript SDK クックブック
 exl-id: d57f7a4a-ac77-4f3c-8008-0cccf8839f7c
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '934'
+source-wordcount: '935'
 ht-degree: 0%
 
 ---
 
-# JavaScript SDK クックブック {#javascript-sdk-cookbook}
+# （従来の）JavaScript SDK クックブック {#javascript-sdk-cookbook}
 
 >[!NOTE]
 >
@@ -51,7 +51,7 @@ JavaScript コードサンプルのセットへのリンク。
 
 - `displayProviderDialog(mvpds)`
 
-  **トリガー:** ユーザーがプロバイダー（MVPD）を選択しておらず、まだ認証されていない場合のみ `getAuthentication(),`
+  **トリガー:** ユーザーがプロバイダー（MVPD）を選択しておらず、まだ認証されていない場合にのみ `getAuthentication(),` されます
 mvpds パラメーターは、ユーザーが使用できるプロバイダーの配列です。
 
 - `setAuthenticationStatus(status, errorcode)`
@@ -152,7 +152,7 @@ src="https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.js">
 **依存関係：**
 
 - `setRequestor()` の呼び出しが成功した場合（この依存関係は、以降のすべての呼び出しにも適用されます）。
-- 有効な ResourceID が MVPD と合意されました。 ResourceID は、他のデバイスやプラットフォームで使用されるものと同じにする必要があり、MVPD 間でも同じであることに注意してください。
+- 有効な ResourceID がMVPDと合意されました。 ResourceID は、他のデバイスやプラットフォームで使用されるものと同じにする必要があり、MVPD 間でも同じであることに注意してください。
 
 `getAuthorization()` を呼び出し、リクエストされたメディアの ResourceID を渡します。 呼び出しが成功すると、短いメディアトークンが返され、ユーザーが要求されたメディアの表示を許可されていることを確認します。
 
@@ -182,12 +182,12 @@ AccessEnabler ライブラリ）
 
 ## 訪問者 ID の設定 {#visitorID}
 
-[Experience Cloudの visitorID](https://experienceleague.adobe.com/docs/id-service/using/home.html) 値の設定は、分析の観点から非常に重要です。 EC 訪問者 ID の値が設定されると、SDK はすべてのネットワーク呼び出しとともにこの情報を送信し、Adobe Pass認証サービスはこの情報を収集します。 これにより、Adobe Pass Authentication Service からの分析データを、他のアプリケーションや web サイトからの他の分析レポートと関連付けることができます。 EC 訪問者 ID の設定方法については、[ こちら ](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=en) を参照してください。
+[Experience Cloudの visitorID](https://experienceleague.adobe.com/docs/id-service/using/home.html) 値の設定は、分析の観点から非常に重要です。 EC visitorID の値が設定されると、SDKはネットワーク呼び出しごとにこの情報を送信し、Adobe Pass Authentication サービスはこの情報を収集します。 これにより、Adobe Pass Authentication Service からの分析データを、他のアプリケーションや web サイトからの他の分析レポートと関連付けることができます。 EC 訪問者 ID の設定方法については、[ こちら ](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=en) を参照してください。
 
 
 >[!NOTE]
 >
->この機能のサポートは、JS SDK バージョン 3.1.0 以降で使用できます。
+>この機能のサポートは、JS SDK バージョン 3.1.0 以降で利用可能です。
 
 <!--
 ### Related Information (#related)

@@ -2,14 +2,14 @@
 title: Platform SSO トークンとAdobeトークンの交換
 description: Platform SSO トークンとAdobeトークンの交換
 exl-id: 5ab60268-8f97-4755-8281-be45e812ed7f
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '228'
+source-wordcount: '229'
 ht-degree: 0%
 
 ---
 
-# Platform SSO トークンとAdobeトークンの交換 {#exchange-a-platform-sso-token-for-an-adobe-token}
+# （従来の） Platform SSO トークンとAdobeトークンの交換 {#exchange-a-platform-sso-token-for-an-adobe-token}
 
 >[!NOTE]
 >
@@ -46,7 +46,7 @@ Platform SSO プロファイルをAdobeトークンと「交換」できるよ�
 | --- | --- |
 | 要求者 | この操作が有効なプログラマ requestorId です。 |
 | deviceId | デバイス ID のバイト。 |
-| mvpd | この操作が有効な MVPD ID です。 |
+| mvpd | この操作が有効なMVPD ID。 |
 | deviceType | プロファイルリクエストを取得しようとしているApple プラットフォーム。  **iOS** または **tvOS**。 |
 | SAMLResponse | Platform SSO によって返される実際のプロファイル。 |
 | _deviceUser_ | デバイスユーザー識別子。 |

@@ -2,14 +2,14 @@
 title: Android SDK API リファレンス
 description: Android SDK API リファレンス
 exl-id: f932e9a1-2dbe-4e35-bd60-a4737407942d
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '4537'
+source-wordcount: '4538'
 ht-degree: 0%
 
 ---
 
-# Android SDK API リファレンス {#android-sdk-api-reference}
+# （従来の）Android SDK API リファレンス {#android-sdk-api-reference}
 
 >[!NOTE]
 >
@@ -17,9 +17,9 @@ ht-degree: 0%
 
 ## 概要 {#intro}
 
-このドキュメントでは、Adobe Pass認証バージョン 1.7 以降でサポートされる、Adobe Pass認証用Android SDK で公開されている方法とコールバックについて詳しく説明します。 ここで説明するメソッドとコールバック関数は、AccessEnabler.h および EntitlementDelegate.h ヘッダーファイルで定義されます。
+このドキュメントでは、Adobe Pass Authentication バージョン 1.7 以降でサポートされる、Adobe Pass認証用のAndroid SDKで公開されたメソッドとコールバックについて詳しく説明します。 ここで説明するメソッドとコールバック関数は、AccessEnabler.h および EntitlementDelegate.h ヘッダーファイルで定義されます。
 
-最新のAndroid AccessEnabler SDK については、[https://tve.zendesk.com/hc/en-us/articles/204963219-Android-Native-AccessEnabler-Library](https://tve.zendesk.com/hc/en-us/articles/204963219-Android-Native-AccessEnabler-Library) を参照してください。
+最新のAndroid AccessEnabler SDKについては、[https://tve.zendesk.com/hc/en-us/articles/204963219-Android-Native-AccessEnabler-Library](https://tve.zendesk.com/hc/en-us/articles/204963219-Android-Native-AccessEnabler-Library) を参照してください。
 
 
 **注意：** Adobe Pass Authentication チームでは、Adobe Pass Authentication *パブリック* API のみを使用することをお勧めします。
@@ -84,7 +84,7 @@ ht-degree: 0%
 
 *urls* パラメーターを使用しない場合、生成されるネットワーク呼び出しは、デフォルトのサービスプロバイダー URL （Adobeリリース/実稼動環境）をターゲットにします。
 
-*urls* パラメーターに値を指定すると、結果として得られるネットワーク呼び出しは、*urls* パラメーターで指定されるすべての URL をターゲットにします。 すべての設定要求が、別々のスレッドで同時にトリガーされます。 MVPD のリストをコンパイルする場合は、最初のレスポンダーが優先されます。 Access Enabler は、リスト内の各 MVPD に対して、関連するサービス プロバイダの URL を記憶します。 以降のすべての使用権限リクエストは、設定段階でターゲット MVPD とペアになったサービスプロバイダーに関連付けられた URL に送られます。
+*urls* パラメーターに値を指定すると、結果として得られるネットワーク呼び出しは、*urls* パラメーターで指定されるすべての URL をターゲットにします。 すべての設定要求が、別々のスレッドで同時にトリガーされます。 MVPD のリストをコンパイルする場合は、最初のレスポンダーが優先されます。 Access Enabler は、リスト内の各MVPDについて、関連するサービス プロバイダの URL を記憶します。 以降のすべての使用権限リクエストは、設定段階でターゲット MVPDとペアになっていた、サービスプロバイダーに関連付けられた URL に送られます。
 
 | API 呼び出し：リクエスター設定 |
 | --- |
@@ -105,7 +105,7 @@ ht-degree: 0%
 
 - *signedRequestorID*：秘密鍵でデジタル署名されたリクエスター ID のコピー。<!--For more details. see [Registering Native Clients](http://tve.helpdocsonline.com/registering-native-clients)-->。
 
-- *urls*：オプションのパラメーターです。デフォルトでは、Adobe サービスプロバイダーが使用されます（http://sp.auth.adobe.com/）。 この配列を使用すると、Adobeが提供する認証サービスと承認サービスのエンドポイントを指定できます（デバッグ目的で別のインスタンスを使用することもできます）。 これを使用して、複数のAdobe Pass Authentication サービスプロバイダーインスタンスを指定できます。 その場合、MVPD リストはすべてのサービスプロバイダーのエンドポイントで構成されます。 各 MVPD は、最速のサービスプロバイダー、つまり、最初に応答し、その MVPD をサポートするプロバイダーに関連付けられます。
+- *urls*：オプションのパラメーターです。デフォルトでは、Adobe サービスプロバイダーが使用されます（http://sp.auth.adobe.com/）。 この配列を使用すると、Adobeが提供する認証サービスと承認サービスのエンドポイントを指定できます（デバッグ目的で別のインスタンスを使用することもできます）。 これを使用して、複数のAdobe Pass Authentication サービスプロバイダーインスタンスを指定できます。 その場合、MVPDのリストは、すべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー（最初に応答し、そのMVPDをサポートするプロバイダー）に関連付けられます。
 
 **コールバックがトリガーされました：** `setRequestorComplete()`
 
@@ -143,7 +143,7 @@ ht-degree: 0%
 
 ### setOptions {#setOptions}
 
-**説明：** グローバル SDK オプションを設定します。 **Map\&lt;String, String\>** を引数として受け入れます。 マップからの値は、SDK が行うすべてのネットワーク呼び出しと共にサーバーに渡されます。
+**説明：** グローバル SDK オプションを設定します。 **Map\&lt;String, String\>** を引数として受け入れます。 マップからの値は、SDKが行うすべてのネットワーク呼び出しと共にサーバーに渡されます。
 
 これらの値は、現在のフロー（認証/承認）とは無関係にサーバーに渡されます。 値を変更する場合は、このメソッドをいつでも呼び出すことができます。
 
@@ -159,7 +159,7 @@ ht-degree: 0%
    - **applicationProfile** – この値に基づいてサーバーを設定するために使用できます。
    - **ap_vi** - Experience Cloud ID （visitorID）。 この値は、後で高度な分析レポートに使用できます。
    - **ap_ai** - Advertising ID
-   - **device_info** – ここで説明するクライアント情報：[ クライアント情報デバイス接続とアプリケーションを渡す ](/help/authentication/integration-guide-programmers/passing-client-information-device-connection-and-application.md)。
+   - **device_info** – ここで説明するクライアント情報：[ クライアント情報デバイス接続とアプリケーションを渡す ](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。
 
 [先頭に戻る…](#apis)
 
@@ -168,7 +168,7 @@ ht-degree: 0%
 
 **説明：** 認証ステータスを確認します。 これを行うには、ローカルトークンのストレージスペースで有効な認証トークンを検索します。 このメソッドはネットワーク呼び出しを実行しないので、メインスレッドで呼び出すことをお勧めします。 アプリケーションがユーザーの認証ステータスをクエリし、それに応じて UI を更新するために使用されます（例：ログイン/ログアウト UI を更新）。 認証状態は、[*setAuthenticationStatus （）*](#setAuthNStatus) コールバックを介してアプリケーションに伝えられます。
 
-MVPD が「Authentication per Requestor」機能をサポートしている場合、1 つのデバイスに複数の認証トークンを格納できます。  この機能について詳しくは、『Android技術概要』の [ キャッシュのガイドライン ](#$caching) 節を参照してください。
+MVPDが「リクエスターごとの認証」機能をサポートしている場合、1 台のデバイスに複数の認証トークンを保存できます。  この機能について詳しくは、『Android技術概要』の [ キャッシュのガイドライン ](#$caching) 節を参照してください。
 
 | API 呼び出し：認証ステータスの確認 |
 | --- |
@@ -187,12 +187,12 @@ MVPD が「Authentication per Requestor」機能をサポートしている場�
 
 **説明：** 完全認証ワークフローを開始します。 まず、認証ステータスを確認します。 まだ認証されていない場合は、認証フロー state-machine が起動します。
 
-- 最後の認証試行が成功した場合、MVPD 選択フェーズはスキップされ、[*navigateToUrl （）*](#navigagteToUrl) コールバックがトリガーされます。 アプリケーションは、このコールバックを使用して、MVPD のログインページを持つユーザーを提示する WebView コントロールをインスタンス化します。
-- 最後の認証の試行が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションは、このコールバックを使用して MVPD 選択 UI を表示します。 また、[setSelectedProvider （） ](#setSelectedProvider) メソッドを使用して Access Enabler ライブラリにユーザーの MVPD 選択を通知することにより、認証フローを再開する必要があります。
+- 最後の認証が成功した場合、MVPD selection フェーズはスキップされ、[*navigateToUrl （）*](#navigagteToUrl) コールバックがトリガーされます。 アプリケーションは、このコールバックを使用して、MVPDのログインページを持つユーザーを表す WebView コントロールをインスタンス化します。
+- 最後の認証の試行が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションは、このコールバックを使用してMVPD選択 UI を表示します。 また、[setSelectedProvider （） ](#setSelectedProvider) メソッドを使用して Access Enabler ライブラリにユーザーのMVPD選択を通知することにより、認証フローを再開する必要があります。
 
-ユーザーの資格情報は MVPD のログインページで検証されるため、ユーザーが MVPD のログインページで認証されている間に行われる複数のリダイレクト操作をアプリケーションで監視する必要があります。 正しい資格情報を入力すると、WebView コントロールは、*AccessEnabler.ADOBEPASS\_REDIRECT\_URL* 定数で定義されたカスタム URL にリダイレクトされます。 この URL は、WebView によって読み込まれることを意図していません。 アプリケーションはこの URL をインターセプトし、ログインフェーズが完了したことを示すシグナルとしてこのイベントを解釈する必要があります。 次に、認証フローを完了するために、アクセス イネーブラに制御を渡す必要があります（*getAuthenticationToken （）* メソッドを呼び出します）。
+ユーザーの資格情報はMVPDのログインページで確認されるため、ユーザーがMVPDのログインページで認証されている間に行われる複数のリダイレクト操作をモニタリングするには、アプリケーションが必要です。 正しい資格情報を入力すると、WebView コントロールは、*AccessEnabler.ADOBEPASS\_REDIRECT\_URL* 定数で定義されたカスタム URL にリダイレクトされます。 この URL は、WebView によって読み込まれることを意図していません。 アプリケーションはこの URL をインターセプトし、ログインフェーズが完了したことを示すシグナルとしてこのイベントを解釈する必要があります。 次に、認証フローを完了するために、アクセス イネーブラに制御を渡す必要があります（*getAuthenticationToken （）* メソッドを呼び出します）。
 
-MVPD が「要求者ごとの認証」機能をサポートしている場合、1 台のデバイスに複数の認証トークンを格納できます（プログラマごとに 1 つ）。  この機能について詳しくは、『Android技術概要』の [ キャッシュのガイドライン ](#$caching) 節を参照してください。
+MVPDが「要求者ごとの認証」機能をサポートしている場合、1 台のデバイスに複数の認証トークンを格納できます（プログラマーごとに 1 つ）。  この機能について詳しくは、『Android技術概要』の [ キャッシュのガイドライン ](#$caching) 節を参照してください。
 
 最後に、*setAuthenticationStatus （）* コールバックを介して認証ステータスがアプリケーションに伝えられます。
 
@@ -213,7 +213,7 @@ MVPD が「要求者ごとの認証」機能をサポートしている場合、
 **パラメーター：**
 
 - *forceAuthn*：ユーザーが既に認証されているかどうかに関係なく、認証フローを開始する必要があるかどうかを指定するフラグ。
-- *data*：有料テレビパスサービスに送信されるキーと値のペアで構成されるマップ。 Adobeはこのデータを使用して、SDK を変更せずに将来の機能を有効にできます。
+- *data*：有料テレビパスサービスに送信されるキーと値のペアで構成されるマップ。 Adobeはこのデータを使用して、SDKを変更せずに将来の機能を有効にできます。
 
 **コールバックがトリガーされました：** `setAuthenticationStatus(), displayProviderDialog(), navigateToUrl(), sendTrackingData()`
 
@@ -222,9 +222,9 @@ MVPD が「要求者ごとの認証」機能をサポートしている場合、
 
 ### displayProviderDialog {#displayProviderDialog}
 
-**説明** アクセスイネーブラによってトリガーされるコールバック。これにより、ユーザーが目的の MVPD を選択できるように、適切な UI 要素をインスタンス化する必要があることがアプリケーションに通知されます。 コールバックは、MVPD オブジェクトのリストに、選択 UI パネルを正しく構築するのに役立つ追加情報（MVPD のロゴを指す URL、わかりやすい表示名など）を提供します。
+**説明** アクセスイネーブラによってトリガーされるコールバックで、適切な UI 要素をインスタンス化して、ユーザーが目的のMVPDを選択できるようにする必要があることをアプリケーションに通知します。 コールバックは、MVPD オブジェクトのリストに、選択 UI パネルを正しく作成するのに役立つ追加情報（MVPDのロゴを指す URL、わかりやすい表示名など）を提供します。
 
-ユーザーが目的の MVPD を選択したら、上位レイヤーのアプリケーションは *setSelectedProvider （）を呼び出して* ユーザーの選択に対応する MVPD の ID を渡すことによって、認証フローを再開する必要があります。
+ユーザーが目的のMVPDを選択したら、*setSelectedProvider （）を呼び出し、ユーザーの選択に対応するMVPDの ID を渡すことにより* 上位レイヤーのアプリケーションが認証フローを再開する必要があります。
 
 >[!NOTE]
 >
@@ -232,7 +232,7 @@ MVPD が「要求者ごとの認証」機能をサポートしている場合、
 > </br></br>
 > これは、ユーザーが「戻る」ボタンを押すことができる点であることに注意してください。これは、認証フローの中止に相当します。 このようなシナリオでは、アプリケーションで `setSelectedProvider()` メソッドを呼び出し、*null* をパラメータとして渡して、アクセス イネーブラに認証状態マシンをリセットする機会を与える必要があります。
 
-| コールバック：MVPD 選択 UI の表示 |
+| コールバック：MVPD選択 UI の表示 |
 | --- |
 | `public void displayProviderDialog(ArrayList<Mvpd> mvpds)` |
 
@@ -240,7 +240,7 @@ MVPD が「要求者ごとの認証」機能をサポートしている場合、
 
 **パラメーター**:
 
-- *mvpds*: MVPD 選択 UI 要素を構築するためにアプリケーションが使用できる、MVPD 関連の情報を保持する MVPD オブジェクトのリスト。
+- *mvpds*:MVPD selection UI 要素の構築にアプリケーションが使用できるMVPD関連の情報を保持しているMVPD オブジェクトのリスト。
 
 **Trigger by:** `getAuthentication(), getAuthorization()`
 
@@ -249,9 +249,9 @@ MVPD が「要求者ごとの認証」機能をサポートしている場合、
 
 ### setSelectedProvider {#setSelectedProvider}
 
-**説明：** このメソッドは、ユーザーの MVPD 選択をアクセス イネーブラに通知するためにアプリケーションによって呼び出されます。 アプリケーションはこの方法を使用して、認証に使用するサービスプロバイダーを選択または変更できます。
+**説明：** このメソッドは、ユーザーが選択したMVPDをアクセス イネーブラに通知するためにアプリケーションによって呼び出されます。 アプリケーションはこの方法を使用して、認証に使用するサービスプロバイダーを選択または変更できます。
 
-選択した MVPD が TempPass MVPD の場合、後で getAuthentication （）を呼び出すことなく、その MVPD で自動的に認証されます。
+選択したMVPDが TempPass MVPDの場合、そのMVPDで自動的に認証が行われます。後で getAuthentication （）を呼び出す必要はありません。
 
 getAuthentication （） メソッドに追加のパラメーターが指定されている場合、プロモーションの一時パスでは使用できないことに注意してください。
 
@@ -272,15 +272,15 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 ### navigateToUrl {#navigagteToUrl}
 
-**非推奨：** Android SDK 3.0 以降では、Chrome カスタムタブがデバイスに存在しない場合にのみ、navigateToUrl が使用されます
+**非推奨：** Android SDK 3.0 以降では、Chromeのカスタムタブがデバイスに存在しない場合にのみ、navigateToUrl が使用されます
 
-**説明：** アクセスイネーブラによってトリガーされるコールバック。資格情報を入力するために MVPD ログインページをユーザーに提示する必要があることをアプリケーションに通知します。 アクセス イネーブラは、MVPD ログイン ページの URL をパラメータとして渡します。 WebView コントロールをインスタンス化し、この URL にダイレクトするには、アプリケーションが必要です。 また、アプリケーションは、WebView コントロールによって読み込まれる URL を監視し、`AccessEnabler.ADOBEPASS_REDIRECT_URL (deprecated)` 定数によって定義されるカスタム URL をターゲットにするリダイレクト操作をインターセプトするために必要です。 このイベントが発生した場合、アプリケーションは *getAuthenticationToken （）* メソッドを呼び出して、WebView コントロールを閉じるか非表示にし、アクセス イネーブラ ライブラリにコントロールを戻す必要があります。 Access Enabler は、バックエンド・サーバから認証トークンを取得し、そのトークンをトークン・ストレージにローカルに保存することによって、認証フローを完了します。
+**説明：** アクセスイネーブラによってトリガーされるコールバック。資格情報を入力するためにMVPDのログインページを表示する必要があることをアプリケーションに知らせます。 アクセス イネーブラは、パラメータとしてMVPD ログイン ページの URL を渡します。 WebView コントロールをインスタンス化し、この URL にダイレクトするには、アプリケーションが必要です。 また、アプリケーションは、WebView コントロールによって読み込まれる URL を監視し、`AccessEnabler.ADOBEPASS_REDIRECT_URL (deprecated)` 定数によって定義されるカスタム URL をターゲットにするリダイレクト操作をインターセプトするために必要です。 このイベントが発生した場合、アプリケーションは *getAuthenticationToken （）* メソッドを呼び出して、WebView コントロールを閉じるか非表示にし、アクセス イネーブラ ライブラリにコントロールを戻す必要があります。 Access Enabler は、バックエンド・サーバから認証トークンを取得し、そのトークンをトークン・ストレージにローカルに保存することによって、認証フローを完了します。
 
 >[!WARNING]
 >
 > **認証フローの中止** <br> ユーザーが「戻る」ボタンを押せる点が、認証フローの中止と同じであることに注意してください。 このようなシナリオでは、_null_ をパラメーターとして渡して _setSelectedProvider （）_ メソッドを呼び出し、アクセス イネーブラで認証状態マシンをリセットできるようにする必要があります。
 
-| コールバック：MVPD ログインページの表示 |
+| コールバック：MVPDのログインページを表示 |
 | --- |
 | public void navigateToUrl （String url） |
 
@@ -288,7 +288,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **パラメーター：**
 
-- *url*:MVPD のログインページを指す URL
+- *url*:MVPDのログインページを指す URL
 
 **Trigger by:** `getAuthentication(), setSelectedProvider()`
 
@@ -297,9 +297,9 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 ### getAuthenticationToken {#getAuthNToken}
 
-**非推奨：** Android SDK 3.0 以降、Chromeの「カスタム」タブは認証に使用されるので、この方式はアプリケーションから使用されなくなりました。
+**非推奨：** Android SDK 3.0 以降、Chromeのカスタムタブは認証に使用されるので、この方式はアプリケーションから使用されなくなりました。
 
-**説明：** バックエンドサーバーに認証トークンをリクエストして、認証フローを完了します。 このメソッドは、MVPD ログインページをホストする WebView コントロールが `AccessEnabler.ADOBEPASS_REDIRECT_URL` 定数によって定義されるカスタム URL にリダイレクトされるイベントに対する応答としてのみ、アプリケーションで呼び出す必要があります。
+**説明：** バックエンドサーバーに認証トークンをリクエストして、認証フローを完了します。 このメソッドは、MVPD ログインページをホストする WebView コントロールが、`AccessEnabler.ADOBEPASS_REDIRECT_URL` 定数によって定義されるカスタム URL にリダイレクトされるイベントに対する応答としてのみ、アプリケーションで呼び出す必要があります。
 
 | API 呼び出し：認証トークンの取得 |
 | --- |
@@ -309,7 +309,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **パラメーター：**
 
-- *cookie*：ターゲットドメインに設定される cookie （参照実装については、SDK のデモアプリケーションを参照してください）。
+- *cookie*：ターゲットドメインに設定される cookie （参照実装については、SDKのデモアプリケーションを参照してください）。
 
 **コールバックがトリガーされました：** `setAuthenticationStatus()`、`sendTrackingData()`
 
@@ -349,7 +349,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 ### checkPreauthorizedResources {#checkPreauth}
 
->**非推奨：** Android SDK 3.6 以降、事前に承認された API は checkPreauthorizedResources を置き換え、拡張エラーコードを提供します。
+>**非推奨：** Android SDK 3.6 以降、事前認証 API は checkPreauthorizedResources を置き換え、拡張エラーコードを提供します。
 
 **説明：** このメソッドは、保護された特定のリソースを表示する権限がユーザーに既にあるかどうかを判断するためにアプリケーションで使用されます。 このメソッドの主な目的は、UI の修飾に使用する情報を取得することです（例えば、ロックアイコンとロック解除アイコンでアクセスステータスを示すなど）。
 
@@ -359,7 +359,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **提供：** v1.3 以降
 
-**Parameters:** `resources` パラメーターは、認証をチェックする必要があるリソースの配列です。 リストの各要素は、リソース ID を表す文字列である必要があります。 リソース ID には、`getAuthorization()` 呼び出しのリソース ID と同じ制限が適用されます。つまり、プログラマと MVPD またはメディア RSS フラグメントとの間で確立された合意値である必要があります。
+**Parameters:** `resources` パラメーターは、認証をチェックする必要があるリソースの配列です。 リストの各要素は、リソース ID を表す文字列である必要があります。 リソース ID には、`getAuthorization()` 呼び出しのリソース ID と同じ制限が適用されます。つまり、プログラマーとMVPDまたはメディア RSS フラグメントとの間で確立された同意値である必要があります。
 
 **コールバックがトリガーされました：** `preauthorizedResources()`
 
@@ -368,7 +368,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 ### checkPreauthorizedResources {#checkPreauth2}
 
-**非推奨：** Android SDK 3.6 以降、事前に承認された API は checkPreauthorizedResources を置き換え、拡張エラーコードを提供します。
+**非推奨：** Android SDK 3.6 以降、事前認証 API は checkPreauthorizedResources を置き換え、拡張エラーコードを提供します。
 
 **説明：** このメソッドは、保護された特定のリソースを表示する権限がユーザーに既にあるかどうかを判断するためにアプリケーションで使用されます。 このメソッドの主な目的は、UI の修飾に使用する情報を取得することです（例えば、ロックアイコンとロック解除アイコンでアクセスステータスを示すなど）。
 
@@ -378,9 +378,9 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **提供：** v3.1 以降
 
-**Parameters:** `resources` パラメーターは、認証をチェックする必要があるリソースの配列です。 リストの各要素は、リソース ID を表す文字列である必要があります。 リソース ID には、`getAuthorization()` 呼び出しのリソース ID と同じ制限が適用されます。つまり、プログラマと MVPD またはメディア RSS フラグメントとの間で確立された合意値である必要があります。
+**Parameters:** `resources` パラメーターは、認証をチェックする必要があるリソースの配列です。 リストの各要素は、リソース ID を表す文字列である必要があります。 リソース ID には、`getAuthorization()` 呼び出しのリソース ID と同じ制限が適用されます。つまり、プログラマーとMVPDまたはメディア RSS フラグメントとの間で確立された同意値である必要があります。
 
-`cache` パラメーターは、キャッシュされた事前認証応答を使用できるかどうかを指定します。 デフォルトのキャッシュは true で、利用可能な場合、SDK は以前にキャッシュされた応答を返します。
+`cache` パラメーターは、キャッシュされた事前認証応答を使用できるかどうかを指定します。 デフォルトのキャッシュが true の場合、SDKは、可能であれば、以前にキャッシュされた応答を返します。
 
 **コールバックがトリガーされました：** `preauthorizedResources()`
 
@@ -388,7 +388,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 ### preauthorizedResources {#preauthResources}
 
-**非推奨：** Android SDK 3.6 以降、事前に承認された API は checkPreauthorizedResources を置き換え、拡張エラーコードを提供します。 preauthorizedResources コールバックは、新しい API では呼び出されません。
+**非推奨：** Android SDK 3.6 以降、事前認証 API は checkPreauthorizedResources を置き換え、拡張エラーコードを提供します。 preauthorizedResources コールバックは、新しい API では呼び出されません。
 
 
 **説明：** checkPreauthorizedResources （）によってトリガーされるコールバック。 ユーザーが既に表示を許可されているリソースのリストを提供します。
@@ -424,7 +424,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 **パラメーター：**
 
 - *resourceId*：ユーザーが認証をリクエストするリソースの ID。
-- *data*：有料テレビパスサービスに送信されるキーと値のペアで構成されるマップ。 Adobeはこのデータを使用して、SDK を変更せずに将来の機能を有効にできます。
+- *data*：有料テレビパスサービスに送信されるキーと値のペアで構成されるマップ。 Adobeはこのデータを使用して、SDKを変更せずに将来の機能を有効にできます。
 
 **コールバックがトリガーされました：** `tokenRequestFailed(), setToken(),sendTrackingData(), setAuthenticationStatus()`
 
@@ -450,7 +450,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 **パラメーター：**
 
 - *resourceId*：ユーザーが認証をリクエストするリソースの ID。
-- *data*：有料テレビパスサービスに送信されるキーと値のペアで構成されるマップ。 Adobeはこのデータを使用して、SDK を変更せずに将来の機能を有効にできます。
+- *data*：有料テレビパスサービスに送信されるキーと値のペアで構成されるマップ。 Adobeはこのデータを使用して、SDKを変更せずに将来の機能を有効にできます。
 
 **コールバックがトリガーされました：** `tokenRequestFailed(), setToken(), sendTrackingData()`
 
@@ -500,7 +500,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
    - `AccessEnablerConstants.USER_NOT_AUTHORIZED_ERROR` – 指定されたリソースをユーザーが承認できませんでした
 - *errorDescription*：失敗シナリオに関する追加の詳細。 何らかの理由でこの記述文字列が使用できない場合、Adobe Pass認証は空の文字列 **（&quot;）** を送信します。
 
-  この文字列は、MVPD がカスタム エラーメッセージやセールス関連のメッセージを渡すために使用できます。 例えば、サブスクライバーがリソースの認証を拒否された場合、MVPD は次のようなメッセージを送信する場合があります。「現在、パッケージ内のこのチャネルにはアクセスできません。 パッケージをアップグレードする場合は、ここをクリックしてください。」です。 メッセージは、このコールバックを通じてAdobe Pass認証によってプログラマーに渡され、プログラマーは表示または無視のオプションを持ちます。 Adobe Pass認証では、このパラメーターを使用して、エラーを引き起こした可能性のある条件の通知を提供することもできます。 例えば、「プロバイダーの認証サービスと通信する際にネットワークエラーが発生しました」などです。
+  この文字列は、MVPDでカスタムのエラーメッセージや営業関連のメッセージを渡すために使用できます。 例えば、サブスクライバーがリソースの認証を拒否された場合、MVPDから「現在、パッケージ内のこのチャネルへのアクセス権がありません。 パッケージをアップグレードする場合は、ここをクリックしてください。」です。 メッセージは、このコールバックを通じてAdobe Pass認証によってプログラマーに渡され、プログラマーは表示または無視のオプションを持ちます。 Adobe Pass認証では、このパラメーターを使用して、エラーを引き起こした可能性のある条件の通知を提供することもできます。 例えば、「プロバイダーの認証サービスと通信する際にネットワークエラーが発生しました」などです。
 
 **Trigger by:** `checkAuthorization(), getAuthorization()`
 
@@ -508,7 +508,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 ### ログアウト {#logout}
 
-**説明：** このメソッドを使用して、ログアウトフローを開始します。 ログアウトは、ユーザーがAdobe Pass認証サーバーと MVPD の両方のサーバーからログアウトする必要があるために、一連の HTTP リダイレクト操作の結果です。 その結果、このフローは、Access Enabler ライブラリから発行された単純な HTTP リクエストでは完了できません。 Chrome カスタムタブは、HTTP リダイレクト操作を実行するために SDK で使用されます。 このフローは、ユーザーに表示され、完了すると閉じられます
+**説明：** このメソッドを使用して、ログアウトフローを開始します。 ログアウトは、ユーザーがAdobe PassMVPDサーバーと認証サーバーの両方からログアウトする必要があるために、一連の HTTP リダイレクト操作の結果です。 その結果、このフローは、Access Enabler ライブラリから発行された単純な HTTP リクエストでは完了できません。 Chromeのカスタムタブは、SDKで HTTP リダイレクト操作を実行するために使用されます。 このフローは、ユーザーに表示され、完了すると閉じられます
 
 | API 呼び出し：ログアウトフローの開始 |
 | --- |
@@ -520,8 +520,8 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **トリガーされたコールバック：**
 
-- 3.0 より前の SDK バージョンの `navigateToUrl()`
-- `setAuthenticationStatus()` for SDK バージョン > 3.0
+- SDK 3.0 より前のバージョンの `navigateToUrl()`
+- SDK バージョン > 3.0 の `setAuthenticationStatus()`
 
 
 [Android API に戻る…](#api)
@@ -531,7 +531,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **説明：** このメソッドを使用して、現在選択されているプロバイダを確認します。
 
-| API 呼び出し：現在選択されている MVPD を特定します |
+| API 呼び出し：現在選択されているMVPDを特定します |
 | --- |
 | public void getSelectedProvider （） |
 
@@ -546,9 +546,9 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 ### <span id="selectedProvider"></span>selectedProvider
 
-**説明：** 現在選択されている MVPD に関する情報をアプリケーションに提供するアクセス イネーブラによってトリガーされたコールバック。
+**説明：** 現在選択されているMVPDに関する情報をアプリケーションに提供する Access Enabler によってトリガーされるコールバック。
 
-| コールバック：現在選択されている MVPD に関する情報 |
+| コールバック：現在選択されているMVPDに関する情報 |
 | --- |
 | public void selectedProvider （Mvpd mvpd） |
 
@@ -557,7 +557,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **パラメーター：**
 
-- *mvpd*：現在選択されている MVPD に関する情報を含むオブジェクト
+- *mvpd*：現在選択されているMVPDに関する情報を含むオブジェクト
 
 **Trigger by:** `getSelectedProvider()`
 
@@ -577,7 +577,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 プログラマーが使用できるメタデータには次の 2 種類があります。
 
 - 静的メタデータ（認証トークン TTL、認証トークン TTL およびデバイス ID）
-- ユーザーメタデータ（ユーザー ID や郵便番号など、ユーザー固有の情報。認証フローや承認フローの実行中に MVPD からユーザーのデバイスに渡される）
+- ユーザーメタデータ（認証フローまたは承認フローの実行中にMVPDからユーザーのデバイスに渡される、ユーザー ID や郵便番号などのユーザー固有の情報）
 
 **パラメーター：**
 
@@ -585,11 +585,11 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
    - キーが `METADATA_KEY_USER_META` で、引数に name = `METADATA_ARG_USER_META`、value = `[metadata_name]` の SerializableNameValuePair オブジェクトが含まれる場合、ユーザーメタデータに対するクエリが実行されます。 使用可能なユーザーメタデータタイプの現在のリスト：
       - `zip` – 郵便番号
 
-      - `householdID` – 世帯の識別子。 MVPD がサブアカウントをサポートしていない場合、これは `userID` と同じです。
+      - `householdID` – 世帯の識別子。 MVPDがサブアカウントをサポートしていない場合、これは `userID` と同じです。
 
       - `maxRating` - ユーザーの保護者による制限の上限
 
-      - `userID` - ユーザー ID。 MVPD がサブアカウントをサポートし、ユーザーがメインアカウントでない場合、`userID` は `householdID` とは異なります。
+      - `userID` - ユーザー ID。 MVPDがサブアカウントをサポートしていて、ユーザーがメインアカウントでない場合、`userID` は `householdID` とは異なります。
 
       - `channelID` - ユーザーが表示できるチャネルのリスト
    - キーが `METADATA_KEY_DEVICE_ID` の場合、現在のデバイス ID を取得するためにクエリが実行されます。 この機能はデフォルトで無効になっており、プログラマーはイネーブルメントと料金についてAdobeに問い合わせる必要があります。
@@ -600,13 +600,13 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 >[!NOTE]
 >
->SDK 3.4.0 の場合、定数は `METADATA_KEY_USER_META, METADATA_KEY_DEVICE_ID, METADATA_KEY_TTL_AUTHZ, METADATA_KEY_TTL_AUTHN`com.adobe.adobepass.accessenabler.api.profile.UserProfileService から入手できます。
+>SDK 3.4.0 の場合、定数 `METADATA_KEY_USER_META, METADATA_KEY_DEVICE_ID, METADATA_KEY_TTL_AUTHZ, METADATA_KEY_TTL_AUTHN`com.adobe.adobepass.accessenabler.api.profile.UserProfileService から入手できます。
 
 
 
 >[!NOTE]
 >
->プログラマーが使用できる実際のユーザーメタデータは、MVPD が提供する内容によって異なります。  このリストは、新しいメタデータが利用可能になり、Adobe Pass認証システムに追加されると、さらに拡張されます。
+>プログラマーが使用できる実際のユーザーメタデータは、MVPDが提供する内容によって異なります。  このリストは、新しいメタデータが利用可能になり、Adobe Pass認証システムに追加されると、さらに拡張されます。
 
 **コールバックがトリガーされました：** [`setMetadataStatus()`](#setMetadaStatus)
 
@@ -732,7 +732,7 @@ Access Enabler は、エンタイトルメント フローに必ずしも関連�
 - *event*：トラッキングされるイベント。 次の 3 つのトラッキングイベントタイプが考えられます。
    - **authorizationDetection:** 認証トークンリクエストが返されるたびに発生します（イベントタイプは `EVENT_AUTHZ_DETECTION`）。
    - **authenticationDetection:** 認証チェックが発生するたびに（イベントタイプが `EVENT_AUTHN_DETECTION`）
-   - **mvpdSelection:** ユーザーが MVPD 選択フォームで MVPD を選択したとき（イベントタイプは `EVENT_MVPD_SELECTION`）
+   - **mvpdSelection:** MVPD選択フォームでMVPDを選択したとき（イベントタイプ：`EVENT_MVPD_SELECTION`）
 - *data*：レポートされたイベントに関連付けられている追加データ。 このデータは、値のリストの形式で表示されます。
 
 *data* の値を解釈する手順を次に示します
@@ -759,7 +759,7 @@ Access Enabler は、エンタイトルメント フローに必ずしも関連�
    - **8** - オペレーティングシステムの種類
 
 - イベントタイプ `EVENT_MVPD_SELECTION` の場合
-   - **0** – 現在選択されている MVPD の ID
+   - **0** – 現在選択されているMVPDの ID
    - **1** - デバイスタイプ
    - **2**:Access Enabler クライアント・タイプ
    - **3** - オペレーティングシステムの種類

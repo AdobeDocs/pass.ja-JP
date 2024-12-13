@@ -2,14 +2,14 @@
 title: iOS/tvOS ストレージの整合性チェックメカニズム
 description: iOS/tvOS の整合性チェックメカニズム
 exl-id: 5d7cdc46-3e51-4e14-9e30-d7f48bc87506
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '323'
+source-wordcount: '324'
 ht-degree: 0%
 
 ---
 
-# iOS/tvOS の整合性チェックメカニズム {#iostvos-sdk-storage-integrity-checks}
+# （従来の）iOS/tvOS の整合性チェックメカニズム {#iostvos-sdk-storage-integrity-checks}
 
 >[!NOTE]
 >
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 ## 概要 {#Intro}
 
-iOS/tvOS AccessEnabler SDK のバージョン 3.8.3 以降では、AccessEnabler の初期化でストレージの整合性チェックを実行するオプションが使用可能です。
+iOS/tvOS AccessEnabler SDKのバージョン 3.8.3 以降では、AccessEnabler の初期化でストレージの整合性チェックを実行するオプションが使用可能です。
 
 このメカニズムを使用するために、AccessEnabler クラス用の追加の初期化メソッドを使用して API が拡張されました。
 
@@ -70,4 +70,4 @@ IntegrityCheckType 列挙は、クライアントアプリケーションに公�
 |-----------------------|-----------------------------------------------------|-----------------|------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | INTEGRITY_CHECK_NONE | なし | なし | ストレージの初期化時に整合性チェックが実行されない | SDK フローが期待どおりに動作している場合 |
 | INTEGRITY_CHECK_ALL | ストレージの操作性 <br/> 保存された値の有効性 | チェック失敗時 | 使用可能なすべての整合性チェックは、ストレージの初期化時に実行されます | SDK ストレージの破損が疑われる場合。 <br/> 整合性チェックのいずれかが失敗した場合、ユーザーはログアウトされます |
-| INTEGRITY_CHECK_CLEAR | なし | Always | ストレージの初期化時にストレージがクリアされる | SDK フローが期待どおりに完了できない場合 |
+| INTEGRITY_CHECK_CLEAR | なし | Always | ストレージの初期化時にストレージがクリアされる | SDK フローを期待どおりに完了できない場合 |

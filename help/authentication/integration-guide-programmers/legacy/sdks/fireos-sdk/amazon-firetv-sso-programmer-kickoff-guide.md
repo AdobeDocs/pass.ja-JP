@@ -2,14 +2,14 @@
 title: Amazon fireTV SSO - プログラマー向けキックオフガイド
 description: Amazon fireTV SSO - プログラマー向けキックオフガイド
 exl-id: cf9ba614-57ad-46c3-b154-34204b38742d
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '782'
+source-wordcount: '783'
 ht-degree: 0%
 
 ---
 
-# Amazon fireTV SSO - プログラマー向けキックオフガイド {#amazon-firetv-sso---programmer-kick-off-guide}
+# （従来の）Amazon fireTV SSO - プログラマー向けキックオフガイド {#amazon-firetv-sso---programmer-kick-off-guide}
 
 >[!NOTE]
 >
@@ -19,11 +19,11 @@ ht-degree: 0%
 
 ## 概要 {#intro}
 
-このドキュメントでは、新しい **Adobe Pass認証の fireTV SDK** を fireTV アプリケーションに統合するために必要な情報について説明します。 この新しい SDK は、Amazonの fireTV プラットフォームの OS レベルの統合を利用して、**シングルサインオン** をサポートしています。 シングルサインオンを活用するには、クライアントレス API から新しい fireTV SDK にアプリケーションを移行する際に、お客様側でわずかな作業が必要になります。 認証フローには、以下で詳しく説明するいくつかの変更があります。
+このドキュメントでは、新しい **Adobe Pass認証の fireTV SDK** を fireTV アプリケーションに組み込むために必要な情報について説明します。 この新しいSDKは、Amazonの fireTV プラットフォームの OS レベルの統合を利用して、**シングルサインオン** をサポートしています。 シングルサインオンのメリットを活用するには、クライアントレス API から新しい fireTV SDKにアプリケーションを移行する際に、お客様側から少し手間がかかります。 認証フローには、以下で詳しく説明するいくつかの変更があります。
 
 ## アーキテクチャの概要と OS レベルの統合 {#high}
 
-Amazonの fireTV Everywhere アプリ間のシングルサインオンを実現し、このプラットフォームでの全体的なエクスペリエンスを向上させるために、fireTV OS レベルでコア SDK を統合することにしました。 プログラマーは、Adobeが提供するスタブライブラリに対してコンパイルする必要があります。 実際の機能は、Amazon FireTV OS に存在するAdobeのライブラリによって提供されます。
+Amazonの fireTV プラットフォーム上で TV Everywhere アプリ間のシングルサインオンを実現し、このプラットフォームでの全体的なエクスペリエンスを向上させるために、私たちは FireTV OS レベルで私たちのコアSDKを統合することにしました。 プログラマーは、Adobeが提供するスタブライブラリに対してコンパイルする必要があります。 実際の機能は、Amazon FireTV OS に存在するAdobeのライブラリによって提供されます。
 
 Amazonが OS レベルで私たちのライブラリを組み込んだ fireTV シミュレータを提供するまで、開発は実際の fireTV デバイスを使用することでのみ可能です。
 
@@ -31,40 +31,40 @@ Amazonが OS レベルで私たちのライブラリを組み込んだ fireTV �
 
 * すべての統合された MVPD を備えたAmazon fireTV プラットフォーム上のすべてのAdobeを利用した TV Everywhere アプリケーションの間でシングルサインオン。
 * HBA （サポートされる MVPD を使用）のメリットを活用できます。
-* 新しい SDK バージョンがリリースされるたびにアプリケーションを更新する必要なく、最新の fireTV SDK を使用できます。
-* すべての TVE アプリケーションは、AccessEnabler ライブラリのローカル・コピーを使用する必要がないため、共有システム・ライブラリを使用するメリットがあります。 これにより、すべてのアプリケーションで同じ SDK バージョンが使用されるようになります。
+* 新しいSDK版がリリースされるたびにアプリを更新する必要なく、最新の fireTV SDKを使用できます。
+* すべての TVE アプリケーションは、AccessEnabler ライブラリのローカル・コピーを使用する必要がないため、共有システム・ライブラリを使用するメリットがあります。 これにより、すべてのアプリケーションが同じSDKのバージョンを使用していることも確認できます。
 * 単一の画面認証 – 登録コードや第 2 画面ワークフローは不要です。
 
 ## クライアントレス API ベースのアプリから fireTV SDK ベースのアプリへの移行 {#migra1}
 
-クライアントレス API から fireTV SDK に移行するには、クライアントレス API に関連するコードベースを削除し、新しい fireTV SDK を統合する必要があります。
+クライアントレス API から fireTV SDKに移行するには、クライアントレス API に関連するコードベースを削除し、新しい fireTV SDKを統合する必要があります。
 
-クライアントレス API ベースのアプリと比較すると、新しい fireTV SDK では認証が最初の画面に移動され、2 番目の画面の認証は必要なくなりました。
+クライアントレス API ベースのアプリと比較すると、新しい fireTV SDKでは、認証が 1 番目の画面に移動するため、2 番目の画面の認証は必要なくなりました。
 
-そのため、プログラマーはアプリに MVPD ピッカーを追加して、ユーザーが fireTV デバイスで TV プロバイダーを選択できるようにする必要があります。 MVPD を選択すると、fireTV デバイスの MVPD ログインページが表示されます。
+そのため、プログラマーはアプリにMVPDピッカーを追加して、fireTV デバイスで TV プロバイダーを選択できるようにする必要があります。 MVPDを選択すると、fireTV 端末のMVPDログインページが表示されます。
 
 FireTV での通常、HBA、および SSO シナリオを示すユーザーフローのワイヤーフレームは、[Amazon Fire TV - MVVPD Sign-in User Flow](https://xd.adobe.com/view/9058288e-4b67-43a1-9d5b-5f76ede6c51e/) にあります。
 
-## Android SDK ベースアプリから fireTV SDK ベースアプリへの移行 {#migra2}
+## Android SDK ベースのアプリから fireTV SDK ベースのアプリへの移行 {#migra2}
 
-この新しい fireTV SDK は、既存のAndroid SDK と非常に似ており、**Android SDK の統合** に関する現在のドキュメントは、fireTV SDK のドキュメントを準備す <!--http://tve.helpdocsonline.com/android-technical-overview--> まで使用できます。 Android SDK を使用するAndroid アプリケーションが既にある場合、fireTV アプリケーションへの fireTV SDK の統合は簡単です。
+この新しい fireTV SDKは、既存のAndroid SDKと非常に似ています。また、**Android SDKの統合** に関する現在のドキュメントは、fireTV SDKのドキュメントを準備す <!--http://tve.helpdocsonline.com/android-technical-overview--> まで使用できます。 Android SDKを使用するAndroid アプリケーションが既にある場合は、fireTV アプリケーションに fireTV SDKを統合するのは簡単です。
 
-既存のAndroid SDK と比較して、fireTV SDK では、MVPD ログインページの管理/提示や AuthN トークンの取得のタスクが AccessEnabler ライブラリによって内部的に実行されるため、認証プロセスが容易になります。
+FireTV SDKでは、既存のAndroid SDKと比較して、MVPDのログインページの管理/提示や AuthN トークンの取得のタスクは AccessEnabler ライブラリによって内部的に実行されるため、認証プロセスを簡単に作成できます。
 
 ## よくある質問 {#faq}
 
 1. **SSO** の仕組み
 
-   * SSO は、同じAmazon fireTV デバイスで新しい fireTV SDK を使用している、Adobe Pass Authentication を利用したすべてのプログラマーアプリケーションで機能します
-   * クライアントレス REST API で実装されたプログラマーアプリと fireTV SDK で実装されたアプリの SSO **はサポートされません**
+   * SSO は、同じAmazon fireTV デバイスで新しい fireTV SDKを使用している、Adobe Pass Authentication を利用したすべてのプログラマーアプリケーションで機能します
+   * クライアントレス REST API で実装されたプログラマーアプリと fireTV SDKで実装されたアプリとの SSO **はサポートされません**
 
-1. FireTV SSO の MVPD のカバレッジは何ですか？
+1. FireTV SSO のMVPDのカバレッジは何ですか？
 
-   * Adobe Pass Authentication によって統合された **すべての MVPD** は、fireTV SDK で技術的に SSO サポートされます。
+   * Adobe Pass Authentication によって統合された **すべての MVPD** は、fireTV SDKで技術的に SSO サポートされます。
 
-1. 新しい SDK を使用する以外に、プログラマーは他にどのような **ワークフローの変更** に注意する必要がありますか？
+1. 新しいSDKを使用する以外に、プログラマーは他にどのような **ワークフローの変更** に注意する必要がありますか？
 
-   * プログラマーは、fireTV プラットフォーム用の MVPD ピッカーを実装する必要があります。
+   * プログラマーは、fireTV プラットフォーム用のMVPD ピッカーを実装する必要があります。
 
 1. 認証 **TTL** に変更はありますか？
 

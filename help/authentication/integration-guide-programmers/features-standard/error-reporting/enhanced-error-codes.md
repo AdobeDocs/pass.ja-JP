@@ -2,9 +2,9 @@
 title: 拡張エラーコード
 description: 拡張エラーコード
 exl-id: 2b0a9095-206b-4dc7-ab9e-e34abf4d359c
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '2606'
+source-wordcount: '2610'
 ht-degree: 2%
 
 ---
@@ -18,14 +18,14 @@ ht-degree: 2%
 拡張エラーコードは、Adobe Passの認証機能を表し、と統合されたクライアントアプリケーションに追加のエラー情報を提供します。
 
 * Adobe Pass認証 REST API:
-   * [REST API v1](../../legacy/rest-api-v1/apis/rest-api-overview.md)
    * [REST API v2](../../rest-apis/rest-api-v2/apis/rest-api-v2-apis-overview.md)
+   * [（レガシー） REST API v1](../../legacy/rest-api-v1/rest-api-overview.md)
 * Adobe Pass認証 SDK による API の事前認証：
-   * [JavaScript SDK （事前認証 API）](../../legacy/sdks/javascript-sdk/preauthorize-api-javascript-sdk.md)
-   * [iOS/tvOS SDK （事前認証 API）](../../legacy/sdks/ios-tvos-sdk/preauthorize-api-ios-tvos-sdk.md)
-   * [Android SDK （事前認証 API）](../../legacy/sdks/android-sdk/preauthorize-api-android-sdk.md)
+   * [（従来の）JavaScript SDK（事前認証 API）](../../legacy/sdks/javascript-sdk/preauthorize-api-javascript-sdk.md)
+   * [（従来の）iOS/tvOS SDK（事前認証 API）](../../legacy/sdks/ios-tvos-sdk/preauthorize-api-ios-tvos-sdk.md)
+   * [（従来の）Android SDK（事前認証 API）](../../legacy/sdks/android-sdk/preauthorize-api-android-sdk.md)
 
-  _（*） Preauthorize API は、拡張エラーコードのサポートを提供する唯一のAdobe Pass Authentication SDK API です。_
+  _（*）事前認証 API は、拡張エラーコードをサポートする唯一のAdobe Pass認証SDK API です。_
 
 >[!IMPORTANT]
 >
@@ -256,42 +256,6 @@ _（*）エラーによっては、複数のアクションが解決策になる
 
 ## リスト {#enhanced-error-codes-lists}
 
-### REST API v1 {#enhanced-error-codes-lists-rest-api-v1}
-
-次の表に、Adobe Pass認証 REST API v1 と統合した場合にクライアントアプリケーションで発生する可能性のある拡張エラーコードを示します。
-
-| アクション | コード | ステータス | メッセージ |
-|--------------------|---------------------------------------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **なし** | *invalid_requestor* | 400 | 要求者パラメーターがないか、無効です。 |
-|                    | *invalid_device_info* | 400 | デバイス情報がないか、無効です。 |
-|                    | *invalid_device_id* | 400 | デバイス識別子がないか、無効です。 |
-|                    | *missing_resource* | 400、412 | リソースパラメーターがありません。 |
-|                    | *malformed_authz_request* | 400、412 | 認証リクエストが null または無効です。 |
-|                    | *preauthorization_denied_by_mvpd* | 403 | MVPD は、指定されたリソースの事前認証を要求したときに「拒否」決定を返しました。 |
-|                    | *authorization_denied_by_mvpd* | 403 | MVPD は、指定されたリソースの認証を要求したときに「拒否」の決定を返しました。 |
-|                    | *authorization_denied_by_parental_controls* | 403 | MVPD は、指定されたリソースのペアレンタルコントロール設定が原因で「拒否」決定を返しました。 |
-|                    | *internal_error* | 400、405、500 | 内部サーバーエラーが発生したため、リクエストは失敗しました。 |
-| **設定** | *unknown_integration* | 400、412 | 指定されたプログラマーと ID プロバイダーの統合が存在しません。 TVE ダッシュボードを使用して、必要な統合を作成します。 |
-|                    | *too_many_resources* | 403 | クエリされたリソースが多すぎるため、承認または事前承認の要求に失敗しました。 認証および事前認証制限を適切に設定するには、サポートチームにお問い合わせください。 |
-| **認証** | *authentication_session_issuer_mismatch* | 400 | 認証フローに対して示された MVPD が認証セッションを発行した MVPD と異なるため、認証リクエストは失敗しました。 続行するには、ユーザーは目的の MVPD で再認証する必要があります。 |
-|                    | *authorization_denied_by_hba_policies* | 403 | MVPD が、ホームベースの認証ポリシーが原因で「拒否」決定を返しました。 現在の認証はホームベースの認証フロー（HBA）を使用して取得されましたが、指定されたリソースの認証を要求する際にデバイスは自宅に存在しなくなりました。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
-|                    | *authorization_denied_by_session_invalidated* | 403 | 認証セッションは ID プロバイダーによって無効化されました。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
-|                    | *identity_not_recognized_by_mvpd* | 403 | ユーザー ID が MVPD によって認識されなかったため、承認要求は失敗しました。 |
-|                    | *authentication_session_invalidated* | 403 | 認証セッションは ID プロバイダーによって無効化されました。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
-|                    | *authentication_session_missing* | 403、412 | この要求に関連付けられている認証セッションを取得できませんでした。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
-|                    | *authentication_session_expired* | 403、412 | 現在の認証セッションの有効期限が切れています。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
-|                    | *preauthorization_authentication_session_missing* | 412 | この要求に関連付けられている認証セッションを取得できませんでした。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
-|                    | *preauthorization_authentication_session_expired* | 412 | 現在の認証セッションの有効期限が切れています。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
-| **認証** | *authorization_not_found* | 403、404 | 指定されたリソースの承認が見つかりませんでした。 続行するには、ユーザーが新しい認証を取得する必要があります。 |
-|                    | *authorization_expired* | 410 | 指定されたリソースの以前の認証の有効期限が切れています。 続行するには、ユーザーが新しい認証を取得する必要があります。 |
-| **再試行** | *network_received_error* | 403 | 関連付けられたパートナーサービスから応答を取得する際に読み取りエラーが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
-|                    | *network_connection_timeout* | 403 | 関連付けられたパートナーサービスで接続タイムアウトが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
-|                    | *maximum_execution_time_exceeded* | 403 | 最大許容時間内にリクエストが完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。 |
-
-### SDK 事前認証 API {#enhanced-error-codes-lists-sdks-preauthorize-api}
-
-Adobe Pass Authentication SDK の事前認証 API と統合した場合にクライアントアプリケーションで発生する可能性のある拡張エラーコードについては、前の [ 節 ](#enhanced-error-codes-list-rest-api-v1) を参照してください。
-
 ### REST API v2 {#enhanced-error-codes-lists-rest-api-v2}
 
 次の表に、Adobe Pass Authentication REST API v2 と統合した場合にクライアントアプリケーションで発生する可能性のある拡張エラーコードを示します。
@@ -316,9 +280,9 @@ Adobe Pass Authentication SDK の事前認証 API と統合した場合にクラ
 |                              | *invalid_header_pfs_provider_info_expired* | 400 | パートナーフレームワーク状態ヘッダーのプロバイダー情報の有効期限が切れました。 |
 |                              | *invalid_integration* | 400 | 指定されたサービス プロバイダーと mvpd の統合が存在しないか、無効です。 |
 |                              | *invalid_authentication_session* | 400 | この要求に関連付けられている認証セッションが見つからないか無効です。 |
-|                              | *preauthorization_denied_by_mvpd* | 403 | MVPD は、指定されたリソースの事前認証を要求したときに「拒否」決定を返しました。 |
-|                              | *authorization_denied_by_mvpd* | 403 | MVPD は、指定されたリソースの認証を要求したときに「拒否」の決定を返しました。 |
-|                              | *authorization_denied_by_parental_controls* | 403 | MVPD は、指定されたリソースのペアレンタルコントロール設定が原因で「拒否」決定を返しました。 |
+|                              | *preauthorization_denied_by_mvpd* | 403 | MVPDが、指定されたリソースの事前認証をリクエストする際に「拒否」の決定を返しました。 |
+|                              | *authorization_denied_by_mvpd* | 403 | MVPDが、指定されたリソースの認証をリクエストする際に「拒否」の決定を返しました。 |
+|                              | *authorization_denied_by_parental_controls* | 403 | MVPDが、指定されたリソースに対するペアレンタルコントロール設定が原因の「拒否」の決定を返しました。 |
 |                              | *authorization_denied_by_degradation_rule* | 403 | 指定されたサービス プロバイダと mvpd の統合には、要求されたリソースの承認を拒否する最適化規則が適用されています。 |
 |                              | *internal_server_error* | 500 | 内部サーバーエラーが発生したため、リクエストは失敗しました。 |
 | **設定** | *too_many_resources* | 403 | クエリされたリソースが多すぎるため、承認または事前承認の要求に失敗しました。 認証および事前認証制限を適切に設定するには、サポートチームにお問い合わせください。 |
@@ -339,12 +303,48 @@ Adobe Pass Authentication SDK の事前認証 API と統合した場合にクラ
 |                              | *authenticated_profile_invalidated* | 403 | このリクエストに関連付けられている認証済みプロファイルが無効化されました。 |
 |                              | *temporary_access_duration_limit_exceeded* | 403 | 一時アクセス期間の制限を超えています。 |
 |                              | *temporary_access_resources_limit_exceeded* | 403 | 一時アクセスリソースの制限を超えています。 |
-|                              | *authorization_denied_by_hba_policies* | 403 | MVPD が、ホームベースの認証ポリシーが原因で「拒否」決定を返しました。 現在の認証はホームベースの認証フローを通じて取得されたものですが、指定されたリソースの認証を要求したときにデバイスはホームに存在しなくなりました。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
-|                              | *authorization_denied_by_session_invalidated* | 403 | 認証セッションは ID プロバイダーによって無効化されました。 続行するには、サポートされている MVPD でユーザーを再認証する必要があります。 |
-|                              | *identity_not_recognized_by_mvpd* | 403 | ユーザー ID が MVPD によって認識されなかったため、承認要求は失敗しました。 |
+|                              | *authorization_denied_by_hba_policies* | 403 | MVPDが、ホームベースの認証ポリシーが原因で、「拒否」の決定を返しました。 現在の認証はホームベースの認証フローを通じて取得されたものですが、指定されたリソースの認証を要求したときにデバイスはホームに存在しなくなりました。 続行するには、サポートされているMVPDで再認証する必要があります。 |
+|                              | *authorization_denied_by_session_invalidated* | 403 | 認証セッションは ID プロバイダーによって無効化されました。 続行するには、サポートされているMVPDで再認証する必要があります。 |
+|                              | *identity_not_recognized_by_mvpd* | 403 | MVPDでユーザー ID が認識されなかったため、認証リクエストが失敗しました。 |
 | **再試行** | *network_received_error* | 403 | 関連付けられたパートナーサービスから応答を取得する際に読み取りエラーが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
 |                              | *network_connection_timeout* | 403 | 関連付けられたパートナーサービスで接続タイムアウトが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
 |                              | *maximum_execution_time_exceeded* | 403 | 最大許容時間内にリクエストが完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。 |
+
+### REST API v1 {#enhanced-error-codes-lists-rest-api-v1}
+
+次の表に、Adobe Pass認証 REST API v1 と統合した場合にクライアントアプリケーションで発生する可能性のある拡張エラーコードを示します。
+
+| アクション | コード | ステータス | メッセージ |
+|--------------------|---------------------------------------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **なし** | *invalid_requestor* | 400 | 要求者パラメーターがないか、無効です。 |
+|                    | *invalid_device_info* | 400 | デバイス情報がないか、無効です。 |
+|                    | *invalid_device_id* | 400 | デバイス識別子がないか、無効です。 |
+|                    | *missing_resource* | 400、412 | リソースパラメーターがありません。 |
+|                    | *malformed_authz_request* | 400、412 | 認証リクエストが null または無効です。 |
+|                    | *preauthorization_denied_by_mvpd* | 403 | MVPDが、指定されたリソースの事前認証をリクエストする際に「拒否」の決定を返しました。 |
+|                    | *authorization_denied_by_mvpd* | 403 | MVPDが、指定されたリソースの認証をリクエストする際に「拒否」の決定を返しました。 |
+|                    | *authorization_denied_by_parental_controls* | 403 | MVPDが、指定されたリソースに対するペアレンタルコントロール設定が原因の「拒否」の決定を返しました。 |
+|                    | *internal_error* | 400、405、500 | 内部サーバーエラーが発生したため、リクエストは失敗しました。 |
+| **設定** | *unknown_integration* | 400、412 | 指定されたプログラマーと ID プロバイダーの統合が存在しません。 TVE ダッシュボードを使用して、必要な統合を作成します。 |
+|                    | *too_many_resources* | 403 | クエリされたリソースが多すぎるため、承認または事前承認の要求に失敗しました。 認証および事前認証制限を適切に設定するには、サポートチームにお問い合わせください。 |
+| **認証** | *authentication_session_issuer_mismatch* | 400 | 認証フローに示されたMVPDが認証セッションを発行したユーザーと異なるので、認証リクエストは失敗しました。 続行するには、目的のMVPDでユーザーの再認証が必要です。 |
+|                    | *authorization_denied_by_hba_policies* | 403 | MVPDが、ホームベースの認証ポリシーが原因で、「拒否」の決定を返しました。 現在の認証はホームベースの認証フロー（HBA）を使用して取得されましたが、指定されたリソースの認証を要求する際にデバイスは自宅に存在しなくなりました。 続行するには、サポートされているMVPDで再認証する必要があります。 |
+|                    | *authorization_denied_by_session_invalidated* | 403 | 認証セッションは ID プロバイダーによって無効化されました。 続行するには、サポートされているMVPDで再認証する必要があります。 |
+|                    | *identity_not_recognized_by_mvpd* | 403 | MVPDでユーザー ID が認識されなかったため、認証リクエストが失敗しました。 |
+|                    | *authentication_session_invalidated* | 403 | 認証セッションは ID プロバイダーによって無効化されました。 続行するには、サポートされているMVPDで再認証する必要があります。 |
+|                    | *authentication_session_missing* | 403、412 | この要求に関連付けられている認証セッションを取得できませんでした。 続行するには、サポートされているMVPDで再認証する必要があります。 |
+|                    | *authentication_session_expired* | 403、412 | 現在の認証セッションの有効期限が切れています。 続行するには、サポートされているMVPDで再認証する必要があります。 |
+|                    | *preauthorization_authentication_session_missing* | 412 | この要求に関連付けられている認証セッションを取得できませんでした。 続行するには、サポートされているMVPDで再認証する必要があります。 |
+|                    | *preauthorization_authentication_session_expired* | 412 | 現在の認証セッションの有効期限が切れています。 続行するには、サポートされているMVPDで再認証する必要があります。 |
+| **認証** | *authorization_not_found* | 403、404 | 指定されたリソースの承認が見つかりませんでした。 続行するには、ユーザーが新しい認証を取得する必要があります。 |
+|                    | *authorization_expired* | 410 | 指定されたリソースの以前の認証の有効期限が切れています。 続行するには、ユーザーが新しい認証を取得する必要があります。 |
+| **再試行** | *network_received_error* | 403 | 関連付けられたパートナーサービスから応答を取得する際に読み取りエラーが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
+|                    | *network_connection_timeout* | 403 | 関連付けられたパートナーサービスで接続タイムアウトが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
+|                    | *maximum_execution_time_exceeded* | 403 | 最大許容時間内にリクエストが完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。 |
+
+### SDK 事前認証 API {#enhanced-error-codes-lists-sdks-preauthorize-api}
+
+Adobe Pass Authentication SDK の事前認証 API と統合した場合にクライアントアプリケーションで発生する可能性のある拡張エラーコードについては、前の [ 節 ](#enhanced-error-codes-list-rest-api-v1) を参照してください。
 
 ## 応答処理 {#enhanced-error-codes-response-handling}
 
@@ -368,4 +368,4 @@ Adobe Pass Authentication SDK の事前認証 API と統合した場合にクラ
 
 1. **認証と承認**：認証と承認に関連するエラーの場合、必要に応じて、再認証を行うか新しい承認を取得するようにユーザーに促す必要があります。
 
-1. **ユーザーのフィードバック**：任意。人間が判読できる「メッセージ」フィールドと（潜在的な）「詳細」フィールドを使用して、問題についてユーザーに通知します。 「詳細」テキスト メッセージは、MVPD 事前認証または認証エンドポイントから、または劣化ルールを適用する際にプログラマから渡される場合があります。
+1. **ユーザーのフィードバック**：任意。人間が判読できる「メッセージ」フィールドと（潜在的な）「詳細」フィールドを使用して、問題についてユーザーに通知します。 「詳細」テキストメッセージは、MVPDの事前認証や認証エンドポイントから、または劣化規則を適用する際のプログラマーから渡される場合があります。
