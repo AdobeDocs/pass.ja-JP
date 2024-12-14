@@ -2,9 +2,9 @@
 title: コンソールアプリログを使用した AccessEnabler iOS/tvOS SDKのデバッグ
 description: コンソールアプリログを使用した AccessEnabler iOS/tvOS SDKのデバッグ
 exl-id: 0dad325e-db15-4ea0-a87a-75409eaf8d46
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '554'
+source-wordcount: '576'
 ht-degree: 0%
 
 ---
@@ -15,6 +15,9 @@ ht-degree: 0%
 >
 >このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
+>[!IMPORTANT]
+>
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要
 

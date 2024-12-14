@@ -2,9 +2,9 @@
 title: クライアントレス API の実装 - エラーコード/考えられる理由/原因を含むメッセージ
 description: クライアントレス API の実装 - エラーコード/考えられる理由/原因を含むメッセージ
 exl-id: 616e35fc-9b72-422b-9a05-e6248bd52490
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '205'
+source-wordcount: '227'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >このページの内容は、情報提供のみを目的として提供されています。 この API を使用するには、Adobe Systems からの最新のライセンス版が必要です。 無許可の使用は許可されていません。
+
+>[!IMPORTANT]
+>
+> [製品発表](/help/authentication/product-announcements.md)ページに集約された最新のAdobe Pass Authentication製品発表と廃止措置のタイムラインについて常に最新情報を入手してください。
 
 </br>
 
@@ -33,7 +37,7 @@ ht-degree: 0%
 1. クロスドメインスクリプト問題が発生している可能性があります
 1. 適切なスプーフィングを /etc/hosts ファイルに追加する必要があります
 
-## エラー:400 Bad Request
+## エラー：400 無効なリクエスト
 
 ### 原因：
 
@@ -53,7 +57,7 @@ ht-degree: 0%
 
 1. ユーザー名とパスワードが一致しません
 2. ログインが無効になっている可能性があります
-3. ログインが実稼動用かステージング用かを確認
+3. ログインが実稼働用かステージング用かを確認する
 
 
 <!--

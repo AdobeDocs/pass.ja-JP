@@ -2,26 +2,20 @@
 title: Adobe&reg; Pass Authentication へようこそ。
 description: 「認証&reg; パスAdobeの概要」へようこそ
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '331'
+source-wordcount: '296'
 ht-degree: 0%
 
 ---
 
 # 認証へようこそ®Adobeに合格します {#pt-auth-overview}
 
->[!NOTE]
+>[!IMPORTANT]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 Adobe Pass Authentication は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。 Adobe Pass認証使用権ソリューションに参加するために、コンテンツプロバイダー（プログラマー）と有料テレビプロバイダー（MVPD）は、使用権システムをAdobe Pass認証ワークフローと統合します。 このドキュメントサイトでは、統合プロセスの詳細と、既存のパートナー向けのヒントを説明します。
-
-フィードバックをお寄せください。
-
->[!NOTE]
->
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 一般的なヘルプとよくある質問 {#help-faqs}
 
@@ -39,13 +33,11 @@ Adobe Pass Authentication は、TV Everywhere の使用権限管理ソリュー�
 
 >[!IMPORTANT]
 >
->回答が見つからない場合は、[**E メールで**](mailto:tve-support@adobe.com) お問い合わせください。
+> 回答が見つからない場合は、[**E メールで**](mailto:tve-support@adobe.com) お問い合わせください。
 >
->[ サポートチームに電子メールを送信する ](mailto:tve-support@adobe.com) ことは、問題やインシデントレポートの最初のステップでもあります。
+> [ サポートチームに電子メールを送信する ](mailto:tve-support@adobe.com) ことは、問題やインシデントレポートの最初のステップでもあります。
 >
->[ 重要度 1 のライブ ](/help/authentication/kickstart/escalation-procedures.md) 問題があり、応答なくメールを送信して 30 分経過した場合は、お電話する電話番号の [ エスカレーション手順 ](/help/authentication/kickstart/escalation-procedures.md) ドキュメントを参照してください。
->
-
+> [ 重要度 1 のライブ ](/help/authentication/kickstart/escalation-procedures.md) 問題があり、応答なくメールを送信して 30 分経過した場合は、お電話する電話番号の [ エスカレーション手順 ](/help/authentication/kickstart/escalation-procedures.md) ドキュメントを参照してください。
 
 ## 必要な情報を検索するには {#how-to-search}
 

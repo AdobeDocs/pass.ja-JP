@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '1258'
+source-wordcount: '1260'
 ht-degree: 2%
 
 ---
@@ -15,6 +15,35 @@ ht-degree: 2%
 # Adobe Pass認証ヘルプ {#authentication}
 
 + [Adobe Pass 認証](home.md)
++ [製品に関するお知らせ](product-announcements.md)
++ 製品リリース {#product-releases}
+   + 2024 年 {#2024}
+      + [Adobe Pass Authentication 3.0.3 リリースノート](notes-releases/auth-rn-303.md)
+      + [Adobe Pass Authentication 3.0 リリースノート](notes-releases/auth-rn-300.md)
+      + [Adobe Pass Authentication 2.70 リリースノート](notes-releases/auth-rn-270.md)
+      + [Adobe Pass Authentication 2.69 リリースノート](notes-releases/auth-rn-269.md)
+      + [Adobe Pass Authentication JavaScript 4.7.0 リリースノート](notes-releases/authn-rn-javascript-470.md)
+      + [Adobe Pass認証iOS/tvOS 3.9.2 リリースノート](notes-releases/authn-rn-ios-tvos-392.md)
+      + [Adobe Pass認証iOS/tvOS 3.8.4 リリースノート](notes-releases/authn-rn-ios-tvos-384.md)
+   + 2023 年 {#2023}
+      + [Adobe Pass Authentication 2.68 リリースノート](notes-releases/auth-rn-268.md)
+      + [Adobe Pass Authentication 2.67 リリースノート](notes-releases/auth-rn-267.md)
+      + [Adobe Pass Authentication 2.66 リリースノート](notes-releases/auth-rn-266.md)
+      + [Adobe Pass Authentication 2.65.1 リリースノート](notes-releases/auth-rn-2651.md)
+      + [Adobe Pass Authentication 2.65 リリースノート](notes-releases/auth-rn-265.md)
+      + [Adobe Pass Authentication 2.64.1 リリースノート](notes-releases/auth-rn-2641.md)
+      + [Adobe Pass認証iOS/tvOS 3.8.3 リリースノート](notes-releases/authn-rn-ios-tvos-383.md)
+      + [Adobe Pass認証iOS/tvOS 3.8.2 リリースノート](notes-releases/authn-rn-ios-tvos-382.md)
+      + [Adobe Pass認証iOS/tvOS 3.8.1 リリースノート](notes-releases/authn-rn-ios-tvos-381.md)
+      + [Adobe Pass Authentication Android 3.7.3 リリースノート](notes-releases/authn-rn-android-373.md)
+   + {#2022} 年
+      + [Adobe Pass Authentication 2.64 リリースノート](notes-releases/auth-rn-264.md)
+      + [Adobe Pass Authentication 2.63 リリースノート](notes-releases/auth-rn-263.md)
+      + [Adobe Pass Authentication 2.62.1 リリースノート](notes-releases/auth-rn-2621.md)
+      + [Adobe Pass Authentication JavaScript 4.6.0 リリースノート](notes-releases/authn-rn-javascript-460.md)
+   + 2021 {#2021}
+      + [Adobe Pass Authentication JavaScript 4.4.0 リリースノート](notes-releases/authn-rn-javascript-440.md)
+      + [Adobe Pass認証iOS/tvOS 3.7.0 リリースノート](notes-releases/authn-rn-ios-tvos-370.md)
 + Kickstart {#kickstart}
    + [テクニカルペーパー](kickstart/technical-paper.md)
    + [プログラマーの概要](kickstart/programmer-overview.md)
@@ -119,7 +148,7 @@ ht-degree: 2%
          + [プロモーションの一時パス](integration-guide-programmers/features-premium/temporary-access/promotional-temp-pass.md)
          + [一時パスをリセット](integration-guide-programmers/features-premium/temporary-access/reset-temp-pass.md)
       + アクセス {#degraded-access} が低下しました
-         + [Degradation API の概要 ](integration-guide-programmers/features-premium/degraded-access/degradation-api-overview.md)
+         + [低下 API の概要](integration-guide-programmers/features-premium/degraded-access/degradation-api-overview.md)
       + ESM {#esm}
          + [使用権限サービスの監視の概要](integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md)
          + [使用権限サービスモニタリング API](integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md)
@@ -261,34 +290,6 @@ ht-degree: 2%
    + [統合](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md)
    + [レポート](/help/authentication/user-guide-tve-dashboard/tve-dashboard-reports.md)
    + [変更ログ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-changes-log.md)
-+ リリースノート {#release-notes}
-   + 2024 年 {#release-notes-2024}
-      + [Adobe Pass Authentication 3.0.3 リリースノート](notes-releases/auth-rn-303.md)
-      + [Adobe Pass Authentication 3.0 リリースノート](notes-releases/auth-rn-300.md)
-      + [Adobe Pass Authentication 2.70 リリースノート](notes-releases/auth-rn-270.md)
-      + [Adobe Pass Authentication 2.69 リリースノート](notes-releases/auth-rn-269.md)
-      + [Adobe Pass Authentication JavaScript 4.7.0 リリースノート](notes-releases/authn-rn-javascript-470.md)
-      + [Adobe Pass認証iOS/tvOS 3.9.2 リリースノート](notes-releases/authn-rn-ios-tvos-392.md)
-      + [Adobe Pass認証iOS/tvOS 3.8.4 リリースノート](notes-releases/authn-rn-ios-tvos-384.md)
-   + 2023 年 {#release-notes-2023}
-      + [Adobe Pass Authentication 2.68 リリースノート](notes-releases/auth-rn-268.md)
-      + [Adobe Pass Authentication 2.67 リリースノート](notes-releases/auth-rn-267.md)
-      + [Adobe Pass Authentication 2.66 リリースノート](notes-releases/auth-rn-266.md)
-      + [Adobe Pass Authentication 2.65.1 リリースノート](notes-releases/auth-rn-2651.md)
-      + [Adobe Pass Authentication 2.65 リリースノート](notes-releases/auth-rn-265.md)
-      + [Adobe Pass Authentication 2.64.1 リリースノート](notes-releases/auth-rn-2641.md)
-      + [Adobe Pass認証iOS/tvOS 3.8.3 リリースノート](notes-releases/authn-rn-ios-tvos-383.md)
-      + [Adobe Pass認証iOS/tvOS 3.8.2 リリースノート](notes-releases/authn-rn-ios-tvos-382.md)
-      + [Adobe Pass認証iOS/tvOS 3.8.1 リリースノート](notes-releases/authn-rn-ios-tvos-381.md)
-      + [Adobe Pass Authentication Android 3.7.3 リリースノート](notes-releases/authn-rn-android-373.md)
-   + {#release-notes-2022} 年
-      + [Adobe Pass Authentication 2.64 リリースノート](notes-releases/auth-rn-264.md)
-      + [Adobe Pass Authentication 2.63 リリースノート](notes-releases/auth-rn-263.md)
-      + [Adobe Pass Authentication 2.62.1 リリースノート](notes-releases/auth-rn-2621.md)
-      + [Adobe Pass Authentication JavaScript 4.6.0 リリースノート](notes-releases/authn-rn-javascript-460.md)
-   + 2021 {#release-notes-2021}
-      + [Adobe Pass Authentication JavaScript 4.4.0 リリースノート](notes-releases/authn-rn-javascript-440.md)
-      + [Adobe Pass認証iOS/tvOS 3.7.0 リリースノート](notes-releases/authn-rn-ios-tvos-370.md)
 + テクニカルノート {#tech-notes}
    + 環境 {#environments}
       + [Adobe環境について](notes-technical/environments/understanding-the-adobe-environments.md)

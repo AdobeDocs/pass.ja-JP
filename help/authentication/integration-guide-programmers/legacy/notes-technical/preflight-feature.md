@@ -2,9 +2,9 @@
 title: プリフライト機能、問題を有効化、トラブルシューティング、または特定する方法
 description: プリフライト機能、問題を有効化、トラブルシューティング、または特定する方法
 exl-id: 9e4ec343-371f-4116-915f-191e5f42cb47
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '499'
+source-wordcount: '521'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+
+>[!IMPORTANT]
+>
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 Adobe Pass認証による preAuthorizeResources の計算方法が変更されました。 PreAuthorization API には、新しい実装があります。 この実装は、複数の認証コールのみを行う古いソリューションに代わるものです。
 PreAuthorization API の外部インターフェイスは変更されておらず、プログラマーのアプリケーションで更新を行う必要はありません。
