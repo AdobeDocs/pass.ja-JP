@@ -2,7 +2,7 @@
 title: REST API V2 クックブック（サーバー間）
 description: REST API V2 クックブック（サーバー間）
 exl-id: 3160c03c-849d-4d39-95e5-9a9cbb46174d
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
 workflow-type: tm+mt
 source-wordcount: '1578'
 ht-degree: 0%
@@ -28,14 +28,14 @@ ht-degree: 0%
 | タイプ | コンポーネント | 説明 |
 |---------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ストリーミングデバイス | ストリーミングアプリ | ユーザーのストリーミングデバイス上に存在し、認証済みビデオを再生するプログラマーアプリケーション。 |
-|                           | \[ オプション\] AuthN モジュール | ストリーミングデバイスにユーザーエージェント（Web ブラウザー）がある場合、AuthN モジュールは MVPD IdP 上でユーザーを認証する役割を果たします。 |
+|                           | \[ オプション\] AuthN モジュール | Streaming Device にユーザーエージェント（Web ブラウザー）がある場合、MVPD IdP 上でユーザーの認証は AuthN モジュールが行います。 |
 | \[ オプション\] AuthN デバイス | AuthN アプリ | ストリーミングデバイスにユーザーエージェント（Web ブラウザー）がない場合、AuthN アプリケーションは、Web ブラウザーを使用して別のユーザーのデバイスからアクセスする、プログラマー向けの Web アプリケーションです。 |
 | プログラマ基盤 | プログラマーサービス | ストリーミングデバイスをAdobe Pass サービスにリンクして、認証と承認の決定を取得するサービス。 |
 | Adobe基盤 | Adobe Pass サービス | MVPD IdP および AuthZ サービスと統合され、認証と承認の決定を行うサービス。 |
-| MVPD インフラストラクチャ | MVPD IdP | ユーザーの ID を検証するために、資格情報ベースの認証サービスを提供する MVPD エンドポイント。 |
-|                           | MVPD AuthZ サービス | ユーザーの購読、保護者による制限などに基づいて認証の決定を行う MVPD エンドポイント。 |
+| MVPD インフラストラクチャ | MVPD IdP | ユーザーの ID を検証するために、資格情報ベースの認証サービスを提供するMVPD エンドポイント。 |
+|                           | MVPD AuthZ サービス | ユーザーの購読、保護者による制限などに基づいて認証の決定を行うMVPD エンドポイント。 |
 
-フローで使用されるその他の用語は、[ 用語集 ](/help/authentication/kickstart/glossary.md) で定義されています。
+フローで使用されるその他の用語は、[ 用語集 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md) で定義されています。
 
 次の図に、フロー全体を示します。
 
@@ -78,8 +78,8 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
    * <b> 手順 2.a:</b> プログラマーサービスが、serviceProvider: <b>/api/v2/{serviceProvider}/configuration で使用可能な MVPD のリストを取得します </b><br>
 （[ 使用可能な MVPD のリストの取得 ](../apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)）
    * プログラマーサービスは、MVPD のリストに対してフィルタリングを実装し、他の MVPD （TempPass、テスト MVPD、開発中の MVPD など）を非表示にすることを目的とした MVPD のみを表示することができます。
-   * プログラマーサービスは、ストリーミングアプリがピッカーを表示するためのフィルターされた MVPD リストを返す必要があります。ユーザーは MVPD を選択します
-   * ストリーミングアプリから選択された MVPD を使用して、プログラマーサービスは <b>/api/v2/{serviceProvider}/sessions セッションを作成 </b><br> ます。
+   * プログラマーサービスは、ストリーミングアプリでピッカーを表示するために、フィルタリングされたMVPDリストを返す必要があります。ユーザーはMVPDを選択します
+   * ストリーミングアプリからMVPDを選択した状態で、プログラマーサービスが <b>/api/v2/{serviceProvider}/sessions セッションを作成する </b><br>
 （[ 認証セッションの作成 ](../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)） <br>
       * 認証に使用するコードと URL が返されます
       * プロファイルが見つかった場合、プログラマーサービスは <a href="#preauthorization-phase">C に進みます。事前認証フェーズ </a>
@@ -89,18 +89,18 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
 
 ブラウザーまたは 2 番目の画面の Web ベースのアプリケーションを使用する場合：
 
-* オプション 1。 ストリーミングアプリは、ブラウザーまたは web ビューを開き、認証する URL を読み込むことができます。そして、ユーザーは、資格情報を送信する必要がある MVPD ログインページに移動します
+* オプション 1。 ストリーミングアプリでは、ブラウザーまたは web ビューを開き、認証する URL を読み込むことで、資格情報を送信する必要のあるMVPDのログインページにアクセスできます
    * ユーザーがログイン/パスワードを入力すると、最終リダイレクトで成功ページが表示される
 * オプション 2. ストリーミングアプリでは、ブラウザーを開いてコードを表示することはできません。 <b>AuthN_APP という個別の Web アプリケーションを開発する必要があります </b>。ユーザーに CODE を入力し、URL をビルドして開くよう依頼します（<b>/api/v2/authenticate/{serviceProvider}/{CODE}</b>）。
    * ユーザーがログイン/パスワードを入力すると、最終リダイレクトで成功ページが表示される
 
 ### 手順 4：認証済みプロファイルを確認 {#step-4-check-for-authenticated-profiles}
 
-プログラマーサービスは、ブラウザーまたは 2 番目の画面で完了するように、MVPD との認証を確認します
+プログラマーサービスは、MVPDとの認証を確認して、ブラウザーまたは 2 番目の画面で完了します
 
 * <b>/api/v2/{serviceProvider}/profiles/{mvpd}</b><br> では、15 秒ごとにポーリングすることをお勧めします
-（[ 特定の MVPD の認証済みプロファイルの取得 ](../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)）
-   * MVPD ピッカーが 2 番目の画面アプリケーションに表示されるので、ストリーミングアプリケーションで MVPD が選択されていない場合、ポーリングは CODE <b>/api/v2/{serviceProvider}/profiles/code/{CODE}</b><br> で発生します。
+（[ 特定のMVPDの認証済みプロファイルの取得 ](../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)）
+   * MVPD ピッカーが 2 番目の画面アプリケーションに表示されるので、ストリーミングアプリケーションでMVPDが選択されていない場合、ポーリングは CODE <b>/api/v2/{serviceProvider}/profiles/code/{CODE}</b><br> で行われます
 （[ 特定のコードの認証済みプロファイルの取得 ](../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)）
 * ポーリングは、30 分に達したときにストリーミングアプリケーションがまだアクティブである場合は、30 分を超えてはなりません。新しいセッションを開始する必要があり、新しいコードと URL が返されます
 * 認証が完了すると、返される値は認証済みプロファイルで 200 になります
@@ -114,7 +114,7 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
 
 * 認証済みユーザーパッケージに含まれていないリソースをアプリケーションが除外する場合は、この手順をオプションで実行します
 * <b>/api/v2/{serviceProvider}/decisions/preauthorize/{mvpd}</b><br> の呼び出し
-（[ 特定の MVPD を使用した事前認証決定の取得 ](../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)）
+（[ 特定のMVPDを使用した事前認証決定の取得 ](../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)）
 
 ## D.承認フェーズ {#authorization-phase}
 
@@ -125,7 +125,7 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
 * すべてのプレイ開始にステップが必要です
 * ストリーミングアプリは、この情報をプログラマーサービスに渡します
 * ストリーミングアプリに代わるプログラマーサービス。<b>/api/v2/{serviceProvider}/decision/authorize/{mvpd}</b><br> を呼び出します。
-（[ 特定の MVPD を使用した認証決定の取得 ](../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)）
+（[ 特定のMVPDを使用した認証決定の取得 ](../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)）
    * decision = &#39;Permit&#39;、プログラマーサービスはストリーミング アプリにストリーミングを開始するように指示します
    * decision = &#39;拒否&#39;、プログラマーサービスは、そのビデオにアクセスできないことをユーザーに通知するようにストリーミングアプリに指示します
    * その過程で、プログラマーサービスは他のビジネスルールを評価し、ストリーミングアプリに適切な決定を返す場合があります
@@ -134,12 +134,12 @@ Adobe Pass REST API V2 を実装するには、以下の手順（フェーズに
 
 ### 手順 7：ログアウト {#step-7-logout}
 
-ストリーミングアプリ：ユーザーが MVPD からログアウトしたい
+ストリーミングアプリ：ユーザーはMVPDからのログアウトを希望しています
 
-* ストリーミングアプリは、この特定のアプリの MVPD からログアウトする必要があることをプログラマーサービスに通知します。
+* ストリーミングアプリは、この特定のアプリについてMVPDからログアウトする必要があることをプログラマーサービスに通知します。
 * プログラマーサービスは、認証済みユーザーに関して保存している情報をクリーンアップできます
 * プログラマーサービス呼び出し <b>/api/v2/{serviceProvider}/logout/{mvpd}</b><br>
-（[ 特定の MVPD のログアウトの開始 ](../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)）
+（[ 特定のMVPDのログアウトの開始 ](../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)）
 * 応答 actionType=&#39;interactive&#39;および url が存在する場合、プログラマーサービスは URL をストリーミングアプリに返します。
 * ストリーミングアプリは、既存の機能に基づいて、ブラウザーで URL を開くことができます（通常、認証に使用するのと同じ）
 * ストリーミングアプリにブラウザーがない場合、または認証時のインスタンスと異なるインスタンスの場合は、MVPD セッションがブラウザーキャッシュに保持されなかったので、フローを停止できます。

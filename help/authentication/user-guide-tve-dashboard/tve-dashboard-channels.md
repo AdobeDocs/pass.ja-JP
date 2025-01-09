@@ -2,7 +2,7 @@
 title: チャネル
 description: TVE ダッシュボード内のチャネルとその様々な設定について説明します。
 exl-id: bbddeccb-6b6f-4a8f-87ab-d4af538eee1d
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
 workflow-type: tm+mt
 source-wordcount: '1556'
 ht-degree: 0%
@@ -21,7 +21,7 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 * **表示名**：商業目的で使用されるチャネルのブランド名。
 * **チャネル ID**：一意の ID。依頼者 ID とも呼ばれます。
-* **統合**: [MVPD](/help/authentication/kickstart/glossary.md#mvpd) で確立された接続数。
+* **統合**: [MVPD](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#mvpd) で確立された接続数。
 
 ![ 既存のチャネルのリスト ](../assets/tve-dashboard/new-tve-dashboard/channels/channels-list-view.png)
 

@@ -2,9 +2,9 @@
 title: Adobe&reg; Pass Authentication へようこそ。
 description: 「認証&reg; パスAdobeの概要」へようこそ
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
 workflow-type: tm+mt
-source-wordcount: '296'
+source-wordcount: '295'
 ht-degree: 0%
 
 ---
@@ -27,7 +27,7 @@ Adobe Pass Authentication は、TV Everywhere の使用権限管理ソリュー�
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <ul><li>[ プログラマー向けキックスタートガイド ](/help/authentication/kickstart/programmer-kickstart-guide.md)</li><li>[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)</li></ul> | <ul><li>[MVPD キックスタートガイド ](/help/authentication/kickstart/mvpd-kickstart-guide.md)</li><li>[ 認証 ](/help/authentication/integration-guide-mvpds/authn-usecase.md)</li><li>[ 認可 ](/help/authentication/integration-guide-mvpds/authz-usecase.md)</li><li>[ ログアウト ](/help/authentication/integration-guide-mvpds/usecase-mvpd-logout.md)</li></ul> |
 | **ネイティブアプリクライアントの場合** | **皆さん** |
-| <ul><li>[iOSの技術概要 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)</li><li>[Androidの技術概要 ](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-overview.md)</li></ul> | <ul><li>[ テクニカル・ペーパー ](/help/authentication/kickstart/technical-paper.md)</li><li>[ エスカレーション手続 ](/help/authentication/kickstart/escalation-procedures.md)</li><li>[ 用語集 ](/help/authentication/kickstart/glossary.md)</li></ul> |
+| <ul><li>[iOSの技術概要 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)</li><li>[Androidの技術概要 ](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-overview.md)</li></ul> | <ul><li>[ テクニカル・ペーパー ](/help/authentication/kickstart/technical-paper.md)</li><li>[ エスカレーション手続 ](/help/authentication/kickstart/escalation-procedures.md)</li></ul> |
 | **スマートデバイス用** |                                                                                                                                                                                                                                                                                                                                                                       |
 | <ul><li>[ クライアントレス技術概要 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)</li><li>[ クライアントレス API](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)</li></ul> |                                                                                                                                                                                                                                                                                                                                                                       |
 

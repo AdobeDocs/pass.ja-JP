@@ -2,9 +2,9 @@
 title: TVE ダッシュボードの概要
 description: TVE ダッシュボードとそのリソースについて理解します。
 exl-id: 91baeb34-a32a-4dc3-94d8-f6cfca59dc4e
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
 workflow-type: tm+mt
-source-wordcount: '295'
+source-wordcount: '303'
 ht-degree: 0%
 
 ---
@@ -25,7 +25,7 @@ ht-degree: 0%
    * プラットフォームカテゴリ *デスクトップ、モバイル、テレビ接続デバイス*
    * *iOS、Android™、tvOS、Roku、FireTV* などのプラットフォーム
 
-  これらのレポートは、シングルサインオン（SSO）のサポートと、MVPD およびプラットフォームレベルでの購読者の認証または承認セッションの時間に関するインサイトを提供します。
+  レポートは、シングルサインオン（SSO）のサポートと、MVPDおよびプラットフォームレベルでの購読者の認証または承認セッションの時間に関するインサイトを提供します。
 
 * **トラフィックビジュアライゼーション**：プログラマープロパティの高レベルの認証および承認トラフィックデータを視覚化します。
 
@@ -53,4 +53,5 @@ Adobeでは、このガイドで使用される用語を理解するのに役立
 * [TVE テクニカルペーパー](/help/authentication/kickstart/technical-paper.md)
 * [プログラマ キックスタートガイド](/help/authentication/kickstart/programmer-kickstart-guide.md)
 * [使用権限フロー](/help/authentication/integration-guide-programmers/entitlement-flow.md)
-* [用語集](/help/authentication/kickstart/glossary.md)
+* [動的クライアント登録（DCR）の用語集](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-glossary.md)
+* [REST API v2 の用語集](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md)
