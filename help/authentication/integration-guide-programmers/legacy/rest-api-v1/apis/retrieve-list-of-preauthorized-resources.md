@@ -2,9 +2,9 @@
 title: 事前承認済みリソースのリストの取得
 description: 事前承認済みリソースのリストの取得
 exl-id: 3821378c-bab5-4dc9-abd7-328df4b60cc3
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 1c357b918fa4f6d4b92a9055de018c55ee5861e0
 workflow-type: tm+mt
-source-wordcount: '392'
+source-wordcount: '390'
 ht-degree: 0%
 
 ---
@@ -46,14 +46,14 @@ API には、ストリーミングアプリまたはプログラマーサービ�
 
 | エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/事前承認 | ストリーミングアプリ </br></br> プログラマ </br></br> サービス | 1. リクエスター（必須） </br>2.  deviceId （必須） </br>3.  リソースリスト（必須） </br>4.  device_info/X-Device-Info （必須） </br>5.  _deviceType_</br> 6.  _deviceUser_ （非推奨） </br>7.  _appId_ （非推奨） | GET | 個々の事前認証の決定やエラーの詳細が含まれる XML または JSON。 以下のサンプルを参照してください。 | 200 - Success</br></br>400 - Bad request</br></br>401 - Unauthorized</br></br>405 - Method not allowed </br></br>412 - Precondition failed</br></br>500 – 内部サーバーエラー |
+| &lt;SP_FQDN>/api/v1/事前承認 | ストリーミングアプリ </br></br> プログラマ </br></br> サービス | 1. リクエスター（必須） </br>2.  deviceId （必須） </br>3.  resource （必須） </br>4.  device_info/X-Device-Info （必須） </br>5.  _deviceType_</br> 6.  _deviceUser_ （非推奨） </br>7.  _appId_ （非推奨） | GET | 個々の事前認証の決定やエラーの詳細が含まれる XML または JSON。 以下のサンプルを参照してください。 | 200 - Success</br></br>400 - Bad request</br></br>401 - Unauthorized</br></br>405 - Method not allowed </br></br>412 - Precondition failed</br></br>500 – 内部サーバーエラー |
 
 
 | 入力パラメーター | 説明 |
 | --- | --- |
 | 要求者 | この操作が有効なプログラマ requestorId です。 |
 | deviceId | デバイス ID のバイト。 |
-| リソースリスト | ユーザーがアクセス可能で、MVPD認証エンドポイントによって認識されるコンテンツを識別する resourceId のコンマ区切りリストを含む文字列。 |
+| resource | ユーザーがアクセス可能で、MVPD認証エンドポイントによって認識されるコンテンツを識別する resourceId のコンマ区切りリストを含む文字列。 |
 | device_info/</br></br>X-Device-Info | ストリーミングデバイス情報。</br></br>**注意**：これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。 </br></br> 詳しくは、「デバイスと接続情報の受け渡し [ を参照してください ](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。 |
 | _deviceType_ | デバイスタイプ（Roku、PC など）。</br></br> このパラメーターを正しく設定すると、ESM では、クライアントレスの使用時に [ デバイスタイプごとに分類 ](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type) される指標を提供するので、Roku、AppleTV、Xbox など、様々なタイプの分析を実行できます。</br></br> 参照 [ パス指標でクライアントレスデバイスタイプパラメーターを使用するメリット ](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**注意**:`device_info` はこのパラメーターを置き換えます。 |
 | _deviceUser_ | デバイスユーザー識別子。 |
