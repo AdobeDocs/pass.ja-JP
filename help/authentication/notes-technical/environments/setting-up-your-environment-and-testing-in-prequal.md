@@ -2,9 +2,9 @@
 title: 環境の設定と事前テスト
 description: 環境の設定と事前テスト
 exl-id: f822c0a1-045a-401f-a44f-742ed25bfcdc
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: ca95bc45027410becf8987154c7c9f8bb8c2d5f8
 workflow-type: tm+mt
-source-wordcount: '477'
+source-wordcount: '478'
 ht-degree: 0%
 
 ---
@@ -41,6 +41,16 @@ ht-degree: 0%
 
 ```Choose any IP from **addresses** section (e.g. `52.13.71.11)```
 
+```cmd
+C:\>nslookup entitlement-prequal.auth.adobe.com 
+...
+Addresses:  52.26.79.43
+            54.190.212.171
+```
+
+```Choose any IP from **addresses** section (e.g. `54.190.212.171)```
+
+
 * **Linux/Mac の場合**
 
 ```sh
@@ -53,6 +63,17 @@ ht-degree: 0%
 ```
 
 ```Choose any IP from **A records (**e.g `52.13.71.11)```
+
+```sh
+    $ dig entitlement-prequal.auth.adobe.com
+    
+    ;; ANSWER SECTION:
+    ...
+    ............ 60 IN A      52.26.79.43
+    ............ 60 IN A      54.190.212.171
+```
+
+```Choose any IP from **A records (**e.g `54.190.212.171)```
 
 >[!NOTE]
 >
@@ -68,14 +89,15 @@ ht-degree: 0%
 * *c:\\windows\\System32\\drivers\\etc\\hosts* ファイル(Windows)または */etc/hosts* ファイル(Macintosh、Linux、Android の場合)編集、次の内容を追加します。
 
 * 実稼働プロファイルのなりすまし
-   * 52.13.71.11 entitlement.auth.adobe.com sp.auth.adobe.com api.auth.adobe.com
+   * 52.13.71.11 sp.auth.adobe.com api.auth.adobe.com
+   * 54.190.212.171 entitlement.auth.adobe.com
 
 **Androidでのスプーフィング：** Androidでスプーフィングするには、Android エミュレーターを使用する必要があります。
 
 * スプーフィングが行われたら、実稼働プロファイルとステージングプロファイルに通常の URL （つまり、`http://sp.auth-staging.adobe.com` と `http://entitlement.auth-staging.adobe.com`）を使用するだけで、新しいビルドの *事前選定環境/実稼働* に実際にヒットします。
 
 
-## 手順 3.  正しい環境を指していることを確認します。 {#Verify-you-are-pointing-to-the-right-environment}
+## 手順 3.  正しい環境を指していることを確認します {#Verify-you-are-pointing-to-the-right-environment}
 
 **これは簡単なステップです。**
 
@@ -86,13 +108,13 @@ ht-degree: 0%
 
 * この手順では、プログラマーの Web サイト アドレスといくつかの有効な MVPD 資格情報 (認証および承認されているユーザー) が必要です。
 
-## ステップ5.  プログラマーの Web サイトを使用したシナリオ・テストの実行 {#perform-scenario-testing-using-programmer-website}
+## ステップ5.  プログラマーの web サイトを使用してシナリオテストを実行 {#perform-scenario-testing-using-programmer-website}
 
-* 環境のセットアップを完了し、基本的な認証認証フローが機能していることを確認したら、より複雑なシナリオのテストに進むことができます。
+* 環境の設定を完了し、基本的な認証と承認のフローが機能していることを確認したら、より複雑なシナリオのテストに進むことができます。
 
 
 ## 手順 6.  API テストサイトを使用したテストの実行 {#perform-testing-using-api-testing-site}
 
 * Adobe Pass認証のテストを詳しく調べる場合は、[API テストサイト ](http://entitlement-prequal.auth.adobe.com/apitest/api.html) を使用することをお勧めします。
 
-API テストサイトについて詳しくは、[Adobeの API テストサイトを使用して認証および承認フローをテストする方法 ](/help/authentication/integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md) を参照してください。
+APIテストサイトの詳細については、 [Adobe SystemsのAPIテストサイトを使用してAuthenticationフローと認可フローテスト方法](/help/authentication/integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)を参照してください。
