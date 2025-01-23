@@ -2,9 +2,9 @@
 title: Adobeの API テストサイトを使用して認証および承認フローをテストする方法
 description: Adobeの API テストサイトを使用して認証および承認フローをテストする方法
 exl-id: 04af4aed-35e4-44cb-98ce-7643165a8869
-source-git-commit: 811feba1f2476bdfacb20e332e33df7f7ae8ac00
+source-git-commit: 65475d6da7a1b25cb2d8ebd6229a7cb360c7ab4a
 workflow-type: tm+mt
-source-wordcount: '380'
+source-wordcount: '368'
 ht-degree: 0%
 
 ---
@@ -33,8 +33,8 @@ AuthN および AuthZ フローをテストするために、**API テストサ�
 
 1. Web ページ [ ステージング API テスト ](https://sp.auth-staging.adobe.com/apitest/api.html) を開きます。
 1. 次の方法でアクセス イネーブラをロードします。
-   * ドロップダウン・メニューから、必要な AccessEnabler のバージョン（v3 または v4）、アクセス先（ステージングまたは本番）、デバッグ・モードを選択します
-   * v4 を使用する場合にテストするソフトウェア・ステートメントの入力
+   * アクセスする場所（ステージングまたは実稼動）とデバッグモードにする必要があるかどうかのドロップダウンメニューからの選択
+   * テストに使用するソフトウェア・ステートメントの入力
    * 次に、「**Access Enabler のロード**」ボタンをクリックします。
 1. 次に、リクエスター ID の値を「**requestorID**」に設定し、「setRequestor」ボタンをクリックします。
 1. その後、「getAuthentication」ボタンを押して、ディスプレイピッカーが表示されるのを待ちます。
