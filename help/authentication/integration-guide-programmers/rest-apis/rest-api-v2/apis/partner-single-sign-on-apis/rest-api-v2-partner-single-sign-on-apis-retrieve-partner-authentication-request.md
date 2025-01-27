@@ -2,7 +2,7 @@
 title: パートナー認証要求の取得
 description: REST API V2 - パートナー認証リクエストの取得
 exl-id: 52d8a8e9-c176-410f-92bc-e83449278943
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 5cb14959d6e9af91252316fbdd14ff33d813089b
 workflow-type: tm+mt
 source-wordcount: '1136'
 ht-degree: 0%
@@ -60,7 +60,7 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">domainName</td>
       <td>
-        MVPD ログインを実行しているアプリケーションの発信元ドメイン。
+        MVPDへのログインを実行しているアプリケーションの発信元ドメイン。
         <br/><br/>
         ストリーミングデバイスプラットフォームで値の指定に制限がある場合、アプリケーションは認証セッションを再開し、有効な値を指定する必要があります。
         <br/><br/>
@@ -71,7 +71,7 @@ ht-degree: 0%
     <tr>
       <td style="background-color: #DEEBFF;">redirectUrl</td>
       <td>
-        MVPD の認証フローが完了したときにユーザーエージェントが移動する最後のリダイレクト URL。
+        MVPDの認証フローが完了すると、ユーザーエージェントが移動する最後のリダイレクト URL です。
         <br/><br/>
         値は URL エンコードする必要があります。
         <br/><br/>
@@ -289,7 +289,7 @@ ht-degree: 0%
                     <br/><br/>
                     次の属性を持つ JSON オブジェクト。
                     <ul>
-                        <li><b>type</b><br/>MVPD でサポートされるプロトコルのタイプを示します（SAML のみ）。</li>
+                        <li><b>type</b><br/>MVPDでサポートされているプロトコルのタイプを示します（SAML のみ）。</li>
                         <li><b>request</b><br/>SAML リクエスト。</li>
                         <li><b>attributes</b><br/>SAML リクエストの属性。</li>
                     </ul>
@@ -425,6 +425,7 @@ Content-Type: application/json;charset=UTF-8
 {
     "actionName": "authorize",
     "actionType": "direct",
+    "reasonType": "degraded",
     "url": "/api/v2/REF30/decisions/authorize/${degradedMvpd}",
     "sessionId": "14d4f239-e3b1-4a4a-b8b3-6395b968a260",
     "mvpd": "${degradedMvpd}",
@@ -474,11 +475,14 @@ Content-Type: application/json;charset=UTF-8
 {
     "actionName": "authenticate",
     "actionType": "interactive",
+    "reasonType": "none",
     "url": "/api/v2/authenticate/REF30/OKTWW2W",
     "code": "OKTWW2W",
     "sessionId": "748f0b9e-a2ae-46d5-acd9-4b4e6d71add7",
     "mvpd": "Cablevision",
-    "serviceProvider": "REF30"
+    "serviceProvider": "REF30",
+    "notBefore": "1733735289035",
+    "notAfter": "1733737089035"
 }
 ```
 
@@ -524,6 +528,7 @@ Content-Type: application/json;charset=UTF-8
 {
     "actionName": "resume",
     "actionType": "direct",
+    "reasonType": "none",
     "missingParameters": [
           "redirectUrl"
     ],
@@ -531,7 +536,9 @@ Content-Type: application/json;charset=UTF-8
     "code": "SB7ZRIO",
     "sessionId": "1476173f-5088-43b8-b7c3-8cf3a185de0a",
     "mvpd": "Cablevision",
-    "serviceProvider": "REF30"
+    "serviceProvider": "REF30",
+    "notBefore": "1733735289035",
+    "notAfter": "1733737089035"
 }
 ```
 
