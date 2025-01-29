@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
+source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
 workflow-type: tm+mt
-source-wordcount: '1256'
+source-wordcount: '1250'
 ht-degree: 2%
 
 ---
@@ -144,9 +144,7 @@ ht-degree: 2%
          + [プライバシーリクエストの作成方法](integration-guide-programmers/features-premium/privacy-support/make-privacy-req.md)
    + Premium の機能 {#features-premium}
       + 一時アクセス {#temporary-access}
-         + [一時パス](integration-guide-programmers/features-premium/temporary-access/temp-pass.md)
-         + [プロモーションの一時パス](integration-guide-programmers/features-premium/temporary-access/promotional-temp-pass.md)
-         + [一時パスをリセット](integration-guide-programmers/features-premium/temporary-access/reset-temp-pass.md)
+         + [TempPass フィーチャ](integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
       + アクセス {#degraded-access} が低下しました
          + [低下 API の概要](integration-guide-programmers/features-premium/degraded-access/degradation-api-overview.md)
       + ESM {#esm}

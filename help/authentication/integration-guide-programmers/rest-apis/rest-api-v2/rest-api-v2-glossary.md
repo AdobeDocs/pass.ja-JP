@@ -2,9 +2,9 @@
 title: REST API V2 の用語集
 description: REST API V2 の用語集
 exl-id: 8b3bd2de-1ff8-4c57-b18d-27ecdf2b0de2
-source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
+source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
 workflow-type: tm+mt
-source-wordcount: '1744'
+source-wordcount: '1743'
 ht-degree: 0%
 
 ---
@@ -229,13 +229,13 @@ SAML （Security Assertion Markup Language）は、当事者間、特に [ID プ
 
 基本的な TempPass は、[MVPD](#mvpd) による認証の必要なしに、ユーザーが保護されたコンテンツに限られた時間だけアクセスできるようにするAdobe Pass認証機能です。
 
-詳しくは、[Temp Pass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass.md) ドキュメントを参照してください。
+詳しくは、[ 基本 TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#basic-temp-pass) ドキュメントを参照してください。
 
 #### TempPass プロモーション {#temp-pass-promotional}
 
 プロモーション TempPass は、Adobe Pass認証機能の 1 つです。これにより、[MVPD](#mvpd) による認証を必要とせずに、保護されたコンテンツにアクセスできるリソースの最大数と時間を制限できます。
 
-詳しくは、[ プロモーション一時パス ](/help/authentication/integration-guide-programmers/features-premium/temporary-access/promotional-temp-pass.md) ドキュメントを参照してください。
+詳しくは、[ プロモーション TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass) ドキュメントを参照してください。
 
 #### TTL {#ttl}
 

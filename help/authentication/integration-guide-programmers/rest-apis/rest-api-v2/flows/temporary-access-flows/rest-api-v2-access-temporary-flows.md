@@ -2,7 +2,7 @@
 title: 一時的なアクセスフロー
 description: REST API V2 – 一時的なアクセスフロー
 exl-id: 387fcdb0-3a42-4893-ba83-e809426f92be
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
 workflow-type: tm+mt
 source-wordcount: '3215'
 ht-degree: 0%
@@ -19,9 +19,9 @@ ht-degree: 0%
 >
 > REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
-TempPass を使用すると、プログラマーは、有効な MVPD アカウントで認証するようにユーザーに求めることなく、保護されたコンテンツへの一時的なアクセスを提供できます。
+TempPass を使用すると、プログラマーは、有効なMVPD アカウントで認証するようにユーザーに求めることなく、保護されたコンテンツへの一時的なアクセスを提供できます。
 
-TempPass 機能の詳細については、[TempPass](../../../../features-premium/temporary-access/temp-pass.md) ドキュメントを参照してください。
+TempPass 機能の詳細については、[TempPass](../../../../features-premium/temporary-access/temp-pass-feature.md) ドキュメントを参照してください。
 
 一時的なアクセスフローを使用すると、次のようなシナリオでクエリを実行できます。
 
@@ -351,7 +351,7 @@ TempPass 機能の詳細については、[TempPass](../../../../features-premiu
 
    >[!TIP]
    >
-   > 提案：ストリーミングアプリケーションは、リソースの最大数を超えたことをユーザーに通知し、監視を継続するために、通常の MVPD を使用して基本的な認証フローを開始するようにユーザーに助言できます。
+   > 提案：ストリーミングアプリケーションは、リソースの最大数を超えたことをユーザーに通知し、通常のMVPDを使用して基本的な認証フローを開始して視聴を続行するようにユーザーに助言できます。
 
 ## 基本またはプロモーションの TempPass の有効期限が切れた場合の承認決定の取得 {#retrieve-authorization-decisions-when-basic-or-promotional-temppass-expires}
 
@@ -431,7 +431,7 @@ TempPass 機能の詳細については、[TempPass](../../../../features-premiu
 
    >[!TIP]
    >
-   > 提案：ストリーミングアプリケーションは、一時的なアクセス権の有効期限が切れたことをユーザーに通知し、通常の MVPD を使用して基本的な認証フローを開始して視聴を続行するようにユーザーに通知できます。
+   > 提案：ストリーミングアプリケーションは、一時的なアクセス権の有効期限が切れたことをユーザーに通知し、通常のMVPDを使用して基本的な認証フローを開始して視聴を続行するようにユーザーに助言できます。
 
 ## 基本 TempPass のプロファイルの取得 {#retrieve-profile-for-basic-temppass}
 

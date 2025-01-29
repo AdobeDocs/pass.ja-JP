@@ -2,7 +2,7 @@
 title: トラッキング防止の評価：Apple Safari
 description: トラッキング防止の評価：Apple Safari
 exl-id: a3362020-92ff-4232-b923-e462868730d5
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
 workflow-type: tm+mt
 source-wordcount: '1849'
 ht-degree: 0%
@@ -133,7 +133,7 @@ AccessEnabler JavaScript SDKの前述の問題 **3 つのバージョンすべ�
 
 **一時パス**
 
-個人化の問題を軽減し、ユーザーとのインタラクションを実現するために、**[プロモーション一時パス](/help/authentication/integration-guide-programmers/features-premium/temporary-access/promotional-temp-pass.md)** をインタラクティブな方法で使用し、ユーザーに関する 1 つ以上の追加情報（メールアドレスなど）を提供することをお勧めします。
+個人化の問題を軽減し、ユーザーとのインタラクションを実現するために、**[プロモーション一時パス](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass)** をインタラクティブに使用し、ユーザーに関する 1 つ以上の追加情報（メールアドレスなど）を提供することをお勧めします。
 
 ## Safari 13 {#safari13}
 

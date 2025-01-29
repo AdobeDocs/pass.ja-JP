@@ -2,9 +2,9 @@
 title: Adobe Pass Authentication 2.69 リリースノート
 description: Adobe Pass Authentication 2.69 リリースノート
 exl-id: d031c4c5-dbd5-4a77-b298-a53b992cc4c5
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
 workflow-type: tm+mt
-source-wordcount: '215'
+source-wordcount: '214'
 ht-degree: 0%
 
 ---
@@ -33,7 +33,7 @@ Adobe Pass認証：adobe-pass-**2.69**
 
 * パッチが適用されたセキュリティ脆弱性。
 * Dynamic Client Registration （DCR）による一時パスセキュリティレイヤーのリセットの機能強化。
-   * 詳しくは、こちらを参照してください。[ 一時パスのリセット ](../integration-guide-programmers/features-premium/temporary-access/reset-temp-pass.md)
+   * 詳しくは、こちらを参照してください。[TempPass 機能 ](../integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
 * プラットフォーム識別レポートの機能強化。
 
 #### REST API {#rest-apis}
@@ -50,5 +50,5 @@ Adobe Pass認証：adobe-pass-**2.69**
 
 #### JavaScript SDK 4.7.0 {#js-sdk}
 
-* セキュリティの脆弱性により、Access Enabler JavaScript SDK の非推奨バージョン 2.0.1 を削除しました。
+* セキュリティの脆弱性により、Access Enabler JavaScript SDKの非推奨バージョン 2.0.1 を削除しました。
    * 詳しくは、[Adobe Pass Authentication JavaScript 4.7.0 リリースノート ](authn-rn-javascript-470.md) のリンクを参照してください。

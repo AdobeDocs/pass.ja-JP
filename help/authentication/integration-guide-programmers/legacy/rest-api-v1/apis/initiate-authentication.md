@@ -2,7 +2,7 @@
 title: 認証の開始
 description: 認証の開始
 exl-id: 55dddd29-68d6-4aae-8744-307fea285e29
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
 workflow-type: tm+mt
 source-wordcount: '314'
 ht-degree: 0%
@@ -85,7 +85,7 @@ MVPD選択イベントを通知して認証プロセスを開始します。 Ado
 >
 >呼び出しには、次のような他の機能を有効にするオプションのパラメーターも含めることができます。
 >
-> * generic\_data - [ プロモーション TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/promotional-temp-pass.md) を使用できるようにします
+> * generic\_data - [ プロモーション TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass) を使用できるようにします
 >
 >```JSON
 >Example:

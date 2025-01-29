@@ -2,7 +2,7 @@
 title: Dynamic Client Registration の概要
 description: Dynamic Client Registration の概要
 exl-id: 9f98dfcd-4375-48c3-beff-259dfb1d3a26
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
 workflow-type: tm+mt
 source-wordcount: '813'
 ht-degree: 0%
@@ -20,7 +20,7 @@ ht-degree: 0%
 Adobe Passは、次の保護された API へのアクセスを可能にする動的なクライアント登録サービスを提供します。
 
 * Adobe Pass Authentication Management API:
-   * [Temp Pass API をリセット](../../features-premium/temporary-access/reset-temp-pass.md)
+   * [Temp Pass API をリセット](../../features-premium/temporary-access/temp-pass-feature.md)
    * [API の低下](../../features-premium/degraded-access/degradation-api-overview.md)
    * [プロキシMVPD API](../../../integration-guide-mvpds/proxy-mvpd-webserv.md)
    * [使用権限サービスモニタリング API](../../features-premium/esm/entitlement-service-monitoring-api.md)

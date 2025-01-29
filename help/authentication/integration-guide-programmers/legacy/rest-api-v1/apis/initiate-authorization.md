@@ -2,7 +2,7 @@
 title: 認証の開始
 description: 認証の開始
 exl-id: 2f8a5499-e94f-40dd-9fb0-aac8e080de66
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
 workflow-type: tm+mt
 source-wordcount: '446'
 ht-degree: 0%
@@ -51,7 +51,7 @@ ht-degree: 0%
 
 
 | 入力パラメーター | 説明 |
-| --- | --- |
+| --- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 要求者 | この操作が有効なプログラマ requestorId です。 |
 | deviceId | デバイス ID のバイト。 |
 | resource | resourceId （または MRSS フラグメント）を含む文字列は、ユーザーからリクエストされたコンテンツを識別し、MVPD認証エンドポイントによって認識されます。 |
@@ -59,7 +59,7 @@ ht-degree: 0%
 | _deviceType_ | デバイスタイプ（Roku、PC など）。</br></br> このパラメーターが正しく設定されている場合、ESM では、クライアントレスの使用時に [ デバイスタイプごとに分類 ](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type) される指標を提供し、Roku、AppleTV、Xbox など、様々なタイプの分析を実行できるようにします。</br></br> パス指標の [ クライアントレスデバイスタイプパラメーターのメリット ](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**注意**:device_info はこのパラメーターを置き換えます。 |
 | _deviceUser_ | デバイスユーザー識別子。 |
 | _appId_ | アプリケーション ID/名前。 </br></br>**注意**：このパラメーターは device_info に置き換えられます。 |
-| 追加のパラメーター | また、この呼び出しには、次のような他の機能を有効にするオプションのパラメーターが含まれる場合もあります。</br></br>* generic_data - [Promotion TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/promotional-temp-pass.md)</br></br>Example: `generic_data=("email":"email@domain.com")` |
+| 追加のパラメーター | また、この呼び出しには、次のような他の機能を有効にするオプションのパラメーターが含まれる場合もあります。</br></br>* generic_data - [Promotion TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass)</br></br>Example: `generic_data=("email":"email@domain.com")` |
 
 {style="table-layout:auto"}
 
