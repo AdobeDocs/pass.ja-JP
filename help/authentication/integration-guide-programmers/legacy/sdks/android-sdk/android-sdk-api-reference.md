@@ -2,7 +2,7 @@
 title: Android SDK API リファレンス
 description: Android SDK API リファレンス
 exl-id: f932e9a1-2dbe-4e35-bd60-a4737407942d
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: ae2e61152695b738b0bb08d1dcd81417f3bbdfb5
 workflow-type: tm+mt
 source-wordcount: '4560'
 ht-degree: 0%
@@ -614,7 +614,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **コールバックがトリガーされました：** [`setMetadataStatus()`](#setMetadaStatus)
 
-**詳細情報：**[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md)
+**詳細情報：**[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
 
 [Android API に戻る…](#api)
 
@@ -676,7 +676,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **Trigger by:** [`getMetadata()`](#getMetadata)
 
-**詳細情報：**[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md)
+**詳細情報：**[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
 
 
 [Android API に戻る…](#api)

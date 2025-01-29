@@ -2,7 +2,7 @@
 title: 標準メタデータ属性
 description: 標準メタデータ属性
 exl-id: 99ffa98c-213f-47a5-a6e7-fbacb77875d0
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: ae2e61152695b738b0bb08d1dcd81417f3bbdfb5
 workflow-type: tm+mt
 source-wordcount: '1053'
 ht-degree: 0%
@@ -21,10 +21,10 @@ ht-degree: 0%
 同時実行性監視 API は、有効な初期化呼び出しの一部として、クライアントに次の値を送信させます。[ セッション開始呼び出し ](/help/concurrency-monitoring/restrict-concurr-usage-mult-apps.md#api-calls-descr)。
 
 | フィールド名 | 値の例 | 使用する場所 | 取得元 |
-|-------------|---------------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------|
+|---------------|-----------------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | applicationId | 75b4-431b-adb2-eb6b9e546013 | 認証ヘッダー | 統合時の Zendesk チケット |
-| mvpdName | Sample_MVPD | URI パス | ユーザーが MVPD を選択した場合の、config エンドポイントからのAdobe Pass認証 |
-| accountId | 12345 | URI パス | ユーザーログイン後のAdobe Pass Authentication upstreamUserID メタデータ [User Metadata upstreamUserID - Adobe Pass Authentication](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md) |
+| mvpdName | Sample_MVPD | URI パス | ユーザーがAdobe Passを選択した場合の、config エンドポイントからのMVPD認証 |
+| accountId | 12345 | URI パス | ユーザーログイン後のAdobe Pass Authentication upstreamUserID メタデータ [User Metadata upstreamUserID - Adobe Pass Authentication](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) |
 
 
 ## メタデータ属性 {#metadata-attr}
@@ -40,7 +40,7 @@ ht-degree: 0%
 | Resource | チャネル | string | TV チャンネル |                                                   | ChannelY |                                                                                   |
 |                 | assetId | string | このコンテンツに対して提示される「わかりやすい」または消費者が読み取れるタイトル | [EIDR 2.0 データフィールドリファレンス ](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/EIDR_2_0_Data_Fields.pdf){target=_blank} | ベンフール |                                                                                   |
 |                 | タイプ | 定義済みリスト | TveItem で表されるコンテンツの一般的なタイプを表す値です。 列挙された値は次のとおりです。movie broadcastEpisode nonBroadcastEpisode musicVideo awardsShow clip concert conference newsEvent sportingEvent トレーラー | [OATC メタデータフィードの推奨プラクティス ](https://userfiles-kb.s3.amazonaws.com/userfiles/258/326/ckfinder/files/OATC%20Metadata%20Feed%201_0d_1%20OATC%20BOARD%20APPROVED%20FOR%20RELEASE%20%281%29.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIMM7Q2VAGHGVAOHA%2F20230803%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230803T144225Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=1200&amp;X-Amz-Signature=e61658133a4875ff48757b1a3bafb7627054ba6fc75c134a3dea9fa8022b45fa){target=_blank} | broadcastEpisode | フィールドは列挙の項目のいずれかに対応している必要があります |
-|                 | contentType | string | このフィールドは、リクエストされたコンテンツがライブか VOD かを判断します | 該当なし | ライブ、vod | 生きるまたは vod |
+|                 | contentType | string | このフィールドは、リクエストされたコンテンツがライブかVODかを判断します | 該当なし | ライブ、vod | 生きるまたは vod |
 |                 | ジャンル | string | ストリーミングされるコンテンツのジャンル。 一般的なプログラミングタイプを記述します | [OATC メタデータフィード推奨 ](https://userfiles-kb.s3.amazonaws.com/userfiles/258/326/ckfinder/files/OATC%20Metadata%20Feed%201_0d_1%20OATC%20BOARD%20APPROVED%20FOR%20RELEASE%20%281%29.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIMM7Q2VAGHGVAOHA%2F20230803%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230803T144225Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=1200&amp;X-Amz-Signature=e61658133a4875ff48757b1a3bafb7627054ba6fc75c134a3dea9fa8022b45fa){target=_blank} プラクティス | コメディ | 有効なジャンルの種類 |
 |                 | 期間 | 数値 | メディア アイテムの継続時間（秒） | [OATC メタデータフィードの推奨プラクティス ](https://userfiles-kb.s3.amazonaws.com/userfiles/258/326/ckfinder/files/OATC%20Metadata%20Feed%201_0d_1%20OATC%20BOARD%20APPROVED%20FOR%20RELEASE%20%281%29.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIMM7Q2VAGHGVAOHA%2F20230803%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230803T144225Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=1200&amp;X-Amz-Signature=e61658133a4875ff48757b1a3bafb7627054ba6fc75c134a3dea9fa8022b45fa){target=_blank} | 1800 | 番号順序 |
 | デバイス/ブラウザー | deviceId | string | 一意のデバイス ID。 | [Device Atlas のプロパティ ](https://deviceatlas.com/device-data/properties){target=_blank} | 2b6f0cc904d137be2e1730235f5664094b831186 |                                                                                   |
@@ -55,7 +55,7 @@ ht-degree: 0%
 |                 | applicationId | string | クライアントアプリケーションを一意に識別するアプリケーション ID。 | 該当なし | de305d54-75b4-431b-adb2-eb6b9e546013 |                                                                                   |
 |                 | applicationPlatform | string | アプリケーションのネイティブプラットフォーム | 該当なし | ios、android |                                                                                   |
 |                 | applicationVersion | string | この値は、分析目的で使用できます | 該当なし | 1.0、2.0 |                                                                                   |
-| 件名 | accountId | string | 同時実行監視サブジェクトのアカウント ID （MVPD のスコープ） | 該当なし | test-account |                                                                                   |
+| 件名 | accountId | string | 同時実行性モニタリングの件名のアカウント ID （MVPDの範囲内） | 該当なし | test-account |                                                                                   |
 |                 | contractType | string | プレミアム、ベーシック。 顧客は自由にこれをカスタムメタデータとして追加し、独自のレルム内で使用できます | 該当なし | プレミアム、基本 |                                                                                   |
 | ユーザー | name | string | 一部の MVPD は、コンテンツを再生する特定のユーザーに関連する情報を提供します。 | 該当なし |                                                                                                                                                         |                                                                                   |
 |                 | hba | ブール型 | ユーザーが自宅の場所からストリームを開始しようとするかどうかを識別します | 該当なし | true、false | true または false |
