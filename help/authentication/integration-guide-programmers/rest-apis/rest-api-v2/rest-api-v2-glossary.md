@@ -2,9 +2,9 @@
 title: REST API V2 の用語集
 description: REST API V2 の用語集
 exl-id: 8b3bd2de-1ff8-4c57-b18d-27ecdf2b0de2
-source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
+source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
 workflow-type: tm+mt
-source-wordcount: '1747'
+source-wordcount: '1744'
 ht-degree: 0%
 
 ---
@@ -115,7 +115,7 @@ ID プロバイダーは、[TV Everywhere （TVE） ](#tve) のコンテキス�
 
 メディアトークンベリファイアは、Adobe Pass認証によって配布されるライブラリで、[ メディアトークン ](#media-token) の信頼性の検証を担当します。
 
-詳しくは、[ メディアトークンベリファイアの統合 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-token-verifier-int.md) ドキュメントを参照してください。
+詳しくは、[ メディアトークンベリファイア ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier) ドキュメントを参照してください。
 
 #### MVPD {#mvpd}
 
@@ -183,7 +183,7 @@ MVPDは、MVPDとAdobeの間のオンボーディングプロセス中に定義�
 
 リソースは、プログラマと MVPD の間で合意された一意の値によって識別されます。
 
-詳しくは、[ 保護されたリソースの識別 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/identify-protected-resources.md) ドキュメントを参照してください。
+詳しくは、[ 保護されたリソース ](/help/authentication/integration-guide-programmers/features-standard/entitlements/protected-resources.md#identifiers) ドキュメントを参照してください。
 
 ### S {#s}
 
@@ -275,7 +275,7 @@ TV プロバイダーは、TV プロバイダーとAdobeのオンボーディン
 
 ユーザーメタデータとは、ユーザー固有の属性（郵便番号、保護者の制限、ユーザー ID など）を指し、[MVPDによって維持管理され ](#mvpd)Adobe Pass認証が [ プロファイル ](#profile) の一部として提供します。
 
-詳しくは、[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md) ドキュメントを参照してください。
+詳しくは、[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) ドキュメントを参照してください。
 
 ### V {#v}
 

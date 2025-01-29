@@ -2,7 +2,7 @@
 title: iOS/tvOS クックブック
 description: iOS/tvOS クックブック
 exl-id: 4743521e-d323-4d1d-ad24-773127cfbe42
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
 workflow-type: tm+mt
 source-wordcount: '2425'
 ht-degree: 0%
@@ -229,7 +229,7 @@ I. [Apple SSO でのログアウトフロー ](#logout_flow_with_AppleSSO) </br>
 1. [getAuthorization （） ](#$getAuthZ) を呼び出して、認証フローを開始します。
 
    * **依存関係：** 有効な ResourceID がMVPDと合意されました。
-   * リソース ID は、他のデバイスまたはプラットフォームで使用される ID と同じである必要があり、MVPD 間でも同じになります。 リソース ID について詳しくは、「[ 保護されたリソースの識別 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/identify-protected-resources.md)」を参照してください
+   * リソース ID は、他のデバイスまたはプラットフォームで使用される ID と同じである必要があり、MVPD 間でも同じになります。 リソース ID について詳しくは、「[ 保護されたリソースの識別 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/protected-resources.md#identifiers)」を参照してください
 
 1. 認証と承認を検証します。
 

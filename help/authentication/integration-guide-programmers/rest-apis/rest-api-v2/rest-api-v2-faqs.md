@@ -2,9 +2,9 @@
 title: REST API V2 の FAQ
 description: REST API V2 の FAQ
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
+source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
 workflow-type: tm+mt
-source-wordcount: '6668'
+source-wordcount: '6664'
 ht-degree: 0%
 
 ---
@@ -126,7 +126,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 #### 3. クライアントアプリケーションは、ユーザーのメタデータ情報をどのように取得できますか？ {#authentication-phase-faq3}
 
-クライアントアプリケーションは、プロファイル情報の一部として [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md) 情報を返すことができる次のエンドポイントのいずれかをクエリできます。
+クライアントアプリケーションは、プロファイル情報の一部として [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) 情報を返すことができる次のエンドポイントのいずれかをクエリできます。
 
 * [プロファイルエンドポイント API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
 * [特定のMVPD API のプロファイルエンドポイント](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
@@ -245,7 +245,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 * チャネル（ブランド）の一意の ID などの単純な文字列形式。
 * タイトル、規制、保護者による制限のメタデータなどの追加情報を含むメディア RSS （MRSS）形式。
 
-詳しくは、[ 保護されたリソースの識別 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/identify-protected-resources.md) ドキュメントを参照してください。
+詳しくは、[ 保護されたリソース ](/help/authentication/integration-guide-programmers/features-standard/entitlements/protected-resources.md#identifiers) ドキュメントを参照してください。
 
 #### 6. クライアントアプリケーションが一度に事前認証の決定を取得できるリソースの数 {#preauthorization-phase-faq6}
 
@@ -294,7 +294,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 メディアトークンは、決定を承認エンドポイントから取得できる、クリアテキストで送信された署名済み文字列で構成されます。
 
-詳しくは、[ メディアトークンベリファイアの統合 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-token-verifier-int.md) ドキュメントを参照してください。
+詳しくは、[ メディアトークンベリファイア ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier) ドキュメントを参照してください。
 
 メディアトークンは、問題の時点で指定された限られた短い期間にわたって有効です。これは、決定の承認エンドポイントに対する再度のクエリが必要になるまでにクライアントアプリケーションによって使用される必要がある時間を示します。
 
@@ -316,7 +316,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 * チャネル（ブランド）の一意の ID などの単純な文字列形式。
 * タイトル、規制、保護者による制限のメタデータなどの追加情報を含むメディア RSS （MRSS）形式。
 
-詳しくは、[ 保護されたリソースの識別 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/identify-protected-resources.md) ドキュメントを参照してください。
+詳しくは、[ 保護されたリソース ](/help/authentication/integration-guide-programmers/features-standard/entitlements/protected-resources.md#identifiers) ドキュメントを参照してください。
 
 #### 6. クライアントアプリケーションが一度に認証決定を取得できるリソースの数 {#authorization-phase-faq6}
 

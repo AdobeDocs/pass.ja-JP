@@ -2,7 +2,7 @@
 title: プログラマーの使用権限フロー
 description: プログラマーの使用権限フロー
 exl-id: b1c8623a-55da-4b7b-9827-73a9fe90ebac
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
 workflow-type: tm+mt
 source-wordcount: '1823'
 ht-degree: 0%
@@ -22,11 +22,11 @@ ht-degree: 0%
 Adobe Pass認証は、プログラマーと MVPD の間の使用権限フローを、両方の関係者に安全で一貫性のあるインターフェイスを提供することで仲介します。  プログラマー側では、Adobe Pass認証には、2 つの一般的なタイプの使用権限インターフェイスが用意されています。
 
 1. AccessEnabler - Web ページをレンダリングできるデバイス（Web アプリ、スマートフォン/タブレットアプリなど）上のアプリに対して API のライブラリを提供するクライアントコンポーネント。
-2. クライアントレス API - Web ページをレンダリングできないデバイス（セットトップボックス、ゲーム機、スマート TV など）用の RESTful Web サービス。 Web ページのレンダリング要件は、MVPD の web サイトでユーザーが認証を行うという MVPD の要件に基づいています。
+2. クライアントレス API - Web ページをレンダリングできないデバイス（セットトップボックス、ゲーム機、スマート TV など）用の RESTful Web サービス。 Web ページのレンダリングに関する要件は、MVPDの Web サイト上でユーザーが認証を行うというMVPDの要件から来ています。
 
 ここに示すプラットフォームに依存しない概要に加えて、ここにクライアントレス API 固有の概要があります。クライアントレス API ドキュメント。 AccessEnabler は、サポートされているプラットフォーム（Web では AS/JS、iOSでは Objective-C、Androidでは Java）でネイティブに実行されます。 AccessEnabler API は、サポートされているプラットフォーム間で一貫性があります。 AccessEnabler をサポートしていないプラットフォームでは、同じ Clientless API を使用します。
 
-どちらのタイプのインターフェイスでも、Adobe Pass認証は、プログラマーのアプリとユーザーの MVPD の間のエンタイトルメントフローを安全に仲介します。
+どちらのタイプのインターフェイスでも、Adobe Pass認証は、プログラマーのアプリとユーザーのMVPDの間の使用権限フローを安全に仲介します。
 
 ![](../assets/prog-entitlement-flow.png)
 
@@ -35,7 +35,7 @@ Adobe Pass認証は、プログラマーと MVPD の間の使用権限フロー�
 
 >[!IMPORTANT]
 >
->上の図では、Adobe Pass認証サーバーを経由しない使用権限フローの一部として MVPD ログインがあることに注意してください。 ユーザーは、MVPD のログインページにログオンする必要があります。 この要件により、Web ページをレンダリングできないデバイスでは、プログラマーのアプリは、MVPD を使用してログインするために Web 対応デバイスに切り替えるようにユーザーに指示する必要があります。その後、ユーザーは元のデバイスに戻り、残りの使用権フローを確保します。
+>上の図では、MVPD認証サーバーを経由しない使用権限フローの一部としてAdobe Pass ログインがあることに注意してください。 ユーザーは、MVPDのログインページにログオンする必要があります。 この要件により、web ページをレンダリングできないデバイスでは、MVPDを使用してログインするために web 対応デバイスに切り替えるようにプログラマーアプリがユーザーに指示する必要があります。その後、使用権限フローの残りの期間、ユーザーは元のデバイスに戻ります。
 
 ## 使用権限フロー {#entitlement-flow}
 
@@ -86,36 +86,36 @@ Adobe Pass認証は、プログラマーと MVPD の間の使用権限フロー�
 
 * `<FQDN>/.../checkauthn` – 上記 `checkAuthentication()` の Web サービスバージョン。
 * `<FQDN>/.../config` - 2 番目の画面のアプリに MVPD のリストを返します。
-* `<FQDN>/.../authenticate` - 2 番目の画面のアプリから認証フローを開始し、ログイン用に選択した MVPD にユーザーをリダイレクトします。 リクエストが成功した場合、Adobe Pass認証によって AuthN トークンが生成されてサーバーに保存され、ユーザーは元のデバイスに戻って使用権フローを完了します。
+* `<FQDN>/.../authenticate` - 2 番目の画面のアプリから認証フローを開始し、ログイン用に選択したMVPDにユーザーをリダイレクトします。 リクエストが成功した場合、Adobe Pass認証によって AuthN トークンが生成されてサーバーに保存され、ユーザーは元のデバイスに戻って使用権フローを完了します。
 
 AuthN トークンは、次の 2 つのポイントが true の場合に有効と見なされます。
 
 * AuthN トークンが期限切れではありません
-* AuthN トークンに関連付けられている MVPD が、現在の要求者 ID で許可されている MVPD の一覧に含まれています
+* AuthN トークンに関連付けられているMVPDが、現在のリクエスター ID で許可されている MVPD のリストに含まれている
 
 #### Generic AccessEnabler 初期認証ワークフロー {#generic-ae-initial-authn-flow}
 
 1. アプリは、`getAuthentication()` への呼び出しで認証ワークフローを開始し、有効なキャッシュされた認証トークンを確認します。 このメソッドにはオプションの `redirectURL` パラメーターがあります。`redirectURL` の値を指定しない場合、認証が成功すると、認証が初期化された URL にユーザーが返されます。
 1. AccessEnabler は、現在の認証ステータスを決定します。 ユーザーが現在認証されている場合、AccessEnabler は `setAuthenticationStatus()` コールバック関数を呼び出し、成功を示す認証ステータスを渡します。
-1. ユーザーが認証されていない場合、AccessEnabler は、ユーザーの最後の認証試行が特定の MVPD で成功したかどうかを確認することにより、認証フローを続行します。 MVPD ID がキャッシュされていて、`canAuthenticate` フラグが true であるか、または `setSelectedProvider()` を使用して MVPD が選択されている場合、MVPD 選択ダイアログが表示されません。 認証フローは、MVPD のキャッシュされた値（最後に認証が成功したときに使用されたのと同じ MVPD）を使用して続行されます。 バックエンドサーバーに対してネットワーク呼び出しが実行され、ユーザーは MVPD ログインページにリダイレクトされます。
+1. ユーザーが認証されていない場合、AccessEnabler は、ユーザーの最後の認証試行が特定のMVPDで成功したかどうかを確認することにより、認証フローを続行します。 MVPD ID がキャッシュされていて、`canAuthenticate` フラグが true であるか、またはMVPDが `setSelectedProvider()` を使用して選択されている場合、MVPD選択ダイアログが表示されません。 認証フローは、MVPDのキャッシュされた値（最後に成功した認証で使用したMVPDと同じ）を使用して続行されます。 バックエンドサーバーに対してネットワーク呼び出しが実行され、ユーザーはMVPDのログインページにリダイレクトされます。
 
-1. MVPD ID がキャッシュされておらず、MVPD が `setSelectedProvider()` を使用して選択されていない場合、または `canAuthenticate` フラグが false に設定されている場合、`displayProviderDialog()` コールバックが呼び出されます。 このコールバックは、選択する MVPD のリストをユーザーに提示する UI を作成するようにアプリに指示します。 MVPD セレクターを構築するために必要な情報を含む、MVPD オブジェクトの配列が提供されます。 各 MVPD オブジェクトは、MVPD エンティティを記述し、MVPD の ID や MVPD ロゴが見つかる URL などの情報を含みます。
+1. MVPD ID がキャッシュされておらず、`setSelectedProvider()` を使用してMVPDが選択されていない場合、または `canAuthenticate` フラグが false に設定されている場合、`displayProviderDialog()` コールバックが呼び出されます。 このコールバックは、選択する MVPD のリストをユーザーに提示する UI を作成するようにアプリに指示します。 MVPD セレクターを構築するために必要な情報を含む、MVPD オブジェクトの配列が提供されます。 各MVPD オブジェクトは、1 つのMVPD エンティティを表し、MVPDの ID やMVPDのロゴが見つかる URL などの情報を含みます。
 
-1. MVPD が選択されたら、アプリケーションはユーザーが選択した AccessEnabler に通知する必要があります。 Flash以外のクライアントの場合、ユーザーが目的の MVPD を選択すると、`setSelectedProvider()` メソッドを呼び出して AccessEnabler に通知します。 代わりに、Flashクライアントは「`mvpdSelection`」タイプの共有 `MVPDEvent` をディスパッチし、選択したプロバイダーを渡します。
+1. MVPDを選択したら、ユーザーが選択したことを AccessEnabler に通知する必要があります。 Flash以外のクライアントの場合は、目的のMVPDを選択すると、`setSelectedProvider()` メソッドを呼び出して AccessEnabler に通知します。 代わりに、Flashクライアントは「`mvpdSelection`」タイプの共有 `MVPDEvent` をディスパッチし、選択したプロバイダーを渡します。
 
-1. AccessEnabler がユーザーの MVPD 選択を通知されると、バックエンド・サーバにネットワーク・コールが行われ、ユーザーは MVPD ログイン・ページにリダイレクトされます。
+1. AccessEnabler がユーザーのMVPDの選択を通知されると、バックエンド サーバにネットワーク コールが行われ、ユーザーはMVPDのログイン ページにリダイレクトされます。
 
-1. 認証ワークフロー内で、AccessEnabler はAdobe Pass Authentication および選択された MVPD と通信し、ユーザーの認証情報（ユーザー ID とパスワード）を要求し、ユーザーの ID を確認します。 MVPD の中には、ログインのために自分のサイトにリダイレクトするものもあれば、iFrame 内で自分のログインページを表示するように要求するものもあります。 顧客が MVPD.<!-- For more information on creating a login iFrame, see  [Managing the Login IFrame](https://tve.helpdocsonline.com/managing-the-login-iframe)--> のいずれかを選択する場合は、ページに iFrame を作成するコールバックを含める必要があります。
+1. 認証ワークフロー内で、AccessEnabler は、Adobe Pass Authentication および選択したMVPDと通信して、ユーザーの認証情報（ユーザー ID とパスワード）を要求し、ユーザーの ID を確認します。 MVPD の中には、ログインのために自分のサイトにリダイレクトするものもあれば、iFrame 内で自分のログインページを表示するように要求するものもあります。 顧客が MVPD.<!-- For more information on creating a login iFrame, see  [Managing the Login IFrame](https://tve.helpdocsonline.com/managing-the-login-iframe)--> のいずれかを選択する場合は、ページに iFrame を作成するコールバックを含める必要があります。
 
 1. ユーザーが正常にログインすると、AccessEnabler は認証トークンを取得し、認証フローが完了したことをアプリケーションに通知します。 AccessEnabler は、ステータス コードが 1 の `setAuthenticationStatus()` コールバックを呼び出し、成功を示します。 これらの手順の実行中にエラーが発生した場合、`setAuthenticationStatus()` コールバックは、認証失敗を示すステータスコード 0 と対応するエラーコードでトリガーされます。
 
 >[!IMPORTANT]
->現時点で、ロゴの静的 URL を提供しない MVPD は Comcast のみです。 プログラマーは、[XFINITY 開発者ポータル ](https://developers.xfinity.com/products/tv-everywhere) から最新のロゴを取り込む必要があります。
+>Comcast は、現時点で、ロゴの静的 URL を提供しない唯一のMVPDです。 プログラマーは、[XFINITY 開発者ポータル ](https://developers.xfinity.com/products/tv-everywhere) から最新のロゴを取り込む必要があります。
 >
 
 ### 認証フロー {#authorization}
 
-承認は、保護されたコンテンツを表示するための前提条件です。 認証が成功すると、AuthZ トークンが、セキュリティ目的でプログラマーのアプリに提供される短期間有効のメディアトークンと共に生成されます。 承認ワークフローをサポートするには、必要なリクエスター設定を事前に実行し、[ メディアトークンベリファイア ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-token-verifier-int.md) を統合しておく必要があります。 これらを完了したら、認証を開始できます。
+承認は、保護されたコンテンツを表示するための前提条件です。 認証が成功すると、AuthZ トークンが、セキュリティ目的でプログラマーのアプリに提供される短期間有効のメディアトークンと共に生成されます。 承認ワークフローをサポートするには、必要なリクエスター設定を事前に実行し、[ メディアトークンベリファイア ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier) を統合しておく必要があります。 これらを完了したら、認証を開始できます。
 
 保護されたリソースへのアクセスをユーザーがリクエストすると、アプリが認証を開始します。 リクエストされたリソース（チャネル、エピソードなど）を指定するリソース ID を渡します。 アプリでは最初に、保存された認証トークンを確認します。 見つからない場合は、認証プロセスを開始します。
 
@@ -208,7 +208,7 @@ AuthN トークンは、次の 2 つのポイントが true の場合に有効�
 
 **質問。 AccessEnabler がサポートできる同時呼び出しの最大数はありますか。**
 
-AccessEnabler コードでは制限は明示的に設定されていないため、使用可能なシステム リソースと MVPD の容量によってのみ制限されます。
+AccessEnabler コードでは制限は明示的に設定されていないため、使用できるシステム・リソースとMVPDのキャパシティによってのみ制限されます。
 
 <!--
 

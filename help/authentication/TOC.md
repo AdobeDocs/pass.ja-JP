@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
+source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
 workflow-type: tm+mt
-source-wordcount: '1267'
+source-wordcount: '1256'
 ht-degree: 2%
 
 ---
@@ -120,11 +120,10 @@ ht-degree: 2%
                + [ヘッダー – AP-TempPass-Identity](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
    + 標準機能 {#standard-features}
       + 使用権限 {#entitlements}
-         + [保護されたリソースの識別](integration-guide-programmers/features-standard/entitlements/identify-protected-resources.md)
          + [プリフライト認証](integration-guide-programmers/features-standard/entitlements/preflight-authz.md)
-         + [メディアトークンベリファイアの統合方法](integration-guide-programmers/features-standard/entitlements/media-token-verifier-int.md)
-         + [ユーザーメタデータ](integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md)
-         + [暗号化用のユーザーメタデータ証明書](integration-guide-programmers/features-standard/entitlements/user-metadata-certificate.md)
+         + [保護されたリソース](integration-guide-programmers/features-standard/entitlements/protected-resources.md)
+         + [メディアトークン](integration-guide-programmers/features-standard/entitlements/media-tokens.md)
+         + [ユーザーメタデータ](integration-guide-programmers/features-standard/entitlements/user-metadata.md)
       + エラー報告 {#error-reporting}
          + [拡張エラーコード](integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)
       + シングル サインオン アクセス {#sso-access}
