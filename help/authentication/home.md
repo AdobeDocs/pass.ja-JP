@@ -1,48 +1,76 @@
 ---
-title: Adobe&reg; Pass Authentication へようこそ。
-description: 「認証&reg; パスAdobeの概要」へようこそ
+title: 認証&reg; パスAdobeへようこそ
+description: 認証&reg; パスAdobeへようこそ
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: ffedb5db269644c8d9c81480d27dff43bd4eb5d6
+source-git-commit: c9e31a036a0300fabd9f75dd85d472c390d9053e
 workflow-type: tm+mt
-source-wordcount: '293'
+source-wordcount: '419'
 ht-degree: 0%
 
 ---
 
-# 認証へようこそ®Adobeに合格します {#pt-auth-overview}
+# 認証へようこそ®Adobeに合格します {#welcome}
 
 >[!IMPORTANT]
 >
 > [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
-Adobe Pass Authentication は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。 Adobe Pass認証使用権ソリューションに参加するために、コンテンツプロバイダー（プログラマー）と有料テレビプロバイダー（MVPD）は、使用権システムをAdobe Pass認証ワークフローと統合します。 このドキュメントサイトでは、統合プロセスの詳細と、既存のパートナー向けのヒントを説明します。
+Adobe Pass Authentication は、TV Everywhere （TVE）の強力な使用権限付与ソリューションです。保護されたコンテンツにアクセスする権限が視聴者にあるかどうかを確認するプロセスを合理化および保護するために設計されています。 このモジュール型フレームワークは、コンテンツプロバイダー（プログラマー）と有料テレビプロバイダー（MVPD）を接続し、使用権限のトランザクションを速度、一貫性、信頼性で促進します。
 
-## 一般的なヘルプとよくある質問 {#help-faqs}
+TVE エコシステムでは、プログラマーがコンテンツを提供すると同時に、MVPD が加入者データを管理します。 この動的な動作は、特に多数の MVPD の多様なシステムをナビゲートする場合に困難になる可能性があります。 Adobe Pass認証は、1 つの統合ポイントを提供することで、これらの複雑さを排除し、両方の関係者をより広範な TVE 環境に接続します。
 
-| **おすすめアイテム** |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <ul><li>[iOSのシングルサインオン ](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md)</li><li>[HBA （ホーム・ベースの認証） ](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md)</li><li>[HBA の情報 ](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf)</li><li>[Adobe Pass TVE ダッシュボードユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md)</li></ul> |
+プログラマーは、Adobe Pass認証を使用することで、資格のあるビューアへの安全なアクセスが保証され、エンタイトルメント検証の技術的な負担が軽減されます。 MVPD の場合、統合されたインターフェイスを通じて複数のコンテンツプロバイダーと接続し、顧客との関係を強化し、ビューアエクスペリエンスを向上させる拡張性の高いソリューションを提供します。
 
-| **プログラマーの場合** | **MVPD の場合** |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <ul><li>[ プログラマー向けキックスタートガイド ](/help/authentication/kickstart/programmer-kickstart-guide.md)</li><li>[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)</li></ul> | <ul><li>[MVPD キックスタートガイド ](/help/authentication/kickstart/mvpd-kickstart-guide.md)</li><li>[ 認証 ](/help/authentication/integration-guide-mvpds/authn-usecase.md)</li><li>[ 認可 ](/help/authentication/integration-guide-mvpds/authz-usecase.md)</li><li>[ ログアウト ](/help/authentication/integration-guide-mvpds/usecase-mvpd-logout.md)</li></ul> |
-| **ネイティブアプリクライアントの場合** | **皆さん** |
-| <ul><li>[iOSの技術概要 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)</li><li>[Androidの技術概要 ](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-overview.md)</li></ul> | <ul><li>[ テクニカル・ペーパー ](/help/authentication/kickstart/technical-paper.md)</li><li>[ サポート手順に関する FAQ](/help/authentication/kickstart/support-procedures-faqs.md)</li></ul> |
-| **スマートデバイス用** |                                                                                                                                                                                                                                                                                                                                                                       |
-| <ul><li>[ クライアントレス技術概要 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)</li><li>[ クライアントレス API](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)</li></ul> |                                                                                                                                                                                                                                                                                                                                                                       |
+Adobe Pass認証は SaaS （Software as a Service）ソリューションとして、市場投入までの時間を短縮し、不正リスクを軽減し、シームレスなクロスプラットフォームコンテンツアクセスを可能にして、適切な視聴者が適切なコンテンツを簡単に受け取れるようにします。
 
->[!IMPORTANT]
->
-> 回答が見つからない場合は、[**E メールで**](mailto:tve-support@adobe.com) お問い合わせください。
->
-> [ サポートチームに電子メールを送信する ](mailto:tve-support@adobe.com) ことは、問題やインシデントレポートの最初のステップでもあります。
->
-> [ 重要度 1 のライブ ](/help/authentication/kickstart/support-procedures-faqs.md) 問題があり、応答なくメールを送信して 30 分経過した場合は、お電話する電話番号の [ エスカレーション手順 ](/help/authentication/kickstart/support-procedures-faqs.md) ドキュメントを参照してください。
+## ??コミュニティとアップデート
 
-## 必要な情報を検索するには {#how-to-search}
+* [ 製品に関するお知らせ ](/help/authentication/product-announcements.md)\
+  最新のAdobe Pass認証製品のお知らせと廃止予定タイムラインについて常に情報を得ます。
 
-* Adobe Pass認証ヘルプデスクの任意の場所で **検索** し、次の結果が含まれるようにします
-ドキュメント。
-* 左側のナビゲーションパネルのフォルダー階層から **すべてのAdobe Pass Authentication ドキュメントを** 参照」します。
-* **フィルター** ナビゲーションペインの上部にあるフィールドに用語を入力して、フォルダー階層を作成します。
-* **ブックマーク** Web ブラウザーを使用して、関心のあるページへの「ディープリンク」。
+## ❓ サポートとトラブルシューティング
+
+* [Zendesk カスタマーサポートポータル ](https://tve.zendesk.com/home)\
+  チケットへのアクセス、クエリの送信、ナレッジベースの表示を行うには、ログインします。
+
+* [ サポート手順に関する FAQ](/help/authentication/kickstart/support-procedures-faqs.md)
+Adobe Pass認証サポート手順に関するよくある質問です。
+
+* [Dynamic Client Registration （DCR）に関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md)\
+  Adobe Pass Authentication Dynamic Client Registration （DCR）に関するよくある質問です。
+
+* [REST API V2 に関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md)\
+  Adobe Pass認証 REST API V2 に関するよくある質問です。
+
+## ??マニュアル
+
+**プログラマーの場合：**
+
+* [ プログラマー向けキックスタートガイド ](/help/authentication/kickstart/programmer-kickstart-guide.md)\
+  Adobe Pass認証の基本を学びます。
+
+* [ プログラマー向け統合ガイド ](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)\
+  Adobe Pass認証をプログラマーと統合する方法を説明します。
+
+**MVPD の場合：**
+
+* [MVPD キックスタートガイド ](/help/authentication/kickstart/mvpd-kickstart-guide.md)\
+  Adobe Pass認証の基本を学びます。
+
+* [MVPD 統合ガイド ](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md)\
+  Adobe Pass認証をMVPDと統合する方法を説明します。
+
+*ページ上部の検索バーを使用するか、左側のメニュー内を移動して、特定のトピックを検索します。*
+
+## ??️ ツールとライブラリ
+
+* [Adobe Developer Web サイト ](https://developer.adobe.com/adobe-pass/)\
+  Adobe Developer web サイトにアクセスして、Adobe Pass認証 REST API を試します。
+
+* [ メディアトークン検証機能 ](https://tve.zendesk.com/hc/en-us/articles/204963159-Media-Token-Verifier-library)\
+  Adobe Pass認証で生成されたメディアトークンを検証するライブラリを統合します。
+
+## ??連絡先
+
+* [Adobeサポートへのお問い合わせ ](mailto:tve-support@adobe.com)\
+  その他のヘルプやビジネスに関するお問い合わせは、Adobeサポートチームまでお問い合わせください。
