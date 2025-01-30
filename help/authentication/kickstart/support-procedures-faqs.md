@@ -2,7 +2,7 @@
 title: サポート手順に関する FAQ
 description: サポート手順に関する FAQ
 exl-id: 1d754e5a-d5fa-4411-8932-2a36294da6eb
-source-git-commit: 1b9847d8dcb078755fd68a6363972f8973290e52
+source-git-commit: 0ab1fc212752dd4a4d6e12a4ab1287ef74e4a282
 workflow-type: tm+mt
 source-wordcount: '777'
 ht-degree: 0%
@@ -61,7 +61,7 @@ Adobeはこれらの問題の調査を支援しますが、それらは重大度
    * 問題を示す HTTP トレースまたはデバイスログ
    * （オプション）問題を示すスクリーンショットまたはビデオキャプチャ
 
-1. Adobeが期間内にチケットに応答しない場合、パートナーは次の番号を呼び出すことができます。**1-205-693-9813**。
+1. Adobeが期間内にチケットに応答しない場合、パートナーは次の番号を呼び出すことができます。**1-657-312-4623**。
 
 >[!IMPORTANT]
 >
