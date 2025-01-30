@@ -1,9 +1,10 @@
 ---
 title: メディアトークン
 description: メディアトークン
-source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
+exl-id: 7e486d2c-e078-464d-90b1-14e2cfb4d20a
+source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
 workflow-type: tm+mt
-source-wordcount: '654'
+source-wordcount: '653'
 ht-degree: 0%
 
 ---
@@ -12,9 +13,9 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
-メディアトークンは、保護されたコンテンツ（リソース）への閲覧アクセスを提供することを目的とした認証決定の結果として、Adobe Pass Authentication によって生成されるトークンです。 メディアトークンは、問題の時点で指定された限られた短い期間（数分）有効で、新しいトークンの取得が必要になるまでのクライアントアプリケーションによる使用時間を示します。
+メディアトークンは、保護されたコンテンツ（リソース ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) に対する表示アクセスを提供するための認証決定の結果として、Adobe Pass認証 [REST API V2）によって生成されるトークンです。 メディアトークンは、問題の時点で指定された限られた短い期間（数分）有効で、クライアントアプリケーションで検証および使用される必要がある時間を示します。
 
 メディアトークンは、クリアテキストで送信される公開鍵インフラストラクチャ（PKI）に基づく署名済み文字列で構成されます。 PKI ベースの保護では、トークンは証明機関（CA）によってAdobeに発行された非対称キーを使用して署名されます。
 
@@ -49,7 +50,7 @@ Adobe Pass Authentication では、ビデオストリームを開始する前に
 
 `ITokenVerifier` クラスは、次のメソッドを定義します。
 
-* メディアトークンの検証に使用する `isValid()` メソッド。 単一の引数 [ リソース識別子 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/protected-resources.md) を受け入れます。 指定されたリソース識別子が `null` の場合、メソッドはメディアトークンの信頼性と有効期間のみを検証します。
+* メディアトークンの検証に使用する `isValid()` メソッド。 単一の引数 [ リソース識別子 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier) を受け入れます。 指定されたリソース識別子が `null` の場合、メソッドはメディアトークンの信頼性と有効期間のみを検証します。
 
   `isValid()` メソッドは、次のいずれかのステータス値を返します。
 
@@ -193,7 +194,7 @@ public class EntitlementVerifierTest {
 
 * [特定の mvpd を使用した認証決定の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
 
-上記の API の **応答** および **サンプル** の節を参照して、認証決定とメディアトークンモデルを理解します。
+認証決定とメディアトークンの構造については、上記 API の **Response** および **Samples** の節を参照してください。
 
 上記の API を統合する方法とタイミングについて詳しくは、次のドキュメントを参照してください。
 

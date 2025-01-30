@@ -2,7 +2,7 @@
 title: REST API V2 の FAQ
 description: REST API V2 の FAQ
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
+source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
 workflow-type: tm+mt
 source-wordcount: '6664'
 ht-degree: 0%
@@ -245,7 +245,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 * チャネル（ブランド）の一意の ID などの単純な文字列形式。
 * タイトル、規制、保護者による制限のメタデータなどの追加情報を含むメディア RSS （MRSS）形式。
 
-詳しくは、[ 保護されたリソース ](/help/authentication/integration-guide-programmers/features-standard/entitlements/protected-resources.md#identifiers) ドキュメントを参照してください。
+詳しくは、[ 保護されたリソース ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#protected-resources) ドキュメントを参照してください。
 
 #### 6. クライアントアプリケーションが一度に事前認証の決定を取得できるリソースの数 {#preauthorization-phase-faq6}
 
@@ -316,7 +316,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 * チャネル（ブランド）の一意の ID などの単純な文字列形式。
 * タイトル、規制、保護者による制限のメタデータなどの追加情報を含むメディア RSS （MRSS）形式。
 
-詳しくは、[ 保護されたリソース ](/help/authentication/integration-guide-programmers/features-standard/entitlements/protected-resources.md#identifiers) ドキュメントを参照してください。
+詳しくは、[ 保護されたリソース ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#protected-resources) ドキュメントを参照してください。
 
 #### 6. クライアントアプリケーションが一度に認証決定を取得できるリソースの数 {#authorization-phase-faq6}
 

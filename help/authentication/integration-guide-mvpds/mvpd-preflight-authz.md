@@ -2,7 +2,7 @@
 title: MVPD Preflight Authorization
 description: MVPD Preflight Authorization
 exl-id: da2e7150-b6a8-42f3-9930-4bc846c7eee9
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
 workflow-type: tm+mt
 source-wordcount: '750'
 ht-degree: 0%
@@ -21,9 +21,9 @@ ht-degree: 0%
 
 現在、Adobe Pass認証は、MVPD に対して、AuthN 応答属性またはマルチチャネル AuthZ リクエストの 2 つの方法でプリフライト認証をサポートできます。  次のシナリオは、プリフライト認証を実装する様々な方法のコストとメリットを説明しています。
 
-* **最良のシナリオ** - MVPD は、承認フェーズ（マルチチャネル AuthZ）で事前承認されたリソースのリストを提供します。
-* **最悪のシナリオ** - MVPD が複数リソースの認証をまったくサポートしていない場合、Adobe Pass Authentication Server はリソースリストの各リソースに対して MVPD への認証コールを実行します。 このシナリオは、プリフライト認証リクエストの応答時間に（リソース数に比例して）影響を与えます。 Adobeサーバーと MVPD サーバーの両方の負荷が増え、パフォーマンスの問題が発生する可能性があります。 また、実際に再生を行う必要なく、承認リクエスト/応答イベントが生成されます。
-* **非推奨** - MVPD は、認証段階で事前許可されたリソースのリストを提供するので、リストがクライアントにキャッシュされるので、プリフライト要求でさえも、ネットワーク呼び出しは必要ありません。
+* **ベストケースのシナリオ** - MVPDは、承認フェーズ（マルチチャネル AuthZ）で事前承認されたリソースのリストを提供します。
+* **最悪のシナリオ** - MVPDが複数リソース認証をまったくサポートしていない場合、Adobe Pass認証サーバーはリソースリストの各リソースに対してMVPDへの認証コールを実行します。 このシナリオは、プリフライト認証リクエストの応答時間に（リソース数に比例して）影響を与えます。 AdobeサーバーとMVPD サーバーの両方の負荷が増え、パフォーマンスの問題が発生する可能性があります。 また、実際に再生を行う必要なく、承認リクエスト/応答イベントが生成されます。
+* **非推奨** - MVPDは、認証段階で事前承認済みリソースのリストを提供します。リストはクライアントにキャッシュされるので、プリフライトリクエストでさえも、ネットワーク呼び出しは必要ありません。
 
 MVPD はプリフライト認証をサポートする必要はありませんが、以下の節では、上記の最悪のシナリオに戻る前に、Adobe Pass認証がサポートできるプリフライト認証方式について説明します。
 
@@ -33,7 +33,7 @@ MVPD はプリフライト認証をサポートする必要はありませんが
 
 ### SAML Attribute ステートメントのカスタム・リソース・リスト {#custom-res-saml-attr}
 
-IdP の SAML 認証応答には、AdobePass が許可する必要があるリソース名を含んだ AttributeStatement が含まれなければなりません。  一部の MVPD は、これを次の形式で提供します。
+IdP の SAML 認証応答には、AdobePass が許可する必要があるリソース名を含んだ AttributeStatement が含まれなければなりません。  一部のMVPDでは、これを次の形式で提供します。
 
 ```XML
 <saml:AttributeStatement>
@@ -50,13 +50,13 @@ IdP の SAML 認証応答には、AdobePass が許可する必要があるリソ
 
 ## AuthZ でのマルチチャネルプリフライト {#preflight-multich-authz}
 
-このプリフライト実装も OLCA 互換（Cablelabs）です。  Authentication and Authorization Interface 1.0 Specification （7.5.3 および 7.5.4 節）は、SAML アサーションまたは XACML を使用して MVPD から認証情報を要求する方法について説明しています。 これは、認証フローの一部としてこれをサポートしない MVPD の認証ステータスを照会する場合に推奨される方法です。 Adobe Pass認証は、MVPD に対して 1 回のネットワーク呼び出しを発行して、許可されたリソースのリストを取得します。
+このプリフライト実装も OLCA 互換（Cablelabs）です。  Authentication and Authorization Interface 1.0 Specification （7.5.3 および 7.5.4 節）に、SAML アサーションまたは XACML を使用してMVPDから認証情報をリクエストする方法を説明しています。 これは、認証フローの一部としてこれをサポートしない MVPD の認証ステータスを照会する場合に推奨される方法です。 Adobe Pass認証は、MVPDへの 1 回のネットワーク呼び出しを発行して、許可されたリソースのリストを取得します。
 
 
-Adobe Pass認証は、プログラマーのアプリケーションからリソースのリストを受け取ります。 Adobe Pass認証の MVPD 統合では、これらすべてのリソースを含む 1 つの AuthZ 呼び出しを行い、応答を解析して、複数の permit/deny 決定を抽出できます。  マルチチャネル AuthZ を使用したプリフライトのシナリオのフローは、次のように機能します。
+Adobe Pass認証は、プログラマーのアプリケーションからリソースのリストを受け取ります。 Adobe Pass認証のMVPD統合では、1 つの AuthZ 呼び出しにこれらすべてのリソースを含めることができ、応答を解析し、複数の permit/deny 決定を抽出できます。  マルチチャネル AuthZ を使用したプリフライトのシナリオのフローは、次のように機能します。
 
 1. プログラマーのアプリは、preflight クライアント API を使用して、リソースのコンマ区切りリスト（例：&quot;TestChannel1,TestChannel2,TestChannel3&quot;）を送信します。
-1. MVPD プリフライト AuthZ リクエスト呼び出しには、複数のリソースが含まれ、次の構造になっています。
+1. MVPD preflight AuthZ リクエスト呼び出しには、次の構造を持つ複数のリソースが含まれています。
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?><soap11:Envelope xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/"> 
@@ -117,7 +117,7 @@ Adobe Pass認証は、プログラマーのアプリケーションからリソ�
 
 一部の MVPD は、1 回のリクエストで複数のリソースの認証をサポートする認証エンドポイントを持っていますが、マルチチャネル AuthZ で説明されているシナリオには該当しません。 これらの特定の MVPD には、カスタム作業が必要です。
 
-また、Adobeは、既存の実装を変更せずに複数チャネルの認証をサポートすることもできます。  このアプローチは、Adobeと MVPD 技術チームの間で見直され、期待どおりに動作することを確認する必要があります。
+また、Adobeは、既存の実装を変更せずに複数チャネルの認証をサポートすることもできます。  このアプローチは、AdobeとMVPD テクニカルチームの間で見直し、期待どおりに機能することを確認する必要があります。
 
 ## プリフライト認証をサポートする MVPD {#mvpds-supp-preflight-authz}
 
@@ -129,12 +129,3 @@ Adobe Pass認証は、プログラマーのアプリケーションからリソ�
 | ユーザーメタデータのチャネルラインアップ | Suddenlink HTC | すべての Synacor 直接統合もこのアプローチをサポートできます。 |
 | 分岐と結合 | 上記に記載されていないその他すべて | チェックされるリソースのデフォルトの最大数= 5。 |
 
-<!--
-![RelatedInformation]
->* [Logout](/help/authentication/usecase-mvpd-logout.md)
->* [Authorization](/help/authentication/authz-usecase.md)
->* [MVPD Integration Features](/help/authentication/mvpd-integr-features.md)
->* [MVPD User Metadata Exchange](/help/authentication/mvpd-user-metadata-exchng.md)
->* [Preflight Authorization - Programmer Integration Guide](/help/authentication/preflight-authz.md)
->* [AuthN and AuthZ Interface 1.0 Specification](https://www.cablelabs.com/specifications/CL-SP-AUTH1.0-I04-120621.pdf){target=_blank} 
--->

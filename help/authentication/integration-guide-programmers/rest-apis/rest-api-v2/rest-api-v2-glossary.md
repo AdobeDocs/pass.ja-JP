@@ -2,7 +2,7 @@
 title: REST API V2 の用語集
 description: REST API V2 の用語集
 exl-id: 8b3bd2de-1ff8-4c57-b18d-27ecdf2b0de2
-source-git-commit: 49a6a75944549dbfb062b1be8a053e6c99c90dc9
+source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
 workflow-type: tm+mt
 source-wordcount: '1742'
 ht-degree: 0%
@@ -183,7 +183,7 @@ MVPDは、MVPDとAdobeの間のオンボーディングプロセス中に定義�
 
 リソースは、プログラマと MVPD の間で合意された一意の値によって識別されます。
 
-詳しくは、[ 保護されたリソース ](/help/authentication/integration-guide-programmers/features-standard/entitlements/protected-resources.md#identifiers) ドキュメントを参照してください。
+詳しくは、[ 保護されたリソース ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#protected-resources) ドキュメントを参照してください。
 
 ### S {#s}
 

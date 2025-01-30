@@ -2,7 +2,7 @@
 title: ユーザーメタデータ
 description: ユーザーメタデータ
 exl-id: 9fd68885-7b3a-4af0-a090-6f1f16efd2a1
-source-git-commit: ae2e61152695b738b0bb08d1dcd81417f3bbdfb5
+source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
 workflow-type: tm+mt
 source-wordcount: '1793'
 ht-degree: 0%
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
 ユーザーメタデータとは、ユーザー固有の [ 属性 ](#attributes) 例：郵便番号、保護者による制限、ユーザー ID など）を指し、MVPD によって維持管理され、Adobe Pass認証 [REST API V2](#apis) を通じてプログラマーに提供されます。
 
