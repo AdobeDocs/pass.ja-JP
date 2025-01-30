@@ -2,7 +2,7 @@
 title: アクセス フローの低下
 description: REST API V2 – 低下したアクセスフロー
 exl-id: 9276f5d9-8b1a-4282-8458-0c1e1e06bcf5
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 49a6a75944549dbfb062b1be8a053e6c99c90dc9
 workflow-type: tm+mt
 source-wordcount: '1605'
 ht-degree: 0%
@@ -19,9 +19,9 @@ ht-degree: 0%
 >
 > REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
-劣化は、特定の MVPD 認証および承認エンドポイントを一時的にバイパスすることを提供します。 通常、プログラマはこのアクションを開始しますが、誰がデグレード イベントをトリガーしているかに関係なく、このアクションは影響を受ける MVPD との事前の取り決めに依存します。
+パフォーマンスが低下すると、特定のMVPD認証および承認エンドポイントが一時的にバイパスされます。 通常、プログラマはこのアクションを開始しますが、誰がデグレード イベントをトリガーしているかに関係なく、このアクションは影響を受ける MVPD との事前の取り決めに依存します。
 
-最適化機能について詳しくは、[ 最適化 ](../../../../features-premium/degraded-access/degradation-api-overview.md) ドキュメントを参照してください。
+最適化機能について詳しくは、[ 最適化 ](../../../../features-premium/degraded-access/degradation-feature.md) ドキュメントを参照してください。
 
 縮退アクセスフローを使用すると、次のシナリオについてクエリを実行できます。
 
@@ -36,7 +36,7 @@ ht-degree: 0%
 
 低下が適用されている場合の認証フローを実行する前に、次の前提条件が満たされていることを確認してください。
 
-* ストリーミングアプリケーションは、MVPD を使用してログインする必要がある場合、認証セッションを開始する必要があります。
+* ストリーミングアプリケーションは、MVPDでログインする必要がある場合、認証セッションを開始する必要があります。
 
 >[!IMPORTANT]
 > 
@@ -44,7 +44,7 @@ ht-degree: 0%
 > 
 > <br/>
 > 
-> * ストリーミングアプリケーションには、Adobe Pass バックエンドに保存されたその特定の MVPD に対する有効なプロファイルがありません。
+> * ストリーミングアプリケーションには、Adobe Pass バックエンドに保存されたその特定のMVPDに対する有効なプロファイルがありません。
 > * 指定された `serviceProvider` と `mvpd` の間の統合に適用される AuthNAll 低下ルールがあります。
 
 ### ワークフロー {#workflow-perform-authentication-while-degradation-is-applied}
@@ -112,7 +112,7 @@ ht-degree: 0%
 > 
 > <br/>
 > 
-> * ストリーミングアプリケーションには、その特定の MVPD に対する有効なプロファイルがありません。
+> * ストリーミングアプリケーションには、その特定のMVPDに対する有効なプロファイルがありません。
 > * 指定された `serviceProvider` と `mvpd` の間の統合に、AuthZAll または AuthNAll の最適化規則が適用されています。
 
 ### ワークフロー {#workflow-retrieve-authorization-decisions-while-degradation-is-applied}
@@ -178,7 +178,7 @@ ht-degree: 0%
 >
 > <br/>
 > 
-> * ストリーミングアプリケーションには、その特定の MVPD に対する有効なプロファイルがありません。
+> * ストリーミングアプリケーションには、その特定のMVPDに対する有効なプロファイルがありません。
 > * 指定された `serviceProvider` と `mvpd` の間の統合に、AuthZAll または AuthNAll の最適化規則が適用されています。
 
 ### ワークフロー {#workflow-retrieve-preauthorization-decisions-while-degradation-is-applied}
@@ -242,9 +242,9 @@ ht-degree: 0%
 
 ### 前提条件 {#prerequisites-retrieve-profile-while-degradation-is-applied}
 
-劣化が適用されている場合に特定の MVPD のプロファイルを取得する前に、次の前提条件が満たされていることを確認してください。
+低下が適用されている場合に特定のMVPDのプロファイルを取得する前に、次の前提条件が満たされていることを確認してください。
 
-* 選択されたまたはキャッシュされた `mvpd` 識別子を持つストリーミングアプリケーションは、特定の MVPD のプロファイルを取得したいと考えています。
+* 選択されたまたはキャッシュされた `mvpd` ーザー ID を持つストリーミングアプリケーションが、特定のMVPDのプロファイルを取得したいと考えています。
 
 >[!IMPORTANT]
 >
@@ -252,18 +252,18 @@ ht-degree: 0%
 >
 > <br/>
 > 
-> * ストリーミングアプリケーションには、その特定の MVPD に対する有効なプロファイルがありません。
+> * ストリーミングアプリケーションには、その特定のMVPDに対する有効なプロファイルがありません。
 > * 指定された `serviceProvider` と `mvpd` の間の統合に適用される AuthNAll 低下ルールがあります。
 
 ### ワークフロー {#workflow-retrieve-profile-while-degradation-is-applied}
 
-次の図に示すように、劣化が適用されている間に特定の MVPD のプロファイル取得フローを実装するには、次の手順に従います。
+次の図に示すように、パフォーマンス低下が適用されている場合に特定のMVPDのプロファイル取得フローを実装するには、次の手順に従います。
 
 ![ 最適化適用中にプロファイルを取得 ](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-profile-while-degradation-is-applied-flow.png)
 
 *最適化適用中にプロファイルを取得*
 
-1. **特定の mvpd のプロファイルを取得：** ストリーミングアプリケーションは、プロファイルエンドポイントにリクエストを送信して、その特定の MVPD のプロファイル情報を取得するために必要なすべてのデータを収集します。
+1. **特定の mvpd のプロファイルを取得：** ストリーミングアプリケーションは、プロファイルエンドポイントにリクエストを送信して、その特定のMVPDのプロファイル情報を取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >

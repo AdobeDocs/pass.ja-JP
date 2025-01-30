@@ -2,7 +2,7 @@
 title: Dynamic Client Registration の概要
 description: Dynamic Client Registration の概要
 exl-id: 9f98dfcd-4375-48c3-beff-259dfb1d3a26
-source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
+source-git-commit: 49a6a75944549dbfb062b1be8a053e6c99c90dc9
 workflow-type: tm+mt
 source-wordcount: '813'
 ht-degree: 0%
@@ -20,8 +20,8 @@ ht-degree: 0%
 Adobe Passは、次の保護された API へのアクセスを可能にする動的なクライアント登録サービスを提供します。
 
 * Adobe Pass Authentication Management API:
-   * [Temp Pass API をリセット](../../features-premium/temporary-access/temp-pass-feature.md)
-   * [API の低下](../../features-premium/degraded-access/degradation-api-overview.md)
+   * [Temp Pass API をリセット](../../features-premium/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
+   * [API の低下](../../features-premium/degraded-access/degradation-feature.md#degradation-api-access)
    * [プロキシMVPD API](../../../integration-guide-mvpds/proxy-mvpd-webserv.md)
    * [使用権限サービスモニタリング API](../../features-premium/esm/entitlement-service-monitoring-api.md)
 * Adobe Pass認証 REST API:
@@ -102,7 +102,7 @@ software ステートメントは、クライアントアプリケーション�
 
 ソフトウェア ステートメントとその動作の詳細については、[RFC 7591](https://tools.ietf.org/html/rfc7591) ドキュメントを参照してください。
 
-## 動的なクライアント登録フロー  {#dynamic-client-registration-flow}
+## 動的なクライアント登録フロー {#dynamic-client-registration-flow}
 
 要約すると、動的なクライアント登録認証メカニズムには、次のようないくつかのステップが含まれます。
 
