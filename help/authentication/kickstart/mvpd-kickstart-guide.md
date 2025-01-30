@@ -2,7 +2,7 @@
 title: MVPD キックスタートガイド
 description: MVPD キックスタートガイド
 exl-id: 6423cc9a-a45a-4cde-b562-4cb72c98e505
-source-git-commit: 936c1cda465dd3a9fc3f16381edb24a2b3e41779
+source-git-commit: 2b9a8ce374f7a73cd815e9735d672e5c9ba285cc
 workflow-type: tm+mt
 source-wordcount: '934'
 ht-degree: 0%
@@ -137,7 +137,7 @@ Adobe Pass認証チームを使用すると、統合プロセス中に発生す�
 
 **Adobeから**[Adobe Experience League} 経由で公開ドキュメントにアクセス ](https://experienceleague.adobe.com/en/docs/pass/authentication/home) きます。
 
-Adobe Pass認証チームは、[MVPD の統合ガイド ](/help/authentication/kickstart/mvpd-overview.md) の節で利用できる機能とワークフローに関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
+Adobe Pass認証チームは、[MVPD の統合ガイド ](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md) の節で利用できる機能とワークフローに関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
 
 ## テストツールへのアクセス {#access-testing-tool}
 

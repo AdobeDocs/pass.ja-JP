@@ -2,9 +2,9 @@
 title: Primetime TVE ダッシュボードユーザーガイド
 description: Primetime TVE ダッシュボードユーザーガイド
 exl-id: 6f7f7901-db3a-4c68-ac6a-27082db9240a
-source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
+source-git-commit: 2b9a8ce374f7a73cd815e9735d672e5c9ba285cc
 workflow-type: tm+mt
-source-wordcount: '5524'
+source-wordcount: '5517'
 ht-degree: 0%
 
 ---
@@ -287,7 +287,7 @@ TVE ダッシュボードを使用してAdobe Pass Authentication 設定に管�
 
 既存の統合を更新するには、「統合」セクションまたは「統合」タブを含む「チャネル」セクションから、その特定の統合のテーブルエントリをクリックします。
 
-基本的なWorkspace モードを使用する場合、このセクションでは、認証および認証トークン TTL （time-to-live）や iFrame 設定など、最も一般的に更新される設定を表示および編集できます。 動的に定義されるトークン永続性 TTL をサポートする MVPD との統合では、TTL 設定が欠落する場合があることに注意してください（[MVPD Integration Requirements](/help/authentication/integration-guide-mvpds/mvpd-integr-features.md) のエントリ 1.19 を参照）。
+基本的なWorkspace モードを使用する場合、このセクションでは、認証および認証トークン TTL （time-to-live）や iFrame 設定など、最も一般的に更新される設定を表示および編集できます。 動的に定義されるトークン永続性 TTL をサポートする MVPD との統合では、TTL 設定が見つからない場合があることに注意してください。
 
 
 

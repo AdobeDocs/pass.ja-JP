@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
+source-git-commit: 2b9a8ce374f7a73cd815e9735d672e5c9ba285cc
 workflow-type: tm+mt
-source-wordcount: '1231'
+source-wordcount: '1230'
 ht-degree: 2%
 
 ---
@@ -48,7 +48,6 @@ ht-degree: 2%
    + [テクニカルペーパー](kickstart/technical-paper.md)
    + [プログラマー向けキックスタートガイド](kickstart/programmer-kickstart-guide.md)
    + [MVPD キックスタートガイド](kickstart/mvpd-kickstart-guide.md)
-   + [MVPDの概要](kickstart/mvpd-overview.md)
    + [サポート手順に関する FAQ](kickstart/support-procedures-faqs.md)
 + プログラマ向け統合ガイド {#integration-guide-programmers}
    + [プログラマー統合ガイド](integration-guide-programmers/programmer-integration-guide-overview.md)
@@ -260,7 +259,7 @@ ht-degree: 2%
             + [（従来）Adobe PassAdobeの PayTV パスのモニタリング](integration-guide-programmers/legacy/notes-technical/monitoring-adobe-pay-tv-pass.md)
             + [（従来）AdobeAPI テストサイトを使用した、認証および承認フローのテスト方法](integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)
 + MVPD の統合ガイド {#integration-guide-mvpds}
-   + [統合機能](integration-guide-mvpds/mvpd-integr-features.md)
+   + [MVPD統合ガイド](integration-guide-mvpds/mvpd-integration-guide-overview.md)
    + [認証](integration-guide-mvpds/authn-usecase.md)
    + [OAuth 2.0 プロトコルを使用した認証](integration-guide-mvpds/authn-oauth2-protocol.md)
    + [認証](integration-guide-mvpds/authz-usecase.md)
