@@ -2,9 +2,9 @@
 title: Adobe&reg; Pass Authentication へようこそ。
 description: 「認証&reg; パスAdobeの概要」へようこそ
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
+source-git-commit: 1b9847d8dcb078755fd68a6363972f8973290e52
 workflow-type: tm+mt
-source-wordcount: '292'
+source-wordcount: '293'
 ht-degree: 0%
 
 ---
@@ -27,7 +27,7 @@ Adobe Pass Authentication は、TV Everywhere の使用権限管理ソリュー�
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <ul><li>[ プログラマー向けキックスタートガイド ](/help/authentication/kickstart/programmer-kickstart-guide.md)</li><li>[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)</li></ul> | <ul><li>[MVPD キックスタートガイド ](/help/authentication/kickstart/mvpd-kickstart-guide.md)</li><li>[ 認証 ](/help/authentication/integration-guide-mvpds/authn-usecase.md)</li><li>[ 認可 ](/help/authentication/integration-guide-mvpds/authz-usecase.md)</li><li>[ ログアウト ](/help/authentication/integration-guide-mvpds/usecase-mvpd-logout.md)</li></ul> |
 | **ネイティブアプリクライアントの場合** | **皆さん** |
-| <ul><li>[iOSの技術概要 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)</li><li>[Androidの技術概要 ](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-overview.md)</li></ul> | <ul><li>[ テクニカル・ペーパー ](/help/authentication/kickstart/technical-paper.md)</li><li>[ エスカレーション手続 ](/help/authentication/kickstart/escalation-procedures.md)</li></ul> |
+| <ul><li>[iOSの技術概要 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)</li><li>[Androidの技術概要 ](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-overview.md)</li></ul> | <ul><li>[ テクニカル・ペーパー ](/help/authentication/kickstart/technical-paper.md)</li><li>[ サポート手順に関する FAQ](/help/authentication/kickstart/support-procedures-faqs.md)</li></ul> |
 | **スマートデバイス用** |                                                                                                                                                                                                                                                                                                                                                                       |
 | <ul><li>[ クライアントレス技術概要 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)</li><li>[ クライアントレス API](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)</li></ul> |                                                                                                                                                                                                                                                                                                                                                                       |
 
@@ -37,7 +37,7 @@ Adobe Pass Authentication は、TV Everywhere の使用権限管理ソリュー�
 >
 > [ サポートチームに電子メールを送信する ](mailto:tve-support@adobe.com) ことは、問題やインシデントレポートの最初のステップでもあります。
 >
-> [ 重要度 1 のライブ ](/help/authentication/kickstart/escalation-procedures.md) 問題があり、応答なくメールを送信して 30 分経過した場合は、お電話する電話番号の [ エスカレーション手順 ](/help/authentication/kickstart/escalation-procedures.md) ドキュメントを参照してください。
+> [ 重要度 1 のライブ ](/help/authentication/kickstart/support-procedures-faqs.md) 問題があり、応答なくメールを送信して 30 分経過した場合は、お電話する電話番号の [ エスカレーション手順 ](/help/authentication/kickstart/support-procedures-faqs.md) ドキュメントを参照してください。
 
 ## 必要な情報を検索するには {#how-to-search}
 

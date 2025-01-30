@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 49a6a75944549dbfb062b1be8a053e6c99c90dc9
+source-git-commit: 1b9847d8dcb078755fd68a6363972f8973290e52
 workflow-type: tm+mt
-source-wordcount: '1249'
+source-wordcount: '1250'
 ht-degree: 2%
 
 ---
@@ -50,7 +50,7 @@ ht-degree: 2%
    + [MVPDの概要](kickstart/mvpd-overview.md)
    + [プログラマー向けキックスタートガイド](kickstart/programmer-kickstart-guide.md)
    + [MVPD キックスタートガイド](kickstart/mvpd-kickstart-guide.md)
-   + [エスカレーション手順](kickstart/escalation-procedures.md)
+   + [サポート手順に関する FAQ](kickstart/support-procedures-faqs.md)
 + プログラマ向け統合ガイド {#integration-guide-programmers}
    + REST API {#rest-apis}
       + REST API DCR {#rest-api-dcr}
