@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 1b9847d8dcb078755fd68a6363972f8973290e52
+source-git-commit: ffedb5db269644c8d9c81480d27dff43bd4eb5d6
 workflow-type: tm+mt
-source-wordcount: '1250'
+source-wordcount: '1240'
 ht-degree: 2%
 
 ---
@@ -120,8 +120,7 @@ ht-degree: 2%
                + [ヘッダー – AP-TempPass-Identity](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
    + 標準機能 {#standard-features}
       + 使用権限 {#entitlements}
-         + [プリフライト認証](integration-guide-programmers/features-standard/entitlements/preflight-authz.md)
-         + [保護されたリソース](integration-guide-programmers/features-standard/entitlements/protected-resources.md)
+         + [決定](integration-guide-programmers/features-standard/entitlements/decisions.md)
          + [メディアトークン](integration-guide-programmers/features-standard/entitlements/media-tokens.md)
          + [ユーザーメタデータ](integration-guide-programmers/features-standard/entitlements/user-metadata.md)
       + エラー報告 {#error-reporting}
@@ -137,8 +136,7 @@ ht-degree: 2%
             + Roku のシングルサインオン {#roku-sso}
                + [Roku SSO の概要](integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-overview.md)
       + ホーム ベースの認証アクセス {#hba-access}
-         + [どこでもテレビを利用できるホームベースの認証](integration-guide-programmers/features-standard/hba-access/home-based-authn-tve.md)
-         + [MVPD の HBA ステータス](integration-guide-programmers/features-standard/hba-access/hba-status-mvpds.md)
+         + [ホームベースの認証（HBA）](integration-guide-programmers/features-standard/hba-access/home-based-authentication.md)
       + プライバシーサポート {#privacy-support}
          + [プライバシーサポートの概要](integration-guide-programmers/features-premium/privacy-support/privacy-supp-overview.md)
          + [プライバシーリクエストの作成方法](integration-guide-programmers/features-premium/privacy-support/make-privacy-req.md)
