@@ -2,9 +2,9 @@
 title: 認証の開始
 description: 認証の開始
 exl-id: 55dddd29-68d6-4aae-8744-307fea285e29
-source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
+source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
 workflow-type: tm+mt
-source-wordcount: '314'
+source-wordcount: '306'
 ht-degree: 0%
 
 ---
@@ -95,7 +95,7 @@ MVPD選択イベントを通知して認証プロセスを開始します。 Ado
 
 ### **備考** {#notes}
 
-* `domain_name` パラメーターの値は、Adobe Pass Authentication に登録されているドメイン名のいずれかに設定されている必要があります。 詳しくは、「登録と初期化 [ を参照してください ](/help/authentication/kickstart/programmer-overview.md)。
+* `domain_name` パラメーターの値は、Adobe Pass Authentication に登録されているドメイン名のいずれかに設定されている必要があります。
 
 * [/authenticate リクエストで「&amp;&#39;reg\_code」を使用するのを避ける（テクニカルノート）](/help/authentication/integration-guide-programmers/legacy/notes-technical/clientless-avoid-using-reg-code-in-authenticate-request.md)
 

@@ -2,7 +2,7 @@
 title: 付録 B 「デバッグのヒント」
 description: 付録 B 「デバッグのヒント」
 exl-id: ea024797-315e-47c0-99ea-1ac49c8c9697
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
 workflow-type: tm+mt
 source-wordcount: '184'
 ht-degree: 0%
@@ -48,12 +48,3 @@ Adobe Pass認証エンジニアは、次のデバッグツールを使用しま�
 - Fiddler - <http://www.fiddler2.com/fiddler2/>
 - Charles - <http://www.charlesproxy.com/>
 - Wireshark - <http://www.wireshark.org/>
-
-
-<!--
-## Related Information
-
-- [Programmer Integration Guide](/help/authentication/programmer-integration-guide-overview.md)
-
-- [Using Charles Proxy (Tech Note)](https://tve.zendesk.com/hc/en-us/articles/204962849-Using-Charles-Proxy)
--->

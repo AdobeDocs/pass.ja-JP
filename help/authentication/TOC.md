@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: ffedb5db269644c8d9c81480d27dff43bd4eb5d6
+source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
 workflow-type: tm+mt
-source-wordcount: '1240'
+source-wordcount: '1231'
 ht-degree: 2%
 
 ---
@@ -46,12 +46,14 @@ ht-degree: 2%
       + [Adobe Pass認証iOS/tvOS 3.7.0 リリースノート](notes-releases/authn-rn-ios-tvos-370.md)
 + Kickstart {#kickstart}
    + [テクニカルペーパー](kickstart/technical-paper.md)
-   + [プログラマーの概要](kickstart/programmer-overview.md)
-   + [MVPDの概要](kickstart/mvpd-overview.md)
    + [プログラマー向けキックスタートガイド](kickstart/programmer-kickstart-guide.md)
    + [MVPD キックスタートガイド](kickstart/mvpd-kickstart-guide.md)
+   + [MVPDの概要](kickstart/mvpd-overview.md)
    + [サポート手順に関する FAQ](kickstart/support-procedures-faqs.md)
 + プログラマ向け統合ガイド {#integration-guide-programmers}
+   + [プログラマー統合ガイド](integration-guide-programmers/programmer-integration-guide-overview.md)
+   + [必要なシステム構成](integration-guide-programmers/minimum-system-requirements.md)
+   + [スロットルメカニズム](integration-guide-programmers/throttling-mechanism.md)
    + REST API {#rest-apis}
       + REST API DCR {#rest-api-dcr}
          + [Dynamic Client Registration の概要](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)
@@ -120,9 +122,9 @@ ht-degree: 2%
                + [ヘッダー – AP-TempPass-Identity](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
    + 標準機能 {#standard-features}
       + 使用権限 {#entitlements}
+         + [ユーザーメタデータ](integration-guide-programmers/features-standard/entitlements/user-metadata.md)
          + [決定](integration-guide-programmers/features-standard/entitlements/decisions.md)
          + [メディアトークン](integration-guide-programmers/features-standard/entitlements/media-tokens.md)
-         + [ユーザーメタデータ](integration-guide-programmers/features-standard/entitlements/user-metadata.md)
       + エラー報告 {#error-reporting}
          + [拡張エラーコード](integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)
       + シングル サインオン アクセス {#sso-access}
@@ -257,11 +259,6 @@ ht-degree: 2%
             + [（レガシー） Charles プロキシの使用](integration-guide-programmers/legacy/notes-technical/using-charles-proxy.md)
             + [（従来）Adobe PassAdobeの PayTV パスのモニタリング](integration-guide-programmers/legacy/notes-technical/monitoring-adobe-pay-tv-pass.md)
             + [（従来）AdobeAPI テストサイトを使用した、認証および承認フローのテスト方法](integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)
-   + [プログラマー統合ガイドの概要](integration-guide-programmers/programmer-integration-guide-overview.md)
-   + [プログラマーの使用権限フロー](integration-guide-programmers/entitlement-flow.md)
-   + [プログラマーのユースケース](integration-guide-programmers/programmer-use-cases.md)
-   + [スロットルメカニズム](integration-guide-programmers/throttling-mechanism.md)
-   + [必要なシステム構成](integration-guide-programmers/minimum-system-requirements.md)
 + MVPD の統合ガイド {#integration-guide-mvpds}
    + [統合機能](integration-guide-mvpds/mvpd-integr-features.md)
    + [認証](integration-guide-mvpds/authn-usecase.md)

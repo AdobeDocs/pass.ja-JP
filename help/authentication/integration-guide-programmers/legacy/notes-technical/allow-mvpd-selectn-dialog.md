@@ -2,7 +2,7 @@
 title: 選択ダイアログの MVPD を許可
 description: 選択ダイアログの MVPD を許可
 exl-id: 2c0e0f06-ddc6-4bea-90dc-d7ef8e78d27e
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
 workflow-type: tm+mt
 source-wordcount: '151'
 ht-degree: 0%
@@ -52,10 +52,3 @@ function displayAllowlisted(list) {
     // TODO: Implement site-specific logic here.
 }
 ```
-
-<!--
-**Related Information**
-* [Prevent MVPDs from appearing in the Selection Dialog](/help/authentication/prevent-mvpd-selectn-dialog.md)
-* **Code Samples**
-* [Programmer integration guide](/help/authentication/programmer-integration-guide-overview.md)
--->

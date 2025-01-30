@@ -2,9 +2,9 @@
 title: Primetime TVE ダッシュボードユーザーガイド
 description: Primetime TVE ダッシュボードユーザーガイド
 exl-id: 6f7f7901-db3a-4c68-ac6a-27082db9240a
-source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
+source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
 workflow-type: tm+mt
-source-wordcount: '5526'
+source-wordcount: '5524'
 ht-degree: 0%
 
 ---
@@ -33,7 +33,6 @@ ht-degree: 0%
 
 * [TVE テクニカルペーパー](/help/authentication/kickstart/technical-paper.md)
 * [プログラマ キックスタートガイド](/help/authentication/kickstart/programmer-kickstart-guide.md)
-* [使用権限フロー](/help/authentication/integration-guide-programmers/entitlement-flow.md)
 
 このユーザーガイドの次の節に進み、会社のチャネル、プログラマー、またはチャネルと MVPD （マルチチャネルビデオプログラムディストリビューター）間の統合に関する様々な設定を管理する方法を確認します。
 
