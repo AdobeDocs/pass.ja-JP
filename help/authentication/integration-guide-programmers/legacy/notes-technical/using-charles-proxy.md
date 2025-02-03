@@ -2,9 +2,9 @@
 title: Charles プロキシの使用
 description: Charles プロキシの使用
 exl-id: bb38543f-f6bc-4b5a-91b8-41bc51ee4c56
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 175755aa7463257487b29c5f4da989cf34e91bfd
 workflow-type: tm+mt
-source-wordcount: '392'
+source-wordcount: '376'
 ht-degree: 0%
 
 ---
@@ -43,10 +43,9 @@ SSL プロキシ `\[ *Proxy -\> Proxy Settings... -\> SSL* \]` を有効にす�
 
 「SSL プロキシを有効にする」チェックボックスをオンにして、すべての HTTPS の場所を追加します。
 
-
+<!-- NOTE TO WRITER - THESE IMAGES LINKS ARE BROKEN
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/ProxySettings.PNG) ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/SSLSettings.PNG) ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/AddHttpsLocations.PNG)
-
-
+-->
 
 - SSL プロキシ - <http://www.charlesproxy.com/documentation/proxying/ssl-proxying/>
 - SSL 証明書 – <http://www.charlesproxy.com/documentation/using-charles/ssl-certificates/>
@@ -69,7 +68,9 @@ SSL プロキシ `\[ *Proxy -\> Proxy Settings... -\> SSL* \]` を有効にす�
 
 DNS スプーフィングは、要求を別の IP にリダイレクトしようとした場合、特にモバイルデバイスを操作している場合に非常に便利です。
 
+<!-- NOTE TO WRITER - THESE IMAGES LINKS ARE BROKEN
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/DNSSpoofing.PNG)
+-->
 
 <http://www.charlesproxy.com/documentation/tools/dns-spoofing/>
 
@@ -82,7 +83,9 @@ DNS スプーフィングは、要求を別の IP にリダイレクトしよう
 
 Map remote を使用すると、「受信」リクエストを別のエンドポイントにリダイレクトできます。 この機能の最も一般的なユースケースは、`AccessEnabler.swf` を `AccessEnablerDebug.swf:` に「マッピング」することです
 
+<!-- NOTE TO WRITER - THESE IMAGES LINKS ARE BROKEN
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/MapRemote.PNG) ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/MapRemoteAdd.PNG)
+-->
 
 <http://www.charlesproxy.com/documentation/tools/map-remote/>
 
@@ -100,7 +103,9 @@ Map remote を使用すると、「受信」リクエストを別のエンドポ
 
 iOS デバイスから <http://charlesproxy.com/charles.crt> を参照します。  証明書のインストールダイアログが開きます。
 
-![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceSSLCertificate1\（1\）.PNG)![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceSSLCertificate2\（1\）.PNG)![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceSSLCertificate3.PNG)
+<!-- NOTE TO WRITER - THESE IMAGES LINKS ARE BROKEN
+![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceSSLCertificate1\(1\).PNG)![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceSSLCertificate2\(1\).PNG)![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceSSLCertificate3.PNG)
+-->
 
 </br>
 
@@ -117,15 +122,18 @@ iOS デバイスで、「`\[ *Settings* -\> *Wi-FI* -\> (*YOUR\_WIFI\_NETWORK)* 
 
 </br>
 
+<!-- NOTE TO WRITER - THESE IMAGES LINKS ARE BROKEN
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceManualProxy1.png)![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceManualProxy2.PNG)
-
+-->
 
 </br>
 ここでは、Charles を実行しているマシンの IP とポートを指定する必要があります。 <span style="line-height: 1.6em;">iOS デバイスで Safari を開いて web ページを開こうとすると、Charles が稼働しているマシンで次のポップアップが表示されます。
 
 </br>
 
+<!-- NOTE TO WRITER - THESE IMAGES LINKS ARE BROKEN
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceManualProxy3.PNG)
+-->
 
 </br>
 「許可」をクリックして、デバイスが Charles を使用してそのすべてをプロキシ化できるようにします
