@@ -2,14 +2,39 @@
 title: 製品に関するお知らせ
 description: 製品に関するお知らせ
 exl-id: 3c9c66e1-d31d-4af3-8ab2-eb32492f42ca
-source-git-commit: 49a6a75944549dbfb062b1be8a053e6c99c90dc9
+source-git-commit: 9dcc649b4216cccc9be35cd6553308bfc345b5f4
 workflow-type: tm+mt
-source-wordcount: '670'
+source-wordcount: '859'
 ht-degree: 1%
 
 ---
 
 # 製品に関するお知らせ {#product-announcements}
+
+<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/product-announcements">![ ライブウェビナーシリーズ ](/help/authentication/assets/rest-api-v2/live-webinar-series-banner.png)</a>
+
+Adobe Pass認証パートナーの皆様には、新しい REST API に関する次回のライブウェビナーにご招待します。 この新しい API は、エンドユーザーエクスペリエンスを強化しAdobe Pass サービスとの統合を簡素化するために、昨年公開されました。 
+
+新しい API の概要、メリット、新しい API に移行することでアクティブ化できる追加のユースケースを提供するために、一連の 2 つのウェビナーを実施します。
+
+あなたとあなたのチームにとって最適なウェビナーに登録してください。
+
+* [ ウェビナー 1 - 2025 年 2 月 19 日 ](https://events.teams.microsoft.com/event/83c6ec1e-2522-4918-910f-c529b4fb0574@fa7b1b5a-7b34-4387-94ae-d2c178decee1)
+* [ ウェビナー 2 - 2025 年 3 月 5 日 ](https://events.teams.microsoft.com/event/6f673689-e848-4c00-93d9-4f5d8f108977@fa7b1b5a-7b34-4387-94ae-d2c178decee1)
+
+このセッションでは、次の内容について学習します。
+
+* REST API v2 の概要と利点
+* 基本フローのチュートリアル
+* タイムラインと次の手順
+
+このウェビナーは、次の場合に役立ちます。
+
+* 新しい TVE アプリのローンチを計画する新しいお客様
+* 新しい API への移行が必要な既存のお客様
+* 顧客向け API を実装する実装パートナー
+
+新しい API に関する技術ドキュメントは [ こちら ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/rest-api-v2-apis-overview.md) で参照できます。 セッション中に話し合いたい質問があれば、[ こちら ](https://forms.office.com/r/sJea78tUy3) に記入することをお勧めします。
 
 ## 提供終了（EOL） {#eol}
 

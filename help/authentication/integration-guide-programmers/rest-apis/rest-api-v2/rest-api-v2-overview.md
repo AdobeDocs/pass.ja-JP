@@ -2,7 +2,7 @@
 title: REST API V2 の概要
 description: REST API V2 の概要
 exl-id: a5595193-82c4-4033-bd98-596b4908b401
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 9dcc649b4216cccc9be35cd6553308bfc345b5f4
 workflow-type: tm+mt
 source-wordcount: '496'
 ht-degree: 0%
@@ -13,7 +13,9 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+
+<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/product-announcements">![ ライブウェビナーシリーズ ](/help/authentication/assets/rest-api-v2/live-webinar-series-banner.png)</a>
 
 TVE アプリケーションのコスト効率を向上させたいとお考えですか？
 
@@ -41,7 +43,7 @@ REST API V2 を使用すると、異なるデバイス間で認証セッショ�
 
 ### 複数のアクティブな認証セッション
 
-さまざまなアクティブな MVPD セッションが可能になり、お客様は必要に応じて TempPass と通常の MVPD 統合を切り替えることができます。
+様々なアクティブなMVPD セッションが可能になり、お客様は必要に応じて、TempPass と通常のMVPD統合を切り替えることができます。
 
 ### セキュリティメカニズムの強化
 

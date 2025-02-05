@@ -2,7 +2,7 @@
 title: REST API V2 API の概要
 description: REST API V2 API の概要
 exl-id: 62b48bf0-d200-4949-b268-8f8ea2daabfa
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 9dcc649b4216cccc9be35cd6553308bfc345b5f4
 workflow-type: tm+mt
 source-wordcount: '149'
 ht-degree: 0%
@@ -13,7 +13,9 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+
+<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/product-announcements">![ ライブウェビナーシリーズ ](/help/authentication/assets/rest-api-v2/live-webinar-series-banner.png)</a>
 
 開始するには、以下のリストに関心のある API の公開ドキュメントを参照してください。
 

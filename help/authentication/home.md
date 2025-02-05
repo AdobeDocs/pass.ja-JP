@@ -2,9 +2,9 @@
 title: 認証&reg; パスAdobeへようこそ
 description: 認証&reg; パスAdobeへようこそ
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: c9e31a036a0300fabd9f75dd85d472c390d9053e
+source-git-commit: 9dcc649b4216cccc9be35cd6553308bfc345b5f4
 workflow-type: tm+mt
-source-wordcount: '419'
+source-wordcount: '423'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,8 @@ ht-degree: 0%
 >[!IMPORTANT]
 >
 > [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+
+<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/product-announcements">![ ライブウェビナーシリーズ ](/help/authentication/assets/rest-api-v2/live-webinar-series-banner.png)</a>
 
 Adobe Pass Authentication は、TV Everywhere （TVE）の強力な使用権限付与ソリューションです。保護されたコンテンツにアクセスする権限が視聴者にあるかどうかを確認するプロセスを合理化および保護するために設計されています。 このモジュール型フレームワークは、コンテンツプロバイダー（プログラマー）と有料テレビプロバイダー（MVPD）を接続し、使用権限のトランザクションを速度、一貫性、信頼性で促進します。
 
