@@ -2,9 +2,9 @@
 title: Adobe Pass Authentication と TV Everywhere について
 description: Adobe Pass Authentication と TV Everywhere について
 exl-id: 5edeaccb-f9fa-4395-83b4-706c518d5a03
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 95e750b5c0efe5850a3ff8130f5b4bb6c5b35f57
 workflow-type: tm+mt
-source-wordcount: '6288'
+source-wordcount: '6287'
 ht-degree: 0%
 
 ---
@@ -112,7 +112,11 @@ Adobe Passは、プログラマーとペイ TV プロバイダーの間で権利
 
 ## アーキテクチャ構築ブロック {#arch-building-blocks}
 
-![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/import-pc7mz3dfnv/check.gif) 次に、認証と承認に関する主要なエンタイトルメントトランザクションについて説明します。 認証とは、特定のユーザーが既知の顧客であることを有料テレビプロバイダーに確認するプロセスです。 認証とは、Pay TV プロバイダーが、認証されたユーザーが特定のリソースに対して有効なサブスクリプションを持っていることを確認するプロセスです。
+<!-- BROKEN LINK
+![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/import-pc7mz3dfnv/check.gif) 
+-->
+
+次に、認証と承認に関する主要なエンタイトルメントトランザクションについて説明します。 認証とは、特定のユーザーが既知の顧客であることを有料テレビプロバイダーに確認するプロセスです。 認証とは、Pay TV プロバイダーが、認証されたユーザーが特定のリソースに対して有効なサブスクリプションを持っていることを確認するプロセスです。
 Adobe Pass認証は、次の基本コンポーネントで構成されます。
 
 * クライアントコンポーネント（以下のいずれか）:
@@ -352,7 +356,7 @@ Adobe Pass Authentication と統合されていないサイトからログアウ
 
 * **ユーザーメタデータ** - MVPD とプログラマーの契約によっては、MVPD は郵便番号、最大評価、チャネル ID などのメタデータを安全に交換できます。 メタデータにより、ペアレンタルコントロール、スポーツイベントの地域凍結期間など、様々なユースケースが可能になります。
 * **一時的な無料アクセス** - プログラマーは、保護されたコンテンツへの一時的な無料アクセスを提供できます（例えば、毎日のプログラミングの短いサンプル、大きなイベントの無料プレゼンテーション）。
-* **プロキシ MVPD** - MVPD は、Adobe Pass Authentication との独自の統合を管理でき、関連付けられた「ProxyedMVPD」のグループの代わりに使用権限プロセスを管理することもできます。
+* **プロキシMVPD** - MVPDは、Adobe Pass Authentication との独自の統合を管理でき、関連付けられた「ProxyedMVPD」のグループの代わりに使用権限プロセスを管理することもできます。
 
 ## セキュリティ {#security}
 
