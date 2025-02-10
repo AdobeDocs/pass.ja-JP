@@ -2,9 +2,9 @@
 title: REST API V2 の FAQ
 description: REST API V2 の FAQ
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
+source-git-commit: 747c3d9b6de537be5e7e0a0244b2b301603d9b18
 workflow-type: tm+mt
-source-wordcount: '6664'
+source-wordcount: '6460'
 ht-degree: 0%
 
 ---
@@ -19,21 +19,21 @@ ht-degree: 0%
 
 REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) ドキュメントを参照してください。
 
->[!MORELIKETHIS]
->
-> * [Dynamic Client Registration （DCR）に関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md)
-
 ## 一般的な FAQ {#general-faqs}
 
 [REST API V1} または [SDK](#migration-sdk-to-rest-api-v2) から移行する新規または既存のアプリケーションにかかわらず、REST API V2 を統合する必要があるアプリケーションを使用している場合は、この節から開始し ](#migration-rest-api-v1-to-rest-api-v2) ください。
 
 移行の詳細と手順については、次の節も参照してください。
 
+>[!MORELIKETHIS]
+>
+> * [Dynamic Client Registration （DCR）に関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#general-faqs)
+
 ### 登録フェーズに関するよくある質問 {#registration-phase-faqs-general}
 
 +++登録フェーズに関するよくある質問
 
-[Dynamic Client Registration （DCR）に関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md) ドキュメントを参照してください。
+[Dynamic Client Registration （DCR）に関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#rest-api-v2-access-faqs) ドキュメントを参照してください。
 
 +++
 
@@ -375,6 +375,10 @@ Authorization ヘッダー値は、登録段階でAdobe Pass Authentication か�
 
 既存のアプリケーションを REST API V2 に移行する必要があるアプリケーションで作業している場合は、この節を続行してください。
 
+>[!MORELIKETHIS]
+>
+> * [Dynamic Client Registration （DCR）に関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#migration-faqs)
+
 ### 一般的な移行に関する FAQ {#general-migration-faqs}
 
 +++一般的な移行の FAQ
@@ -405,25 +409,7 @@ REST API V1 またはSDKを統合する古いクライアントアプリケー�
 
 したがって、ユーザーは、REST API V2 に移行された新しいクライアントアプリケーション内で再認証する必要があります。
 
-#### 4. クライアントアプリケーションは既存の登録済みアプリケーション （ソフトウェア文）を使用できますか？ {#migration-faq4}
-
-クライアントアプリケーションは、既存の登録アプリケーション（ソフトウェアステートメント）を再利用できないので、REST API V2 を使用する専用の新しい登録アプリケーション（ソフトウェアステートメント）を生成し、ダウンロードする必要があります。
-
-この操作は、組織管理者の 1 人がAdobe Pass[TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) を使用して、またはお客様に代わってAdobe Pass認証担当者が実行できます。
-
-詳しくは、[TVE ダッシュボードチャネルユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#registered-applications) または [TVE ダッシュボードプログラマーユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#registered-applications) ドキュメントを参照してください。
-
-この間、新しい登録アプリケーション（ソフトウェアステートメント）で REST API V2 を使用できるように、Adobe Pass認証担当者に依頼する必要があります。その後、Adobe Pass[TVE Dashboard](rest-api-v2-glossary.md#tve-dashboard) が更新されて、この処理を自己管理できるようになる予定です。
-
-REST API V2 を使用するクライアントアプリケーションで使用される登録済みアプリケーション（ソフトウェアステートメント）を区別するために、登録済みアプリケーション名に「RESTV2」などの特定のサフィックスを追加する必要があります。
-
-#### 5. クライアントアプリケーションで既存のカスタムスキームを使用できますか？ {#migration-faq5}
-
-クライアントアプリケーションは、Adobe Pass [TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) を通じて生成された既存のカスタムスキームを再利用できます。
-
-詳しくは、[TVE ダッシュボードチャネルユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#custom-schemes) または [TVE ダッシュボードプログラマーユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#custom-schemes) ドキュメントを参照してください。
-
-#### 6.拡張エラーコードは、REST API V2 でデフォルトで有効になっていますか。 {#migration-faq6}
+#### 4. REST API V2 では、拡張エラーコードはデフォルトで有効になっていますか。 {#migration-faq4}
 
 はい。
 
