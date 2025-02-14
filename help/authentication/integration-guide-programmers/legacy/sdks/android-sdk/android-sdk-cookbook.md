@@ -2,9 +2,9 @@
 title: Android SDK クックブック
 description: Android SDK クックブック
 exl-id: 7f66ab92-f52c-4dae-8016-c93464dd5254
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 79b3856e3ab2755cc95c3fcd34121171912a5273
 workflow-type: tm+mt
-source-wordcount: '1704'
+source-wordcount: '1703'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
@@ -135,7 +135,9 @@ Androidライブラリ（AccessEnabler）
 
    | メモ |     |
    | --- | --- |  
-   | ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/icons/1313859077_lightbulb.png) | 要求者 ID が完全に確立されるまでは、使用権限の要求を完了できません。 つまり、setRequestor （）の実行中は、それ以降のエンタイトルメントリリクエスト（`checkAuthentication()` など）がすべてブロックされます。<br><br>2 つの実装オプションがあります。要求者の識別情報がバックエンドサーバーに送信されると、UI アプリケーションレイヤーは次の 2 つの方法のいずれかを選択できます。<br><br>1。  `setRequestorComplete()` コールバックのトリガー（AccessEnabler デリゲートの一部）を待ちます。  このオプションを使用すると、最も確実性の高い処理 `setRequestor()` 完了するので、ほとんどの実装に対してこのオプションを使用することをお勧めします。<br>2。  `setRequestorComplete()` コールバックのトリガーを待たずに続行し、使用権限リクエストの発行を開始します。 これらの呼び出し（checkAuthentication、checkAuthorization、getAuthentication、getAuthorization、checkPreauthorizedResource、getMetadata、logout）は AccessEnabler ライブラリによってキューに入れられ、後で実際のネットワーク呼び出しが行われます `setRequestor(). ` このオプションは、ネットワーク接続が不安定な場合など、中断されることがあります。 |
+   |  | 要求者 ID が完全に確立されるまでは、使用権限の要求を完了できません。 つまり、setRequestor （）の実行中は、それ以降のエンタイトルメントリリクエスト（`checkAuthentication()` など）がすべてブロックされます。<br><br>2 つの実装オプションがあります。要求者の識別情報がバックエンドサーバーに送信されると、UI アプリケーションレイヤーは次の 2 つの方法のいずれかを選択できます。<br><br>1。  `setRequestorComplete()` コールバックのトリガー（AccessEnabler デリゲートの一部）を待ちます。  このオプションを使用すると、最も確実性の高い処理 `setRequestor()` 完了するので、ほとんどの実装に対してこのオプションを使用することをお勧めします。<br>2。  `setRequestorComplete()` コールバックのトリガーを待たずに続行し、使用権限リクエストの発行を開始します。 これらの呼び出し（checkAuthentication、checkAuthorization、getAuthentication、getAuthorization、checkPreauthorizedResource、getMetadata、logout）は AccessEnabler ライブラリによってキューに入れられ、後で実際のネットワーク呼び出しが行われます `setRequestor(). ` このオプションは、ネットワーク接続が不安定な場合など、中断されることがあります。 |
+
+   <!--Removed bad image link from first note cell above. ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/icons/1313859077_lightbulb.png) -->
 
 1. [checkAuthentication （） ](#$checkAuthN) を呼び出すと、完全な認証フローを開始せずに既存の認証を確認できます。   この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
 
