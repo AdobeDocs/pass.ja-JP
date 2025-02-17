@@ -2,18 +2,18 @@
 title: Adobe Pass Authentication 3.0.3 リリースノート
 description: Adobe Pass Authentication 3.0.3 リリースノート
 exl-id: f54b7c4a-78c5-4536-bed7-3c5f15640dea
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 134a9a13373717ff7772a9d765bbd7b3b4943a85
 workflow-type: tm+mt
 source-wordcount: '152'
 ht-degree: 0%
 
 ---
 
-# Adobe Pass Authentication 3.0.3 リリースノート {#pt-authn-303-rn}
+# Adobe Pass Authentication 3.0.3 リリースノート {#authn-303-rn}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -22,14 +22,15 @@ ht-degree: 0%
 * [ビルド番号](#build-number-303)
 * [リリースの概要](#release-overview-303)
 
-### ビルド番号 {#build-number-2651}
+### ビルド番号 {#build-number-303}
 
 Adobe Pass認証：adobe-pass-**3.0.3**
+
 リリース日：2024 年 **月 10 日（PT）～2024 年 10 月 31 日（PT）**
 
-### 新機能 {#new-features-303}
+### リリースの概要 {#release-overview-303}
 
-#### REST API v2 {#rest-apis}
+#### REST API v2
 
 ##### コード
 

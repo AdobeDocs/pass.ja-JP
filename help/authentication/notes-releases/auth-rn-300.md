@@ -2,18 +2,18 @@
 title: Adobe Pass Authentication 3.0 リリースノート
 description: Adobe Pass Authentication 3.0 リリースノート
 exl-id: 9284151a-8458-44a3-937b-35f379ca0e4e
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 134a9a13373717ff7772a9d765bbd7b3b4943a85
 workflow-type: tm+mt
 source-wordcount: '199'
 ht-degree: 0%
 
 ---
 
-# Adobe Pass Authentication 3.0 リリースノート {#pt-authn-300-rn}
+# Adobe Pass Authentication 3.0 リリースノート {#authn-300-rn}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -22,14 +22,15 @@ ht-degree: 0%
 * [ビルド番号](#build-number-300)
 * [リリースの概要](#release-overview-300)
 
-### ビルド番号 {#build-number-2651}
+### ビルド番号 {#build-number-300}
 
 Adobe Pass認証：adobe-pass-**3.0**
+
 リリース日：**09/10/2024 - 09/12/2024**
 
-### 新機能 {#new-features-300}
+### リリースの概要 {#release-overview-300}
 
-#### REST API v2 {#rest-apis}
+#### REST API v2
 
 ##### コード
 
@@ -48,6 +49,6 @@ Adobe Pass認証：adobe-pass-**3.0**
 
 * 新しい REST API v2 を試すには、[Adobe Developer](https://developer.adobe.com/adobe-pass) web サイトの新しいAdobe Pass認証ページを参照してください。
 
-### バグの修正 {#bug-fixes-300}
+#### バグの修正
 
 * ログアウトリクエストに存在する場合に、リダイレクト URL パラメーターが使用されない問題を修正しました。

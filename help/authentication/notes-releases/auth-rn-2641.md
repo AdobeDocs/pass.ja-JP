@@ -2,7 +2,7 @@
 title: Adobe Pass Authentication 2.64.1 リリースノート
 description: Adobe Pass Authentication 2.64.1 リリースノート
 exl-id: b0edbd90-ebb5-40a7-9034-1699dccfadb5
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 134a9a13373717ff7772a9d765bbd7b3b4943a85
 workflow-type: tm+mt
 source-wordcount: '137'
 ht-degree: 0%
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -25,6 +25,7 @@ ht-degree: 0%
 ### ビルド番号 {#build-number-2641}
 
 Adobe Pass認証：adobe-pass-**2.64.1**
+
 リリース日：**01/31/2023 - 02/02/2023**
 
 ### リリースの概要 {#release-overview-2641}
