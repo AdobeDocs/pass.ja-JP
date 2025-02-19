@@ -2,18 +2,18 @@
 title: Adobe Pass Authentication 2.70 リリースノート
 description: Adobe Pass Authentication 2.70 リリースノート
 exl-id: 81713f8e-bc51-4057-9b00-6a2d6c83cd02
-source-git-commit: 134a9a13373717ff7772a9d765bbd7b3b4943a85
+source-git-commit: ecafc3a92f691203d8113a741f0b6cd00a134e80
 workflow-type: tm+mt
-source-wordcount: '140'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
 
 # Adobe Pass Authentication 2.70 リリースノート {#authn-270-rn}
 
->[!NOTE]
+>[!IMPORTANT]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
