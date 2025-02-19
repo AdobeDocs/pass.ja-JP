@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 2b9a8ce374f7a73cd815e9735d672e5c9ba285cc
+source-git-commit: 4ad5ea619f64a78a72f69228c9ae3c83a7b66f24
 workflow-type: tm+mt
-source-wordcount: '1230'
+source-wordcount: '1246'
 ht-degree: 2%
 
 ---
@@ -17,6 +17,9 @@ ht-degree: 2%
 + [Adobe Pass 認証](home.md)
 + [製品に関するお知らせ](product-announcements.md)
 + 製品リリース {#product-releases}
+   + 2025 年 {#2025}
+      + [Adobe Pass Authentication 3.1.0 リリースノート](notes-releases/auth-rn-310.md)
+      + [Adobe Pass Authentication JavaScript 4.7.1 リリースノート](notes-releases/authn-rn-javascript-471.md)
    + 2024 年 {#2024}
       + [Adobe Pass Authentication 3.0.3 リリースノート](notes-releases/auth-rn-303.md)
       + [Adobe Pass Authentication 3.0 リリースノート](notes-releases/auth-rn-300.md)
@@ -116,7 +119,7 @@ ht-degree: 2%
                + [ヘッダー – AP デバイス識別子](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md)
                + [ヘッダー – X-Device-Info](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md)
                + [ヘッダー – AD-Service-Token](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md)
-               + [Header - Adobeの件名トークン](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)
+               + [Header - Adobe-Subject-Token](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)
                + [ヘッダー – AP-Partner-Framework-Status](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)
                + [ヘッダー – AP-TempPass-Identity](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
    + 標準機能 {#standard-features}
@@ -152,7 +155,7 @@ ht-degree: 2%
          + [サーバーサイド指標](integration-guide-programmers/features-premium/esm/understanding-serverside-metrics.md)
       + Analytics {#analytics}
          + [Adobe Pass Authentication サーバーサイドのデータのAdobe Analyticsへの統合](integration-guide-programmers/features-premium/analytics/integrate-authn-servr-data-analytics.md)
-         + [Adobe Pass認証でのExperience CloudID の使用](integration-guide-programmers/features-premium/analytics/exp-cloud-id-authn.md)
+         + [Adobe Pass認証でのExperience Cloud ID の使用](integration-guide-programmers/features-premium/analytics/exp-cloud-id-authn.md)
    + レガシ {#legacy}
       + （レガシー） REST API V1 {#rest-api-v1}
          + [（レガシー） REST API V1 の概要](integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)
@@ -256,8 +259,8 @@ ht-degree: 2%
             + [（レガシー） MVPD が選択ダイアログに表示されないようにする](integration-guide-programmers/legacy/notes-technical/prevent-mvpd-selectn-dialog.md)
          + （レガシー）トラブルシューティング {#troubleshooting}
             + [（レガシー） Charles プロキシの使用](integration-guide-programmers/legacy/notes-technical/using-charles-proxy.md)
-            + [（従来）Adobe PassAdobeの PayTV パスのモニタリング](integration-guide-programmers/legacy/notes-technical/monitoring-adobe-pay-tv-pass.md)
-            + [（従来）AdobeAPI テストサイトを使用した、認証および承認フローのテスト方法](integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)
+            + [（従来の）Adobe Pass Adobe PayTV パスのモニタリング](integration-guide-programmers/legacy/notes-technical/monitoring-adobe-pay-tv-pass.md)
+            + [（従来の）Adobe API テストサイトを使用した認証フローと承認フローのテスト方法](integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)
 + MVPD の統合ガイド {#integration-guide-mvpds}
    + [MVPD統合ガイド](integration-guide-mvpds/mvpd-integration-guide-overview.md)
    + [認証](integration-guide-mvpds/authn-usecase.md)
