@@ -2,9 +2,9 @@
 title: 認証セッションの作成
 description: REST API V2 – 認証セッションの作成
 exl-id: bb2a6bb4-0778-4748-a674-df9d0e8242c8
-source-git-commit: 5cb14959d6e9af91252316fbdd14ff33d813089b
+source-git-commit: 5e5bb6a52a4629056fd52c7e79a11dba2b9a45db
 workflow-type: tm+mt
-source-wordcount: '1000'
+source-wordcount: '1047'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
@@ -130,9 +130,9 @@ ht-degree: 0%
       <td>optional</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Adobe件名トークン</td>
+      <td style="background-color: #DEEBFF;">Adobe-Subject-Token</td>
       <td>
-        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Header-Subject-Token</a> Adobeドキュメントを参照してください。
+        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a> ヘッダーのドキュメントを参照してください。
         <br/><br/>
         プラットフォーム ID を使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> プラットフォーム ID フローを使用したシングルサインオン </a> ドキュメントを参照してください。
       </td>
@@ -268,17 +268,15 @@ ht-degree: 0%
             <tr>
                <td style="background-color: #DEEBFF;">reasonType</td>
                <td>
-                  「actionName」を説明するために使用される理由のタイプ。
+                  「actionName」を説明する理由のタイプ。
                   <br/><br/>
                   使用可能な値は次のとおりです。
                   <ul>
-                    <li><b>なし</b></li>
-                    <li><b>認証済み</b></li>
-                    <li><b>一時的</b></li>
-                    <li><b>機能低下</b></li>
-                    <li><b>authenticatedSSO</b></li>
-                    <li><b>pfs_fallback</b></li>
-                    <li><b>configuration_fallback</b></li>
+                    <li><b> なし </b><br/> 認証を続行するには、クライアントアプリケーションが必要です。</li>
+                    <li><b>authenticated</b><br/> クライアントアプリケーションは、基本的なアクセスフローを通じて既に認証されています。</li>
+                    <li><b>temporary</b><br/> クライアントアプリケーションは、一時的なアクセスフローを通じて既に認証されています。</li>
+                    <li><b>degraded</b><br/> クライアントアプリケーションは、デグレードされたアクセスフローを通じて既に認証されています。</li>
+                    <li><b>authenticatedSSO</b><br/> クライアントアプリケーションはシングルサインオンアクセスフローを通じてすでに認証されています。</li>
                   </ul>
                <td><i>必須</i></td>
             </tr>
@@ -483,6 +481,8 @@ Content-Type: application/json;charset=UTF-8
     "serviceProvider": "REF30"
 }
 ```
+
+>[!ENDTABS]
 
 ### 4.基本またはプロモーションの TempPass を使用して認証セッションを作成する（必須ではありません）
 
