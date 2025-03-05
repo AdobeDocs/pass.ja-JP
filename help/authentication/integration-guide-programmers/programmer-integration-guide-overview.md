@@ -2,9 +2,9 @@
 title: プログラマー統合ガイド
 description: プログラマー統合ガイド
 exl-id: 51461caf-08ef-459e-b284-8f317f45e7b1
-source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
+source-git-commit: d8097b8419aa36140e6ff550714730059555fd14
 workflow-type: tm+mt
-source-wordcount: '2071'
+source-wordcount: '2073'
 ht-degree: 0%
 
 ---
@@ -13,9 +13,9 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
-このAdobeガイドは、Authentication® Pass Authentication と統合することを計画しているコンテンツプロバイダー（プログラマー）を対象としています。
+この統合ガイドは、Adobe® パス認証との統合を計画しているコンテンツプロバイダー（プログラマー）を対象としています。
 
 今日のデジタル環境では、視聴者は、いつでもどこでもインターネットにアクセスし、保護されたコンテンツへのアクセスをリクエストできます。 彼らは、1 回限りのイベントを見たり、放送しているテレビシリーズ全体をストリーミングする権利を求めたりする可能性があります。
 
@@ -210,7 +210,7 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
 **API**
 
 * [パートナー認証要求の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)
-* [パートナー認証応答を使用したプロファイルの取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)
+* [パートナー認証応答を使用したプロファイルの作成と取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)
 
 **フロー**
 

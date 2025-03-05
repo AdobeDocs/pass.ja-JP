@@ -2,9 +2,9 @@
 title: REST API V2 の FAQ
 description: REST API V2 の FAQ
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: d8097b8419aa36140e6ff550714730059555fd14
 workflow-type: tm+mt
-source-wordcount: '8198'
+source-wordcount: '9072'
 ht-degree: 0%
 
 ---
@@ -224,7 +224,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 #### 9.使用可能な各プロファイルエンドポイントのユースケースは何ですか？ {#authentication-phase-faq9}
 
-プロファイルエンドポイントは、ユーザーの認証ステータスの把握、ユーザーメタデータ情報へのアクセス、認証に使用される方法の検索、ID の提供に使用されるエンティティの検索をおこなえる機能をクライアントアプリケーションに提供するように設計されています。
+基本プロファイルエンドポイントは、ユーザーの認証ステータスの把握、ユーザーメタデータ情報へのアクセス、認証に使用される方法の検索、ID の提供に使用されるエンティティの検索をおこなえる機能をクライアントアプリケーションに提供するように設計されています。
 
 各エンドポイントは、次のように特定のユースケースに適しています。
 
@@ -233,6 +233,18 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 | [ プロファイルエンドポイント API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) | すべてのユーザープロファイルを取得します。 | **クライアントアプリケーションを初めて開く**<br/><br/> このシナリオでは、クライアントアプリケーションには、選択したMVPD識別子が永続ストレージにキャッシュされていません。<br/><br/> その結果、使用可能なすべてのユーザープロファイルを取得するリクエストが 1 回送信されます。 |
 | [ 特定のMVPD API のプロファイルエンドポイント ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) | 特定のMVPDに関連付けられているユーザープロファイルを取得します。 | **前回の訪問で認証した後、クライアントアプリケーションに戻る。**<br/><br/> この場合、クライアントアプリケーションには、ユーザーが以前選択したMVPD識別子が、永続的なストレージにキャッシュされている必要があります。<br/><br/> その結果、その特定のMVPDのユーザーのプロファイルを取得するリクエストが 1 回送信されます。 |
 | [ 特定（認証）コード API 用プロファイルエンドポイント ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) | 特定の認証コードに関連付けられているユーザープロファイルを取得します。 | **ユーザーが認証プロセスを開始**<br/><br/> このシナリオでは、クライアントアプリケーションは、ユーザーが正常に認証を完了したかどうかを判断し、ユーザーのプロファイル情報を取得する必要があります。<br/><br/> その結果、ポーリングメカニズムが開始され、認証コードに関連付けられたユーザーのプロファイルを取得します。 |
+
+詳しくは、[ プライマリアプリケーション内で実行される基本プロファイルフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md) および [ セカンダリアプリケーション内で実行される基本プロファイルフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md) ドキュメントを参照してください。
+
+プロファイル SSO エンドポイントは、様々な目的を果たします。パートナー認証応答を使用してユーザープロファイルを作成し、1 回の操作で取得する機能をクライアントアプリケーションに提供します。
+
+| API | 説明 | ユースケース |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [ プロファイル SSO エンドポイント API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md) | パートナー認証応答を使用してユーザープロファイルを作成および取得します。 | **ユーザーが、認証にパートナーのシングルサインオンを使用することをアプリケーションに許可する**<br/><br/> このシナリオでは、クライアントアプリケーションはパートナー認証応答を受信した後にユーザープロファイルを作成し、1 回の操作で取得する必要があります。 |
+
+以降のクエリでは、基本プロファイルエンドポイントを使用して、ユーザーの認証ステータスの判断、ユーザーメタデータ情報へのアクセス、認証に使用する方法の検索、ID の提供に使用するエンティティの検索を行う必要があります。
+
+詳しくは、[ パートナーフローを使用したシングルサインオン ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md) および [Apple SSO クックブック（REST API V2） ](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md) ドキュメントを参照してください。
 
 #### 10. ユーザーに複数のMVPD プロファイルがある場合、クライアントアプリケーションは何を行いますか？ {#authentication-phase-faq10}
 
@@ -351,11 +363,29 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 * [事前承認決定 API の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
 * [プライマリアプリケーション内で実行される基本的な事前認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)
 
-#### 4.事前認証決定にメディアトークンがないのはなぜですか？ {#preauthorization-phase-faq4}
+#### 4. クライアントアプリケーションは、永続的なストレージに事前認証決定をキャッシュする必要がありますか？ {#preauthorization-phase-faq4}
+
+クライアントアプリケーションは、永続的なストレージに事前認証の決定を保存する必要はありません。 ただし、ユーザーエクスペリエンスを向上させるために、許可決定をメモリにキャッシュすることをお勧めします。 これにより、既に事前認証されているリソースに対して、決定の事前認証エンドポイントへの不要な呼び出しが回避され、待ち時間が短縮され、パフォーマンスが向上します。
+
+#### 5. クライアントアプリケーションは、事前認証の決定が拒否された理由をどのように判断できますか？ {#preauthorization-phase-faq5}
+
+クライアントアプリケーションは、決定の事前承認エンドポイントからの応答に含まれる [ エラーコードとメッセージ ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を調べることで、拒否された事前承認の決定の理由を判断できます。 これらの詳細は、事前認証リクエストが拒否された具体的な理由に関するインサイトを提供し、アプリケーションでの必要な処理をユーザーエクスペリエンスやトリガーに知らせるのに役立ちます。
+
+事前認証の決定を取得するために実装された再試行メカニズムが、事前認証の決定が拒否された場合に無限ループが発生しないことを確認します。
+
+再試行を適切な数に制限し、ユーザーに明確なフィードバックを表示して、拒否を適切に処理することを検討してください。
+
+#### 6.事前認証決定にメディアトークンがないのはなぜですか？ {#preauthorization-phase-faq6}
 
 事前認証フェーズの目的と同様に、事前認証フェーズをリソースの再生に使用してはならないので、事前認証決定にメディアトークンがありません。
 
-#### 5. リソースとは何ですか？また、どのような形式がサポートされていますか？ {#preauthorization-phase-faq5}
+#### 7.事前認証決定が既に存在する場合、認証フェーズはスキップできますか？ {#preauthorization-phase-faq7}
+
+いいえ。
+
+事前認証決定が使用可能な場合でも、認証フェーズはスキップできません。 事前認証の決定は情報提供のみで、実際の再生権限は付与されません。 事前認証フェーズは、初期のガイダンスを提供することを目的としていますが、コンテンツを再生する前には引き続き認証フェーズが必要です。
+
+#### 8. リソースとは何ですか？また、どのような形式がサポートされていますか？ {#preauthorization-phase-faq8}
 
 リソースとは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#resource) ドキュメントで定義されている用語です。
 
@@ -368,7 +398,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 詳しくは、[ 保護されたリソース ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#protected-resources) ドキュメントを参照してください。
 
-#### 6. クライアントアプリケーションが一度に事前認証の決定を取得できるリソースの数 {#preauthorization-phase-faq6}
+#### 9. クライアントアプリケーションは、一度にいくつのリソースについて事前認証の決定を取得できますか？ {#preauthorization-phase-faq9}
 
 クライアントアプリケーションは、MVPD によって課せられた条件により、1 回の API リクエストで、通常は 5 回まで、限られた数のリソースに対して事前認証の決定を取得できます。
 
@@ -409,7 +439,19 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 詳しくは、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) ドキュメントを参照してください。
 
-#### 4. メディアトークンとは何で、どれくらい有効ですか？ {#authorization-phase-faq4}
+#### 4. クライアントアプリケーションは、認証決定を永続的なストレージにキャッシュする必要がありますか？ {#authorization-phase-faq4}
+
+クライアントアプリケーションは、認証決定を永続ストレージに保存する必要はありません。
+
+#### 5.認証決定が拒否された理由を、クライアントアプリケーションはどのように判断できますか。 {#authorization-phase-faq5}
+
+クライアントアプリケーションは、決定を承認エンドポイントからの応答に含まれる [ エラーコードとメッセージ ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を調べることで、拒否された承認決定の理由を判断できます。 これらの詳細は、承認リクエストが拒否された具体的な理由に関するインサイトを提供し、アプリケーションでの必要な処理をユーザーエクスペリエンスやトリガーに伝えるのに役立ちます。
+
+認証決定を取得するために実装された再試行メカニズムが、認証決定が拒否された場合に無限ループが発生しないことを確認します。
+
+再試行を適切な数に制限し、ユーザーに明確なフィードバックを表示して、拒否を適切に処理することを検討してください。
+
+#### 6. メディアトークンとは何で、どれくらい有効ですか？ {#authorization-phase-faq6}
 
 メディアトークンは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#media-token) ドキュメントで定義されている用語です。
 
@@ -417,7 +459,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 詳しくは、[ メディアトークンベリファイア ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier) ドキュメントを参照してください。
 
-メディアトークンは、問題の時点で指定された限られた短い期間にわたって有効です。これは、決定の承認エンドポイントに対する再度のクエリが必要になるまでにクライアントアプリケーションによって使用される必要がある時間を示します。
+メディアトークンは、問題発生時に指定された制限された短い期間のみ有効で、クライアントアプリケーションで検証および使用される前の時間制限を示します。
 
 クライアントアプリケーションは、TV プロバイダー（権限を持つ）の決定によってユーザーがアクセスできる場合に、メディアトークンを使用してリソースストリームを再生できます。
 
@@ -426,7 +468,41 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 * [承認決定 API の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
 * [プライマリアプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
 
-#### 5. リソースとは何ですか？また、どのような形式がサポートされていますか？ {#authorization-phase-faq5}
+#### 7. クライアントアプリケーションは、リソースストリームを再生する前にメディストークンを検証する必要がありますか？ {#authorization-phase-faq7}
+
+はい。
+
+クライアントアプリケーションは、リソースストリームの再生を開始する前に、メディアトークンを検証する必要があります。 この検証は、[ メディアトークン検証子 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier) を使用して実行する必要があります。 返された `token` ージから `serializedToken` を検証することで、クライアントアプリケーションは、ストリームのリッピングなどの不正アクセスを防ぎ、適切に許可されたユーザーのみがコンテンツを再生できるようにします。
+
+#### 8. クライアントアプリケーションは、再生中に期限切れのメディアトークンを更新する必要がありますか？ {#authorization-phase-faq8}
+
+いいえ。
+
+ストリームのアクティブな再生中に、クライアントアプリケーションが期限切れのメディアトークンを更新する必要はありません。 再生中にメディアトークンの有効期限が切れた場合、ストリームが中断されることなく続行されるようにしてください。 ただし、次回、ユーザーが同じリソースを再生しようとすると、クライアントは新しい認証決定をリクエストし、新しいメディアトークンを取得する必要があります。
+
+#### 9.認証決定における各タイムスタンプ属性の目的は何ですか？ {#authorization-phase-faq9}
+
+認証決定には、認証自体と関連するメディアトークンの有効期間に関する重要なコンテキストを提供する、複数のタイムスタンプ属性が含まれます。 これらのタイムスタンプの目的は、認証決定に関連しているかメディアトークンに関連しているかによって異なります。
+
+**決定レベルのタイムスタンプ**
+
+これらのタイムスタンプは、承認決定全体の有効期間を示します。
+
+| 属性 | 説明 | 備考 |
+|-------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `notBefore` | 承認決定が発行された時刻。 | これにより、認証の有効期間の開始がマークされます。 |
+| `notAfter` | 承認決定が期限切れになる時間です。 | [ 認証有効期間（TTL） ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#authorization-ttl-management) は、再認証が必要になるまでの、認証が有効である期間を決定します。 この TTL は、MVPDの担当者とネゴシエートされます。 |
+
+**トークンレベルのタイムスタンプ**
+
+これらのタイムスタンプは、認証決定に関連付けられたメディアトークンの有効期間を表します。
+
+| 属性 | 説明 | 備考 |
+|-------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `notBefore` | メディアトークンが発行された時間。 | これは、トークンが再生に対して有効になるタイミングを示します。 |
+| `notAfter` | メディアトークンの有効期限が切れる時間。 | メディアトークンは、誤用リスクを最小限に抑えるために故意に存続期間が短く（通常 7 分）、トークン生成サーバーとトークン検証サーバー間の潜在的なクロック差を考慮しています。 |
+
+#### 10. リソースとは何ですか？また、サポートされている形式は何ですか？ {#authorization-phase-faq10}
 
 リソースとは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#resource) ドキュメントで定義されている用語です。
 
@@ -439,7 +515,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 詳しくは、[ 保護されたリソース ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#protected-resources) ドキュメントを参照してください。
 
-#### 6. クライアントアプリケーションが一度に認証決定を取得できるリソースの数 {#authorization-phase-faq6}
+#### 11. クライアントアプリケーションが一度に認証決定を取得できるリソースの数 {#authorization-phase-faq11}
 
 クライアントアプリケーションは、MVPD によって課せられる条件により、1 回の API リクエストで限られた数のリソースに対する承認決定を、通常は 1 つまで取得できます。
 
@@ -452,6 +528,10 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 #### 1. ログアウトフェーズの目的は何ですか？ {#logout-phase-faq1}
 
 ログアウトフェーズの目的は、クライアントアプリケーションが、ユーザーのリクエストに応じてAdobe Pass Authentication 内でユーザーの認証済みプロファイルを終了できるようにすることです。
+
+#### 2. ログアウトフェーズは必須ですか？ {#logout-phase-faq2}
+
+ログアウトフェーズは必須です。クライアントアプリケーションは、ログアウトする機能をユーザーに提供する必要があります。
 
 +++
 

@@ -2,9 +2,9 @@
 title: Apple SSO クックブック（REST API V2）
 description: Apple SSO クックブック（REST API V2）
 exl-id: 81476312-9ba4-47a0-a4f7-9a557608cfd6
-source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
+source-git-commit: d8097b8419aa36140e6ff550714730059555fd14
 workflow-type: tm+mt
-source-wordcount: '3443'
+source-wordcount: '3615'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライアントアプリケーションのエンドユーザー向けに、パートナーシングルサインオン（SSO）をサポートしています。
 
@@ -284,7 +284,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    * [事前に選択された mvpd を使用して、セカンダリ・アプリケーション内で認証を実行](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
    * [事前に選択された mvpd を使用せずに、セカンダリ・アプリケーション内で認証を実行](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
 
-1. **パートナー認証応答フローを使用したプロファイルの取得に進みます：** セッションパートナーエンドポイント応答には、次のデータが含まれています。
+1. **パートナー認証応答フローを使用したプロファイルの作成および取得に進みます：** セッションパートナーエンドポイント応答には、次のデータが含まれています。
    * `actionName` 属性は「partner_profile」に設定されます。
    * `actionType` 属性は「direct」に設定されます。
    * `authenticationRequest - type` 属性には、MVPD ログイン用にパートナーフレームワークが使用するセキュリティプロトコルが含まれます（現在、SAML のみに設定されています）。
@@ -316,11 +316,11 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    * ユーザープロバイダープロファイルの有効期限（使用可能な場合）は有効です。
    * パートナー認証応答（SAML 応答）が存在し、有効です。
 
-1. **パートナー認証応答を使用したプロファイルの取得：** ストリーミングアプリケーションは、プロファイルパートナーエンドポイントを呼び出してプロファイルを作成および取得するために必要なすべてのデータを収集します。
+1. **パートナー認証応答を使用したプロファイルの作成と取得：** ストリーミングアプリケーションは、プロファイルパートナーエンドポイントを呼び出してプロファイルを作成および取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[ パートナー認証応答を使用したプロファイルの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Request)API ドキュメントを参照してください。
+   > 次について詳しくは、[ パートナー認証応答を使用したプロファイルの作成と取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Request)API ドキュメントを参照してください。
    >
    > * `serviceProvider`、`partner`、`SAMLResponse` など、すべての _必須_ パラメーター
    > * `Authorization`、`AP-Device-Identifier`、`Content-Type`、`X-Device-Info`、`AP-Partner-Framework-Status` など、すべての _必須_ ヘッダー
@@ -338,7 +338,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[ パートナー認証応答を使用したプロファイルの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Response)API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[ パートナー認証応答を使用したプロファイルの作成と取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Response)API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -371,6 +371,10 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 1. **パートナーフレームワークのステータスの取得：** ストリーミングアプリケーションは、Appleが開発した [ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) を呼び出して、ユーザー権限とプロバイダー情報を取得します。
 
    >[!IMPORTANT]
+   > 
+   > 選択したユーザープロファイルのタイプが「appleSSO」でない場合、ストリーミングアプリケーションはこの手順をスキップできます。
+
+   >[!IMPORTANT]
    >
    > 次の項目について詳しくは、[ ビデオ購読者のアカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
    >
@@ -386,13 +390,17 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    > ストリーミングアプリケーションは、このフェーズでユーザーを中断できないことを示すために、必ず `VSAccountMetadataRequest` オブジェクトの [`isInterruptionAllowed`](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest/1771708-isinterruptionallowed) プロパティのブール値が `false` に等しいことを指定する必要があります。
 
    >[!TIP]
-   > 
-   > 提案：ストリーミングアプリケーションでは、パートナーフレームワークのステータス情報にキャッシュされた値を使用できます。アプリケーションがバックグラウンド状態からフォアグラウンド状態に移行する際には、更新することを推奨します。
+   >
+   > 提案：ストリーミングアプリケーションは、パートナーフレームワークのステータス情報に、キャッシュされた値を代わりに使用できます。アプリケーションがバックグラウンド状態からフォアグラウンド状態に移行する際に更新することを推奨します。 その場合、ストリーミングアプリケーションは、「パートナーフレームワークのステータス情報を返す」手順で説明されているように、パートナーフレームワークのステータスの有効な値のみをキャッシュおよび使用することを確認する必要があります。
 
 1. **パートナーフレームワークのステータス情報を返す：** ストリーミングアプリケーションは、基本条件が満たされていることを確認するために応答データを検証します。
    * ユーザー権限のアクセスステータスが付与されます。
    * ユーザープロバイダーマッピング識別子が存在し、有効です。
-   * ユーザープロバイダープロファイルの有効期限（使用可能な場合）は有効です。
+   * ユーザープロバイダープロファイルの有効期限は有効です。
+
+   >[!IMPORTANT]
+   >
+   > 選択したユーザープロファイルのタイプが「appleSSO」でない場合、ストリーミングアプリケーションはこの手順をスキップできます。
 
 1. **事前認証決定の取得：** ストリーミングアプリケーションは、決定の事前認証エンドポイントを呼び出すことにより、リソースのリストに対する事前認証決定を取得するために必要なすべてのデータを収集します。
 
@@ -406,7 +414,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    >
    > <br/>
    >
-   > 選択したプロファイルが「appleSSO」タイプのプロファイルの場合、ストリーミングアプリケーションがリクエストを送信する前に、パートナーフレームワークステータスに有効な値が含まれていることを確認する必要があります。
+   > 選択したプロファイルが「appleSSO」タイプのプロファイルの場合、ストリーミングアプリケーションがリクエストを送信する前に、パートナーフレームワークステータスに有効な値が含まれていることを確認する必要があります。 ただし、選択したユーザープロファイルのタイプが「appleSSO」でない場合は、この手順をスキップできます。
    >
    > <br/>
    >
@@ -435,6 +443,10 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
+   > 選択したユーザープロファイルのタイプが「appleSSO」でない場合、ストリーミングアプリケーションはこの手順をスキップできます。
+
+   >[!IMPORTANT]
+   >
    > 次の項目について詳しくは、[ ビデオ購読者のアカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
    >
    > <br/>
@@ -450,12 +462,16 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!TIP]
    >
-   > 提案：ストリーミングアプリケーションでは、パートナーフレームワークのステータス情報にキャッシュされた値を使用できます。アプリケーションがバックグラウンド状態からフォアグラウンド状態に移行する際には、更新することを推奨します。
+   > 提案：ストリーミングアプリケーションは、パートナーフレームワークのステータス情報に、キャッシュされた値を代わりに使用できます。アプリケーションがバックグラウンド状態からフォアグラウンド状態に移行する際に更新することを推奨します。 その場合、ストリーミングアプリケーションは、「パートナーフレームワークのステータス情報を返す」手順で説明されているように、パートナーフレームワークのステータスの有効な値のみをキャッシュおよび使用することを確認する必要があります。
 
 1. **パートナーフレームワークのステータス情報を返す：** ストリーミングアプリケーションは、基本条件が満たされていることを確認するために応答データを検証します。
    * ユーザー権限のアクセスステータスが付与されます。
    * ユーザープロバイダーマッピング識別子が存在し、有効です。
-   * ユーザープロバイダープロファイルの有効期限（使用可能な場合）は有効です。
+   * ユーザープロバイダープロファイルの有効期限は有効です。
+
+   >[!IMPORTANT]
+   >
+   > 選択したユーザープロファイルのタイプが「appleSSO」でない場合、ストリーミングアプリケーションはこの手順をスキップできます。
 
 1. **認証決定の取得：** ストリーミングアプリケーションは、決定の承認エンドポイントを呼び出して、特定のリソースの認証決定を取得するために必要なすべてのデータを収集します。
 
@@ -469,7 +485,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    >
    > <br/>
    >
-   > 選択したプロファイルが「appleSSO」タイプのプロファイルの場合、ストリーミングアプリケーションがリクエストを送信する前に、パートナーフレームワークステータスに有効な値が含まれていることを確認する必要があります。
+   > 選択したプロファイルが「appleSSO」タイプのプロファイルの場合、ストリーミングアプリケーションがリクエストを送信する前に、パートナーフレームワークステータスに有効な値が含まれていることを確認する必要があります。 ただし、選択したユーザープロファイルのタイプが「appleSSO」でない場合は、この手順をスキップできます。
    >
    > <br/>
    >
@@ -515,6 +531,10 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
+   > 削除されたユーザープロファイルのタイプが「appleSSO」の場合、ストリーミングアプリケーションは、`actionName` 属性と `actionType` 属性で指定されたパートナーレベルでログアウトプロセスを完了するようにユーザーに促す必要があります。
+
+   >[!IMPORTANT]
+   >
    > ログアウト応答で提供される情報について詳しくは、[ 特定の mvpd のログアウトの開始 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md#response) API ドキュメントを参照してください。
    >
    > <br/>
@@ -527,9 +547,5 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    > <br/>
    >
    > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
-
-   >[!IMPORTANT]
-   > 
-   > ストリーミングアプリケーションでは、ユーザーがパートナーレベルからさらにログアウトし続けるように指定する必要があります。
 
 +++
