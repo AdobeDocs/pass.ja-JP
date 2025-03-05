@@ -1,23 +1,23 @@
 ---
-title: Header - Adobeの件名トークン
+title: Header - Adobe-Subject-Token
 description: REST API V2 - ヘッダー – Adobe – 件名 – トークン
 exl-id: 906d88f4-3b8f-491a-ab58-8e63d3b958d8
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
 source-wordcount: '166'
 ht-degree: 1%
 
 ---
 
-# Header - Adobeの件名トークン {#header-adobe-subject-token}
+# Header - Adobe-Subject-Token {#header-adobe-subject-token}
 
 >[!NOTE]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 概要 {#overview}
 
-<b>Platform-Subject-Token</b> リクエスト ヘッダーには、`JWS` または `JWE` として一意のAdobe ID が含まれています。この ID は、Adobe Pass認証システムの外部で動作している ID サービスまたはライブラリから取得されたものです。
+<b>Adobe-Subject-Token</b> リクエスト ヘッダーには、一意の Platform ID が含まれています。この ID は `JWS` または `JWE` で、Adobe Pass認証システムの外部で動作する ID サービスまたはライブラリから取得されたものです。
 
 このヘッダーは、Platform ID メソッドを活用するシングルサインオン（SSO）対応フローで使用するように設計されています。
 
@@ -25,7 +25,7 @@ Platform ID メソッドを活用したシングルサインオン（SSO）有�
 
 ## 構文 {#syntax}
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <td style="background-color: #DEEBFF;" colspan="2"><b>Adobe – 件名 – トークン </b>: &lt;unique_platform_identifier&gt;</td>
    </tr>

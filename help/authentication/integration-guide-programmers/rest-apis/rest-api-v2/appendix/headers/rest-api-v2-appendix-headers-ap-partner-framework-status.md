@@ -2,7 +2,7 @@
 title: ヘッダー – AP-Partner-Framework-Status
 description: REST API V2 - ヘッダー – AP-Partner-Framework-Status
 exl-id: f589d948-e23e-43d4-81c2-8db0e7a40e93
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
 source-wordcount: '388'
 ht-degree: 0%
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 概要 {#overview}
 
@@ -21,7 +21,7 @@ ht-degree: 0%
 
 ## 構文 {#syntax}
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <td style="background-color: #DEEBFF;" colspan="2"><b>AP-Partner-Framework-Status</b>: &lt;partner_framework_status_information&gt;</td>
    </tr>
@@ -41,7 +41,7 @@ ht-degree: 0%
 
 次の属性を含む JSON 要素の `Base64-encoded` 値：
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <th style="background-color: #EFF2F7; width: 15%;">属性</th>
       <th style="background-color: #EFF2F7;"></th>
@@ -68,10 +68,10 @@ ht-degree: 0%
                   これは、次の値を含む列挙です。
                   <br/>
                   <ul>
-                     <li>承認済み – ユーザーはアプリケーションが購読情報にアクセスできるようにしました。</li>
-                     <li>拒否 – ユーザーが、購読情報にアクセスするためのアプリケーションを拒否しました。</li>
-                     <li>保留中 – アプリケーションが購読情報にアクセスできるようにするためのオプションがユーザーによってまだ選択されていません。</li>
-                     <li>notDetermined - アプリケーションが購読情報にアクセスできません。</li>
+                     <li><b>granted</b><br/> ユーザーは、アプリケーションが購読情報にアクセスできるようにしました。</li>
+                     <li><b> 拒否 </b><br/> ユーザーが、購読情報へのアクセスを求めるアプリケーションを拒否しました。</li>
+                     <li><b> 保留中 </b><br/> アプリケーションが購読情報にアクセスできるようにするための選択がまだ行われていません。</li>
+                     <li><b>notDetermined</b><br/> アプリケーションはサブスクリプション情報にアクセスできません。</li>
                   </ul>
                </td>
             </tr>
@@ -122,7 +122,7 @@ ht-degree: 0%
                <td>
                   これは必須の属性です。
                   <br/><br/>
-                  これは、パートナーフレームワークレベルでの認証フロー中に使用される MVPD を識別する mappingId です。
+                  これは、パートナーフレームワークレベルでの認証フロー中に使用されるMVPDを識別する mappingId です。
                </td>
             </tr>
             <tr>
@@ -130,7 +130,7 @@ ht-degree: 0%
                <td>
                   これは必須の属性です。
                   <br/><br/>
-                  ユーザーがパートナーフレームワークレベルでサポートされている MVPD を使用して正常にログに記録された場合、これは、認証済みユーザープロファイルの有効期限です。
+                  ユーザーがパートナーフレームワークレベルでサポートされているMVPDを使用して正常にログインした場合に、認証済みユーザープロファイルの有効期限となります。
                </td>
             </tr>
             <tr>

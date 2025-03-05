@@ -2,9 +2,9 @@
 title: ヘッダー – AP デバイス識別子
 description: REST API V2 - ヘッダー – AP デバイス識別子
 exl-id: 90a5882b-2e6d-4e67-994a-050465cac6c6
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
-source-wordcount: '413'
+source-wordcount: '485'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 概要 {#overview}
 
@@ -21,7 +21,7 @@ ht-degree: 0%
 
 ## 構文 {#syntax}
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <td style="background-color: #DEEBFF;" colspan="2"><b>AP-Device-Identifier</b>: &lt;type&gt; &lt;identifier&gt;</td>
    </tr>
@@ -43,7 +43,7 @@ ht-degree: 0%
 
 以下に示すように、サポートされているタイプは 1 つだけです。
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <th style="background-color: #EFF2F7; width: 15%;">タイプ</th>
       <th style="background-color: #EFF2F7;"></th>
@@ -51,9 +51,9 @@ ht-degree: 0%
    <tr>
       <td>指紋</td>
       <td>
-            デバイス識別子は、クライアントアプリケーションによって作成および管理される、安定した一意の識別子で構成されます。
+            デバイス識別子は、各デバイスに対してクライアントアプリケーションによって作成および管理される、安定した一意の識別子で構成されます。
             <br/>
-            クライアントアプリケーションは、アプリケーションのアンインストール、再インストール、アップグレードなどのユーザーアクションによって発生する値の変更を防ぐ必要があります。
+            クライアントアプリケーションは、デバイス識別子を紛失または変更すると認証が無効になるので、永続ストレージにキャッシュする必要があります。 クライアントアプリケーションは、アプリケーションのアンインストール、再インストール、アップグレードなどのユーザーアクションによって引き起こされる値の変更を防ぐ必要があります。
       </td>
    </tr>
 </table>
@@ -134,3 +134,9 @@ _（*） OS で指定された値に対して SHA-256 ハッシュ関数を適�
 * [GetChannelClientId](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md#getchannelclientid-as-string) に関する Roku 開発者向けドキュメント。
 
 _（*） OS で指定された値に対して SHA-256 ハッシュ関数を適用することをお勧めします。_
+
+### その他 {#others}
+
+ドキュメントで扱っていないデバイスプラットフォームの場合、デバイスの識別子は、利用可能なハードウェア ID （通常はデバイスのハードウェアマニュアルで指定されるもの）に関連付ける必要があります。
+
+使用可能なハードウェア識別子がない場合は、クライアントアプリケーション属性に基づいて一意に生成された識別子を使用し、永続ストレージにキャッシュする必要があります。

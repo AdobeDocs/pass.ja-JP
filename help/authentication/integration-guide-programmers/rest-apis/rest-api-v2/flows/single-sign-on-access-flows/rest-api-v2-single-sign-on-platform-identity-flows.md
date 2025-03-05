@@ -2,9 +2,9 @@
 title: シングルサインオン - Platform Id - フロー
 description: REST API V2 - シングルサインオン - Platform Id - フロー
 exl-id: 5200e851-84e8-4cb4-b068-63b91a2a8945
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
-source-wordcount: '1830'
+source-wordcount: '1836'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
@@ -25,7 +25,12 @@ Platform ID 方式を使用すると、複数のアプリケーションで一�
 
 アプリケーションは、この一意のプラットフォーム識別子ペイロードを、それを指定するすべてのリクエストの `Adobe-Subject-Token` ヘッダーの一部として含める責任があります。
 
-`Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe – 件名 – トークン ](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
+`Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
+
+>[!MORELIKETHIS]
+> 
+> * [Amazon SSO クックブック ](/help/authentication/integration-guide-programmers/features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
+> * [Roku SSO クックブック ](/help/authentication/integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-overview.md)
 
 ## プラットフォーム ID を使用したシングルサインオンによる認証の実行 {#perform-authentication-through-single-sign-on-using-platform-identity}
 
@@ -34,11 +39,11 @@ Platform ID 方式を使用すると、複数のアプリケーションで一�
 プラットフォーム ID を使用したシングルサインオンを通じた認証フローを実行する前に、次の前提条件が満たされていることを確認してください。
 
 * プラットフォームは、同じデバイスまたはプラットフォーム上のすべてのアプリケーションで、一貫した情報を `JWS` または `JWE` ペイロードとして返す ID サービスまたはライブラリを提供する必要があります。
-* 最初のストリーミングアプリケーションは、一意のプラットフォーム ID を取得し、それを指定するすべてのリクエストの [Payload-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) Adobeの一部として `JWS` または `JWE` ペイロードを含める必要があります。
-* 最初のストリーミングアプリケーションは MVPD を選択する必要があります。
-* 最初のストリーミングアプリケーションは、選択した MVPD でログインするための認証セッションを開始する必要があります。
-* 最初のストリーミングアプリケーションは、ユーザーエージェントで選択された MVPD を使用して認証する必要があります。
-* 2 つ目のストリーミングアプリケーションは、一意のプラットフォーム ID を取得し、それを指定するすべてのリクエストの [Payload-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) Adobeの一部として `JWS` または `JWE` ペイロードを含める必要があります。
+* 最初のストリーミングアプリケーションは、一意のプラットフォーム ID を取得し、それを指定するすべてのリクエストの [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ヘッダーの一部として `JWS` または `JWE` ペイロードを含める必要があります。
+* 最初のストリーミングアプリケーションでは、MVPDを選択する必要があります。
+* 最初のストリーミングアプリケーションでは、選択したMVPDでログインするための認証セッションを開始する必要があります。
+* 最初のストリーミングアプリケーションは、ユーザーエージェントで選択されたMVPDを使用して認証される必要があります。
+* 2 番目のストリーミングアプリケーションは、一意のプラットフォーム ID を取得し、それを指定するすべてのリクエストの [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ヘッダーの一部として `JWS` または `JWE` ペイロードを含める必要があります。
 
 >[!IMPORTANT]
 >
@@ -46,8 +51,8 @@ Platform ID 方式を使用すると、複数のアプリケーションで一�
 >
 > <br/>
 > 
-> * 最初のストリーミングアプリケーションは、MVPD を選択するためのユーザーインタラクションをサポートしています。
-> * 最初のストリーミングアプリケーションは、ユーザーエージェント内の選択された MVPD で認証するユーザーインタラクションをサポートしています。
+> * 最初のストリーミングアプリケーションは、MVPDを選択するためのユーザーインタラクションをサポートしています。
+> * 最初のストリーミングアプリケーションは、ユーザーエージェント内の選択されたMVPDを使用して認証を行うユーザーインタラクションをサポートしています。
 
 ### ワークフロー {#workflow-perform-authentication-through-single-sign-on-using-platform-identity}
 
@@ -79,7 +84,7 @@ Platform ID 方式を使用すると、複数のアプリケーションで一�
    >
    > <br/>
    > 
-   > `Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe – 件名 – トークン ](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
+   > `Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
 
 1. **次のアクションを示す：** セッションエンドポイント応答には、次のアクションに関する最初のストリーミングアプリケーションをガイドするために必要なデータが含まれています。
 
@@ -99,13 +104,13 @@ Platform ID 方式を使用すると、複数のアプリケーションで一�
    > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **ユーザーエージェントで URL を開く：** セッションエンドポイントの応答には、次のデータが含まれます。
-   * MVPD ログインページ内でインタラクティブ認証を開始するために使用できる `url`。
+   * MVPDのログインページ内でインタラクティブ認証を開始するために使用できる `url`。
    * `actionName` 属性は「authenticate」に設定されています。
    * `actionType` 属性は「interactive」に設定されます。
 
-   Adobe Pass バックエンドが有効なプロファイルを識別できない場合、最初のストリーミングアプリケーションがユーザーエージェントを開いて指定された `url` を読み込み、Authenticate エンドポイントにリクエストを送信します。 このフローには、複数のリダイレクトが含まれ、最終的にユーザーが MVPD ログインページに移動して、有効な資格情報を提供する場合があります。
+   Adobe Pass バックエンドが有効なプロファイルを識別できない場合、最初のストリーミングアプリケーションがユーザーエージェントを開いて指定された `url` を読み込み、Authenticate エンドポイントにリクエストを送信します。 このフローには、複数のリダイレクトが含まれる場合があり、最終的にユーザーがMVPDのログインページに移動して、有効な資格情報を提供します。
 
-1. **Complete MVPD authentication:** 認証フローが正常に完了すると、ユーザーエージェントインタラクションは通常のプロファイルをAdobe Pass バックエンドに保存し、指定された `redirectUrl` に到達します。
+1. **MVPD認証の完了：** 認証フローが正常に完了すると、ユーザーエージェントインタラクションは通常のプロファイルをAdobe Pass バックエンドに保存し、指定された `redirectUrl` に到達します。
 
 1. **特定のコードのプロファイルを取得：** 最初のストリーミングアプリケーションは、プロファイルエンドポイントにリクエストを送信してプロファイル情報を取得するために必要なすべてのデータを収集します。
 
@@ -147,7 +152,7 @@ Platform ID 方式を使用すると、複数のアプリケーションで一�
    >
    > <br/>
    > 
-   > `Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe – 件名 – トークン ](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
+   > `Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
 
 1. **プラットフォーム ID の取得：** 2 つ目のストリーミングアプリケーションは、Adobe Pass システムの外部で ID サービスまたはライブラリを呼び出し、一意のプラットフォーム ID に関連付けられた `JWS` または `JWE` ペイロードを取得します。
 
@@ -171,7 +176,7 @@ Platform ID 方式を使用すると、複数のアプリケーションで一�
    >
    > <br/>
    > 
-   > `Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe – 件名 – トークン ](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
+   > `Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
 
 1. **シングルサインオンプロファイルの検索：** Adobe Pass サーバーは、受信したパラメーターとヘッダーに基づいて有効なシングルサインオンプロファイルを識別します。
 
@@ -199,7 +204,7 @@ Platform ID 方式を使用すると、複数のアプリケーションで一�
    >
    > <br/>
    > 
-   > `Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe – 件名 – トークン ](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
+   > `Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
 
 ## Platform ID を使用したシングルサインオンを通じた認証決定の取得{#performing-authorization-flow-using-platform-identity-single-sign-on-method}
 
@@ -208,7 +213,7 @@ Platform ID 方式を使用すると、複数のアプリケーションで一�
 プラットフォーム ID を使用してシングルサインオン経由で認証フローを実行する前に、次の前提条件が満たされていることを確認してください。
 
 * プラットフォームは、同じデバイスまたはプラットフォーム上のすべてのアプリケーションで、一貫した情報を `JWS` または `JWE` ペイロードとして返す ID サービスまたはライブラリを提供する必要があります。
-* 2 つ目のストリーミングアプリケーションは、一意のプラットフォーム ID を取得し、それを指定するすべてのリクエストの [Payload-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) Adobeの一部として `JWS` または `JWE` ペイロードを含める必要があります。
+* 2 番目のストリーミングアプリケーションは、一意のプラットフォーム ID を取得し、それを指定するすべてのリクエストの [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ヘッダーの一部として `JWS` または `JWE` ペイロードを含める必要があります。
 * 2 つ目のストリーミングアプリケーションでは、ユーザーが選択したリソースを再生する前に、認証決定を取得する必要があります。
 
 >[!IMPORTANT]
@@ -217,7 +222,7 @@ Platform ID 方式を使用すると、複数のアプリケーションで一�
 > 
 > <br/>
 > 
-> * 最初のストリーミング アプリケーションは認証を実行し、[Authentication-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) リクエスト Adobeーに有効な値が含まれています。
+> * 最初のストリーミングアプリケーションで認証が実行され、[Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) リクエストヘッダーに有効な値が含まれています。
 
 ### ワークフロー {#workflow-scenario-performing-authorization-flow-using-platform-identity-single-sign-on-method}
 
@@ -249,11 +254,11 @@ Platform ID 方式を使用すると、複数のアプリケーションで一�
    >
    > <br/>
    > 
-   > `Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe – 件名 – トークン ](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
+   > `Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
 
 1. **シングルサインオンプロファイルの検索：** Adobe Pass サーバーは、受信したパラメーターとヘッダーに基づいて有効なシングルサインオンプロファイルを識別します。
 
-1. **リクエストされたリソースの MVPD 決定を取得：** Adobe Pass サーバーは MVPD 認証エンドポイントを呼び出して、ストリーミングアプリケーションから受信した特定のリソースに関する `Permit` または `Deny` の決定を取得します。
+1. **リクエストされたリソースのMVPD決定を取得：** Adobe Pass サーバーは、MVPD Authorization エンドポイントを呼び出して、ストリーミングアプリケーションから受信した特定のリソースに関する `Permit` 定または `Deny` 定の決定を取得します。
 
 1. **メディアトークン `Permit` 決定を返す：** 決定の承認エンドポイント応答には、`Permit` 決定とメディアトークンが含まれています。
 

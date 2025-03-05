@@ -2,7 +2,7 @@
 title: ヘッダー – AD-Service-Token
 description: REST API V2 - ヘッダー – AD-Service-Token
 exl-id: 856f76fc-cde6-4b3f-81f7-deaa0df015dc
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
 source-wordcount: '252'
 ht-degree: 1%
@@ -13,7 +13,7 @@ ht-degree: 1%
 
 >[!NOTE]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 概要 {#overview}
 
@@ -25,7 +25,7 @@ ht-degree: 1%
 
 ## 構文 {#syntax}
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <td style="background-color: #DEEBFF;" colspan="2"><b>AD-Service-Token</b>: &lt;unique_user_identifier&gt;</td>
    </tr>
@@ -47,7 +47,7 @@ JSON web 署名（`JWS`）：一意のユーザー識別情報を含む署名済
 
 `JWT` には次の属性があります。
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <th style="background-color: #EFF2F7; width: 15%;">属性</th>
       <th style="background-color: #EFF2F7;">説明</th>
@@ -62,7 +62,7 @@ JSON web 署名（`JWS`）：一意のユーザー識別情報を含む署名済
    </tr>
    <tr>
       <td>aud</td>
-      <td>オーディエンス （「Adobe」にする必要があります）。</td>
+      <td>オーディエンス（「Adobe」にする必要があります）。</td>
    </tr>
    <tr>
       <td>iat</td>

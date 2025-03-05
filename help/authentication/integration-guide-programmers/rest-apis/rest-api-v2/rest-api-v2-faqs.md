@@ -2,9 +2,9 @@
 title: REST API V2 の FAQ
 description: REST API V2 の FAQ
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 747c3d9b6de537be5e7e0a0244b2b301603d9b18
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
-source-wordcount: '6460'
+source-wordcount: '6744'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 このドキュメントでは、Adobe Pass認証 REST API V2 の導入に関するよくある質問に対する概要の回答を示します。
 
@@ -24,10 +24,6 @@ REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/auth
 [REST API V1} または [SDK](#migration-sdk-to-rest-api-v2) から移行する新規または既存のアプリケーションにかかわらず、REST API V2 を統合する必要があるアプリケーションを使用している場合は、この節から開始し ](#migration-rest-api-v1-to-rest-api-v2) ください。
 
 移行の詳細と手順については、次の節も参照してください。
-
->[!MORELIKETHIS]
->
-> * [Dynamic Client Registration （DCR）に関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#general-faqs)
 
 ### 登録フェーズに関するよくある質問 {#registration-phase-faqs-general}
 
@@ -340,6 +336,10 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 #### 1.認証ヘッダーの値を計算する方法 {#headers-faq1}
 
+>[!IMPORTANT]
+>
+> クライアントアプリケーションが REST API V1 から REST API V2 に移行する場合、クライアントアプリケーションは引き続き同じメソッドを使用して、以前と同じアクセストークン値を取得 `Bearer` きます。
+
 [Authorization](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md) リクエストヘッダーには、Adobe Passで保護された API にアクセスするためにクライアントアプリケーションで必要な `Bearer` アクセストークンが含まれています。
 
 Authorization ヘッダー値は、登録段階でAdobe Pass Authentication から取得する必要があります。
@@ -351,23 +351,70 @@ Authorization ヘッダー値は、登録段階でAdobe Pass Authentication か�
 * [アクセストークン API の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md)
 * [動的なクライアント登録フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)
 
-クライアントアプリケーションが REST API V1 から REST API V2 に移行している場合、クライアントアプリケーションは引き続き同じメソッドを使用して、以前と同じように `Bearer` アクセストークンを取得できます。
-
 #### 2. AP-Device-Identifier ヘッダーの値を計算する方法 {#headers-faq2}
+
+>[!IMPORTANT]
+>
+> クライアントアプリケーションが REST API V1 から REST API V2 に移行する場合、クライアントアプリケーションは引き続き同じ方法を使用して、以前と同じようにデバイス識別子の値を計算できます。
 
 [AP-Device-Identifier](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md) 要求ヘッダーには、クライアント アプリケーションによって作成されたストリーミング デバイスの識別子が含まれています。
 
-[AP-Device-Identifier](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md) ヘッダーのドキュメントには、様々なプラットフォームの値を計算する方法の例がいくつか記載されていますが、クライアントアプリケーションは、独自のビジネスロジックと要件に基づいて異なる方法を使用するように選択できます。
-
-クライアントアプリケーションが REST API V1 から REST API V2 に移行する場合、クライアントアプリケーションは引き続き同じ方法を使用してデバイス識別子を計算できます。
+[AP-Device-Identifier](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md) ヘッダーのドキュメントには、値の計算方法に関する主なプラットフォームの例が記載されていますが、クライアントアプリケーションは、独自のビジネスロジックと要件に基づいて別の方法を使用するように選択できます。
 
 #### 3. X-Device-Info ヘッダーの値を計算する方法 {#headers-faq3}
 
+>[!IMPORTANT]
+>
+> クライアントアプリケーションが REST API V1 から REST API V2 に移行する場合、クライアントアプリケーションは引き続き同じ方法を使用して、以前と同じようにデバイス情報の値を計算できます。
+
 [X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) リクエストヘッダーには、実際のストリーミングデバイスに関連するクライアント情報（デバイス、接続、アプリケーション）が含まれます。
 
-[X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) ヘッダーのドキュメントには、様々なプラットフォームの値を計算する方法の例がいくつか記載されていますが、クライアントアプリケーションは、独自のビジネスロジックと要件に基づいて異なる方法を使用するように選択できます。
+[X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) ヘッダーのドキュメントには、値の計算方法に関する主なプラットフォームの例が記載されていますが、クライアントアプリケーションは、独自のビジネスロジックと要件に基づいて別の方法を使用するように選択できます。
 
-クライアントアプリケーションが REST API V1 から REST API V2 に移行する場合、クライアントアプリケーションは引き続き同じ方法を使用してデバイス情報を計算できます。
++++
+
+### その他の FAQ {#misc-faqs-general}
+
++++その他の FAQ
+
+#### 1. REST API V2 のリクエストと応答を調べて、API をテストできますか。 {#misc-faq1}
+
+はい。
+
+専用の [Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイトから REST API V2 を参照できます。 Adobe Developerの web サイトでは、次の場所への無制限のアクセスが可能です。
+
+* [DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/)
+* [REST API V2](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/)
+
+[REST API V2](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/) とやり取りするには、[DCR API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md) を介して取得した `Bearer` アクセストークンに [Authorization](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) ヘッダーを含める必要があります。
+
+[DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) を使用するには、REST API V2 スコープを含むソフトウェアステートメントが必要です。 詳しくは、[Dynamic Client Registration （DCR）の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md) ドキュメントを参照してください。
+
+#### 2. OpenAPI をサポートする API 開発ツールを使用して、REST API V2 のリクエストと応答を調べることはできますか。 {#misc-faq2}
+
+はい。
+
+[DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) および [REST API V2} の OpenAPI 仕様ファイルは、{4](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/)Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイトからダウンロードできます。[
+
+OpenAPI 仕様ファイルをダウンロードするには、「ダウンロード」ボタンをクリックして、次のファイルをローカルマシンに保存します。
+
+* [DCR API JSON](https://developer.adobe.com/adobe-pass/dcrApi.json)
+* [REST API V2 JSON](https://developer.adobe.com/adobe-pass/restApiV2.json)
+
+その後、これらのファイルを好みの API 開発ツールに読み込み、REST API V2 のリクエストと応答を調べて、API をテストできます。
+
+#### 3. https://sp.auth-staging.adobe.com/apitest/api.htmlでホストされている既存の API テストツールを引き続き使用できますか？ {#misc-faq3}
+
+いいえ。
+
+REST API V2 に移行するクライアントアプリケーションでは、https://developer.adobe.com/adobe-pass/でホストされる新しいテストツールを使用する必要があります。 Adobe Developerの web サイトでは、次の場所への無制限のアクセスが可能です。
+
+* [DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/)
+* [REST API V2](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/)
+
+[REST API V2](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/) とやり取りするには、[DCR API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md) を介して取得した `Bearer` アクセストークンに [Authorization](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) ヘッダーを含める必要があります。
+
+[DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) を使用するには、REST API V2 スコープを含むソフトウェアステートメントが必要です。 詳しくは、[Dynamic Client Registration （DCR）の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md) ドキュメントを参照してください。
 
 +++
 

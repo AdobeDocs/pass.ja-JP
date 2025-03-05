@@ -2,9 +2,9 @@
 title: ヘッダー – X-Device-Info
 description: REST API V2 - ヘッダー – X-Device-Info
 exl-id: 0ef25e06-86de-427a-a938-7ba3817f0d5e
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
-source-wordcount: '1085'
+source-wordcount: '1122'
 ht-degree: 2%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 2%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 概要 {#overview}
 
@@ -21,7 +21,7 @@ ht-degree: 2%
 
 ## 構文 {#syntax}
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <td style="background-color: #DEEBFF;" colspan="2"><b>X-Device-Info</b>: &lt;device_information&gt;</td>
    </tr>
@@ -41,7 +41,7 @@ ht-degree: 2%
 
 次の表で必要とマークされた属性を少なくとも含む JSON 要素の `Base64-encoded` 値。
 
-<table>
+<table style="table-layout:auto">
     <tr>
         <th style="background-color: #EFF2F7; width: 15%;">Presence</th>
         <th style="background-color: #EFF2F7; width: 15%;">キー</th>
@@ -721,3 +721,7 @@ private JSONObject computeClientInformation() {
 | キー | Source | 値（例） |
 |---------------|-----------|-----------------|
 | applicationId | ハードコード | REF30 |
+
+### その他 {#others}
+
+ドキュメントに記載されていないデバイスプラットフォームの場合、クライアント情報（デバイス、接続、アプリケーション）は、通常、デバイスのハードウェアおよび OS のマニュアルに記載されている利用可能なハードウェアおよび OS の属性にリンクする必要があります。
