@@ -2,7 +2,7 @@
 title: スロットルメカニズム
 description: Adobe Pass認証で使用されるスロットルメカニズムについて説明します。 このページでは、このメカニズムの概要について説明します。
 exl-id: f00f6c8e-2281-45f3-b592-5bbc004897f7
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
 source-wordcount: '1141'
 ht-degree: 0%
@@ -24,7 +24,7 @@ ht-degree: 0%
 
 ### クライアントの実装
 
-パス認証は、API を操作するためのガイドラインと SDK を提供しますが、顧客による API の使用方法は制御しません。 一部の実装には基本的な実装が含まれている場合があり、誤ってもしなくても、サービスに不要な API リクエストが殺到する可能性があります。これは、他のユーザーに速度の低下や容量の問題が発生することを意味する場合があります。
+パス認証は、API を操作するためのガイドラインとSDKを提供しますが、お客様による API の使用方法は制御しません。 一部の実装には基本的な実装が含まれている場合があり、誤ってもしなくても、サービスに不要な API リクエストが殺到する可能性があります。これは、他のユーザーに速度の低下や容量の問題が発生することを意味する場合があります。
 
 サービス自体は、合理的な容量を処理できる必要があります。 ただし、サービスの拡張性やパフォーマンスに関係なく、常に制限があります。 そのため、サービスには、特定の期間内で許可される呼び出しの数に対する制限が設定されている必要があります。
 
@@ -42,7 +42,7 @@ ht-degree: 0%
 
 X-Forwarded-For ヘッダーの渡し方の詳細については、[ こちら ](legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md) をご覧ください。
 
-### 実際の上限とエンドポイント
+### 実際の上限とエンドポイント {#throttling-mechanism-limits}
 
 現在、デフォルトの制限では、1 秒あたり最大 1 件のリクエストが許可され、初期バーストは 10 件のリクエストが許可されます（識別されたクライアントの最初のインタラクションで 1 回の許可が必要です。これにより、初期化が正常に終了します）。 これは、すべての顧客の通常のビジネスケースには影響しません。
 
@@ -71,33 +71,33 @@ X-Forwarded-For ヘッダーの渡し方の詳細については、[ こちら ]
 - /reggie/v1/.+/regcode
 - /reggie/v1/.+/regcode/.+
 
-### SDK 実装の曖昧さ
+### SDKの実装の曖昧さ
 
 Adobe Pass認証が提供する SDK を使用するクライアントは明示的にはエンドポイントとやり取りしていないため、この節では、既知の関数、スロットル応答が発生した場合の動作、実行する必要があるアクションについて説明します。
 
 #### setRequestor
 
-SDK の関数を使用してスロットル制限 `setRequestor` 到達すると、SDK はコールバックを通じて CFG429 エラーコード `errorHandler` 返します。
+SDKの関数を使用してスロットル制限 `setRequestor` 到達すると、SDKはコールバックを通じて CFG429 エラーコード `errorHandler` 返します。
 
 #### getAuthorization
 
-SDK の関数を使用してスロットル制限 `getAuthorization` 到達すると、SDK はコールバックを通じて Z100 エラーコード `errorHandler` 返します。
+SDKの関数を使用してスロットル制限 `getAuthorization` 到達すると、SDKはコールバックを通じて Z100 エラーコード `errorHandler` 返します。
 
 #### checkPreauthorizedResources
 
-SDK の関数を使用してスロットル制限 `checkPreauthorizedResources` 到達すると、SDK はコールバックを通じて P100 エラーコード `errorHandler` 返します。
+SDKの関数を使用してスロットル制限 `checkPreauthorizedResources` 到達すると、SDKはコールバックを通じて P100 エラーコード `errorHandler` 返します。
 
 #### getMetadata
 
-SDK の関数を使用してスロットル制限 `getMetadata` 到達すると、SDK はコールバックを通じて空の応答 `setMetadataStatus` 返します。
+SDKの関数を使用してスロットル制限 `getMetadata` 到達すると、SDKはコールバックを通じて空の応答 `setMetadataStatus` 返します。
 
-実装の詳細については、それぞれの SDK ドキュメントを参照してください。
+実装の詳細については、それぞれのSDK ドキュメントを参照してください。
 
 - [JavaScript SDK API リファレンス](legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md)
 - [Android SDK API リファレンス](legacy/sdks/android-sdk/android-sdk-api-reference.md)
 - [iOS/tvOS API リファレンス](legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
 
-### API 応答の変更と応答
+### API 応答の変更と応答 {#throttling-mechanism-response}
 
 制限に違反していると判断した場合、このリクエストを特定の応答ステータス（HTTP 429 Too Many Requests）でマークし、ユーザーデバイスに割り当てられているすべてのトークン（IP アドレス）を時間間隔で消費するように指示します。
 

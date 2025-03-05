@@ -2,9 +2,9 @@
 title: シングル ログアウト – フロー
 description: REST API V2 - シングルログアウト – フロー
 exl-id: d7092ca7-ea7b-4e92-b45f-e373a6d673d6
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '577'
+source-wordcount: '587'
 ht-degree: 0%
 
 ---
@@ -13,22 +13,26 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
 > REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
+>[!MORELIKETHIS]
+>
+> また、[REST API V2 の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general) も必ず参照してください。
+
 ## 特定の mvpd に対するシングルログアウトの開始 {#initiate-single-logout-for-specific-mvpd}
 
 ### 前提条件 {#prerequisites-initiate-single-logout-for-specific-mvpd}
 
-特定の MVPD に対してシングルログアウトを開始する前に、次の前提条件が満たされていることを確認してください。
+特定のMVPDに対してシングルログアウトを開始する前に、次の前提条件が満たされていることを確認してください。
 
-* 2 つ目のストリーミングアプリケーションには、シングルサインオン認証フローの 1 つを使用して MVPD に対して正常に作成された有効なシングルサインオンプロファイルが必要です。
+* 2 つ目のストリーミングアプリケーションには、シングルサインオン認証フローの 1 つを使用してMVPD用に正常に作成された有効なシングルサインオンプロファイルが必要です。
    * [プラットフォーム ID を使用したシングルサインオンによる認証の実行](rest-api-v2-single-sign-on-platform-identity-flows.md)
    * [サービストークンを使用したシングルサインオンによる認証の実行](rest-api-v2-single-sign-on-service-token-flows.md)
-* 2 つ目のストリーミングアプリケーションは、MVPD からログアウトする必要がある場合に、シングルログアウトフローを開始する必要があります。
+* 2 つ目のストリーミングアプリケーションは、MVPDからログアウトする必要がある場合、シングルログアウトフローを開始する必要があります。
 
 >[!IMPORTANT]
 > 
@@ -40,7 +44,7 @@ ht-degree: 0%
 
 ### ワークフロー {#workflow-initiate-single-logout-for-specific-mvpd}
 
-次の図に示すように、特定の MVPD に対してシングルログアウトフローを実装するには、以下の手順を実行します。
+次の図に示すように、特定のMVPDに対してシングルログアウトフローを実装するには、以下の手順を実行します。
 
 ![ 特定の mvpd に対してシングルログアウトを開始する ](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-initiate-single-logout-for-specific-mvpd-flow.png)
 
@@ -62,7 +66,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > `Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe – 件名 – トークン ](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
+   > `Adobe-Subject-Token` ヘッダーについて詳しくは、[Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -89,9 +93,9 @@ ht-degree: 0%
    > 
    > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
-1. **ログアウト完了を示す：** MVPD がログアウトフローをサポートしていない場合、ストリーミングアプリケーションが応答を処理し、それを使用して、オプションで特定のメッセージをユーザーインターフェイスに表示できます。
+1. **ログアウト完了を示す：** MVPDがログアウトフローをサポートしていない場合、ストリーミングアプリケーションが応答を処理し、それを使用して、オプションで特定のメッセージをユーザーインターフェイスに表示できます。
 
-1. **MVPD ログアウトの開始：** MVPD がログアウトフローをサポートしている場合、ストリーミングアプリケーションは応答を処理し、ユーザーエージェントを使用して MVPD とのログアウトフローを開始します。 フローには、MVPD システムへの複数のリダイレクトが含まれる場合があります。 それでも、結果として、MVPD が内部クリーンアップを実行し、最終的なログアウト確認をAdobe Pass バックエンドに返します。
+1. **MVPD ログアウトの開始：** MVPDがログアウトフローをサポートしている場合、ストリーミングアプリケーションが応答を処理し、ユーザーエージェントを使用してMVPDとのログアウトフローを開始します。 フローには、MVPD システムへの複数のリダイレクトが含まれる場合があります。 それでも、結果として、MVPDは内部クリーンアップを実行し、最終的なログアウト確認をAdobe Pass バックエンドに返します。
 
 1. **ログアウト完了の指定：** ストリーミングアプリケーションは、ユーザーエージェントが指定された `redirectUrl` に到達するまで待機し、それをシグナルとして使用して、オプションで特定のメッセージをユーザーインターフェイスに表示できます。
 

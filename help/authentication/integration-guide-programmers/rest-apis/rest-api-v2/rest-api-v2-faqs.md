@@ -2,9 +2,9 @@
 title: REST API V2 の FAQ
 description: REST API V2 の FAQ
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 871afc4e7ec04d62590dd574bf4e28122afc01b6
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '6963'
+source-wordcount: '8198'
 ht-degree: 0%
 
 ---
@@ -123,7 +123,51 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 認証フェーズは、クライアントアプリケーションでコンテンツを再生する必要がある場合に、事前認証フェーズまたは認証フェーズの前提条件の手順として機能します。
 
-#### 2. ユーザーが既に認証されているかどうかをクライアントアプリケーションが認識するにはどうすればよいですか？ {#authentication-phase-faq2}
+#### 2.認証セッションとは何で、どれくらい有効ですか？ {#authentication-phase-faq2}
+
+認証セッションとは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#session) ドキュメントで定義されている用語です。
+
+認証セッションには、セッション エンドポイントから取得できる、開始された認証プロセスに関する情報が格納されます。
+
+認証セッションは、発行の時点で `notAfter` タイムスタンプによって指定された、限られた短い期間にわたって有効です。これは、ユーザーが認証プロセスを完了してからフローを再開する必要が生じるまでの時間を示します。
+
+クライアントアプリケーションは、認証セッション応答を使用して、認証プロセスの進め方を知ることができます。 一時的なアクセスの提供、アクセスの低下、ユーザーが既に認証されている場合など、ユーザーの認証が不要な場合があることに注意してください。
+
+詳しくは、次のドキュメントを参照してください。
+
+* [認証セッション API の作成](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
+* [認証セッション API の再開](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
+* [プライマリアプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
+* [セカンダリ・アプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
+
+#### 3.認証コードとは何ですか？また、認証コードの有効期間はどのくらいですか？ {#authentication-phase-faq3}
+
+認証コードとは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#code) ドキュメントで定義されている用語です。
+
+認証コードは、ユーザが認証プロセスを開始する際に生成される一意の値を格納し、プロセスが完了するまで、または認証セッションが期限切れになるまで、ユーザの認証セッションを一意に識別する。
+
+認証コードは、`notAfter` タイムスタンプによって認証セッションを開始する時点で指定された、制限された短い期間にわたって有効です。これは、ユーザーが認証プロセスを完了してからフローを再開する必要が生じるまでの時間を示します。
+
+クライアントアプリケーションは認証コードを使用して、ユーザーが正常に認証を完了したかどうかを確認し、通常はポーリングメカニズムを介してユーザーのプロファイル情報を取得できます。
+
+また、クライアントアプリケーションは認証コードを使用して、ユーザーが認証セッションの有効期限が切れていないことを考慮して、同じデバイスまたは 2 番目のデバイス（画面）で認証プロセスを完了または再開できるようにします。
+
+詳しくは、次のドキュメントを参照してください。
+
+* [認証セッション API の作成](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
+* [認証セッション API の再開](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
+* [プライマリアプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
+* [セカンダリ・アプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
+
+#### 4. ユーザーが有効な認証コードを入力し、認証セッションがまだ期限切れになっていないことをクライアントアプリケーションが認識するにはどうすればよいですか？ {#authentication-phase-faq4}
+
+クライアントアプリケーションは、認証セッションの再開または認証コードに関連する認証セッション情報の取得を担当するセッションエンドポイントの 1 つにリクエストを送信することにより、セカンダリ（画面）アプリケーションにおいてユーザーによって入力された認証コードを検証できる。
+
+指定された認証コードが正しく入力されなかった場合、または認証セッションが期限切れになった場合、クライアントアプリケーションは [ エラー ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) を受け取ります。
+
+詳しくは、[ 認証セッションの再開 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md) および [ 認証セッションの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) ドキュメントを参照してください。
+
+#### 5. ユーザーが既に認証されているかどうかをクライアントアプリケーションが認識するにはどうすればよいですか？ {#authentication-phase-faq5}
 
 クライアントアプリケーションは、ユーザーが既に認証されているかどうかを確認できる次のエンドポイントのいずれかをクエリし、プロファイル情報を返すことができます。
 
@@ -136,7 +180,128 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 * [プライマリアプリケーション内で実行される基本プロファイルフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
 * [セカンダリアプリケーション内で実行される基本プロファイルフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
 
-#### 3. クライアントアプリケーションは、ユーザーのメタデータ情報をどのように取得できますか？ {#authentication-phase-faq3}
+#### 6. プロファイルとは何で、どれくらい有効ですか？ {#authentication-phase-faq6}
+
+プロファイルとは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#profile) ドキュメントで定義されている用語です。
+
+プロファイルには、ユーザーの認証の有効性、メタデータ情報など、プロファイルエンドポイントから取得できる多くの情報が保存されます。
+
+クライアントアプリケーションはプロファイルを使用して、ユーザーの認証ステータスの把握、ユーザーメタデータ情報へのアクセス、認証に使用する方法の検索、ID の提供に使用するエンティティの検索を行うことができます。
+
+詳しくは、次のドキュメントを参照してください。
+
+* [プロファイルエンドポイント API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
+* [特定のMVPD API のプロファイルエンドポイント](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
+* [特定（認証）コード API 用プロファイルエンドポイント](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
+* [プライマリアプリケーション内で実行される基本プロファイルフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
+* [セカンダリアプリケーション内で実行される基本プロファイルフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
+
+プロファイルは、`notAfter` タイムスタンプでクエリされる際に指定された限られた期間にわたって有効です。これは、ユーザーが認証フェーズを再度通過する必要があるまでに有効な認証を受けた時間を示します。
+
+この制限された期間は、認証（authN） [TTL](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#ttl) と呼ばれ、組織管理者の 1 人またはユーザーに代わってAdobe Pass認証担当者が、Adobe Pass[TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) を通じて表示および変更できます。
+
+詳しくは、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) ドキュメントを参照してください。
+
+#### 7. クライアントアプリケーションは、ユーザーのプロファイル情報を永続的なストレージにキャッシュする必要がありますか？ {#authentication-phase-faq7}
+
+クライアントアプリケーションは、次の側面を考慮して、不要なリクエストを回避しユーザーエクスペリエンスを向上させるために、ユーザーのプロファイル情報を永続的なストレージにキャッシュする必要があります。
+
+| 属性 | ユーザーエクスペリエンス |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `attributes` | クライアントアプリケーションはこれを使用して、様々な [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) キー（`zip`、`maxRating` など）に基づいてユーザーエクスペリエンスをパーソナライズできます。 |
+| `mvpd` | クライアントアプリケーションはこれを使用して、ユーザーが選択した TV プロバイダーを追跡できます。<br/><br/> 現在のユーザープロファイルの有効期限が切れると、クライアントアプリケーションは記憶されているMVPDの選択内容を使用し、ユーザーに確認を求めることができます。 |
+| `notAfter` | クライアントアプリケーションはこれを使用して、ユーザープロファイルの有効期限を追跡し、有効期限が切れた場合の再認証プロセスをトリガーし、事前認証または認証フェーズ中のエラーを避けることができます。<br/><br/> クライアントアプリケーションのエラー処理では、[authenticated_profile_expired](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) エラーコードを処理できる必要があります。このエラーコードは、クライアントアプリケーションがユーザーの再認証を必要とすることを示します。 |
+
+#### 8. クライアントアプリケーションは、再認証を必要とせずにユーザープロファイルを拡張できますか。 {#authentication-phase-faq8}
+
+いいえ。
+
+ユーザープロファイルの有効期限は、MVPD で確立された認証 TTL によって決定されるので、ユーザーの操作なしにユーザープロファイルを有効期限を超えて拡張することはできません。
+
+そのため、クライアントアプリケーションは、MVPD ログインページを再認証および操作して、システム上のプロファイルを更新するようにユーザーに求める必要があります。
+
+ただし、[HBA （ホーム・ベースの認証 ](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md) をサポートする MVPD の場合、ユーザーは認証情報を入力する必要はありません。
+
+#### 9.使用可能な各プロファイルエンドポイントのユースケースは何ですか？ {#authentication-phase-faq9}
+
+プロファイルエンドポイントは、ユーザーの認証ステータスの把握、ユーザーメタデータ情報へのアクセス、認証に使用される方法の検索、ID の提供に使用されるエンティティの検索をおこなえる機能をクライアントアプリケーションに提供するように設計されています。
+
+各エンドポイントは、次のように特定のユースケースに適しています。
+
+| API | 説明 | ユースケース |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [ プロファイルエンドポイント API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) | すべてのユーザープロファイルを取得します。 | **クライアントアプリケーションを初めて開く**<br/><br/> このシナリオでは、クライアントアプリケーションには、選択したMVPD識別子が永続ストレージにキャッシュされていません。<br/><br/> その結果、使用可能なすべてのユーザープロファイルを取得するリクエストが 1 回送信されます。 |
+| [ 特定のMVPD API のプロファイルエンドポイント ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) | 特定のMVPDに関連付けられているユーザープロファイルを取得します。 | **前回の訪問で認証した後、クライアントアプリケーションに戻る。**<br/><br/> この場合、クライアントアプリケーションには、ユーザーが以前選択したMVPD識別子が、永続的なストレージにキャッシュされている必要があります。<br/><br/> その結果、その特定のMVPDのユーザーのプロファイルを取得するリクエストが 1 回送信されます。 |
+| [ 特定（認証）コード API 用プロファイルエンドポイント ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) | 特定の認証コードに関連付けられているユーザープロファイルを取得します。 | **ユーザーが認証プロセスを開始**<br/><br/> このシナリオでは、クライアントアプリケーションは、ユーザーが正常に認証を完了したかどうかを判断し、ユーザーのプロファイル情報を取得する必要があります。<br/><br/> その結果、ポーリングメカニズムが開始され、認証コードに関連付けられたユーザーのプロファイルを取得します。 |
+
+#### 10. ユーザーに複数のMVPD プロファイルがある場合、クライアントアプリケーションは何を行いますか？ {#authentication-phase-faq10}
+
+ユーザーが複数のMVPD プロファイルを持っている場合、クライアントアプリケーションは、このシナリオを処理する最適なアプローチを決定する責任を負います。
+
+クライアントアプリケーションは、応答から最初のユーザープロファイルを選択するか、有効期間が最も長いプロファイルを選択するかのように、目的のMVPD プロファイルを選択するようにユーザーに求めるか、自動的に選択するかを選択できます。
+
+#### 11. ユーザープロファイルが期限切れになるとどうなりますか。 {#authentication-phase-faq11}
+
+ユーザープロファイルの有効期限が切れると、プロファイルエンドポイントからの応答に含まれなくなります。
+
+プロファイルエンドポイントが空のプロファイルマップ応答を返した場合、クライアントアプリケーションは新しい認証セッションを作成し、ユーザーに再認証を促す必要があります。
+
+詳しくは、[ 認証セッション API の作成 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) ドキュメントを参照してください。
+
+#### 12. ユーザープロファイルが無効になるのはいつですか？ {#authentication-phase-faq12}
+
+ユーザープロファイルが無効になるのは、次の場合です。
+
+* プロファイルエンドポイント応答の `notAfter` タイムスタンプで示されるように、認証 TTL の有効期限が切れるタイミング。
+* クライアントアプリケーションが [AP-Device-Identifier](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md) ヘッダー値を変更する場合。
+* クライアントアプリケーションが [Authorization](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md) ヘッダー値の取得に使用されるクライアント資格情報を更新する場合。
+* クライアント アプリケーションが、クライアント資格情報の取得に使用するソフトウェア ステートメントを失効または更新したとき。
+
+#### 13. クライアントアプリケーションは、いつポーリングメカニズムを起動する必要がありますか？ {#authentication-phase-faq13}
+
+効率を確保し、不要なリクエストを避けるために、クライアントアプリケーションは次の条件下でポーリングメカニズムを開始する必要があります。
+
+**プライマリ（画面）アプリケーション内で実行される認証**
+
+プライマリ（ストリーミング）アプリケーションでは、ユーザーが最終的な宛先ページに到達すると、ブラウザーコンポーネントが、[ セッション ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) エンドポイントリクエストの `redirectUrl` パラメーターに指定された URL を読み込んだ後に、ポーリングを開始する必要があります。
+
+**セカンダリ（画面）アプリケーション内で実行される認証**
+
+プライマリ（ストリーミング）アプリケーションでは、ユーザーが認証プロセスを開始するとすぐに、つまり、[ セッション ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) エンドポイントの応答を受信して認証コードをユーザーに表示した直後に、ポーリングを開始する必要があります。
+
+#### 14. クライアントアプリケーションは、いつポーリングメカニズムを停止する必要がありますか。 {#authentication-phase-faq14}
+
+効率を確保し、不要なリクエストを避けるために、クライアントアプリケーションは次の条件でポーリングメカニズムを停止する必要があります。
+
+**認証に成功**
+
+ユーザーのプロファイル情報は正常に取得され、ユーザーの認証ステータスが確認されます。 この時点で、ポーリングは不要になります。
+
+**認証セッションとコードの有効期限**
+
+[ セッション ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) エンドポイント応答の `notAfter` タイムスタンプで示されるように、認証セッションとコードの有効期限が切れます。 この場合、ユーザーは認証プロセスを再起動する必要があり、以前の認証コードを使用したポーリングは直ちに停止する必要があります。
+
+**新しい認証コードが生成されました**
+
+ユーザーがプライマリ（画面）デバイスで新しい認証コードを要求すると、既存のセッションは無効になり、以前の認証コードを使用したポーリングを直ちに停止する必要があります。
+
+#### 15. クライアントアプリケーションは、呼び出しの間隔にどの程度ポーリングメカニズムを使用する必要がありますか？ {#authentication-phase-faq15}
+
+効率を確保し、不要なリクエストを避けるために、クライアントアプリケーションは次の条件下でポーリングメカニズムの頻度を設定する必要があります。
+
+| **プライマリ（画面）アプリケーション内で実行される認証** | **セカンダリ（画面）アプリケーション内で実行される認証** |
+|----------------------------------------------------------------------|----------------------------------------------------------------------|
+| プライマリ（ストリーミング）アプリケーションは、1 ～ 5 秒ごとにポーリングする必要があります。 | プライマリ（ストリーミング）アプリケーションは、3～5 秒ごとにポーリングする必要があります。 |
+
+#### 16. クライアントアプリケーションが送信できるポーリングリクエストの最大数はいくつですか。 {#authentication-phase-faq16}
+
+クライアントアプリケーションは、Adobe Pass認証 [ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md#throttling-mechanism-limits) で定義された現在の制限に準拠する必要があります。
+
+クライアントアプリケーションエラー処理では、クライアントアプリケーションが許可されているリクエストの最大数を超えたことを示す [429 Too Many Requests](/help/authentication/integration-guide-programmers/throttling-mechanism.md#throttling-mechanism-response) エラーコードを処理できる必要があります。
+
+詳しくは、「スロットルメカニズム [ のドキュメントを参照し ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) ください。
+
+#### 17. クライアントアプリケーションは、ユーザーのメタデータ情報をどのように取得できますか。 {#authentication-phase-faq17}
 
 クライアントアプリケーションは、プロファイル情報の一部として [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) 情報を返すことができる次のエンドポイントのいずれかをクエリできます。
 
@@ -144,74 +309,18 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 * [特定のMVPD API のプロファイルエンドポイント](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
 * [特定（認証）コード API 用プロファイルエンドポイント](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
 
+クライアントアプリケーションは、ユーザーのメタデータ情報を取得するために別のエンドポイントをクエリする必要はありません。メタデータ情報は、ユーザーが認証されているかどうかを確認するときに取得されたプロファイル情報に既に含まれているからです。
+
 詳しくは、次のドキュメントを参照してください。
 
 * [プライマリアプリケーション内で実行される基本プロファイルフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
 * [セカンダリアプリケーション内で実行される基本プロファイルフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
 
-#### 4.認証セッションとは何で、どれくらい有効ですか。 {#authentication-phase-faq4}
+#### 18. クライアント・アプリケーションは、縮退アクセスをどのように管理する必要がありますか。 {#authentication-phase-faq18}
 
-認証セッションとは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#session) ドキュメントで定義されている用語です。
+組織が [degradation](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md) 機能を使用する予定であることを考慮すると、クライアントアプリケーションは、劣化したアクセスフローを処理する必要があります。これは、このようなシナリオで REST API v2 エンドポイントがどのように動作するかについて説明しています。
 
-認証セッションには、セッション エンドポイントから取得できる、開始された認証プロセスに関する情報が格納されます。
-
-認証セッションは、問題が発生した時点で指定された、制限された短い期間にわたって有効です。これは、ユーザーが認証プロセスを完了してからフローを再開する必要が生じるまでの時間を示します。
-
-クライアントアプリケーションは、認証セッション応答を使用して、認証プロセスの進め方を知ることができます。 一時的なアクセスの提供、アクセスの低下、ユーザーが既に認証されている場合など、ユーザーの認証が不要な場合があることに注意してください。
-
-詳しくは、次のドキュメントを参照してください。
-
-* [認証セッション API の作成](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
-* [認証セッション API の再開](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
-* [プライマリアプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
-* [セカンダリ・アプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
-
-#### 5.認証コードとは何ですか？また、有効期限はどのくらいですか？ {#authentication-phase-faq5}
-
-認証コードとは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#code) ドキュメントで定義されている用語です。
-
-認証コードは、ユーザが認証プロセスを開始する際に生成される一意の値を格納し、プロセスが完了するまで、または認証セッションが期限切れになるまで、ユーザの認証セッションを一意に識別する。
-
-認証コードは、認証セッションの開始時に指定される限定された短い期間にわたって有効で、ユーザーが認証プロセスを完了してからフローを再開する必要が生じるまでの時間を示します。
-
-クライアントアプリケーションは認証コードを使用して、ユーザーが認証セッションに有効期限がなかったことを考慮して、同じデバイスまたは 2 番目のデバイスで認証プロセスを完了または再開できるようにします。
-
-詳しくは、次のドキュメントを参照してください。
-
-* [認証セッション API の作成](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
-* [認証セッション API の再開](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
-* [プライマリアプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
-* [セカンダリ・アプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
-
-#### 6. ユーザーが有効な認証コードを入力し、認証セッションがまだ期限切れになっていないことをクライアントアプリケーションが認識するにはどうすればよいですか？ {#authentication-phase-faq6}
-
-クライアントアプリケーションは、セカンダリ（画面）アプリケーションでユーザーによって入力された認証コードを検証できます。その際、認証コードに関連付けられた認証セッション情報を取得するリクエストを、セッションエンドポイントに送信します。
-
-指定された認証コードが誤って入力された場合や、認証セッションが期限切れになった場合、クライアントアプリケーションは [ エラー ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を受け取ります。
-
-詳しくは、[ 認証セッションの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) ドキュメントを参照してください。
-
-#### 7. プロファイルとは何で、どれくらい有効ですか？ {#authentication-phase-faq7}
-
-プロファイルとは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#profile) ドキュメントで定義されている用語です。
-
-プロファイルには、ユーザーの認証の有効性、メタデータ情報など、プロファイルエンドポイントから取得できる多くの情報が保存されます。
-
-クライアントアプリケーションは、プロファイルを使用してユーザーの認証ステータスを把握したり、ユーザーメタデータ情報にアクセスしたり、認証に使用する方法を見つけたりできます。
-
-詳しくは、次のドキュメントを参照してください。
-
-* [プロファイルエンドポイント API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
-* [特定のMVPD API のプロファイルエンドポイント](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
-* [特定（認証）コード API 用プロファイルエンドポイント](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
-* [プライマリアプリケーション内で実行される基本プロファイルフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
-* [セカンダリアプリケーション内で実行される基本プロファイルフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
-
-プロファイルはクエリ時に指定された期間制限が有効で、ユーザーが有効な認証を受けた後に認証フェーズを再度進む必要が生じる時間を示します。
-
-この制限された期間は、認証（authN） [TTL](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#ttl) と呼ばれ、組織管理者の 1 人またはユーザーに代わってAdobe Pass認証担当者が、Adobe Pass[TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) を通じて表示および変更できます。
-
-詳しくは、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) ドキュメントを参照してください。
+詳しくは、「アクセス フローの低下 [ のドキュメントを参照し ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/degraded-access-flows/rest-api-v2-access-degraded-flows.md) ください。
 
 +++
 
@@ -476,9 +585,17 @@ REST API V1 またはSDKを統合する古いクライアントアプリケー�
 
 はい。
 
-REST API V2 を統合しているクライアントアプリケーションでは、デフォルトで有効になっている拡張エラーコード機能のメリットが得られます。
+REST API V2 に移行するクライアントアプリケーションでは、デフォルトでこの機能のメリットが自動的に得られ、より詳細で正確なエラー情報が提供されます。
 
 詳しくは、[ 拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) ドキュメントを参照してください。
+
+#### 5.既存の統合を REST API V2 に移行する際に、設定を変更する必要はありますか。 {#migration-faq5}
+
+いいえ。
+
+REST API V2 に移行するクライアントアプリケーションでは、既存のMVPD統合の設定を変更する必要はありません。 また、既存の [ サービスプロバイダー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#service-provider) および [MVPD](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#mvpd) に対しても、引き続き同じ識別子を使用します。
+
+また、MVPD エンドポイントと通信するためにAdobe Pass認証で使用されるプロトコルは変更されません。
 
 +++
 

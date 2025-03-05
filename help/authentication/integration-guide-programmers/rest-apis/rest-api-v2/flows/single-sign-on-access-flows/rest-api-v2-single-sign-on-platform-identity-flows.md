@@ -2,9 +2,9 @@
 title: シングルサインオン - Platform Id - フロー
 description: REST API V2 - シングルサインオン - Platform Id - フロー
 exl-id: 5200e851-84e8-4cb4-b068-63b91a2a8945
-source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '1836'
+source-wordcount: '1846'
 ht-degree: 0%
 
 ---
@@ -18,6 +18,10 @@ ht-degree: 0%
 >[!IMPORTANT]
 >
 > REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+
+>[!MORELIKETHIS]
+>
+> また、[REST API V2 の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general) も必ず参照してください。
 
 Platform ID 方式を使用すると、複数のアプリケーションで一意の Platform ID を使用して、Adobe Pass サービスの使用時にデバイスレベルまたはプラットフォームレベルでシングルサインオン（SSO）を実現できます。
 

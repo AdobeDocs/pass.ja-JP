@@ -2,9 +2,9 @@
 title: 基本プロファイル - プライマリアプリケーション – フロー
 description: REST API V2 – 基本プロファイル - プライマリアプリケーション – フロー
 exl-id: 19ddf382-9a32-4b94-aa84-7611c0e1780e
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '964'
+source-wordcount: '974'
 ht-degree: 0%
 
 ---
@@ -13,11 +13,15 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
 > REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+
+>[!MORELIKETHIS]
+>
+> また、[REST API V2 の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general) も必ず参照してください。
 
 Adobe Pass認証使用権内の **プロファイルフロー** により、ストリーミングアプリケーションはアクティブなユーザーログインに関する情報にアクセスできます。
 
@@ -79,19 +83,19 @@ Adobe Pass認証使用権内の **プロファイルフロー** により、ス�
 
 ### 前提条件 {#prerequisites-retrieve-profile-for-specific-mvpd}
 
-特定の MVPD のプロファイルを取得する前に、次の前提条件が満たされていることを確認します。
+特定のMVPDのプロファイルを取得する前に、次の前提条件が満たされていることを確認します。
 
-* 選択されたまたはキャッシュされた `mvpd` 識別子を持つストリーミングアプリケーションは、特定の MVPD の通常のプロファイルを取得したいと考えています。
+* 選択されたまたはキャッシュされた `mvpd` ID を持つストリーミングアプリケーションは、特定のMVPDの通常のプロファイルを取得したいと考えています。
 
 ### ワークフロー {#workflow-retrieve-profile-for-specific-mvpd}
 
-次の図に示すように、プライマリ・アプリケーション内で実行される特定の MVPD の基本的なプロファイル取得フローを実装するには、次の手順に従います。
+次の図に示すように、プライマリ・アプリケーション内で実行される特定のMVPDの基本的なプロファイル取得フローを実装するには、次の手順に従います。
 
 ![ 特定の mvpd のプロファイルを取得 ](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profile-within-primary-application-for-specific-mvpd.png)
 
 *特定の mvpd のプロファイルを取得*
 
-1. **特定の mvpd のプロファイルを取得：** ストリーミングアプリケーションは、プロファイルエンドポイントにリクエストを送信して、その特定の MVPD のプロファイル情報を取得するために必要なすべてのデータを収集します。
+1. **特定の mvpd のプロファイルを取得：** ストリーミングアプリケーションは、プロファイルエンドポイントにリクエストを送信して、その特定のMVPDのプロファイル情報を取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
@@ -130,7 +134,7 @@ Adobe Pass認証使用権内の **プロファイルフロー** により、ス�
 
 特定の認証コードのプロファイルを取得する前に、次の前提条件が満たされていることを確認します。
 
-* MVPD でインタラクティブ認証を実行するために使用される `code` を持つストリーミングアプリケーションは、特定の認証コードのプロファイルを取得したいと考えています。
+* MVPDでインタラクティブ認証を実行するために使用される `code` ールを持つストリーミングアプリケーションは、特定の認証コードのプロファイルを取得したいと考えています。
 
 ### ワークフロー {#workflow-retrieve-profile-for-specific-code}
 

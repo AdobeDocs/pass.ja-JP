@@ -2,9 +2,9 @@
 title: 特定のコードのプロファイルの取得
 description: REST API V2 – 特定のコードのプロファイルを取得
 exl-id: d6ead7d5-de5f-4033-8115-980953a370c0
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '701'
+source-wordcount: '711'
 ht-degree: 1%
 
 ---
@@ -13,11 +13,15 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
 > REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+
+>[!MORELIKETHIS]
+>
+> また、[REST API V2 の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general) も必ず参照してください。
 
 ## リクエスト {#request}
 
@@ -127,7 +131,7 @@ ht-degree: 1%
       <td>403</td>
       <td>禁止</td>
       <td>
-        一時アクセスの有効期間（TTL）が切れているか、最大リソース数を超えています。クライアントは、通常の MVPD を使用して基本認証フローを開始するようにユーザーに指示する必要があります。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        一時アクセスの有効期間（TTL）が切れているか、最大リソース数を超えています。クライアントは、通常のMVPDを使用して基本認証フローを開始するようにユーザーに指示する必要があります。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
       </td>
    </tr> 
    <tr>
@@ -212,7 +216,7 @@ ht-degree: 1%
                   使用可能な値は次のとおりです。
                   <ul>
                     <li><b>mvpd （Spectrum、Cablevision など）</b><br/> プロファイルは、基本認証の結果として作成されました。</li>
-                    <li><b>Adobe</b><br/> 次の結果としてプロファイルが作成されました：縮退アクセス、一時アクセス。</li>
+                    <li><b>Adobe</b><br/> 縮退アクセス、一時アクセスの結果、プロファイルが作成されました。</li>
                   </ul>
                <td><i>必須</i></td>
             </tr>

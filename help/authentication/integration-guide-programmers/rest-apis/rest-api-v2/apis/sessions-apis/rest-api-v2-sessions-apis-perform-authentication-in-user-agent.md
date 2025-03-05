@@ -2,9 +2,9 @@
 title: ユーザーエージェントでの認証の実行
 description: REST API V2 - ユーザーエージェントで認証を実行します
 exl-id: d615dde0-71a8-4b6c-a12e-1e3b5e20728c
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '230'
+source-wordcount: '240'
 ht-degree: 3%
 
 ---
@@ -13,11 +13,15 @@ ht-degree: 3%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
 > REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+
+>[!MORELIKETHIS]
+>
+> また、[REST API V2 の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general) も必ず参照してください。
 
 ## リクエスト {#request}
 
@@ -76,7 +80,7 @@ ht-degree: 3%
       <td>302</td>
       <td>件見つかりました</td>
       <td>
-        応答本文には、MVPD ログインページに到達するまでフローを続行するための場所リダイレクトが含まれています
+        応答本文には、MVPDのログインページに到達するまでフローを続行するための場所リダイレクトが含まれています
       </td>
    </tr>
    <tr>
@@ -104,7 +108,7 @@ ht-degree: 3%
 
 ### 成功 {#success}
 
-成功した応答は、MVPD ログインページに到達するまでの 1 つまたは複数のリダイレクトの連続です。
+正常な応答は、MVPDのログインページに到達するまでの一連の 1 つまたは複数のリダイレクトです。
 
 ### エラー {#error}
 

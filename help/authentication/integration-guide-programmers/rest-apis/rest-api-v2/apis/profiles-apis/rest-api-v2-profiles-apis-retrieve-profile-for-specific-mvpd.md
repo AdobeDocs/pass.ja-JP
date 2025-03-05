@@ -2,10 +2,10 @@
 title: 特定の mvpd のプロファイルの取得
 description: REST API V2 – 特定の mvpd のプロファイルを取得します
 exl-id: ed1abc33-c279-4465-b5a0-b4e5b892076e
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '1006'
-ht-degree: 0%
+source-wordcount: '1016'
+ht-degree: 1%
 
 ---
 
@@ -13,11 +13,15 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
 > REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+
+>[!MORELIKETHIS]
+>
+> また、[REST API V2 の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general) も必ず参照してください。
 
 ## リクエスト {#request}
 
@@ -92,9 +96,9 @@ ht-degree: 0%
       <td>optional</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Adobe件名トークン</td>
+      <td style="background-color: #DEEBFF;">Adobe-Subject-Token</td>
       <td>
-        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Header-Subject-Token</a> Adobeドキュメントを参照してください。
+        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a> ヘッダーのドキュメントを参照してください。
         <br/><br/>
         プラットフォーム ID を使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> プラットフォーム ID フローを使用したシングルサインオン </a> ドキュメントを参照してください。
       </td>
@@ -171,7 +175,7 @@ ht-degree: 0%
       <td>403</td>
       <td>禁止</td>
       <td>
-        一時アクセスの有効期間（TTL）が切れているか、最大リソース数を超えています。クライアントは、通常の MVPD を使用して基本認証フローを開始するようにユーザーに指示する必要があります。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        一時アクセスの有効期間（TTL）が切れているか、最大リソース数を超えています。クライアントは、通常のMVPDを使用して基本認証フローを開始するようにユーザーに指示する必要があります。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
       </td>
    </tr>
    <tr>
@@ -256,7 +260,7 @@ ht-degree: 0%
                   使用可能な値は次のとおりです。
                   <ul>
                     <li><b>mvpd （Spectrum、Cablevision など）</b><br/> プロファイルは、基本認証、Platform ID を使用したシングルサインオン、サービストークンを使用したシングルサインオンの結果として作成されました。</li>
-                    <li><b>Adobe</b><br/> 次の結果としてプロファイルが作成されました：縮退アクセス、一時アクセス。</li>
+                    <li><b>Adobe</b><br/> 縮退アクセス、一時アクセスの結果、プロファイルが作成されました。</li>
                     <li><b>Apple</b><br/> プロファイルは次の結果として作成されました：パートナーAppleを使用したシングル サインオン。</li>
                   </ul>
                <td><i>必須</i></td>

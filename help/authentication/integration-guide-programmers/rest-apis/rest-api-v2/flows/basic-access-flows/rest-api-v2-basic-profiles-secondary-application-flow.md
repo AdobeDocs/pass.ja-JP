@@ -2,9 +2,9 @@
 title: 基本プロファイル -セカンダリアプリケーション – フロー
 description: REST API V2 – 基本プロファイル -セカンダリアプリケーション – フロー
 exl-id: 1fcefcfa-7534-4b85-b3b5-df513685d66b
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '408'
+source-wordcount: '418'
 ht-degree: 0%
 
 ---
@@ -13,11 +13,15 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
 > REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+
+>[!MORELIKETHIS]
+>
+> また、[REST API V2 の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general) も必ず参照してください。
 
 Adobe Pass認証使用権内の **プロファイルフロー** により、セカンダリアプリケーションはアクティブなユーザーログインに関する情報にアクセスできます。
 
@@ -31,7 +35,7 @@ Adobe Pass認証使用権内の **プロファイルフロー** により、セ�
 
 特定の認証コードのプロファイルを取得する前に、次の前提条件が満たされていることを確認します。
 
-* MVPD でインタラクティブ認証を実行するために使用される `code` ールを持つセカンダリアプリケーションは、特定の認証コードのプロファイルを取得したいと考えています。
+* MVPDでインタラクティブ認証を実行するために使用される `code` ールを持つセカンダリアプリケーションは、特定の認証コードのプロファイルを取得したいと考えています。
 
 ### ワークフロー {#workflow-retrieve-profile-for-specific-code}
 
