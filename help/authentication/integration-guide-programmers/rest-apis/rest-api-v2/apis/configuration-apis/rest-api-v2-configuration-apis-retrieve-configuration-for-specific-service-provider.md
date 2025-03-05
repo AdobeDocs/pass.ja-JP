@@ -2,9 +2,9 @@
 title: 特定のサービスプロバイダーの設定の取得
 description: REST API V2 – 特定のサービスプロバイダーの設定を取得します
 exl-id: ad7e4c6d-ed96-4ae7-82a9-3c24e5fc9302
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 871afc4e7ec04d62590dd574bf4e28122afc01b6
 workflow-type: tm+mt
-source-wordcount: '515'
+source-wordcount: '725'
 ht-degree: 1%
 
 ---
@@ -13,11 +13,15 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
 > REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+
+>[!MORELIKETHIS]
+>
+> また、[REST API V2 の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#configuration-phase-faqs-general) も必ず参照してください。
 
 ## リクエスト {#request}
 
@@ -210,9 +214,9 @@ ht-degree: 1%
                 <td>
                     次の属性を持つ JSON オブジェクト。
                     <ul>
-                        <li><b>id</b></li>
-                        <li><b>name</b></li>
-                        <li><b>ドメイン</b></li>
+                        <li><b>id</b><br/> オンボーディングプロセス中にサービスプロバイダーに関連付けられた一意の内部識別子。</li>
+                        <li><b>name</b><br/> オンボーディングプロセス中にサービスプロバイダーに関連付けられた商用（ブランド）名。</li>
+                        <li><b>domains</b><br/> サービスプロバイダーを表すためにAdobe Pass Authentication にリストされるドメイン名のリスト。</li>
                     </ul>
                 </td>
                 <td><i>必須</i></td>
@@ -222,16 +226,16 @@ ht-degree: 1%
                 <td>
                     次の属性を持つ JSON オブジェクト。
                     <ul>
-                        <li><b>id</b></li>
-                        <li><b>displayName</b></li>
-                        <li><b>logoUrl</b></li>
-                        <li><b>isTempPass</b></li>
-                        <li><b>isProxy</b></li>
-                        <li><b>boardingStatus</b></li>
-                        <li><b>platformMappingId</b></li>
-                        <li><b>enablePlatformServices</b></li>
-                        <li><b>displayInPlatformPicker</b></li>
-                        <li><b>enforcePlatformPermissions</b></li>
+                        <li><b>id</b><br/> オンボーディングプロセス中に ID プロバイダーに関連付けられた一意の内部識別子。</li>
+                        <li><b>displayName</b><br/> オンボーディングプロセス中に ID プロバイダーに関連付けられた商用（ブランド）名。</li>
+                        <li><b>logoUrl</b><br>ID プロバイダーに関連付けられたロゴのダウンロード元の URL です。</li>
+                        <li><b>isTempPass</b><br/>MVPDが <a href="../../../../features-premium/temporary-access/temp-pass-feature.md">TempPass</a> 機能を提供するように設計されているかどうかを指定するフラグ。</li>
+                        <li><b>isProxy</b><br/>MVPDがプロキシ化されたMVPDかどうかを指定するフラグ。</li>
+                        <li><b>boardingStatus</b><br/> シングルサインオンフローで、ID プロバイダーがストリーミングデバイスプラットフォームによってオンボードされるかどうかを指定するステータス。</li>
+                        <li><b>platformMappingId</b><br/> シングルサインオンフロー用のストリーミングデバイスプラットフォームによって ID プロバイダーに関連付けられた内部の一意の ID。</li>
+                        <li><b>enablePlatformServices</b><br/> シングルサインオンフローのストリーミングデバイスプラットフォームに対して ID プロバイダー設定が有効かどうかを指定するフラグ。</li>
+                        <li><b>displayInPlatformPicker</b><br/> シングルサインオンフローで ID プロバイダーをストリーミングデバイスプラットフォームピッカーに表示できるかどうかを指定するフラグ。</li>
+                        <li><b>enforcePlatformPermissions</b><br/> シングルサインオンフロー用にプラットフォームで提供されるユーザー権限をストリーミングデバイスで適用する必要があるかどうかを指定するフラグ。</li>
                     </ul>
                 </td>
                 <td><i>必須</i></td>

@@ -2,9 +2,9 @@
 title: REST API V2 の FAQ
 description: REST API V2 の FAQ
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
+source-git-commit: 871afc4e7ec04d62590dd574bf4e28122afc01b6
 workflow-type: tm+mt
-source-wordcount: '6744'
+source-wordcount: '6963'
 ht-degree: 0%
 
 ---
@@ -39,57 +39,73 @@ REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/auth
 
 #### 1.設定フェーズの目的は何ですか？ {#configuration-phase-faq1}
 
-設定フェーズの目的は、各MVPDに対してAdobe Pass Authentication によって保存された設定の詳細と共に、アクティブに統合される MVPD のリストをクライアントアプリケーションに提供することです。
+設定フェーズの目的は、MVPDごとにAdobe Pass Authentication によって保存された設定の詳細（`id`、`displayName`、`logoUrl` など）と、アクティブに統合される MVPD のリストをクライアントアプリケーションに提供することです。
 
 設定フェーズは、クライアントアプリケーションがユーザーに TV プロバイダーの選択を依頼する必要がある場合に、認証フェーズの前提条件の手順として機能します。
 
 #### 2.設定フェーズは必須ですか？ {#configuration-phase-faq2}
 
-設定フェーズは必須ではありません。クライアントアプリケーションは、次のシナリオでは、このフェーズをスキップできます。
+設定フェーズは必須ではありません。クライアントアプリケーションは、認証または再認証のためにMVPDを選択する必要がある場合にのみ、設定を取得する必要があります。
+
+クライアントアプリケーションは、次のシナリオでは、このフェーズをスキップできます。
 
 * ユーザーは既に認証済みです。
-* ユーザーは、基本的またはプロモーションの TempPass 機能を通じて一時的なアクセスを提供されます。
+* ユーザーは、基本的またはプロモーションの [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md) 機能を通じて一時的なアクセスが提供されます。
 * ユーザー認証の有効期限が切れているが、クライアントアプリケーションは、以前に選択したMVPDをユーザーエクスペリエンスの動機に基づく選択としてキャッシュし、まだMVPDの購読者であることを確認するように求めるだけです。
 
 #### 3.設定とは何で、どれくらい有効ですか？ {#configuration-phase-faq3}
 
 設定とは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#configuration) ドキュメントで定義されている用語です。
 
-設定は、設定エンドポイントから取得できる MVPD のリストで構成されます。
+設定には、[Configuration](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md) エンドポイントから取得できる、次の属性 `id`、`displayName`、`logoUrl` などで定義された MVPD のリストが含まれています。
 
-クライアントアプリケーションは、ユーザーにMVPDを選択するよう求める際に、設定を使用して「ピッカー」と呼ばれる UI コンポーネントを表示できます。
+クライアントアプリケーションは、ユーザーが認証または再認証のためにMVPDを選択する必要がある場合にのみ、設定を取得する必要があります。
 
-ユーザーが認証フェーズを経る前に、クライアントアプリケーションが設定を更新する必要があります。
+クライアントアプリケーションは、設定応答を使用して、ユーザーがテレビプロバイダーを選択する必要があるときに、使用可能なMVPD オプションを UI ピッカーに表示できます。
+
+クライアントアプリケーションは、認証、事前認証、認証、ログアウトの各フェーズに進むために、MVPDの configuration-level `id` 属性で指定された、ユーザーの選択したMVPD ID を保存する必要があります。
 
 詳しくは、[ 設定の取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md) ドキュメントを参照してください。
 
-#### 4. クライアントアプリケーションは、独自の MVPD リストを管理できますか。 {#configuration-phase-faq4}
+#### 4. クライアントアプリケーションは、永続的なストレージに設定応答情報をキャッシュする必要がありますか？ {#configuration-phase-faq4}
 
-クライアントアプリケーションは独自の MVPD のリストを管理できますが、リストを最新かつ正確なものにするには、Adobe Pass Authentication が提供する設定を使用することをお勧めします。
+クライアントアプリケーションは、ユーザーが認証または再認証のためにMVPDを選択する必要がある場合にのみ、設定を取得する必要があります。
 
-選択したMVPDが指定の [ サービスプロバイダー ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) とのアクティブな統合を持っていない場合、クライアントアプリケーションはAdobe Pass認証 REST API V2 から [ エラー ](rest-api-v2-glossary.md#service-provider) を受け取ります。
+次の場合に、クライアントアプリケーションは設定応答情報をメモリストレージにキャッシュして、不要なリクエストを回避し、ユーザーエクスペリエンスを向上させる必要があります。
 
-#### 5. クライアントアプリケーションは MVPD のリストをフィルタリングできますか。 {#configuration-phase-faq5}
+* ユーザーは既に認証済みです。
+* ユーザーは、基本的またはプロモーションの [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md) 機能を通じて一時的なアクセスが提供されます。
+* ユーザー認証の有効期限が切れているが、クライアントアプリケーションは、以前に選択したMVPDをユーザーエクスペリエンスの動機に基づく選択としてキャッシュし、まだMVPDの購読者であることを確認するように求めるだけです。
+
+#### 5. クライアントアプリケーションは、独自の MVPD リストを管理できますか。 {#configuration-phase-faq5}
+
+クライアントアプリケーションは MVPD の独自のリストを管理できますが、MVPD ID とAdobe Pass Authentication を同期させる必要があります。 そのため、Adobe Pass Authentication から提供される設定を使用して、リストを最新かつ正確にすることをお勧めします。
+
+指定されたAdobe Pass ID が無効な場合や、指定された ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) サービスプロバイダー ](rest-api-v2-glossary.md#service-provider) とのアクティブな統合がない場合、クライアントアプリケーションはMVPD認証 REST API V2 から [ エラー [ を受け取ります。
+
+#### 6. クライアントアプリケーションは MVPD のリストをフィルタリングできますか。 {#configuration-phase-faq6}
 
 クライアントアプリケーションは、独自のビジネスロジックおよび要件（以前に選択したユーザーの場所やユーザーの履歴など）に基づいてカスタムメカニズムを実装することで、設定応答で提供される MVPD のリストをフィルタリングできます。
 
-#### 6. MVPDとの統合が無効になり、非アクティブとしてマークされた場合、どうなりますか？ {#configuration-phase-faq6}
+クライアントアプリケーションは、開発中またはテスト中の統合を持つ [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md) MVPD または MVPD のリストをフィルタリングできます。
+
+#### 7. MVPDとの統合が無効になり、非アクティブとしてマークされた場合、どうなりますか？ {#configuration-phase-faq7}
 
 MVPDとの統合が無効で非アクティブとしてマークされている場合、MVPDは、以降の設定応答で提供される MVPD のリストから削除されます。考慮すべき重要な結果が 2 つあります。
 
 * そのMVPDの認証されていないユーザーは、そのMVPDを使用して認証フェーズを完了できなくなります。
 * そのMVPDの認証済みユーザーは、そのMVPDを使用して事前認証、認証、ログアウトの各フェーズを実行できなくなります。
 
-選択したMVPDが指定の [ サービスプロバイダー ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) とのアクティブな統合を持たなくなった場合、クライアントアプリケーションはAdobe Pass認証 REST API V2 から [ エラー ](rest-api-v2-glossary.md#service-provider) を受け取ります。
+選択したMVPDが指定の [ サービスプロバイダー ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) とのアクティブな統合を持たなくなった場合、クライアントアプリケーションはAdobe Pass認証 REST API V2 から [ エラー ](rest-api-v2-glossary.md#service-provider) を受け取ります。
 
-#### 7. MVPDとの統合が有効になり、アクティブとしてマークされた場合、どうなりますか？ {#configuration-phase-faq7}
+#### 8. MVPDとの統合が有効になり、アクティブとしてマークされた場合、どうなりますか？ {#configuration-phase-faq8}
 
 MVPDとの統合が有効になり、アクティブとしてマークされると、MVPDは、以降の設定応答で提供される MVPD のリストに戻されます。考慮すべき重要な結果は 2 つあります。
 
 * そのMVPDの認証されていないユーザーは、そのMVPDを使用して認証フェーズを再び完了できます。
 * そのMVPDの認証済みユーザーは、そのMVPDを使用して、事前認証、認証、ログアウトの各フェーズを再び完了できます。
 
-#### 8. MVPDとの統合を有効または無効にする方法 {#configuration-phase-faq8}
+#### 9. MVPDとの統合を有効または無効にする方法 {#configuration-phase-faq9}
 
 この操作は、組織管理者の 1 人がAdobe Pass[TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) を使用して、またはお客様に代わってAdobe Pass認証担当者が実行できます。
 
