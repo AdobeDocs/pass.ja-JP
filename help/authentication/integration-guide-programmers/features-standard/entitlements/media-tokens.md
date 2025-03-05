@@ -2,9 +2,9 @@
 title: メディアトークン
 description: メディアトークン
 exl-id: 7e486d2c-e078-464d-90b1-14e2cfb4d20a
-source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
+source-git-commit: a19f4fd40c9cd851a00f05f82adbabb85edd8422
 workflow-type: tm+mt
-source-wordcount: '667'
+source-wordcount: '682'
 ht-degree: 0%
 
 ---
@@ -13,13 +13,13 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 メディアトークンは、保護されたコンテンツ（リソース ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) に対する表示アクセスを提供するための認証決定の結果として、Adobe Pass認証 [REST API V2）によって生成されるトークンです。
 
 メディアトークンは、問題の時点で指定された制限された短い期間（デフォルトは 7 分）有効で、クライアントアプリケーションで検証および使用される必要がある前の時間制限を示します。 メディアトークンは 1 回限りの使用に制限され、絶対にキャッシュしないでください。
 
-メディアトークンは、クリアテキストで送信される公開鍵インフラストラクチャ（PKI）に基づく署名済み文字列で構成されます。 PKI ベースの保護では、トークンは証明機関（CA）によってAdobeに発行された非対称キーを使用して署名されます。
+メディアトークンは、クリアテキストで送信される公開鍵インフラストラクチャ（PKI）に基づく署名済み文字列で構成されます。 PKI ベースの保護機能を使用すると、トークンは、証明機関（CA）によってAdobeに発行された非対称キーを使用して署名されます。
 
 メディアトークンはプログラマーに渡され、その後、ビデオストリームを開始する前にメディアトークン検証機能を使用して検証し、そのリソースへのアクセスのセキュリティを確保できます。
 
@@ -198,10 +198,14 @@ public class EntitlementVerifierTest {
 
 認証決定とメディアトークンの構造については、上記 API の **Response** および **Samples** の節を参照してください。
 
+>[!IMPORTANT]
+>
+> [ メディアトークン ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md) は、ユーザーアクセスを許可する認証決定に既に含まれているので、クライアントアプリケーションは、別のエンドポイントをクエリして取得する必要はありません。
+
 上記の API を統合する方法とタイミングについて詳しくは、次のドキュメントを参照してください。
 
 * [プライマリアプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
 
->[!IMPORTANT]
+>[!MORELIKETHIS]
 >
-> クライアントアプリケーションは、返された `token` から `serializedToken` 値を [ メディアトークンベリファイア ](#media-token-verifier) に渡して検証する必要があります。
+> [ 承認フェーズに関するよくある質問 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)

@@ -1,9 +1,10 @@
 ---
 title: 決定
 description: 決定
-source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
+exl-id: 1efd70af-8c1d-43c4-87fc-14488d42b23d
+source-git-commit: a19f4fd40c9cd851a00f05f82adbabb85edd8422
 workflow-type: tm+mt
-source-wordcount: '886'
+source-wordcount: '988'
 ht-degree: 0%
 
 ---
@@ -12,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 決定は、ユーザーのAdobe Pass認証または事前認証の問い合わせに基づいて、MVPD認証 [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) によって生成され、「保護されたコンテンツ [ へのアクセスが許可されているか拒否されているかを判定し ](#protected-resources) す。
 
@@ -68,6 +69,17 @@ MVPD は、パフォーマンスと 1 つの API リクエストで処理でき�
 >[!IMPORTANT]
 >
 > リソースの最大数は、MVPD およびAdobe Pass認証担当者との合意に達した後にのみ増やすことができます。
+
+## 認証有効期間（TTL）管理 {#authorization-ttl-management}
+
+認証有効期間（TTL）は、リソースが再認証される必要があるまでに、承認されたままになっている期間を定義します。 この期間は制限されており、MVPDの担当者と合意する必要があります。 TTL 値は、以下に基づいて変化する可能性があります。
+
+* プラットフォームカテゴリ（デスクトップ、モバイル、TV 接続デバイスなど）
+* 特定のプラットフォーム（iOS、Android、tvOS、Roku、FireTV など）
+
+認証（authZ） TTL の表示や変更は、Adobe Pass[TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) を通じて、組織管理者の 1 人が、またはAdobe Pass認証担当者が代理で行うことができます。
+
+詳しくは、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) ドキュメントを参照してください。
 
 ## 保護されたリソース {#protected-resources}
 
@@ -133,3 +145,8 @@ MVPD は、パフォーマンスと 1 つの API リクエストで処理でき�
 
 * [プライマリアプリケーション内で実行される基本的な事前認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)
 * [プライマリアプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
+
+>[!MORELIKETHIS]
+>
+> [ 事前認証フェーズに関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#preauthorization-phase-faqs-general)
+> [承認フェーズの FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)
