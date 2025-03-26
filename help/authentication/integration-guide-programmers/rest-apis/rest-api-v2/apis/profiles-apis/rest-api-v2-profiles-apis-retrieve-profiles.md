@@ -2,9 +2,9 @@
 title: プロファイルの取得
 description: REST API V2 - プロファイルの取得
 exl-id: 72922aa8-95ca-48dc-8523-e335802fc366
-source-git-commit: 751ebec3372145dda318c8415be5676adb3f13b5
+source-git-commit: edfde4b463dd8b93dd770bc47353ee8ceb6f39d2
 workflow-type: tm+mt
-source-wordcount: '824'
+source-wordcount: '865'
 ht-degree: 1%
 
 ---
@@ -265,9 +265,9 @@ ht-degree: 1%
             <tr>
                <td style="background-color: #DEEBFF;">属性</td>
                <td>
-                    ユーザーメタデータ属性のリスト。
+                    キーと値のペアのマップを含む JSON。
                     <br/><br/>
-                    次の属性があります。
+                    キー要素は、ユーザーメタデータ属性で定義され、次のいずれかになります。
                     <ul>
                         <li>必須（「userID」など）</li>
                         <li>非必須（「zip」、「householdID」、「maxRating」など）。</li>
@@ -278,6 +278,7 @@ ht-degree: 1%
                         <li>list</li>
                         <li>マップ</li>
                     </ul>
+                    ユーザーメタデータは、認証フローが完了すると使用可能になりますが、MVPDと問題の特定のメタデータ属性に応じて、特定のメタデータ属性が認証フロー中に更新される場合があります。
                </td>
                <td><i>必須</i></td>
             </tr>

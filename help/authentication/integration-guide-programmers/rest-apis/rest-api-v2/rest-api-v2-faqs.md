@@ -2,9 +2,9 @@
 title: REST API V2 の FAQ
 description: REST API V2 の FAQ
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 1795b4aba2940879f2dcb575048d553db4f0bf35
+source-git-commit: edfde4b463dd8b93dd770bc47353ee8ceb6f39d2
 workflow-type: tm+mt
-source-wordcount: '9072'
+source-wordcount: '9113'
 ht-degree: 0%
 
 ---
@@ -321,12 +321,14 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 * [特定のMVPD API のプロファイルエンドポイント](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
 * [特定（認証）コード API 用プロファイルエンドポイント](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
 
-クライアントアプリケーションは、ユーザーのメタデータ情報を取得するために別のエンドポイントをクエリする必要はありません。メタデータ情報は、ユーザーが認証されているかどうかを確認するときに取得されたプロファイル情報に既に含まれているからです。
+ユーザーメタデータは認証フローが完了すると使用できるようになります。したがって、[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) 情報は既にプロファイル情報に含まれているため、クライアントアプリケーションで個別のエンドポイントをクエリして取得する必要はありません。
 
 詳しくは、次のドキュメントを参照してください。
 
 * [プライマリアプリケーション内で実行される基本プロファイルフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
 * [セカンダリアプリケーション内で実行される基本プロファイルフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
+
+MVPDと特定のメタデータ属性に応じて、特定のメタデータ属性を認証フロー中に更新できます。 その結果、最新のユーザーメタデータを取得するには、クライアントアプリケーションが上記の API を再度クエリする必要が生じる場合があります。
 
 #### 18. クライアント・アプリケーションは、縮退アクセスをどのように管理する必要がありますか。 {#authentication-phase-faq18}
 

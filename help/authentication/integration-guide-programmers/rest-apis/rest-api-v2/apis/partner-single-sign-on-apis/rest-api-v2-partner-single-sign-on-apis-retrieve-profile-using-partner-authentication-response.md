@@ -2,9 +2,9 @@
 title: パートナー認証応答を使用したプロファイルの作成と取得
 description: REST API V2 - パートナー認証応答を使用したプロファイルの作成と取得
 exl-id: cae260ff-a229-4df7-bbf9-4cdf300c0f9a
-source-git-commit: 7fdfd28e2aba0d201f19dc25757bbe37cebd8ffe
+source-git-commit: edfde4b463dd8b93dd770bc47353ee8ceb6f39d2
 workflow-type: tm+mt
-source-wordcount: '734'
+source-wordcount: '775'
 ht-degree: 1%
 
 ---
@@ -268,9 +268,9 @@ ht-degree: 1%
             <tr>
                <td style="background-color: #DEEBFF;">属性</td>
                <td>
-                    ユーザーメタデータ属性のリスト。
+                    キーと値のペアのマップを含む JSON。
                     <br/><br/>
-                    次の属性があります。
+                    キー要素は、ユーザーメタデータ属性で定義され、次のいずれかになります。
                     <ul>
                         <li>必須（「userID」など）</li>
                         <li>非必須（「zip」、「householdID」、「maxRating」など）。</li>
@@ -281,6 +281,7 @@ ht-degree: 1%
                         <li>list</li>
                         <li>マップ</li>
                     </ul>
+                    ユーザーメタデータは、認証フローが完了すると使用可能になりますが、MVPDと問題の特定のメタデータ属性に応じて、特定のメタデータ属性が認証フロー中に更新される場合があります。
                </td>
                <td><i>必須</i></td>
             </tr>
