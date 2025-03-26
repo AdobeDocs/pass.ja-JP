@@ -2,9 +2,9 @@
 title: プログラマー統合ガイド
 description: プログラマー統合ガイド
 exl-id: 51461caf-08ef-459e-b284-8f317f45e7b1
-source-git-commit: d8097b8419aa36140e6ff550714730059555fd14
+source-git-commit: 07bb12f7983f39b58e1b9795fdaa1bec4f68e674
 workflow-type: tm+mt
-source-wordcount: '2073'
+source-wordcount: '2119'
 ht-degree: 0%
 
 ---
@@ -48,7 +48,9 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
 
 * Premium Adobe Pass認証 API:
    * [Temp Pass API をリセット](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
+      * [TempPass フィーチャ](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
    * [API の低下](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md#degradation-api-access)
+      * [縮退機能](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
    * [使用権限サービスモニタリング API](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md)
 
 ### ユースケース {#use-cases}
@@ -323,4 +325,6 @@ Adobe Pass認証ソリューションでは、使用権限（認証および承�
 
 * **[メディアトークン](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)**
 
-  認証に成功すると、Adobe Pass認証は、成功した再生リクエストに関連付けられたメディアトークン（「短期間有効」）を作成します。
+  認証に成功すると、Adobe Pass Authentication によって、成功した再生リクエストに関連付けられたメディアトークン（「短期間有効」）が作成され、不正を軽減するための業界のベストプラクティス（ストリームリッピングなど）のサポートが提供されます。
+
+プロファイルと決定の有効期間（「TTL」）値は、関係するすべてのユーザーに最適な値に同意するプログラマーと有料テレビプロバイダーの契約に基づいて設定されます。
