@@ -2,9 +2,9 @@
 title: REST API V2 フローの概要
 description: REST API V2 フローの概要
 exl-id: 84a9ac0f-c26a-4159-82a8-3a31bb31f529
-source-git-commit: 9dcc649b4216cccc9be35cd6553308bfc345b5f4
+source-git-commit: fab5964aeb832d419702b41a6d3bc5676cb3354f
 workflow-type: tm+mt
-source-wordcount: '170'
+source-wordcount: '166'
 ht-degree: 0%
 
 ---
@@ -14,8 +14,6 @@ ht-degree: 0%
 >[!IMPORTANT]
 >
 > [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
-
-<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/product-announcements">![ ライブウェビナーシリーズ ](/help/authentication/assets/rest-api-v2/live-webinar-series-banner.png)</a>
 
 開始するには、以下のリストに関心があるフローの公開ドキュメントを参照してください。
 
