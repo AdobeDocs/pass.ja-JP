@@ -2,9 +2,9 @@
 title: REST API V2 の FAQ
 description: REST API V2 の FAQ
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: edfde4b463dd8b93dd770bc47353ee8ceb6f39d2
+source-git-commit: 42df16e34783807e1b5eb1a12ca9db92f4e4c161
 workflow-type: tm+mt
-source-wordcount: '9113'
+source-wordcount: '9537'
 ht-degree: 0%
 
 ---
@@ -248,9 +248,18 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 #### 10. ユーザーに複数のMVPD プロファイルがある場合、クライアントアプリケーションは何を行いますか？ {#authentication-phase-faq10}
 
-ユーザーが複数のMVPD プロファイルを持っている場合、クライアントアプリケーションは、このシナリオを処理する最適なアプローチを決定する責任を負います。
+複数のプロファイルをサポートするかどうかは、クライアントアプリケーションのビジネス要件によって決まります。
+
+ほとんどのユーザーは、1 つのプロファイルしか持ちません。 ただし、（以下で詳しく説明するように）複数のプロファイルが存在する場合、クライアントアプリケーションは、プロファイル選択に最適なユーザーエクスペリエンスを決定する責任を負います。
 
 クライアントアプリケーションは、応答から最初のユーザープロファイルを選択するか、有効期間が最も長いプロファイルを選択するかのように、目的のMVPD プロファイルを選択するようにユーザーに求めるか、自動的に選択するかを選択できます。
+
+REST API v2 は、次の要件に対応するために複数のプロファイルをサポートしています。
+
+* 通常のMVPD プロファイルと、シングルサインオン（SSO）を介して取得したプロファイルのいずれかを選択する必要がある場合のユーザー。
+* 通常のMVPDからログアウトしなくても、一時的なアクセスが提供されるユーザー。
+* MVPD サブスクリプションを Direct-to-Consumer （DTC） サービスと組み合わせたユーザー。
+* 複数のMVPD サブスクリプションを持つユーザー。
 
 #### 11. ユーザープロファイルが期限切れになるとどうなりますか。 {#authentication-phase-faq11}
 
@@ -332,9 +341,35 @@ MVPDと特定のメタデータ属性に応じて、特定のメタデータ属�
 
 #### 18. クライアント・アプリケーションは、縮退アクセスをどのように管理する必要がありますか。 {#authentication-phase-faq18}
 
-組織が [degradation](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md) 機能を使用する予定であることを考慮すると、クライアントアプリケーションは、劣化したアクセスフローを処理する必要があります。これは、このようなシナリオで REST API v2 エンドポイントがどのように動作するかについて説明しています。
+[ 最適化機能 ](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md) を使用すると、クライアントアプリケーションは、MVPDの認証サービスや承認サービスで問題が発生した場合でも、ユーザーのシームレスなストリーミングエクスペリエンスを維持できます。
+
+要約すると、MVPDの一時的なサービス停止にもかかわらず、コンテンツへのアクセスが中断されないようにすることができます。
+
+組織がプレミアム劣化機能を使用する予定であることを考慮すると、クライアントアプリケーションは、劣化したアクセスフローを処理する必要があります。これは、このようなシナリオで REST API v2 エンドポイントがどのように動作するかについて概要を説明しています。
 
 詳しくは、「アクセス フローの低下 [ のドキュメントを参照し ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/degraded-access-flows/rest-api-v2-access-degraded-flows.md) ください。
+
+#### 19. クライアントアプリケーションは、一時的なアクセスをどのように管理する必要がありますか？ {#authentication-phase-faq19}
+
+[TempPass 機能 ](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md) を使用すると、クライアントアプリケーションからユーザーへの一時的なアクセスを提供できます。
+
+要約すると、指定した期間、コンテンツまたは事前定義済みの数のVOD タイトルへの時間限定アクセスを提供することで、ユーザーを引き付けることができます。
+
+組織がプレミアム TempPass 機能を使用する予定であることを考慮すると、クライアントアプリケーションは、このようなシナリオで REST API v2 エンドポイントがどのように動作するかについて説明した、一時的なアクセスフローを処理する必要があります。
+
+以前の API バージョンでは、一時的なアクセスを提供するために、クライアントアプリケーションは、通常のMVPDで認証されたユーザーをログアウトする必要がありました。
+
+REST API v2 を使用すると、クライアントアプリケーションは、ストリームの認証時に通常のMVPDと TempPass MVPDをシームレスに切り替えることができ、ユーザーがログアウトする必要がなくなります。
+
+詳しくは、[ 一時的なアクセスフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md) ドキュメントを参照してください。
+
+#### 20. クライアントアプリケーションは、クロスデバイスのシングルサインオンアクセスをどのように管理する必要がありますか？ {#authentication-phase-faq20}
+
+クライアントアプリケーションがデバイス間で一貫した一意のユーザー ID を提供する場合、REST API v2 はクロスデバイスのシングルサインオンを有効にできます。
+
+この識別子はサービストークンと呼ばれ、任意の外部 ID サービスの実装または統合を通じて、クライアントアプリケーションによって生成される必要があります。
+
+詳しくは、[ サービストークンフローを使用したシングルサインオン ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md) ドキュメントを参照してください。
 
 +++
 
@@ -574,9 +609,15 @@ Authorization ヘッダー値は、登録段階でAdobe Pass Authentication か�
 >
 > クライアントアプリケーションが REST API V1 から REST API V2 に移行する場合、クライアントアプリケーションは引き続き同じ方法を使用して、以前と同じようにデバイス情報の値を計算できます。
 
-[X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) リクエストヘッダーには、実際のストリーミングデバイスに関連するクライアント情報（デバイス、接続、アプリケーション）が含まれます。
+[X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) 要求ヘッダーは、実際のストリーミング デバイスに関連するクライアント情報（デバイス、接続、およびアプリケーション）を格納し、MVPD が適用する可能性のあるプラットフォーム固有のルールを決定するために使用されます。
 
 [X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) ヘッダーのドキュメントには、値の計算方法に関する主なプラットフォームの例が記載されていますが、クライアントアプリケーションは、独自のビジネスロジックと要件に基づいて別の方法を使用するように選択できます。
+
+[X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) ヘッダーがない場合や、値が正しくない場合、リクエストは、`unknown` プラットフォームからのリクエストとして分類される場合があります。
+
+その結果、リクエストが安全ではないものとして扱われ、認証 TTL の短縮など、より制限が厳しいルールの対象となる可能性があります。 さらに、ストリーミングデバイスの `connectionIp` や `connectionPort` などの一部のフィールドは、Spectrum の [ ホームベース認証 ](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md) などの機能に必須です。
+
+デバイスの代わりにサーバーからリクエストが送信された場合でも、[X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) ヘッダー値には、実際のストリーミングデバイス情報が反映されている必要があります。
 
 +++
 

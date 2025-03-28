@@ -2,9 +2,9 @@
 title: ヘッダー – X-Device-Info
 description: REST API V2 - ヘッダー – X-Device-Info
 exl-id: 0ef25e06-86de-427a-a938-7ba3817f0d5e
-source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
+source-git-commit: 42df16e34783807e1b5eb1a12ca9db92f4e4c161
 workflow-type: tm+mt
-source-wordcount: '1122'
+source-wordcount: '1133'
 ht-degree: 2%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 2%
 
 ## 概要 {#overview}
 
-<b>X-Device-Info</b> リクエストヘッダーには、実際のストリーミングデバイスに関連するクライアント情報（デバイス、接続、アプリケーション）が含まれます。
+<b>X-Device-Info</b> 要求ヘッダーは、実際のストリーミング デバイスに関連するクライアント情報（デバイス、接続、およびアプリケーション）を格納し、MVPD が適用する可能性のあるプラットフォーム固有のルールを決定するために使用されます。
 
 ## 構文 {#syntax}
 
