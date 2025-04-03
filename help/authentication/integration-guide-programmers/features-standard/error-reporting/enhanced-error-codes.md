@@ -2,10 +2,10 @@
 title: 拡張エラーコード
 description: 拡張エラーコード
 exl-id: 2b0a9095-206b-4dc7-ab9e-e34abf4d359c
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 27aaa0d3351577e60970a4035b02d814f0a17e2f
 workflow-type: tm+mt
-source-wordcount: '2610'
-ht-degree: 2%
+source-wordcount: '2649'
+ht-degree: 3%
 
 ---
 
@@ -13,7 +13,7 @@ ht-degree: 2%
 
 >[!IMPORTANT]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 拡張エラーコードは、Adobe Passの認証機能を表し、と統合されたクライアントアプリケーションに追加のエラー情報を提供します。
 
@@ -45,8 +45,8 @@ ht-degree: 2%
 
 | Adobe Pass認証 API | JSON | XML |
 |-------------------------------|---------|---------|
-| REST API v1 | &amp;check; | &amp;check; |
 | REST API v2 | &amp;check; |         |
+| REST API v1 | &amp;check; | &amp;check; |
 | SDK 事前認証 API | &amp;check; |         |
 
 >[!IMPORTANT]
@@ -62,9 +62,105 @@ ht-degree: 2%
 >
 > 統合された各Adobe Pass認証 API の公開ドキュメントを確認して、拡張エラーコード表現の詳細を判断します。
 
-`JSON` または `XML` で表された拡張エラーコードを含む次の HTTP 応答の例を参照してください。
+**REST API v2**
+
+REST API v2 に適用できる例として示されている拡張エラーコードを含む次の HTTP 応答 `JSON` 参照してください。
 
 >[!BEGINTABS]
+
+>[!TAB REST API v2 – 項目レベルのエラー情報（JSON） ]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "decisions": [
+    {
+      "resource": "REF30",
+      "serviceProvider": "REF30",
+      "mvpd": "Cablevision",
+      "source": "mvpd",
+      "authorized": true,
+      "token": {
+        "issuedAt": 1697094207324,
+        "notBefore": 1697094207324,
+        "notAfter": 1697094802367,
+        "serializedToken": "PHNpZ25hdHVyZUluZm8..."
+      }
+    },
+    {
+      "resource": "REF40",
+      "serviceProvider": "REF40",
+      "mvpd": "Cablevision",
+      "source": "mvpd",
+      "authorized": false,
+      "error" : {
+        "action": "none",
+        "status": 403,
+        "code": "authorization_denied_by_mvpd",
+        "message": "The MVPD has returned a \"Deny\" decision when requesting authorization for the specified resource",
+        "details": "Your subscription package does not include the \"Live\" channel",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+        "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
+      }
+    }
+  ]
+}
+```
+
+>[!TAB REST API v2 – 最上位のエラー情報（JSON） ]
+
+```JSON
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+  "action": "none",
+  "status": 400,
+  "code": "invalid_parameter_service_provider",
+  "message": "The service provider parameter value is missing or invalid.",
+  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+  "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
+}
+```
+
+>[!ENDTABS]
+
+**REST API v1**
+
+REST API v1 に適用できる `JSON` または `XML` として表される、拡張エラーコードを含む次の HTTP 応答の例を参照してください。
+
+>[!BEGINTABS]
+
+>[!TAB REST API v1 – 項目レベルのエラー情報（JSON） ]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "resources": [
+    {
+      "id": "TestStream1",
+      "authorized": true
+    },
+    {
+      "id": "TestStream2",
+      "authorized": false,
+      "error": {
+        "action": "none",
+        "status": 403,
+        "code": "authorization_denied_by_mvpd",
+        "message": "The MVPD has returned a \"Deny\" decision when requesting authorization for the specified resource",
+        "details": "Your subscription package does not include the \"Live\" channel",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+        "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
+      }
+    }
+  ]
+}
+```
 
 >[!TAB REST API v1 – 最上位のエラー情報（JSON） ]
 
@@ -98,102 +194,18 @@ Content-Type: application/xml
 </error>
 ```
 
->[!TAB REST API v1 – 項目レベルのエラー情報（JSON） ]
-
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "resources": [
-    {
-      "id": "TestStream1",
-      "authorized": true
-    },
-    {
-      "id": "TestStream2",
-      "authorized": false,
-      "error": {
-        "action": "retry",
-        "status": 403,
-        "code": "network_connection_failure",
-        "message": "Unable to contact your TV provider services",
-        "details": "Your subscription package does not include the \"Live\" channel",
-        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-        "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
-      }
-    }
-  ]
-}
-```
-
->[!TAB REST API v2 – 最上位のエラー情報（JSON） ]
-
-```JSON
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
-{
-  "action": "none",
-  "status": 400,
-  "code": "invalid_parameter_service_provider",
-  "message": "The service provider parameter value is missing or invalid.",
-  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-  "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
-}
-```
-
->[!TAB REST API v2 – 項目レベルのエラー情報（JSON） ]
-
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "decisions": [
-    {
-      "resource": "REF30",
-      "serviceProvider": "REF30",
-      "mvpd": "Cablevision",
-      "source": "mvpd",
-      "authorized": true,
-      "token": {
-        "issuedAt": 1697094207324,
-        "notBefore": 1697094207324,
-        "notAfter": 1697094802367,
-        "serializedToken": "PHNpZ25hdHVyZUluZm8..."
-      }
-    },
-    {
-      "resource": "REF40",
-      "serviceProvider": "REF40",
-      "mvpd": "Cablevision",
-      "source": "mvpd",
-      "authorized": false,
-      "error" : {
-        "action": "retry",
-        "status": 403,
-        "code": "network_connection_failure",
-        "message": "Unable to contact your TV provider services",
-        "details": "Your subscription package does not include the \"Live\" channel",
-        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-        "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
-      }
-    }
-  ]
-}
-```
-
 >[!ENDTABS]
 
-拡張エラーコードには、次の `JSON` フィールドまたは `XML` 属性が含まれます。
+### 構造 {#enhanced-error-codes-representation-structure}
+
+拡張エラーコードには、例を使用した次の `JSON` フィールドまたは `XML` 属性が含まれます。
 
 | 名前 | タイプ | 例 | 制限付き | 説明 |
 |-----------|-----------|---------------------------------------------------------------------------------------------------------------------|:----------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *アクション* | *文字列* | *再試行* | &amp;check; | Adobe Pass認証は、このドキュメントで定義されている状況を修正する可能性のある、推奨されるアクションを行います。 <br/><br/> 詳しくは、[ アクション ](#enhanced-error-codes-action) の節を参照してください。 |
+| *アクション* | *文字列* | *なし* | &amp;check; | Adobe Pass認証は、このドキュメントで定義されている状況を修正する可能性のある、推奨されるアクションを行います。 <br/><br/> 詳しくは、[ アクション ](#enhanced-error-codes-action) の節を参照してください。 |
 | *ステータス* | *整数* | *403* | &amp;check; | [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6) ドキュメントで定義されている HTTP 応答ステータスコード。 <br/><br/> 詳しくは、[ ステータス ](#enhanced-error-codes-status) の節を参照してください。 |
-| *code* | *文字列* | *network_connection_failure* | &amp;check; | このドキュメントで定義されているように、エラーに関連付けられたAdobe Pass認証の一意の ID コード。 <br/><br/> 詳しくは、[ コード ](#enhanced-error-codes-code) の節を参照してください。 |
-| *message* | *文字列* | *テレビ プロバイダ サービスに接続できません* |            | 場合によってはエンドユーザーに表示される可能性がある、人間が判読できるメッセージ。 <br/><br/> 詳しくは、[ 応答の処理 ](#enhanced-error-codes-response-handling) の節を参照してください。 |
+| *code* | *文字列* | *authorization_denied_by_mvpd* | &amp;check; | このドキュメントで定義されているように、エラーに関連付けられたAdobe Pass認証の一意の ID コード。 <br/><br/> 詳しくは、[ コード ](#enhanced-error-codes-code) の節を参照してください。 |
+| *message* | *文字列* | *指定されたリソースの認証をリクエストしたときに、MVPDから「拒否」の決定が返されました* |            | 場合によってはエンドユーザーに表示される可能性がある、人間が判読できるメッセージ。 <br/><br/> 詳しくは、[ 応答の処理 ](#enhanced-error-codes-response-handling) の節を参照してください。 |
 | *詳細* | *文字列* | *サブスクリプションパッケージに「ライブ」チャネルが含まれていません* |            | サービスパートナーが提供できる場合がある詳細なメッセージ <br/><br/> サービスパートナーがカスタムメッセージを提供しない場合、このフィールドは存在しない可能性があります。 |
 | *helpUrl* | *url* | *https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html* |            | このエラーが発生した理由と考えられる解決策の詳細に関するリンクのAdobe Pass認証の公開ドキュメント URL。 <br/><br/> このフィールドには絶対 URL が格納されます。エラーコードから推論しないでください。エラーコンテキストに応じて、別の URL を指定できます。 |
 | *トレース* | *文字列* | *12f6fef9-d2e0-422b-a9d7-60d799abe353* |            | 特定の問題のトラブルシューティングのためにAdobe Pass Authentication サポートに連絡する際に使用できる、レスポンスの一意の ID。 |
