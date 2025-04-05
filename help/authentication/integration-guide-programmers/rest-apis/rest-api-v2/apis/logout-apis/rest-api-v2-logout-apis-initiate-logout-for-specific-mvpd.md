@@ -2,9 +2,9 @@
 title: 特定の mvpd に対するログアウトの開始
 description: REST API V2 – 特定の mvpd のログアウトの開始
 exl-id: 2482de87-b3d4-4ea8-bd4a-25bf10017e01
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 32c3176fb4633acb60deb1db8fb5397bbf18e2d0
 workflow-type: tm+mt
-source-wordcount: '1006'
+source-wordcount: '1009'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
@@ -60,7 +60,7 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">redirectUrl</td>
       <td>
-        MVPD のログアウトフローが完了したときにユーザーエージェントが移動する最後のリダイレクト URL。
+        MVPDのログアウトフローが完了すると、ユーザーエージェントが移動する最後のリダイレクト URL です。
         <br/><br/>
         値は URL エンコードする必要があります。
       </td>
@@ -106,9 +106,9 @@ ht-degree: 0%
       <td>optional</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Adobe件名トークン</td>
+      <td style="background-color: #DEEBFF;">Adobe-Subject-Token<br/> または <br/>X-Roku-Reserved-Roku-Connect-Token</td>
       <td>
-        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Header-Subject-Token</a> Adobeドキュメントを参照してください。
+        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a> / <a href="../../appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md">X-Roku-Reserved-Roku-Connect-Token</a> ヘッダードキュメントに記載されています。
         <br/><br/>
         プラットフォーム ID を使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> プラットフォーム ID フローを使用したシングルサインオン </a> ドキュメントを参照してください。
       </td>
@@ -238,10 +238,10 @@ ht-degree: 0%
                   <br/><br/>
                   使用可能な値は次のとおりです。
                   <ul>
-                    <li><b> ログアウト </b><br/> ストリーミングデバイスは、指定された URL をユーザーエージェントで開く必要があります。<br/> このアクションは、次のシナリオに適用されます：ログアウトエンドポイントを使用して MVPD からログアウトします。</li>
-                    <li><b>partner_logout</b><br/> ストリーミングデバイスは、パートナー（システム）レベルからもログアウトするようにユーザーに通知する必要があります。<br/> このアクションは、次のシナリオに適用されます：プロファイルタイプが「appleSSO」の場合は MVPD からログアウトします。</li>
-                    <li><b> 完了 </b><br/> ストリーミングデバイスは後続のアクションを実行する必要はありません。<br/> このアクションは、ログアウトエンドポイントを使用せずに MVPD からログアウトする（ダミーのログアウト機能）、縮退アクセス時にログアウトする、一時アクセス時にログアウトする、といったシナリオに適用されます。</li>
-                    <li><b> 無効 </b><br/> ストリーミングデバイスは後続のアクションを実行する必要はありません。<br/> このアクションは、次のシナリオに適用されます。有効なプロファイルが見つからない場合に MVPD からログアウトします。</li>
+                    <li><b> ログアウト </b><br/> ストリーミングデバイスは、指定された URL をユーザーエージェントで開く必要があります。<br/> このアクションは、次のシナリオに適用されます：ログアウトエンドポイントを使用してMVPDからログアウトします。</li>
+                    <li><b>partner_logout</b><br/> ストリーミングデバイスは、パートナー（システム）レベルからもログアウトするようにユーザーに通知する必要があります。<br/> これは、次のシナリオに当てはまります。プロファイルタイプが「appleSSO」の場合にMVPDからログアウトします。</li>
+                    <li><b> 完了 </b><br/> ストリーミングデバイスは後続のアクションを実行する必要はありません。<br/> この操作は、ログアウトエンドポイントを使用せずにMVPDからログアウトする（ダミーのログアウト機能）、縮退アクセス時にログアウトする、一時アクセス時にログアウトする、といったシナリオに適用されます。</li>
+                    <li><b> 無効 </b><br/> ストリーミングデバイスは後続のアクションを実行する必要はありません。<br/> これは、次のシナリオに当てはまります。有効なプロファイルが見つからない場合にMVPDからログアウトする。</li>
                   </ul>  
                <td><i>必須</i></td>
             </tr>
@@ -266,7 +266,7 @@ ht-degree: 0%
             <tr>
                <td style="background-color: #DEEBFF;">url</td>
                <td>
-                  MVPD エンドポイントでログアウト フローを実行するために使用される URL。
+                  MVPD エンドポイントでログアウトフローを実行するために使用される URL。
                   <br/><br/>
                   これは、「actionName」属性の次の値には存在しません。
                   <ul>
@@ -394,7 +394,7 @@ Content-Type: application/json;charset=UTF-8
 >
 > <br/>
 >
-> * MVPD にはログアウトエンドポイントがあります。
+> * MVPDにはログアウトエンドポイントがあります。
 
 >[!BEGINTABS]
 
@@ -440,7 +440,7 @@ Content-Type: application/json;charset=UTF-8
 >
 > <br/>
 >
-> * MVPD にはログアウトエンドポイントがあります。
+> * MVPDにはログアウトエンドポイントがあります。
 
 >[!BEGINTABS]
 

@@ -2,9 +2,9 @@
 title: 特定の mvpd のプロファイルの取得
 description: REST API V2 – 特定の mvpd のプロファイルを取得します
 exl-id: ed1abc33-c279-4465-b5a0-b4e5b892076e
-source-git-commit: edfde4b463dd8b93dd770bc47353ee8ceb6f39d2
+source-git-commit: 32c3176fb4633acb60deb1db8fb5397bbf18e2d0
 workflow-type: tm+mt
-source-wordcount: '1057'
+source-wordcount: '1060'
 ht-degree: 1%
 
 ---
@@ -96,9 +96,9 @@ ht-degree: 1%
       <td>optional</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Adobe-Subject-Token</td>
+      <td style="background-color: #DEEBFF;">Adobe-Subject-Token<br/> または <br/>X-Roku-Reserved-Roku-Connect-Token</td>
       <td>
-        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a> ヘッダーのドキュメントを参照してください。
+        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a> / <a href="../../appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md">X-Roku-Reserved-Roku-Connect-Token</a> ヘッダードキュメントに記載されています。
         <br/><br/>
         プラットフォーム ID を使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> プラットフォーム ID フローを使用したシングルサインオン </a> ドキュメントを参照してください。
       </td>

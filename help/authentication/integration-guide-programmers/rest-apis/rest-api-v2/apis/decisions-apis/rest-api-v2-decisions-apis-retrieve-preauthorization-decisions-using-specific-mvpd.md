@@ -2,9 +2,9 @@
 title: 特定の mvpd を使用した事前認証決定の取得
 description: REST API V2 – 特定の mvpd を使用した事前認証決定の取得
 exl-id: 8647e4fb-00b6-45cd-b81b-d00618b2e08b
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 32c3176fb4633acb60deb1db8fb5397bbf18e2d0
 workflow-type: tm+mt
-source-wordcount: '789'
+source-wordcount: '792'
 ht-degree: 1%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
@@ -59,7 +59,7 @@ ht-degree: 1%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">リソース</td>
-      <td>表示される前に MVPD 決定を必要とするリソースのリスト。</td>
+      <td>表示される前にMVPDの決定が必要なリソースのリスト。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -111,9 +111,9 @@ ht-degree: 1%
       <td>optional</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Adobe件名トークン</td>
+      <td style="background-color: #DEEBFF;">Adobe-Subject-Token<br/> または <br/>X-Roku-Reserved-Roku-Connect-Token</td>
       <td>
-        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Header-Subject-Token</a> Adobeドキュメントを参照してください。
+        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a> / <a href="../../appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md">X-Roku-Reserved-Roku-Connect-Token</a> ヘッダードキュメントに記載されています。
         <br/><br/>
         プラットフォーム ID を使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> プラットフォーム ID フローを使用したシングルサインオン </a> ドキュメントを参照してください。
       </td>
@@ -257,7 +257,7 @@ ht-degree: 1%
                   <br/><br/>
                   使用可能な値は次のとおりです。
                   <ul>
-                    <li><b>mvpd</b><br/>Decision は、MVPD 事前認証エンドポイントによって発行されます。</li>
+                    <li><b>mvpd</b><br/>Decision は、MVPD事前認証エンドポイントによって発行されます。</li>
                     <li><b>degradation</b><br/>Decision は、アクセスが低下した結果として発行されます。</li>
                     <li><b>tempass</b><br/>Decision は、一時的なアクセスの結果として発行されます。</li>
                     <li><b>dummy</b><br/>Decision は、ダミーの事前認証機能の結果として発行されます。</li>
