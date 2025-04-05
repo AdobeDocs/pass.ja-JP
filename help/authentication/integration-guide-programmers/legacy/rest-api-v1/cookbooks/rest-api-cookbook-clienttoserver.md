@@ -2,9 +2,9 @@
 title: REST API クックブック（クライアントからサーバー）
 description: Rest API クックブッククライアントからサーバーへ。
 exl-id: f54a1eda-47d5-4f02-b343-8cdbc99a73c0
-source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
+source-git-commit: 640ba7073f7f4639f980f17f1a59c4468bfebcf4
 workflow-type: tm+mt
-source-wordcount: '888'
+source-wordcount: '886'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
@@ -30,7 +30,7 @@ ht-degree: 0%
 
 Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) によって制御されます。
 
-## Components {#components}
+## コンポーネント {#components}
 
 動作しているクライアントからサーバーへのソリューションには、次のコンポーネントが関係しています。
 
@@ -41,7 +41,7 @@ Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authent
 | ストリーミングデバイス | ストリーミングアプリ | ユーザーのストリーミングデバイス上に存在し、認証済みビデオを再生するプログラマーアプリケーション。 |
 | | \[ オプション\] AuthN モジュール | streaming Device にユーザーエージェント（Web ブラウザー）がある場合、MVPD IdP 上でユーザーの認証は AuthN モジュールが行います。 |
 | \[ オプション\] AuthN デバイス | AuthN アプリ | ストリーミングデバイスにユーザーエージェント（Web ブラウザー）がない場合、AuthN アプリケーションは、Web ブラウザーを使用して別のユーザーのデバイスからアクセスする、プログラマー向けの Web アプリケーションです。 |
-| Adobe基盤 | Adobe Pass サービス | MVPD IdP および AuthZ サービスと統合され、認証と承認の決定を行うサービス。 |
+| Adobe インフラストラクチャ | Adobe Pass サービス | MVPD IdP および AuthZ サービスと統合され、認証と承認の決定を行うサービス。 |
 | MVPD インフラストラクチャ | MVPD IdP | ユーザーの ID を検証するために、資格情報ベースの認証サービスを提供するMVPD エンドポイント。 |
 | | MVPD AuthZ サービス | ユーザーの購読、保護者による制限などに基づいて認証の決定を行うMVPD エンドポイント。 |
 
@@ -72,7 +72,7 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 1. ユーザーが 2nd screen ログインアプリへのアクセスに使用する登録コードと URL を取得し、ユーザーに提示します。
 
-   a. ハッシュ化されたデバイス ID と「Registration URL」を渡して、AdobePOSTコードサービスに登録リクエストを送信します。  例：[`<REGGIE_FQDN>/reggie/v1/[requestorId]/regcode [device ID]`](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md)
+   a. ハッシュ化されたデバイス ID と「登録 URL」を渡して、Adobe Registration Code Service に POST リクエストを送信します。  例：[`<REGGIE_FQDN>/reggie/v1/[requestorId]/regcode [device ID]`](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md)
 
    b.返された登録コードと URL をユーザーに提示します。
 
@@ -84,7 +84,7 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 1. ユーザーは 2 番目の画面アプリから戻り、デバイスの「続行」ボタンを押します。 または、ポーリングメカニズムを実装して認証ステータスを確認することもできますが、Adobe Pass認証では、ポーリングよりも「続行」ボタンを使用することをお勧めします。 <!--(For information on employing a "Continue" button versus polling the Adobe Pass Authentication backend server, see the Clientless Technical Overview: Managing 2nd-Screen Workflow Transition.)--> 例：[\&lt;SP\_FQDN\>/api/v1/tokens/authn](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md)
 
-2. Adobe Pass Authentication Authorization サービスにGETリクエストを送信して、認証を開始します。 例：`<SP_FQDN>/api/v1/authorize [device ID, Requestor ID, Resource ID]`
+2. GET リクエストをAdobe Pass Authentication Authorization サービスに送信して、認証を開始します。 例：`<SP_FQDN>/api/v1/authorize [device ID, Requestor ID, Resource ID]`
 
 <!-- end list -->
 
@@ -140,7 +140,6 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 一部のデバイスは、Platform シングルサインオン（SSO）用の専用サポートを提供しています。
 
 * [AMAZON SSO](../../sso-access/amazon-sso-cookbook-rest-api-v1.md)
-* [Roku SSO](../../../features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-overview.md)
 
 ## REST API の TempPass およびプロモーション TempPass {#temppass}
 

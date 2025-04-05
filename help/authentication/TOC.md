@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 7e56c0a3651290376a72752638f463cf9415ec0e
+source-git-commit: 640ba7073f7f4639f980f17f1a59c4468bfebcf4
 workflow-type: tm+mt
-source-wordcount: '1248'
+source-wordcount: '1257'
 ht-degree: 2%
 
 ---
@@ -61,13 +61,14 @@ ht-degree: 2%
          + [Dynamic Client Registration の概要](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)
          + [動的クライアント登録の用語集](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-glossary.md)
          + [Dynamic Client Registration の FAQ](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md)
-         + API の {#rest-api-dcr-apis}
+         + API {#rest-api-dcr-apis}
             + [クライアント資格情報の取得](integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md)
-            + [アクセストークンの取得](integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md)
+            + [アクセストークンを取得](integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md)
          + フロー {#rest-api-dcr-flows}
             + [動的なクライアント登録フロー](integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)
       + REST API V2 {#rest-api-v2}
          + [REST API V2 の概要](integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)
+         + [REST API V2 チェックリスト](integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-checklist.md)
          + [REST API V2 の用語集](integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md)
          + [REST API V2 の FAQ](integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md)
          + API の {#rest-api-v2-apis}
@@ -119,11 +120,12 @@ ht-degree: 2%
                + [ヘッダー – AP デバイス識別子](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md)
                + [ヘッダー – X-Device-Info](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md)
                + [ヘッダー – AD-Service-Token](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md)
-               + [Header - Adobe-Subject-Token](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)
-               + [ヘッダー – AP-Partner-Framework-Status](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)
-               + [ヘッダー – AP-TempPass-Identity](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
+               + [ヘッダー - Adobe Systems-件名-トークン](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)
+               + [ヘッダー - X-Roku-Reserved-Roku-Connect-トークン](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md)
+               + [ヘッダー - AP-パートナー-フレームワーク-ステータス](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)
+               + [ヘッダー - AP-TempPass-IDサービス](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
    + 標準機能 {#standard-features}
-      + 使用権限 {#entitlements}
+      + 権限 {#entitlements}
          + [ユーザーメタデータ](integration-guide-programmers/features-standard/entitlements/user-metadata.md)
          + [決定](integration-guide-programmers/features-standard/entitlements/decisions.md)
          + [メディアトークン](integration-guide-programmers/features-standard/entitlements/media-tokens.md)
@@ -138,7 +140,7 @@ ht-degree: 2%
             + Amazonのシングルサインオン {#amazon-sso}
                + [Amazon SSO クックブック（REST API V2）](integration-guide-programmers/features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
             + Roku のシングルサインオン {#roku-sso}
-               + [Roku SSO の概要](integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-overview.md)
+               + [Roku SSO クックブック（REST API V2）](integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-cookbook-rest-api-v2.md)
       + ホーム ベースの認証アクセス {#hba-access}
          + [ホームベースの認証（HBA）](integration-guide-programmers/features-standard/hba-access/home-based-authentication.md)
       + プライバシーサポート {#privacy-support}
@@ -180,10 +182,10 @@ ht-degree: 2%
             + [（レガシー）トークン交換](integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md)
             + [（レガシー）一時パスとプロモーション一時パスの無料プレビュー](integration-guide-programmers/legacy/rest-api-v1/apis/free-preview-for-temp-pass-and-promotional-temp-pass.md)
          + （レガシー）クックブックス {#rest-api-v1-cookbooks}
-            + [（レガシー） REST API V1 クックブック（クライアントからサーバー）](integration-guide-programmers/legacy/rest-api-v1/cookbooks/rest-api-cookbook-clienttoserver.md)
-            + [（レガシー） REST API V1 クックブック（サーバー間）](integration-guide-programmers/legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md)
-      + （レガシー） SDK {#sdks}
-         + （従来の）JavaScript SDK {#javascript-sdk}
+            + [(レガシー)REST API V1 クックブック (クライアント から サーバー へ)](integration-guide-programmers/legacy/rest-api-v1/cookbooks/rest-api-cookbook-clienttoserver.md)
+            + [(レガシー)REST API V1 クックブック (サーバー から サーバー)](integration-guide-programmers/legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md)
+      + (レガシー)SDK {#sdks}
+         + (レガシー)JavaScript SDK {#javascript-sdk}
             + [（従来の）JavaScript SDKの概要](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-overview.md)
             + [（従来の）JavaScript SDK クックブック](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-cookbook.md)
             + [（従来の）JavaScript SDK API リファレンス](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md)
@@ -213,9 +215,9 @@ ht-degree: 2%
             + [（従来の）Amazon FireOS API リファレンス](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md)
             + [（従来の）Amazon FireOS アプリケーションの登録](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-application-registration.md)
             + [（従来の） FireOS SDKと Dynamic Client Registration](integration-guide-programmers/legacy/sdks/fireos-sdk/fireos-sdk-with-dynamic-client-registration.md)
-            + [（従来の）Amazon FireOS SSO - プログラマー向けキックオフガイド](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-firetv-sso-programmer-kickoff-guide.md)
-      + （従来の） Client Information {#client-information}
-         + [（レガシー）クライアント情報（デバイス、接続、アプリケーション）の受け渡し](integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)
+            + [(レガシー)Amazon FireOS SSO - プログラマー キックオフ ガイド](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-firetv-sso-programmer-kickoff-guide.md)
+      + (レガシー)クライアント情報 {#client-information}
+         + [(レガシー)クライアント情報 (デバイス、接続、およびアプリケーション) を渡す](integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)
       + （レガシー）エラー報告 {#error-reporting}
          + [（レガシー）エラーレポート](integration-guide-programmers/legacy/error-reporting/error-reporting.md)
       + （レガシー）シングルサインオンアクセス {#sso-access}
@@ -239,12 +241,12 @@ ht-degree: 2%
             + （従来の）JavaScript SDK {#javascript-sdk}
                + [（従来の）トラッキング防止の評価 – Apple Safari](integration-guide-programmers/legacy/notes-technical/tracking-prevention-assessment-apple-safari.md)
                + [（従来の）トラッキング防止評価 – Google Chrome](integration-guide-programmers/legacy/notes-technical/tracking-prevention-assessment-google-chrome.md)
-               + [（従来の） Cookie の更新 – SameSite およびセキュアフラグ](integration-guide-programmers/legacy/notes-technical/cookies-updates-samesite-and-secure-flags.md)
-               + [（レガシー）デバッグのヒント](integration-guide-programmers/legacy/notes-technical/appendix-b-debugging-tips.md)
-            + （従来の）Android SDK {#android-sdk}
-               + [（従来）Android 10 アプリでの Access Enabler Android SDKのシングルサインオン（SSO）](integration-guide-programmers/legacy/notes-technical/access-enabler-android-sdk-single-signon-sso-on-android-10-devices.md)
-               + [（従来の）Adobe Pass認証とAndroid 6 「Marshmallow」新しい権限モデル](integration-guide-programmers/legacy/notes-technical/adobe-primetime-authentication-and-the-android-6-marshmallow-new-permissions-model.md)
-            + （従来の）iOS/tvOS SDK {#ios-tvos-sdk}
+               + [(レガシー)Cookie アップデート - SameSite フラグと Secure フラグ](integration-guide-programmers/legacy/notes-technical/cookies-updates-samesite-and-secure-flags.md)
+               + [(レガシー)デバッグのヒント](integration-guide-programmers/legacy/notes-technical/appendix-b-debugging-tips.md)
+            + (レガシー)Android SDK {#android-sdk}
+               + [(レガシー)Android 10 アプリでのイネーブラー Android SDK シングルサインオン(SSO)へのアクセス](integration-guide-programmers/legacy/notes-technical/access-enabler-android-sdk-single-signon-sso-on-android-10-devices.md)
+               + [(レガシー)Adobe Pass AuthenticationとAndroid 6「マシュマロ」新規権限モデル](integration-guide-programmers/legacy/notes-technical/adobe-primetime-authentication-and-the-android-6-marshmallow-new-permissions-model.md)
+            + (レガシー)iOS/tvOS SDK {#ios-tvos-sdk}
                + [（従来の）iOS SDK 3.1 以降での WKWebView のサポート](integration-guide-programmers/legacy/notes-technical/wkwebview-support-on-ios-sdk-31.md)
                + [（従来の）iOS SDK 3.2 以降での SFSafariViewController のサポート](integration-guide-programmers/legacy/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md)
                + [（従来の）iOSでAdobe Pass認証アクセスイネーブラを使用する場合の SSO](integration-guide-programmers/legacy/notes-technical/sso-on-ios-when-using-the-primetime-authentication-access-enabler.md)
@@ -273,8 +275,8 @@ ht-degree: 2%
    + [プロキシ MVPD Web サービス](integration-guide-mvpds/proxy-mvpd-webserv.md)
    + [プロキシMVPD SAML 統合](integration-guide-mvpds/proxy-mvpd-saml-int.md)
    + [サービスプロバイダーの範囲](integration-guide-mvpds/serv-provider-scoping.md)
-   + [MVPDの IP アドレスの許可](integration-guide-mvpds/mvpd-listing-ip-addres.md)
-+ TVE ダッシュボード {#user-guide-tve-dashboard} のユーザーガイド
+   + [MVPD Allow IP アドレス](integration-guide-mvpds/mvpd-listing-ip-addres.md)
++ ユーザガイド for TVE ダッシュボード {#user-guide-tve-dashboard}
    + [TVE ダッシュボードの概要](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md)
    + [環境](/help/authentication/user-guide-tve-dashboard/tve-dashboard-environments.md)
    + [変更のレビューとプッシュ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)

@@ -2,9 +2,9 @@
 title: パートナー認証要求の取得
 description: REST API V2 - パートナー認証リクエストの取得
 exl-id: 52d8a8e9-c176-410f-92bc-e83449278943
-source-git-commit: 5e5bb6a52a4629056fd52c7e79a11dba2b9a45db
+source-git-commit: 640ba7073f7f4639f980f17f1a59c4468bfebcf4
 workflow-type: tm+mt
-source-wordcount: '1230'
+source-wordcount: '1219'
 ht-degree: 0%
 
 ---
@@ -266,7 +266,6 @@ ht-degree: 0%
                   <ul>
                     <li><b> なし </b><br/> 認証を続行するには、クライアントアプリケーションが必要です。</li>
                     <li><b>authenticated</b><br/> クライアントアプリケーションは、基本的なアクセスフローを通じて既に認証されています。</li>
-                    <li><b>temporary</b><br/> クライアントアプリケーションは、一時的なアクセスフローを通じて既に認証されています。</li>
                     <li><b>degraded</b><br/> クライアントアプリケーションは、デグレードされたアクセスフローを通じて既に認証されています。</li>
                     <li><b>authenticatedSSO</b><br/> クライアントアプリケーションはシングルサインオンアクセスフローを通じてすでに認証されています。</li>
                     <li><b>pfs_fallback</b><br/> クライアントアプリケーションは、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md">AP-Partner-Framework-Status</a> ヘッダー値が見つからないか無効なため、基本認証フローにフォールバックする必要があります。</li>
