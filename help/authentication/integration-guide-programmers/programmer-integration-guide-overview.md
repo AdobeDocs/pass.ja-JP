@@ -2,7 +2,7 @@
 title: プログラマー統合ガイド
 description: プログラマー統合ガイド
 exl-id: 51461caf-08ef-459e-b284-8f317f45e7b1
-source-git-commit: 07bb12f7983f39b58e1b9795fdaa1bec4f68e674
+source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
 workflow-type: tm+mt
 source-wordcount: '2119'
 ht-degree: 0%
@@ -201,7 +201,7 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
 
 **よくある質問**
 
-* [ 認証フェーズに関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general)。
+* [認証フェーズの FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general)
 
 >[!TIP]
 >
@@ -236,7 +236,7 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
 
 **よくある質問**
 
-* [ 事前認証フェーズに関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#preauthorization-phase-faqs-general)。
+* [事前認証フェーズに関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#preauthorization-phase-faqs-general)
 
 >[!TIP]
 >
@@ -277,7 +277,7 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
 
 **よくある質問**
 
-* [ 承認フェーズに関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)。
+* [承認フェーズに関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)
 
 >[!TIP]
 >
@@ -297,7 +297,7 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
 
 **よくある質問**
 
-* [ ログアウトフェーズに関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#logout-phase-faqs-general)。
+* [ログアウトフェーズの FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#logout-phase-faqs-general)
 
 #### シングル ログアウト （SLO） {#single-logout}
 

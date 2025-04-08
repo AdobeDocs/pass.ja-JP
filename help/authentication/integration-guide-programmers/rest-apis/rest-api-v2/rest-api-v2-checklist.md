@@ -1,9 +1,10 @@
 ---
 title: REST API V2 チェックリスト
 description: REST API V2 チェックリスト
-source-git-commit: f0001d86f595040f4be74f357c95bd2919dadf15
+exl-id: 9095d1dd-a90c-4431-9c58-9a900bfba1cf
+source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
 workflow-type: tm+mt
-source-wordcount: '2535'
+source-wordcount: '2545'
 ht-degree: 0%
 
 ---
@@ -40,7 +41,7 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>アクセストークンのキャッシュ</i></td>
-      <td>アクセストークンを永続ストレージに保存し、期限が切れるまで再利用します。REST API v2 呼び出しごとに新しいトークンをリクエストしないでください。</td>
+      <td>アクセストークンを永続的なストレージに保存し、期限が切れるまで再利用します。<br/><br/>REST API v2 呼び出しごとに新しいトークンをリクエストしないでください。アクセストークンは期限切れになった場合にのみ更新します。</td>
       <td>システムリソースを過負荷にし、待ち時間が増加し、HTTP 429 「Too Many Requests」エラー応答がトリガーされる可能性があるリスクがあります。</td>
    </tr>
 </table>
@@ -85,7 +86,7 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>ポーリングメカニズムの設定</i></td>
-      <td>次の条件でポーリングメカニズムの頻度を設定します。<br/><br/><b><a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md"> プライマリ（画面）アプリケーション内で認証が実行され </a></b> す。<ul><li>プライマリ（ストリーミング）アプリケーションは、3～5 秒ごとにポーリングする必要があります。</li></ul><br/><b><a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md"> セカンダリ（画面）アプリケーション内で実行される認証 </a></b><ul><li>プライマリ（ストリーミング）アプリケーションは、3～5 秒ごとにポーリングする必要があります。</li></ul></td>
+      <td>次の条件でポーリングメカニズムの頻度を設定します。<br/><br/><b><a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md"> プライマリ（画面）アプリケーション内で認証が実行され </a></b> す。<ul><li>プライマリ（ストリーミング）アプリケーションは、3 ～ 5 秒以上ごとにポーリングする必要があります。</li></ul><br/><b><a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md"> セカンダリ（画面）アプリケーション内で実行される認証 </a></b><ul><li>プライマリ（ストリーミング）アプリケーションは、3～5 秒ごとにポーリングする必要があります。</li></ul></td>
       <td>システムリソースを過負荷にし、待ち時間が増加し、HTTP 429 「Too Many Requests」エラー応答がトリガーされる可能性があるリスクがあります。</td>
    </tr>
    <tr>
@@ -237,7 +238,7 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>アクセストークンの検証</i></td>
-      <td>プロアクティブにアクセストークンの有効性を確認し、期限切れになったら更新します。<br/><br/>HTTP 401 「未認証」エラーを処理する再試行メカニズムでは、最初にアクセストークンを更新してから元のリクエストを再試行するようにしてください。</td>
+      <td>アクセストークンの有効期限が切れたときに、プロアクティブに有効性を確認して更新します。<br/><br/>HTTP 401 「未認証」エラーを処理する再試行メカニズムでは、最初にアクセストークンを更新してから元のリクエストを再試行するようにしてください。</td>
       <td>HTTP 401 「未認証」エラー応答がトリガーされ、システムリソースが過負荷になり、待ち時間が長くなるリスクがあります。</td>
    </tr>
 </table>

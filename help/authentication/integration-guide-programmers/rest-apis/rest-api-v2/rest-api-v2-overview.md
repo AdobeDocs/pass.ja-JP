@@ -2,7 +2,7 @@
 title: REST API V2 の概要
 description: REST API V2 の概要
 exl-id: a5595193-82c4-4033-bd98-596b4908b401
-source-git-commit: f0001d86f595040f4be74f357c95bd2919dadf15
+source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
 workflow-type: tm+mt
 source-wordcount: '493'
 ht-degree: 0%
@@ -73,8 +73,8 @@ SDK または REST 呼び出しを通じて現在 API を使用しているす�
 
 開始するには、アドビの公開ドキュメントを参照してください。
 
-- [Checklist](rest-api-v2-checklist.md)
 - [用語集](rest-api-v2-glossary.md)
+- [Checklist](rest-api-v2-checklist.md)
 - [よくある質問](rest-api-v2-faqs.md)
 - [API](apis/rest-api-v2-apis-overview.md)
 - [フロー](flows/rest-api-v2-flows-overview.md)

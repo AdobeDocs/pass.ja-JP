@@ -2,9 +2,9 @@
 title: シングルサインオン – サービストークン – フロー
 description: REST API V2 - シングルサインオン – サービストークン – フロー
 exl-id: b0082d2a-e491-4cb5-bb40-35ba10db6b1a
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
 workflow-type: tm+mt
-source-wordcount: '1858'
+source-wordcount: '1857'
 ht-degree: 0%
 
 ---
@@ -126,7 +126,7 @@ ht-degree: 0%
 
    >[!TIP]
    >
-   > 提案：ストリーミングアプリケーションは、ユーザーエージェントが指定された `redirectUrl` に到達するのを待って、通常のプロファイルが正常に生成および保存されたかどうかを確認できます。
+   > ストリーミングアプリケーションは、ユーザーエージェントが指定された `redirectUrl` に到達して、通常のプロファイルが正常に生成および保存されたかどうかを確認するまで待つ必要があります。
 
 1. **標準プロファイルを検索：** Adobe Pass サーバーは、受信したパラメーターとヘッダーに基づいて有効なプロファイルを識別します。
 
