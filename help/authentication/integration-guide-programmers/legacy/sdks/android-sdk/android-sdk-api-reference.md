@@ -614,7 +614,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **コールバックがトリガーされました：** [`setMetadataStatus()`](#setMetadaStatus)
 
-**詳細情報：**[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
+**詳細情報：**&#x200B;[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
 
 [Android API に戻る…](#api)
 
@@ -676,7 +676,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **Trigger by:** [`getMetadata()`](#getMetadata)
 
-**詳細情報：**[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
+**詳細情報：**&#x200B;[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
 
 
 [Android API に戻る…](#api)

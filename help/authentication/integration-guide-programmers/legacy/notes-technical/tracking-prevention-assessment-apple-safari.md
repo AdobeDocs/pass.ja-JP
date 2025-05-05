@@ -86,7 +86,7 @@ AccessEnabler JavaScript SDKの前述の問題 **3 つのバージョンすべ�
 >AccessEnabler JavaScript SDK バージョン 2.x および AccessEnabler JavaScript SDK バージョン 3.x の場合、両方ともサードパーティ Cookie を認証プロセスに使用します。Safari 11 以降の ITP およびサードパーティ Cookie ポリシーにより、ログインできないなど、予想されない認証期間に達するまで、ユーザーの認証操作が未定義になる場合があります。
 
 
-### Safari 12 {#certified-functionality-of-accessenabler-javacscript=sdk-v4} での AccessEnabler JavaScript SDK v4 （バージョン 4.x）の認定機能
+### Safari 12 での AccessEnabler JavaScript SDK v4 （バージョン 4.x）の認定機能 {#certified-functionality-of-accessenabler-javacscript=sdk-v4}
 
 **認証** ユーザーの操作を利用するフローは、ユーザーのブラウザーでサードパーティ Cookie が無効になっていても常に機能します。これは、バージョン 4.0 以降、AccessEnabler JavaScript SDKが認証プロセスにサードパーティ Cookie を使用しなくなったためです。
 

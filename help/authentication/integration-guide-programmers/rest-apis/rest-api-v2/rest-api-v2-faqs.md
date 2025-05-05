@@ -21,7 +21,7 @@ REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/auth
 
 ## 一般的な FAQ {#general-faqs}
 
-[REST API V1} または [SDK](#migration-sdk-to-rest-api-v2) から移行する新規または既存のアプリケーションにかかわらず、REST API V2 を統合する必要があるアプリケーションを使用している場合は、この節から開始し ](#migration-rest-api-v1-to-rest-api-v2) ください。
+[&#128279;](#migration-rest-api-v1-to-rest-api-v2)REST API V1&rbrace; または [SDK](#migration-sdk-to-rest-api-v2) から移行する新規または既存のアプリケーションにかかわらず、REST API V2 を統合する必要があるアプリケーションを使用している場合は、この節から開始し  ください。
 
 移行の詳細と手順については、次の節も参照してください。
 
@@ -81,7 +81,7 @@ REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/auth
 
 クライアントアプリケーションは MVPD の独自のリストを管理できますが、MVPD ID とAdobe Pass Authentication を同期させる必要があります。 そのため、Adobe Pass Authentication から提供される設定を使用して、リストを最新かつ正確にすることをお勧めします。
 
-指定されたAdobe Pass ID が無効な場合や、指定された ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) サービスプロバイダー ](rest-api-v2-glossary.md#service-provider) とのアクティブな統合がない場合、クライアントアプリケーションはMVPD認証 REST API V2 から [ エラー [ を受け取ります。
+指定されたAdobe Pass ID が無効な場合や、指定された [&#128279;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) サービスプロバイダー [&#128279;](rest-api-v2-glossary.md#service-provider) とのアクティブな統合がない場合、クライアントアプリケーションはMVPD認証 REST API V2 から  エラー  を受け取ります。
 
 #### 6. クライアントアプリケーションは MVPD のリストをフィルタリングできますか。 {#configuration-phase-faq6}
 
@@ -483,7 +483,7 @@ REST API v2 を使用すると、クライアントアプリケーションは�
 
 認証決定は発行時に指定された限られた短い期間のみ有効で、MVPDに対する再度のクエリが必要になるまでの、Adobe Pass認証によってキャッシュされる時間を示します。
 
-この制限付き期間は、認証（authZ） [TTL](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#ttl) と呼ばれ、組織管理者の 1 人またはAdobe Pass認証担当者が ](rest-api-v2-glossary.md#tve-dashboard) 客様に代わってAdobe Pass[TVE ダッシュボード）を通じて表示および変更できます。
+この制限付き期間は、認証（authZ） [TTL](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#ttl) と呼ばれ、組織管理者の 1 人またはAdobe Pass認証担当者が [&#128279;](rest-api-v2-glossary.md#tve-dashboard) 客様に代わってAdobe PassTVE ダッシュボード）を通じて表示および変更できます。
 
 詳しくは、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) ドキュメントを参照してください。
 
@@ -653,7 +653,7 @@ Authorization ヘッダー値は、登録段階でAdobe Pass Authentication か�
 
 はい。
 
-[DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) および [REST API V2} の OpenAPI 仕様ファイルは、{4](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/)Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイトからダウンロードできます。[
+[DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) および [REST API V2&rbrace; の OpenAPI 仕様ファイルは、&lbrace;4](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/)Adobe Developer[&#128279;](https://developer.adobe.com/adobe-pass/) web サイトからダウンロードできます。
 
 OpenAPI 仕様ファイルをダウンロードするには、「ダウンロード」ボタンをクリックして、次のファイルをローカルマシンに保存します。
 
@@ -703,7 +703,7 @@ Adobe Pass認証では、2025 年末まで、REST API V1 またはSDKを統合�
 
 クライアントアプリケーションは、REST API V2 を統合した新しいバージョンを、すべてのAdobe Pass認証 API およびフローに同時にロールアウトする必要があります。
 
-「2 画面目の認証」フローの場合、クライアントアプリケーションは、「プライマリ」と「セカンダリ [ の両方のアプリケーションに対して REST API V2 を統合した新しいバージョンを同時にロ [ ルアウトす ](rest-api-v2-glossary.md#primary-application) 必要が ](rest-api-v2-glossary.md#secondary-application) ります。
+「2 画面目の認証」フローの場合、クライアントアプリケーションは、「プライマリ」と「セカンダリ [&#128279;](rest-api-v2-glossary.md#secondary-application) の両方のアプリケーションに対して REST API V2 を統合した新しいバージョンを同時にロ [ ルアウトす ](rest-api-v2-glossary.md#primary-application) 必要が  ります。
 
 Adobe Pass認証では、API とフローの間で REST API V2 と REST API V1/SDKの両方を統合する「ハイブリッド」実装をサポートしていません。
 

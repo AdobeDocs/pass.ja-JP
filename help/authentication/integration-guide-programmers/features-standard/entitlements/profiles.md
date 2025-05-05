@@ -14,7 +14,7 @@ ht-degree: 0%
 >
 > このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
-プロファイルは、ユーザーが有料テレビプロバイダー（MVPD](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) で正常に認証されると、Adobe Pass認証 [REST API V2）によって作成されます。
+プロファイルは、ユーザーが有料テレビプロバイダー（MVPD[&#128279;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) で正常に認証されると、Adobe Pass認証 REST API V2）によって作成されます。
 
 プロファイルのタイプは、使用する認証方法によって異なります。
 

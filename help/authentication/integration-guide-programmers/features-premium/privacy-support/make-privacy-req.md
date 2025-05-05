@@ -234,7 +234,7 @@ UI で、お客様は独自の IMSOrgID と、各製品の GDPR リクエスト�
 
 Adobe Experience Platform Privacy Serviceは、プライベートデータのアクセス/削除リクエストとオプトアウトリクエストを共通の一元化された方法で処理できるようにします。
 
-Adobeのお客様がPrivacy Service API を統合する方法について詳しくは **** Adobe API ドキュメントを参照してください。
+Adobeのお客様がPrivacy Service API を統合する方法について詳しくは **&#x200B;**&#x200B;Adobe API ドキュメントを参照してください。
 
 **Postman（無料のサードパーティソフトウェア）を使用した API 呼び出しの視覚化：**
 

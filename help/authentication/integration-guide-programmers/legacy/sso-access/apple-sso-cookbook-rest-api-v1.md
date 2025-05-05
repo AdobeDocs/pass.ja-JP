@@ -255,7 +255,7 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 >[!TIP]
 >
-> **<u>ヒント：</u>**[ 「Adobe設定を使用してパートナー SSO ワークフローを開始する」 ](#step4) ステップのコードスニペットに注意してください。 *`vsaMetadata!.accountProviderIdentifier`* に有効な値が含まれ、現在の日付が *`vsaMetadata!.authenticationExpirationDate`* 値を渡していない場合、ユーザーログインは成功します。
+> **<u>ヒント：</u>**&#x200B;[ 「Adobe設定を使用してパートナー SSO ワークフローを開始する」 ](#step4) ステップのコードスニペットに注意してください。 *`vsaMetadata!.accountProviderIdentifier`* に有効な値が含まれ、現在の日付が *`vsaMetadata!.authenticationExpirationDate`* 値を渡していない場合、ユーザーログインは成功します。
 
 #### 手順「選択したMVPDのAdobeからプロファイルリクエストを取得」 {#step6}
 
@@ -352,7 +352,7 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 >[!TIP]
 >
-> **<u>ヒント：</u>**[ 「プロファイルを取得するために、Adobeリクエストをパートナー SSO に転送する」 ](#step7) 手順のコードスニペットに注意してください。 この *`vsaMetadata!.samlAttributeQueryResponse!`* は、[ トークン交換 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md) で渡す必要がある *`SAMLResponse`* を表し、呼び出しを行う前に文字列操作とエンコード（*Base64* エンコードされ、*URL* 後でエンコードされた）が必要です。
+> **<u>ヒント：</u>**&#x200B;[ 「プロファイルを取得するために、Adobeリクエストをパートナー SSO に転送する」 ](#step7) 手順のコードスニペットに注意してください。 この *`vsaMetadata!.samlAttributeQueryResponse!`* は、[ トークン交換 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md) で渡す必要がある *`SAMLResponse`* を表し、呼び出しを行う前に文字列操作とエンコード（*Base64* エンコードされ、*URL* 後でエンコードされた）が必要です。
 
 #### 手順：「Adobeトークンは正常に生成されましたか？」 {#step9}
 
@@ -373,7 +373,7 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 * アプリケーションは、[ 登録コードを取得 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) し、1 番目のデバイス（画面）でエンドユーザーに提示する必要があります。
 * アプリケーションは、登録コードが取得された後、1 台目のデバイス（画面）で [ ポーリングして認証状態を確認する ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) 必要があります。
 * 別のアプリケーションは、登録コードが使用される場合、2 番目のデバイス（画面）で [ 認証を開始 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authentication.md) する必要があります。
-* 認証トークンが生成されると、アプリケーションは最初のデバイス ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) 画面）で [ ポーリング）を停止する必要があります。
+* 認証トークンが生成されると、アプリケーションは最初のデバイス [&#128279;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) 画面）で  ポーリング）を停止する必要があります。
 
 >[!TIP]
 >
@@ -381,8 +381,8 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 * アプリケーションは、[ 登録コードを取得 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) する必要があります。このコードは、1 番目のデバイス（画面）でエンドユーザーに表示されるべきではありません。
 * アプリケーションは、登録コードと [WKWebView](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authentication.md) または [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) コンポーネントを使用して、1 番目のデバイス（画面）で [ 認証を開始 ](https://developer.apple.com/documentation/webkit/wkwebview) する必要があります。
-* アプリケーションは、[WKWebView[ または [SFSafariViewController](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) コンポーネントが閉じた後、最初のデバイス（画面）で ](https://developer.apple.com/documentation/webkit/wkwebview) 認証状態に関する情報のポーリング ](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) を開始する必要があります。
-* 認証トークンが生成されると、アプリケーションは最初のデバイス ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) 画面）で [ ポーリング）を停止する必要があります。
+* アプリケーションは、[&#128279;](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller)WKWebView[&#128279;](https://developer.apple.com/documentation/webkit/wkwebview) または [SFSafariViewController](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) コンポーネントが閉じた後、最初のデバイス（画面）で  認証状態に関する情報のポーリング  を開始する必要があります。
+* 認証トークンが生成されると、アプリケーションは最初のデバイス [&#128279;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) 画面）で  ポーリング）を停止する必要があります。
 
 #### 手順：「認証フローを続行」 {#step11}
 
@@ -403,7 +403,7 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 > **<u>プロのヒント：</u>** tvOS の実装については、次の手順に従ってください。
 
 * アプリケーションは、Adobe Pass Authentication サービスの「*tokenSource」*[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md) を使用して、認証がパートナー SSO を介したログインの結果として発生したかどうかを判断する必要があります。
-* *&quot;tokenSource&quot;* の値が「*Apple **に等しい場合、tvOS の&#x200B;*`Settings -> Accounts -> TV Provider`*で明示的にログアウトするようにユーザーに指示またはプロンプトを表示する必要があります**のみ*。
+* *&quot;tokenSource&quot;* の値が「*Apple **に等しい場合、tvOS の&#x200B;*`Settings -> Accounts -> TV Provider`*で明示的にログアウトするようにユーザーに指示またはプロンプトを表示する必要があります**&#x200B;のみ*。
 * アプリケーションは、直接 HTTP 呼び出しを使用して、Adobe Pass Authentication サービスから [ ログアウトを開始 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md) する必要があります。 これは、MVPD側でのセッションクリーンアップを容易にするものではありません。
 
 >[!TIP]
@@ -412,4 +412,4 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 * アプリケーションは、Adobe Pass Authentication サービスの「*tokenSource」*[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md) を使用して、認証がパートナー SSO を介したログインの結果として発生したかどうかを判断する必要があります。
 * *&quot;tokenSource&quot;* の値が *&quot;Apple&quot;* に等しい場合、iOS/iPadOS **のみ** で *`Settings -> TV Provider`* から明示的にログアウトするようにユーザーに指示またはプロンプトする必要があります。
-* アプリケーションは、[WKWebView[ または [SFSafariViewController](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md) コンポーネントを使用して、Adobe Pass Authentication サービスから ](https://developer.apple.com/documentation/webkit/wkwebview) ログアウトを開始 ](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) する必要があります。 これにより、MVPD側のクリーンアップが容易になります。
+* アプリケーションは、[&#128279;](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller)WKWebView[&#128279;](https://developer.apple.com/documentation/webkit/wkwebview) または [SFSafariViewController](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md) コンポーネントを使用して、Adobe Pass Authentication サービスから  ログアウトを開始  する必要があります。 これにより、MVPD側のクリーンアップが容易になります。

@@ -260,7 +260,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 | ```public void setSelectedProvider(String mvpdId)``` |
 
 
-**提供：**v 1.0 以降
+**提供：**&#x200B;v 1.0 以降
 
 **パラメーター：** なし
 
@@ -355,7 +355,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 | --- |
 | ```public void checkPreauthorizedResources(ArrayList<String> resources)``` |
 
-**提供：**v 1.0 以降
+**提供：**&#x200B;v 1.0 以降
 
 **Parameters:** `resources` パラメーターは、ユーザーが既に表示を許可されているリソースの配列です。
 
@@ -427,7 +427,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 | --- |
 | ```public void setToken(String token, String resourceId)``` |
 
-**提供：**v 1.0 以降
+**提供：**&#x200B;v 1.0 以降
 
 **パラメーター：**
 
@@ -541,7 +541,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 
 **コールバックがトリガーされました：** [`setMetadataStatus()`](#setMetadaStatus)
 
-**詳細情報：**[ ユーザーメタデータ ](#setmetadatastatus)
+**詳細情報：**&#x200B;[ ユーザーメタデータ ](#setmetadatastatus)
 
 </br>
 
@@ -603,7 +603,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 
 **Trigger by:** [`getMetadata()`](#getMetadata)
 
-**詳細情報：**[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
+**詳細情報：**&#x200B;[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
 
 </br>
 

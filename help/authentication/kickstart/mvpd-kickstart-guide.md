@@ -129,16 +129,16 @@ Adobe Pass認証では **ポート 80 および 443 を通過するトラフィ�
 
 ## カスタマーサポートへのアクセス {#access-customer-support}
 
-**Adobeから** Zendesk](https://tve.zendesk.com/home) 経由でカスタマーサポートシステムに [ アクセスできるようになります。 Zendesk にアクセスするには、https://tve.zendesk.com/homeでアカウントを登録して作成する必要があります。
+**Adobeから** Zendesk[&#128279;](https://tve.zendesk.com/home) 経由でカスタマーサポートシステムに  アクセスできるようになります。 Zendesk にアクセスするには、https://tve.zendesk.com/homeでアカウントを登録して作成する必要があります。
 
 Adobe Pass認証チームを使用すると、統合プロセス中に発生する可能性のある質問や技術的な問題に対応できます。 [tve-support@adobe.com](mailto:tve-support@adobe.com) までお問い合わせください。
 
 ## ドキュメントへのアクセス {#access-documentation}
 
-**Adobeから**[Adobe Experience League} 経由で公開ドキュメントにアクセス ](https://experienceleague.adobe.com/en/docs/pass/authentication/home) きます。
+**Adobeから**&#x200B;[Adobe Experience League&rbrace; 経由で公開ドキュメントにアクセス ](https://experienceleague.adobe.com/en/docs/pass/authentication/home) きます。
 
 Adobe Pass認証チームは、[MVPD の統合ガイド ](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md) の節で利用できる機能とワークフローに関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
 
 ## テストツールへのアクセス {#access-testing-tool}
 
-**Adobeから**[Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイト経由で API 探索ツールにアクセスできるようになります。
+**Adobeから**&#x200B;[Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイト経由で API 探索ツールにアクセスできるようになります。

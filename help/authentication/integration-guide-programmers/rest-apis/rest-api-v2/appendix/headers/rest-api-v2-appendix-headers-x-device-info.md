@@ -53,7 +53,7 @@ ht-degree: 2%
         <td></td>
         <td>primary ハードウェアタイプ</td>
         <td>デバイスの主要なハードウェアの種類。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>
@@ -110,7 +110,7 @@ ht-degree: 2%
         <td><i>必須</i></td>
         <td>osName</td>
         <td>デバイスのオペレーティングシステム（OS）名。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>
@@ -132,7 +132,7 @@ ht-degree: 2%
         <td></td>
         <td>osFamily</td>
         <td>デバイスのオペレーティングシステム（OS）グループ名。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>
@@ -155,7 +155,7 @@ ht-degree: 2%
         <td></td>
         <td>osVendor</td>
         <td>デバイスのオペレーティングシステム（OS）のサプライヤ。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>
@@ -185,7 +185,7 @@ ht-degree: 2%
         <td></td>
         <td>browserName</td>
         <td>ブラウザーの名前。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>
@@ -205,7 +205,7 @@ ht-degree: 2%
         <td></td>
         <td>browserVendor</td>
         <td>ブラウザーの建物会社/組織。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>
@@ -290,7 +290,7 @@ ht-degree: 2%
         <td></td>
         <td>connectionSecure</td>
         <td>ネットワーク接続のセキュリティの状態。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>

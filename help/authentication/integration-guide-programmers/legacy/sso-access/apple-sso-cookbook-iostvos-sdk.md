@@ -100,7 +100,7 @@ Apple SSO のユーザーエクスペリエンスを活用するには、AccessE
 
 1. アプリケーションは、[ 現在の要求者識別子を設定 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setrequestorrequestorid-setrequestorrequestoridserviceproviders-setreqv3) する必要があります。
 
-   **重要：** 次のいずれかが当てはまる場合、この 2 番目の手順では、Apple SSO ワークフローに固有の [](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 高度なエラーコード **をトリガーする場合があります**。
+   **重要：** 次のいずれかが当てはまる場合、この 2 番目の手順では、Apple SSO ワークフローに固有の [&#128279;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 高度なエラーコード **をトリガーする場合があります**。
 
    * ***VSA403*** - アプリケーションに対するユーザーのテレビ プロバイダーのアクセス許可が拒否されました。
    * ***VSA404*** - アプリケーションに対するユーザーのテレビ プロバイダーのアクセス許可が不明です。
@@ -121,7 +121,7 @@ Apple SSO のユーザーエクスペリエンスを活用するには、AccessE
 
 1. アプリケーションは、[ 認証ステータスを確認 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#checkauthentication-checkauthn) する必要があります。
 
-   **重要：** 次のいずれかが当てはまる場合、この 3 番目の手順では、Apple SSO ワークフローに固有の [](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 高度なエラーコード **をトリガーする場合があります**。
+   **重要：** 次のいずれかが当てはまる場合、この 3 番目の手順では、Apple SSO ワークフローに固有の [&#128279;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 高度なエラーコード **をトリガーする場合があります**。
 
    * ***VSA403** - ユーザーは、次の場所で TV Provider アカウントにサインインしています：
 デバイスのシステム レベルですが、ユーザーのテレビ プロバイダのアクセス許可は
@@ -134,7 +134,7 @@ Apple SSO のユーザーエクスペリエンスを活用するには、AccessE
 AccessEnabler iOS/tvOS SDKおよびビデオ加入者アカウント
 フレームワークでエラーが発生しました。
 
-   **重要：** この 3 番目の手順では、*status*](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setauthenticationstatuserrorcode-setauthnstatus) が 0 に等しい [*setAuthenticationStatus* コールバックを、**次のいずれかが true である** 場合にトリガーします。
+   **重要：** この 3 番目の手順では、*status*[&#128279;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setauthenticationstatuserrorcode-setauthnstatus) が 0 に等しい *setAuthenticationStatus* コールバックを、**次のいずれかが true である** 場合にトリガーします。
 
    * ユーザーは、デバイス システム レベルまたは通常の認証フローで TV Provider アカウントにサインインしていません。
    * ユーザーは、デバイスシステムレベルまたは通常の認証フローを通じて TV プロバイダーアカウントにログインしますが、ユーザーの TV プロバイダー認証トークン TTL は合格しています。
@@ -144,7 +144,7 @@ AccessEnabler iOS/tvOS SDKおよびビデオ加入者アカウント
    * ユーザーはデバイス システム レベルで TV Provider アカウントにサインインしていますが、そのアプリケーションに対するユーザーの TV Provider 権限は未決定です。
    * ユーザーはデバイス システム レベルで TV Provider アカウントにサインインしていますが、AccessEnabler iOS/tvOS SDKとビデオ加入者アカウント フレームワーク間の通信でエラーが発生しました。
 
-   **重要：**[*この 3 番目の手順では、上記のすべてが false である場合に備えて、* status *](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setauthenticationstatuserrorcode-setauthnstatus)が 1 に等しい&#x200B;**setAuthenticationStatus* コールバックをトリガーします。**
+   **重要：**&#x200B;[*この 3 番目の手順では、上記のすべてが false である場合に備えて、* status *](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setauthenticationstatuserrorcode-setauthnstatus)が 1 に等しい&#x200B;**setAuthenticationStatus* コールバックをトリガーします。**
 
 
 1. 以前の認証ステータスチェックで [status](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#getauthentication-getauthenticationwithdata-getauthn) が 0 に等しい [*setAuthenticationStatus*](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setauthenticationstatuserrorcode-setauthnstatus) コールバックがトリガーされた場合、アプリケーションでは *認証の初期化* が必要になります。
@@ -176,7 +176,7 @@ AccessEnabler iOS/tvOS SDKおよびビデオ加入者アカウント
    * ユーザーの TV プロバイダは、Adobe Primetime TVE Dashboard を使用しても劣化しない。
    * AccessEnabler iOS/tvOS SDKは、ビデオ加入者アカウント フレームワークからユーザのテレビ プロバイダ SAML 応答を受信しました。
 
-   **<u>ヒント：</u>** この 4 番目の手順では、トリガーがアプリケーションによって明示的に開始されたので、*status*](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setAuthNStatus) の結果に関係なく、[*setAuthenticationStatus* コールバックを認証します。
+   **<u>ヒント：</u>** この 4 番目の手順では、トリガーがアプリケーションによって明示的に開始されたので、*status*[&#128279;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setAuthNStatus) の結果に関係なく、*setAuthenticationStatus* コールバックを認証します。
 
 ### メタデータ {#apple-sso-cookbook-iostvos-sdk-metadata}
 

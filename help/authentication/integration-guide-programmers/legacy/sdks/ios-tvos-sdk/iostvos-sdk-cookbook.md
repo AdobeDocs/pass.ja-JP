@@ -112,7 +112,7 @@ I. [Apple SSO でのログアウトフロー ](#logout_flow_with_AppleSSO) </br>
 
    * [`presentTvProviderDialog （viewController）`](#presentTvDialog)
 
-      * 現在のリクエスターが ](#getAuthN)SSO サポートを持つMVPDで少なくともサポートしている場合に、[getAuthentication （）によってトリガーされます。
+      * 現在のリクエスターが [&#128279;](#getAuthN)SSO サポートを持つMVPDで少なくともサポートしている場合に、getAuthentication （）によってトリガーされます。
       * viewController パラメーターはAppleの SSO ダイアログであり、メインビューコントローラーで表示する必要があります。
 
    * [&#39;dismissTvProviderDialog （viewController）&#39;](#dismissTvDialog)
@@ -136,6 +136,7 @@ I. [Apple SSO でのログアウトフロー ](#logout_flow_with_AppleSSO) </br>
 マネージャーが手配します）。
 
    * **トリガー:**
+
      [setRequestorComplete （） ](#$setReqComplete) コールバック。
 
    >[!NOTE]

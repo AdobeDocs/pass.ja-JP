@@ -232,7 +232,7 @@ ht-degree: 0%
 - **静的** （認証トークン TTL、認証トークン TTL およびデバイス ID）
 - **ユーザーメタデータ** （認証フローや承認フローの最中に、MVPDからユーザーのデバイスに渡されるユーザー固有の情報を含みます）
 
-**詳細情報：**[ ユーザーメタデータ ](#UserMetadata)
+**詳細情報：**&#x200B;[ ユーザーメタデータ ](#UserMetadata)
 
 **パラメーター：**
 
@@ -415,7 +415,7 @@ triggered:**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenti
 
 **説明：** 認証ログインページの UI を表示する iFrame を必要とするMVPDをユーザーが選択した場合に、このコールバックを実装します。
 
-**トリガー：:**[ setSelectedProvider （） ](#setselectedproviderproviderid-setselectedprovider)
+**トリガー：:**&#x200B;[ setSelectedProvider （） ](#setselectedproviderproviderid-setselectedprovider)
 
 </br> [ トップに戻る ](#top)
 
@@ -562,7 +562,7 @@ triggered:**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenti
 
 **説明：** アクセス イネーブラによってトリガーされ、`getMetadata()` 呼び出しを介して要求されたメタデータを配信するコールバック。
 
-**詳細情報：**[ ユーザーメタデータ ](#userMetadata)
+**詳細情報：**&#x200B;[ ユーザーメタデータ ](#userMetadata)
 
 **パラメーター：**
 

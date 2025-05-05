@@ -116,7 +116,7 @@ AccessEnabler iOS/tvOS SDKでは、[setOptions **の device_info パラメータ
 
 `AccessEnabler` Android/FireOS SDKは、デフォルトでクライアント情報 JSON オブジェクトを作成し、上書きされない限り、これをAdobe Pass認証サービスに渡します。
 
-`AccessEnabler` Android/FireOS SDKは、**setOptions](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#setOptions) の/[setOptions](/help/authentication/integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md#fire_setOption) の `device_info` パラメーターを使用して** クライアント情報の JSON オブジェクトを上書き [ サポートしています。
+`AccessEnabler` Android/FireOS SDKは、**setOptions[&#128279;](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#setOptions) の/[setOptions](/help/authentication/integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md#fire_setOption) の `device_info` パラメーターを使用して** クライアント情報の JSON オブジェクトを上書き  サポートしています。
 
 >[!NOTE]
 >
@@ -164,7 +164,7 @@ AccessEnabler iOS/tvOS SDKでは、[setOptions **の device_info パラメータ
 
 >[!IMPORTANT]
 >
-デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード** する必要があります。 また、Adobe Pass認証 REST API の場合は、値を **URL エンコード** する必要があります。
+>デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード** する必要があります。 また、Adobe Pass認証 REST API の場合は、値を **URL エンコード** する必要があります。
 
 **サンプルコード**
 
@@ -243,8 +243,8 @@ private JSONObject computeClientInformation() {
 
 >[!NOTE]
 >
-**リソース：**
-* java 開発者向けドキュメントのパブリッククラス [build](https://developer.android.com/reference/android/os/Build.html){target=_blank}。
+>**リソース：**
+>* java 開発者向けドキュメントのパブリッククラス [build](https://developer.android.com/reference/android/os/Build.html){target=_blank}。
 
 ### FireTV {#fire-tv}
 
@@ -276,13 +276,13 @@ private JSONObject computeClientInformation() {
 
 >[!IMPORTANT]
 >
-デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード** する必要があります。 また、Adobe Pass認証 REST API の場合は、値を **URL エンコード** する必要があります。
+>デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード** する必要があります。 また、Adobe Pass認証 REST API の場合は、値を **URL エンコード** する必要があります。
 
 >[!NOTE]
 >
-**リソース：**
-* Android開発者向けドキュメントのパブリッククラス [ ビルド ](https://developer.android.com/reference/android/os/Build.html){target=_blank}。
-* [FireTV デバイスの識別 ](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html){target=_blank}
+>**リソース：**
+>* Android開発者向けドキュメントのパブリッククラス [ ビルド ](https://developer.android.com/reference/android/os/Build.html){target=_blank}。
+>* [FireTV デバイスの識別 ](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html){target=_blank}
 
 ### iOS/tvOS {#ios-tvos}
 
@@ -315,7 +315,7 @@ private JSONObject computeClientInformation() {
 
 >[!IMPORTANT]
 >
-デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは Base64 でエンコードする必要があります。 また、Adobe Pass認証 REST API の場合、値を URL エンコードする必要があります。
+>デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは Base64 でエンコードする必要があります。 また、Adobe Pass認証 REST API の場合、値を URL エンコードする必要があります。
 
 **サンプルコード**
 
@@ -387,10 +387,10 @@ private JSONObject computeClientInformation() {
 
 >[!NOTE]
 >
-**リソース：**
-* [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice){target=_blank}
-* [uname](https://man7.org/linux/man-pages/man2/uname.2.html){target=_blank}
-* [ 到達可能性について ](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html){target=_blank}
+>**リソース：**
+>* [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice){target=_blank}
+>* [uname](https://man7.org/linux/man-pages/man2/uname.2.html){target=_blank}
+>* [ 到達可能性について ](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html){target=_blank}
 
 ### Roku {#roku}
 
@@ -422,11 +422,11 @@ private JSONObject computeClientInformation() {
 
 >[!IMPORTANT]
 >
-デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード** する必要があります。 また、Adobe Pass認証 REST API の場合、値を URL エンコードする必要があります。
+>デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード** する必要があります。 また、Adobe Pass認証 REST API の場合、値を URL エンコードする必要があります。
 
 >[!NOTE]
 >
-詳しくは、「[ifDeviceInfo](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md)」を参照してください
+>詳しくは、「[ifDeviceInfo](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md)」を参照してください
 
 ### XBOX 1/360 {#xbox}
 
@@ -458,7 +458,7 @@ private JSONObject computeClientInformation() {
 
 >[!IMPORTANT]
 >
-デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード** する必要があります。 また、Adobe Pass認証 REST API の場合は、値を **URL エンコード** する必要があります。
+>デバイス、接続、アプリケーションの情報は、同じ JSON オブジェクトに追加する必要があります。 その後、結果のオブジェクトは **Base64 エンコード** する必要があります。 また、Adobe Pass認証 REST API の場合は、値を **URL エンコード** する必要があります。
 
 **リソース**
 

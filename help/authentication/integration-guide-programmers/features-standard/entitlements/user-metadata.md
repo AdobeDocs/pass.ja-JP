@@ -23,7 +23,7 @@ ht-degree: 0%
 
 MVPD が異なる形式でデータを提供する場合、Adobe Pass認証はユーザーメタデータ値を正規化します。 また、特定の属性（郵便番号など）については、プログラマーの証明書を使用して値を [ 暗号化 ](#encryption) できます。
 
-Adobe Pass認証を使用すると、プログラマーは、[Adobe Pass TVE ダッシュボード [ を通じて、MVPD統合で利用可能になったユーザーメタデータを確認し ](#management) 管理 ](https://experience.adobe.com/#/pass/authentication) できます。
+Adobe Pass認証を使用すると、プログラマーは、[&#128279;](https://experience.adobe.com/#/pass/authentication)Adobe Pass TVE ダッシュボード [ を通じて、MVPD統合で利用可能になったユーザーメタデータを確認し ](#management) 管理  できます。
 
 ## ユーザーメタデータ属性 {#attributes}
 
@@ -80,7 +80,7 @@ Adobe Pass認証を使用すると、プログラマーは、[Adobe Pass TVE ダ
 
 ## ユーザーメタデータの暗号化 {#encryption}
 
-ユーザーメタデータの属性を暗号化および復号化するには、プログラマーが証明書（公開鍵と秘密鍵のペア）を生成し、{2[Adobe Pass TVE ダッシュボードを使用して証明書を ](#management) 自己設定 ](https://experience.adobe.com/#/pass/authentication) するか、公開鍵をAdobe Pass認証担当者と共有する必要があります。[
+ユーザーメタデータの属性を暗号化および復号化するには、プログラマーが証明書（公開鍵と秘密鍵のペア）を生成し、&lbrace;2[Adobe Pass TVE ダッシュボードを使用して証明書を ](#management) 自己設定 [&#128279;](https://experience.adobe.com/#/pass/authentication) するか、公開鍵をAdobe Pass認証担当者と共有する必要があります。
 
 証明書が正しく生成および設定されていることを確認するには、次の手順に従います。
 
@@ -142,7 +142,7 @@ Adobe Pass認証を使用すると、プログラマーは、[Adobe Pass TVE ダ
      openssl x509 -in mycompany-license-temp.pem -inform PEM -out mycompany-license.pem -outform PEM
      ```
 
-1. PEM ファイルを使用して、[Adobe Pass TVE Dashboard を介して証明書を [ 設定 ](#management) するか ](https://experience.adobe.com/#/pass/authentication)PEM ファイルをAdobe Pass認証担当者に送信します。
+1. PEM ファイルを使用して、[&#128279;](https://experience.adobe.com/#/pass/authentication)Adobe Pass TVE Dashboard を介して証明書を [ 設定 ](#management) するか PEM ファイルをAdobe Pass認証担当者に送信します。
 
    * [Adobe Pass TVE Dashboard](https://experience.adobe.com/#/pass/authentication) を使用して証明書を管理する方法の詳細については、次の節を参照してください。
 

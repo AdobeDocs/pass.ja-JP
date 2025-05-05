@@ -47,7 +47,7 @@ ht-degree: 0%
 
 * [`setOptions:options:`](#setOptions) - プロファイルや visitorID など、グローバルなSDK オプションを設定します。
 
-* [`setRequestor:`](#setReqV3)[`requestorID`](#setReqV3),[`setRequestor:requestorID:serviceProviders:`](#setReqV3) - プログラマの ID を設定します。
+* [`setRequestor:`](#setReqV3) [`requestorID`](#setReqV3),[`setRequestor:requestorID:serviceProviders:`](#setReqV3) - プログラマの ID を設定します。
 
 * **[非推奨]** [`setRequestor:signedRequestorId:`](#setReq),[`setRequestor:signedRequestorId:serviceProviders:`](#setReq) - プログラマーの ID を設定します。
 
@@ -59,7 +59,7 @@ ht-degree: 0%
 
 * [`getAuthentication`](#getAuthN)、[`getAuthentication:withData:`](#getAuthN) – 完全な認証ワークフローを開始します。
 
-* [`getAuthentication:filter`](#getAuthN_filter),[`getAuthentication:withData:`](#getAuthN)[andFilter](#getAuthN_filter) – 完全な認証ワークフローを開始します。
+* [`getAuthentication:filter`](#getAuthN_filter),[`getAuthentication:withData:`](#getAuthN) [andFilter](#getAuthN_filter) – 完全な認証ワークフローを開始します。
 
 * [`displayProviderDialog:`](#dispProvDialog) - ユーザーがMVPDを選択するために適切な UI 要素をインスタンス化するように、アプリケーションに通知します。
 
@@ -712,11 +712,11 @@ UIWebView/WKWebView` `controller は複数のリダイレクトを実行する�
 
 **ファイル：** AccessEnabler/headers/EntitlementDelegate.h
 
-**説明：** アプリケーションで以前に [setOptions （\[&quot;handleSVC&quot;:true&quot;\]）呼び出しを使用して Safari ビューコントローラー（SVC）の手動処理が有効になり、MVPD で Safari ビューコントローラー（SVC）が必要な場合のみ、`navigateToUrl:` コールバックの代わりに AccessEnabler によってトリガーされたコールバック ](#setOptions)。 他のすべての MVPD では、`navigateToUrl:` コールバックが呼び出されます。 Safari ビューコントローラー（SVC）の管理方法について詳しくは、iOS SDK 3.2 以降 ](/help/authentication/integration-guide-programmers/legacy/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md) での [SFSafariViewController のサポートを参照してください。
+**説明：** アプリケーションで以前に [setOptions （\[&quot;handleSVC&quot;:true&quot;\]）呼び出しを使用して Safari ビューコントローラー（SVC）の手動処理が有効になり、MVPD で Safari ビューコントローラー（SVC）が必要な場合のみ、`navigateToUrl:` コールバックの代わりに AccessEnabler によってトリガーされたコールバック ](#setOptions)。 他のすべての MVPD では、`navigateToUrl:` コールバックが呼び出されます。 Safari ビューコントローラー（SVC）の管理方法について詳しくは、iOS SDK 3.2 以降 [&#128279;](/help/authentication/integration-guide-programmers/legacy/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md) での SFSafariViewController のサポートを参照してください。
 
 `navigateToUrl:` コールバックと同様に、`navigateToUrl:useSVC:` は AccessEnabler によってトリガーされ、アプリケーションに `SFSafariViewController` コントローラのインスタンス化と、コールバックの **`url`** パラメータで指定された URL のロードを要求します。 コールバックは、認証エンドポイントの URL またはログアウトエンドポイントの URL を表す **`url`** パラメーターと、アプリケーションが `SFSafariViewController` を使用する必要があることを指定する **`useSVC`** パラメーターを渡します。
 
-`SFSafariViewController` コントローラは複数のリダイレクトを実行するので、アプリケーションはコントローラのアクティビティを監視し、`application's custom scheme` ーザーが定義した特定のカスタム URL を読み込む瞬間を検出する必要があります（例：** **`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com`）。 この特定のカスタム URL は、実際には無効であり、コントローラーが実際に読み込むことを目的としたものではないことに注意してください。 認証またはログアウトの流れが完了し、コントローラを安全に閉じられるというシグナルとしてアプリケーションが解釈する必要があります。 コントローラがこの特定のカスタム URL を読み込むとき、アプリケーションは `SFSafariViewController` を閉じて AccessEnabler の `handleExternalURL:url `API メソッドを呼び出す必要があります。
+`SFSafariViewController` コントローラは複数のリダイレクトを実行するので、アプリケーションはコントローラのアクティビティを監視し、`application's custom scheme` ーザーが定義した特定のカスタム URL を読み込む瞬間を検出する必要があります（例：**&#x200B; **`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com`）。 この特定のカスタム URL は、実際には無効であり、コントローラーが実際に読み込むことを目的としたものではないことに注意してください。 認証またはログアウトの流れが完了し、コントローラを安全に閉じられるというシグナルとしてアプリケーションが解釈する必要があります。 コントローラがこの特定のカスタム URL を読み込むとき、アプリケーションは `SFSafariViewController` を閉じて AccessEnabler の `handleExternalURL:url `API メソッドを呼び出す必要があります。
 
 **注：** 認証フローの場合、認証フローの中止に相当する「戻る」ボタンを押せる点に注意してください。 このようなシナリオでは、**`nil`** をパラメーターとして渡し、AccessEnabler に認証状態マシンをリセットする機会を与えるために、アプリケーションで [setSelectedProvider:](#setSelProv) メソッドを呼び出す必要があります。
 
@@ -732,19 +732,19 @@ UIWebView/WKWebView` `controller は複数のリダイレクトを実行する�
 <tbody>
 <tr class="odd">
 <td><pre><code>@optional
-- (void) navigateToUrl:(NSString *)url useSVC:(BOOL)useSVC; </code></pre></td>
+&#x200B;- (void) navigateToUrl:(NSString *)url useSVC:(BOOL)useSVC; </code></pre></td>
 </tr>
 </tbody>
 </table>
 
-**提供：**v 3.2 以降
+**提供：**&#x200B;v 3.2 以降
 
 **パラメーター**:
 
 * *url:* MVPDのログインページを指す URL
 * *useSVC:* SFSafariViewController で URL を読み込む必要があるかどうかを示します。
 
-**setSelectedProvider:](#setOptions) より前の [**[ setOptions:](#setSelProv) によってトリガー
+**setSelectedProvider:[&#128279;](#setOptions) より前の &#x200B;** [ setOptions:](#setSelProv) によってトリガー
 
 [先頭に戻る…](#apis)
 
@@ -1331,7 +1331,7 @@ UIWebView/WKWebView` `controller は複数のリダイレクトを実行する�
 
 **コールバックがトリガーされました：** [`setMetadataStatus:encrypted:forKey:andArguments:`](#setMetaStatus)
 
-**詳細情報：**[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
+**詳細情報：**&#x200B;[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
 
 [先頭に戻る…](#apis)
 
@@ -1465,7 +1465,7 @@ UIWebView/WKWebView` `controller は複数のリダイレクトを実行する�
 
 **Trigger by:** [`getMetadata:`](#getMeta)
 
-**詳細情報：**[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
+**詳細情報：**&#x200B;[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
 
 
 [先頭に戻る…](#apis)

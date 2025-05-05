@@ -27,7 +27,7 @@ Adobe Pass認証を利用したアプリ間のシングルサインオン（SSO�
 
 このドキュメントでは、iOS認証 **アクセスイネーブラ** を使用する場合の **Adobe Pass上の SSO** について説明します。
 
-**Access Enabler****1.10** は、Adobe Pass Authentication iOSのネイティブ SDKの最新バージョンです。 Adobeでは、古いバージョンのままにするのではなく、このバージョンに移行することを強くお勧めします。 古いバージョンの Access Enabler を使用している場合は、最新バージョン [ こちら ](https://tve.zendesk.com/hc/en-us/articles/204963209-iOS-Native-AccessEnabler-Library) をダウンロードできます。
+**Access Enabler**&#x200B;**1.10** は、Adobe Pass Authentication iOSのネイティブ SDKの最新バージョンです。 Adobeでは、古いバージョンのままにするのではなく、このバージョンに移行することを強くお勧めします。 古いバージョンの Access Enabler を使用している場合は、最新バージョン [ こちら ](https://tve.zendesk.com/hc/en-us/articles/204963209-iOS-Native-AccessEnabler-Library) をダウンロードできます。
 
 iOS上の SSO は、次の条件によって決まります。
 

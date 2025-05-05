@@ -23,7 +23,7 @@ ht-degree: 0%
 
 ## オンボードの手順 {#steps-to-onboard}
 
-1. **Adobe Experience Cloud} に登録するには** tve-support@adobe.comに電子メールを送信して **Adobe** にお問い合わせください。
+1. **Adobe Experience Cloud&rbrace; に登録するには** tve-support@adobe.comに電子メールを送信して **Adobe** にお問い合わせください。
 
 1. [Adobe Admin Console](https://adminconsole.adobe.com/) で、組織ユーザーを **[!UICONTROL TVE Dashboard Read-Write]** または **[!UICONTROL TVE Dashboard Read Only]** プロファイルに割り当てます。
 

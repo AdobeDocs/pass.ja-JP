@@ -15,7 +15,7 @@ ht-degree: 0%
 >
 > このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
-メディアトークンは、保護されたコンテンツ（リソース ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) に対する表示アクセスを提供するための認証決定の結果として、Adobe Pass認証 [REST API V2）によって生成されるトークンです。
+メディアトークンは、保護されたコンテンツ（リソース [&#128279;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) に対する表示アクセスを提供するための認証決定の結果として、Adobe Pass認証 REST API V2）によって生成されるトークンです。
 
 メディアトークンは、問題の時点で指定された制限された短い期間（デフォルトは 7 分）有効で、クライアントアプリケーションで検証および使用される必要がある前の時間制限を示します。 メディアトークンは 1 回限りの使用に制限され、絶対にキャッシュしないでください。
 

@@ -39,7 +39,7 @@ ht-degree: 2%
       + [Adobe Pass認証iOS/tvOS 3.8.2 リリースノート](notes-releases/authn-rn-ios-tvos-382.md)
       + [Adobe Pass認証iOS/tvOS 3.8.1 リリースノート](notes-releases/authn-rn-ios-tvos-381.md)
       + [Adobe Pass Authentication Android 3.7.3 リリースノート](notes-releases/authn-rn-android-373.md)
-   + {#2022} 年
+   + 年{#2022}
       + [Adobe Pass Authentication 2.64 リリースノート](notes-releases/auth-rn-264.md)
       + [Adobe Pass Authentication 2.63 リリースノート](notes-releases/auth-rn-263.md)
       + [Adobe Pass Authentication 2.62.1 リリースノート](notes-releases/auth-rn-2621.md)
@@ -149,7 +149,7 @@ ht-degree: 2%
    + Premium の機能 {#features-premium}
       + 一時アクセス {#temporary-access}
          + [TempPass フィーチャ](integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
-      + アクセス {#degraded-access} が低下しました
+      + アクセス が低下しました {#degraded-access}
          + [縮退機能](integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
       + ESM {#esm}
          + [使用権限サービスの監視の概要](integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md)
@@ -275,7 +275,7 @@ ht-degree: 2%
    + [プロキシMVPD SAML 統合](integration-guide-mvpds/proxy-mvpd-saml-int.md)
    + [サービスプロバイダーの範囲](integration-guide-mvpds/serv-provider-scoping.md)
    + [MVPDの IP アドレスの許可](integration-guide-mvpds/mvpd-listing-ip-addres.md)
-+ TVE ダッシュボード {#user-guide-tve-dashboard} のユーザーガイド
++ TVE ダッシュボード のユーザーガイド {#user-guide-tve-dashboard}
    + [TVE ダッシュボードの概要](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md)
    + [環境](/help/authentication/user-guide-tve-dashboard/tve-dashboard-environments.md)
    + [変更のレビューとプッシュ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)

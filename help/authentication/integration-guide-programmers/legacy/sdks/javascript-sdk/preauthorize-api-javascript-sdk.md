@@ -255,22 +255,22 @@ accessEnablerApi.preauthorize(request, callback);
 
     &quot;&#39;JavaScript
     
-    {
-    &quot;decisions&quot;: [
-    {
+    &lbrace;
+    &quot;decisions&quot;: &lbrack;
+    &lbrace;
     &quot;id&quot;: &quot;RES01&quot;,
     &quot;authorized&quot;: true
-    },
-    {
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES02&quot;,
     &quot;authorized&quot;: false
-    },
-    {
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES03&quot;,
     &quot;authorized&quot;: true
-    }
-    ]
-    }
+    &rbrace;
+    &rbrack;
+    &rbrace;
     
     &quot;&#39;
 
@@ -282,24 +282,24 @@ accessEnablerApi.preauthorize(request, callback);
     <td>
 
     &quot;&#39;JavaScript
-    {
-    &quot;decisions&quot;: [
-    {
+    &lbrace;
+    &quot;decisions&quot;: &lbrack;
+    &lbrace;
     &quot;id&quot;: &quot;RES01&quot;,
     &quot;authorized&quot;: true
-    },
-    {
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES02&quot;,
     &quot;authorized&quot;: false,
-    &quot;error&quot;: {
+    &quot;error&quot;: &lbrace;
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;preauthorization_denied_by_mvpd&quot;,
     &quot;message&quot;: &quot;MVPDは、指定されたリソースの事前認証をリクエストする際に、\&quot;Deny\&quot;判断をを返しました。&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot; &quot;none&quot;
-    }
-    },
-    {
+    &rbrace;
+    &rbrace;,
+    &lbrace;
      
      
      
@@ -307,7 +307,7 @@ accessEnablerApi.preauthorize(request, callback);
      
     
      
-&quot;id&quot;: &quot;RES03&quot;,&quot;authorized&quot;: trueID}，次の値を使用します
+&quot;id&quot;: &quot;RES03&quot;,&quot;authorized&quot;: trueID&rbrace;，次の値を使用します
 </td>
   </tr>
 </tbody>
@@ -329,22 +329,22 @@ accessEnablerApi.preauthorize(request, callback);
 
     &quot;&#39;JavaScript
     
-    {
-    &quot;decisions&quot;: [
-    {
+    &lbrace;
+    &quot;decisions&quot;: &lbrack;
+    &lbrace;
     &quot;id&quot;: &quot;RES01&quot;,
     &quot;authorized&quot;: false
-    },
-    {
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES02&quot;,
     &quot;authorized&quot;: false
-    },
-    {
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES03&quot;,
     &quot;authorized&quot;: false
-    }
-    }
-    }
+    &rbrace;
+    &rbrace;
+    &rbrace;
     
     &quot;&#39;
 
@@ -357,23 +357,23 @@ accessEnablerApi.preauthorize(request, callback);
 
     &quot;&#39;JavaScript
     
-    {
-    &quot;decisions&quot;: [
-    {
+    &lbrace;
+    &quot;decisions&quot;: &lbrack;
+    &lbrace;
     &quot;id&quot;: &quot;RES01&quot;,
     &quot;authorized&quot;:false,
-    &quot;error&quot;: {
+    &quot;error&quot;: &lbrace;
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;preauthorization_denied_by_mvpd&quot;,
     &quot;message&quot;: &quot;MVPDは、指定されたリソースの事前認証をリクエストする際に\&quot;Deny\&quot;決定を返しました。&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;none&quot;
-    }
-    }},
-    {
+    &rbrace;
+    &rbrace;&rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES02&quot;,
     &quot;authorized&quot;: false,
-    &quot;error&quot;: {
+    &quot;error&quot;: &lbrace;
     &quot;status&quot;: 403,
      
      
@@ -387,13 +387,13 @@ accessEnablerApi.preauthorize(request, callback);
      
      
      
-    &quot;code&quot;: &quot;preauthorization_denied_by_mvpd&quot;,and&quot;message&quot;: &quot;MVPDは、指定されたリソースの事前認証をリクエストする際に、\&quot;Deny\&quot;決定を返しました。&quot;,&quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,&quot;action&quot;: &quot;none&quot;403&quot;,error&quot;: {preauthorization&quot;status&quot;: 403,correct&quot;code&quot;: &quot;maximum_execution_time_exceeded&quot;,&quot;message&quot;: &quot;リクエストが最大許容時間内に完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。&quot;,
+    &quot;code&quot;: &quot;preauthorization_denied_by_mvpd&quot;,and&quot;message&quot;: &quot;MVPDは、指定されたリソースの事前認証をリクエストする際に、\&quot;Deny\&quot;決定を返しました。&quot;,&quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,&quot;action&quot;: &quot;none&quot;403&quot;,error&quot;: &lbrace;preauthorization&quot;status&quot;: 403,correct&quot;code&quot;: &quot;maximum_execution_time_exceeded&quot;,&quot;message&quot;: &quot;リクエストが最大許容時間内に完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;retry&quot;
-    }
-    }
-    }
-    }
+    &rbrace;
+    &rbrace;
+    &rbrace;
+    &rbrace;
     
     &quot;&#39;
 
@@ -417,17 +417,17 @@ accessEnablerApi.preauthorize(request, callback);
     <td>
 
     &quot;&#39;JavaScript
-    {
-    &quot;status&quot;: {
+    &lbrace;
+    &quot;status&quot;: &lbrace;
     &quot;status&quot;: 400,
     &quot;code&quot;: &quot;internal_error&quot;,
     &quot;message&quot;: &quot;内部エラーが原因でリクエストが失敗しました。&quot;,
     &quot;details&quot;: &quot;Required String[] パラメーター&#39;resource&#39;が存在しません&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;none&quot;
-    },
+    &rbrace;,
     &quot;decisions&quot;: []
-    }
+    &rbrace;
     &quot;&#39;
 
 </td>
@@ -450,16 +450,16 @@ accessEnablerApi.preauthorize(request, callback);
     <td>
 
     &quot;&#39;JavaScript
-    {
-    &quot;status&quot;: {
+    &lbrace;
+    &quot;status&quot;: &lbrace;
     &quot;status&quot;: 412,
     &quot;code&quot;: &quot;missing_resource&quot;,
     &quot;message&quot;: &quot;The resource parameter is missing&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;none&quot;
-    },
+    &rbrace;,
     &quot;decisions&quot;: []
-    }
+    &rbrace;
     &quot;&#39;
 
 </td>
@@ -482,32 +482,32 @@ accessEnablerApi.preauthorize(request, callback);
     <td>
 
     &quot;&#39;JavaScript
-    {
-    &quot;decisions&quot;: [
-    {
+    &lbrace;
+    &quot;decisions&quot;: &lbrack;
+    &lbrace;
     &quot;id&quot;: &quot;RES01&quot;,
     &quot;authorized&quot;: false,
-    &quot;error&quot;: {
+    &quot;error&quot;: &lbrace;
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;network_received_error&quot;,
     &quot;message&quot;: &quot;関連するパートナーサービスから応答を取得する際に読み取りエラーが発生しました。 リクエストを再試行すると、問題が解決する場合があります。&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;retry&quot;
-    }
-    },
-    {
+    &rbrace;
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES02&quot;,
     &quot;authorized&quot;: false,
-    &quot;error&quot;: {
+    &quot;error&quot;: &lbrace;
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;network_received_error&quot;,
     &quot;message&quot;: &quot;関連するパートナーサービスから応答を取得する際に読み取りエラーが発生しました。 リクエストを再試行すると、問題が解決する場合があります。&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;retry&quot;
-    }
-    }
-    }
-    }
+    &rbrace;
+    &rbrace;
+    &rbrace;
+    &rbrace;
     &quot;&#39;
 
 </td>
@@ -530,15 +530,15 @@ accessEnablerApi.preauthorize(request, callback);
     <td>
 
     &quot;&#39;JavaScript
-    {
-    &quot;status&quot;: {
+    &lbrace;
+    &quot;status&quot;: &lbrace;
     &quot;status&quot;: 0,
     &quot;code&quot;: &quot;authentication_session_missing&quot;,
     &quot;message&quot;: &quot;このリクエストに関連付けられた認証セッションを取得できませんでした。 続行するには、サポートされているMVPDで再認証する必要があります。&quot;,
     &quot;action&quot;: &quot;authentication&quot;
-    },
+    &rbrace;,
     &quot;decisions&quot;: []
-    }
+    &rbrace;
     
     &quot;&#39;
 
@@ -564,15 +564,15 @@ accessEnablerApi.preauthorize(request, callback);
     <td>
 
     &quot;&#39;JavaScript
-    {
-    &quot;status&quot;: {
+    &lbrace;
+    &quot;status&quot;: &lbrace;
     &quot;status&quot;: 0,
     &quot;code&quot;: &quot;requestor_not_configured&quot;,
     &quot;message&quot;: &quot;setRequestor API 以外の API を使用するための前提条件である、リクエスターがまだ設定されていません。&quot;,
     &quot;action&quot;: &quot;retry&quot;
-    },
+    &rbrace;,
     &quot;decisions&quot;: []
-    }
+    &rbrace;
     &quot;&#39;
 
 </td>

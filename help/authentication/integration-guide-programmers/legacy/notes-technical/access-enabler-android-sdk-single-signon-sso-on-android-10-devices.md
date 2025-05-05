@@ -32,8 +32,8 @@ Adobe Pass Authentication を利用したアプリ間のシングルサインオ
 アプリの **[!UICONTROL target SDK level]** または **android:requestLegacyExternalStorage** マニフェスト属性に応じて、Access Enabler Android バージョン 3.2.1 SDK （最新）および以前のバージョンが提供するシングル サインオン （SSO）は、現在、次のように動作します。
 
 - アプリのターゲットは **Android 9 （API レベル 28）** 以下 **-\>** シングルサインオン （SSO） **です**
-- アプリは **Android 10** **（API レベル 29）をターゲットにしており** アプリのマニフェスト ファイル **-\>** Single Sign-On （SSO） **で** requestLegacyExternalStorage の値を true に設定 **** し **動作し** す。
-- アプリは **Android 10** **（API レベル 29）を対象としていますが** アプリのマニフェスト ファイル **-\>** Single Sign-On （SSO） **で** requestLegacyExternalStorage の値を true に設定し **い****ので、機能しません**
+- アプリは **Android 10** **（API レベル 29）をターゲットにしており** アプリのマニフェスト ファイル **-\>** Single Sign-On （SSO） **で** requestLegacyExternalStorage の値を true に設定 **&#x200B;**&#x200B;し **動作し** す。
+- アプリは **Android 10** **（API レベル 29）を対象としていますが** アプリのマニフェスト ファイル **-\>** Single Sign-On （SSO） **で** requestLegacyExternalStorage の値を true に設定し **い**&#x200B;**ので、機能しません**
 
 >[!TIP]
 >

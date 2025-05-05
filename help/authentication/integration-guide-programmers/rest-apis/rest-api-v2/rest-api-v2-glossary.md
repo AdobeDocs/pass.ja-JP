@@ -27,13 +27,13 @@ ht-degree: 0%
 
 #### 認証 {#authentication}
 
-認証とは、[MVPD[ でユーザーサブスクリプションを検証した後、ユーザーが ](#programmer) プログラマー）に ID を証明し、保護されたコンテンツ（[resource](#resource)）にアクセスできるようにするプロセス ](#mvpd) す。
+認証とは、[&#128279;](#mvpd)MVPD[ でユーザーサブスクリプションを検証した後、ユーザーが ](#programmer) プログラマー）に ID を証明し、保護されたコンテンツ（[resource](#resource)）にアクセスできるようにするプロセス  す。
 
 #### 認証コード {#code}
 
 認証コードは、ユーザーが [authentication](#authentication) プロセスを開始する際に生成される一意の値を格納し、認証プロセスが完了するまでユーザーの [authentication session](#session) を一意に識別するAdobe Pass Authentication 概念です。
 
-認証コードは、[プライマリ（プログラマー）アプリケーションまたは [セカンダリ（プログラマー）アプリケーションの両方で使用でき ](#primary-application)[ 認証 ](#authentication) プロセスを完了したり ](#secondary-application)[ 認証セッション ](#session) に関する情報を取得したり、ユーザー [ プロファイル ](#profile) にアクセスしたりできます。
+認証コードは、[&#128279;](#secondary-application)プライマリ（プログラマー）アプリケーションまたは [セカンダリ（プログラマー）アプリケーションの両方で使用でき ](#primary-application) [ 認証 ](#authentication) プロセスを完了したり [ 認証セッション ](#session) に関する情報を取得したり、ユーザー [ プロファイル ](#profile) にアクセスしたりできます。
 
 以前の用語と同義で、登録コードを使用します。
 
@@ -45,7 +45,7 @@ ht-degree: 0%
 
 #### 認証 {#authorization}
 
-承認とは、[MVPD[ でユーザー権限を検証した後、所有している [4}MVPD](#programmer) サブスクリプションに基づいて、ユーザーが ](#mvpd) プログラマー ](#mvpd) カタログから保護されたコンテンツ（リソース ](#resource)）にアクセスできるようにするプロセスです。[
+承認とは、[&#128279;](#mvpd)MVPD[&#128279;](#mvpd) でユーザー権限を検証した後、所有している [4&rbrace;MVPD](#programmer) サブスクリプションに基づいて、ユーザーが  プログラマー  カタログから保護されたコンテンツ（リソース [&#128279;](#resource)）にアクセスできるようにするプロセスです。
 
 ### C {#c}
 
@@ -57,7 +57,7 @@ ht-degree: 0%
 
 #### 決定 {#decision}
 
-この判断は、Adobe Pass認証の概念です。この概念には、保護されたコンテンツ ](#mvpd) プログラマー [ へのアクセスを許可または拒否するための [MVPD](#authorization)[ 認証 ](#preauthorization) または [ 事前認証 ](#programmer) のプロセス照会に関する情報が格納されます。
+この判断は、Adobe Pass認証の概念です。この概念には、保護されたコンテンツ [&#128279;](#mvpd) プログラマー  へのアクセスを許可または拒否するための [MVPD](#authorization) [ 認証 ](#preauthorization) または [ 事前認証 ](#programmer) のプロセス照会に関する情報が格納されます。
 
 #### 分解 {#degradation}
 
@@ -135,13 +135,13 @@ MVPDは、MVPDとAdobeの間のオンボーディングプロセス中に定義�
 
 #### 事前認証 {#preauthorization}
 
-事前認証とは、[MVPD[ でユーザー権限を検証した後、ユーザーがアクセス権を持つ ](#resource) プログラマー ](#programmer) カタログから [ リソース ](#mvpd) のサブセットをプレビューできるプロセスです。
+事前認証とは、[&#128279;](#programmer)MVPD[ でユーザー権限を検証した後、ユーザーがアクセス権を持つ ](#resource) プログラマー  カタログから [ リソース ](#mvpd) のサブセットをプレビューできるプロセスです。
 
 [ プリフライト ](#preflight) と同義。
 
 #### Preflight {#preflight}
 
-プリフライトは、[MVPD[ でユーザー権限を検証した後、ユーザーがアクセスする資格のある [ プログラマー ](#programmer) カタログから ](#resource) リソース ](#mvpd) のサブセットをプレビューできるプロセスです。
+プリフライトは、[&#128279;](#mvpd)MVPD[&#128279;](#resource) でユーザー権限を検証した後、ユーザーがアクセスする資格のある [ プログラマー ](#programmer) カタログから  リソース  のサブセットをプレビューできるプロセスです。
 
 [ 事前認証 ](#preauthorization) と同義。
 
@@ -189,11 +189,11 @@ MVPDは、MVPDとAdobeの間のオンボーディングプロセス中に定義�
 
 #### SAML {#saml}
 
-SAML （Security Assertion Markup Language）は、当事者間、特に [ID プロバイダ）と [ サービス・プロバイダ ](#sp) との間で認証および認可データを交換するためのオープン ](#identity-provider) 標準です。
+SAML （Security Assertion Markup Language）は、当事者間、特に [&#128279;](#identity-provider)ID プロバイダ）と [ サービス・プロバイダ ](#sp) との間で認証および認可データを交換するためのオープン  標準です。
 
 #### セカンダリ（プログラマ）アプリケーション {#secondary-application}
 
-セカンダリアプリケーションとは、[ ユーザーエージェント ](#programmer) を使用して [MVPD[ のログインページに移動して ](#authentication) 認証 [ プロセスを完了できる ](#user-agent) プログラマー ](#mvpd) アプリケーションを指します。
+セカンダリアプリケーションとは、[ ユーザーエージェント ](#programmer) を使用して [&#128279;](#mvpd)MVPD[ のログインページに移動して ](#authentication) 認証 [ プロセスを完了できる ](#user-agent) プログラマー  アプリケーションを指します。
 
 セカンダリアプリケーションは、プライマリアプリケーションと同じデバイス上または別の（セカンダリ）デバイス上で実行される場合があります。この場合、ログインエクスペリエンスは、「2 番目の画面認証」ユーザーエクスペリエンスと呼ばれます。
 

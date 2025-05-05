@@ -455,11 +455,11 @@ Adobe Pass認証 tvOS SDKでプログラマー実装に適用される値を表�
 **プラットフォーム：不明**
 Adobe Pass Authentication Services が不明なデバイスタイプを検出するプログラマー実装に適用される値を表示します。
 
-目的のデバイスタイプ ](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md) 例えば「Roku」など）を送信する方法について詳しくは、Adobe Pass認証 REST API または SDK への [ クライアント情報の受け渡し）のメカニズムを参照してください。
+目的のデバイスタイプ [&#128279;](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md) 例えば「Roku」など）を送信する方法について詳しくは、Adobe Pass認証 REST API または SDK への  クライアント情報の受け渡し）のメカニズムを参照してください。
 
 すべてのレポートは、Adobe Pass認証環境ごとに固有の設定に基づいて計算された値を集計します。 したがって、異なる TVE ダッシュボード環境に切り替えると、異なるレポートデータが予想される可能性があります。
 
-使用可能なAdobe Pass認証 ](#authn-environments) 境に関する詳細については、「[ 環境」の節を参照してください。
+使用可能なAdobe Pass認証 [&#128279;](#authn-environments) 境に関する詳細については、「 環境」の節を参照してください。
 
 
 ##### 特定のチャネル/MVPD の選択 {#selecting-specific-channels-mvpds}
