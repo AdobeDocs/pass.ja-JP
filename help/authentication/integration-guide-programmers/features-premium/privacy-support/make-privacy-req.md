@@ -226,7 +226,7 @@ Adobe Pass認証は、アクセスリクエストと削除リクエストをサ�
 
 ### Privacy ServiceUI を使用 {#privacy-service-ui}
 
-Privacy Serviceユーザーインターフェイスへのアクセス方法と使用方法に関する [ 完全なチュートリアル ](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=en#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md) を、Adobe I/Oサービスを通じてオンラインで利用できます。 さらに、このリンクを使用して、プライバシー規制に関するビデオや記事のライブラリにアクセスできます。 Adobe Experience Cloudと GDPR メニューをクリックします。 これにより、いくつかのビデオが開きます。「GDPR UI の使い方」でその使用方法を説明しています。
+Privacy Serviceユーザーインターフェイスへのアクセス方法と使用方法に関する [ 完全なチュートリアル ](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=ja#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md) を、Adobe I/Oサービスを通じてオンラインで利用できます。 さらに、このリンクを使用して、プライバシー規制に関するビデオや記事のライブラリにアクセスできます。 Adobe Experience Cloudと GDPR メニューをクリックします。 これにより、いくつかのビデオが開きます。「GDPR UI の使い方」でその使用方法を説明しています。
 
 UI で、お客様は独自の IMSOrgID と、各製品の GDPR リクエストの詳細を含む JSON を読み込む必要があります。
 
@@ -259,7 +259,7 @@ Adobeのお客様がPrivacy Service API を統合する方法について詳し�
 
 >[!RELATEDINFORMATION]
 >
->* [Privacy Services Overview](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=en#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md)
+>* [Privacy Services Overview](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=ja#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md)
 >* Privacy Service API documentation
 
 -->

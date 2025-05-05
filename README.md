@@ -29,7 +29,7 @@ ht-degree: 5%
 1. 「このコンテンツは役に立ちましたか？」 ブラウザーウィンドウの下部に表示されるバナー **詳細なフィードバックオプション**.
 1. クリック **編集を提案** GitHub UI で変更を反映したプル要求 (PR) を送信します。
 
-   一般 [Adobeドキュメント寄稿者ガイド](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html) を参照してください。
+   一般 [Adobeドキュメント寄稿者ガイド](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html?lang=ja) を参照してください。
 
 このリポジトリのドキュメントおよびコード例について送信したマイナーな修正や説明は、Adobe利用条件の適用を受けます。
 
@@ -43,7 +43,7 @@ Adobeコミュニティのメンバーが新しいトピックを作成したり
 
 コミュニティの投稿者は、GitHub UI を使用して基本的な編集をおこなったり、リポジトリをフォークして大きな貢献をすることができます。
 
-詳しくは、 [Adobeドキュメント寄稿者ガイド](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html) 」を参照してください。
+詳しくは、 [Adobeドキュメント寄稿者ガイド](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html?lang=ja) 」を参照してください。
 
 ## 内部貢献者
 

@@ -48,7 +48,7 @@ AccessEnabler のネットワーク・アクティビティは独自のスレッ
 
 ## 訪問者 ID サービスの設定（Experience CloudID） {#visitorIDSetup}
 
-[Experience CloudID](https://experienceleague.adobe.com/docs/id-service/using/home.html) の値の設定は、[!DNL Analytics] の観点から重要です。 `visitorID` の値が設定されると、SDKはネットワーク呼び出しごとにこの情報を送信し、[!DNL Adobe Pass] Authentication Server がこの情報を収集します。 Adobe Pass Authentication Service の Analytics を、他のアプリケーションや Web サイトからの他の分析レポートと関連付けることができます。 visitorID の設定方法について詳しくは、[ こちら ](#setOptions) を参照してください。
+[Experience CloudID](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=ja) の値の設定は、[!DNL Analytics] の観点から重要です。 `visitorID` の値が設定されると、SDKはネットワーク呼び出しごとにこの情報を送信し、[!DNL Adobe Pass] Authentication Server がこの情報を収集します。 Adobe Pass Authentication Service の Analytics を、他のアプリケーションや Web サイトからの他の分析レポートと関連付けることができます。 visitorID の設定方法について詳しくは、[ こちら ](#setOptions) を参照してください。
 
 ## 使用権限フロー {#entitlement}
 

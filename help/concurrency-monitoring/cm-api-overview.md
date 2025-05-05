@@ -60,7 +60,7 @@ ID を持つアプリケーション **demo-app** が、Adobe チームによっ
 
 他にアクティブなストリームがないため、最初の呼び出しで終了コードを提供する必要はありません。 メタデータ取得呼び出しから返されたものがないので、メタデータ属性はありません。
 
-**subject** パラメーターと **idp** パラメーターは必須で、URI パス変数として指定されます。 **subject** および **idp** パラメーターを取得するには、Adobe Pass Authentication から **mvpd** および **upstreamUserID** メタデータフィールドを呼び出します。 [ メタデータ API の概要 ](https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/user-metadat/user-metadata-feature.html?lang=en#) も参照してください。 この例では、値「12345」を件名として指定し、「adobe」を idp として指定します。
+**subject** パラメーターと **idp** パラメーターは必須で、URI パス変数として指定されます。 **subject** および **idp** パラメーターを取得するには、Adobe Pass Authentication から **mvpd** および **upstreamUserID** メタデータフィールドを呼び出します。 [ メタデータ API の概要 ](https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/user-metadat/user-metadata-feature.html?lang=ja#) も参照してください。 この例では、値「12345」を件名として指定し、「adobe」を idp として指定します。
 
 
 ![](assets/session-init-params-frstapp.png)
