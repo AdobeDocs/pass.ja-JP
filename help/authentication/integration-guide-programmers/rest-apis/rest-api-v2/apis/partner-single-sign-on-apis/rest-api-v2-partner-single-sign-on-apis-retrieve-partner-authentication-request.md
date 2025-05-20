@@ -2,9 +2,9 @@
 title: パートナー認証要求の取得
 description: REST API V2 - パートナー認証リクエストの取得
 exl-id: 52d8a8e9-c176-410f-92bc-e83449278943
-source-git-commit: e8836c76aec10607717c0a67434b2ba5a78a8954
+source-git-commit: 9f872ad94e0aaa0546c8fcac9f88c50f47e10f6e
 workflow-type: tm+mt
-source-wordcount: '1219'
+source-wordcount: '1236'
 ht-degree: 0%
 
 ---
@@ -270,6 +270,7 @@ ht-degree: 0%
                     <li><b>authenticatedSSO</b><br/> クライアントアプリケーションはシングルサインオンアクセスフローを通じてすでに認証されています。</li>
                     <li><b>pfs_fallback</b><br/> クライアントアプリケーションは、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md">AP-Partner-Framework-Status</a> ヘッダー値が見つからないか無効なため、基本認証フローにフォールバックする必要があります。</li>
                     <li><b>configuration_fallback</b><br/>Adobe Pass バックエンドでのパートナーのシングルサインオン設定により、クライアントアプリケーションが基本認証フローにフォールバックする必要があります。</li>
+                    <li><b>missing_parameters_fallback</b><br /> クライアントアプリケーションは、パラメーターが見つからないか、無効なため、再開フローに戻す必要があります。</li>
                   </ul>
                <td><i>必須</i></td>
             </tr>
@@ -574,7 +575,7 @@ Content-Type: application/json;charset=UTF-8
 {
     "actionName": "resume",
     "actionType": "direct",
-    "reasonType": "none",
+    "reasonType": "missing_parameters_fallback",
     "missingParameters": [
           "redirectUrl"
     ],
