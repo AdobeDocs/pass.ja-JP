@@ -4,10 +4,10 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
+source-git-commit: 13b0bb640aa599109e8c2f68d1e16fbdc3840951
 workflow-type: tm+mt
-source-wordcount: '1251'
-ht-degree: 2%
+source-wordcount: '1258'
+ht-degree: 3%
 
 ---
 
@@ -17,10 +17,11 @@ ht-degree: 2%
 + [Adobe Pass 認証](home.md)
 + [製品に関するお知らせ](product-announcements.md)
 + 製品リリース {#product-releases}
-   + 2025 年 {#2025}
+   + 2025 {#2025}
+      + [Adobe Pass Authentication 3.2.0 リリースノート](notes-releases/auth-rn-320.md)
       + [Adobe Pass Authentication 3.1.0 リリースノート](notes-releases/auth-rn-310.md)
       + [Adobe Pass Authentication JavaScript 4.7.1 リリースノート](notes-releases/authn-rn-javascript-471.md)
-   + 2024 年 {#2024}
+   + 2024 {#2024}
       + [Adobe Pass Authentication 3.0.3 リリースノート](notes-releases/auth-rn-303.md)
       + [Adobe Pass Authentication 3.0 リリースノート](notes-releases/auth-rn-300.md)
       + [Adobe Pass Authentication 2.70 リリースノート](notes-releases/auth-rn-270.md)
@@ -28,7 +29,7 @@ ht-degree: 2%
       + [Adobe Pass Authentication JavaScript 4.7.0 リリースノート](notes-releases/authn-rn-javascript-470.md)
       + [Adobe Pass認証iOS/tvOS 3.9.2 リリースノート](notes-releases/authn-rn-ios-tvos-392.md)
       + [Adobe Pass認証iOS/tvOS 3.8.4 リリースノート](notes-releases/authn-rn-ios-tvos-384.md)
-   + 2023 年 {#2023}
+   + 2023 {#2023}
       + [Adobe Pass Authentication 2.68 リリースノート](notes-releases/auth-rn-268.md)
       + [Adobe Pass Authentication 2.67 リリースノート](notes-releases/auth-rn-267.md)
       + [Adobe Pass Authentication 2.66 リリースノート](notes-releases/auth-rn-266.md)
@@ -39,7 +40,7 @@ ht-degree: 2%
       + [Adobe Pass認証iOS/tvOS 3.8.2 リリースノート](notes-releases/authn-rn-ios-tvos-382.md)
       + [Adobe Pass認証iOS/tvOS 3.8.1 リリースノート](notes-releases/authn-rn-ios-tvos-381.md)
       + [Adobe Pass Authentication Android 3.7.3 リリースノート](notes-releases/authn-rn-android-373.md)
-   + 年{#2022}
+   + 2022 {#2022}
       + [Adobe Pass Authentication 2.64 リリースノート](notes-releases/auth-rn-264.md)
       + [Adobe Pass Authentication 2.63 リリースノート](notes-releases/auth-rn-263.md)
       + [Adobe Pass Authentication 2.62.1 リリースノート](notes-releases/auth-rn-2621.md)
@@ -52,7 +53,7 @@ ht-degree: 2%
    + [プログラマー向けキックスタートガイド](kickstart/programmer-kickstart-guide.md)
    + [MVPD キックスタートガイド](kickstart/mvpd-kickstart-guide.md)
    + [サポート手順に関する FAQ](kickstart/support-procedures-faqs.md)
-+ プログラマ向け統合ガイド {#integration-guide-programmers}
++ プログラマー向け統合ガイド {#integration-guide-programmers}
    + [プログラマー統合ガイド](integration-guide-programmers/programmer-integration-guide-overview.md)
    + [必要なシステム構成](integration-guide-programmers/minimum-system-requirements.md)
    + [スロットルメカニズム](integration-guide-programmers/throttling-mechanism.md)
@@ -61,7 +62,7 @@ ht-degree: 2%
          + [Dynamic Client Registration の概要](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)
          + [動的クライアント登録の用語集](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-glossary.md)
          + [Dynamic Client Registration の FAQ](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md)
-         + API の {#rest-api-dcr-apis}
+         + API {#rest-api-dcr-apis}
             + [クライアント資格情報の取得](integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md)
             + [アクセストークンの取得](integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md)
          + フロー {#rest-api-dcr-flows}
@@ -71,16 +72,16 @@ ht-degree: 2%
          + [REST API V2 の用語集](integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md)
          + [REST API V2 チェックリスト](integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-checklist.md)
          + [REST API V2 の FAQ](integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md)
-         + API の {#rest-api-v2-apis}
+         + API {#rest-api-v2-apis}
             + [REST API V2 API の概要](integration-guide-programmers/rest-apis/rest-api-v2/apis/rest-api-v2-apis-overview.md)
             + 設定 {#rest-api-v2-configuration-apis}
                + [特定のサービスプロバイダーの設定の取得](integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)
-            + Sessions {#rest-api-v2-sessions-apis}
+            + セッション {#rest-api-v2-sessions-apis}
                + [認証セッションの作成](integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
                + [認証セッションの再開](integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
                + [認証セッションの取得](integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md)
                + [ユーザーエージェントでの認証の実行](integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)
-            + Profiles {#rest-api-v2-profiles-apis}
+            + プロファイル {#rest-api-v2-profiles-apis}
                + [プロファイルの取得](integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
                + [特定の mvpd のプロファイルの取得](integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
                + [特定のコードのプロファイルの取得](integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
@@ -89,12 +90,12 @@ ht-degree: 2%
                + [特定の mvpd を使用した事前認証決定の取得](integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
             + ログアウト {#rest-api-v2-logout-apis}
                + [特定の mvpd に対するログアウトの開始](integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)
-            + パートナーシングル サインオン {#rest-api-v2-partner-single-sign-on-apis}
+            + パートナーのシングル サインオン {#rest-api-v2-partner-single-sign-on-apis}
                + [パートナー認証要求の取得](integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)
                + [パートナー認証応答を使用したプロファイルの作成と取得](integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)
          + フロー {#rest-api-v2-flows}
             + [REST API V2 フローの概要](integration-guide-programmers/rest-apis/rest-api-v2/flows/rest-api-v2-flows-overview.md)
-            + の基本的なアクセスフロ {#rest-api-v2-basic-access-flows}
+            + 基本的なアクセスフロー {#rest-api-v2-basic-access-flows}
                + [プライマリアプリケーション内で実行される基本プロファイルフロー](integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
                + [セカンダリアプリケーション内で実行される基本プロファイルフロー](integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
                + [プライマリアプリケーション内で実行される基本認証フロー](integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
@@ -111,7 +112,7 @@ ht-degree: 2%
                + [プラットフォーム ID フローを使用したシングルサインオン](integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md)
                + [サービストークンフローを使用したシングルサインオン](integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md)
                + [シングルログアウトフロー](integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-logout-flow.md)
-         + クックブックス {#rest-api-v2-cookbooks}
+         + クックブック {#rest-api-v2-cookbooks}
             + [REST API V2 クックブック（クライアントからサーバー）](integration-guide-programmers/rest-apis/rest-api-v2/cookbooks/rest-api-v2-cookbook-client-server.md)
             + [REST API V2 クックブック（サーバー間）](integration-guide-programmers/rest-apis/rest-api-v2/cookbooks/rest-api-v2-cookbook-server-server.md)
          + 付録 {#rest-api-v2-appendix}
@@ -129,27 +130,27 @@ ht-degree: 2%
          + [ユーザーメタデータ](integration-guide-programmers/features-standard/entitlements/user-metadata.md)
          + [決定](integration-guide-programmers/features-standard/entitlements/decisions.md)
          + [メディアトークン](integration-guide-programmers/features-standard/entitlements/media-tokens.md)
-      + エラー報告 {#error-reporting}
+      + エラーレポート {#error-reporting}
          + [拡張エラーコード](integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)
-      + シングル サインオン アクセス {#sso-access}
-         + パートナーシングル サインオン {#partner-sso}
+      + シングルサインオンアクセス {#sso-access}
+         + パートナーのシングル サインオン {#partner-sso}
             + Appleのシングルサインオン {#apple-sso}
                + [Apple SSO の概要](integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md)
                + [Apple SSO クックブック（REST API V2）](integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md)
-         + Platform シングルサインオン {#platform-sso}
+         + Platform のシングルサインオン {#platform-sso}
             + Amazonのシングルサインオン {#amazon-sso}
                + [Amazon SSO クックブック（REST API V2）](integration-guide-programmers/features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
             + Roku のシングルサインオン {#roku-sso}
                + [Roku SSO クックブック（REST API V2）](integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-cookbook-rest-api-v2.md)
-      + ホーム ベースの認証アクセス {#hba-access}
+      + ホームベースの認証アクセス {#hba-access}
          + [ホームベースの認証（HBA）](integration-guide-programmers/features-standard/hba-access/home-based-authentication.md)
       + プライバシーサポート {#privacy-support}
          + [プライバシーサポートの概要](integration-guide-programmers/features-premium/privacy-support/privacy-supp-overview.md)
          + [プライバシーリクエストの作成方法](integration-guide-programmers/features-premium/privacy-support/make-privacy-req.md)
-   + Premium の機能 {#features-premium}
+   + プレミアム機能 {#features-premium}
       + 一時アクセス {#temporary-access}
          + [TempPass フィーチャ](integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
-      + アクセス が低下しました {#degraded-access}
+      + 縮退アクセス {#degraded-access}
          + [縮退機能](integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
       + ESM {#esm}
          + [使用権限サービスの監視の概要](integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md)
@@ -158,7 +159,7 @@ ht-degree: 2%
       + Analytics {#analytics}
          + [Adobe Pass Authentication サーバーサイドのデータのAdobe Analyticsへの統合](integration-guide-programmers/features-premium/analytics/integrate-authn-servr-data-analytics.md)
          + [Adobe Pass認証でのExperience Cloud ID の使用](integration-guide-programmers/features-premium/analytics/exp-cloud-id-authn.md)
-   + レガシ {#legacy}
+   + レガシー {#legacy}
       + （レガシー） REST API V1 {#rest-api-v1}
          + [（レガシー） REST API V1 の概要](integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)
          + [（レガシー） REST API V1 リファレンス](integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)
@@ -181,7 +182,7 @@ ht-degree: 2%
             + [（レガシー） profile-request の取得](integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-profilerequest.md)
             + [（レガシー）トークン交換](integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md)
             + [（レガシー）一時パスとプロモーション一時パスの無料プレビュー](integration-guide-programmers/legacy/rest-api-v1/apis/free-preview-for-temp-pass-and-promotional-temp-pass.md)
-         + （レガシー）クックブックス {#rest-api-v1-cookbooks}
+         + （従来）クックブック {#rest-api-v1-cookbooks}
             + [（レガシー） REST API V1 クックブック（クライアントからサーバー）](integration-guide-programmers/legacy/rest-api-v1/cookbooks/rest-api-cookbook-clienttoserver.md)
             + [（レガシー） REST API V1 クックブック（サーバー間）](integration-guide-programmers/legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md)
       + （レガシー） SDK {#sdks}
@@ -190,14 +191,14 @@ ht-degree: 2%
             + [（従来の）JavaScript SDK クックブック](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-cookbook.md)
             + [（従来の）JavaScript SDK API リファレンス](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md)
             + [（従来の）JavaScript SDK API の事前認証](integration-guide-programmers/legacy/sdks/javascript-sdk/preauthorize-api-javascript-sdk.md)
-            + （従来）ガイドライン {#javascript-sdk-guidelines}
+            + （レガシー）ガイドライン {#javascript-sdk-guidelines}
                + [（レガシー）更新なしのログインとログアウト](integration-guide-programmers/legacy/sdks/javascript-sdk/refreshless-login-and-logout.md)
          + （従来の）iOS/tvOS SDK {#ios-tvos-sdk}
             + [（従来の）iOS/tvOS SDKの概要](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)
             + [（従来の）iOS/tvOS SDK クックブック](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-cookbook.md)
             + [（従来の）iOS/tvOS SDK API リファレンス](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
             + [（従来の）iOS/tvOS SDK API の事前認証](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/preauthorize-api-ios-tvos-sdk.md)
-            + （従来）ガイドライン {#ios-tvos-sdk-guidelines}
+            + （レガシー）ガイドライン {#ios-tvos-sdk-guidelines}
                + [（従来の）iOS/tvOS アプリケーションの登録](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-application-registration.md)
                + [（従来の）iOS/tvOS v3.x 移行ガイド](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-v3x-migration-guide.md)
                + [（レガシー）iOS/tvOS ストレージの整合性チェック](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-storage-integrity-checks.md)
@@ -206,7 +207,7 @@ ht-degree: 2%
             + [（従来の）Android SDK クックブック](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-cookbook.md)
             + [（従来の）Android SDK API リファレンス](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md)
             + [（従来の）Android SDK API の事前認証](integration-guide-programmers/legacy/sdks/android-sdk/preauthorize-api-android-sdk.md)
-            + （従来）ガイドライン {#android-sdk-guidelines}
+            + （レガシー）ガイドライン {#android-sdk-guidelines}
                + [（従来の）Android アプリケーションの登録](integration-guide-programmers/legacy/sdks/android-sdk/android-application-registration.md)
                + [（従来の） Dynamic Client Registration を使用したAndroid SDK](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-with-dynamic-client-registration.md)
          + （従来の） FireOS SDK {#fireos-sdk}
@@ -216,9 +217,9 @@ ht-degree: 2%
             + [（従来の）Amazon FireOS アプリケーションの登録](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-application-registration.md)
             + [（従来の） FireOS SDKと Dynamic Client Registration](integration-guide-programmers/legacy/sdks/fireos-sdk/fireos-sdk-with-dynamic-client-registration.md)
             + [（従来の）Amazon FireOS SSO - プログラマー向けキックオフガイド](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-firetv-sso-programmer-kickoff-guide.md)
-      + （従来の） Client Information {#client-information}
+      + （従来の）クライアント情報 {#client-information}
          + [（レガシー）クライアント情報（デバイス、接続、アプリケーション）の受け渡し](integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)
-      + （レガシー）エラー報告 {#error-reporting}
+      + （レガシー）エラーレポート {#error-reporting}
          + [（レガシー）エラーレポート](integration-guide-programmers/legacy/error-reporting/error-reporting.md)
       + （レガシー）シングルサインオンアクセス {#sso-access}
          + [（レガシー）シングルサインオンのサポート](integration-guide-programmers/legacy/sso-access/sso-support.md)
@@ -253,7 +254,7 @@ ht-degree: 2%
                + [（従来の）iOS認証エラー – adobepass.ios.app が見つからない](integration-guide-programmers/legacy/notes-technical/ios-authentication-error-adobepassiosapp-cannot-be-found.md)
                + [（レガシー）コンソールアプリログを使用した AccessEnabler iOS/tvOS SDKのデバッグ](integration-guide-programmers/legacy/notes-technical/debugging-the-accessenabler-iostvos-sdk-using-console-app-logs.md)
                + [（従来の） AccessEnabler iOS/tvOS 3.7.0 アップグレード・パス](integration-guide-programmers/legacy/notes-technical/accessenabler-iostvos-370-upgrade-path.md)
-         + （従来の） User Experience {#user-experience}
+         + （従来の）ユーザーエクスペリエンス {#user-experience}
             + [（従来）MVPDのログインページを iFrame からポップアップに移行する方法](integration-guide-programmers/legacy/notes-technical/migr-mvpd-login-iframe-popup.md)
             + [（従来の）プリフライト機能：問題を有効化、トラブルシューティング、または特定する方法](integration-guide-programmers/legacy/notes-technical/preflight-feature.md)
             + [（レガシー）選択ダイアログの「MVPD を許可」](integration-guide-programmers/legacy/notes-technical/allow-mvpd-selectn-dialog.md)
@@ -275,7 +276,7 @@ ht-degree: 2%
    + [プロキシMVPD SAML 統合](integration-guide-mvpds/proxy-mvpd-saml-int.md)
    + [サービスプロバイダーの範囲](integration-guide-mvpds/serv-provider-scoping.md)
    + [MVPDの IP アドレスの許可](integration-guide-mvpds/mvpd-listing-ip-addres.md)
-+ TVE ダッシュボード のユーザーガイド {#user-guide-tve-dashboard}
++ TVE ダッシュボードのユーザーガイド {#user-guide-tve-dashboard}
    + [TVE ダッシュボードの概要](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md)
    + [環境](/help/authentication/user-guide-tve-dashboard/tve-dashboard-environments.md)
    + [変更のレビューとプッシュ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)
