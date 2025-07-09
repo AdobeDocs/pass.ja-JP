@@ -21,7 +21,7 @@ REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/auth
 
 ## 一般的な FAQ {#general-faqs}
 
-[REST API V1} または ](#migration-rest-api-v1-to-rest-api-v2)SDK[ から移行する新規または既存のアプリケーションにかかわらず、REST API V2 を統合する必要があるアプリケーションを使用している場合は、この節から開始し ](#migration-sdk-to-rest-api-v2) ください。
+[REST API V1&rbrace; または ](#migration-rest-api-v1-to-rest-api-v2)SDK[ から移行する新規または既存のアプリケーションにかかわらず、REST API V2 を統合する必要があるアプリケーションを使用している場合は、この節から開始し ](#migration-sdk-to-rest-api-v2) ください。
 
 移行の詳細と手順については、次の節も参照してください。
 
@@ -653,7 +653,7 @@ Authorization ヘッダー値は、登録段階でAdobe Pass Authentication か�
 
 はい。
 
-[DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) および [REST API V2} の OpenAPI 仕様ファイルは、{4](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/)Adobe Developer[ web サイトからダウンロードできます。](https://developer.adobe.com/adobe-pass/)
+[DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) および [REST API V2&rbrace; の OpenAPI 仕様ファイルは、&lbrace;4](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/)Adobe Developer[ web サイトからダウンロードできます。](https://developer.adobe.com/adobe-pass/)
 
 OpenAPI 仕様ファイルをダウンロードするには、「ダウンロード」ボタンをクリックして、次のファイルをローカルマシンに保存します。
 
