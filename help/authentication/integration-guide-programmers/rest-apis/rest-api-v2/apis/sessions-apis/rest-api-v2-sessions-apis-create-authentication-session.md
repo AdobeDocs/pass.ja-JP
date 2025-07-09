@@ -2,9 +2,9 @@
 title: 認証セッションの作成
 description: REST API V2 – 認証セッションの作成
 exl-id: bb2a6bb4-0778-4748-a674-df9d0e8242c8
-source-git-commit: 32c3176fb4633acb60deb1db8fb5397bbf18e2d0
+source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
 workflow-type: tm+mt
-source-wordcount: '1060'
+source-wordcount: '1064'
 ht-degree: 0%
 
 ---
@@ -316,12 +316,12 @@ ht-degree: 0%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notBefore</td>
-               <td>認証コードが無効になる前のタイムスタンプ。</td>
+               <td>認証コードが無効になる前のタイムスタンプ（ミリ秒単位）。</td>
                <td>optional</td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notAfter</td>
-               <td>認証コードが無効になった後のタイムスタンプ。</td>
+               <td>認証コードが無効になるまでのタイムスタンプ（ミリ秒単位）。</td>
                <td>optional</td>
             </tr>
 </table>
@@ -361,7 +361,7 @@ ht-degree: 0%
 
 ## サンプル {#samples}
 
-### 1. パラメーターなしで認証セッションを作成する
+### &#x200B;1. パラメーターなしで認証セッションを作成する
 
 >[!BEGINTABS]
 
@@ -405,7 +405,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2. パラメーターがない認証セッションを作成する
+### &#x200B;2. パラメーターがない認証セッションを作成する
 
 >[!BEGINTABS]
 

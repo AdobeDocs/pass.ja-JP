@@ -2,9 +2,9 @@
 title: REST API V2 の FAQ
 description: REST API V2 の FAQ
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
+source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
 workflow-type: tm+mt
-source-wordcount: '9703'
+source-wordcount: '9566'
 ht-degree: 0%
 
 ---
@@ -21,7 +21,7 @@ REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/auth
 
 ## 一般的な FAQ {#general-faqs}
 
-[&#128279;](#migration-rest-api-v1-to-rest-api-v2)REST API V1&rbrace; または [SDK](#migration-sdk-to-rest-api-v2) から移行する新規または既存のアプリケーションにかかわらず、REST API V2 を統合する必要があるアプリケーションを使用している場合は、この節から開始し  ください。
+[REST API V1} または ](#migration-rest-api-v1-to-rest-api-v2)SDK[ から移行する新規または既存のアプリケーションにかかわらず、REST API V2 を統合する必要があるアプリケーションを使用している場合は、この節から開始し ](#migration-sdk-to-rest-api-v2) ください。
 
 移行の詳細と手順については、次の節も参照してください。
 
@@ -57,7 +57,7 @@ REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/auth
 
 設定とは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#configuration) ドキュメントで定義されている用語です。
 
-設定には、[Configuration](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md) エンドポイントから取得できる、次の属性 `id`、`displayName`、`logoUrl` などで定義された MVPD のリストが含まれています。
+設定には、`id`Configuration`displayName` エンドポイントから取得できる、次の属性 `logoUrl`、[、](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md) などで定義された MVPD のリストが含まれています。
 
 クライアントアプリケーションは、ユーザーが認証または再認証のためにMVPDを選択する必要がある場合にのみ、設定を取得する必要があります。
 
@@ -67,7 +67,7 @@ REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/auth
 
 詳しくは、[ 設定の取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md) ドキュメントを参照してください。
 
-#### 4. クライアントアプリケーションは、永続的なストレージに設定応答情報をキャッシュする必要がありますか？ {#configuration-phase-faq4}
+#### &#x200B;4. クライアントアプリケーションは、永続的なストレージに設定応答情報をキャッシュする必要がありますか？ {#configuration-phase-faq4}
 
 クライアントアプリケーションは、ユーザーが認証または再認証のためにMVPDを選択する必要がある場合にのみ、設定を取得する必要があります。
 
@@ -77,19 +77,19 @@ REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/auth
 * ユーザーは、基本的またはプロモーションの [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md) 機能を通じて一時的なアクセスが提供されます。
 * ユーザー認証の有効期限が切れているが、クライアントアプリケーションは、以前に選択したMVPDをユーザーエクスペリエンスの動機に基づく選択としてキャッシュし、まだMVPDの購読者であることを確認するように求めるだけです。
 
-#### 5. クライアントアプリケーションは、独自の MVPD リストを管理できますか。 {#configuration-phase-faq5}
+#### &#x200B;5. クライアントアプリケーションは、独自の MVPD リストを管理できますか。 {#configuration-phase-faq5}
 
 クライアントアプリケーションは MVPD の独自のリストを管理できますが、MVPD ID とAdobe Pass Authentication を同期させる必要があります。 そのため、Adobe Pass Authentication から提供される設定を使用して、リストを最新かつ正確にすることをお勧めします。
 
-指定されたAdobe Pass ID が無効な場合や、指定された [&#128279;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) サービスプロバイダー [&#128279;](rest-api-v2-glossary.md#service-provider) とのアクティブな統合がない場合、クライアントアプリケーションはMVPD認証 REST API V2 から  エラー  を受け取ります。
+指定されたAdobe Pass ID が無効な場合や、指定された [ サービスプロバイダー ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) とのアクティブな統合がない場合、クライアントアプリケーションはMVPD認証 REST API V2 から [ エラー ](rest-api-v2-glossary.md#service-provider) を受け取ります。
 
-#### 6. クライアントアプリケーションは MVPD のリストをフィルタリングできますか。 {#configuration-phase-faq6}
+#### &#x200B;6. クライアントアプリケーションは MVPD のリストをフィルタリングできますか。 {#configuration-phase-faq6}
 
 クライアントアプリケーションは、独自のビジネスロジックおよび要件（以前に選択したユーザーの場所やユーザーの履歴など）に基づいてカスタムメカニズムを実装することで、設定応答で提供される MVPD のリストをフィルタリングできます。
 
 クライアントアプリケーションは、開発中またはテスト中の統合を持つ [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md) MVPD または MVPD のリストをフィルタリングできます。
 
-#### 7. MVPDとの統合が無効になり、非アクティブとしてマークされた場合、どうなりますか？ {#configuration-phase-faq7}
+#### &#x200B;7. MVPDとの統合が無効になり、非アクティブとしてマークされた場合、どうなりますか？ {#configuration-phase-faq7}
 
 MVPDとの統合が無効で非アクティブとしてマークされている場合、MVPDは、以降の設定応答で提供される MVPD のリストから削除されます。考慮すべき重要な結果が 2 つあります。
 
@@ -98,14 +98,14 @@ MVPDとの統合が無効で非アクティブとしてマークされている�
 
 選択したMVPDが指定の [ サービスプロバイダー ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) とのアクティブな統合を持たなくなった場合、クライアントアプリケーションはAdobe Pass認証 REST API V2 から [ エラー ](rest-api-v2-glossary.md#service-provider) を受け取ります。
 
-#### 8. MVPDとの統合が有効になり、アクティブとしてマークされた場合、どうなりますか？ {#configuration-phase-faq8}
+#### &#x200B;8. MVPDとの統合が有効になり、アクティブとしてマークされた場合、どうなりますか？ {#configuration-phase-faq8}
 
 MVPDとの統合が有効になり、アクティブとしてマークされると、MVPDは、以降の設定応答で提供される MVPD のリストに戻されます。考慮すべき重要な結果は 2 つあります。
 
 * そのMVPDの認証されていないユーザーは、そのMVPDを使用して認証フェーズを再び完了できます。
 * そのMVPDの認証済みユーザーは、そのMVPDを使用して、事前認証、認証、ログアウトの各フェーズを再び完了できます。
 
-#### 9. MVPDとの統合を有効または無効にする方法 {#configuration-phase-faq9}
+#### &#x200B;9. MVPDとの統合を有効または無効にする方法 {#configuration-phase-faq9}
 
 この操作は、組織管理者の 1 人がAdobe Pass[TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) を使用して、またはお客様に代わってAdobe Pass認証担当者が実行できます。
 
@@ -170,7 +170,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 * [プライマリアプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
 * [セカンダリ・アプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
 
-#### 5. ユーザーが有効な認証コードを入力し、認証セッションがまだ期限切れになっていないことをクライアントアプリケーションが認識するにはどうすればよいですか？ {#authentication-phase-faq5}
+#### &#x200B;5. ユーザーが有効な認証コードを入力し、認証セッションがまだ期限切れになっていないことをクライアントアプリケーションが認識するにはどうすればよいですか？ {#authentication-phase-faq5}
 
 クライアントアプリケーションは、認証セッションの再開または認証コードに関連する認証セッション情報の取得を担当するセッションエンドポイントの 1 つにリクエストを送信することにより、セカンダリ（画面）アプリケーションにおいてユーザーによって入力された認証コードを検証できる。
 
@@ -178,7 +178,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 詳しくは、[ 認証セッションの再開 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md) および [ 認証セッションの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) ドキュメントを参照してください。
 
-#### 6. ユーザーが既に認証されているかどうかをクライアントアプリケーションが認識するにはどうすればよいですか？ {#authentication-phase-faq6}
+#### &#x200B;6. ユーザーが既に認証されているかどうかをクライアントアプリケーションが認識するにはどうすればよいですか？ {#authentication-phase-faq6}
 
 クライアントアプリケーションは、ユーザーが既に認証されているかどうかを確認できる次のエンドポイントのいずれかをクエリし、プロファイル情報を返すことができます。
 
@@ -191,7 +191,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 * [プライマリアプリケーション内で実行される基本プロファイルフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
 * [セカンダリアプリケーション内で実行される基本プロファイルフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
 
-#### 7. プロファイルとは何で、どれくらい有効ですか？ {#authentication-phase-faq7}
+#### &#x200B;7. プロファイルとは何で、どれくらい有効ですか？ {#authentication-phase-faq7}
 
 プロファイルとは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#profile) ドキュメントで定義されている用語です。
 
@@ -213,7 +213,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 詳しくは、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) ドキュメントを参照してください。
 
-#### 8. クライアントアプリケーションは、ユーザーのプロファイル情報を永続的なストレージにキャッシュする必要がありますか？ {#authentication-phase-faq8}
+#### &#x200B;8. クライアントアプリケーションは、ユーザーのプロファイル情報を永続的なストレージにキャッシュする必要がありますか？ {#authentication-phase-faq8}
 
 クライアントアプリケーションは、次の側面を考慮して、ユーザーのプロファイル情報の一部を永続的なストレージにキャッシュして、不要なリクエストを避け、ユーザーエクスペリエンスを向上させる必要があります。
 
@@ -223,7 +223,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 | `attributes` | クライアントアプリケーションはこれを使用して、様々な [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) キー（`zip`、`maxRating` など）に基づいてユーザーエクスペリエンスをパーソナライズできます。<br/><br/> ユーザーメタデータは認証フローが完了すると使用できるようになります。したがって、[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) 情報は既にプロファイル情報に含まれているため、クライアントアプリケーションは別のエンドポイントに対してクエリを実行して、情報を取得する必要はありません。<br/><br/> 特定のメタデータ属性は、MVPDと特定のメタデータ属性に応じて、認証フロー中に更新される場合があります。 その結果、最新のユーザーメタデータを取得するために、クライアントアプリケーションがプロファイル API を再度クエリする必要が生じる場合があります。 |
 | `notAfter` | クライアントアプリケーションはこれを使用して、ユーザープロファイルの有効期限を追跡できます。<br/><br/> クライアントアプリケーションのエラー処理では、[ エラー ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) コード（`authenticated_profile_missing`、`authenticated_profile_expired`、`authenticated_profile_invalidated` など）を処理する必要があります。これは、クライアントアプリケーションでユーザーの認証が必要であることを示します。 |
 
-#### 9. クライアントアプリケーションは、再認証を必要とせずにユーザープロファイルを拡張できますか。 {#authentication-phase-faq9}
+#### &#x200B;9. クライアントアプリケーションは、再認証を必要とせずにユーザープロファイルを拡張できますか。 {#authentication-phase-faq9}
 
 いいえ。
 
@@ -257,7 +257,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 詳しくは、[ パートナーフローを使用したシングルサインオン ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md) および [Apple SSO クックブック（REST API V2） ](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md) ドキュメントを参照してください。
 
-#### 11. ユーザーに複数のMVPD プロファイルがある場合、クライアントアプリケーションは何を行いますか？ {#authentication-phase-faq11}
+#### &#x200B;11. ユーザーに複数のMVPD プロファイルがある場合、クライアントアプリケーションは何を行いますか？ {#authentication-phase-faq11}
 
 複数のプロファイルをサポートするかどうかは、クライアントアプリケーションのビジネス要件によって決まります。
 
@@ -272,7 +272,7 @@ REST API v2 は、次の要件に対応するために複数のプロファイ�
 * MVPD サブスクリプションを Direct-to-Consumer （DTC） サービスと組み合わせたユーザー。
 * 複数のMVPD サブスクリプションを持つユーザー。
 
-#### 12. ユーザープロファイルが期限切れになるとどうなりますか？ {#authentication-phase-faq12}
+#### &#x200B;12. ユーザープロファイルが期限切れになるとどうなりますか？ {#authentication-phase-faq12}
 
 ユーザープロファイルの有効期限が切れると、プロファイルエンドポイントからの応答に含まれなくなります。
 
@@ -280,7 +280,7 @@ REST API v2 は、次の要件に対応するために複数のプロファイ�
 
 詳しくは、[ 認証セッション API の作成 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) ドキュメントを参照してください。
 
-#### 13. ユーザープロファイルが無効になるのはいつですか？ {#authentication-phase-faq13}
+#### &#x200B;13. ユーザープロファイルが無効になるのはいつですか？ {#authentication-phase-faq13}
 
 ユーザープロファイルが無効になるのは、次の場合です。
 
@@ -289,19 +289,19 @@ REST API v2 は、次の要件に対応するために複数のプロファイ�
 * クライアントアプリケーションが [Authorization](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md) ヘッダー値の取得に使用されるクライアント資格情報を更新する場合。
 * クライアント アプリケーションが、クライアント資格情報の取得に使用するソフトウェア ステートメントを失効または更新したとき。
 
-#### 14. クライアントアプリケーションは、ポーリングメカニズムをいつ開始する必要がありますか？ {#authentication-phase-faq14}
+#### &#x200B;14. クライアントアプリケーションは、ポーリングメカニズムをいつ開始する必要がありますか？ {#authentication-phase-faq14}
 
 効率を確保し、不要なリクエストを避けるために、クライアントアプリケーションは次の条件下でポーリングメカニズムを開始する必要があります。
 
 **プライマリ（画面）アプリケーション内で実行される認証**
 
-プライマリ（ストリーミング）アプリケーションでは、ユーザーが最終的な宛先ページに到達すると、ブラウザーコンポーネントが、[ セッション ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) エンドポイントリクエストの `redirectUrl` パラメーターに指定された URL を読み込んだ後に、ポーリングを開始する必要があります。
+プライマリ（ストリーミング）アプリケーションでは、ユーザーが最終的な宛先ページに到達すると、ブラウザーコンポーネントが、`redirectUrl` セッション [ エンドポイントリクエストの ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) パラメーターに指定された URL を読み込んだ後に、ポーリングを開始する必要があります。
 
 **セカンダリ（画面）アプリケーション内で実行される認証**
 
 プライマリ（ストリーミング）アプリケーションでは、ユーザーが認証プロセスを開始するとすぐに、つまり、[ セッション ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) エンドポイントの応答を受信して認証コードをユーザーに表示した直後に、ポーリングを開始する必要があります。
 
-#### 15. クライアントアプリケーションは、いつポーリングメカニズムを停止する必要がありますか。 {#authentication-phase-faq15}
+#### &#x200B;15. クライアントアプリケーションは、いつポーリングメカニズムを停止する必要がありますか。 {#authentication-phase-faq15}
 
 効率を確保し、不要なリクエストを避けるために、クライアントアプリケーションは次の条件でポーリングメカニズムを停止する必要があります。
 
@@ -311,13 +311,13 @@ REST API v2 は、次の要件に対応するために複数のプロファイ�
 
 **認証セッションとコードの有効期限**
 
-[ セッション ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) エンドポイント応答の `notAfter` タイムスタンプ （例：30 分）に示されているように、認証セッションとコードの有効期限が切れます。 この場合、ユーザーは認証プロセスを再起動する必要があり、以前の認証コードを使用したポーリングは直ちに停止する必要があります。
+`notAfter` セッション [ エンドポイント応答の ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) タイムスタンプ （例：30 分）に示されているように、認証セッションとコードの有効期限が切れます。 この場合、ユーザーは認証プロセスを再起動する必要があり、以前の認証コードを使用したポーリングは直ちに停止する必要があります。
 
 **新しい認証コードが生成されました**
 
 ユーザーがプライマリ（画面）デバイスで新しい認証コードを要求すると、既存のセッションは無効になり、以前の認証コードを使用したポーリングを直ちに停止する必要があります。
 
-#### 16. クライアントアプリケーションは、呼び出しの間隔にどの程度ポーリングメカニズムを使用する必要がありますか？ {#authentication-phase-faq16}
+#### &#x200B;16. クライアントアプリケーションは、呼び出しの間隔にどの程度ポーリングメカニズムを使用する必要がありますか？ {#authentication-phase-faq16}
 
 効率を確保し、不要なリクエストを避けるために、クライアントアプリケーションは次の条件下でポーリングメカニズムの頻度を設定する必要があります。
 
@@ -325,7 +325,7 @@ REST API v2 は、次の要件に対応するために複数のプロファイ�
 |----------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | プライマリ（ストリーミング）アプリケーションは、3 ～ 5 秒以上ごとにポーリングする必要があります。 | プライマリ（ストリーミング）アプリケーションは、3 ～ 5 秒以上ごとにポーリングする必要があります。 |
 
-#### 17. クライアントアプリケーションが送信できるポーリング要求の最大数はいくつですか。 {#authentication-phase-faq17}
+#### &#x200B;17. クライアントアプリケーションが送信できるポーリング要求の最大数はいくつですか。 {#authentication-phase-faq17}
 
 クライアントアプリケーションは、Adobe Pass認証 [ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md#throttling-mechanism-limits) で定義された現在の制限に準拠する必要があります。
 
@@ -333,7 +333,7 @@ REST API v2 は、次の要件に対応するために複数のプロファイ�
 
 詳しくは、「スロットルメカニズム [ のドキュメントを参照し ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) ください。
 
-#### 18. クライアントアプリケーションは、ユーザーのメタデータ情報をどのように取得できますか。 {#authentication-phase-faq18}
+#### &#x200B;18. クライアントアプリケーションは、ユーザーのメタデータ情報をどのように取得できますか。 {#authentication-phase-faq18}
 
 クライアントアプリケーションは、プロファイル情報の一部として [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) 情報を返すことができる次のエンドポイントのいずれかをクエリできます。
 
@@ -350,7 +350,7 @@ REST API v2 は、次の要件に対応するために複数のプロファイ�
 
 MVPDと特定のメタデータ属性に応じて、特定のメタデータ属性を認証フロー中に更新できます。 その結果、最新のユーザーメタデータを取得するには、クライアントアプリケーションが上記の API を再度クエリする必要が生じる場合があります。
 
-#### 19. クライアント・アプリケーションは、縮退アクセスをどのように管理する必要がありますか。 {#authentication-phase-faq19}
+#### &#x200B;19. クライアント・アプリケーションは、縮退アクセスをどのように管理する必要がありますか。 {#authentication-phase-faq19}
 
 [ 最適化機能 ](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md) を使用すると、クライアントアプリケーションは、MVPDの認証サービスや承認サービスで問題が発生した場合でも、ユーザーのシームレスなストリーミングエクスペリエンスを維持できます。
 
@@ -360,7 +360,7 @@ MVPDと特定のメタデータ属性に応じて、特定のメタデータ属�
 
 詳しくは、「アクセス フローの低下 [ のドキュメントを参照し ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/degraded-access-flows/rest-api-v2-access-degraded-flows.md) ください。
 
-#### 20. クライアントアプリケーションは、一時的なアクセスをどのように管理する必要がありますか？ {#authentication-phase-faq20}
+#### &#x200B;20. クライアントアプリケーションは、一時的なアクセスをどのように管理する必要がありますか？ {#authentication-phase-faq20}
 
 [TempPass 機能 ](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md) を使用すると、クライアントアプリケーションからユーザーへの一時的なアクセスを提供できます。
 
@@ -374,7 +374,7 @@ REST API v2 を使用すると、クライアントアプリケーションは�
 
 詳しくは、[ 一時的なアクセスフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md) ドキュメントを参照してください。
 
-#### 21. クライアントアプリケーションは、クロスデバイスのシングルサインオンアクセスをどのように管理する必要がありますか？ {#authentication-phase-faq21}
+#### &#x200B;21. クライアントアプリケーションは、クロスデバイスのシングルサインオンアクセスをどのように管理する必要がありますか？ {#authentication-phase-faq21}
 
 クライアントアプリケーションがデバイス間で一貫した一意のユーザー ID を提供する場合、REST API v2 はクロスデバイスのシングルサインオンを有効にできます。
 
@@ -411,13 +411,13 @@ REST API v2 を使用すると、クライアントアプリケーションは�
 * [事前承認決定 API の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
 * [プライマリアプリケーション内で実行される基本的な事前認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)
 
-#### 4. クライアントアプリケーションは、永続的なストレージに事前認証決定をキャッシュする必要がありますか？ {#preauthorization-phase-faq4}
+#### &#x200B;4. クライアントアプリケーションは、永続的なストレージに事前認証決定をキャッシュする必要がありますか？ {#preauthorization-phase-faq4}
 
 クライアントアプリケーションは、永続的なストレージに事前認証の決定を保存する必要はありません。 ただし、ユーザーエクスペリエンスを向上させるために、許可決定をメモリにキャッシュすることをお勧めします。 これにより、既に事前認証されているリソースに対して、決定の事前認証エンドポイントへの不要な呼び出しが回避され、待ち時間が短縮され、パフォーマンスが向上します。
 
-#### 5. クライアントアプリケーションは、事前認証の決定が拒否された理由をどのように判断できますか？ {#preauthorization-phase-faq5}
+#### &#x200B;5. クライアントアプリケーションは、事前認証の決定が拒否された理由をどのように判断できますか？ {#preauthorization-phase-faq5}
 
-クライアントアプリケーションは、決定の事前承認エンドポイントからの応答に含まれる [ エラーコードとメッセージ ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を調べることで、拒否された事前承認の決定の理由を判断できます。 これらの詳細は、事前認証リクエストが拒否された具体的な理由に関するインサイトを提供し、アプリケーションでの必要な処理をユーザーエクスペリエンスやトリガーに知らせるのに役立ちます。
+クライアントアプリケーションは、決定の事前承認エンドポイントからの応答に含まれる [ エラーコードとメッセージ ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を調べることで、拒否された事前承認の決定の理由を判断できます。 これらの詳細により、事前認証リクエストが拒否された具体的な理由がinsightに提供され、アプリケーションでの必要な処理をユーザーエクスペリエンスやトリガーに伝えるのに役立ちます。
 
 事前認証の決定を取得するために実装された再試行メカニズムが、事前認証の決定が拒否された場合に無限ループが発生しないことを確認します。
 
@@ -433,7 +433,7 @@ REST API v2 を使用すると、クライアントアプリケーションは�
 
 事前認証決定が使用可能な場合でも、認証フェーズはスキップできません。 事前認証の決定は情報提供のみで、実際の再生権限は付与されません。 事前認証フェーズは、初期のガイダンスを提供することを目的としていますが、コンテンツを再生する前には引き続き認証フェーズが必要です。
 
-#### 8. リソースとは何ですか？また、どのような形式がサポートされていますか？ {#preauthorization-phase-faq8}
+#### &#x200B;8. リソースとは何ですか？また、どのような形式がサポートされていますか？ {#preauthorization-phase-faq8}
 
 リソースとは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#resource) ドキュメントで定義されている用語です。
 
@@ -446,7 +446,7 @@ REST API v2 を使用すると、クライアントアプリケーションは�
 
 詳しくは、[ 保護されたリソース ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#protected-resources) ドキュメントを参照してください。
 
-#### 9. クライアントアプリケーションは、一度にいくつのリソースについて事前認証の決定を取得できますか？ {#preauthorization-phase-faq9}
+#### &#x200B;9. クライアントアプリケーションは、一度にいくつのリソースについて事前認証の決定を取得できますか？ {#preauthorization-phase-faq9}
 
 クライアントアプリケーションは、MVPD によって課せられた条件により、1 回の API リクエストで、通常は 5 回まで、限られた数のリソースに対して事前認証の決定を取得できます。
 
@@ -483,23 +483,23 @@ REST API v2 を使用すると、クライアントアプリケーションは�
 
 認証決定は発行時に指定された限られた短い期間のみ有効で、MVPDに対する再度のクエリが必要になるまでの、Adobe Pass認証によってキャッシュされる時間を示します。
 
-この制限付き期間は、認証（authZ） [TTL](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#ttl) と呼ばれ、組織管理者の 1 人またはAdobe Pass認証担当者が [&#128279;](rest-api-v2-glossary.md#tve-dashboard) 客様に代わってAdobe PassTVE ダッシュボード）を通じて表示および変更できます。
+この制限付き期間は、認証（authZ） [TTL](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#ttl) と呼ばれ、組織管理者の 1 人またはAdobe Pass認証担当者が [ 客様に代わってAdobe Pass](rest-api-v2-glossary.md#tve-dashboard)TVE ダッシュボード）を通じて表示および変更できます。
 
 詳しくは、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) ドキュメントを参照してください。
 
-#### 4. クライアントアプリケーションは、認証決定を永続的なストレージにキャッシュする必要がありますか？ {#authorization-phase-faq4}
+#### &#x200B;4. クライアントアプリケーションは、認証決定を永続的なストレージにキャッシュする必要がありますか？ {#authorization-phase-faq4}
 
 クライアントアプリケーションは、認証決定を永続ストレージに保存する必要はありません。
 
 #### 5.認証決定が拒否された理由を、クライアントアプリケーションはどのように判断できますか。 {#authorization-phase-faq5}
 
-クライアントアプリケーションは、決定を承認エンドポイントからの応答に含まれる [ エラーコードとメッセージ ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を調べることで、拒否された承認決定の理由を判断できます。 これらの詳細は、承認リクエストが拒否された具体的な理由に関するインサイトを提供し、アプリケーションでの必要な処理をユーザーエクスペリエンスやトリガーに伝えるのに役立ちます。
+クライアントアプリケーションは、決定を承認エンドポイントからの応答に含まれる [ エラーコードとメッセージ ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を調べることで、拒否された承認決定の理由を判断できます。 これらの詳細により、認証リクエストが拒否された具体的な理由がinsightに提供され、アプリケーションでの必要な処理をユーザーエクスペリエンスやトリガーに伝えるのに役立ちます。
 
 認証決定を取得するために実装された再試行メカニズムが、認証決定が拒否された場合に無限ループが発生しないことを確認します。
 
 再試行を適切な数に制限し、ユーザーに明確なフィードバックを表示して、拒否を適切に処理することを検討してください。
 
-#### 6. メディアトークンとは何で、どれくらい有効ですか？ {#authorization-phase-faq6}
+#### &#x200B;6. メディアトークンとは何で、どれくらい有効ですか？ {#authorization-phase-faq6}
 
 メディアトークンは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#media-token) ドキュメントで定義されている用語です。
 
@@ -516,13 +516,13 @@ REST API v2 を使用すると、クライアントアプリケーションは�
 * [承認決定 API の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
 * [プライマリアプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
 
-#### 7. クライアントアプリケーションは、リソースストリームを再生する前にメディストークンを検証する必要がありますか？ {#authorization-phase-faq7}
+#### &#x200B;7. クライアントアプリケーションは、リソースストリームを再生する前にメディストークンを検証する必要がありますか？ {#authorization-phase-faq7}
 
 はい。
 
-クライアントアプリケーションは、リソースストリームの再生を開始する前に、メディアトークンを検証する必要があります。 この検証は、[ メディアトークン検証子 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier) を使用して実行する必要があります。 返された `token` ージから `serializedToken` を検証することで、クライアントアプリケーションは、ストリームのリッピングなどの不正アクセスを防ぎ、適切に許可されたユーザーのみがコンテンツを再生できるようにします。
+クライアントアプリケーションは、リソースストリームの再生を開始する前に、メディアトークンを検証する必要があります。 この検証は、[ メディアトークン検証子 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier) を使用して実行する必要があります。 返された `serializedToken` ージから `token` を検証することで、クライアントアプリケーションは、ストリームのリッピングなどの不正アクセスを防ぎ、適切に許可されたユーザーのみがコンテンツを再生できるようにします。
 
-#### 8. クライアントアプリケーションは、再生中に期限切れのメディアトークンを更新する必要がありますか？ {#authorization-phase-faq8}
+#### &#x200B;8. クライアントアプリケーションは、再生中に期限切れのメディアトークンを更新する必要がありますか？ {#authorization-phase-faq8}
 
 いいえ。
 
@@ -537,20 +537,20 @@ REST API v2 を使用すると、クライアントアプリケーションは�
 これらのタイムスタンプは、承認決定全体の有効期間を示します。
 
 | 属性 | 説明 | 備考 |
-|-------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `notBefore` | 承認決定が発行された時刻。 | これにより、認証の有効期間の開始がマークされます。 |
-| `notAfter` | 承認決定が期限切れになる時間です。 | [ 認証有効期間（TTL） ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#authorization-ttl-management) は、再認証が必要になるまでの、認証が有効である期間を決定します。 この TTL は、MVPDの担当者とネゴシエートされます。 |
+|-------------|----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `notBefore` | 承認決定が発行された時間（ミリ秒）。 | これにより、認証の有効期間の開始がマークされます。 |
+| `notAfter` | 承認決定の有効期限が切れる時間（ミリ秒単位）。 | [ 認証有効期間（TTL） ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#authorization-ttl-management) は、再認証が必要になるまでの、認証が有効である期間を決定します。 この TTL は、MVPDの担当者とネゴシエートされます。 |
 
 **トークンレベルのタイムスタンプ**
 
 これらのタイムスタンプは、認証決定に関連付けられたメディアトークンの有効期間を表します。
 
 | 属性 | 説明 | 備考 |
-|-------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `notBefore` | メディアトークンが発行された時間。 | これは、トークンが再生に対して有効になるタイミングを示します。 |
-| `notAfter` | メディアトークンの有効期限が切れる時間。 | メディアトークンは、誤用リスクを最小限に抑えるために故意に存続期間が短く（通常 7 分）、トークン生成サーバーとトークン検証サーバー間の潜在的なクロック差を考慮しています。 |
+|-------------|-----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `notBefore` | メディアトークンが発行された時間（ミリ秒単位）。 | これは、トークンが再生に対して有効になるタイミングを示します。 |
+| `notAfter` | メディアトークンの有効期限が切れる時間（ミリ秒単位）。 | メディアトークンは、誤用リスクを最小限に抑えるために故意に存続期間が短く（通常 7 分）、トークン生成サーバーとトークン検証サーバー間の潜在的なクロック差を考慮しています。 |
 
-#### 10. リソースとは何ですか？また、サポートされている形式は何ですか？ {#authorization-phase-faq10}
+#### &#x200B;10. リソースとは何ですか？また、サポートされている形式は何ですか？ {#authorization-phase-faq10}
 
 リソースとは、[Glossary](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#resource) ドキュメントで定義されている用語です。
 
@@ -563,7 +563,7 @@ REST API v2 を使用すると、クライアントアプリケーションは�
 
 詳しくは、[ 保護されたリソース ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#protected-resources) ドキュメントを参照してください。
 
-#### 11. クライアントアプリケーションが一度に認証決定を取得できるリソースの数 {#authorization-phase-faq11}
+#### &#x200B;11. クライアントアプリケーションが一度に認証決定を取得できるリソースの数 {#authorization-phase-faq11}
 
 クライアントアプリケーションは、MVPD によって課せられる条件により、1 回の API リクエストで限られた数のリソースに対する承認決定を、通常は 1 つまで取得できます。
 
@@ -573,11 +573,11 @@ REST API v2 を使用すると、クライアントアプリケーションは�
 
 +++ログアウトフェーズに関するよくある質問
 
-#### 1. ログアウトフェーズの目的は何ですか？ {#logout-phase-faq1}
+#### &#x200B;1. ログアウトフェーズの目的は何ですか？ {#logout-phase-faq1}
 
 ログアウトフェーズの目的は、クライアントアプリケーションが、ユーザーのリクエストに応じてAdobe Pass Authentication 内でユーザーの認証済みプロファイルを終了できるようにすることです。
 
-#### 2. ログアウトフェーズは必須ですか？ {#logout-phase-faq2}
+#### &#x200B;2. ログアウトフェーズは必須ですか？ {#logout-phase-faq2}
 
 ログアウトフェーズは必須です。クライアントアプリケーションは、ログアウトする機能をユーザーに提供する必要があります。
 
@@ -604,7 +604,7 @@ Authorization ヘッダー値は、登録段階でAdobe Pass Authentication か�
 * [アクセストークン API の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md)
 * [動的なクライアント登録フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)
 
-#### 2. AP-Device-Identifier ヘッダーの値を計算する方法 {#headers-faq2}
+#### &#x200B;2. AP-Device-Identifier ヘッダーの値を計算する方法 {#headers-faq2}
 
 >[!IMPORTANT]
 >
@@ -614,7 +614,7 @@ Authorization ヘッダー値は、登録段階でAdobe Pass Authentication か�
 
 [AP-Device-Identifier](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md) ヘッダーのドキュメントには、値の計算方法に関する主なプラットフォームの例が記載されていますが、クライアントアプリケーションは、独自のビジネスロジックと要件に基づいて別の方法を使用するように選択できます。
 
-#### 3. X-Device-Info ヘッダーの値を計算する方法 {#headers-faq3}
+#### &#x200B;3. X-Device-Info ヘッダーの値を計算する方法 {#headers-faq3}
 
 >[!IMPORTANT]
 >
@@ -636,7 +636,7 @@ Authorization ヘッダー値は、登録段階でAdobe Pass Authentication か�
 
 +++その他の FAQ
 
-#### 1. REST API V2 のリクエストと応答を調べて、API をテストできますか。 {#misc-faq1}
+#### &#x200B;1. REST API V2 のリクエストと応答を調べて、API をテストできますか。 {#misc-faq1}
 
 はい。
 
@@ -649,11 +649,11 @@ Authorization ヘッダー値は、登録段階でAdobe Pass Authentication か�
 
 [DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) を使用するには、REST API V2 スコープを含むソフトウェアステートメントが必要です。 詳しくは、[Dynamic Client Registration （DCR）の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md) ドキュメントを参照してください。
 
-#### 2. OpenAPI をサポートする API 開発ツールを使用して、REST API V2 のリクエストと応答を調べることはできますか。 {#misc-faq2}
+#### &#x200B;2. OpenAPI をサポートする API 開発ツールを使用して、REST API V2 のリクエストと応答を調べることはできますか。 {#misc-faq2}
 
 はい。
 
-[DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) および [REST API V2&rbrace; の OpenAPI 仕様ファイルは、&lbrace;4](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/)Adobe Developer[&#128279;](https://developer.adobe.com/adobe-pass/) web サイトからダウンロードできます。
+[DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) および [REST API V2} の OpenAPI 仕様ファイルは、{4](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/)Adobe Developer[ web サイトからダウンロードできます。](https://developer.adobe.com/adobe-pass/)
 
 OpenAPI 仕様ファイルをダウンロードするには、「ダウンロード」ボタンをクリックして、次のファイルをローカルマシンに保存します。
 
@@ -662,7 +662,7 @@ OpenAPI 仕様ファイルをダウンロードするには、「ダウンロー
 
 その後、これらのファイルを好みの API 開発ツールに読み込み、REST API V2 のリクエストと応答を調べて、API をテストできます。
 
-#### 3. https://sp.auth-staging.adobe.com/apitest/api.htmlでホストされている既存の API テストツールを引き続き使用できますか？ {#misc-faq3}
+#### &#x200B;3. https://sp.auth-staging.adobe.com/apitest/api.htmlでホストされている既存の API テストツールを引き続き使用できますか？ {#misc-faq3}
 
 いいえ。
 
@@ -689,7 +689,7 @@ REST API V2 に移行するクライアントアプリケーションでは、ht
 
 +++一般的な移行の FAQ
 
-#### 1. REST API V2 に移行された新しいクライアントアプリケーションを、すべてのユーザーに一度にロールアウトする必要がありますか？ {#migration-faq1}
+#### &#x200B;1. REST API V2 に移行された新しいクライアントアプリケーションを、すべてのユーザーに一度にロールアウトする必要がありますか？ {#migration-faq1}
 
 いいえ。
 
@@ -697,17 +697,17 @@ REST API V2 に移行するクライアントアプリケーションでは、ht
 
 Adobe Pass認証では、2025 年末まで、REST API V1 またはSDKを統合する古いクライアントアプリケーションバージョンを引き続きサポートします。
 
-#### 2. REST API V2 に移行された新しいクライアントアプリケーションを、すべての API とフローにわたって一度にロールアウトする必要がありますか？ {#migration-faq2}
+#### &#x200B;2. REST API V2 に移行された新しいクライアントアプリケーションを、すべての API とフローにわたって一度にロールアウトする必要がありますか？ {#migration-faq2}
 
 はい。
 
 クライアントアプリケーションは、REST API V2 を統合した新しいバージョンを、すべてのAdobe Pass認証 API およびフローに同時にロールアウトする必要があります。
 
-「2 画面目の認証」フローの場合、クライアントアプリケーションは、「プライマリ」と「セカンダリ [&#128279;](rest-api-v2-glossary.md#secondary-application) の両方のアプリケーションに対して REST API V2 を統合した新しいバージョンを同時にロ [ ルアウトす ](rest-api-v2-glossary.md#primary-application) 必要が  ります。
+「2 画面目の認証」フローの場合、クライアントアプリケーションは、「プライマリ」と「セカンダリ [ の両方のアプリケーションに対して REST API V2 を統合した新しいバージョンを同時にロ ](rest-api-v2-glossary.md#primary-application) ルアウトす [ 必要が ](rest-api-v2-glossary.md#secondary-application) ります。
 
 Adobe Pass認証では、API とフローの間で REST API V2 と REST API V1/SDKの両方を統合する「ハイブリッド」実装をサポートしていません。
 
-#### 3. REST API V2 に移行された新しいクライアントアプリケーションに更新する際、ユーザー認証は保持されますか。 {#migration-faq3}
+#### &#x200B;3. REST API V2 に移行された新しいクライアントアプリケーションに更新する際、ユーザー認証は保持されますか。 {#migration-faq3}
 
 いいえ。
 
@@ -715,7 +715,7 @@ REST API V1 またはSDKを統合する古いクライアントアプリケー�
 
 したがって、ユーザーは、REST API V2 に移行された新しいクライアントアプリケーション内で再認証する必要があります。
 
-#### 4. REST API V2 では、拡張エラーコードはデフォルトで有効になっていますか。 {#migration-faq4}
+#### &#x200B;4. REST API V2 では、拡張エラーコードはデフォルトで有効になっていますか。 {#migration-faq4}
 
 はい。
 
@@ -824,7 +824,7 @@ REST API V1 から REST API V2 への移行では、大まかな変更が必要�
 
 +++ログアウトフェーズに関するよくある質問
 
-##### 1. ログアウトフェーズに必要な、大まかな API 移行は何ですか。 {#logout-phase-v1-to-v2-faq1}
+##### &#x200B;1. ログアウトフェーズに必要な、大まかな API 移行は何ですか。 {#logout-phase-v1-to-v2-faq1}
 
 REST API V1 から REST API V2 への移行では、大まかな変更が必要で、次の表に示します。
 
@@ -1032,7 +1032,7 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 +++ログアウトフェーズに関するよくある質問
 
-##### 1. ログアウトフェーズに必要な、大まかな API 移行は何ですか。 {#logout-phase-sdk-to-v2-faq1}
+##### &#x200B;1. ログアウトフェーズに必要な、大まかな API 移行は何ですか。 {#logout-phase-sdk-to-v2-faq1}
 
 SDK から REST API V2 への移行では、大まかな変更が必要で、それを次の表に示します。
 

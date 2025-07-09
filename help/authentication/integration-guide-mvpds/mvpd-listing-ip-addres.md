@@ -2,7 +2,7 @@
 title: MVPDの IP アドレスのリスト
 description: MVPDの IP アドレスのリスト
 exl-id: be18084c-22f5-47b5-b088-d9032681113d
-source-git-commit: 0fd11dbcc9072fd14fb06e76f60c15d7729c3876
+source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
 workflow-type: tm+mt
 source-wordcount: '139'
 ht-degree: 0%
@@ -12,10 +12,9 @@ ht-degree: 0%
 
 # MVPDの IP アドレスのリスト
 
-&#x200B;> [!NOTE]
+>[!IMPORTANT]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、現在のライセンスが必要です：
->&#x200B;> Adobe。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 MVPDとAdobe Passの認証統合の場合、特定の IP がMVPDのファイアウォールで許可されている必要があります。 次のとおりです
 エグレス IP:

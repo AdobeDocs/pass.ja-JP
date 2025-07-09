@@ -2,9 +2,9 @@
 title: 特定の mvpd のプロファイルの取得
 description: REST API V2 – 特定の mvpd のプロファイルを取得します
 exl-id: ed1abc33-c279-4465-b5a0-b4e5b892076e
-source-git-commit: 32c3176fb4633acb60deb1db8fb5397bbf18e2d0
+source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
 workflow-type: tm+mt
-source-wordcount: '1060'
+source-wordcount: '1064'
 ht-degree: 1%
 
 ---
@@ -244,12 +244,12 @@ ht-degree: 1%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notBefore</td>
-               <td>プロファイルが無効になる前のタイムスタンプ。</td>
+               <td>プロファイルが無効になる前のタイムスタンプ（ミリ秒単位）。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notAfter</td>
-               <td>プロファイルが無効になった後のタイムスタンプ。</td>
+               <td>プロファイルが無効になるまでのタイムスタンプ（ミリ秒単位）。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -389,7 +389,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2. サービストークン方式を使用した基本認証またはシングルサインオンにより取得した、特定の mvpd のプロファイルを取得する
+### &#x200B;2. サービストークン方式を使用した基本認証またはシングルサインオンにより取得した、特定の mvpd のプロファイルを取得する
 
 >[!BEGINTABS]
 
@@ -549,7 +549,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 403,
     "code": "temporary_access_duration_limit_exceeded",
     "message": "The temporary access duration limit has been exceeded.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "authentication"
 }
 ```
@@ -565,7 +565,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 500,
     "code": "invalid_configuration_temporary_access",
     "message": "The temporary access configuration is invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "configuration"
 }
 ```
@@ -642,7 +642,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 403,
     "code": "temporary_access_duration_limit_exceeded",
     "message": "The temporary access duration limit has been exceeded.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "none"
 }
 ```
@@ -658,7 +658,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 403,
     "code": "temporary_access_resources_limit_exceeded",
     "message": "The temporary access resources limit has been exceeded.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "authentication"
 }
 ```
@@ -674,7 +674,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 500,
     "code": "invalid_configuration_temporary_access",
     "message": "The temporary access configuration is invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "none"
 }
 ```
@@ -690,7 +690,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 400,
     "code": "invalid_header_identity_for_temporary_access",
     "message": "The identity for temporary access header value is missing or invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "none"
 }
 ```

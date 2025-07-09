@@ -2,9 +2,9 @@
 title: パートナー認証応答を使用したプロファイルの作成と取得
 description: REST API V2 - パートナー認証応答を使用したプロファイルの作成と取得
 exl-id: cae260ff-a229-4df7-bbf9-4cdf300c0f9a
-source-git-commit: edfde4b463dd8b93dd770bc47353ee8ceb6f39d2
+source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
 workflow-type: tm+mt
-source-wordcount: '775'
+source-wordcount: '779'
 ht-degree: 1%
 
 ---
@@ -233,12 +233,12 @@ ht-degree: 1%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notBefore</td>
-               <td>プロファイルが無効になる前のタイムスタンプ。</td>
+               <td>プロファイルが無効になる前のタイムスタンプ（ミリ秒単位）。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notAfter</td>
-               <td>プロファイルが無効になった後のタイムスタンプ。</td>
+               <td>プロファイルが無効になるまでのタイムスタンプ（ミリ秒単位）。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -322,7 +322,7 @@ ht-degree: 1%
 
 ## サンプル {#samples}
 
-### 1. パートナー認証応答を使用したプロファイルの作成と取得
+### &#x200B;1. パートナー認証応答を使用したプロファイルの作成と取得
 
 >[!BEGINTABS]
 
@@ -379,7 +379,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2. パートナー認証応答を使用してプロファイルを作成および取得するが、低下が適用される
+### &#x200B;2. パートナー認証応答を使用してプロファイルを作成および取得するが、低下が適用される
 
 >[!BEGINTABS]
 

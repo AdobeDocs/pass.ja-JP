@@ -2,9 +2,9 @@
 title: アクセストークンの取得
 description: Dynamic Client Registration API - アクセストークンの取得
 exl-id: 23287acf-5d56-46f0-b65e-79bf7d667708
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
 workflow-type: tm+mt
-source-wordcount: '454'
+source-wordcount: '456'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
@@ -159,7 +159,7 @@ ht-degree: 0%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">created_at</td>
-               <td>アクセストークンが発行された時間。</td>
+               <td>アクセストークンが発行された時間（ミリ秒単位）。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
