@@ -2,7 +2,7 @@
 title: アクセストークンの取得
 description: Dynamic Client Registration API - アクセストークンの取得
 exl-id: 23287acf-5d56-46f0-b65e-79bf7d667708
-source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
+source-git-commit: be2b75d3dcde92c0b83700705892403291dcab2e
 workflow-type: tm+mt
 source-wordcount: '456'
 ht-degree: 0%
@@ -269,8 +269,8 @@ Content-Type: application/json;charset=UTF-8
 {
   "id": "a932f8f0-210a-41a4-b2a8-377751f6b76f",  
   "access_token": "2YotnFZFEjr1zCsicMWpAA",
-  "created_at": 1723227212,
-  "expires_in": 86400,
+  "created_at": 1752148106221,
+  "expires_in": 21600,
   "token_type": "bearer"
 }
 ```

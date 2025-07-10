@@ -2,7 +2,7 @@
 title: プロファイルの取得
 description: REST API V2 - プロファイルの取得
 exl-id: 72922aa8-95ca-48dc-8523-e335802fc366
-source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
+source-git-commit: be2b75d3dcde92c0b83700705892403291dcab2e
 workflow-type: tm+mt
 source-wordcount: '872'
 ht-degree: 1%
@@ -345,8 +345,8 @@ Content-Type: application/json;charset=UTF-8
 {
     "profiles": {
         "Cablevision": {
-            "notBefore": 1623943955,
-            "notAfter": 1623951155,
+            "notBefore": 1752149281000,
+            "notAfter": 1783685280000,
             "issuer": "Cablevision",
             "type": "regular",
             "attributes": {
@@ -365,8 +365,8 @@ Content-Type: application/json;charset=UTF-8
             }
         },
         "Spectrum": {
-            "notBefore": 1623943955,
-            "notAfter": 1623951155,
+            "notBefore": 1752149272300,
+            "notAfter": 1783685284670,
             "issuer": "Spectrum",
             "type": "regular",
             "attributes": {
@@ -429,8 +429,8 @@ Content-Type: application/json;charset=UTF-8
          }
       },
       "Spectrum": {
-         "notBefore": 1623943955,
-         "notAfter": 1623951155,
+         "notBefore": 1752149281000,
+         "notAfter": 1783685280000,
          "issuer": "Spectrum",
          "type": "regular",
          "attributes": {
@@ -493,8 +493,8 @@ Content-Type: application/json;charset=UTF-8
          }
       },
       "Cablevision": {
-         "notBefore": 1623943955,
-         "notAfter": 1623951155,
+         "notBefore": 1752149281000,
+         "notAfter": 1783685280000,
          "issuer": "Spectrum",
          "type": "regular",
          "attributes": {

@@ -2,7 +2,7 @@
 title: パートナー認証応答を使用したプロファイルの作成と取得
 description: REST API V2 - パートナー認証応答を使用したプロファイルの作成と取得
 exl-id: cae260ff-a229-4df7-bbf9-4cdf300c0f9a
-source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
+source-git-commit: be2b75d3dcde92c0b83700705892403291dcab2e
 workflow-type: tm+mt
 source-wordcount: '779'
 ht-degree: 1%
@@ -354,8 +354,8 @@ Content-Type: application/json;charset=UTF-8
 {
     "profiles": {
         "Cablevision": {
-            "notBefore": 1623943955,
-            "notAfter": 1623951155,
+            "notBefore": 1752149281000,
+            "notAfter": 1783685280000,
             "issuer": "Apple",
             "type": "appleSSO",
             "attributes": {
