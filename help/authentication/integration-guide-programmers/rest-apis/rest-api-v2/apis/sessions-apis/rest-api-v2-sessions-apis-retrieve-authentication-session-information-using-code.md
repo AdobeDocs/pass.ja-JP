@@ -2,9 +2,9 @@
 title: コードを使用した認証セッションの取得
 description: REST API V2 - コードを使用した認証セッションの取得
 exl-id: 5cc209eb-ee6b-4bb9-9c04-3444408844b7
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
 workflow-type: tm+mt
-source-wordcount: '425'
+source-wordcount: '441'
 ht-degree: 2%
 
 ---
@@ -75,6 +75,12 @@ ht-degree: 2%
          <br/><br/>
          クライアントからサーバーへの実装の場合、ストリーミングデバイスの IP アドレスは暗黙的に送信されます。
       </td> 
+      <td>optional</td>
+   </tr>
+   <tr>
+      <td style="background-color: #DEEBFF;">AP-Visitor-Identifier</td>
+      <td>
+        訪問者識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a> ヘッダードキュメントを参照してください。
       <td>optional</td>
    </tr>
    <tr>
@@ -200,7 +206,7 @@ ht-degree: 2%
 
 ## サンプル {#samples}
 
-### 1. パラメーターなしで認証セッションを取得する
+### &#x200B;1. パラメーターなしで認証セッションを取得する
 
 >[!BEGINTABS]
 
@@ -233,7 +239,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 1. パラメーターがない認証セッションを取得します
+### &#x200B;1. パラメーターがない認証セッションを取得します
 
 >[!BEGINTABS]
 

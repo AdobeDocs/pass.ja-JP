@@ -2,9 +2,9 @@
 title: パートナー認証要求の取得
 description: REST API V2 - パートナー認証リクエストの取得
 exl-id: 52d8a8e9-c176-410f-92bc-e83449278943
-source-git-commit: 9f872ad94e0aaa0546c8fcac9f88c50f47e10f6e
+source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
 workflow-type: tm+mt
-source-wordcount: '1236'
+source-wordcount: '1252'
 ht-degree: 0%
 
 ---
@@ -135,6 +135,12 @@ ht-degree: 0%
          <br/><br/>
          クライアントからサーバーへの実装の場合、ストリーミングデバイスの IP アドレスは暗黙的に送信されます。
       </td>
+      <td>optional</td>
+   </tr>
+   <tr>
+      <td style="background-color: #DEEBFF;">AP-Visitor-Identifier</td>
+      <td>
+        訪問者識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a> ヘッダードキュメントを参照してください。
       <td>optional</td>
    </tr>
    <tr>
@@ -364,7 +370,7 @@ ht-degree: 0%
 
 ## サンプル {#samples}
 
-### 1. パートナー認証要求を取得する
+### &#x200B;1. パートナー認証要求を取得する
 
 >[!BEGINTABS]
 
@@ -411,7 +417,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2. パートナー認証要求を取得しますが、パフォーマンスの低下が適用されます
+### &#x200B;2. パートナー認証要求を取得しますが、パフォーマンスの低下が適用されます
 
 >[!BEGINTABS]
 
@@ -453,7 +459,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 3. パートナー認証要求を取得するが、AP-Partner-Framework-Status ヘッダー値が見つからないか無効なため、基本認証フローにフォールバックする
+### &#x200B;3. パートナー認証要求を取得するが、AP-Partner-Framework-Status ヘッダー値が見つからないか無効なため、基本認証フローにフォールバックする
 
 >[!BEGINTABS]
 
@@ -498,7 +504,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 4. パートナー認証リクエストを取得するが、Adobe Pass バックエンドでのパートナーのシングルサインオン設定が原因で基本認証フローにフォールバックする
+### &#x200B;4. パートナー認証リクエストを取得するが、Adobe Pass バックエンドでのパートナーのシングルサインオン設定が原因で基本認証フローにフォールバックする
 
 >[!BEGINTABS]
 
@@ -543,7 +549,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 5. パートナー認証要求を取得するが、パラメーターが不足しているため基本認証フローにフォールバックする
+### &#x200B;5. パートナー認証要求を取得するが、パラメーターが不足しているため基本認証フローにフォールバックする
 
 >[!BEGINTABS]
 

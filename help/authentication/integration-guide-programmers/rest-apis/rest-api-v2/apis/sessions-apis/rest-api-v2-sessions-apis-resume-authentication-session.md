@@ -2,9 +2,9 @@
 title: 認証セッションの再開
 description: REST API V2 – 認証セッションの再開
 exl-id: 66c33546-2be0-473f-9623-90499d1c13eb
-source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
+source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
 workflow-type: tm+mt
-source-wordcount: '890'
+source-wordcount: '906'
 ht-degree: 1%
 
 ---
@@ -118,6 +118,12 @@ ht-degree: 1%
          <br/><br/>
          クライアントからサーバーへの実装の場合、ストリーミングデバイスの IP アドレスは暗黙的に送信されます。
       </td>
+      <td>optional</td>
+   </tr>
+   <tr>
+      <td style="background-color: #DEEBFF;">AP-Visitor-Identifier</td>
+      <td>
+        訪問者識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a> ヘッダードキュメントを参照してください。
       <td>optional</td>
    </tr>
    <tr>

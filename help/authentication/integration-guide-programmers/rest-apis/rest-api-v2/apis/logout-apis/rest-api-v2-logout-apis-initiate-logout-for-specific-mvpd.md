@@ -2,9 +2,9 @@
 title: 特定の mvpd に対するログアウトの開始
 description: REST API V2 – 特定の mvpd のログアウトの開始
 exl-id: 2482de87-b3d4-4ea8-bd4a-25bf10017e01
-source-git-commit: 32c3176fb4633acb60deb1db8fb5397bbf18e2d0
+source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
 workflow-type: tm+mt
-source-wordcount: '1009'
+source-wordcount: '1025'
 ht-degree: 0%
 
 ---
@@ -121,6 +121,12 @@ ht-degree: 0%
         <br/><br/>
         サービストークンを使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md"> サービストークンフローを使用したシングルサインオン </a> ドキュメントを参照してください。
       </td>
+      <td>optional</td>
+   </tr>
+   <tr>
+      <td style="background-color: #DEEBFF;">AP-Visitor-Identifier</td>
+      <td>
+        訪問者識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a> ヘッダードキュメントを参照してください。
       <td>optional</td>
    </tr>
    <tr>
@@ -313,7 +319,7 @@ ht-degree: 0%
 
 ## サンプル {#samples}
 
-### 1. logout エンドポイントを持つ特定の mvpd の logout を開始します
+### &#x200B;1. logout エンドポイントを持つ特定の mvpd の logout を開始します
 
 >[!BEGINTABS]
 
@@ -350,7 +356,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2. ログアウトエンドポイントを使用せずに、特定の mvpd に対してログアウトを開始する
+### &#x200B;2. ログアウトエンドポイントを使用せずに、特定の mvpd に対してログアウトを開始する
 
 >[!BEGINTABS]
 
@@ -386,7 +392,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 3. サービストークン方式を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd に対するシングルログアウトを開始します
+### &#x200B;3. サービストークン方式を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd に対するシングルログアウトを開始します
 
 >[!IMPORTANT]
 >
@@ -432,7 +438,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 4. Platform ID 方法を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd に対するシングルログアウトを開始します
+### &#x200B;4. Platform ID 方法を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd に対するシングルログアウトを開始します
 
 >[!IMPORTANT]
 >
@@ -478,7 +484,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 5. パートナー（Apple）を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd のログアウトを開始する
+### &#x200B;5. パートナー（Apple）を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd のログアウトを開始する
 
 >[!BEGINTABS]
 
