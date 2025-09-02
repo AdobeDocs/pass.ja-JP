@@ -2,9 +2,9 @@
 title: 拡張エラーコード
 description: 拡張エラーコード
 exl-id: 2b0a9095-206b-4dc7-ab9e-e34abf4d359c
-source-git-commit: 27aaa0d3351577e60970a4035b02d814f0a17e2f
+source-git-commit: 7ac04991289c95ebb803d1fd804e9b497f821cda
 workflow-type: tm+mt
-source-wordcount: '2649'
+source-wordcount: '2696'
 ht-degree: 3%
 
 ---
@@ -41,13 +41,13 @@ ht-degree: 3%
 
 ## 表示域 {#enhanced-error-codes-representation}
 
-拡張エラーコードは、統合Adobe Pass認証 API と使用されている「Accept」ヘッダー値（`application/json` または `application/xml`）に応じて、`JSON` 形式または `XML` 形式で表すことができます。
+拡張エラーコードは、統合Adobe Pass認証 API と使用されている「Accept」ヘッダー値（`JSON` または `XML`）に応じて、`application/json` 形式または `application/xml` 形式で表すことができます。
 
 | Adobe Pass認証 API | JSON | XML |
 |-------------------------------|---------|---------|
-| REST API v2 | &check; |         |
-| REST API v1 | &check; | &check; |
-| SDK 事前認証 API | &check; |         |
+| REST API v2 | &amp;check; |         |
+| REST API v1 | &amp;check; | &amp;check; |
+| SDK 事前認証 API | &amp;check; |         |
 
 >[!IMPORTANT]
 >
@@ -101,7 +101,7 @@ Content-Type: application/json
         "code": "authorization_denied_by_mvpd",
         "message": "The MVPD has returned a \"Deny\" decision when requesting authorization for the specified resource",
         "details": "Your subscription package does not include the \"Live\" channel",
-        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
         "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
       }
     }
@@ -120,7 +120,7 @@ Content-Type: application/json
   "status": 400,
   "code": "invalid_parameter_service_provider",
   "message": "The service provider parameter value is missing or invalid.",
-  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
   "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
 }
 ```
@@ -154,7 +154,7 @@ Content-Type: application/json
         "code": "authorization_denied_by_mvpd",
         "message": "The MVPD has returned a \"Deny\" decision when requesting authorization for the specified resource",
         "details": "Your subscription package does not include the \"Live\" channel",
-        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
         "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
       }
     }
@@ -173,7 +173,7 @@ Content-Type: application/json
   "status": 400,
   "code": "invalid_requestor",
   "message": "The requestor parameter is missing or invalid.",
-  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
   "trace": "8bcb17f9-b172-47d2-86d9-3eb146eba85e"
 }
 ```
@@ -189,7 +189,7 @@ Content-Type: application/xml
   <status>400</status>
   <code>invalid_requestor</code>
   <message>The requestor parameter is missing or invalid.</message>
-  <helpUrl>https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja</helpUrl>
+  <helpUrl>https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html</helpUrl>
   <trace>8bcb17f9-b172-47d2-86d9-3eb146eba85e</trace>
 </error>
 ```
@@ -202,12 +202,12 @@ Content-Type: application/xml
 
 | 名前 | タイプ | 例 | 制限付き | 説明 |
 |-----------|-----------|---------------------------------------------------------------------------------------------------------------------|:----------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *アクション* | *文字列* | *なし* | &check; | Adobe Pass認証は、このドキュメントで定義されている状況を修正する可能性のある、推奨されるアクションを行います。 <br/><br/> 詳しくは、[ アクション ](#enhanced-error-codes-action) の節を参照してください。 |
-| *ステータス* | *整数* | *403* | &check; | [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6) ドキュメントで定義されている HTTP 応答ステータスコード。 <br/><br/> 詳しくは、[ ステータス ](#enhanced-error-codes-status) の節を参照してください。 |
-| *code* | *文字列* | *authorization_denied_by_mvpd* | &check; | このドキュメントで定義されているように、エラーに関連付けられたAdobe Pass認証の一意の ID コード。 <br/><br/> 詳しくは、[ コード ](#enhanced-error-codes-code) の節を参照してください。 |
+| *アクション* | *文字列* | *なし* | &amp;check; | Adobe Pass認証は、このドキュメントで定義されている状況を修正する可能性のある、推奨されるアクションを行います。 <br/><br/> 詳しくは、[ アクション ](#enhanced-error-codes-action) の節を参照してください。 |
+| *ステータス* | *整数* | *403* | &amp;check; | [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6) ドキュメントで定義されている HTTP 応答ステータスコード。 <br/><br/> 詳しくは、[ ステータス ](#enhanced-error-codes-status) の節を参照してください。 |
+| *code* | *文字列* | *authorization_denied_by_mvpd* | &amp;check; | このドキュメントで定義されているように、エラーに関連付けられたAdobe Pass認証の一意の ID コード。 <br/><br/> 詳しくは、[ コード ](#enhanced-error-codes-code) の節を参照してください。 |
 | *message* | *文字列* | *指定されたリソースの認証をリクエストしたときに、MVPDから「拒否」の決定が返されました* |            | 場合によってはエンドユーザーに表示される可能性がある、人間が判読できるメッセージ。 <br/><br/> 詳しくは、[ 応答の処理 ](#enhanced-error-codes-response-handling) の節を参照してください。 |
 | *詳細* | *文字列* | *サブスクリプションパッケージに「ライブ」チャネルが含まれていません* |            | サービスパートナーが提供できる場合がある詳細なメッセージ <br/><br/> サービスパートナーがカスタムメッセージを提供しない場合、このフィールドは存在しない可能性があります。 |
-| *helpUrl* | *url* | *https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja* |            | このエラーが発生した理由と考えられる解決策の詳細に関するリンクのAdobe Pass認証の公開ドキュメント URL。 <br/><br/> このフィールドには絶対 URL が格納されます。エラーコードから推論しないでください。エラーコンテキストに応じて、別の URL を指定できます。 |
+| *helpUrl* | *url* | *https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html* |            | このエラーが発生した理由と考えられる解決策の詳細に関するリンクのAdobe Pass認証の公開ドキュメント URL。 <br/><br/> このフィールドには絶対 URL が格納されます。エラーコードから推論しないでください。エラーコンテキストに応じて、別の URL を指定できます。 |
 | *トレース* | *文字列* | *12f6fef9-d2e0-422b-a9d7-60d799abe353* |            | 特定の問題のトラブルシューティングのためにAdobe Pass Authentication サポートに連絡する際に使用できる、レスポンスの一意の ID。 |
 
 >[!IMPORTANT]
@@ -322,7 +322,7 @@ _（*）エラーによっては、複数のアクションが解決策になる
 |                              | *network_connection_timeout* | 403 | 関連付けられたパートナーサービスで接続タイムアウトが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
 |                              | *maximum_execution_time_exceeded* | 403 | 最大許容時間内にリクエストが完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。 |
 
-### REST API v1 {#enhanced-error-codes-lists-rest-api-v1}
+### （レガシー） REST API v1 {#enhanced-error-codes-lists-rest-api-v1}
 
 次の表に、Adobe Pass認証 REST API v1 と統合した場合にクライアントアプリケーションで発生する可能性のある拡張エラーコードを示します。
 
@@ -354,7 +354,7 @@ _（*）エラーによっては、複数のアクションが解決策になる
 |                    | *network_connection_timeout* | 403 | 関連付けられたパートナーサービスで接続タイムアウトが発生しました。 リクエストを再試行すると、問題が解決する場合があります。 |
 |                    | *maximum_execution_time_exceeded* | 403 | 最大許容時間内にリクエストが完了しませんでした。 リクエストを再試行すると、問題が解決する場合があります。 |
 
-### SDK 事前認証 API {#enhanced-error-codes-lists-sdks-preauthorize-api}
+### （レガシー） SDK の事前認証 API {#enhanced-error-codes-lists-sdks-preauthorize-api}
 
 Adobe Pass Authentication SDK の事前認証 API と統合した場合にクライアントアプリケーションで発生する可能性のある拡張エラーコードについては、前の [ 節 ](#enhanced-error-codes-list-rest-api-v1) を参照してください。
 
@@ -370,11 +370,13 @@ Adobe Pass Authentication SDK の事前認証 API と統合した場合にクラ
 
 要約すると、拡張エラーコードを含む応答を処理する場合は、次の点を考慮する必要があります。
 
-1. **両方のステータス値を確認**：常に、HTTP 応答のステータスコードと拡張エラーコードの「ステータス」フィールドの両方を確認します。 これらは異なる場合があり、どちらも貴重な情報を提供します。
+1. **エラーを返す API に依存しません**：生成される API に関係なく、拡張エラーコードの完全なカタログをサポートする一元化されたエラー処理ロジックを実装します。 いくつかの拡張エラーコードは API 間で共有され、一貫して処理する必要があります。
 
 1. **トップレベルと項目レベルのエラー情報に依存しない**：トップレベルおよび項目レベルのエラー情報を通信方法に依存せずに処理し、拡張エラーコードの両方の送信形式を確実に処理します。
 
-1. **再試行ロジック**：再試行が必要なエラーの場合は、サーバーが圧倒されるのを避けるために、再試行が指数バックオフで行われることを確認します。 また、複数の項目を一度に処理するAdobe Pass Authentication API の場合（例：事前認証 API）、繰り返しリクエストには、リスト全体ではなく、「再試行」とマークされた項目のみを含める必要があります。
+1. **両方のステータス値を確認**：常に、HTTP 応答のステータスコードと拡張エラーコードの「ステータス」フィールドの両方を確認します。 これらは異なる場合があり、どちらも貴重な情報を提供します。
+
+1. **再試行ロジック**：再試行が必要なエラーの場合は、再試行が制限されていること（例：2～3）またはサーバーが圧倒されるのを避けるために指数バックオフで行われていることを確認します。 また、複数の項目を一度に処理するAdobe Pass Authentication API の場合（例：事前認証 API）、繰り返しリクエストには、リスト全体ではなく、「再試行」とマークされた項目のみを含める必要があります。
 
 1. **設定の変更**：設定の変更が必要なエラーの場合は、新しいアプリケーションまたは新機能を起動する前に、必要な変更が行われていることを確認します。
 

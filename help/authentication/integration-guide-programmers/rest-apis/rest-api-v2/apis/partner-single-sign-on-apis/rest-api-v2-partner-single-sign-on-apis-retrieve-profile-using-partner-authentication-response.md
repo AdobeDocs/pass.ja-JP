@@ -2,9 +2,9 @@
 title: パートナー認証応答を使用したプロファイルの作成と取得
 description: REST API V2 - パートナー認証応答を使用したプロファイルの作成と取得
 exl-id: cae260ff-a229-4df7-bbf9-4cdf300c0f9a
-source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
+source-git-commit: 7ac04991289c95ebb803d1fd804e9b497f821cda
 workflow-type: tm+mt
-source-wordcount: '795'
+source-wordcount: '847'
 ht-degree: 1%
 
 ---
@@ -321,7 +321,22 @@ ht-degree: 1%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>
+            応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。
+            <br/><br/>
+            クライアントアプリケーションは、この API で最も一般的に返されるエラーコードを適切に処理できるエラー処理メカニズムを実装する必要があります。
+            <ul>
+                <li>invalid_header_pfs_permission_access_not_present</li>
+                <li>invalid_header_pfs_permission_access_not_determined</li>
+                <li>invalid_header_pfs_permission_access_not_granted</li>
+                <li>invalid_header_pfs_provider_id_not_determined</li>
+                <li>invalid_header_pfs_provider_id_mismatch</li>
+                <li>invalid_header_pfs_provider_info_expired</li>
+                <li>invalid_parameter_saml_response</li>
+                <li>等。</li>
+            </ul>
+            上記のリストは完全ではありません。 クライアントアプリケーションは、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 公開ドキュメント </a> で定義されているすべての拡張エラーコードを処理できる必要があります。
+      </td>
       <td><i>必須</i></td>
    </tr>
 </table>

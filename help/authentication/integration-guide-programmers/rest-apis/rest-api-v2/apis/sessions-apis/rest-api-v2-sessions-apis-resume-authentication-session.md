@@ -2,9 +2,9 @@
 title: 認証セッションの再開
 description: REST API V2 – 認証セッションの再開
 exl-id: 66c33546-2be0-473f-9623-90499d1c13eb
-source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
+source-git-commit: 7ac04991289c95ebb803d1fd804e9b497f821cda
 workflow-type: tm+mt
-source-wordcount: '906'
+source-wordcount: '953'
 ht-degree: 1%
 
 ---
@@ -324,7 +324,17 @@ ht-degree: 1%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>
+            応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。
+            <br/><br/>
+            クライアントアプリケーションは、この API で最も一般的に返されるエラーコードを適切に処理できるエラー処理メカニズムを実装する必要があります。
+            <ul>
+                <li>invalid_authentication_session</li>
+                <li>invalid_parameter_code</li>
+                <li>等。</li>
+            </ul>
+            上記のリストは完全ではありません。 クライアントアプリケーションは、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 公開ドキュメント </a> で定義されているすべての拡張エラーコードを処理できる必要があります。
+      </td>
       <td><i>必須</i></td>
    </tr>
 </table>

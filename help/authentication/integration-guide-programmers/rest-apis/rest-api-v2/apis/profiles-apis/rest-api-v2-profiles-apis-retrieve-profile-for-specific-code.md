@@ -2,9 +2,9 @@
 title: 特定のコードのプロファイルの取得
 description: REST API V2 – 特定のコードのプロファイルを取得
 exl-id: d6ead7d5-de5f-4033-8115-980953a370c0
-source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
+source-git-commit: 7ac04991289c95ebb803d1fd804e9b497f821cda
 workflow-type: tm+mt
-source-wordcount: '772'
+source-wordcount: '819'
 ht-degree: 1%
 
 ---
@@ -289,7 +289,17 @@ ht-degree: 1%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>
+            応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。
+            <br/><br/>
+            クライアントアプリケーションは、この API で最も一般的に返されるエラーコードを適切に処理できるエラー処理メカニズムを実装する必要があります。
+            <ul>
+                <li>invalid_authentication_session</li>
+                <li>invalid_parameter_code</li>
+                <li>等。</li>
+            </ul>
+            上記のリストは完全ではありません。 クライアントアプリケーションは、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 公開ドキュメント </a> で定義されているすべての拡張エラーコードを処理できる必要があります。
+      </td>
       <td><i>必須</i></td>
    </tr>
 </table>
@@ -399,7 +409,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 403,
     "code": "temporary_access_duration_limit_exceeded",
     "message": "The temporary access duration limit has been exceeded.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "authentication"
 }
 ```
@@ -415,7 +425,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 500,
     "code": "invalid_configuration_temporary_access",
     "message": "The temporary access configuration is invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "configuration"
 }
 ```
@@ -490,7 +500,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 403,
     "code": "temporary_access_duration_limit_exceeded",
     "message": "The temporary access duration limit has been exceeded.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "authentication"
 }
 ```
@@ -506,7 +516,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 403,
     "code": "temporary_access_resources_limit_exceeded",
     "message": "The temporary access resources limit has been exceeded.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "authentication"
 }
 ```
@@ -522,7 +532,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 500,
     "code": "invalid_configuration_temporary_access",
     "message": "The temporary access configuration is invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "configuration"
 }
 ```
@@ -538,7 +548,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 400,
     "code": "invalid_header_identity_for_temporary_access",
     "message": "The identity for temporary access header value is missing or invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "none"
 }
 ```
