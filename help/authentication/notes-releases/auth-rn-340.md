@@ -2,7 +2,7 @@
 title: Adobe Pass Authentication 3.4.0 リリースノート
 description: Adobe Pass Authentication 3.4.0 リリースノート
 exl-id: 7a9b8c6d-4e5f-4a3b-8c7d-9e0f1a2b3c4d
-source-git-commit: 3a275f64f7f8cffa3bdc0d546c8e2db517840069
+source-git-commit: 58da8137988f0146716b56ac7a960c683b204d53
 workflow-type: tm+mt
 source-wordcount: '185'
 ht-degree: 0%
@@ -25,13 +25,13 @@ ht-degree: 0%
 ### ビルド番号 {#build-number-340}
 
 Adobe Pass認証：adobe-pass-**3.4.0**
-リリース日：**09/09/2025 - 9/11/2025**
+リリース日：**09/16/2025 - 9/18/2025**
 
 ### リリースの概要 {#release-overview-340}
 
 #### REST API v2
 
-* ユーザー ID とトラッキング機能を向上させるために [&#128279;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md)Experience Cloud ID （ECID）のサポートを追加しました。
+* ユーザー ID とトラッキング機能を向上させるために [](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md)Experience Cloud ID （ECID）のサポートを追加しました。
 * REST API V2 [ 設定 API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md) のヘッダー AP-Device-Identifier と X-Device-Info をオプションに変更しました。
 
 #### バグの修正
