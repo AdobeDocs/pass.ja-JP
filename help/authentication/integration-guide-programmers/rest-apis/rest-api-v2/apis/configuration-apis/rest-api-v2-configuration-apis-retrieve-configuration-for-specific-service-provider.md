@@ -2,7 +2,7 @@
 title: 特定のサービスプロバイダーの設定の取得
 description: REST API V2 – 特定のサービスプロバイダーの設定を取得します
 exl-id: ad7e4c6d-ed96-4ae7-82a9-3c24e5fc9302
-source-git-commit: 871afc4e7ec04d62590dd574bf4e28122afc01b6
+source-git-commit: 8952283ccce38f70f4f504f07714c583fcb7e272
 workflow-type: tm+mt
 source-wordcount: '725'
 ht-degree: 1%
@@ -74,7 +74,7 @@ ht-degree: 1%
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
       <td>デバイス識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。</td>
-      <td><i>必須</i></td>
+      <td>optional</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">X-Device-Info</td>
@@ -87,7 +87,7 @@ ht-degree: 1%
          <br/><br/>
          指定しない場合、Adobe Pass認証バックエンドでは、抽出された値が暗黙的に（デフォルトで）使用されます。
       </td>
-      <td><i>必須</i></td>
+      <td>optional</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">X-Forwarded-For</td>
