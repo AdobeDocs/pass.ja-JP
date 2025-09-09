@@ -31,7 +31,7 @@ Adobe Pass認証：adobe-pass-**3.4.0**
 
 #### REST API v2
 
-* ユーザー ID とトラッキング機能を向上させるために [](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md)Experience Cloud ID （ECID）のサポートを追加しました。
+* ユーザー ID とトラッキング機能を向上させるために [&#128279;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md)Experience Cloud ID （ECID）のサポートを追加しました。
 * REST API V2 [ 設定 API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md) のヘッダー AP-Device-Identifier と X-Device-Info をオプションに変更しました。
 
 #### バグの修正
