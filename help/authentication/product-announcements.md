@@ -2,9 +2,9 @@
 title: 製品に関するお知らせ
 description: 製品に関するお知らせ
 exl-id: 3c9c66e1-d31d-4af3-8ab2-eb32492f42ca
-source-git-commit: 58da8137988f0146716b56ac7a960c683b204d53
+source-git-commit: 2276066d453701dc5e034da29cb971b090688afe
 workflow-type: tm+mt
-source-wordcount: '811'
+source-wordcount: '820'
 ht-degree: 1%
 
 ---
@@ -33,6 +33,7 @@ ht-degree: 1%
 
 | リリースノート | 日付 |
 |-----------------------------------------------------------------------------------------------------------|-------------------------|
+| [Adobe Pass Authentication Android 3.8.0 リリースノート ](notes-releases/authn-rn-android-380.md) | 09/18/2025 |
 | [Adobe Pass Authentication 3.4.0 リリースノート ](notes-releases/auth-rn-340.md) | 2025/9/16 - 2025/9/18 |
 | [Adobe Pass Authentication 3.3.0 リリースノート ](notes-releases/auth-rn-330.md) | 2025/7/22 - 2025/7/24 |
 | [Adobe Pass Authentication 3.2.0 リリースノート ](notes-releases/auth-rn-320.md) | 2025/6/10 - 2025/6/12 |
