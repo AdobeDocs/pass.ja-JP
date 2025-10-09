@@ -2,9 +2,9 @@
 title: REST API V2 の FAQ
 description: REST API V2 の FAQ
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
+source-git-commit: 0b8ef6c6b326d1a9de52b24823886c708c2aad33
 workflow-type: tm+mt
-source-wordcount: '9566'
+source-wordcount: '9682'
 ht-degree: 0%
 
 ---
@@ -21,7 +21,7 @@ REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/auth
 
 ## 一般的な FAQ {#general-faqs}
 
-[REST API V1&rbrace; または ](#migration-rest-api-v1-to-rest-api-v2)SDK[ から移行する新規または既存のアプリケーションにかかわらず、REST API V2 を統合する必要があるアプリケーションを使用している場合は、この節から開始し ](#migration-sdk-to-rest-api-v2) ください。
+[REST API V1} または ](#migration-rest-api-v1-to-rest-api-v2)SDK[ から移行する新規または既存のアプリケーションにかかわらず、REST API V2 を統合する必要があるアプリケーションを使用している場合は、この節から開始し ](#migration-sdk-to-rest-api-v2) ください。
 
 移行の詳細と手順については、次の節も参照してください。
 
@@ -35,7 +35,7 @@ REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/auth
 
 ### 設定フェーズの FAQ {#configuration-phase-faqs-general}
 
-+++設定フェーズに関するよくある質問
++++設定フェーズの FAQ
 
 #### 1.設定フェーズの目的は何ですか？ {#configuration-phase-faq1}
 
@@ -67,7 +67,21 @@ REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/auth
 
 詳しくは、[ 設定の取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md) ドキュメントを参照してください。
 
-#### &#x200B;4. クライアントアプリケーションは、永続的なストレージに設定応答情報をキャッシュする必要がありますか？ {#configuration-phase-faq4}
+#### 4.設定はサービスプロバイダー、プラットフォーム、ユーザーに固有のものですか。 {#configuration-phase-faq4}
+
+この設定は、[ サービスプロバイダー ](rest-api-v2-glossary.md#service-provider) に固有です。
+
+この設定は、プラットフォームのタイプに固有です。
+
+設定は、ユーザーに固有のものではありません。
+
+サーバー間アーキテクチャを使用するクライアントアプリケーションの場合、サーバー側メモリストレージの各プラットフォームタイプに対して、設定応答（例：2 分の TTL）をキャッシュすることをお勧めします。 これにより、各ユーザーに対する不要なリクエストが減り、ユーザーエクスペリエンス全体が向上します。
+
+#### &#x200B;5. クライアントアプリケーションは、永続的なストレージに設定応答情報をキャッシュする必要がありますか？ {#configuration-phase-faq5}
+
+>[!IMPORTANT]
+> 
+> サーバー間アーキテクチャを使用するクライアントアプリケーションの場合、サーバー側メモリストレージの各プラットフォームタイプに対して、設定応答（例：2 分の TTL）をキャッシュすることをお勧めします。 これにより、各ユーザーに対する不要なリクエストが減り、ユーザーエクスペリエンス全体が向上します。
 
 クライアントアプリケーションは、ユーザーが認証または再認証のためにMVPDを選択する必要がある場合にのみ、設定を取得する必要があります。
 
@@ -77,19 +91,19 @@ REST API V2 全体について詳しくは、[REST API V2 の概要 ](/help/auth
 * ユーザーは、基本的またはプロモーションの [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md) 機能を通じて一時的なアクセスが提供されます。
 * ユーザー認証の有効期限が切れているが、クライアントアプリケーションは、以前に選択したMVPDをユーザーエクスペリエンスの動機に基づく選択としてキャッシュし、まだMVPDの購読者であることを確認するように求めるだけです。
 
-#### &#x200B;5. クライアントアプリケーションは、独自の MVPD リストを管理できますか。 {#configuration-phase-faq5}
+#### &#x200B;6. クライアントアプリケーションは、独自の MVPD リストを管理できますか。 {#configuration-phase-faq6}
 
 クライアントアプリケーションは MVPD の独自のリストを管理できますが、MVPD ID とAdobe Pass Authentication を同期させる必要があります。 そのため、Adobe Pass Authentication から提供される設定を使用して、リストを最新かつ正確にすることをお勧めします。
 
 指定されたAdobe Pass ID が無効な場合や、指定された [ サービスプロバイダー ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) とのアクティブな統合がない場合、クライアントアプリケーションはMVPD認証 REST API V2 から [ エラー ](rest-api-v2-glossary.md#service-provider) を受け取ります。
 
-#### &#x200B;6. クライアントアプリケーションは MVPD のリストをフィルタリングできますか。 {#configuration-phase-faq6}
+#### &#x200B;7. クライアントアプリケーションは MVPD のリストをフィルタリングできますか。 {#configuration-phase-faq7}
 
 クライアントアプリケーションは、独自のビジネスロジックおよび要件（以前に選択したユーザーの場所やユーザーの履歴など）に基づいてカスタムメカニズムを実装することで、設定応答で提供される MVPD のリストをフィルタリングできます。
 
 クライアントアプリケーションは、開発中またはテスト中の統合を持つ [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md) MVPD または MVPD のリストをフィルタリングできます。
 
-#### &#x200B;7. MVPDとの統合が無効になり、非アクティブとしてマークされた場合、どうなりますか？ {#configuration-phase-faq7}
+#### &#x200B;8. MVPDとの統合が無効になり、非アクティブとしてマークされた場合、どうなりますか？ {#configuration-phase-faq8}
 
 MVPDとの統合が無効で非アクティブとしてマークされている場合、MVPDは、以降の設定応答で提供される MVPD のリストから削除されます。考慮すべき重要な結果が 2 つあります。
 
@@ -98,14 +112,14 @@ MVPDとの統合が無効で非アクティブとしてマークされている�
 
 選択したMVPDが指定の [ サービスプロバイダー ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) とのアクティブな統合を持たなくなった場合、クライアントアプリケーションはAdobe Pass認証 REST API V2 から [ エラー ](rest-api-v2-glossary.md#service-provider) を受け取ります。
 
-#### &#x200B;8. MVPDとの統合が有効になり、アクティブとしてマークされた場合、どうなりますか？ {#configuration-phase-faq8}
+#### &#x200B;9. MVPDとの統合が有効になり、アクティブとしてマークされた場合、どうなりますか？ {#configuration-phase-faq9}
 
 MVPDとの統合が有効になり、アクティブとしてマークされると、MVPDは、以降の設定応答で提供される MVPD のリストに戻されます。考慮すべき重要な結果は 2 つあります。
 
 * そのMVPDの認証されていないユーザーは、そのMVPDを使用して認証フェーズを再び完了できます。
 * そのMVPDの認証済みユーザーは、そのMVPDを使用して、事前認証、認証、ログアウトの各フェーズを再び完了できます。
 
-#### &#x200B;9. MVPDとの統合を有効または無効にする方法 {#configuration-phase-faq9}
+#### &#x200B;10. MVPDとの統合を有効または無効にする方法 {#configuration-phase-faq10}
 
 この操作は、組織管理者の 1 人がAdobe Pass[TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) を使用して、またはお客様に代わってAdobe Pass認証担当者が実行できます。
 
@@ -115,7 +129,7 @@ MVPDとの統合が有効になり、アクティブとしてマークされる�
 
 ### 認証フェーズの FAQ {#authentication-phase-faqs-general}
 
-+++認証フェーズに関するよくある質問
++++認証フェーズの FAQ
 
 #### 1.認証段階の目的は何ですか。 {#authentication-phase-faq1}
 
@@ -386,7 +400,7 @@ REST API v2 を使用すると、クライアントアプリケーションは�
 
 ### 事前認証フェーズの FAQ {#preauthorization-phase-faqs-general}
 
-+++事前認証フェーズに関するよくある質問
++++事前認証フェーズの FAQ
 
 #### 1.事前認証フェーズの目的は何ですか。 {#preauthorization-phase-faq1}
 
@@ -653,7 +667,7 @@ Authorization ヘッダー値は、登録段階でAdobe Pass Authentication か�
 
 はい。
 
-[DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) および [REST API V2&rbrace; の OpenAPI 仕様ファイルは、&lbrace;4](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/)Adobe Developer[ web サイトからダウンロードできます。](https://developer.adobe.com/adobe-pass/)
+[DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) および [REST API V2} の OpenAPI 仕様ファイルは、{4](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/)Adobe Developer[ web サイトからダウンロードできます。](https://developer.adobe.com/adobe-pass/)
 
 OpenAPI 仕様ファイルをダウンロードするには、「ダウンロード」ボタンをクリックして、次のファイルをローカルマシンに保存します。
 
@@ -687,7 +701,7 @@ REST API V2 に移行するクライアントアプリケーションでは、ht
 
 ### 一般的な移行に関する FAQ {#general-migration-faqs}
 
-+++一般的な移行の FAQ
++++一般的な移行に関する FAQ
 
 #### &#x200B;1. REST API V2 に移行された新しいクライアントアプリケーションを、すべてのユーザーに一度にロールアウトする必要がありますか？ {#migration-faq1}
 
@@ -758,13 +772,13 @@ REST API V1 から REST API V2 への移行では、登録フェーズに関し�
 
 #### 設定フェーズの FAQ {#configuration-phase-faqs-migration-rest-api-v1-to-rest-api-v2}
 
-+++設定フェーズに関するよくある質問
++++設定フェーズの FAQ
 
 ##### 1.設定フェーズに必要な、大まかな API 移行は何ですか？ {#configuration-phase-v1-to-v2-faq1}
 
 REST API V1 から REST API V2 への移行では、大まかな変更が必要で、次の表に示します。
 
-| 対象範囲 | REST API V1 | REST API V2 | 所見 |
+| 範囲 | REST API V1 | REST API V2 | 所見 |
 |------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
 | アクティブな統合を持つ MVPD のリストの取得 | [GET <br/> /api/v1/config/{serviceProvider}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/provide-mvpd-list.md) | [GET <br/> /api/v2/{serviceProvider}/configuration](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md) |              |
 
@@ -772,13 +786,13 @@ REST API V1 から REST API V2 への移行では、大まかな変更が必要�
 
 #### 認証フェーズの FAQ {#authentication-phase-faqs-migration-rest-api-v1-to-rest-api-v2}
 
-+++認証フェーズに関するよくある質問
++++認証フェーズの FAQ
 
 ##### 1.認証フェーズに必要な、高レベルの API 移行は何ですか。 {#authentication-phase-v1-to-v2-faq1}
 
 REST API V1 から REST API V2 への移行では、大まかな変更が必要で、次の表に示します。
 
-| 対象範囲 | REST API V1 | REST API V2 | 所見 |
+| 範囲 | REST API V1 | REST API V2 | 所見 |
 |-------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 登録コードの取得（認証コード） | [POST <br/> /reggie/v1/{serviceProvider}/regcode](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) | [POST <br/> /api/v2/{serviceProvider}/sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)</li><li>[ セカンダリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)</li></ul> |
 | 登録コードを確認（認証コード） | [GET <br/> /reggie/v1/{serviceProvider}/regcode/{code}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/return-registration-record.md) | [GET <br/> /api/v2/{serviceProvider}/sessions/{code}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ セカンダリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)</li></ul> |
@@ -792,13 +806,13 @@ REST API V1 から REST API V2 への移行では、大まかな変更が必要�
 
 #### 事前認証フェーズの FAQ {#preauthorization-phase-faqs-migration-rest-api-v1-to-rest-api-v2}
 
-+++事前認証フェーズに関するよくある質問
++++事前認証フェーズの FAQ
 
 ##### 1.事前認証フェーズに必要な高レベルの API 移行は何ですか。 {#preauthorization-phase-v1-to-v2-faq1}
 
 REST API V1 から REST API V2 への移行では、大まかな変更が必要で、次の表に示します。
 
-| 対象範囲 | REST API V1 | REST API V2 | 所見 |
+| 範囲 | REST API V1 | REST API V2 | 所見 |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 事前承認されたリソースの取得（事前承認決定） | [GET <br/> /api/v1/preauthorize （最初の画面） ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-list-of-preauthorized-resources.md) <br/> [GET <br/> /api/v1/preauthorize （2 番目の画面） ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-list-of-preauthorized-resources-by-second-screen-web-app.md) | [POST <br/> /api/v2/{serviceProvider}/decisions/preauthorize/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本的な事前認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)</li></ul> |
 
@@ -812,7 +826,7 @@ REST API V1 から REST API V2 への移行では、大まかな変更が必要�
 
 REST API V1 から REST API V2 への移行では、大まかな変更が必要で、次の表に示します。
 
-| 対象範囲 | REST API V1 | REST API V2 | 所見 |
+| 範囲 | REST API V1 | REST API V2 | 所見 |
 |-------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | （MVPD）認証の開始 | [GET <br/> /api/v1/authorize](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authorization.md) | [POST <br/> /api/v2/{serviceProvider}/decisions/authorize/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) | クライアントアプリケーションは、この API の応答を一度に複数の目的に使用できます。<br/> <ul><li>（MVPD）認証の開始</li><li>認証決定の取得</li><li>短いメディアトークンの取得</li></ul> <br/> 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)</li></ul> |
 | 認証トークンの取得（認証決定） | [GET <br/> /api/v1/tokens/authz](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authorization-token.md) | [POST <br/> /api/v2/{serviceProvider}/decisions/authorize/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) | クライアントアプリケーションは、この API の応答を一度に複数の目的に使用できます。<br/> <ul><li>（MVPD）認証の開始</li><li>認証決定の取得</li><li>短いメディアトークンの取得</li></ul> <br/> 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)</li></ul> |
@@ -828,7 +842,7 @@ REST API V1 から REST API V2 への移行では、大まかな変更が必要�
 
 REST API V1 から REST API V2 への移行では、大まかな変更が必要で、次の表に示します。
 
-| 対象範囲 | REST API V1 | REST API V2 | 所見 |
+| 範囲 | REST API V1 | REST API V2 | 所見 |
 |-----------------|---------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ログアウトの開始 | [GET <br/> /api/v1/logout](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md) | [GET <br/> /api/v2/{serviceProvider}/logout](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本ログアウトフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-logout-primary-application-flow.md)</li></ul> |
 
@@ -848,25 +862,25 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 ###### AccessEnabler JavaScript SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |--------------------------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 動的クライアント登録（DCR）の完了 | コンストラクタへのソフトウェア文の提供 | [POST <br/> /o/client/register](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) <br/> [GET <br/> /o/client/token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[Dynamic Client Registration の概要 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)</li><li>[ 動的なクライアント登録フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)</li></ul> |
 
 ###### AccessEnabler iOS/tvOS SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |--------------------------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 動的クライアント登録（DCR）の完了 | コンストラクタへのソフトウェア文の提供 | [POST <br/> /o/client/register](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) <br/> [GET <br/> /o/client/token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[Dynamic Client Registration の概要 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)</li><li>[ 動的なクライアント登録フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)</li></ul> |
 
 ###### AccessEnabler Android SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |--------------------------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 動的クライアント登録（DCR）の完了 | コンストラクタへのソフトウェア文の提供 | [POST <br/> /o/client/register](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) <br/> [GET <br/> /o/client/token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[Dynamic Client Registration の概要 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)</li><li>[ 動的なクライアント登録フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)</li></ul> |
 
 ###### AccessEnabler FireOS SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |--------------------------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 動的クライアント登録（DCR）の完了 | コンストラクタへのソフトウェア文の提供 | [POST <br/> /o/client/register](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) <br/> [GET <br/> /o/client/token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[Dynamic Client Registration の概要 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)</li><li>[ 動的なクライアント登録フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)</li></ul> |
 
@@ -874,7 +888,7 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 #### 設定フェーズの FAQ {#configuration-phase-faqs-migration-sdk-to-rest-api-v2}
 
-+++設定フェーズに関するよくある質問
++++設定フェーズの FAQ
 
 ##### 1.設定フェーズに必要な、大まかな API 移行は何ですか？ {#configuration-phase-sdk-to-v2-faq1}
 
@@ -882,25 +896,25 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 ###### AccessEnabler JavaScript SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
 | アクティブな統合を持つ MVPD のリストの取得 | [AccessEnabler.getAuthentication](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#getAuthN) | [GET <br/> /api/v2/{serviceProvider}/configuration](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md) |              |
 
 ###### AccessEnabler iOS/tvOS SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
 | アクティブな統合を持つ MVPD のリストの取得 | [AccessEnabler.getAuthentication](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#getAuthN) | [GET <br/> /api/v2/{serviceProvider}/configuration](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md) |              |
 
 ###### AccessEnabler Android SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
 | アクティブな統合を持つ MVPD のリストの取得 | [AccessEnabler.getAuthentication](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#getAuthN) | [GET <br/> /api/v2/{serviceProvider}/configuration](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md) |              |
 
 ###### AccessEnabler FireOS SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
 | アクティブな統合を持つ MVPD のリストの取得 | [AccessEnabler.getAuthentication](/help/authentication/integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md#getAuthN) | [GET <br/> /api/v2/{serviceProvider}/configuration](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md) |              |
 
@@ -908,7 +922,7 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 #### 認証フェーズの FAQ {#authentication-phase-faqs-migration-sdk-to-rest-api-v2}
 
-+++認証フェーズに関するよくある質問
++++認証フェーズの FAQ
 
 ##### 1.認証フェーズに必要な、高レベルの API 移行は何ですか。 {#authentication-phase-sdk-to-v2-faq1}
 
@@ -916,7 +930,7 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 ###### AccessEnabler JavaScript SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | （MVPD）認証の開始 | [AccessEnabler.getAuthentication](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#getAuthN) <br/> [AccessEnabler.setSelectedProvider](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#setSelProv) | [POST <br/> /api/v2/{serviceProvider}/sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) <br/> [GET <br/> /api/v2/authenticate/{serviceProvider}/{code}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)</li><li>[ セカンダリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)</li></ul> |
 | ユーザー認証ステータスの確認 | [AccessEnabler.checkAuthentication](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#checkAuthN) | 次のいずれかを使用します。<br/><br/> [GET <br/> /api/v2/{serviceProvider}/profiles](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) <br/> [GET <br/> /api/v2/{serviceProvider}/profiles/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) <br/> [GET <br/> /api/v2/{serviceProvider}/profiles/code/{code}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) | クライアントアプリケーションは、次の API の応答を複数の目的で一度に使用できます。<br/> <ul><li>ユーザー認証ステータスの確認</li><li>ユーザープロファイルを取得</li><li>ユーザーメタデータ情報の取得</li></ul> <br/> 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本プロファイルフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)</li><li>[ セカンダリアプリケーション内で実行される基本プロファイルフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)</li></ul> |
@@ -924,7 +938,7 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 ###### AccessEnabler iOS SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | （MVPD）認証の開始 | [AccessEnabler.getAuthentication](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#getAuthN) <br/> [AccessEnabler.setSelectedProvider](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setSelProv) | [POST <br/> /api/v2/{serviceProvider}/sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) <br/> [GET <br/> /api/v2/authenticate/{serviceProvider}/{code}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)</li><li>[ セカンダリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)</li></ul> |
 | ユーザー認証ステータスの確認 | [AccessEnabler.checkAuthentication](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#checkAuthN) | 次のいずれかを使用します。<br/><br/> [GET <br/> /api/v2/{serviceProvider}/profiles](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) <br/> [GET <br/> /api/v2/{serviceProvider}/profiles/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) <br/> [GET <br/> /api/v2/{serviceProvider}/profiles/code/{code}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) | クライアントアプリケーションは、次の API の応答を複数の目的で一度に使用できます。<br/> <ul><li>ユーザー認証ステータスの確認</li><li>ユーザープロファイルを取得</li><li>ユーザーメタデータ情報の取得</li></ul> <br/> 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本プロファイルフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)</li><li>[ セカンダリアプリケーション内で実行される基本プロファイルフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)</li></ul> |
@@ -932,7 +946,7 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 ###### AccessEnabler tvOSSDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 登録コードの取得（認証コード） | [AccessEnabler.getAuthentication](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#getAuthN) <br/> [AccessEnabler.setSelectedProvider](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setSelProv) | [POST <br/> /api/v2/{serviceProvider}/sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)</li><li>[ セカンダリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)</li></ul> |
 | 登録コードを確認（認証コード） | [GET <br/> /reggie/v1/{serviceProvider}/regcode/{code}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/return-registration-record.md) | [GET <br/> /api/v2/{serviceProvider}/sessions/{code}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ セカンダリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)</li></ul> |
@@ -943,7 +957,7 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 ###### AccessEnabler Android SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | （MVPD）認証の開始 | [AccessEnabler.getAuthentication](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#getAuthN) <br/> [AccessEnabler.setSelectedProvider](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#setSelectedProvider) | [POST <br/> /api/v2/{serviceProvider}/sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) <br/> [GET <br/> /api/v2/authenticate/{serviceProvider}/{code}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)</li><li>[ セカンダリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)</li></ul> |
 | ユーザー認証ステータスの確認 | [AccessEnabler.checkAuthentication](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#checkAuthN) | 次のいずれかを使用します。<br/><br/> [GET <br/> /api/v2/{serviceProvider}/profiles](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) <br/> [GET <br/> /api/v2/{serviceProvider}/profiles/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) <br/> [GET <br/> /api/v2/{serviceProvider}/profiles/code/{code}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) | クライアントアプリケーションは、次の API の応答を複数の目的で一度に使用できます。<br/> <ul><li>ユーザー認証ステータスの確認</li><li>ユーザープロファイルを取得</li><li>ユーザーメタデータ情報の取得</li></ul> <br/> 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本プロファイルフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)</li><li>[ セカンダリアプリケーション内で実行される基本プロファイルフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)</li></ul> |
@@ -951,7 +965,7 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 ###### AccessEnabler FireOS SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |-------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 登録コードの取得（認証コード） | [AccessEnabler.getAuthentication](/help/authentication/integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md#getAuthN) <br/> [AccessEnabler.setSelectedProvider](/help/authentication/integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md#setSelectedProvider) | [POST <br/> /api/v2/{serviceProvider}/sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)</li><li>[ セカンダリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)</li></ul> |
 | 登録コードを確認（認証コード） | [GET <br/> /reggie/v1/{serviceProvider}/regcode/{code}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/return-registration-record.md) | [GET <br/> /api/v2/{serviceProvider}/sessions/{code}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ セカンダリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)</li></ul> |
@@ -964,7 +978,7 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 #### 事前認証フェーズの FAQ {#preauthorization-phase-faqs-migration-sdk-to-rest-api-v2}
 
-+++事前認証フェーズに関するよくある質問
++++事前認証フェーズの FAQ
 
 ##### 1.事前認証フェーズに必要な高レベルの API 移行は何ですか。 {#preauthorization-phase-sdk-to-v2-faq1}
 
@@ -972,23 +986,23 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 ###### AccessEnabler JavaScript SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 事前承認されたリソースの取得（事前承認決定） | [AccessEnabler.checkPreauthorizedResources](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#checkPreauthRes) <br/> [AccessEnabler.preauthorize](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/preauthorize-api-javascript-sdk.md) | [POST <br/> /api/v2/{serviceProvider}/decisions/preauthorize/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本的な事前認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)</li></ul> |
 
 ###### AccessEnabler iOS/tvOS SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 事前承認されたリソースの取得（事前承認決定） | [AccessEnabler.checkPreauthorizedResources](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#checkPreauth) <br/> [AccessEnabler.preauthorize](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/preauthorize-api-ios-tvos-sdk.md) | [POST <br/> /api/v2/{serviceProvider}/decisions/preauthorize/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本的な事前認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)</li></ul> |
 
 ###### AccessEnabler Android SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |---------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 事前承認されたリソースの取得（事前承認決定） | [AccessEnabler.checkPreauthorizedResources](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#checkPreauth) <br/> [AccessEnabler.preauthorize](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/preauthorize-api-android-sdk.md) | [POST <br/> /api/v2/{serviceProvider}/decisions/preauthorize/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本的な事前認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)</li></ul> |
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 事前承認されたリソースの取得（事前承認決定） | [AccessEnabler.checkPreauthorizedResources](/help/authentication/integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md#checkPreauth) | [POST <br/> /api/v2/{serviceProvider}/decisions/preauthorize/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本的な事前認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)</li></ul> |
 
@@ -1004,25 +1018,25 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 ###### AccessEnabler JavaScript SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 短い認証トークンの取得（メディアトークン） | [AccessEnabler.checkAuthorization](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#checkAuthZ) <br/> [AccessEnabler.getAuthorization](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#getAuthZ) | [POST <br/> /api/v2/{serviceProvider}/decisions/authorize/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) | クライアントアプリケーションは、この API の応答を一度に複数の目的に使用できます。<br/> <ul><li>（MVPD）認証の開始</li><li>認証決定の取得</li><li>短いメディアトークンの取得</li></ul> <br/> 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)</li></ul> |
 
 ###### AccessEnabler iOS/tvOS SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 短い認証トークンの取得（メディアトークン） | [AccessEnabler.checkAuthorization](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#checkAuthZ) <br/> [AccessEnabler.getAuthorization](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#getAuthZ) | [POST <br/> /api/v2/{serviceProvider}/decisions/authorize/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) | クライアントアプリケーションは、この API の応答を一度に複数の目的に使用できます。<br/> <ul><li>（MVPD）認証の開始</li><li>認証決定の取得</li><li>短いメディアトークンの取得</li></ul> <br/> 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)</li></ul> |
 
 ###### AccessEnabler Android SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 短い認証トークンの取得（メディアトークン） | [AccessEnabler.checkAuthorization](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#checkAuthZ) <br/> [AccessEnabler.getAuthorization](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#getAuthZ) | [POST <br/> /api/v2/{serviceProvider}/decisions/authorize/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) | クライアントアプリケーションは、この API の応答を一度に複数の目的に使用できます。<br/> <ul><li>（MVPD）認証の開始</li><li>認証決定の取得</li><li>短いメディアトークンの取得</li></ul> <br/> 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)</li></ul> |
 
 ###### AccessEnabler FireOS SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 短い認証トークンの取得（メディアトークン） | [AccessEnabler.checkAuthorization](/help/authentication/integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md#checkAuthZ) <br/> [AccessEnabler.getAuthorization](/help/authentication/integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md#getAuthZ) | [POST <br/> /api/v2/{serviceProvider}/decisions/authorize/{mvpd}](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) | クライアントアプリケーションは、この API の応答を一度に複数の目的に使用できます。<br/> <ul><li>（MVPD）認証の開始</li><li>認証決定の取得</li><li>短いメディアトークンの取得</li></ul> <br/> 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本認証フロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)</li></ul> |
 
@@ -1038,25 +1052,25 @@ SDK から REST API V2 への移行では、大まかな変更が必要で、そ
 
 ###### AccessEnabler JavaScript SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ログアウトの開始 | [AccessEnabler.logout](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#logout) | [GET <br/> /api/v2/{serviceProvider}/logout](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本ログアウトフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-logout-primary-application-flow.md)</li></ul> |
 
 ###### AccessEnabler iOS/tvOS SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ログアウトの開始 | [AccessEnabler.logout](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#logout) | [GET <br/> /api/v2/{serviceProvider}/logout](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本ログアウトフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-logout-primary-application-flow.md)</li></ul> |
 
 ###### AccessEnabler Android SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ログアウトの開始 | [AccessEnabler.logout](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#logout) | [GET <br/> /api/v2/{serviceProvider}/logout](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本ログアウトフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-logout-primary-application-flow.md)</li></ul> |
 
 ###### AccessEnabler FireOS SDK
 
-| 対象範囲 | SDK | REST API V2 | 所見 |
+| 範囲 | SDK | REST API V2 | 所見 |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ログアウトの開始 | [AccessEnabler.logout](/help/authentication/integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md#logout) | [GET <br/> /api/v2/{serviceProvider}/logout](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) | 詳しくは、次のドキュメントを参照してください。<br/> <ul><li>[ プライマリアプリケーション内で実行される基本ログアウトフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-logout-primary-application-flow.md)</li></ul> |
 
