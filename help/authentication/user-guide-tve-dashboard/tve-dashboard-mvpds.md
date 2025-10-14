@@ -23,7 +23,7 @@ TVE Dashboard の **MVPD** セクションでは、Adobe Pass認証エコシス�
 
 * **MVPD ID**：システム内の新しい統合の設定に使用される MVPD の一意の ID。
 
-![ 統合 MVPD の一覧 ](../assets/tve-dashboard/new-tve-dashboard/mvpds/mvpds-list-view.png)
+![&#x200B; 統合 MVPD の一覧 &#x200B;](../assets/tve-dashboard/new-tve-dashboard/mvpds/mvpds-list-view.png)
 
 *統合 MVPD の一覧*
 

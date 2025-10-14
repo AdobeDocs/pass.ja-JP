@@ -20,10 +20,10 @@ ht-degree: 0%
 >
 > プロキシ MVPD Web サービスを使用する前に、次の前提条件が満たされていることを確認してください。
 >
-> * [ クライアント資格情報の取得 ](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメントの説明に従って、クライアント資格情報を取得します。
-> * [ アクセストークンの取得 ](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って、アクセストークンを取得します。
+> * [&#x200B; クライアント資格情報の取得 &#x200B;](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメントの説明に従って、クライアント資格情報を取得します。
+> * [&#x200B; アクセストークンの取得 &#x200B;](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って、アクセストークンを取得します。
 >
-> 登録されたアプリケーションを作成してソフトウェアのステートメントをダウンロードする方法について詳しくは、[ 動的クライアント登録の概要 ](../integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
+> 登録されたアプリケーションを作成してソフトウェアのステートメントをダウンロードする方法について詳しくは、[&#x200B; 動的クライアント登録の概要 &#x200B;](../integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
 
 ## 概要 {#overview-proxy-mvpd-webserv}
 
@@ -36,8 +36,8 @@ ProxyMVPD 機能を実装するために、Adobe Pass認証は、ProxyMVPD が P
 
 ## プロキシ MVPD サービス {#proxy-mvpd-services}
 
-&#x200B;- [ プロキシ化された MVPD の取得 ](#retriev-proxied-mvpds)
-&#x200B;- [ プロキシ化された MVPD を送信 ](#submit-proxied-mvpds)
+&#x200B;- [&#x200B; プロキシ化された MVPD の取得 &#x200B;](#retriev-proxied-mvpds)
+&#x200B;- [&#x200B; プロキシ化された MVPD を送信 &#x200B;](#submit-proxied-mvpds)
 
 ### プロキシされた MVPD の取得 {#retriev-proxied-mvpds}
 
@@ -231,7 +231,7 @@ Adobeでは、公開 web サービスとの間でプロキシ化された MVPD �
 
 リクエストを有効と見なすには、次のルールを遵守する必要があります。
 
-&#x200B;- リクエストヘッダーには、[ アクセストークンの取得 ](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントで説明されているように取得されたセキュリティ Oauth2 アクセストークンが含まれている必要があります。
+&#x200B;- リクエストヘッダーには、[&#x200B; アクセストークンの取得 &#x200B;](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントで説明されているように取得されたセキュリティ Oauth2 アクセストークンが含まれている必要があります。
  – このリクエストは、許可されている特定の IP アドレスから送信される必要があります。
 &#x200B;- リクエストは、SSL プロトコルを使用して送信する必要があります。
 

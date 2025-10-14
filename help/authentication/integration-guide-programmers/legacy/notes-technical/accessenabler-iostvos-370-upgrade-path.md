@@ -17,11 +17,11 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
-[ 新しい AccessEnabler バージョン 3.7.0](/help/authentication/notes-releases/authn-rn-ios-tvos-370.md) からのキーチェーン・ストレージの変更は、AccessEnabler バージョン 3.7.0 以前からのキーチェーン・ストレージの実装と互換性がありません。
+[&#x200B; 新しい AccessEnabler バージョン 3.7.0](/help/authentication/notes-releases/authn-rn-ios-tvos-370.md) からのキーチェーン・ストレージの変更は、AccessEnabler バージョン 3.7.0 以前からのキーチェーン・ストレージの実装と互換性がありません。
 
 新しい AccessEnabler バージョン 3.7.0 を採用する 1 つのアプリケーションのアップグレード・パスでは、すべてのトークンが以前のバージョンの Keychain ストレージから移行されます。 そのため、AccessEnabler フレームワークの更新プロセス中にエンド・ユーザーに認証/承認セッションの消失が発生することは **ありません**。
 

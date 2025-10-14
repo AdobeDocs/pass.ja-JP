@@ -25,7 +25,7 @@ Adobeでは、Adobe Pass Authentication を web サイトやアプリケーシ�
 
 設定プロセスには、特に次の手順が含まれます。
 
-![Adobe® 認証統合プロセスを渡す ](../assets/progr-flow-int-lifecycle.png)
+![Adobe® 認証統合プロセスを渡す &#x200B;](../assets/progr-flow-int-lifecycle.png)
 
 *Adobe® 認証統合プロセスを渡す*
 
@@ -75,9 +75,9 @@ Adobe Pass認証チームは、統合プロセス中に発生した質問や技�
 
 ## ドキュメントへのアクセス {#access-documentation}
 
-**Adobeから**&#x200B;[Adobe Experience League&rbrace; 経由で公開ドキュメントにアクセス ](https://experienceleague.adobe.com/ja/docs/pass/authentication/home) きます。
+**Adobeから**&#x200B;[Adobe Experience League&rbrace; 経由で公開ドキュメントにアクセス &#x200B;](https://experienceleague.adobe.com/ja/docs/pass/authentication/home) きます。
 
-Adobe Pass認証チームは、[ プログラマー向け統合ガイド ](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md) の節で利用可能な機能と API の包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
+Adobe Pass認証チームは、[&#x200B; プログラマー向け統合ガイド &#x200B;](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md) の節で利用可能な機能と API の包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
 
 ## テストツールへのアクセス {#access-testing-tool}
 
@@ -85,6 +85,6 @@ Adobe Pass認証チームは、[ プログラマー向け統合ガイド ](/help
 
 ## 設定管理ツールへのアクセス {#access-configuration-management-tool}
 
-**Adobeは**&#x200B;[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/pass/authentication) を介して設定とデータを管理するためのセルフサービスツールへのアクセスを提供します。
+**Adobeは**&#x200B;[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/pass/authentication) を介して設定とデータを管理するためのセルフサービスツールへのアクセスを提供します。
 
-Adobe Pass認証チームは、「[TVE ダッシュボードのユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md) セクションで、TVE ダッシュボードの使用に関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
+Adobe Pass認証チームは、「[TVE ダッシュボードのユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md) セクションで、TVE ダッシュボードの使用に関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。

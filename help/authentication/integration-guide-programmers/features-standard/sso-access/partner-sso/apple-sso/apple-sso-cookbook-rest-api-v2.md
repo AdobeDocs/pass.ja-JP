@@ -17,7 +17,7 @@ ht-degree: 0%
 
 Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライアントアプリケーションのエンドユーザー向けに、パートナーシングルサインオン（SSO）をサポートしています。
 
-このドキュメントは、既存の [REST API V2 概要の拡張機能として機能し ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) 概要の概要と、[ パートナーフローを使用したシングルサインオン ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md) を実装する方法を説明するドキュメントを提供します。
+このドキュメントは、既存の [REST API V2 概要の拡張機能として機能し &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) 概要の概要と、[&#x200B; パートナーフローを使用したシングルサインオン &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md) を実装する方法を説明するドキュメントを提供します。
 
 ## パートナーフローを使用したAppleのシングルサインオン {#cookbook}
 
@@ -27,11 +27,11 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
 * ストリーミングアプリケーションは、Adobe Pass Authentication バックエンドがデバイスプラットフォームとその機能を識別できるように、`X-Device-Info` や `User-Agent` ヘッダーで必要なすべてのデータを収集する必要があります。 ヘッダーについて詳 `X-Device-Info` くは、[X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) ドキュメントを参照してください。
 
-* ストリーミングアプリケーションは、デバイスレベルで保存されたユーザーの購読情報へのアクセスをリクエストする必要があります。これに対して、ユーザーは、デバイスのカメラまたはマイクへのアクセスを提供するのと同様に、続行を許可するアプリケーション権限を付与する必要があります。 この権限は、Apple[ ビデオ購読者のアカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) を使用しているアプリケーションごとにリクエストされる必要があります。
+* ストリーミングアプリケーションは、デバイスレベルで保存されたユーザーの購読情報へのアクセスをリクエストする必要があります。これに対して、ユーザーは、デバイスのカメラまたはマイクへのアクセスを提供するのと同様に、続行を許可するアプリケーション権限を付与する必要があります。 この権限は、Apple[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) を使用しているアプリケーションごとにリクエストされる必要があります。
 
   Appleのシングルサインオンユーザーエクスペリエンスの利点を説明することで、購読情報へのアクセスを拒否するユーザーにインセンティブを与えることをお勧めしますが、アプリ設定（TV プロバイダーのアクセス）またはiOSと iPadOS または tvOS の *`Settings -> Accounts -> TV Provider`* を使用する *`Settings -> TV Provider`* とで、ユーザーが判断を変えることができることに注意してください。
 
-  ストリーミングアプリケーションは、アプリケーションがフォアグラウンド状態になると、ユーザー認証を要求する前の任意の時点でユーザーの購読情報に対する [ アクセス許可 ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認できるので、ユーザーの許可を要求できます。
+  ストリーミングアプリケーションは、アプリケーションがフォアグラウンド状態になると、ユーザー認証を要求する前の任意の時点でユーザーの購読情報に対する [&#x200B; アクセス許可 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認できるので、ユーザーの許可を要求できます。
 
 >[!IMPORTANT]
 >
@@ -39,13 +39,13 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 >
 > <br/>
 >
-> * ストリーミングアプリケーションは、プログラマーに適用され、Appleのシングルサインオンユーザーエクスペリエンスを有効にするために必要な [ オンボーディングの前提条件 ](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md#apple-sso-prerequisites-programmer) を完了しています。
+> * ストリーミングアプリケーションは、プログラマーに適用され、Appleのシングルサインオンユーザーエクスペリエンスを有効にするために必要な [&#x200B; オンボーディングの前提条件 &#x200B;](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md#apple-sso-prerequisites-programmer) を完了しています。
 
 ### ワークフロー {#workflow}
 
 次の図に示すパートナーフローを使用してAppleのシングルサインオンを実装するには、指定された手順を実行します。
 
-![ パートナーフローを使用したAppleのシングルサインオン ](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-apple-single-sign-on-using-partner-flows.png)
+![&#x200B; パートナーフローを使用したAppleのシングルサインオン &#x200B;](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-apple-single-sign-on-using-partner-flows.png)
 
 *パートナーフローを使用したAppleのシングルサインオン*
 
@@ -55,7 +55,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[ クライアント資格情報の取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md#request) API ドキュメントを参照してください。
+   > 次について詳しくは、[&#x200B; クライアント資格情報の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md#request) API ドキュメントを参照してください。
    >
    > * `software_statement` のようなすべての _必須_ パラメーター
    > * `Content-Type`、`X-Device-Info` などのすべての _必須_ ヘッダー
@@ -65,7 +65,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > クライアント資格情報応答で提供される情報について詳しくは、[ クライアント資格情報の取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md#success) API ドキュメントを参照してください。
+   > クライアント資格情報応答で提供される情報について詳しくは、[&#x200B; クライアント資格情報の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md#success) API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -75,7 +75,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[ クライアント資格情報の取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md#error) API ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; クライアント資格情報の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md#error) API ドキュメントに従った追加情報が提供されます。
 
    >[!TIP]
    >
@@ -85,7 +85,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[ アクセストークンの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#request) API ドキュメントを参照してください。
+   > 次について詳しくは、[&#x200B; アクセストークンの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#request) API ドキュメントを参照してください。
    >
    > * `client_id`、`client_secret`、`grant_type` など、すべての _必須_ パラメーター
    > * `Content-Type`、`X-Device-Info` などのすべての _必須_ ヘッダー
@@ -95,7 +95,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > アクセストークン応答で提供される情報について詳しくは、[ アクセストークンの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#success) API ドキュメントを参照してください。
+   > アクセストークン応答で提供される情報について詳しくは、[&#x200B; アクセストークンの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#success) API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -105,7 +105,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[ アクセストークンの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#error) API ドキュメントに準拠する追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; アクセストークンの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#error) API ドキュメントに準拠する追加情報が提供されます。
 
    >[!TIP]
    >
@@ -115,18 +115,18 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
 +++B.認証フェーズを確認
 
-1. **パートナーフレームワークのステータスの取得：** ストリーミングアプリケーションは、Appleが開発した [ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) を呼び出して、ユーザー権限とプロバイダー情報を取得します。
+1. **パートナーフレームワークのステータスの取得：** ストリーミングアプリケーションは、Appleが開発した [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) を呼び出して、ユーザー権限とプロバイダー情報を取得します。
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ ビデオ購読者のアカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
    >
    > <br/>
    >
-   > * ストリーミングアプリケーションは、ユーザーの購読情報 [ アクセス権限 ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
-   > * ストリーミングアプリケーションは、`VSAccountManager` に [ デリゲート ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
-   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [ リクエスト ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
-   > * ストリーミングアプリケーションは、[ メタデータ ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
+   > * ストリーミングアプリケーションは、ユーザーの購読情報 [&#x200B; アクセス権限 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
+   > * ストリーミングアプリケーションは、`VSAccountManager` に [&#x200B; デリゲート &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
+   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [&#x200B; リクエスト &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
+   > * ストリーミングアプリケーションは、[&#x200B; メタデータ &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
    >
    > <br/>
    >
@@ -141,7 +141,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[ プロファイルの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md#Request) API ドキュメントを参照してください。
+   > 次について詳しくは、[&#x200B; プロファイルの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md#Request) API ドキュメントを参照してください。
    >
    > * `serviceProvider` のようなすべての _必須_ パラメーター
    > * `Authorization`、`AP-Device-Identifier`、`AP-Partner-Framework-Status` など、すべての _必須_ ヘッダー
@@ -169,7 +169,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ 特定のサービスプロバイダーの設定の取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md#Request)API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; 特定のサービスプロバイダーの設定の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md#Request)API ドキュメントを参照してください。
    >
    > * `serviceProvider` のようなすべての _必須_ パラメーター
    > * `Authorization`、`AP-Device-Identifier`、`X-Device-Info` など、すべての _必須_ ヘッダー
@@ -179,7 +179,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > 設定応答で提供される情報について詳しくは、[ 特定のサービスプロバイダーの設定の取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md#Response)API ドキュメントを参照してください。
+   > 設定応答で提供される情報について詳しくは、[&#x200B; 特定のサービスプロバイダーの設定の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md#Response)API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -189,7 +189,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
    >[!IMPORTANT]
    >
@@ -199,18 +199,18 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    > * `displayInPlatformPicker`:AppleピッカーでMVPDを表示できるかどうかを示します。
    > * `boardingStatus`:MVPDがAppleのシングルサインオンでオンボードされているかどうかを示します。
 
-1. **パートナーフレームワークのステータスの取得：** ストリーミングアプリケーションは、Appleが開発した [ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) を呼び出して、ユーザー権限とプロバイダー情報を取得します。
+1. **パートナーフレームワークのステータスの取得：** ストリーミングアプリケーションは、Appleが開発した [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) を呼び出して、ユーザー権限とプロバイダー情報を取得します。
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ ビデオ購読者のアカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
    >
    > <br/>
    >
-   > * ストリーミングアプリケーションは、ユーザーの購読情報 [ アクセス権限 ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
-   > * ストリーミングアプリケーションは、`VSAccountManager` に [ デリゲート ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
-   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [ リクエスト ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
-   > * ストリーミングアプリケーションは、[ メタデータ ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
+   > * ストリーミングアプリケーションは、ユーザーの購読情報 [&#x200B; アクセス権限 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
+   > * ストリーミングアプリケーションは、`VSAccountManager` に [&#x200B; デリゲート &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
+   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [&#x200B; リクエスト &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
+   > * ストリーミングアプリケーションは、[&#x200B; メタデータ &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
    >
    > <br/>
    >
@@ -225,7 +225,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ パートナー認証リクエストの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md#Request) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; パートナー認証リクエストの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md#Request) API ドキュメントを参照してください。
    >
    > * `serviceProvider` や `partner` など、すべての _必須_ パラメーター
    > * `Authorization`、`AP-Device-Identifier`、`Content-Type`、`X-Device-Info`、`AP-Partner-Framework-Status` など、すべての _必須_ ヘッダー
@@ -243,7 +243,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > セッション応答で提供される情報について詳しくは、[ パートナー認証リクエストの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md#Response) API ドキュメントを参照してください。
+   > セッション応答で提供される情報について詳しくは、[&#x200B; パートナー認証リクエストの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md#Response) API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -254,7 +254,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    >
    > <br/>
    >
-   > 基本検証が失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    >
    > <br/>
    >
@@ -293,18 +293,18 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    Adobe Pass バックエンドが有効なプロファイルを識別せず、パートナーのシングルサインオン検証に合格した場合、ストリーミングアプリケーションはアクションとデータを含む応答を受け取り、MVPDとの認証フローを開始するためにパートナーフレームワークに渡します。
 
-1. **パートナーフレームワークでMVPD認証を完了：** 前の手順で取得したパートナー認証要求（SAML 要求）を [ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) に転送します。 認証フローが成功すると、MVPDとの [ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) インタラクションによってパートナー認証応答（SAML 応答）が生成され、パートナーフレームワークのステータス情報と共に返されます。
+1. **パートナーフレームワークでMVPD認証を完了：** 前の手順で取得したパートナー認証要求（SAML 要求）を [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) に転送します。 認証フローが成功すると、MVPDとの [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) インタラクションによってパートナー認証応答（SAML 応答）が生成され、パートナーフレームワークのステータス情報と共に返されます。
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ ビデオ購読者のアカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
    >
    > <br/>
    >
-   > * ストリーミングアプリケーションは、ユーザーの購読情報 [ アクセス権限 ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
-   > * ストリーミングアプリケーションは、`VSAccountManager` に [ デリゲート ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
-   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [ リクエスト ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があり、さらに、前の手順で取得したパートナー認証要求（SAML 要求）を含める必要があります。
-   > * ストリーミングアプリケーションは、[ メタデータ ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
+   > * ストリーミングアプリケーションは、ユーザーの購読情報 [&#x200B; アクセス権限 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
+   > * ストリーミングアプリケーションは、`VSAccountManager` に [&#x200B; デリゲート &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
+   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [&#x200B; リクエスト &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があり、さらに、前の手順で取得したパートナー認証要求（SAML 要求）を含める必要があります。
+   > * ストリーミングアプリケーションは、[&#x200B; メタデータ &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
    >
    > <br/>
    >
@@ -320,7 +320,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[ パートナー認証応答を使用したプロファイルの作成と取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Request)API ドキュメントを参照してください。
+   > 次について詳しくは、[&#x200B; パートナー認証応答を使用したプロファイルの作成と取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Request)API ドキュメントを参照してください。
    >
    > * `serviceProvider`、`partner`、`SAMLResponse` など、すべての _必須_ パラメーター
    > * `Authorization`、`AP-Device-Identifier`、`Content-Type`、`X-Device-Info`、`AP-Partner-Framework-Status` など、すべての _必須_ ヘッダー
@@ -338,7 +338,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[ パートナー認証応答を使用したプロファイルの作成と取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Response)API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[&#x200B; パートナー認証応答を使用したプロファイルの作成と取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Response)API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -349,7 +349,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    >
    > <br/>
    >
@@ -368,7 +368,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
 +++ D.決定フェーズ
 
-1. **パートナーフレームワークのステータスの取得：** ストリーミングアプリケーションは、Appleが開発した [ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) を呼び出して、ユーザー権限とプロバイダー情報を取得します。
+1. **パートナーフレームワークのステータスの取得：** ストリーミングアプリケーションは、Appleが開発した [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) を呼び出して、ユーザー権限とプロバイダー情報を取得します。
 
    >[!IMPORTANT]
    > 
@@ -376,14 +376,14 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ ビデオ購読者のアカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
    >
    > <br/>
    >
-   > * ストリーミングアプリケーションは、ユーザーの購読情報 [ アクセス権限 ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
-   > * ストリーミングアプリケーションは、`VSAccountManager` に [ デリゲート ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
-   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [ リクエスト ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
-   > * ストリーミングアプリケーションは、[ メタデータ ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
+   > * ストリーミングアプリケーションは、ユーザーの購読情報 [&#x200B; アクセス権限 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
+   > * ストリーミングアプリケーションは、`VSAccountManager` に [&#x200B; デリゲート &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
+   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [&#x200B; リクエスト &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
+   > * ストリーミングアプリケーションは、[&#x200B; メタデータ &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
    >
    > <br/>
    >
@@ -406,7 +406,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ 特定の mvpd を使用した事前認証の決定の取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md#request) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した事前認証の決定の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md#request) API ドキュメントを参照してください。
    >
    > * `serviceProvider`、`mvpd`、`resources` など、すべての _必須_ パラメーター
    > * `Authorization` や `AP-Device-Identifier` など、すべての _必須_ ヘッダー
@@ -422,11 +422,11 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
 1. **再来訪の事前認証の決定：** 決定の事前認証エンドポイント応答には、各リソースの `Permit` または `Deny` の決定が含まれています。
    * `Permit` の決定は、リソースが再生可能であることを意味します。 事前認証フローはリソースの再生に使用できないので、応答にはメディアトークンが含まれていません。
-   * `Deny` の決定は、リソースが再生可能でないことを意味します。 応答には、[ 拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従ったエラーペイロードが含まれています。
+   * `Deny` の決定は、リソースが再生可能でないことを意味します。 応答には、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従ったエラーペイロードが含まれています。
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[ 特定の mvpd を使用した事前認証の決定の取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md#response) API ドキュメントを参照してください。
+   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した事前認証の決定の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md#response) API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -437,9 +437,9 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
-1. **パートナーフレームワークのステータスの取得：** ストリーミングアプリケーションは、Appleが開発した [ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) を呼び出して、ユーザー権限とプロバイダー情報を取得します。
+1. **パートナーフレームワークのステータスの取得：** ストリーミングアプリケーションは、Appleが開発した [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) を呼び出して、ユーザー権限とプロバイダー情報を取得します。
 
    >[!IMPORTANT]
    >
@@ -447,14 +447,14 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ ビデオ購読者のアカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
    >
    > <br/>
    >
-   > * ストリーミングアプリケーションは、ユーザーの購読情報 [ アクセス権限 ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
-   > * ストリーミングアプリケーションは、`VSAccountManager` に [ デリゲート ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
-   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [ リクエスト ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
-   > * ストリーミングアプリケーションは、[ メタデータ ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
+   > * ストリーミングアプリケーションは、ユーザーの購読情報 [&#x200B; アクセス権限 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
+   > * ストリーミングアプリケーションは、`VSAccountManager` に [&#x200B; デリゲート &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
+   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [&#x200B; リクエスト &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
+   > * ストリーミングアプリケーションは、[&#x200B; メタデータ &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
    >
    > <br/>
    >
@@ -477,7 +477,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ 特定の mvpd を使用した認証決定の取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md#request) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した認証決定の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md#request) API ドキュメントを参照してください。
    >
    > * `serviceProvider`、`mvpd`、`resources` など、すべての _必須_ パラメーター
    > * `Authorization` や `AP-Device-Identifier` など、すべての _必須_ ヘッダー
@@ -493,11 +493,11 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
 1. **再来訪承認決定：** 決定の承認エンドポイント応答には、特定のリソースの `Permit` または `Deny` の決定が含まれています。
    * `Permit` の決定は、リソースが再生可能であることを意味します。 応答にはメディアトークンが含まれます。
-   * `Deny` の決定は、リソースが再生可能でないことを意味します。 応答には、[ 拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従ったエラーペイロードが含まれています。
+   * `Deny` の決定は、リソースが再生可能でないことを意味します。 応答には、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従ったエラーペイロードが含まれています。
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[ 特定の mvpd を使用した認証の決定の取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md#response) API ドキュメントを参照してください。
+   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した認証の決定の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md#response) API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -508,7 +508,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 +++
 
@@ -518,7 +518,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ 特定の mvpd のログアウトの開始 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md#request) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; 特定の mvpd のログアウトの開始 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md#request) API ドキュメントを参照してください。
    >
    > * `serviceProvider`、`mvpd`、`redirectUrl` など、すべての _必須_ パラメーター
    > * `Authorization`、`AP-Device-Identifier` などのすべての _必須_ ヘッダー
@@ -535,7 +535,7 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
 
    >[!IMPORTANT]
    >
-   > ログアウト応答で提供される情報について詳しくは、[ 特定の mvpd のログアウトの開始 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md#response) API ドキュメントを参照してください。
+   > ログアウト応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd のログアウトの開始 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md#response) API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -546,6 +546,6 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 +++

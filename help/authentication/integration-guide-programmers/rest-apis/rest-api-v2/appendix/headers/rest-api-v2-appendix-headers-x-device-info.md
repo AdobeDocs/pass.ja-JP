@@ -339,7 +339,7 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 > 
 > コードスニペットは完全なものではないので、プロジェクトで機能させるには追加の変更が必要になる場合があります。
 >
-> 実際の実装に関係なく、`X-Device-Info` ヘッダーには、「[ ディレクティブ ](#directives) セクションで説明されている形式の値が含まれている必要があります。
+> 実際の実装に関係なく、`X-Device-Info` ヘッダーには、「[&#x200B; ディレクティブ &#x200B;](#directives) セクションで説明されている形式の値が含まれている必要があります。
 
 ### ブラウザー {#browsers}
 
@@ -354,7 +354,7 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 [iOSまたは iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照してください。
 
 * [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice) のApple開発者向けドキュメント。
-* Apple開発者向けドキュメント [ 到達可能性 ](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
+* Apple開発者向けドキュメント [&#x200B; 到達可能性 &#x200B;](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
 * [uname](https://man7.org/linux/man-pages/man2/uname.2.html) に関する Linux マニュアルのドキュメント。
 
 ```C
@@ -454,7 +454,7 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 
 [Android](https://developer.android.com/about/versions) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照します。
 
-* [ ビルド ](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
+* [&#x200B; ビルド &#x200B;](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
 
 ```JAVA
 private JSONObject computeClientInformation() {
@@ -562,7 +562,7 @@ private JSONObject computeClientInformation() {
 [tvOS](https://developer.apple.com/documentation/tvos-release-notes) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照してください。
 
 * [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice) のApple開発者向けドキュメント。
-* Apple開発者向けドキュメント [ 到達可能性 ](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
+* Apple開発者向けドキュメント [&#x200B; 到達可能性 &#x200B;](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
 * [uname](https://man7.org/linux/man-pages/man2/uname.2.html) に関する Linux マニュアルのドキュメント。
 
 ```C
@@ -661,8 +661,8 @@ private JSONObject computeClientInformation() {
 
 [Fire OS](https://developer.amazon.com/docs/fire-tv/fire-os-overview.html) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントを参照してください。
 
-* [ ビルド ](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
-* Amazon開発者向けドキュメント [Fire TV デバイスの識別 ](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html)。
+* [&#x200B; ビルド &#x200B;](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
+* Amazon開発者向けドキュメント [Fire TV デバイスの識別 &#x200B;](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html)。
 
 デバイス情報は、次のように構成できます。
 

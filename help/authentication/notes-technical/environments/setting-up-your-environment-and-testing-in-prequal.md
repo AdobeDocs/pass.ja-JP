@@ -115,6 +115,6 @@ Addresses:  52.26.79.43
 
 ## 手順 6.  API テストサイトを使用したテストの実行 {#perform-testing-using-api-testing-site}
 
-* Adobe Pass認証のテストを詳しく調べる場合は、[API テストサイト ](http://entitlement-prequal.auth.adobe.com/apitest/api.html) を使用することをお勧めします。
+* Adobe Pass認証のテストを詳しく調べる場合は、[API テストサイト &#x200B;](http://entitlement-prequal.auth.adobe.com/apitest/api.html) を使用することをお勧めします。
 
 APIテストサイトの詳細については、 [Adobe SystemsのAPIテストサイトを使用してAuthenticationフローと認可フローテスト方法](/help/authentication/integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)を参照してください。

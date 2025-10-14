@@ -17,20 +17,20 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
 新しいAndroid 6 Marshmallow リリースでは、権限モデルが更新されており、既存のAdobe Pass Authentication SDK バージョン 1.8 以前を使用するアプリの動作に影響を与える可能性があります。
 
-新しいAndroid OS は新機能として、[ インストール時および実行時にアプリで必要な権限を詳細に制御 ](https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html) できます。
+新しいAndroid OS は新機能として、[&#x200B; インストール時および実行時にアプリで必要な権限を詳細に制御 &#x200B;](https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html) できます。
 
 >[!IMPORTANT]
 >
 >以下に説明する変更内容は、**Android 6.0 専用に開発されたアプリケーションにのみ影響します** （targetSdkVersion=23）。 Android 6.0 へのアップグレード時に、ユーザーのデバイスに既にインストールされている古いアプリケーションには影響しません。
 
 
-特に、Android Studio で [API レベル 23](http://developer.android.com/sdk/api_diff/23/changes.html) を使用して開発され、Adobe Pass Authentication SDKを使用するアプリの場合、開発者はカスタムコードを記述する必要があります（以下のコードスニペットを参照） [ 権限を許可/拒否ダイアログをトリガーするため ](https://developer.android.com/training/permissions/requesting.html)。
+特に、Android Studio で [API レベル 23](http://developer.android.com/sdk/api_diff/23/changes.html) を使用して開発され、Adobe Pass Authentication SDKを使用するアプリの場合、開発者はカスタムコードを記述する必要があります（以下のコードスニペットを参照） [&#x200B; 権限を許可/拒否ダイアログをトリガーするため &#x200B;](https://developer.android.com/training/permissions/requesting.html)。
 
 次に、デバイス外部ストレージへの書き込みアクセスのリクエストに使用するコード抜粋を示します。
 

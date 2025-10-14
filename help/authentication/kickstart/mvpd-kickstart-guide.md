@@ -33,7 +33,7 @@ Adobeでは、Adobe Pass認証との統合に役立つ様々なリソースを�
 
 設定プロセスには、特に次の手順が含まれます。
 
-![Adobe® 認証統合プロセスを渡す ](../assets/mvpd-int-lifecycle.png)
+![Adobe® 認証統合プロセスを渡す &#x200B;](../assets/mvpd-int-lifecycle.png)
 
 *Adobe® 認証統合プロセスを渡す*
 
@@ -121,7 +121,7 @@ Adobe Pass認証では **ポート 80 および 443 を通過するトラフィ�
 
   RELEASE 環境は、現在の（安定した）実稼動ビルドをホストします。
 
-これらの環境の使用方法について詳しくは、[Adobe環境について ](/help/authentication/notes-technical/environments/understanding-the-adobe-environments.md) ドキュメントを参照してください。
+これらの環境の使用方法について詳しくは、[Adobe環境について &#x200B;](/help/authentication/notes-technical/environments/understanding-the-adobe-environments.md) ドキュメントを参照してください。
 
 >[!IMPORTANT]
 > 
@@ -135,9 +135,9 @@ Adobe Pass認証チームを使用すると、統合プロセス中に発生す�
 
 ## ドキュメントへのアクセス {#access-documentation}
 
-**Adobeから**&#x200B;[Adobe Experience League&rbrace; 経由で公開ドキュメントにアクセス ](https://experienceleague.adobe.com/ja/docs/pass/authentication/home) きます。
+**Adobeから**&#x200B;[Adobe Experience League&rbrace; 経由で公開ドキュメントにアクセス &#x200B;](https://experienceleague.adobe.com/ja/docs/pass/authentication/home) きます。
 
-Adobe Pass認証チームは、[MVPD の統合ガイド ](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md) の節で利用できる機能とワークフローに関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
+Adobe Pass認証チームは、[MVPD の統合ガイド &#x200B;](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md) の節で利用できる機能とワークフローに関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
 
 ## テストツールへのアクセス {#access-testing-tool}
 

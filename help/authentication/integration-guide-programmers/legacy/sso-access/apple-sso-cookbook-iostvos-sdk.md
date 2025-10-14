@@ -17,11 +17,11 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 Adobe Pass Authentication AccessEnabler iOS/tvOS SDKは、iOS、iPadOS、tvOS で動作するクライアントアプリケーションのエンドユーザー向けに、パートナーシングルサインオン（SSO）をサポートしています。
 
-このドキュメントは、既存の AccessEnabler iOS/tvOS SDK ドキュメントの拡張として機能します。このドキュメントは [ こちら ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md) にあります。
+このドキュメントは、既存の AccessEnabler iOS/tvOS SDK ドキュメントの拡張として機能します。このドキュメントは [&#x200B; こちら &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md) にあります。
 
 ## クックブック {#apple-sso-cookbook-iostvos-sdk-cookbook}
 
@@ -33,7 +33,7 @@ Apple SSO のユーザーエクスペリエンスを活用するには、AccessE
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** ストリーミングアプリケーションは、デバイスレベルで保存されたユーザーの購読情報へのアクセスをリクエストする必要があります。これに対して、ユーザーは、デバイスのカメラまたはマイクへのアクセスを提供するのと同様に、続行する権限をアプリケーションに与える必要があります。 この権限は、Apple[ ビデオ購読者のアカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) を使用しているアプリケーションごとにリクエストされる必要があります。
+> **<u>ヒント：</u>** ストリーミングアプリケーションは、デバイスレベルで保存されたユーザーの購読情報へのアクセスをリクエストする必要があります。これに対して、ユーザーは、デバイスのカメラまたはマイクへのアクセスを提供するのと同様に、続行する権限をアプリケーションに与える必要があります。 この権限は、Apple[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) を使用しているアプリケーションごとにリクエストされる必要があります。
 
 >[!TIP]
 >
@@ -41,7 +41,7 @@ Apple SSO のユーザーエクスペリエンスを活用するには、AccessE
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** ストリーミングアプリケーションは、アプリケーションがフォアグラウンド状態に入ったときにユーザーの許可をリクエストできます。これは、ユーザー認証を必要とする前の任意の時点で、アプリケーションがユーザーの購読情報にアクセスするための [ 許可 ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認できるためです。
+> **<u>ヒント：</u>** ストリーミングアプリケーションは、アプリケーションがフォアグラウンド状態に入ったときにユーザーの許可をリクエストできます。これは、ユーザー認証を必要とする前の任意の時点で、アプリケーションがユーザーの購読情報にアクセスするための [&#x200B; 許可 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認できるためです。
 
 >[!TIP]
 >
@@ -79,7 +79,7 @@ Apple SSO のユーザーエクスペリエンスを活用するには、AccessE
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** Apple SSO ワークフローに固有の [ 高度なエラーコード ](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) のリストを実装します。
+> **<u>ヒント：</u>** Apple SSO ワークフローに固有の [&#x200B; 高度なエラーコード &#x200B;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) のリストを実装します。
 
 * ***N003*** - Apple MVPDピッカーから「その他のテレビプロバイダー」オプションを選択しました。
 * ***N004*** – 現在のリクエスターでサポートされていない（統合またはシングルサインオンが無効になっている）Apple MVPD ピッカーからテレビプロバイダーを選択しました。
@@ -95,10 +95,10 @@ Apple SSO のユーザーエクスペリエンスを活用するには、AccessE
 >
 > **<u>ヒント：</u>** iOS/iPadOS/tvOS の実装では、次の手順に従います。
 
-1. AccessEnabler iOS/tvOS SDKを [ 初期化 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#initsoftwarestatement-initwithsoftwarestatement) する必要があります。
+1. AccessEnabler iOS/tvOS SDKを [&#x200B; 初期化 &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#initsoftwarestatement-initwithsoftwarestatement) する必要があります。
 
 
-1. アプリケーションは、[ 現在の要求者識別子を設定 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setrequestorrequestorid-setrequestorrequestoridserviceproviders-setreqv3) する必要があります。
+1. アプリケーションは、[&#x200B; 現在の要求者識別子を設定 &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setrequestorrequestorid-setrequestorrequestoridserviceproviders-setreqv3) する必要があります。
 
    **重要：** 次のいずれかが当てはまる場合、この 2 番目の手順では、Apple SSO ワークフローに固有の [&#128279;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 高度なエラーコード **をトリガーする場合があります**。
 
@@ -119,7 +119,7 @@ Apple SSO のユーザーエクスペリエンスを活用するには、AccessE
    **<u>ヒント：</u>** この 2 番目の手順では、[setRequestorComplete](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setrequestorcomplete-setreqcomplete) コールバック以外のコールバックはトリガーされません。
 
 
-1. アプリケーションは、[ 認証ステータスを確認 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#checkauthentication-checkauthn) する必要があります。
+1. アプリケーションは、[&#x200B; 認証ステータスを確認 &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#checkauthentication-checkauthn) する必要があります。
 
    **重要：** 次のいずれかが当てはまる場合、この 3 番目の手順では、Apple SSO ワークフローに固有の [&#128279;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 高度なエラーコード **をトリガーする場合があります**。
 
@@ -151,7 +151,7 @@ AccessEnabler iOS/tvOS SDKおよびビデオ加入者アカウント
 
    **<u>ヒント：</u>** 次の AccessEnabler iOS/tvOS SDK API[getAuthentication](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#getAuthN) または [getAuthentication:filter](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#getAuthN_filter) のいずれかを実装します。
 
-   **重要：** この 4 番目の手順では、[ 次のいずれかが当てはまる ](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 場合、Apple SSO ワークフローに固有の **高度なエラーコード** をトリガーにすることができます。
+   **重要：** この 4 番目の手順では、[&#x200B; 次のいずれかが当てはまる &#x200B;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 場合、Apple SSO ワークフローに固有の **高度なエラーコード** をトリガーにすることができます。
 
    * ***VSA403*** - アプリケーションに対するユーザーのテレビ プロバイダーのアクセス許可が拒否されました。
    * ***VSA404*** - アプリケーションに対するユーザーのテレビ プロバイダーのアクセス許可が不明です。
@@ -160,9 +160,9 @@ AccessEnabler iOS/tvOS SDKおよびビデオ加入者アカウント
    * ***N004*** – 現在のリクエスターでサポートされていない（統合またはシングルサインオンが無効になっている）Apple MVPD ピッカーからテレビプロバイダーを選択しました。
    * ***N005*** – 通常のApple ピッカーまたはMVPD MVPD ピッカーをキャンセルすることにしました。
 
-   **重要：** この 4 番目の手順では、上記の [ 高度なエラーコード **いずれかが true** である場合に、**displayProviderDialog](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#dispProvDialog) コールバックと [one](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) をトリガーして、通常の認証フローに戻ります**
+   **重要：** この 4 番目の手順では、上記の [&#x200B; 高度なエラーコード **いずれかが true** である場合に、**displayProviderDialog](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#dispProvDialog) コールバックと [one](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) をトリガーして、通常の認証フローに戻ります**
 
-   **重要：** この 4 番目の手順では、Apple SSO をサポートしていないがApple MVPD ピッカーに存在する TV プロバイダーを選択した場合、[navigateToUrl](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#nav2url) または [navigateToUrl:useSVC](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#nav2urlSVC) callback および **none** 上記の [ 高度なエラーコード ](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) のコールバックをトリガーして、通常の認証フローに戻ります。
+   **重要：** この 4 番目の手順では、Apple SSO をサポートしていないがApple MVPD ピッカーに存在する TV プロバイダーを選択した場合、[navigateToUrl](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#nav2url) または [navigateToUrl:useSVC](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#nav2urlSVC) callback および **none** 上記の [&#x200B; 高度なエラーコード &#x200B;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) のコールバックをトリガーして、通常の認証フローに戻ります。
 
    **<u>ヒント：</u>** AccessEnabler iOS/tvOS SDKは、Apple SSO をサポートしていないテレビプロバイダーを選択した場合に、Apple MVPD ピッカーに存在する [setSelectedProvder](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setSelProv) API をサイレントに呼び出します。
 
@@ -190,22 +190,22 @@ AccessEnabler iOS/tvOS SDKの「*tokenSource」*[user metadata](/help/authentica
 
 ### ログアウト {#apple-sso-cookbook-iostvos-sdk-logout}
 
-[ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) には、デバイスシステムレベルで TV プロバイダーアカウントにログインしたユーザーをプログラムでログアウトする API はありません。 そのため、ログアウトを完全に有効にするには、エンドユーザーはiOS/iPadOS の *`Settings -> TV Provider`* または tvOS の *`Settings -> Accounts -> TV Provider`* から明示的にログアウトする必要があります。 ユーザーが持つもう 1 つのオプションは、特定のアプリケーション設定セクション（TV プロバイダーの権限アクセス）からユーザーの購読情報にアクセスするための権限を取り消すことです。
+[&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) には、デバイスシステムレベルで TV プロバイダーアカウントにログインしたユーザーをプログラムでログアウトする API はありません。 そのため、ログアウトを完全に有効にするには、エンドユーザーはiOS/iPadOS の *`Settings -> TV Provider`* または tvOS の *`Settings -> Accounts -> TV Provider`* から明示的にログアウトする必要があります。 ユーザーが持つもう 1 つのオプションは、特定のアプリケーション設定セクション（TV プロバイダーの権限アクセス）からユーザーの購読情報にアクセスするための権限を取り消すことです。
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** AccessEnabler iOS/tvOS SDK [ ログアウト ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#logout) API を使用して実装します。
+> **<u>ヒント：</u>** AccessEnabler iOS/tvOS SDK [&#x200B; ログアウト &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#logout) API を使用して実装します。
 
 >[!TIP]
 >
 > **<u>プロのヒント：</u>** tvOS の実装については、次の手順に従ってください。
 
-* アプリケーションは、AccessEnabler iOS/tvOS SDKから [ ログアウトを開始 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#logout) する必要があります。 これは、MVPD側でのセッションクリーンアップを容易にするものではありません。
-* アプリケーションは、[*VSA203* ステータスコードがトリガーされた場合にのみ、tvOS で *`Settings -> Accounts -> TV Provider`* から明示的にログアウトするようにユーザーに指示またはプロンプトを表示する必要があり ](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) す。
+* アプリケーションは、AccessEnabler iOS/tvOS SDKから [&#x200B; ログアウトを開始 &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#logout) する必要があります。 これは、MVPD側でのセッションクリーンアップを容易にするものではありません。
+* アプリケーションは、[*VSA203* ステータスコードがトリガーされた場合にのみ、tvOS で *`Settings -> Accounts -> TV Provider`* から明示的にログアウトするようにユーザーに指示またはプロンプトを表示する必要があり &#x200B;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) す。
 
 >[!TIP]
 >
 > **<u>プロのヒント：</u>** iOS/iPadOS を実装するには、次の手順に従います。
 
-* アプリケーションは、AccessEnabler iOS/tvOS SDKから [ ログアウトを開始 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#logout) する必要があります。 これにより、MVPD側のクリーンアップが容易になります。
-* [*VSA203* ステータスコードがトリガーされた場合に限り、iOS/iPadOS 上で *`Settings -> TV Provider`* から明示的にログアウトするようにユーザーに指示またはプロンプトを表示する必要があり ](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) す。
+* アプリケーションは、AccessEnabler iOS/tvOS SDKから [&#x200B; ログアウトを開始 &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#logout) する必要があります。 これにより、MVPD側のクリーンアップが容易になります。
+* [*VSA203* ステータスコードがトリガーされた場合に限り、iOS/iPadOS 上で *`Settings -> TV Provider`* から明示的にログアウトするようにユーザーに指示またはプロンプトを表示する必要があり &#x200B;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) す。

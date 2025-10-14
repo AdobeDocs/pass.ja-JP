@@ -202,10 +202,10 @@ Content-Type: application/xml
 
 | 名前 | タイプ | 例 | 制限付き | 説明 |
 |-----------|-----------|---------------------------------------------------------------------------------------------------------------------|:----------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *アクション* | *文字列* | *なし* | &check; | Adobe Pass認証は、このドキュメントで定義されている状況を修正する可能性のある、推奨されるアクションを行います。 <br/><br/> 詳しくは、[ アクション ](#enhanced-error-codes-action) の節を参照してください。 |
-| *ステータス* | *整数* | *403* | &check; | [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6) ドキュメントで定義されている HTTP 応答ステータスコード。 <br/><br/> 詳しくは、[ ステータス ](#enhanced-error-codes-status) の節を参照してください。 |
-| *code* | *文字列* | *authorization_denied_by_mvpd* | &check; | このドキュメントで定義されているように、エラーに関連付けられたAdobe Pass認証の一意の ID コード。 <br/><br/> 詳しくは、[ コード ](#enhanced-error-codes-code) の節を参照してください。 |
-| *message* | *文字列* | *指定されたリソースの認証をリクエストしたときに、MVPDから「拒否」の決定が返されました* |            | 場合によってはエンドユーザーに表示される可能性がある、人間が判読できるメッセージ。 <br/><br/> 詳しくは、[ 応答の処理 ](#enhanced-error-codes-response-handling) の節を参照してください。 |
+| *アクション* | *文字列* | *なし* | &check; | Adobe Pass認証は、このドキュメントで定義されている状況を修正する可能性のある、推奨されるアクションを行います。 <br/><br/> 詳しくは、[&#x200B; アクション &#x200B;](#enhanced-error-codes-action) の節を参照してください。 |
+| *ステータス* | *整数* | *403* | &check; | [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6) ドキュメントで定義されている HTTP 応答ステータスコード。 <br/><br/> 詳しくは、[&#x200B; ステータス &#x200B;](#enhanced-error-codes-status) の節を参照してください。 |
+| *code* | *文字列* | *authorization_denied_by_mvpd* | &check; | このドキュメントで定義されているように、エラーに関連付けられたAdobe Pass認証の一意の ID コード。 <br/><br/> 詳しくは、[&#x200B; コード &#x200B;](#enhanced-error-codes-code) の節を参照してください。 |
+| *message* | *文字列* | *指定されたリソースの認証をリクエストしたときに、MVPDから「拒否」の決定が返されました* |            | 場合によってはエンドユーザーに表示される可能性がある、人間が判読できるメッセージ。 <br/><br/> 詳しくは、[&#x200B; 応答の処理 &#x200B;](#enhanced-error-codes-response-handling) の節を参照してください。 |
 | *詳細* | *文字列* | *サブスクリプションパッケージに「ライブ」チャネルが含まれていません* |            | サービスパートナーが提供できる場合がある詳細なメッセージ <br/><br/> サービスパートナーがカスタムメッセージを提供しない場合、このフィールドは存在しない可能性があります。 |
 | *helpUrl* | *url* | *https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja* |            | このエラーが発生した理由と考えられる解決策の詳細に関するリンクのAdobe Pass認証の公開ドキュメント URL。 <br/><br/> このフィールドには絶対 URL が格納されます。エラーコードから推論しないでください。エラーコンテキストに応じて、別の URL を指定できます。 |
 | *トレース* | *文字列* | *12f6fef9-d2e0-422b-a9d7-60d799abe353* |            | 特定の問題のトラブルシューティングのためにAdobe Pass Authentication サポートに連絡する際に使用できる、レスポンスの一意の ID。 |
@@ -264,7 +264,7 @@ _（*）エラーによっては、複数のアクションが解決策になる
 
 拡張エラーコードには、エラーに関連付けられたAdobe Pass認証の一意の ID を提供する「コード」フィールドが含まれています。
 
-「code」フィールドに指定可能な値は、統合Adobe Pass認証 API に基づいて [ 以下 ](#enhanced-error-codes-list)2 つのリストに集約されます。
+「code」フィールドに指定可能な値は、統合Adobe Pass認証 API に基づいて [&#x200B; 以下 &#x200B;](#enhanced-error-codes-list)2 つのリストに集約されます。
 
 ## リスト {#enhanced-error-codes-lists}
 
@@ -356,7 +356,7 @@ _（*）エラーによっては、複数のアクションが解決策になる
 
 ### （レガシー） SDK の事前認証 API {#enhanced-error-codes-lists-sdks-preauthorize-api}
 
-Adobe Pass Authentication SDK の事前認証 API と統合した場合にクライアントアプリケーションで発生する可能性のある拡張エラーコードについては、前の [ 節 ](#enhanced-error-codes-list-rest-api-v1) を参照してください。
+Adobe Pass Authentication SDK の事前認証 API と統合した場合にクライアントアプリケーションで発生する可能性のある拡張エラーコードについては、前の [&#x200B; 節 &#x200B;](#enhanced-error-codes-list-rest-api-v1) を参照してください。
 
 ## 応答処理 {#enhanced-error-codes-response-handling}
 

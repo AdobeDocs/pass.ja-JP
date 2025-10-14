@@ -23,8 +23,8 @@ Apple デバイスでシングルサインオン（SSO）ユーザーエクス�
 
 最終的には、次のユーザーフローに沿ったエクスペリエンスが作成されます。アプリケーションの開発を開始する前に、を参照することをお勧めします。
 
-* シングルサインオン（SSO） [iPhoneおよびiPadのユーザーフロー ](https://tve.zendesk.com/hc/article_attachments/205624966/User_flows_AppleSSO_iOS_v2.pdf) デバイス。
-* シングルサインオン（SSO） [Apple TV のユーザーフロー ](https://tve.zendesk.com/hc/article_attachments/206669126/User_flows_tvOS.pdf) デバイス。
+* シングルサインオン（SSO） [iPhoneおよびiPadのユーザーフロー &#x200B;](https://tve.zendesk.com/hc/article_attachments/205624966/User_flows_AppleSSO_iOS_v2.pdf) デバイス。
+* シングルサインオン（SSO） [Apple TV のユーザーフロー &#x200B;](https://tve.zendesk.com/hc/article_attachments/206669126/User_flows_tvOS.pdf) デバイス。
 
 ## 前提条件 {#apple-sso-prerequisites}
 
@@ -34,7 +34,7 @@ Apple デバイスでシングルサインオン（SSO）ユーザーエクス�
 
 シングルサインオン（SSO）ユーザーエクスペリエンスを活用するには、1 人のプログラマーが次の操作を行う必要があります。
 
-* Appleに連絡して、[ ビデオ購読者のアカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) をApple チーム ID の一部として有効にし、[ ビデオ購読者のシングルサインオン権限 ](https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_developer_video-subscriber-single-sign-on) をApple開発者アカウントの一部として設定してください。
+* Appleに連絡して、[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) をApple チーム ID の一部として有効にし、[&#x200B; ビデオ購読者のシングルサインオン権限 &#x200B;](https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_developer_video-subscriber-single-sign-on) をApple開発者アカウントの一部として設定してください。
 
    * Xcode バージョン 8 以降およびiOS/tvOS バージョン 10 以降を使用してください。
 
@@ -49,15 +49,15 @@ Apple デバイスでシングルサインオン（SSO）ユーザーエクス�
 
    * Adobe Pass認証 REST API V2 は、パートナーシングルサインオン（SSO）をサポートしています。
 
-     [Apple SSO クックブック（REST API V2） ](apple-sso-cookbook-rest-api-v2.md) のドキュメントを参照してください。
+     [Apple SSO クックブック（REST API V2） &#x200B;](apple-sso-cookbook-rest-api-v2.md) のドキュメントを参照してください。
 
    * 従来のAdobe Pass認証 REST API V1 は、パートナーシングルサインオン（SSO）をサポートしています。
 
-     [ （従来の）Apple SSO クックブック（REST API V1） ](../../../../legacy/sso-access/apple-sso-cookbook-rest-api-v1.md) ドキュメントを参照してください。
+     [&#x200B; （従来の）Apple SSO クックブック（REST API V1） &#x200B;](../../../../legacy/sso-access/apple-sso-cookbook-rest-api-v1.md) ドキュメントを参照してください。
 
    * 従来のAdobe Pass Authentication AccessEnabler iOS/tvOS SDKは、パートナーシングルサインオン（SSO）をサポートしています。
 
-     [ （従来の）Apple SSO クックブック（iOS/tvOS SDK） ](../../../../legacy/sso-access/apple-sso-cookbook-iostvos-sdk.md) のドキュメントを参照してください。
+     [&#x200B; （従来の）Apple SSO クックブック（iOS/tvOS SDK） &#x200B;](../../../../legacy/sso-access/apple-sso-cookbook-iostvos-sdk.md) のドキュメントを参照してください。
 
 ### MVPD {#apple-sso-prerequisites-mvpd}
 

@@ -15,7 +15,7 @@ ht-degree: 0%
 >
 >このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
 
-[[!DNL Adobe]  パス TVE ダッシュボード ](https://experience.adobe.com/pass/authentication) は、Adobe Pass認証のお客様（プログラマー）が設定とデータを管理するためのツールです。 このセルフサービスダッシュボードでは、次のような様々な機能が可能です。
+[[!DNL Adobe]  パス TVE ダッシュボード &#x200B;](https://experience.adobe.com/pass/authentication) は、Adobe Pass認証のお客様（プログラマー）が設定とデータを管理するためのツールです。 このセルフサービスダッシュボードでは、次のような様々な機能が可能です。
 
 * **Integration management**:Adobe Pass認証エコシステムにおけるプログラマーの各ブランド（チャネル）とマルチチャネルビデオプログラミング配信会社（MVPD）の間の新しい統合を追加します。
 

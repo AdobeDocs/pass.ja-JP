@@ -42,7 +42,7 @@ Adobe Passで保護された API へのアクセスの仕組みについて詳�
 
 <b>&lt;access_token></b>
 
-アクセストークン値は、有効期限が限られている opaque 値（24 時間など）で、[ アクセストークンの取得 ](../../../rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントに記載されているように、Adobe Passから取得する必要があります。
+アクセストークン値は、有効期限が限られている opaque 値（24 時間など）で、[&#x200B; アクセストークンの取得 &#x200B;](../../../rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントに記載されているように、Adobe Passから取得する必要があります。
 
 ## 例 {#examples}
 

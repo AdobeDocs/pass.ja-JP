@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 Adobe Pass認証による preAuthorizeResources の計算方法が変更されました。 PreAuthorization API には、新しい実装があります。 この実装は、複数の認証コールのみを行う古いソリューションに代わるものです。
 PreAuthorization API の外部インターフェイスは変更されておらず、プログラマーのアプリケーションで更新を行う必要はありません。

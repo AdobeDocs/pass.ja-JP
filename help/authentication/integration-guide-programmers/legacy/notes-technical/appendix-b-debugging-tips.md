@@ -17,14 +17,14 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 一時データの消去 {#clearing-temporary-data}
 
 Adobe Pass Authentication には、ブラウザーのキャッシュ、LSO のキャッシュ、Cookie などの一時データが格納されます。 テスト時に明確な状態を確保するために、一時データのクリアは重要です。
 
 - [ブラウザーのキャッシュと Cookie のクリア](#clearing-the-browser-cache-and-cookies)
-- [LSO キャッシュのクリア ](#clearing-lsos-cache)
+- [LSO キャッシュのクリア &#x200B;](#clearing-lsos-cache)
 
 
 ## ブラウザーのキャッシュと Cookie のクリア {#clearing-the-browser-cache-and-cookies}
@@ -34,7 +34,7 @@ Adobe Pass Authentication には、ブラウザーのキャッシュ、LSO の�
 
 ## LSO キャッシュのクリア {#clearing-lsos-cache}
 
-[Flash Player ヘルプ ](http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html) にアクセスします。
+[Flash Player ヘルプ &#x200B;](http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html) にアクセスします。
 
 （テスト対象に応じて） ```entitlement.\*``` を選択し、[ ウェブサイトを削除 ] をクリックします。
 

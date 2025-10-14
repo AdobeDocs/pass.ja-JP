@@ -28,7 +28,7 @@ ht-degree: 0%
 ## 用途 {#application-defn}
 
 * ビデオコンテンツアクセス用にテナントによって開発されました
-* 同時実行監視サービスから提供された情報に基づいて、コンテンツへのアクセスに関する決定を行い、適用します（これは [ ポリシー情報ポイント ](/help/concurrency-monitoring/policy-info-pt-versionone.md) の場合に有効です）
+* 同時実行監視サービスから提供された情報に基づいて、コンテンツへのアクセスに関する決定を行い、適用します（これは [&#x200B; ポリシー情報ポイント &#x200B;](/help/concurrency-monitoring/policy-info-pt-versionone.md) の場合に有効です）
 * Adobeから提供される一意の **アプリケーション ID** を持ちます。
 
 ## 同時実行監視サービス {#cm-service-defn}

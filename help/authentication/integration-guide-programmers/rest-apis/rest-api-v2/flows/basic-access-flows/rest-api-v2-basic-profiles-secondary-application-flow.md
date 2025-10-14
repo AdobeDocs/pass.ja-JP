@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -41,7 +41,7 @@ Adobe Pass認証使用権内の **プロファイルフロー** により、セ�
 
 次の図に示すように、セカンダリ・アプリケーション内で実行される特定の認証コードに対して基本プロファイル取得フローを実装するには、次の手順に従います。
 
-![ 特定のコードのプロファイルを取得 ](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profile-within-secondary-application-for-specific-code.png)
+![&#x200B; 特定のコードのプロファイルを取得 &#x200B;](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profile-within-secondary-application-for-specific-code.png)
 
 *特定のコードのプロファイルを取得*
 
@@ -49,7 +49,7 @@ Adobe Pass認証使用権内の **プロファイルフロー** により、セ�
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[ 特定のコードのプロファイルの取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)API ドキュメントを参照してください。
+   > 次について詳しくは、[&#x200B; 特定のコードのプロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)API ドキュメントを参照してください。
    >
    > * `serviceProvider`、`code` など、すべての _必須_ パラメーター
    > * `Authorization` のようなすべての _必須_ ヘッダー
@@ -61,7 +61,7 @@ Adobe Pass認証使用権内の **プロファイルフロー** により、セ�
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[ 特定のコードのプロファイルの取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[&#x200B; 特定のコードのプロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -71,7 +71,7 @@ Adobe Pass認証使用権内の **プロファイルフロー** により、セ�
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **成功したため、認証フローが完了したことを示します。** プロファイルエンドポイント応答にプロファイルが含まれている場合、セカンダリアプリケーションは応答を処理し、オプションでユーザーインターフェイスに特定のメッセージを表示できます。
 

@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 事前認証 API を使用して、1 つ以上のリソースの事前認証決定を取得できます。これにより、アプリケーションで UI ヒントやコンテンツフィルタリングを実装できます。
 
@@ -173,7 +173,7 @@ Adobe Pass Authentication SDK エラーが原因で事前認証 API リクエス
 
 >[!IMPORTANT]
 >
->拡張エラーレポート機能のメディアを通じて取得できる追加エラーのリストは、[ 詳細なエラーレポート ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) に記載されています。
+>拡張エラーレポート機能のメディアを通じて取得できる追加エラーのリストは、[&#x200B; 詳細なエラーレポート &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) に記載されています。
 
 #### 成功
 

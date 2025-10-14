@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要
 
@@ -80,4 +80,4 @@ Adobe Pass Authentication に問題を報告する際は、次の提案を考慮
 * 再現手順を指定してください。
 * 問題が発生した OS のバージョンとデバイスのモデルを指定してください。
 * この問題が発生している AccessEnabler iOS/tvOS SDKのバージョンを指定してください。
-* [ 含む ](#including) セクションに示されている 2 つのオプションのいずれかを使用して、すべての AccessEnabler iOS/tvOS SDK ログ メッセージをキャプチャし、添付してください。
+* [&#x200B; 含む &#x200B;](#including) セクションに示されている 2 つのオプションのいずれかを使用して、すべての AccessEnabler iOS/tvOS SDK ログ メッセージをキャプチャし、添付してください。

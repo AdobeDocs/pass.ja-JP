@@ -12,7 +12,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -32,12 +32,12 @@ Adobe Pass認証：adobe-pass-**3.1.0**
 #### REST API v2
 
 * REST API v2[Logout API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) 応答で通常のログアウトとパートナースシングルサインオンログアウトを区別する新しい `partner_logout` アクション名と `partner_interactive` アクションタイプ。
-* REST API v2 [ セッション API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) および [ セッション SSO API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md) 応答のアクション名に関するより多くのインサイトを提供する新しい `reason` フィールド。
+* REST API v2 [&#x200B; セッション API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) および [&#x200B; セッション SSO API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md) 応答のアクション名に関するより多くのインサイトを提供する新しい `reason` フィールド。
 
 #### バグの修正
 
-* Spectrum サブスクライバーが REST API v2 [ 認証 API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md) を介して認証できない問題を修正しました。
-* REST API V2[ 認証 API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md) を介して生成されたイベントが ESM に適切に集計されない問題を修正しました。
+* Spectrum サブスクライバーが REST API v2 [&#x200B; 認証 API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md) を介して認証できない問題を修正しました。
+* REST API V2[&#x200B; 認証 API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md) を介して生成されたイベントが ESM に適切に集計されない問題を修正しました。
 * REST API v2 [Profiles API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) 応答のユーザープロファイルのタイムスタンプ `notBefore` 誤って計算される問題を修正しました。
 
 #### JavaScriptSDK

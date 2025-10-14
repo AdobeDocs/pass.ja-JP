@@ -19,7 +19,7 @@ Adobe Pass Authentication のお客様は、Adobe Pass Authentication （Adobe P
 
 このデータは、MVPD あたりの認証コンバージョン率、MVPD ユーザー ID に基づく一意のユーザーなど、重要な TVE 指標を追跡するのに役立ちます。
 
-訪問者 ID がない場合、以下の特定のイベントを超えてユーザーアクティビティを追跡することはできないので、既にクライアントサイドの実装が存在する場合は、その実装を置き換えるためのものではありません。 お客様がパス呼び出しに訪問者 ID を指定している場合、別の種類の Analytics 統合（リアルタイム）のロックを解除できます。これにより、すべてのパスイベントを既存のお客様データに結合できます。この新しい種類の統合について詳しくは、「[Adobe Pass認証でのExperience CloudID の使用」を参照してください ](/help/authentication/integration-guide-programmers/features-premium/analytics/exp-cloud-id-authn.md)
+訪問者 ID がない場合、以下の特定のイベントを超えてユーザーアクティビティを追跡することはできないので、既にクライアントサイドの実装が存在する場合は、その実装を置き換えるためのものではありません。 お客様がパス呼び出しに訪問者 ID を指定している場合、別の種類の Analytics 統合（リアルタイム）のロックを解除できます。これにより、すべてのパスイベントを既存のお客様データに結合できます。この新しい種類の統合について詳しくは、「[Adobe Pass認証でのExperience CloudID の使用」を参照してください &#x200B;](/help/authentication/integration-guide-programmers/features-premium/analytics/exp-cloud-id-authn.md)
 
 ## 含まれる指標 {#metrics-included-int-authn-analyt}
 

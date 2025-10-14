@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## Safari 10 {#safari10}
 
@@ -54,7 +54,7 @@ Adobe Pass Authentication サービスは、（機能するために **認証プ
 
 ### 軽減 {#mitigation-safari11}
 
-AccessEnabler JavaScript SDK v3 （バージョン 3.x）および AccessEnabler JavaScript SDK v4 （バージョン 4.x）の両方について、ライブラリには、必要な Cookie がないためにユーザーの認証がブロックされた状況を特定するためのメカニズムが含まれています。 このような状況で、ライブラリは特定のエラーコールバック [N130](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md#advanced-error-codes-reference) をトリガーし、Adobe Pass認証が有効な web サイトに返されて、問題を軽減できるアクションを実行するようにユーザーに指示するシグナルとして使用されます。 このメカニズムを活用するために、web サイトでは [ エラーレポート ](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 仕様を実装する必要があります。
+AccessEnabler JavaScript SDK v3 （バージョン 3.x）および AccessEnabler JavaScript SDK v4 （バージョン 4.x）の両方について、ライブラリには、必要な Cookie がないためにユーザーの認証がブロックされた状況を特定するためのメカニズムが含まれています。 このような状況で、ライブラリは特定のエラーコールバック [N130](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md#advanced-error-codes-reference) をトリガーし、Adobe Pass認証が有効な web サイトに返されて、問題を軽減できるアクションを実行するようにユーザーに指示するシグナルとして使用されます。 このメカニズムを活用するために、web サイトでは [&#x200B; エラーレポート &#x200B;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 仕様を実装する必要があります。
 
 AccessEnabler JavaScript SDK v2 （バージョン 2.x）の場合、前述のメカニズムはライブラリに含まれません。そのため、問題を軽減するためのアクションを実行するようユーザーに指示する際に、Adobe Pass認証が有効な Web サイトを通知できません。
 
@@ -156,7 +156,7 @@ AccessEnabler JavaScript SDK v4 （バージョン 4.x）ライブラリでは�
 
 まず第一に、Safari ブラウザーで安定した予測可能な動作を実現するには、**AccessEnabler JavaScript SDK バージョン 4.x への移行** を強くお勧めします。
 
-次に、AccessEnabler JavaScript SDK v3 （バージョン 3.x）の場合、必要な Cookie がないためにユーザー認証がブロックされた状況を特定するメカニズムがライブラリに含まれます。 このような状況で、ライブラリは特定のエラーコールバック（[N130](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md#advanced-error-codes-reference)）をトリガーし、Adobe Pass認証が有効な web サイトに返されて、問題を軽減できるアクションを実行するようにユーザーに指示するシグナルとして使用されます。 このメカニズムを活用するために、web サイトでは [ エラーレポート ](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 仕様を実装する必要があります。
+次に、AccessEnabler JavaScript SDK v3 （バージョン 3.x）の場合、必要な Cookie がないためにユーザー認証がブロックされた状況を特定するメカニズムがライブラリに含まれます。 このような状況で、ライブラリは特定のエラーコールバック（[N130](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md#advanced-error-codes-reference)）をトリガーし、Adobe Pass認証が有効な web サイトに返されて、問題を軽減できるアクションを実行するようにユーザーに指示するシグナルとして使用されます。 このメカニズムを活用するために、web サイトでは [&#x200B; エラーレポート &#x200B;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 仕様を実装する必要があります。
 
 AccessEnabler JavaScript SDK v2 （バージョン 2.x）の場合、前述のメカニズムはライブラリに含まれません。そのため、問題を軽減するためのアクションを実行するようユーザーに指示する際に、Adobe Pass認証が有効な Web サイトを通知できません。
 

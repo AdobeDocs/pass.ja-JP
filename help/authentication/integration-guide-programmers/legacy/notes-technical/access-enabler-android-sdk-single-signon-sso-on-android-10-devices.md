@@ -17,13 +17,13 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要
 
 Adobe Pass Authentication を利用したアプリ間のシングルサインオン（SSO）は、Android OS を使用しているデバイスでは、Access Enabler Android SDKによって利用できます。 Android デバイスでシングルサインオン （SSO）を提供するために、Access Enabler Android SDK バージョン 3.2.1 （最新）およびそれ以前のバージョンでは、Adobe Pass ストレージ実装に保存された共有データベースファイルを使用します。このファイルには、Android認証を利用したすべてのアプリからアクセスできます。
 
-ただし、最新のAndroid 10 リリースのGoogleでは、「ファイルをより詳細に制御し、ファイルの混乱を制限するために、Android 10 （API レベル 29）以降をターゲットにするアプリには、デフォルトで外部ストレージデバイス（スコープストレージ）へのスコープアクセスが許可されるようになりました。 このようなアプリは、アプリ固有のディレクトリ `\[...\]`」のみを表示できます。 Android 10 のストレージに関するこれらの変更点について詳しくは、[Androidのデータおよびファイルストレージのドキュメント ](https://developer.android.com/training/data-storage/files/external-scoped) を参照してください。
+ただし、最新のAndroid 10 リリースのGoogleでは、「ファイルをより詳細に制御し、ファイルの混乱を制限するために、Android 10 （API レベル 29）以降をターゲットにするアプリには、デフォルトで外部ストレージデバイス（スコープストレージ）へのスコープアクセスが許可されるようになりました。 このようなアプリは、アプリ固有のディレクトリ `\[...\]`」のみを表示できます。 Android 10 のストレージに関するこれらの変更点について詳しくは、[Androidのデータおよびファイルストレージのドキュメント &#x200B;](https://developer.android.com/training/data-storage/files/external-scoped) を参照してください。
 
 これらの変更の結果、Access Enabler Android バージョン **3.2.1 SDK（最新）で提供されるシングル サインオン（SSO）と以前のバージョンは** 次のセクションで説明するようにAndroid 10 デバイスに影響を与える可能性があります。
 
@@ -37,4 +37,4 @@ Adobe Pass Authentication を利用したアプリ間のシングルサインオ
 
 >[!TIP]
 >
-> Adobe Pass Authentication Access Enabler Android SDKがスコーピングされたストレージと完全に互換性を持つ前に、公開 [Android ドキュメント ](https://developer.android.com/training/data-storage/files/external-scoped#opt-out-of-scoped-storage) に記載されているように、アプリのターゲット SDK レベルまたは requestLegacyExternalStorage マニフェスト属性に基づいて一時的にオプトアウトできます。
+> Adobe Pass Authentication Access Enabler Android SDKがスコーピングされたストレージと完全に互換性を持つ前に、公開 [Android ドキュメント &#x200B;](https://developer.android.com/training/data-storage/files/external-scoped#opt-out-of-scoped-storage) に記載されているように、アプリのターゲット SDK レベルまたは requestLegacyExternalStorage マニフェスト属性に基づいて一時的にオプトアウトできます。
