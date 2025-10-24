@@ -2,9 +2,9 @@
 title: REST API V2 チェックリスト
 description: REST API V2 チェックリスト
 exl-id: 9095d1dd-a90c-4431-9c58-9a900bfba1cf
-source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
+source-git-commit: 63dc9636f74f8eee1af6205c4d31a01df4503050
 workflow-type: tm+mt
-source-wordcount: '2545'
+source-wordcount: '2563'
 ht-degree: 0%
 
 ---
@@ -18,6 +18,10 @@ ht-degree: 0%
 このドキュメントでは、Adobe Pass認証 [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) を使用するクライアントアプリケーションを実装するプログラマー向けの必須要件と推奨事項を 1 か所にまとめています。
 
 このドキュメントに従う必要があるのは、REST API V2 を実装する際に、受け入れ基準の一部と見なす必要があります。また、統合を成功させるために必要なすべての手順を実行するためのチェックリストとして使用する必要があります。
+
+>[!TIP]
+>
+> AI による開発については、これらの要件を AI コーディングアシスタント用の構造化されたルールに変換する [AI ルール ](rest-api-v2-ai-rules.md) を参照してください。
 
 ## 必須の要件 {#mandatory-requirements}
 
@@ -96,7 +100,7 @@ ht-degree: 0%
    </tr>
 </table>
 
-### 4. （オプション）事前認証フェーズ {#mandatory-requirements-preauthorization-phase}
+### &#x200B;4. （オプション）事前認証フェーズ {#mandatory-requirements-preauthorization-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -141,7 +145,7 @@ ht-degree: 0%
    </tr>
 </table>
 
-### 6. ログアウトフェーズ {#mandatory-requirements-logout-phase}
+### &#x200B;6. ログアウトフェーズ {#mandatory-requirements-logout-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -156,7 +160,7 @@ ht-degree: 0%
    </tr>
 </table>
 
-### 7. パラメーターとヘッダー {#mandatory-requirements-parameters-headers}
+### &#x200B;7. パラメーターとヘッダー {#mandatory-requirements-parameters-headers}
 
 <table style="table-layout:auto">
    <tr>
@@ -191,7 +195,7 @@ ht-degree: 0%
    </tr>
 </table>
 
-### 8. エラー処理 {#mandatory-requirements-error-handling}
+### &#x200B;8. エラー処理 {#mandatory-requirements-error-handling}
 
 <table style="table-layout:auto">
    <tr>
@@ -211,7 +215,7 @@ ht-degree: 0%
    </tr>
 </table>
 
-### 9. テスト {#mandatory-requirements-testing}
+### &#x200B;9. テスト {#mandatory-requirements-testing}
 
 <table style="table-layout:auto">
    <tr>
@@ -283,7 +287,7 @@ ht-degree: 0%
    </tr>
 </table>
 
-### 4. （オプション）事前認証フェーズ {#recommended-practices-preauthorization-phase}
+### &#x200B;4. （オプション）事前認証フェーズ {#recommended-practices-preauthorization-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -318,7 +322,7 @@ ht-degree: 0%
    </tr>
 </table>
 
-### 6. ログアウトフェーズ {#recommended-practices-logout-phase}
+### &#x200B;6. ログアウトフェーズ {#recommended-practices-logout-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -333,7 +337,7 @@ ht-degree: 0%
    </tr>
 </table>
 
-### 7. パラメーターとヘッダー {#recommended-practices-parameters-headers}
+### &#x200B;7. パラメーターとヘッダー {#recommended-practices-parameters-headers}
 
 <table style="table-layout:auto">
    <tr>
@@ -348,7 +352,7 @@ ht-degree: 0%
    </tr>
 </table>
 
-### 8. テスト {#recommended-practices-testing}
+### &#x200B;8. テスト {#recommended-practices-testing}
 
 <table style="table-layout:auto">
    <tr>

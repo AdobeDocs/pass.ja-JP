@@ -2,9 +2,9 @@
 title: REST API V2 の概要
 description: REST API V2 の概要
 exl-id: a5595193-82c4-4033-bd98-596b4908b401
-source-git-commit: a02ba4ca1b6579781e40ecd0d12dbfdd23ea7398
+source-git-commit: 63dc9636f74f8eee1af6205c4d31a01df4503050
 workflow-type: tm+mt
-source-wordcount: '528'
+source-wordcount: '530'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 TVE アプリケーションのコスト効率を向上させたいとお考えですか？
 
@@ -76,6 +76,7 @@ SDK または REST 呼び出しを通じて現在 API を使用しているす�
 - [ウェビナー](#rest-api-v2-webinar)
 - [用語集](rest-api-v2-glossary.md)
 - [Checklist](rest-api-v2-checklist.md)
+- [AI ルール](rest-api-v2-ai-rules.md)
 - [よくある質問](rest-api-v2-faqs.md)
 - [API](apis/rest-api-v2-apis-overview.md)
 - [フロー](flows/rest-api-v2-flows-overview.md)
