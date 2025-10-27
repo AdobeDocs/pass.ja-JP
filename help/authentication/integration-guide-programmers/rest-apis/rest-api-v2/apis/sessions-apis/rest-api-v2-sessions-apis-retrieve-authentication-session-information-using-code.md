@@ -2,10 +2,10 @@
 title: コードを使用した認証セッションの取得
 description: REST API V2 - コードを使用した認証セッションの取得
 exl-id: 5cc209eb-ee6b-4bb9-9c04-3444408844b7
-source-git-commit: 7ac04991289c95ebb803d1fd804e9b497f821cda
+source-git-commit: 92d2befd154b21abf743075c78ad617cff79b7e9
 workflow-type: tm+mt
-source-wordcount: '488'
-ht-degree: 2%
+source-wordcount: '529'
+ht-degree: 1%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 2%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -163,13 +163,41 @@ ht-degree: 2%
       <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">パラメーター</td>
+      <td style="background-color: #DEEBFF;"></td>
       <td>
          次の属性を持つ JSON オブジェクト。
-         <ul>
-            <li><b>existing</b><br/> 既に指定されている既存のパラメーター。</li>
-            <li><b>missing</b><br/> 認証フローを完了するために指定する必要がある、欠落しているパラメーター。</li>
-         </ul>
+         <table style="table-layout:auto">
+            <tr>
+               <th style="background-color: #EFF2F7;">属性</th>
+               <th style="background-color: #EFF2F7"></th>
+               <th style="background-color: #EFF2F7;"></th>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">existingParameters</td>
+               <td>既に指定されている既存のパラメーター。</td>
+               <td><i>必須</i></td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">missingParameters</td>
+               <td>認証フローを完了するために指定する必要がある、不足しているパラメーター。</td>
+               <td>optional</td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">デバイス</td>
+               <td>実際のストリーミングデバイスに関連するデバイス情報。</td>
+               <td><i>必須</i></td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">notBefore</td>
+               <td>認証コードが無効になる前のタイムスタンプ（ミリ秒単位）。</td>
+               <td><i>必須</i></td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">notAfter</td>
+               <td>認証コードが無効になるまでのタイムスタンプ（ミリ秒単位）。</td>
+               <td><i>必須</i></td>
+            </tr>
+         </table>
       </td>
       <td><i>必須</i></td>
 </table>
@@ -238,12 +266,74 @@ HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 
 {        
-    "parameters": {
-        "existing": {
-            "mvpd": "Cablevision",
-            "domain": "adobe.com"
-            "redirectUrl": "https://www.adobe.com"        
-        }
+    "existingParameters": {
+        "mvpd": "apassidp",
+        "domain": "adobe.com"
+        "redirectUrl": "https://www.adobe.com",
+        "serviceProvider": "REF30"        
+    },
+    "device": {
+        "type": "Desktop",
+        "model": null,
+        "version": {
+            "major": 0,
+            "minor": 0,
+            "patch": 0,
+            "profile": ""
+        },
+    "hardware": {
+      "name": null,
+      "vendor": "Apple",
+      "version": {
+        "major": 0,
+        "minor": 0,
+        "patch": 0,
+        "profile": ""
+      },
+      "manufacturer": "Apple"
+    },
+    "operatingSystem": {
+      "name": "macOS",
+      "family": "macOS",
+      "vendor": "Apple",
+      "version": {
+        "major": 10,
+        "minor": 15,
+        "patch": 7,
+        "profile": ""
+      }
+    },
+    "browser": {
+      "name": "Chrome",
+      "vendor": "Google",
+      "version": {
+        "major": 140,
+        "minor": 0,
+        "patch": 0,
+        "profile": ""
+      },
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+      "originalUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    },
+    "display": {
+      "width": 0,
+      "height": 0,
+      "ppi": 0,
+      "name": "DISPLAY",
+      "vendor": null,
+      "version": null,
+      "diagonalSize": null
+    },
+    "applicationId": null,
+    "connection": {
+      "ipAddress": "...",
+      "port": "55161",
+      "secure": false,
+      "type": null
+    }
+    }
+    "notBefore": "1733735289035",
+    "notAfter": "1733737089035"    
 }
 ```
 
@@ -270,13 +360,77 @@ HTTP/1.1 200 OK
 
 Content-Type: application/json;charset=UTF-8
 
-{        
-    "parameters": {
-        "existing": {
-            "mvpd": "Cablevision",
-            "domain": "adobe.com"
-        },
-        "missing": ["redirectUrl"]
+{
+  "missingParameters": [
+    "mvpd"
+  ],
+  "existingParameters": {
+    "redirectUrl": "https://adobe.com",
+    "domainName": "adobe.com",
+    "serviceProvider": "REF30"
+  },
+  "device": {
+    "type": "Desktop",
+    "model": null,
+    "version": {
+      "major": 0,
+      "minor": 0,
+      "patch": 0,
+      "profile": ""
+    },
+    "hardware": {
+      "name": null,
+      "vendor": "Apple",
+      "version": {
+        "major": 0,
+        "minor": 0,
+        "patch": 0,
+        "profile": ""
+      },
+      "manufacturer": "Apple"
+    },
+    "operatingSystem": {
+      "name": "macOS",
+      "family": "macOS",
+      "vendor": "Apple",
+      "version": {
+        "major": 10,
+        "minor": 15,
+        "patch": 7,
+        "profile": ""
+      }
+    },
+    "browser": {
+      "name": "Chrome",
+      "vendor": "Google",
+      "version": {
+        "major": 140,
+        "minor": 0,
+        "patch": 0,
+        "profile": ""
+      },
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+      "originalUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    },
+    "display": {
+      "width": 0,
+      "height": 0,
+      "ppi": 0,
+      "name": "DISPLAY",
+      "vendor": null,
+      "version": null,
+      "diagonalSize": null
+    },
+    "applicationId": null,
+    "connection": {
+      "ipAddress": "...",
+      "port": "3061",
+      "secure": false,
+      "type": null
+    }
+  },
+  "notBefore": "1761299929958",
+  "notAfter": "1761301729958"
 }
 ```
 
