@@ -2,9 +2,9 @@
 title: アクセストークンの取得
 description: Dynamic Client Registration API - アクセストークンの取得
 exl-id: 23287acf-5d56-46f0-b65e-79bf7d667708
-source-git-commit: be2b75d3dcde92c0b83700705892403291dcab2e
+source-git-commit: f0969a692380af3d20df37c49c37f7d1e85c7cfd
 workflow-type: tm+mt
-source-wordcount: '456'
+source-wordcount: '474'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> 動的なクライアント登録 API の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) に関するドキュメントに限られています。
+> 動的なクライアント登録 API の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) に関するドキュメントに限られています。
 
 ## リクエスト {#request}
 
@@ -230,7 +230,11 @@ ht-degree: 0%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">unauthorized_client</td>
-               <td>使用された付与タイプが無効です。</td>
+               <td>この認証付与タイプを使用する権限がクライアント アプリケーションにありません。</td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">unsupported_grant_type</td>
+               <td>承認サーバーで承認の許可の種類がサポートされていません。</td>
             </tr>
          </table>
       </td>
