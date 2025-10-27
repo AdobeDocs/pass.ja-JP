@@ -2,9 +2,9 @@
 title: パートナー認証要求の取得
 description: REST API V2 - パートナー認証リクエストの取得
 exl-id: 52d8a8e9-c176-410f-92bc-e83449278943
-source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
+source-git-commit: 3efe25ddde7dfd2562932f623a2c440d4a059672
 workflow-type: tm+mt
-source-wordcount: '1252'
+source-wordcount: '1280'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 ## リクエスト {#request}
 
@@ -292,7 +292,7 @@ ht-degree: 0%
             <tr>
                <td style="background-color: #DEEBFF;">url</td>
                <td>クライアントアプリケーションの移動先の URL。</td>
-               <td><i>必須</i></td>
+               <td>optional</td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">コード</td>
@@ -333,6 +333,16 @@ ht-degree: 0%
                <td style="background-color: #DEEBFF;">serviceProvider</td>
                <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部の一意の ID。</td>
                <td><i>必須</i></td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">notBefore</td>
+               <td>認証コードが無効になる前のタイムスタンプ（ミリ秒単位）。</td>
+               <td>optional</td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">notAfter</td>
+               <td>認証コードが無効になるまでのタイムスタンプ（ミリ秒単位）。</td>
+               <td>optional</td>
             </tr>
          </table>
       </td>

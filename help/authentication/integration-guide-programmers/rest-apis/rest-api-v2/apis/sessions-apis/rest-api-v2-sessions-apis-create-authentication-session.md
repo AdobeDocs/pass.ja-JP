@@ -2,7 +2,7 @@
 title: 認証セッションの作成
 description: REST API V2 – 認証セッションの作成
 exl-id: bb2a6bb4-0778-4748-a674-df9d0e8242c8
-source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
+source-git-commit: 3efe25ddde7dfd2562932f623a2c440d4a059672
 workflow-type: tm+mt
 source-wordcount: '1080'
 ht-degree: 0%
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -303,7 +303,7 @@ ht-degree: 0%
             <tr>
                <td style="background-color: #DEEBFF;">コード</td>
                <td>認証セッションを再開するためにセカンダリ・アプリケーションで使用できる認証コード。</td>
-               <td><i>必須</i></td>
+               <td>optional</td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">sessionId</td>
