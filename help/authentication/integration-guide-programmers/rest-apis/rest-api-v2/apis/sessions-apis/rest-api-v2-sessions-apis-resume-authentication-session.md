@@ -2,9 +2,9 @@
 title: 認証セッションの再開
 description: REST API V2 – 認証セッションの再開
 exl-id: 66c33546-2be0-473f-9623-90499d1c13eb
-source-git-commit: 7ac04991289c95ebb803d1fd804e9b497f821cda
+source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '953'
+source-wordcount: '956'
 ht-degree: 1%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -131,7 +131,7 @@ ht-degree: 1%
       <td>
          クライアントアプリケーションによって受け入れられるメディアタイプ。
          <br/><br/>
-         指定する場合は、application/json にする必要があります。
+         指定する場合は、application/json;charset=utf-8 にする必要があります。
       </td>
       <td>optional</td>
    </tr>

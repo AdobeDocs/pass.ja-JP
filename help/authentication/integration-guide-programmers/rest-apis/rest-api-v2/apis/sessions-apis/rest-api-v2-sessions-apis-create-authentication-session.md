@@ -2,9 +2,9 @@
 title: 認証セッションの作成
 description: REST API V2 – 認証セッションの作成
 exl-id: bb2a6bb4-0778-4748-a674-df9d0e8242c8
-source-git-commit: 3efe25ddde7dfd2562932f623a2c440d4a059672
+source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '1080'
+source-wordcount: '1083'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -161,7 +161,7 @@ ht-degree: 0%
       <td>
          クライアントアプリケーションによって受け入れられるメディアタイプ。
          <br/><br/>
-         指定する場合は、application/json にする必要があります。
+         指定する場合は、application/json;charset=utf-8 にする必要があります。
       </td>
       <td>optional</td>
    </tr>

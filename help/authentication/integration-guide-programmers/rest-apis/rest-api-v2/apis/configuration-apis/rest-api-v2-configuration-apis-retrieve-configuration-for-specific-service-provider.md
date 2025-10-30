@@ -2,9 +2,9 @@
 title: 特定のサービスプロバイダーの設定の取得
 description: REST API V2 – 特定のサービスプロバイダーの設定を取得します
 exl-id: ad7e4c6d-ed96-4ae7-82a9-3c24e5fc9302
-source-git-commit: 8952283ccce38f70f4f504f07714c583fcb7e272
+source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '725'
+source-wordcount: '728'
 ht-degree: 1%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -105,7 +105,7 @@ ht-degree: 1%
       <td>
          クライアントアプリケーションによって受け入れられるメディアタイプ。
          <br/><br/>
-         指定する場合は、application/json にする必要があります。
+         指定する場合は、application/json;charset=utf-8 にする必要があります。
       </td>
       <td>optional</td>
    </tr>

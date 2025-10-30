@@ -2,9 +2,9 @@
 title: クライアント資格情報の取得
 description: Dynamic Client Registration API - クライアント資格情報を取得します
 exl-id: 0b39768b-25b8-47b9-8080-59c56fb829fb
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '431'
+source-wordcount: '437'
 ht-degree: 0%
 
 ---
@@ -13,11 +13,11 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> 動的なクライアント登録 API の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) に関するドキュメントに限られています。
+> 動的なクライアント登録 API の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) に関するドキュメントに限られています。
 
 ## リクエスト {#request}
 
@@ -66,7 +66,7 @@ ht-degree: 0%
       <td>
          送信するリソースに使用できるメディアタイプ。
          <br/><br/>
-         application/json にする必要があります。
+         application/json;charset=utf-8 である必要があります。
       </td>
       <td><i>必須</i></td>
    </tr>
@@ -88,7 +88,7 @@ ht-degree: 0%
       <td>
          クライアントアプリケーションによって受け入れられるメディアタイプ。
          <br/><br/>
-         指定する場合は、application/json にする必要があります。
+         指定する場合は、application/json;charset=utf-8 にする必要があります。
       </td>
       <td>optional</td>
    </tr>
