@@ -2,7 +2,7 @@
 title: プログラマー向けキックスタートガイド
 description: プログラマー向けキックスタートガイド
 exl-id: 0aecdb81-9b97-4475-b0b0-654d916b2374
-source-git-commit: 37858fa83aecbdf443a4a6058c78e4f9246eee42
+source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
 workflow-type: tm+mt
 source-wordcount: '758'
 ht-degree: 0%
@@ -13,27 +13,27 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
-このキックスタートガイドは、Authentication® PassAdobeを自社の Web サイトやアプリケーションに統合することを計画しているコンテンツプロバイダー（プログラマー）を対象としています。
+このキックスタートガイドは、Adobe® パス認証を自社の web サイトやアプリケーションに統合することを計画しているコンテンツプロバイダー（プログラマー）を対象としています。
 
 このドキュメントでは、統合プロセスをスムーズかつ効率的に開始するための主な初期手順について説明します。 これは、期待を明確にし、統合を成功させるためにパートナーと協力する方法に関するガイダンスを提供することを目的としています。
 
-Adobeでは、Adobe Pass Authentication を web サイトやアプリケーションに統合するのに役立つ様々なリソースを提供しています。 以下の各セクションの **「提供する」** および **「Adobeが提供する」** を参照してください。
+Adobeには、Adobe Pass Authentication を web サイトやアプリケーションに統合するのに役立つ様々なリソースが用意されています。 以下の各セクションの **「提供する」** および **「Adobeが提供する」** のメンションを参照してください。
 
 ## 設定プロセス {#setup-process}
 
 設定プロセスには、特に次の手順が含まれます。
 
-![Adobe® 認証統合プロセスを渡す &#x200B;](../assets/progr-flow-int-lifecycle.png)
+![Adobe® 認証統合プロセスに合格 ](/help/authentication/assets/progr-flow-int-lifecycle.png)
 
-*Adobe® 認証統合プロセスを渡す*
+*Adobe® 認証統合プロセスに合格*
 
 キックオフフェーズでは **次を指定します**。
 
 * **サービスプロバイダー（リクエスター識別子）**
 
-  これは、Adobe Pass Authentication に対してリクエストを行う web サイトまたはアプリケーションのブランドを一意に識別する文字列です。 文字列自体は任意ですが、Adobeーとプログラマーの間で合意する必要があります
+  これは、Adobe Pass Authentication に対してリクエストを行う web サイトまたはアプリケーションのブランドを一意に識別する文字列です。 文字列自体は任意ですが、Adobeとプログラマーの間で合意する必要があります
 
 * **チャネル情報**
 
@@ -41,7 +41,7 @@ Adobeでは、Adobe Pass Authentication を web サイトやアプリケーシ�
 
 * **ドメイン名**
 
-  このリストには、サービスプロバイダーを表すAdobeにリストされる実際のドメイン名が含まれます。 これにより、許可されたドメインのみがメタデータを使用してAdobe Pass Authentication にアクセスできるようになります。 実稼動環境とステージング（テスト）環境の両方でドメイン名が異なる可能性があるので、必ずドメイン名を指定し、明確に識別してください。
+  このリストには、サービスプロバイダーを表すためにAdobeにリストされる実際のドメイン名が含まれます。 これにより、許可されたドメインのみがメタデータを使用してAdobe Pass Authentication にアクセスできるようになります。 実稼動環境とステージング（テスト）環境の両方でドメイン名が異なる可能性があるので、必ずドメイン名を指定し、明確に識別してください。
 
 MVPDを使用して **指定します**。
 
@@ -59,32 +59,32 @@ MVPDを使用して **指定します**。
 >
 > * **ニューMVPD**
 >
->     MVPDがAdobeと統合されていない場合、MVPD固有の要件に基づいてカスタムコードを開発する必要があります。 この開発が完了するまで、MVPDは使用できず、そのMVPDでの製品テストは続行できません。
+>     MVPDがMVPDと統合されていない場合、Adobe固有の要件に基づいてカスタムコードを開発する必要があります。 この開発が完了するまで、MVPDは使用できず、そのMVPDでの製品テストは続行できません。
 >
 > * **既存のMVPD**
 >
->     MVPDが既にAdobeと統合されている場合、接続プロセスは大幅に合理化されます。 多くの場合、大規模な開発ではなく、設定の調整によって迅速に接続を確立できます。
+>     MVPDが既にAdobeと統合されている場合、接続プロセスは大幅に効率化されます。 多くの場合、大規模な開発ではなく、設定の調整によって迅速に接続を確立できます。
 >
 > エンドユーザーは最終的にはMVPDのお客様なので、すべての統合には、MVPDによるテストを含む、共同品質保証（QA）作業が必要です。 テストサイクルの調整は、多くの場合、MVPDのリソースの利用可能性に依存し、遅延が発生する可能性があります。
 
 ## カスタマーサポートへのアクセス {#access-customer-support}
 
-**Adobeから** Zendesk[&#128279;](https://tve.zendesk.com/home) 経由でカスタマーサポートシステムに  アクセスできるようになります。 Zendesk にアクセスするには、https://tve.zendesk.com/homeでアカウントを登録して作成する必要があります。 登録できるユーザー数に制限はありません。 登録すると、送信されたチケットに関するコメントを表示して共有できます。
+**Adobeから** Zendesk[ 経由でカスタマーサポートシステムにアクセス ](https://tve.zendesk.com/home) きます。 Zendesk にアクセスするには、https://tve.zendesk.com/homeでアカウントを登録して作成する必要があります。 登録できるユーザー数に制限はありません。 登録すると、送信されたチケットに関するコメントを表示して共有できます。
 
 Adobe Pass認証チームは、統合プロセス中に発生した質問や技術的な問題についてサポートを受けることができます。 [tve-support@adobe.com](mailto:tve-support@adobe.com) までお問い合わせください。
 
 ## ドキュメントへのアクセス {#access-documentation}
 
-**Adobeから**&#x200B;[Adobe Experience League&rbrace; 経由で公開ドキュメントにアクセス &#x200B;](https://experienceleague.adobe.com/ja/docs/pass/authentication/home) きます。
+**Adobeは** Adobe Experience League[ 経由でアドビの公開ドキュメントに ](https://experienceleague.adobe.com/en/docs/pass/authentication/home) アクセスを提供します。
 
-Adobe Pass認証チームは、[&#x200B; プログラマー向け統合ガイド &#x200B;](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md) の節で利用可能な機能と API の包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
+Adobe Pass認証チームは、[ プログラマー向け統合ガイド ](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md) の節で利用可能な機能と API の包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
 
 ## テストツールへのアクセス {#access-testing-tool}
 
-**Adobeから**&#x200B;[Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイト経由で API 探索ツールにアクセスできるようになります。
+**Adobeから**[Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイト経由で API 探索ツールにアクセスできるようになります。
 
 ## 設定管理ツールへのアクセス {#access-configuration-management-tool}
 
-**Adobeは**&#x200B;[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/pass/authentication) を介して設定とデータを管理するためのセルフサービスツールへのアクセスを提供します。
+**Adobeは**[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/pass/authentication) を介して設定とデータを管理するためのセルフサービスツールへのアクセスを提供します。
 
-Adobe Pass認証チームは、「[TVE ダッシュボードのユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md) セクションで、TVE ダッシュボードの使用に関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
+Adobe Pass認証チームは、「[TVE ダッシュボードのユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md) セクションで、TVE ダッシュボードの使用に関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。

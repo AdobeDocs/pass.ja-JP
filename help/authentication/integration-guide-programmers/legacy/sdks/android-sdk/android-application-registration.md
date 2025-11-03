@@ -2,7 +2,7 @@
 title: Android アプリケーションの登録
 description: Android アプリケーションの登録
 exl-id: 6238bd87-ac97-4a5c-9d92-3631f7b2d46a
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '609'
 ht-degree: 0%
@@ -13,23 +13,23 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#intro}
 
-Android AccessEnabler SDKのバージョン 3.0 以降では、Adobeのサーバで認証メカニズムを変更しています。 公開鍵と秘密鍵を使用して requestorID に署名する代わりに、SDKがサーバーに対して行うすべての呼び出しに後で使用されるアクセストークンを取得するために使用できる Software Statement 文字列の概念を導入します。 ソフトウェアのステートメントに加えて、アプリケーションのディープリンクを作成する必要があります。
+Android AccessEnabler SDKのバージョン 3.0 以降、Adobe サーバの認証メカニズムが変わります。 公開鍵と秘密鍵を使用して requestorID に署名する代わりに、SDKがサーバーに対して行うすべての呼び出しに後で使用されるアクセストークンを取得するために使用できる Software Statement 文字列の概念を導入します。 ソフトウェアのステートメントに加えて、アプリケーションのディープリンクを作成する必要があります。
 
-詳しくは、[&#x200B; 動的なクライアント登録の概要 &#x200B;](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) を参照してください。
+詳しくは、[ 動的なクライアント登録の概要 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) を参照してください。
 
 ## ソフトウェア ステートメントとは {#what}
 
-ソフトウェアステートメントは、アプリケーションに関する情報を含む JWT トークンです。 各アプリケーションには、Adobeのシステム内のアプリケーションを特定するためにサーバが使用する固有のソフトウェア・ステートメントが必要です。
+ソフトウェアステートメントは、アプリケーションに関する情報を含む JWT トークンです。 すべてのアプリケーションには、Adobeのシステムでアプリケーションを識別するために使用される一意のソフトウェア文が必要です。
 
-`AccessEnabler` SDKを初期化する際には、ソフトウェア ステートメントを渡す必要があります。 アプリケーションをAdobeに登録するために使用されます。 登録時に、SDKはクライアント ID とクライアントシークレットを受け取り、アクセストークンの取得に使用されます。 SDKからAdobeサーバーに対して行う呼び出しには、有効なアクセストークンが必要です。 SDKは、アプリケーションの登録、アクセストークンの取得および更新を行います。
+`AccessEnabler` SDKを初期化する際には、ソフトウェア ステートメントを渡す必要があります。 アプリケーションをAdobeに登録するために使用されます。 登録時に、SDKはクライアント ID とクライアントシークレットを受け取り、アクセストークンの取得に使用されます。 SDKからAdobe サーバーへの呼び出しには、有効なアクセストークンが必要です。 SDKは、アプリケーションの登録、アクセストークンの取得および更新を行います。
 
 >[!NOTE]
 >
@@ -39,7 +39,7 @@ Android AccessEnabler SDKのバージョン 3.0 以降では、Adobeのサーバ
 
 ソフトウェア ステートメントを取得する方法を次に示します。
 
-### ダッシュボードの TVE Adobeにアクセスできる場合
+### Adobeの TVE ダッシュボードにアクセスできる場合
 
 1. ブラウザーを開き、[Adobe Pass TVE Dashboard](https://experience.adobe.com/#/pass/authentication) に移動します。
 
@@ -61,9 +61,9 @@ Android AccessEnabler SDKのバージョン 3.0 以降では、Adobeのサーバ
 
    テキストファイルがダウンロードされます。 その内容をソフトウェアのステートメントとして使用します。
 
-詳しくは、[Dynamic Client Registration Management](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#dynamic-client-registration-management) を参照してください。
+詳しくは、[Dynamic Client Registration Management](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#dynamic-client-registration-management) を参照してください。
 
-### ダッシュボードの TVE Adobeへのアクセス権がない場合
+### Adobeの TVE Dashboard へのアクセス権がない場合
 
 `tve-support@adobe.com` にチケットを送信します。 チャネル、アプリケーション名、バージョン、プラットフォームなど、必要な情報を含めます。 サポートチームの誰かが、ソフトウェアのステートメントを作成します。
 

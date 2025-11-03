@@ -2,7 +2,7 @@
 title: シングル ログアウト – フロー
 description: REST API V2 - シングルログアウト – フロー
 exl-id: d7092ca7-ea7b-4e92-b45f-e373a6d673d6
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
 workflow-type: tm+mt
 source-wordcount: '587'
 ht-degree: 0%
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -46,7 +46,7 @@ ht-degree: 0%
 
 次の図に示すように、特定のMVPDに対してシングルログアウトフローを実装するには、以下の手順を実行します。
 
-![&#x200B; 特定の mvpd に対してシングルログアウトを開始する &#x200B;](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-initiate-single-logout-for-specific-mvpd-flow.png)
+![ 特定の mvpd に対してシングルログアウトを開始する ](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-initiate-single-logout-for-specific-mvpd-flow.png)
 
 *特定の mvpd に対してシングルログアウトを開始する*
 
@@ -54,10 +54,10 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[&#x200B; 特定の mvpd のログアウトの開始 &#x200B;](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[ 特定の mvpd のログアウトの開始 ](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) API ドキュメントを参照してください。
    >
-   > * `serviceProvider`、`mvpd`、`redirectUrl` など、すべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier` などのすべての _必須_ ヘッダー
+   > * _、_、`serviceProvider` など、すべての `mvpd` 必須 `redirectUrl` パラメーター
+   > * _、_ などのすべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
    > * すべての _オプション_ パラメーターおよびヘッダー
    >
    > <br/>
@@ -80,7 +80,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > ログアウト応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd のログアウトの開始 &#x200B;](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) API ドキュメントを参照してください。
+   > ログアウト応答で提供される情報について詳しくは、[ 特定の mvpd のログアウトの開始 ](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -91,7 +91,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **ログアウト完了を示す：** MVPDがログアウトフローをサポートしていない場合、ストリーミングアプリケーションが応答を処理し、それを使用して、オプションで特定のメッセージをユーザーインターフェイスに表示できます。
 

@@ -2,7 +2,7 @@
 title: コンソールアプリログを使用した AccessEnabler iOS/tvOS SDKのデバッグ
 description: コンソールアプリログを使用した AccessEnabler iOS/tvOS SDKのデバッグ
 exl-id: 0dad325e-db15-4ea0-a87a-75409eaf8d46
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
 workflow-type: tm+mt
 source-wordcount: '576'
 ht-degree: 0%
@@ -13,11 +13,11 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要
 
@@ -50,19 +50,19 @@ AccessEnabler iOS/tvOS 3.5.0 以降では、ログ機能に次の変更が加え
 
 まず、AccessEnabler フレームワークから出力されるログ・メッセージを確認するには、次の図に示すように **コンソール・アプリのアクション・セクションで** Include Info Messages」と「Include Debug Messages」を選択します。
 
-![](../../../assets/include-info-debug-msg.png)
+![](/help/authentication/assets/include-info-debug-msg.png)
 
 
 AccessEnabler iOS/tvOS SDKの機能をデバッグするには、AccessEnabler フレームワーク ログを **参照** して、次の操作を実行します。
 
 * 以下の画像に示すように、「**サブシステム**」オプションを使用して、コンソールアプリを検索します。このオプションの値は com.adobe.pass.AccessEnabler の値と等しくなります。
 
-![](../../../assets/subsys-console-app.png)
+![](/help/authentication/assets/subsys-console-app.png)
 
 * 次を含む **Any** オプションを使用して、コンソールアプリを検索します
   [AccessEnabler] の値を以下の図に示します。
 
-![](../../../assets/any-optn-console-app.png)
+![](/help/authentication/assets/any-optn-console-app.png)
 
 上記の 2 つの条件に加えて、**Subsystem** または **Any （プレフィックス** と組み合わせて **Category** オプションを使用し、AccessEnabler iOS/tvOS SDKが発行する **debug** または **error** レベルのメッセージを明示的に検索することもできます。
 
@@ -71,7 +71,7 @@ AccessEnabler iOS/tvOS SDKの機能をデバッグするには、AccessEnabler �
 他のコンポーネントの機能をより適切にデバッグしたり、AccessEnabler フレームワークのログを **除外** したりするには、次の操作を行います。
 
 * com.adobe.pass.AccessEnabler の値と等しくない **Subsystem** オプションを使用して、コンソールアプリを検索します。
-* [AccessEnabler] 値を含まない **Any** オプションを使用して、コンソール・アプリ内を検索します。
+* **AccessEnabler** 値を含まない [Any] オプションを使用して、コンソール・アプリ内を検索します。
 
 ## 問題のレポート
 
@@ -80,4 +80,4 @@ Adobe Pass Authentication に問題を報告する際は、次の提案を考慮
 * 再現手順を指定してください。
 * 問題が発生した OS のバージョンとデバイスのモデルを指定してください。
 * この問題が発生している AccessEnabler iOS/tvOS SDKのバージョンを指定してください。
-* [&#x200B; 含む &#x200B;](#including) セクションに示されている 2 つのオプションのいずれかを使用して、すべての AccessEnabler iOS/tvOS SDK ログ メッセージをキャプチャし、添付してください。
+* [ 含む ](#including) セクションに示されている 2 つのオプションのいずれかを使用して、すべての AccessEnabler iOS/tvOS SDK ログ メッセージをキャプチャし、添付してください。

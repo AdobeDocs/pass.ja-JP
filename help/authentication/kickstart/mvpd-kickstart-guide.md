@@ -2,7 +2,7 @@
 title: MVPD キックスタートガイド
 description: MVPD キックスタートガイド
 exl-id: 6423cc9a-a45a-4cde-b562-4cb72c98e505
-source-git-commit: 2b9a8ce374f7a73cd815e9735d672e5c9ba285cc
+source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
 workflow-type: tm+mt
 source-wordcount: '934'
 ht-degree: 0%
@@ -13,13 +13,13 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
-このキックスタート ガイドは、Adobe® パス認証と統合する予定の Multichannel Video Programming Distributors （MVPD）向けです。
+このキックスタートガイドは、Adobe® Pass Authentication との連携を計画している Multichannel Video Programming Distributors （MVPD）向けです。
 
 このドキュメントでは、統合プロセスをスムーズかつ効率的に開始するための主な初期手順について説明します。 これは、期待を明確にし、統合を成功させるためにパートナーと協力する方法に関するガイダンスを提供することを目的としています。
 
-Adobeでは、Adobe Pass認証との統合に役立つ様々なリソースを提供しています。 以下の各セクションの **「提供する」** および **「Adobeが提供する」** を参照してください。
+Adobeには、Adobe Pass認証との統合に役立つ様々なリソースが用意されています。 以下の各セクションの **「提供する」** および **「Adobeが提供する」** のメンションを参照してください。
 
 >[!CAUTION]
 >
@@ -33,9 +33,9 @@ Adobeでは、Adobe Pass認証との統合に役立つ様々なリソースを�
 
 設定プロセスには、特に次の手順が含まれます。
 
-![Adobe® 認証統合プロセスを渡す &#x200B;](../assets/mvpd-int-lifecycle.png)
+![Adobe® 認証統合プロセスに合格 ](/help/authentication/assets/mvpd-int-lifecycle.png)
 
-*Adobe® 認証統合プロセスを渡す*
+*Adobe® 認証統合プロセスに合格*
 
 ### キックオフ {#kickoff}
 
@@ -59,7 +59,7 @@ Adobeでは、Adobe Pass認証との統合に役立つ様々なリソースを�
 
 ### メタデータ交換（SAML） {#metadata-exchange-saml}
 
-**Adobeは** メタデータ交換フェーズで次を提供します：
+メタデータ交換フェーズでは **Adobeによって次の情報が提供されます。**
 
 * **ステージング環境のメタデータ**
 
@@ -81,17 +81,17 @@ Adobeでは、Adobe Pass認証との統合に役立つ様々なリソースを�
 
 ### 接続性 {#connectivity}
 
-Adobe Pass認証では **ポート 80 および 443 を通過するトラフィックを許可リストに加えるするファイアウォールが必要なため、Adobeプロセスと認証プロセスの両方で制限されたリソースへのアクセスを有効にする** 方法を提供します。
+Adobe Pass認証では **ポート 80 および 443 を通過するトラフィックを許可するファイアウォールが必要なため、認証プロセスと承認プロセスの両方で制限付きリソースへのアクセスを可能にするため、Adobeから IP を許可リストに加えるする** 方法を提供します。
 
 接続をテストするためのデプロイメントをステージングプロファイルで **提供します**。
 
 ### 開発 {#development}
 
-**Adobeでは** エンジニアリング時間を使用してMVPDと緊密に連携し、技術的な統合が正しく確立されていることを確認します。 このプロセスには、MVPD固有の要件に合わせてカスタマイズされたカスタムコードの開発が含まれます。
+**Adobeは** 技術統合が正しく確立されていることを確認するために、MVPDと緊密に連携するためのエンジニアリング時間を提供します。 このプロセスには、MVPD固有の要件に合わせてカスタマイズされたカスタムコードの開発が含まれます。
 
 ### ステージングでのデプロイメント {#deployment-staging}
 
-**Adobeによって** ビルドに必要なコードの更新が提供されます。この更新は、最初に PRE-QUAL ステージング環境にデプロイされます。 このフェーズでは、テスト目的でMVPDを `TestDistributors` サービスプロバイダーと統合するために必要な設定変更も実装されます。
+**Adobeによってビルドが提供され** 必要なコードの更新が最初に PRE-QUAL ステージング環境にデプロイされます。 このフェーズでは、テスト目的でMVPDを `TestDistributors` サービスプロバイダーと統合するために必要な設定変更も実装されます。
 
 **お客様とAdobeは** PRE-QUAL ステージング環境で統合が正常にテストされていることを確認するための品質保証（QA）時間を提供します。 このフェーズの後、MVPDはリリースのステージング環境に移動され、実際のプログラマーによるさらなるテストが行われます。
 
@@ -99,19 +99,19 @@ Adobe Pass認証では **ポート 80 および 443 を通過するトラフィ�
 
 接続をテストするためのデプロイメントを実稼動プロファイルで **提供します**。
 
-**Adobeは** PRE-QUAL 実稼動環境にデプロイされる必要なコードの更新をビルドに提供します。
+**Adobeは** PRE-QUAL 実稼動環境にデプロイされる必要なコード更新をビルドに提供します。
 
-**お客様とAdobeは** 実稼動プロファイルを使用して統合が正常にテストされたことを確認するための品質保証（QA）時間を提供します。 この時点ですべてが正常な場合、Adobeは、すべてのユーザーが利用できるリリース実稼動環境（「ライブ」）に統合を移行できます。
+**お客様とAdobeは** 実稼動プロファイルを使用して統合が正常にテストされていることを確認するための品質保証（QA）時間を提供します。 この時点ですべてが正常な場合、Adobeは、すべてのユーザーが利用できるリリース実稼動環境（「ライブ」）に統合を移行できます。
 
 >[!IMPORTANT]
 >
-> 統合がリリース実稼動環境で有効になった後は、最適なカスタマーエクスペリエンス（顧客体験）を維持することが最も重要です。 サーバ・ダウン・シナリオに効果的に対処するために、MVPD は、問題を管理するための詳細なエスカレーション手順ドキュメントをAdobeに提供する必要があります。
+> 統合がリリース実稼動環境で有効になった後は、最適なカスタマーエクスペリエンス（顧客体験）を維持することが最も重要です。 サーバーダウンシナリオに効果的に対処するために、MVPD は、問題を管理するための詳細なエスカレーション手順ドキュメントをAdobeに提供する必要があります。
 >
-> その代わりに、Adobeにより、MVPD が最新バージョンのAdobe Pass認証エスカレーションプロセスを確実に受け取り、問題を効率的に解決できます。
+> その代わりに、Adobeは、MVPD が最新バージョンのAdobe Pass認証エスカレーションプロセスを確実に受け取り、問題を効率的に解決できるようにします。
 
 ## 環境へのアクセス {#access-environments}
 
-**Adobeすると** 開発プロセスの様々なステージの環境にアクセスできるようになります：
+**Adobeは** 開発プロセスの様々なステージに対する環境へのアクセスを提供します：
 
 * **事前適格性（事前適格性）**
 
@@ -121,24 +121,24 @@ Adobe Pass認証では **ポート 80 および 443 を通過するトラフィ�
 
   RELEASE 環境は、現在の（安定した）実稼動ビルドをホストします。
 
-これらの環境の使用方法について詳しくは、[Adobe環境について &#x200B;](/help/authentication/notes-technical/environments/understanding-the-adobe-environments.md) ドキュメントを参照してください。
+これらの環境の使用方法について詳しくは、[Adobe環境について ](/help/authentication/notes-technical/environments/understanding-the-adobe-environments.md) ドキュメントを参照してください。
 
 >[!IMPORTANT]
 > 
-> 設定の変更は、確立された変更リクエストプロセスに従って、Adobe担当者から明示的にリクエストする必要があります。
+> これらの環境に対する設定の変更は、確立された変更リクエストプロセスに従い、Adobe担当者を通じて明示的にリクエストする必要があります。
 
 ## カスタマーサポートへのアクセス {#access-customer-support}
 
-**Adobeから** Zendesk[&#128279;](https://tve.zendesk.com/home) 経由でカスタマーサポートシステムに  アクセスできるようになります。 Zendesk にアクセスするには、https://tve.zendesk.com/homeでアカウントを登録して作成する必要があります。
+**Adobeから** Zendesk[ 経由でカスタマーサポートシステムにアクセス ](https://tve.zendesk.com/home) きます。 Zendesk にアクセスするには、https://tve.zendesk.com/homeでアカウントを登録して作成する必要があります。
 
 Adobe Pass認証チームを使用すると、統合プロセス中に発生する可能性のある質問や技術的な問題に対応できます。 [tve-support@adobe.com](mailto:tve-support@adobe.com) までお問い合わせください。
 
 ## ドキュメントへのアクセス {#access-documentation}
 
-**Adobeから**&#x200B;[Adobe Experience League&rbrace; 経由で公開ドキュメントにアクセス &#x200B;](https://experienceleague.adobe.com/ja/docs/pass/authentication/home) きます。
+**Adobeは** Adobe Experience League[ 経由でアドビの公開ドキュメントに ](https://experienceleague.adobe.com/en/docs/pass/authentication/home) アクセスを提供します。
 
-Adobe Pass認証チームは、[MVPD の統合ガイド &#x200B;](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md) の節で利用できる機能とワークフローに関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
+Adobe Pass認証チームは、[MVPD の統合ガイド ](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md) の節で利用できる機能とワークフローに関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
 
 ## テストツールへのアクセス {#access-testing-tool}
 
-**Adobeから**&#x200B;[Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイト経由で API 探索ツールにアクセスできるようになります。
+**Adobeから**[Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイト経由で API 探索ツールにアクセスできるようになります。

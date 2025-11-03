@@ -2,7 +2,7 @@
 title: 認証の開始
 description: 認証の開始
 exl-id: 2f8a5499-e94f-40dd-9fb0-aac8e080de66
-source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '446'
 ht-degree: 0%
@@ -13,15 +13,15 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 >[!NOTE]
 >
-> REST API の実装には、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
+> REST API の実装には、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
 
 ## REST API エンドポイント {#clientless-endpoints}
 
@@ -43,7 +43,7 @@ ht-degree: 0%
 
 | エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/authorize | ストリーミングアプリ </br></br> プログラマ </br></br> サービス | 1. リクエスター（必須） </br>2.  deviceId （必須） </br>3.  resource （必須） </br>4.  device_info/X-Device-Info （必須） </br>5.  _deviceType_</br> 6.  _deviceUser_ （非推奨） </br>7.  _appId_ （非推奨） </br>8。  追加のパラメーター（オプション） | GET | 認証の詳細またはエラーの詳細を含む XML または JSON （失敗した場合）。 以下のサンプルを参照してください。 | 200 – 成功 </br>403 – 成功なし |
+| &lt;SP_FQDN>/api/v1/authorize | ストリーミングアプリ </br></br> プログラマ </br></br> サービス | &#x200B;1. リクエスター（必須） </br>2.  deviceId （必須） </br>3.  resource （必須） </br>4.  device_info/X-Device-Info （必須） </br>5.  _deviceType_</br> 6.  _deviceUser_ （非推奨） </br>7.  _appId_ （非推奨） </br>8。  追加のパラメーター（オプション） | GET | 認証の詳細またはエラーの詳細を含む XML または JSON （失敗した場合）。 以下のサンプルを参照してください。 | 200 – 成功 </br>403 – 成功なし |
 
 {style="table-layout:auto"}
 
@@ -55,11 +55,11 @@ ht-degree: 0%
 | 要求者 | この操作が有効なプログラマ requestorId です。 |
 | deviceId | デバイス ID のバイト。 |
 | resource | resourceId （または MRSS フラグメント）を含む文字列は、ユーザーからリクエストされたコンテンツを識別し、MVPD認証エンドポイントによって認識されます。 |
-| device_info/</br></br>X-Device-Info | ストリーミングデバイス情報。</br></br>**注意**：これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。 </br></br> 詳しくは、「デバイスと接続情報の受け渡し [&#x200B; を参照してください &#x200B;](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。 |
-| _deviceType_ | デバイスタイプ（Roku、PC など）。</br></br> このパラメーターが正しく設定されている場合、ESM では、クライアントレスの使用時に [&#x200B; デバイスタイプごとに分類 &#x200B;](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type) される指標を提供し、Roku、AppleTV、Xbox など、様々なタイプの分析を実行できるようにします。</br></br> パス指標の [&#x200B; クライアントレスデバイスタイプパラメーターのメリット &#x200B;](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**注意**:device_info はこのパラメーターを置き換えます。 |
+| device_info/</br></br>X-Device-Info | ストリーミングデバイス情報。</br></br>**注意**：これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。 </br></br> 詳しくは、「デバイスと接続情報の受け渡し [ を参照してください ](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。 |
+| _deviceType_ | デバイスタイプ（Roku、PC など）。</br></br> このパラメーターが正しく設定されている場合、ESM では、クライアントレスの使用時に [ デバイスタイプごとに分類 ](/help/premium-workflow/esm/entitlement-service-monitoring-overview.md#clientless_device_type) される指標を提供し、Roku、AppleTV、Xbox など、様々なタイプの分析を実行できるようにします。</br></br> パス指標の [ クライアントレスデバイスタイプパラメーターのメリット ](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**注意**:device_info はこのパラメーターを置き換えます。 |
 | _deviceUser_ | デバイスユーザー識別子。 |
 | _appId_ | アプリケーション ID/名前。 </br></br>**注意**：このパラメーターは device_info に置き換えられます。 |
-| 追加のパラメーター | また、この呼び出しには、次のような他の機能を有効にするオプションのパラメーターが含まれる場合もあります。</br></br>* generic_data - [Promotion TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass)</br></br>Example: `generic_data=("email":"email@domain.com")` |
+| 追加のパラメーター | また、この呼び出しには、次のような他の機能を有効にするオプションのパラメーターが含まれる場合もあります。</br></br>* generic_data - [Promotion TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md#promotional-temp-pass)</br></br>Example: `generic_data=("email":"email@domain.com")` |
 
 {style="table-layout:auto"}
 
@@ -87,7 +87,6 @@ ht-degree: 0%
 * **ケース 1：成功**
 </br>
   * **XML:**
-
   </br>
 
     ```XML

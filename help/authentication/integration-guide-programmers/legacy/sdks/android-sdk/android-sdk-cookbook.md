@@ -2,7 +2,7 @@
 title: Android SDK クックブック
 description: Android SDK クックブック
 exl-id: 7f66ab92-f52c-4dae-8016-c93464dd5254
-source-git-commit: 79b3856e3ab2755cc95c3fcd34121171912a5273
+source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
 workflow-type: tm+mt
 source-wordcount: '1703'
 ht-degree: 0%
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -113,7 +113,7 @@ AccessEnabler のネットワーク アクティビティは別のスレッド�
      `authorizedResources` パラメーターは、ユーザーが表示を許可されているリソースを表します。
 
 
-![](../../../../assets/android-entitlement-flows.png)
+![](/help//authentication/assets/android-entitlement-flows.png)
 
 
 ### B.起動フロー {#startup_flow}
@@ -139,7 +139,7 @@ Androidライブラリ（AccessEnabler）
 
    <!--Removed bad image link from first note cell above. ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/icons/1313859077_lightbulb.png) -->
 
-1. [checkAuthentication （） &#x200B;](#$checkAuthN) を呼び出すと、完全な認証フローを開始せずに既存の認証を確認できます。   この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
+1. [checkAuthentication （） ](#$checkAuthN) を呼び出すと、完全な認証フローを開始せずに既存の認証を確認できます。   この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
 
    - **依存関係：** `setRequestor()` の呼び出しが成功した（この依存関係は、後続のすべての呼び出しにも適用されます）。
 
@@ -149,7 +149,7 @@ Androidライブラリ（AccessEnabler）
 
 1. [`getAuthentication()`](#$getAuthN) を呼び出して認証フローを開始するか、ユーザーが既に認証されていることを確認します。\
    **トリガー:**
-   - ユーザーが既に認証されている場合は、setAuthenticationStatus （） コールバック。  この場合は、[&#x200B; 認証フロー &#x200B;](#authz_flow) に直接進みます。
+   - ユーザーが既に認証されている場合は、setAuthenticationStatus （） コールバック。  この場合は、[ 認証フロー ](#authz_flow) に直接進みます。
    - ユーザーがまだ認証されていない場合の displayProviderDialog （） コールバック。
 
 1. `displayProviderDialog()` に送信されたプロバイダーのリストをユーザーに提示します。
@@ -158,7 +158,7 @@ Androidライブラリ（AccessEnabler）
 
 1. 前の手順でインスタンス化した WebView を使用して、MVPDのログインページに移動し、ログイン資格情報を入力します。 WebView 内では、いくつかのリダイレクト操作が行われます。
 
-   **メモ：** この時点で、ユーザーは認証フローをキャンセルできます。 この場合、UI レイヤは、`null` をパラメータとして `setSelectedProvider()` を呼び出すことにより、AccessEnabler にこのイベントを通知します。 これにより、AccessEnabler は内部状態をクリーンアップし、認証フローをリセットできます。
+   **メモ：** この時点で、ユーザーは認証フローをキャンセルできます。 この場合、UI レイヤは、`setSelectedProvider()` をパラメータとして `null` を呼び出すことにより、AccessEnabler にこのイベントを通知します。 これにより、AccessEnabler は内部状態をクリーンアップし、認証フローをリセットできます。
 
 1. ユーザーが正常にログインすると、アプリケーションレイヤーは「カスタムリダイレクト URL」の読み込みを検出します（例：`http://adobepass.android.app`）。 このカスタム URL は、実際には無効な URL であり、WebView での読み込みを目的としたものではありません。 これは、認証フローが完了し、WebView を閉じる必要があるシグナルです。
 
@@ -174,7 +174,7 @@ Androidライブラリ（AccessEnabler）
 
 ### D.認証フロー {#authz_flow}
 
-1. [getAuthorization （） &#x200B;](#$getAuthZ) を呼び出して認証を開始します
+1. [getAuthorization （） ](#$getAuthZ) を呼び出して認証を開始します
 フロー。
 
    依存関係：有効な ResourceID がMVPDと合意されました。
@@ -201,7 +201,7 @@ Androidライブラリ（AccessEnabler）
 
 1. 表示するメディアを選択します。
 2. メディアは保護されていますか？  選択したメディアが保護されているかどうかを確認します。
-- 選択したメディアが保護されている場合、アプリケーションは上記の [&#x200B; 認証フロー &#x200B;](#authz_flow) を開始します。
+- 選択したメディアが保護されている場合、アプリケーションは上記の [ 認証フロー ](#authz_flow) を開始します。
 - 選択したメディアが保護されていない場合は、そのユーザーのメディアを再生します。
 
 
@@ -221,6 +221,6 @@ Androidライブラリ（AccessEnabler）
 
 ### 複数の MVPD とログアウトを使用したログインのユーザーフロー {#user_flows}
 
-[&#x200B; ここでは &#x200B;](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AndroidSSOUserFlows.pdf) 複数の MVPD を使用した場合の動作と、ユーザーがアプリケーションからログアウトした場合の動作を説明するドキュメントがあります。
+[ ここでは ](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AndroidSSOUserFlows.pdf) 複数の MVPD を使用した場合の動作と、ユーザーがアプリケーションからログアウトした場合の動作を説明するドキュメントがあります。
 
 説明されている動作は、Android SDK バージョン >= 2.0.0 を使用する場合に利用できます。

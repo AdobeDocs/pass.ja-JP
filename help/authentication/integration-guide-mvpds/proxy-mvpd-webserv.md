@@ -2,7 +2,7 @@
 title: プロキシ MVPD Web サービス
 description: プロキシ MVPD Web サービス
 exl-id: f75cbc4d-4132-4ce8-a81c-1561a69d1d3a
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '1027'
 ht-degree: 0%
@@ -14,38 +14,38 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> プロキシ MVPD Web サービスを使用する前に、次の前提条件が満たされていることを確認してください。
+> プロキシMVPD web サービスを使用する前に、次の前提条件が満たされていることを確認してください。
 >
-> * [&#x200B; クライアント資格情報の取得 &#x200B;](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメントの説明に従って、クライアント資格情報を取得します。
-> * [&#x200B; アクセストークンの取得 &#x200B;](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って、アクセストークンを取得します。
+> * [ クライアント資格情報の取得 ](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメントの説明に従って、クライアント資格情報を取得します。
+> * [ アクセストークンの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って、アクセストークンを取得します。
 >
-> 登録されたアプリケーションを作成してソフトウェアのステートメントをダウンロードする方法について詳しくは、[&#x200B; 動的クライアント登録の概要 &#x200B;](../integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
+> 登録されたアプリケーションを作成してソフトウェアのステートメントをダウンロードする方法について詳しくは、[ 動的クライアント登録の概要 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
 
 ## 概要 {#overview-proxy-mvpd-webserv}
 
-「Proxy MVPD」は MVPD であり、Adobe Pass Authentication との独自の連携の管理に加えて、関連する「Proxy MVPD」のグループの代わりに使用権限プロセスも管理します。 この配置は、プログラマーに対して透過的です。
+「プロキシMVPD」はMVPDの一種で、Adobe Pass Authentication との独自の連携の管理に加えて、関連する「プロキシ化された MVPD」のグループの代わりに使用権限プロセスも管理します。 この配置は、プログラマーに対して透過的です。
 
 ProxyMVPD 機能を実装するために、Adobe Pass認証は、ProxyMVPD が ProxyedMVPD のリストを送信および取得できる RESTful web サービスを提供します。 このパブリック API に使用されるプロトコルは REST HTTP で、次の前提があります。
 
-&#x200B;- Proxy MVPD は、HTTP GET方式を使用して、現在の統合 MVPD の一覧を取得します。
-&#x200B;- プロキシ MVPD は、HTTP POST方式を使用して、サポートされる MVPD の一覧を更新します。
+- プロキシMVPDは、HTTP GET メソッドを使用して、現在の統合 MVPD のリストを取得します。
+- プロキシMVPDは、HTTP POST メソッドを使用して、サポートされる MVPD のリストを更新します。
 
 ## プロキシ MVPD サービス {#proxy-mvpd-services}
 
-&#x200B;- [&#x200B; プロキシ化された MVPD の取得 &#x200B;](#retriev-proxied-mvpds)
-&#x200B;- [&#x200B; プロキシ化された MVPD を送信 &#x200B;](#submit-proxied-mvpds)
+- [ プロキシ化された MVPD の取得 ](#retriev-proxied-mvpds)
+- [ プロキシ化された MVPD を送信 ](#submit-proxied-mvpds)
 
 ### プロキシされた MVPD の取得 {#retriev-proxied-mvpds}
 
-特定されたプロキシ MVPD と統合された、プロキシ化された MVPD の現在のリストを取得します。
+特定されたプロキシMVPDと統合された、プロキシ化された MVPD の現在のリストを取得します。
 
 | エンドポイント | 呼び出し元 | リクエストパラメーター | リクエストヘッダー | HTTP メソッド | HTTP 応答 |
 |--------------------------------------------------------------------------|-----------|-----------------------|---------------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| &lt;FQDN>/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds | ProxyMVPD | proxy-mvpd-identifier | 認証（必須） | GET | <ul><li> 200 （ok） – リクエストが正常に処理され、応答に XML 形式の ProxyedMVPD のリストが含まれる</li><li>401 （未認証） – 次のいずれかを示します。<ul><li>クライアントは、新しい access_token を要求する必要があります。</li><li>リクエストの発信元の IP アドレスが許可リストに存在しません</li><li>トークンが無効です</li></ul></li><li>403 （禁止） – 指定されたパラメーターで操作がサポートされていないか、プロキシ MVPD がプロキシとして設定されていないか、見つからないことを示します</li><li>405 （許可されていないメソッド） - GETまたはPOST以外の HTTP メソッドが使用されました。 この特定のエンドポイントでは、HTTP メソッドが一般にサポートされていないか、サポートされていません。</li><li>500 （内部サーバーエラー） – リクエストプロセス中に、サーバーサイドでエラーが発生しました。</li></ul> |
+| &lt;FQDN>/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds | ProxyMVPD | proxy-mvpd-identifier | 認証（必須） | GET | <ul><li> 200 （ok） – リクエストが正常に処理され、応答に XML 形式の ProxyedMVPD のリストが含まれる</li><li>401 （未認証） – 次のいずれかを示します。<ul><li>クライアントは、新しい access_token を要求する必要があります。</li><li>リクエストの発信元の IP アドレスが許可リストに存在しません</li><li>トークンが無効です</li></ul></li><li>403 （禁止） – 指定されたパラメーターで操作がサポートされていないか、プロキシ MVPDがプロキシとして設定されていないか、見つかりません</li><li>405 （許可されていない方法） - GETまたは POST 以外の HTTP メソッドが使用されました。 この特定のエンドポイントでは、HTTP メソッドが一般にサポートされていないか、サポートされていません。</li><li>500 （内部サーバーエラー） – リクエストプロセス中に、サーバーサイドでエラーが発生しました。</li></ul> |
 
 Curl の例：
 
@@ -88,11 +88,11 @@ XML 応答の例：
 
 ### プロキシされた MVPD の送信 {#submit-proxied-mvpds}
 
-特定されたプロキシ MVPD と統合された MVPD の配列をプッシュします。
+特定されたプロキシ MVPDと統合された MVPD の配列をプッシュします。
 
 | エンドポイント | 呼び出し元 | リクエストパラメーター | リクエストヘッダー | HTTP メソッド | HTTP 応答 |
 |:------------------------------------------------------------------------:|:---------:|-----------------------|:---------------------------------------------------:|:-----------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| &lt;FQDN>/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds | ProxyMVPD | proxy-mvpd-identifier | 認証（必須）プロキシ化された mvpds （必須） | POST | <ul><li>201 （作成） – プッシュは正常に処理されました</li><li>400 （無効なリクエスト） – サーバーはリクエストの処理方法を把握していません：<ul><li>受信 XML はこの仕様で公開されているスキーマに準拠していません。</li><li>プロキシされた mvpid に一意の ID がありません</li><li>プッシュされた requestorIds は、応答コード 400 の他のサーブレットコンテナの理由は存在しません</li></ul><li>401 （未認証） – 次のいずれかを示します。<ul><li>クライアントは、新しい access_token を要求する必要があります。</li><li>リクエストの発信元の IP アドレスが許可リストに存在しません</li><li>トークンが無効です</li></ul></li><li>403 （禁止） – 指定されたパラメーターで操作がサポートされていないか、プロキシ MVPD がプロキシとして設定されていないか、見つからないことを示します</li><li>405 （許可されていないメソッド） - GETまたはPOST以外の HTTP メソッドが使用されました。 この特定のエンドポイントでは、HTTP メソッドが一般にサポートされていないか、サポートされていません。</li><li>500 （内部サーバーエラー） – リクエストプロセス中に、サーバーサイドでエラーが発生しました。</li></ul> |
+| &lt;FQDN>/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds | ProxyMVPD | proxy-mvpd-identifier | 認証（必須）プロキシ化された mvpds （必須） | POST | <ul><li>201 （作成） – プッシュは正常に処理されました</li><li>400 （無効なリクエスト） – サーバーはリクエストの処理方法を把握していません：<ul><li>受信 XML はこの仕様で公開されているスキーマに準拠していません。</li><li>プロキシされた mvpid に一意の ID がありません</li><li>プッシュされた requestorIds は、応答コード 400 の他のサーブレットコンテナの理由は存在しません</li></ul><li>401 （未認証） – 次のいずれかを示します。<ul><li>クライアントは、新しい access_token を要求する必要があります。</li><li>リクエストの発信元の IP アドレスが許可リストに存在しません</li><li>トークンが無効です</li></ul></li><li>403 （禁止） – 指定されたパラメーターで操作がサポートされていないか、プロキシ MVPDがプロキシとして設定されていないか、見つかりません</li><li>405 （許可されていない方法） - GETまたは POST 以外の HTTP メソッドが使用されました。 この特定のエンドポイントでは、HTTP メソッドが一般にサポートされていないか、サポートされていません。</li><li>500 （内部サーバーエラー） – リクエストプロセス中に、サーバーサイドでエラーが発生しました。</li></ul> |
 
 Curl の例：
 
@@ -147,7 +147,7 @@ ProxyMVPD が空の ProxyedMVPDs リストを持つ XML レコードをプッシ
 
 ## XSD 形式 {#xsd-format}
 
-Adobeでは、公開 web サービスとの間でプロキシ化された MVPD を公開/取得するために、以下に示す許可されたフォーマットを定義しています。
+Adobeでは、アドビのパブリック web サービスに対してプロキシ化された MVPD を公開/取得するために、以下の受け入れ可能な形式を定義しています。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -216,24 +216,24 @@ Adobeでは、公開 web サービスとの間でプロキシ化された MVPD �
 
 **要素に関するメモ：**
 
-&#x200B;- `id` （必須） – プロキシ化された MVPD ID は、次の文字のいずれかを使用して、MVPD の名前に関連する文字列である必要があります（トラッキング目的でプログラマーに公開されるため）。
-&#x200B;- 英数字、アンダースコア（&quot;_&quot;）、ハイフン（&quot;-&quot;）のいずれかです。
-&#x200B;- idID は、次の正規表現に準拠する必要があります。
+-   `id` （必須） – プロキシ化されたMVPD ID は、次のいずれかの文字を使用して、MVPDの名前に関連する文字列にする必要があります（トラッキング目的でプログラマーに公開されるため）。
+-   英数字、アンダースコア（&quot;_&quot;）、ハイフン（&quot;-&quot;）のいずれかです。
+-   idID は、次の正規表現に準拠する必要があります。
 `(a-zA-Z0-9((-)|_)*)`
 
      したがって、1 文字以上の文字で始まり、文字、数字、ダッシュ、アンダースコアで始まる必要があります 
 。
-&#x200B;- `iframeSize` （任意） - iframeSize 要素はオプションで、MVPD 認証ページが iFrame にあると想定される場合に、iFrame のサイズを定義します。 そうしないと、iframeSize 要素が存在しない場合、認証はブラウザーの完全なリダイレクトページで発生します。
-&#x200B;- `requestorIds` （任意） - requestorIds の値は、Adobeによって指定されます。 プロキシ化された MVPD が 1 つ以上の requestorId と統合されている必要があります。 「requestorIds」タグがプロキシ化された MVPD 要素に存在しない場合、プロキシ化された MVPD は、プロキシ MVPD に統合されたすべての利用可能なリクエスタと統合されます。
-&#x200B;- `ProviderID` （オプション） - ProviderID 属性が id 要素に存在する場合、ProviderID の値が、SAML 認証リクエストで（id 値ではなく）プロキシ化された MVPD/SubMVPD ID としてプロキシ MVPD に送信されます。 この場合、id の値は、プログラマーページに表示される MVPD ピッカー内、およびAdobe Pass Authentication 内部でのみ使用されます。 ProviderID 属性の長さは 1 ～ 128 文字にする必要があります。
+-   `iframeSize` （任意） - iframeSize 要素はオプションで、MVPD認証ページが iFrame 内にあると想定される場合に、iFrame のサイズを定義します。 そうしないと、iframeSize 要素が存在しない場合、認証はブラウザーの完全なリダイレクトページで発生します。
+-   `requestorIds` （任意） - requestorIds の値は、Adobeによって指定されます。 要件は、プロキシ化されたMVPDが 1 つ以上の requestorId と統合される必要があることです。 プロキシ化されたMVPD要素に「requestorIds」タグが存在しない場合、プロキシ化されたMVPDは、プロキシMVPDの下に統合された、使用可能なすべてのリクエスターと統合されます。
+-   `ProviderID` （オプション） - ProviderID 属性が id 要素に存在する場合、ProviderID の値が、SAML 認証リクエストで、（id 値ではなく）プロキシ化されたMVPD/SubMVPD ID として、プロキシMVPDに送信されます。 この場合、id の値は、プログラマーページに表示されるMVPD ピッカー、およびAdobe Pass Authentication 内部でのみ使用されます。 ProviderID 属性の長さは 1 ～ 128 文字にする必要があります。
 
 ## セキュリティ {#security}
 
 リクエストを有効と見なすには、次のルールを遵守する必要があります。
 
-&#x200B;- リクエストヘッダーには、[&#x200B; アクセストークンの取得 &#x200B;](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントで説明されているように取得されたセキュリティ Oauth2 アクセストークンが含まれている必要があります。
+- リクエストヘッダーには、[ アクセストークンの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントで説明されているように取得されたセキュリティ Oauth2 アクセストークンが含まれている必要があります。
  – このリクエストは、許可されている特定の IP アドレスから送信される必要があります。
-&#x200B;- リクエストは、SSL プロトコルを使用して送信する必要があります。
+- リクエストは、SSL プロトコルを使用して送信する必要があります。
 
 リクエストヘッダーに存在し、上記に示されていないすべてのパラメーターは無視されます。
 
@@ -241,12 +241,12 @@ Curl の例：
 
 `curl -X GET -H "Authorization: Bearer <access_token_here>" "https://mgmt-prequal.auth-staging.adobe.com/control/v3/mvpd-proxies/<proxy-mvpd-identifier>/mvpds"`
 
-## Adobe Pass Authentication Environments のプロキシ MVPD Web サービスエンドポイント {#proxy-mvpd-wevserv-endpoints}
+## Adobe Pass認証環境用のプロキシ MVPD Web サービスエンドポイント {#proxy-mvpd-wevserv-endpoints}
 
-&#x200B;- **実稼動 URL:** https://mgmt.auth.adobe.com/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds
-&#x200B;- **ステージング URL:** https://mgmt.auth-staging.adobe.com/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds
-&#x200B;- **PreQual-Production URL:** https://mgmt-prequal.auth.adobe.com/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds
-&#x200B;- **PreQual-Staging URL:** https://mgmt-prequal.auth-staging.adobe.com/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds
+- **実稼動 URL:** https://mgmt.auth.adobe.com/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds
+- **ステージング URL:** https://mgmt.auth-staging.adobe.com/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds
+- **PreQual-Production URL:** https://mgmt-prequal.auth.adobe.com/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds
+- **PreQual-Staging URL:** https://mgmt-prequal.auth-staging.adobe.com/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds
 
 <!--
 >[!RELATEDINFORMATION]

@@ -2,7 +2,7 @@
 title: 基本認証 – セカンダリアプリケーション – フロー
 description: REST API V2 – 基本認証 – セカンダリアプリケーション – フロー
 exl-id: 83bf592e-c679-4cfe-984d-710a9598c620
-source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
+source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
 workflow-type: tm+mt
 source-wordcount: '2006'
 ht-degree: 0%
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -65,7 +65,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
 次の図に示すように、事前に選択されたMVPDを使用して、セカンダリアプリケーション内で実行される基本認証フローを実装するには、次の手順に従います。
 
-![&#x200B; 事前に選択された mvpd を使用して、セカンダリ・アプリケーション内で認証を実行する &#x200B;](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-secondary-application-with-preselected-mvpd.png)
+![ 事前に選択された mvpd を使用して、セカンダリ・アプリケーション内で認証を実行する ](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-secondary-application-with-preselected-mvpd.png)
 
 *事前に選択された mvpd を使用して、セカンダリ・アプリケーション内で認証を実行する*
 
@@ -73,10 +73,10 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; 認証セッションの作成 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
+   > 次について詳しくは、[ 認証セッションの作成 ](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
    > 
-   > * `serviceProvider`、`mvpd`、`domainName`、`redirectUrl` などのすべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier` などのすべての _必須_ ヘッダー
+   > * _、_、`serviceProvider`、`mvpd` などのすべての `domainName` 必須 `redirectUrl` パラメーター
+   > * _、_ などのすべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
    > * すべての _オプション_ パラメーターおよびヘッダー
    >
    > <br/>
@@ -87,7 +87,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > セッション応答で提供される情報について詳しくは、[&#x200B; 認証セッションの作成 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
+   > セッション応答で提供される情報について詳しくは、[ 認証セッションの作成 ](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -98,7 +98,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **決定フローで続行：** セッションエンドポイント応答には、次のデータが含まれます。
    * `actionName` 属性は「authorize」に設定されます。
@@ -117,10 +117,10 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; 認証セッション情報の取得 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) API ドキュメントを参照してください。
+   > 次について詳しくは、[ 認証セッション情報の取得 ](../../apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) API ドキュメントを参照してください。
    >
-   > * `serviceProvider` や `code` など、すべての _必須_ パラメーター
-   > * `Authorization` のようなすべての _必須_ ヘッダー
+   > * _や_ など、すべての `serviceProvider` 必須 `code` パラメーター
+   > * _のようなすべての_ 必須 `Authorization` ヘッダー
    > * すべての _オプション_ パラメーターおよびヘッダー
 
 1. **認証セッションに関する情報を返す：** セッションエンドポイント応答には、次のデータが含まれています。
@@ -129,7 +129,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > セッション検証応答で提供される情報について詳しくは、[&#x200B; 認証セッション情報の取得 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) API ドキュメントを参照してください。
+   > セッション検証応答で提供される情報について詳しくは、[ 認証セッション情報の取得 ](../../apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -139,7 +139,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
    >[!TIP]
    >
@@ -149,9 +149,9 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; ユーザーエージェントでの認証の実行 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)API ドキュメントを参照してください。
+   > 次について詳しくは、[ ユーザーエージェントでの認証の実行 ](../../apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)API ドキュメントを参照してください。
    >
-   > * `serviceProvider` や `code` など、すべての _必須_ パラメーター
+   > * _や_ など、すべての `serviceProvider` 必須 `code` パラメーター
    > * すべての _オプション_ パラメーターおよびヘッダー
 
 1. **MVPD認証の完了：** 認証フローが正常に完了すると、ユーザーエージェントインタラクションは通常のプロファイルをAdobe Pass バックエンドに保存し、指定された `redirectUrl` に到達します。
@@ -160,10 +160,10 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; 特定のコードのプロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)API ドキュメントを参照してください。
+   > 次について詳しくは、[ 特定のコードのプロファイルの取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)API ドキュメントを参照してください。
    > 
-   > * `serviceProvider` や `code` など、すべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier` などのすべての _必須_ ヘッダー
+   > * _や_ など、すべての `serviceProvider` 必須 `code` パラメーター
+   > * _、_ などのすべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
    > * すべての _オプション_ パラメーターおよびヘッダー
 
    >[!TIP]
@@ -174,7 +174,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[&#x200B; 特定のコードのプロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[ 特定のコードのプロファイルの取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -184,7 +184,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 ## 事前に選択された mvpd を使用せずに、セカンダリ・アプリケーション内で認証を実行 {#perform-authentication-within-secondary-application-without-preselected-mvpd}
 
@@ -209,7 +209,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
 次の図に示すように、事前に選択されたMVPDを使用せずに、セカンダリアプリケーション内で実行される基本認証フローを実装するには、次の手順に従います。
 
-![&#x200B; 事前に選択された mvpd を使用せずに、セカンダリ・アプリケーション内で認証を実行 &#x200B;](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-secondary-application-without-preselected-mvpd.png)
+![ 事前に選択された mvpd を使用せずに、セカンダリ・アプリケーション内で認証を実行 ](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-secondary-application-without-preselected-mvpd.png)
 
 *事前に選択された mvpd を使用せずに、セカンダリ・アプリケーション内で認証を実行*
 
@@ -217,10 +217,10 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; 認証セッションの作成 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
+   > 次について詳しくは、[ 認証セッションの作成 ](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
    >
-   > * `serviceProvider` のようなすべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier` などのすべての _必須_ ヘッダー
+   > * _のようなすべての_ 必須 `serviceProvider` パラメーター
+   > * _、_ などのすべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
    > * すべての _オプション_ パラメーターおよびヘッダー
    >
    > <br/>
@@ -234,7 +234,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > セッション応答で提供される情報について詳しくは、[&#x200B; 認証セッションの作成 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
+   > セッション応答で提供される情報について詳しくは、[ 認証セッションの作成 ](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -244,7 +244,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **認証コードを表示：** ストリーミングアプリケーションは、セカンダリアプリケーション内で認証セッションを再開するために使用できる `code` ードを表示します。
 
@@ -252,17 +252,17 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[&#x200B; 認証セッションの再開 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[ 認証セッションの再開 ](../../apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md) API ドキュメントを参照してください。
    >
-   > * `serviceProvider`、`mvpd`、`domainName`、`redirectUrl` などのすべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier` などのすべての _必須_ ヘッダー
+   > * _、_、`serviceProvider`、`mvpd` などのすべての `domainName` 必須 `redirectUrl` パラメーター
+   > * _、_ などのすべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
    > * すべての _オプション_ パラメーターおよびヘッダー
 
 1. **次のアクションを示す：** セッションエンドポイント応答には、次のアクションに関するストリーミングアプリケーションのガイドに必要なデータが含まれています。
 
    >[!IMPORTANT]
    >
-   > セッション応答で提供される情報について詳しくは、[&#x200B; 認証セッションの再開 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md) API ドキュメントを参照してください。
+   > セッション応答で提供される情報について詳しくは、[ 認証セッションの再開 ](../../apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -273,7 +273,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
    >[!TIP]
    >
@@ -298,10 +298,10 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; 特定のコードのプロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)API ドキュメントを参照してください。
+   > 次について詳しくは、[ 特定のコードのプロファイルの取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)API ドキュメントを参照してください。
    >
-   > * `serviceProvider` や `code` など、すべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier` などのすべての _必須_ ヘッダー
+   > * _や_ など、すべての `serviceProvider` 必須 `code` パラメーター
+   > * _、_ などのすべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
    > * すべての _オプション_ パラメーターおよびヘッダー
 
    >[!TIP]
@@ -312,7 +312,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[&#x200B; 特定のコードのプロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[ 特定のコードのプロファイルの取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -322,4 +322,4 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。

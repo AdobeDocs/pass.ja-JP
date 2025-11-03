@@ -2,7 +2,7 @@
 title: Dynamic Client Registration のAndroid SDK
 description: Dynamic Client Registration のAndroid SDK
 exl-id: 8d0c1507-8e80-40a4-8698-fb795240f618
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '1301'
 ht-degree: 0%
@@ -13,11 +13,11 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#Intro}
 
@@ -37,12 +37,12 @@ Androidの場合、Chromeのカスタムタブを使用すると、他のアプ�
 
 ## 動的なクライアント登録 {#DCR}
 
-Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) で定義されている Dynamic Client Registration 手順を使用します。
+Android SDK v3.0 以降では、[Dynamic Client Registration Overview](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) で定義されている Dynamic Client Registration 手順を使用します。
 
 
 ## 機能デモ {#Demo}
 
-機能のコンテキストを詳しく説明する [&#x200B; このウェビナー &#x200B;](https://my.adobeconnect.com/pzkp8ujrigg1/) をご覧ください。これには、TVE ダッシュボードを使用してソフトウェアステートメントを管理する方法と、Android SDKの一部としてAdobeが提供するデモアプリケーションを使用して生成されたステートメントをテストする方法のデモが含まれています。
+機能のコンテキストを詳しく説明する [ このウェビナー ](https://my.adobeconnect.com/pzkp8ujrigg1/) をご覧ください。これには、TVE ダッシュボードを使用してソフトウェアステートメントを管理する方法と、Android SDKの一部としてAdobeから提供されるデモアプリケーションを使用して生成されたステートメントをテストする方法のデモが含まれています。
 
 ## API の変更点 {#API}
 
@@ -71,11 +71,11 @@ Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../
 
 ### setRequestor
 
-**説明：** チャネルの ID を確立します。 各チャネルには、Adobe Pass Authentication System のAdobeに登録すると、一意の ID が割り当てられます。 SSO およびリモート・トークンを処理する場合、アプリケーションがバックグラウンドにある場合に認証状態が変更される可能性があります。アプリケーションがフォアグラウンドになると、システム状態と同期するために setRequestor を再度呼び出すことができます（SSO が有効な場合はリモート・トークンを取得し、その間にログアウトが発生した場合はローカル・トークンを削除します）。
+**説明：** チャネルの ID を確立します。 各チャネルには、Adobe Pass Authentication System のAdobeへの登録時に一意の ID が割り当てられます。 SSO およびリモート・トークンを処理する場合、アプリケーションがバックグラウンドにある場合に認証状態が変更される可能性があります。アプリケーションがフォアグラウンドになると、システム状態と同期するために setRequestor を再度呼び出すことができます（SSO が有効な場合はリモート・トークンを取得し、その間にログアウトが発生した場合はローカル・トークンを削除します）。
 
 サーバー応答には、MVPD のリストと、チャネルの ID に添付されたいくつかの設定情報が含まれています。 サーバ応答は、アクセス イネーブラ コードによって内部的に使用されます。 setRequestorComplete （） コールバックを使用すると、操作のステータス（SUCCESS/FAIL）のみがアプリケーションに表示されます。
 
-*urls* パラメーターを使用しない場合、生成されるネットワーク呼び出しは、デフォルトのサービスプロバイダー URL （Adobeリリース/実稼動環境）をターゲットにします。
+*urls* パラメーターを使用しない場合、生成されるネットワーク呼び出しは、デフォルトのサービスプロバイダー URL （Adobe リリース/実稼動環境）をターゲットにします。
 
 *urls* パラメーターに値を指定すると、結果として得られるネットワーク呼び出しは、*urls* パラメーターで指定されるすべての URL をターゲットにします。 すべての設定要求が、別々のスレッドで同時にトリガーされます。 MVPD のリストをコンパイルする場合は、最初のレスポンダーが優先されます。 Access Enabler は、リスト内の各MVPDについて、関連するサービス プロバイダの URL を記憶します。 以降のすべての使用権限リクエストは、設定段階でターゲット MVPDとペアになっていた、サービスプロバイダーに関連付けられた URL に送られます。
 
@@ -93,8 +93,8 @@ Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../
 
 **パラメーター：**
 
-- *requestorID*：チャネルに関連付けられた一意の ID。 Adobe Pass Authentication サービスに初めて登録したときに、Adobeによって割り当てられた一意の ID をサイトに渡します。
-- *urls*：オプションのパラメーターです。デフォルトでは、Adobe サービスプロバイダーが使用されます [http://sp.auth.adobe.com/](http://sp.auth.adobe.com/)。 この配列を使用すると、Adobeが提供する認証サービスと承認サービスのエンドポイントを指定できます（デバッグ目的で別のインスタンスを使用することもできます）。 これを使用して、複数のAdobe Pass Authentication サービスプロバイダーインスタンスを指定できます。 その場合、MVPDのリストは、すべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー（最初に応答し、そのMVPDをサポートするプロバイダー）に関連付けられます。
+- *requestorID*：チャネルに関連付けられた一意の ID。 最初にAdobe Pass Authentication サービスに登録したときに、Adobeによって割り当てられた一意の ID をサイトに渡します。
+- *urls*：オプションのパラメーターです。デフォルトでは、Adobe サービスプロバイダーが使用されます [http://sp.auth.adobe.com/](http://sp.auth.adobe.com/)。 この配列を使用すると、Adobeが提供する認証サービスと承認サービスのエンドポイントを指定できます（デバッグ目的で別のインスタンスが使用される場合があります）。 これを使用して、複数のAdobe Pass Authentication サービスプロバイダーインスタンスを指定できます。 その場合、MVPDのリストは、すべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー（最初に応答し、そのMVPDをサポートするプロバイダー）に関連付けられます。
 
 非推奨（廃止予定）:
 
@@ -136,7 +136,7 @@ AccessEnabler.getInstance （appContext,softwareStatement,
 redirectUrl）
 
 
-### 2. アプリケーションの設定
+### &#x200B;2. アプリケーションの設定
 
 a. setRequestor （requestor\_id）
 

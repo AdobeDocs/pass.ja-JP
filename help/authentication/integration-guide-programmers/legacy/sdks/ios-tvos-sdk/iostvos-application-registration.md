@@ -2,7 +2,7 @@
 title: iOS/tvOS アプリケーションの登録
 description: iOS/tvOS アプリケーションの登録
 exl-id: 89ee6b5a-29fa-4396-bfc8-7651aa3d6826
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '632'
 ht-degree: 0%
@@ -14,27 +14,27 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#Intro}
 
-iOS/tvOS AccessEnabler SDKのバージョン 3.0 以降、Adobeのサーバで認証メカニズムを変更しています。 公開鍵と秘密鍵を使用して requestorID に署名する代わりに、SDKがサーバーに対して行うすべての呼び出しに後で使用されるアクセストークンを取得するために使用できるソフトウェアステートメント文字列の概念を導入します。 ソフトウェアのステートメントに加えて、アプリケーションのカスタム URL スキームも必要です。
+iOS/tvOS AccessEnabler SDKのバージョン 3.0 以降、Adobe サーバでの認証メカニズムが変わります。 公開鍵と秘密鍵を使用して requestorID に署名する代わりに、SDKがサーバーに対して行うすべての呼び出しに後で使用されるアクセストークンを取得するために使用できるソフトウェアステートメント文字列の概念を導入します。 ソフトウェアのステートメントに加えて、アプリケーションのカスタム URL スキームも必要です。
 
-詳しくは、[&#x200B; 動的なクライアント登録の概要 &#x200B;](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) を参照してください。
+詳しくは、[ 動的なクライアント登録の概要 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) を参照してください。
 
 ## ソフトウェア ステートメントとは {#Soft_state}
 
-ソフトウェアステートメントは、アプリケーションに関する情報を含む JWT トークンです。 各アプリケーションには、Adobeのシステム内のアプリケーションを特定するためにサーバが使用する固有のソフトウェア・ステートメントが必要です。 AccessEnabler SDKを初期化する際に Software Statement を渡す必要があります。このステートメントは、アプリケーションをAdobeに登録する際に使用されます。 登録時に、SDKはクライアント ID と、アクセストークンの取得に使用されるクライアント秘密鍵を受け取ります。 SDKからサーバーへの呼び出しには、有効なアクセストークンが必要です。 SDKは、アプリケーションの登録、アクセストークンの取得と更新を行います。
+ソフトウェアステートメントは、アプリケーションに関する情報を含む JWT トークンです。 各アプリケーションには、Adobe システム内のアプリケーションを識別するために使用される一意のソフトウェア ステートメントが必要です。 AccessEnabler SDKを初期化する際には、ソフトウェア ステートメントを渡す必要があります。このステートメントは、Adobeへのアプリケーション登録に使用されます。 登録時に、SDKはクライアント ID と、アクセストークンの取得に使用されるクライアント秘密鍵を受け取ります。 SDKからサーバーへの呼び出しには、有効なアクセストークンが必要です。 SDKは、アプリケーションの登録、アクセストークンの取得と更新を行います。
 
 **注：** ソフトウェア ステートメントはアプリ固有であり、同じソフトウェア ステートメントを複数のアプリケーションで使用することはできません。 プログラマーレベルのソフトウェアステートメントも同じことに従うことに注意してください。つまり、シングルチャネルかマルチチャネルかに関わらず、単一のアプリケーションにのみ使用できます。 この制限は、カスタムスキームにも適用されます。
 
 ## ソフトウェアに関する声明の入手方法 {#obtain}
 
-### ダッシュボードの TVE Adobeにアクセスできる場合：
+### Adobeの TVE ダッシュボードにアクセスできる場合：
 
 - ブラウザーを開き、<https://experience.adobe.com/#/pass/authentication> に移動します。
 - 「」セクション `Channels` 移動し、チャネルを選択します。
@@ -45,9 +45,9 @@ iOS/tvOS AccessEnabler SDKのバージョン 3.0 以降、Adobeのサーバで�
 - すべての登録済みアプリケーションのリストが表示されます。 「」をクリックします   作成 `Download` たアプリケーションのボタン。 ソフトウェアのステートメントをダウンロードする準備が整うまで、数分待つ必要がある場合があります。
 - テキストファイルがダウンロードされます。 その内容をソフトウェアのステートメントとして使用します。
 
-詳しくは、[&#x200B; 動的なクライアント登録管理 &#x200B;](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#dynamic-client-registration-management) を参照してください。
+詳しくは、[ 動的なクライアント登録管理 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#dynamic-client-registration-management) を参照してください。
 
-### ダッシュボードの TVE Adobeへのアクセス権がない場合：
+### Adobeの TVE Dashboard へのアクセス権がない場合：
 
 <tve-support@adobe.com> にチケットを送信します。 チャネル、アプリケーション名、バージョン、プラットフォームなど、必要な情報をすべて含めてください。サポートチームの誰かが、ソフトウェアのステートメントを作成します。
 
@@ -57,7 +57,7 @@ iOS/tvOS AccessEnabler SDKのバージョン 3.0 以降、Adobeのサーバで�
 
 ## アプリケーションのカスタム URL スキームの生成 {#generating}
 
-### ダッシュボードの TVE Adobeにアクセスできる場合：
+### Adobeの TVE ダッシュボードにアクセスできる場合：
 
 - ブラウザーを開き、<https://experience.adobe.com/#/pass/authentication> に移動します。
 - 「」セクション `Channels` 移動し、チャネルを選択します。
@@ -66,7 +66,7 @@ iOS/tvOS AccessEnabler SDKのバージョン 3.0 以降、Adobeのサーバで�
 - アプリケーションに対して新しいカスタムスキームが生成されます。 例：`adbe.1JqxQsYhQOCIrwPjaooY8w://`
 - 変更をサーバーにプッシュします。
 
-### ダッシュボードの TVE Adobeへのアクセス権がない場合：
+### Adobeの TVE Dashboard へのアクセス権がない場合：
 
 <tve-support@adobe.com> にチケットを送信します。 チャネル ID を含めてください。サポートチームの誰かがカスタムスキームを作成します。
 

@@ -2,7 +2,7 @@
 title: REST API クックブック（サーバー間）
 description: REST API クックブックサーバーからサーバーへ。
 exl-id: 36ad4a64-dde8-4a5f-b0fe-64b6c0ddcbee
-source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '1856'
 ht-degree: 0%
@@ -13,11 +13,11 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#overview}
 
@@ -25,10 +25,10 @@ ht-degree: 0%
 
 ### スロットルメカニズム
 
-Adobe Pass認証 REST API は、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) によって制御されます。
+Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) によって制御されます。
 
 
-## Components {#components}
+## コンポーネント {#components}
 
 動作しているサーバー間ソリューションには、次のコンポーネントが含まれます。
 
@@ -39,7 +39,7 @@ Adobe Pass認証 REST API は、[&#x200B; スロットルメカニズム &#x200B
 | | \[ オプション\] AuthN モジュール | streaming Device にユーザーエージェント（Web ブラウザー）がある場合、AuthN モジュールはMVPD IdP でユーザーの認証を行う必要があります。 |
 | \[ オプション\] AuthN デバイス | AuthN アプリ | ストリーミングデバイスにユーザーエージェント（Web ブラウザー）がない場合、AuthN アプリケーションは、Web ブラウザーを使用して別のユーザーのデバイスからアクセスする、プログラマー向けの Web アプリケーションです。 |
 | プログラマ基盤 | プログラマーサービス | ストリーミングデバイスをAdobe Pass サービスにリンクして、認証と承認の決定を取得するサービス。 |
-| Adobe基盤 | Adobe Pass サービス | MVPD IdP および AuthZ サービスと統合され、認証と承認の決定を行うサービス。 |
+| Adobe インフラストラクチャ | Adobe Pass サービス | MVPD IdP および AuthZ サービスと統合され、認証と承認の決定を行うサービス。 |
 | MVPD インフラストラクチャ | MVPD IdP | ユーザーの ID を検証するために、資格情報ベースの認証サービスを提供するMVPD エンドポイント。 |
 | | MVPD AuthZ サービス | ユーザーの購読、保護者による制限などに基づいて認証の決定を行うMVPD エンドポイント。 |
 
@@ -48,7 +48,7 @@ Adobe Pass認証 REST API は、[&#x200B; スロットルメカニズム &#x200B
 ### 動的クライアント登録（DCR）
 
 
-Adobe Passは、DCR を使用して、プログラマーアプリケーションまたはサーバーとAdobe Pass サービスの間のクライアント通信を保護します。 DCR フローは独立しており、[Dynamic Client Registration Overview](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントで説明されています。
+Adobe Passは、DCR を使用して、プログラマーアプリケーションまたはサーバーとAdobe Pass サービスの間のクライアント通信を保護します。 DCR フローは独立しており、[Dynamic Client Registration Overview](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントで説明されています。
 
 
 ### 認証（authN）
@@ -67,13 +67,13 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 9. プログラマーサービスは、ストリーミングデバイスアプリと、手順\#7 でリクエストされた処理済みMVPD リストに regcode を返します。 注意：処理済みのMVPDのリスト形式はプログラマーによって指定され、特定の MVPD （許可リストまたはブロックリスト）を明示的に許可またはブロックするようにフィルタリングできます。
 10. が AuthN デバイスと異なる場合（つまり、「2 番目の画面」）、選択または必要に応じて（つまり、ストリーミングデバイスがユーザーエージェントをサポートしていない場合）、ストリーミングデバイスは regcode と、ユーザーが AuthN アプリケーションにアクセスするための URI を表示する必要があります。 ユーザーは、AuthN デバイスのユーザーエージェントに URI を入力して AuthN アプリケーションを起動し、そのアプリケーションに regcode を入力します。 ストリーミングデバイスが AuthN デバイスと同じ場合、regcode をプログラムによって AuthN モジュールに渡すことができます。
 11. AuthN モジュールは、MVPD ピッカーを表示して、MVPDでのユーザー認証を開始します。 ユーザーがMVPDを選択すると、AuthN モジュールが regcode を使用して **authenticate** を呼び出します。これにより、ユーザーエージェントがMVPD IdP にリダイレクトされます。 MVPDでユーザーが正常に認証されると、ユーザーエージェントはAdobe Pass サービスを通じてリダイレクトされ戻されます。ここで成功した認証は regcode で記録され、その後 AuthN モジュールにリダイレクトされます。
-12. ストリーミングデバイスが AuthN デバイスと異なる場合、AuthN デバイスは成功した認証メッセージをユーザーに表示し、続行する手順を示す必要があります（例：「成功」）。 ゲーム機に戻って [...\]&rbrack; を続けることができます）。 ストリーミングデバイスが AuthN デバイスと同じ場合、ストリーミングデバイスはプログラムによって認証完了を検出できます。
+12. ストリーミングデバイスが AuthN デバイスと異なる場合、AuthN デバイスは成功した認証メッセージをユーザーに表示し、続行する手順を示す必要があります（例：「成功」）。 ゲーム機に戻って [...\]] を続けることができます）。 ストリーミングデバイスが AuthN デバイスと同じ場合、ストリーミングデバイスはプログラムによって認証完了を検出できます。
 
 
 
 次の図に、認証フローを示します。
 
-![](../../../../assets/authn-flow.png)
+![](/help//authentication/assets/authn-flow.png)
 
 ### 認証（authZ）
 
@@ -86,7 +86,7 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 次の図に、認証フローを示します。
 
-![](../../../../assets/authz-flow.png)
+![](/help//authentication/assets/authz-flow.png)
 
 ### ログアウト
 
@@ -98,7 +98,7 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 次の図に、ログアウトフローを示します。
 
-![](../../../../assets/logout-flow.png)
+![](/help//authentication/assets/logout-flow.png)
 
 ### \[ オプション\] 事前認証（プリフライト）
 
@@ -106,7 +106,7 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 1. ユーザが認証されると、ストリーミングデバイスは、プログラマーサービスを呼び出して、ユーザがストリーミングする権利を有するコンテンツを要求することができる。
 
-1. プログラマーサービスは、リソース ID のリストを使用してAdobe Pass **事前認証** API を呼び出す必要があります。この ID は、通常、ユーザーがストリーム配信を受ける資格のあるチャネルを表す単純な文字列です。 *メモ：現在、* ***preauthorize*** *呼び出しは、リストを 5 つのリソース ID に制限するように設定されています。 5 つ以上のリソースが必要な場合は、複数の&#x200B;**&#x200B;**&#x200B;preauthorize&#x200B;**&#x200B;**&#x200B;コールを行うか、MVPD からの契約で 5 つ以上のリソースを受け入れるようにコールを設定することができます。 実装者は、MVPDのリソースに対する&#x200B;**&#x200B;**&#x200B;preauthorize&#x200B;**&#x200B;**&#x200B;call のコストと、プログラマへの応答時間を念頭に置き、呼び出しの使用を慎重に構造化する必要があります。*
+1. プログラマーサービスは、リソース ID のリストを使用してAdobe Pass **事前認証** API を呼び出す必要があります。この ID は、通常、ユーザーがストリーム配信を受ける資格のあるチャネルを表す単純な文字列です。 *メモ：現在、* ***preauthorize*** *呼び出しは、リストを 5 つのリソース ID に制限するように設定されています。 5 つ以上のリソースが必要な場合は、複数の****preauthorize****コールを行うか、MVPD からの契約で 5 つ以上のリソースを受け入れるようにコールを設定することができます。 実装者は、MVPDのリソースに対する****preauthorize****call のコストと、プログラマへの応答時間を念頭に置き、呼び出しの使用を慎重に構造化する必要があります。*
 
 1. **preauthorize** 呼び出しは、リクエストの各リソース ID に TRUE または FALSE の値を含む JSON オブジェクトを使用してプログラマーサービスに応答し、ユーザーに関連するチャネルの権利が付与されているかどうかを示します。 *メモ：ネットワークエラーやタイムアウトなどが原因で、MVPDから特定のリソース ID の回答が得られない場合、値はデフォルトで FALSE になります。*
 
@@ -114,7 +114,7 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 次の図に、事前認証フローを示します。
 
-![](../../../../assets/preauthz-flow.png)
+![](/help//authentication/assets/preauthz-flow.png)
 
 
 ### \[ オプション\] メタデータ
@@ -130,7 +130,7 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 
 
-![](../../../../assets/user-metadata-api-preauthz.png)
+![](/help//authentication/assets/user-metadata-api-preauthz.png)
 
 
 
@@ -152,14 +152,14 @@ Adobe Pass サービスは、米国全体に地理的に分散した複数のデ
 インフラストラクチャ
 
 
-プログラマーサービスは、Adobeがトラフィックを再ルーティングする必要がある場合、DNS キャッシュを最大 30 秒に制限する必要があります。 これは、データセンターが利用できなくなったときに発生する可能性があります。
+プログラマーサービスは、Adobeがトラフィックの再ルーティングを必要とする場合、DNS キャッシュを最大 30 秒に制限する必要があります。 これは、データセンターが利用できなくなったときに発生する可能性があります。
 
 
 プログラマーは、実稼動環境の公開 IP 範囲を指定する必要があります。 これらは、アクセス用にAdobe Pass インフラストラクチャの IP の許可リストに登録され、Adobeの公正な API 使用ポリシーによって管理されます。
 
 ### ステージング
 
-ステージング環境は最小限にすることができますが、すべてのシステムコンポーネントとビジネスロジックを含める必要があります。 実稼動環境と同様に機能し、実稼動環境以外のリリースをテストできます。 ステージング環境をAdobe Pass テスト環境に接続して、プログラマーが使用したり、必要に応じてAdobeで使用したりできれば、テストとトラブルシューティングに役立ちます。
+ステージング環境は最小限にすることができますが、すべてのシステムコンポーネントとビジネスロジックを含める必要があります。 実稼動環境と同様に機能し、実稼動環境以外のリリースをテストできます。 ステージング環境をAdobe Pass テスト環境に接続して、プログラマーが使用したり、必要に応じてAdobeで使用したりできるので、テストとトラブルシューティングを支援できます。
 
 ### 機能要件
 
@@ -171,20 +171,20 @@ Adobe Pass サービスは、米国全体に地理的に分散した複数のデ
     
     
     
-     ヘッダーは&#x200B;**regcode**&#x200B;および&#x200B;**authorize**&#x200B;呼び出しに追加する必要があります 
+     ヘッダーは**regcode**および**authorize**呼び出しに追加する必要があります 
     
      例：
     
     POST /reggie/v1/{req\_id}/regcode HTTP/1.1
     
-    X-Forwarded-For:203.45.101.2001.20
+    X-Forwarded-For:203.45.100.101.200
     
     
     
-     GET /api/v1/authorize HTTP FOR:203.45.101.20
-/1.1
+    GET /api/v1/authorize HTTP FOR:203
     
-    X-Forwarded-For
+    45.101.20
+/1.1.X-Forwarded
 
 
 プログラマーサービスは、個々の MVPD または統合アプリ（デバイス IP、ソースポート、デバイス情報、MRSS、ECID などのオプションデータ）で必要なデータと形式を送信する必要があります。<!--Please see the documentation for [Passing Device and Connection Information Cookbook](http://tve.helpdocsonline.com/passing-device-information-cookbook)-->。

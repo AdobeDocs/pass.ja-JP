@@ -2,9 +2,9 @@
 title: Adobe Pass Authentication 2.70 リリースノート
 description: Adobe Pass Authentication 2.70 リリースノート
 exl-id: 81713f8e-bc51-4057-9b00-6a2d6c83cd02
-source-git-commit: ecafc3a92f691203d8113a741f0b6cd00a134e80
+source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
 workflow-type: tm+mt
-source-wordcount: '0'
+source-wordcount: '136'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -35,7 +35,7 @@ Adobe Pass認証：adobe-pass-**2.70**
 * パッチが適用されたセキュリティ脆弱性。
 * API サービスの低下を改善しました。
    * Degradation API のセキュリティメカニズムとして DCR を使用します。
-   * 詳細については、こちらを参照してください。[&#x200B; 最適化機能 &#x200B;](../integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
+   * 詳細については、こちらを参照してください。[ 最適化機能 ](/help/premium-workflow/degraded-access/degradation-feature.md)
 
 #### REST API
 

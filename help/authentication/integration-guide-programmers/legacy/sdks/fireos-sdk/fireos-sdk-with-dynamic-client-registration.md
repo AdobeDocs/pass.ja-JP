@@ -2,7 +2,7 @@
 title: Dynamic Client Registration を使用したAmazon FireOS SDK
 description: Dynamic Client Registration を使用したAmazon FireOS SDK
 exl-id: 27acf3f5-8b7e-4299-b0f0-33dd6782aeda
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '1169'
 ht-degree: 0%
@@ -14,19 +14,19 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
-## <span id=""></span> はじめに {#Intro}
+## <span id=""></span> はじめに  {#Intro}
 
 FireOS AccessEnabler SDK for FireTV は、セッション Cookie を使用せずに Authentication を有効にするように変更されました。 Cookie へのアクセスを制限するブラウザーが増えているので、認証を許可するには別の方法が必要でした。
 
-**FireOS SDK 3.0.4** は、署名済みリクエスター ID とセッション cookie 認証に基づく現在のアプリ登録メカニズムを [Dynamic Client Registration Overview](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) に置き換えます。
+**FireOS SDK 3.0.4** は、署名済みリクエスター ID とセッション cookie 認証に基づく現在のアプリ登録メカニズムを [Dynamic Client Registration Overview](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) に置き換えます。
 
 
 ## API の変更点 {#API}
@@ -54,11 +54,11 @@ FireOS AccessEnabler SDK for FireTV は、セッション Cookie を使用せず
 
 ### setRequestor
 
-**説明：** チャネルの ID を確立します。 各チャネルには、Adobe Pass Authentication System のAdobeに登録すると、一意の ID が割り当てられます。 SSO およびリモート・トークンを処理する場合、アプリケーションがバックグラウンドにある場合に認証状態が変更される可能性があります。アプリケーションがフォアグラウンドになると、システム状態と同期するために setRequestor を再度呼び出すことができます（SSO が有効な場合はリモート・トークンを取得し、その間にログアウトが発生した場合はローカル・トークンを削除します）。
+**説明：** チャネルの ID を確立します。 各チャネルには、Adobe Pass Authentication System のAdobeへの登録時に一意の ID が割り当てられます。 SSO およびリモート・トークンを処理する場合、アプリケーションがバックグラウンドにある場合に認証状態が変更される可能性があります。アプリケーションがフォアグラウンドになると、システム状態と同期するために setRequestor を再度呼び出すことができます（SSO が有効な場合はリモート・トークンを取得し、その間にログアウトが発生した場合はローカル・トークンを削除します）。
 
 サーバー応答には、MVPD のリストと、チャネルの ID に添付されたいくつかの設定情報が含まれています。 サーバ応答は、アクセス イネーブラ コードによって内部的に使用されます。 setRequestorComplete （） コールバックを使用すると、操作のステータス（SUCCESS/FAIL）のみがアプリケーションに表示されます。
 
-*urls* パラメーターを使用しない場合、生成されるネットワーク呼び出しは、デフォルトのサービスプロバイダー URL （Adobeリリースの実稼動環境）をターゲットにします。
+*urls* パラメーターを使用しない場合、生成されるネットワーク呼び出しは、デフォルトのサービスプロバイダー URL （Adobe リリースの実稼動環境）をターゲットにします。
 
 *urls* パラメーターに値を指定すると、結果として得られるネットワーク呼び出しは、*urls* パラメーターで指定されるすべての URL をターゲットにします。 すべての設定要求が、別々のスレッドで同時にトリガーされます。 MVPD のリストをコンパイルする場合は、最初のレスポンダーが優先されます。 Access Enabler は、リスト内の各MVPDについて、関連するサービス プロバイダの URL を記憶します。 以降のすべての使用権限リクエストは、設定段階でターゲット MVPDとペアになっていた、サービスプロバイダーに関連付けられた URL に送られます。
 
@@ -77,7 +77,7 @@ FireOS AccessEnabler SDK for FireTV は、セッション Cookie を使用せず
 **パラメーター：**
 
 - *requestorID*：チャネルに関連付けられた一意の ID。 Adobe Pass Authentication サービスに初めて登録する際に、Adobeによって割り当てられた一意の ID をサイトに渡します。
-- *urls*：オプションのパラメーターです。デフォルトでは、Adobe サービスプロバイダーが使用されます（http://sp.auth.adobe.com/）。 この配列を使用すると、Adobeが提供する認証サービスと承認サービスのエンドポイントを指定できます（デバッグ目的で別のインスタンスを使用することもできます）。 これを使用して、複数のAdobe Pass Authentication サービスプロバイダーインスタンスを指定できます。 その場合、MVPDのリストは、すべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー（最初に応答し、そのMVPDをサポートするプロバイダー）に関連付けられます。
+- *urls*：オプションのパラメーターです。デフォルトでは、Adobe サービスプロバイダーが使用されます（http://sp.auth.adobe.com/）。 この配列を使用すると、Adobeが提供する認証サービスと承認サービスのエンドポイントを指定できます（デバッグ目的で別のインスタンスが使用される場合があります）。 これを使用して、複数のAdobe Pass Authentication サービスプロバイダーインスタンスを指定できます。 その場合、MVPDのリストは、すべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー（最初に応答し、そのMVPDをサポートするプロバイダー）に関連付けられます。
 
 非推奨（廃止予定）:
 
@@ -152,7 +152,7 @@ FireOS AccessEnabler SDK for FireTV は、セッション Cookie を使用せず
    - ログインがキャンセルされました：MVPDの選択をリセット
    - 認証が完了したときにキャプチャするための URL スキームが「adobepass://android.app」として確立されています
 
-- e. get/checkAuthorization :SDKは、Authorization: Bearer **access\_token &#x200B;** として、ヘッダーに **access\_token** を含めます。
+- e. get/checkAuthorization :SDKは、Authorization: Bearer **access\_token **として、ヘッダーに **access\_token** を含めます。
 
 - 認証に成功すると、メディアトークンを取得するための呼び出しが行われます
 

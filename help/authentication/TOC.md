@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 63dc9636f74f8eee1af6205c4d31a01df4503050
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
-source-wordcount: '1279'
+source-wordcount: '1212'
 ht-degree: 3%
 
 ---
@@ -57,17 +57,17 @@ ht-degree: 3%
    - [MVPD キックスタートガイド](kickstart/mvpd-kickstart-guide.md)
    - [サポート手順に関する FAQ](kickstart/support-procedures-faqs.md)
 - プログラマー向け統合ガイド {#integration-guide-programmers}
-   - [プログラマー統合ガイド](integration-guide-programmers/programmer-integration-guide-overview.md)
+   - [プログラマー統合ガイド](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)
    - [必要なシステム構成](integration-guide-programmers/minimum-system-requirements.md)
    - [スロットルメカニズム](integration-guide-programmers/throttling-mechanism.md)
    - REST API {#rest-apis}
       - REST API DCR {#rest-api-dcr}
-         - [Dynamic Client Registration の概要](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)
+         - [Dynamic Client Registration の概要](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)
          - [動的クライアント登録の用語集](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-glossary.md)
          - [Dynamic Client Registration の FAQ](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md)
          - API {#rest-api-dcr-apis}
             - [クライアント資格情報の取得](integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md)
-            - [アクセストークンの取得](integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md)
+            - [アクセストークンの取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md)
          - フロー {#rest-api-dcr-flows}
             - [動的なクライアント登録フロー](integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)
       - REST API V2 {#rest-api-v2}
@@ -137,33 +137,12 @@ ht-degree: 3%
          - [メディアトークン](integration-guide-programmers/features-standard/entitlements/media-tokens.md)
       - エラーレポート {#error-reporting}
          - [拡張エラーコード](integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)
-      - シングルサインオンアクセス {#sso-access}
-         - パートナーのシングル サインオン {#partner-sso}
-            - Appleのシングルサインオン {#apple-sso}
-               - [Apple SSO の概要](integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md)
-               - [Apple SSO クックブック（REST API V2）](integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md)
-         - Platform のシングルサインオン {#platform-sso}
-            - Amazonのシングルサインオン {#amazon-sso}
-               - [Amazon SSO クックブック（REST API V2）](integration-guide-programmers/features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
-            - Roku のシングルサインオン {#roku-sso}
-               - [Roku SSO クックブック（REST API V2）](integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-cookbook-rest-api-v2.md)
-      - ホームベースの認証アクセス {#hba-access}
-         - [ホームベースの認証（HBA）](integration-guide-programmers/features-standard/hba-access/home-based-authentication.md)
       - プライバシーサポート {#privacy-support}
-         - [プライバシーサポートの概要](integration-guide-programmers/features-premium/privacy-support/privacy-supp-overview.md)
-         - [プライバシーリクエストの作成方法](integration-guide-programmers/features-premium/privacy-support/make-privacy-req.md)
-   - プレミアム機能 {#features-premium}
-      - 一時アクセス {#temporary-access}
-         - [TempPass フィーチャ](integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
-      - 縮退アクセス {#degraded-access}
-         - [縮退機能](integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
-      - ESM {#esm}
-         - [使用権限サービスの監視の概要](integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md)
-         - [使用権限サービスモニタリング API](integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md)
-         - [サーバーサイド指標](integration-guide-programmers/features-premium/esm/understanding-serverside-metrics.md)
+         - [プライバシーサポートの概要](integration-guide-programmers/features-standard/privacy-support/privacy-supp-overview.md)
+         - [プライバシーリクエストの作成方法](integration-guide-programmers/features-standard/privacy-support/make-privacy-req.md)
       - Analytics {#analytics}
-         - [Adobe Pass Authentication サーバーサイドのデータのAdobe Analyticsへの統合](integration-guide-programmers/features-premium/analytics/integrate-authn-servr-data-analytics.md)
-         - [Adobe Pass認証でのExperience Cloud ID の使用](integration-guide-programmers/features-premium/analytics/exp-cloud-id-authn.md)
+         - [Adobe Pass Authentication サーバーサイドのデータのAdobe Analyticsへの統合](integration-guide-programmers/features-standard/analytics/integrate-authn-servr-data-analytics.md)
+         - [Adobe Pass認証でのExperience Cloud ID の使用](/help/authentication/integration-guide-programmers/features-standard/analytics/exp-cloud-id-authn.md)
    - レガシー {#legacy}
       - （レガシー） REST API V1 {#rest-api-v1}
          - [（レガシー） REST API V1 の概要](integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)
