@@ -18,7 +18,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -152,7 +152,7 @@ FireOS AccessEnabler SDK for FireTV は、セッション Cookie を使用せず
    - ログインがキャンセルされました：MVPDの選択をリセット
    - 認証が完了したときにキャプチャするための URL スキームが「adobepass://android.app」として確立されています
 
-- e. get/checkAuthorization :SDKは、Authorization: Bearer **access\_token **として、ヘッダーに **access\_token** を含めます。
+- e. get/checkAuthorization :SDKは、Authorization: Bearer **access\_token &#x200B;** として、ヘッダーに **access\_token** を含めます。
 
 - 認証に成功すると、メディアトークンを取得するための呼び出しが行われます
 

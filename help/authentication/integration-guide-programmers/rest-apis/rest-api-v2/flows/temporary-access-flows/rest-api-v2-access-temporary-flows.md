@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -58,7 +58,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
 次の図に示すように、基本的な TempPass を使用して認証フローを実装するには、以下の手順に従います。
 
-![ 基本的な TempPass を使用した認証決定の取得 ](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-authorization-decisions-using-basic-temppass-flow.png)
+![&#x200B; 基本的な TempPass を使用した認証決定の取得 &#x200B;](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-authorization-decisions-using-basic-temppass-flow.png)
 
 *基本的な TempPass を使用した認証決定の取得*
 
@@ -66,7 +66,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ 特定の mvpd を使用した認証決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した認証決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    > 
    > * _、_、`serviceProvider` など、すべての `mvpd` 必須 `resources` パラメーター
    > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -78,7 +78,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[ 特定の mvpd を使用した認証の決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    >
    > <br/>
    > 
@@ -89,7 +89,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    >
    > <br/>
    > 
@@ -99,7 +99,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **メディアトークンでストリームを開始：** ストリーミングアプリケーションは、メディアトークンを使用してコンテンツを再生します。
 
@@ -127,7 +127,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
 次の図に示すように、プロモーション用の TempPass を使用して認証フローを実装するには、次の手順に従います。
 
-![ プロモーション TempPass を使用した承認決定の取得 ](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-authorization-decisions-using-promotional-temppass-flow.png)
+![&#x200B; プロモーション TempPass を使用した承認決定の取得 &#x200B;](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-authorization-decisions-using-promotional-temppass-flow.png)
 
 *プロモーション TempPass を使用した承認決定の取得*
 
@@ -135,7 +135,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ 特定の mvpd を使用した認証決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した認証決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    >
    > * _、_、`serviceProvider` など、すべての `mvpd` 必須 `resources` パラメーター
    > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -155,7 +155,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[ 特定の mvpd を使用した認証の決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -166,7 +166,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    >
    > <br/>
    > 
@@ -177,7 +177,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **メディアトークンでストリームを開始：** ストリーミングアプリケーションは、メディアトークンを使用してコンテンツを再生します。
 
@@ -205,7 +205,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
 次の図に示すように、プロモーション用の TempPass を使用して最大数のリソースを使用する際に承認フローを実装するには、以下の手順に従います。
 
-![ プロモーションの TempPass を使用して最大数のリソースを使用 ](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-consume-maximum-number-of-resources-using-promotional-temppass-flow.png)
+![&#x200B; プロモーションの TempPass を使用して最大数のリソースを使用 &#x200B;](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-consume-maximum-number-of-resources-using-promotional-temppass-flow.png)
 
 *プロモーションの TempPass を使用して最大数のリソースを使用*
 
@@ -213,7 +213,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[ 特定の mvpd のプロファイルを取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
+   > 次について詳しくは、[&#x200B; 特定の mvpd のプロファイルを取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
    >
    > * _、_ など、すべての `serviceProvider` 必須 `mvpd` パラメーター
    > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -229,7 +229,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[ 特定の mvpd のプロファイルを取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd のプロファイルを取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -240,7 +240,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    > 
    > <br/>
    >
-   > 基本検証が失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    >
    > <br/>
    > 
@@ -251,7 +251,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **決定フローで続行：** プロファイルエンドポイント応答にプロファイルが含まれている場合、ストリーミングアプリケーションは一時的なプロファイル情報を使用して、後続の決定フローを続行します。
 
@@ -259,7 +259,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
    >[!IMPORTANT]
    > 
-   > 次の項目について詳しくは、[ 特定の mvpd を使用した認証決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した認証決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    >
    > * _、_、`serviceProvider` など、すべての `mvpd` 必須 `resources` パラメーター
    > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -279,7 +279,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[ 特定の mvpd を使用した認証の決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -290,7 +290,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    > 
    > <br/>
    > 
@@ -301,13 +301,13 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **認証決定の取得：** ストリーミングアプリケーションは、決定の承認エンドポイントを呼び出して、特定のリソースの認証決定を取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ 特定の mvpd を使用した認証決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した認証決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    >
    > * _、_、`serviceProvider` など、すべての `mvpd` 必須 `resources` パラメーター
    > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -323,11 +323,11 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
 1. **プロモーションの TempPass を検証：** Adobe Pass サーバーは、指定された `serviceProvider` と `mvpd` の間の統合に適用されたプロモーションの TempPass の有効な設定があるかどうかを確認します。
 
-1. **詳細を含んだ決定 `Deny` 返す：** 決定の承認承認エンドポイント応答には、`Deny` 拡張エラーコード [ ドキュメントに従った ](../../../../features-standard/error-reporting/enhanced-error-codes.md) 決定とエラーペイロードが含まれています。
+1. **詳細を含んだ決定 `Deny` 返す：** 決定の承認承認エンドポイント応答には、`Deny` 拡張エラーコード [&#x200B; ドキュメントに従った &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) 決定とエラーペイロードが含まれています。
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[ 特定の mvpd を使用した認証の決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -338,7 +338,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    >
    > <br/>
    > 
@@ -349,7 +349,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **決定の詳細 `Deny` 処理：** ストリーミングアプリケーションは、応答からのエラー情報を処理し、それを使用して、オプションで特定のメッセージをユーザーインターフェイスに表示できます。
 
@@ -363,8 +363,8 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
 基本またはプロモーションの TempPass の有効期限が切れた場合に認証決定を取得する前に、次の前提条件が満たされていることを確認します。
 
-* [ 基本的な TempPass を使用して認証決定を取得するための前提条件 ](#prerequisites-retrieve-authorization-decisions-using-basic-temppass)
-* [ プロモーション TempPass を使用して承認の決定を取得するための前提条件 ](#prerequisites-retrieve-authorization-decisions-using-promotional-temppass)。
+* [&#x200B; 基本的な TempPass を使用して認証決定を取得するための前提条件 &#x200B;](#prerequisites-retrieve-authorization-decisions-using-basic-temppass)
+* [&#x200B; プロモーション TempPass を使用して承認の決定を取得するための前提条件 &#x200B;](#prerequisites-retrieve-authorization-decisions-using-promotional-temppass)。
 
 >[!IMPORTANT]
 >
@@ -379,7 +379,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
 次の図に示すように、基本またはプロモーションの TempPass の有効期限が切れた場合に認証フローを実装するには、指定の手順に従います。
 
-![ 基本またはプロモーションの TempPass の有効期限が切れた場合の承認決定の取得 ](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-authorization-decisions-when-basic-or-promotional-temppass-expires-flow.png)
+![&#x200B; 基本またはプロモーションの TempPass の有効期限が切れた場合の承認決定の取得 &#x200B;](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-authorization-decisions-when-basic-or-promotional-temppass-expires-flow.png)
 
 *基本またはプロモーションの TempPass の有効期限が切れた場合の承認決定の取得*
 
@@ -387,7 +387,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ 特定の mvpd を使用した認証決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した認証決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    > 
    > * _、_、`serviceProvider` など、すべての `mvpd` 必須 `resources` パラメーター
    > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -403,11 +403,11 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
 1. **基本またはプロモーションの TempPass の検証：** Adobe Pass サーバーは、指定された `serviceProvider` と `mvpd` の間の統合に適用された基本またはプロモーションの TempPass の有効な設定があるかどうかを確認します。
 
-1. **詳細を含んだ決定 `Deny` 返す：** 決定の承認承認エンドポイント応答には、`Deny` 拡張エラーコード [ ドキュメントに従った ](../../../../features-standard/error-reporting/enhanced-error-codes.md) 決定とエラーペイロードが含まれています。
+1. **詳細を含んだ決定 `Deny` 返す：** 決定の承認承認エンドポイント応答には、`Deny` 拡張エラーコード [&#x200B; ドキュメントに従った &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) 決定とエラーペイロードが含まれています。
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[ 特定の mvpd を使用した認証の決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -418,7 +418,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    >
    > <br/>
    > 
@@ -429,7 +429,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **決定の詳細 `Deny` 処理：** ストリーミングアプリケーションは、応答からのエラー情報を処理し、それを使用して、オプションで特定のメッセージをユーザーインターフェイスに表示できます。
 
@@ -462,7 +462,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
 次の図に示すように、基本的な TempPass のプロファイル取得フローを実装するには、次の手順に従います。
 
-![ 基本 TempPass のプロファイルを取得 ](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-profile-for-basic-temppass-flow.png)
+![&#x200B; 基本 TempPass のプロファイルを取得 &#x200B;](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-profile-for-basic-temppass-flow.png)
 
 *基本 TempPass のプロファイルを取得*
 
@@ -470,7 +470,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[ 特定の mvpd のプロファイルを取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
+   > 次について詳しくは、[&#x200B; 特定の mvpd のプロファイルを取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
    > 
    > * _、_ など、すべての `serviceProvider` 必須 `mvpd` パラメーター
    > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -482,7 +482,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[ 特定の mvpd のプロファイルを取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd のプロファイルを取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -493,7 +493,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    >
    > <br/>
    > 
@@ -503,7 +503,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **決定フローで続行：** プロファイルエンドポイント応答にプロファイルが含まれている場合、ストリーミングアプリケーションは一時的なプロファイル情報を使用して、後続の決定フローを続行します。
 
@@ -533,7 +533,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
 次の図に示すように、プロモーション用 TempPass のプロファイル取得フローを実装するには、次の手順に従います。
 
-![ プロモーション TempPass のプロファイルを取得 ](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-profile-for-promotional-temppass-flow.png)
+![&#x200B; プロモーション TempPass のプロファイルを取得 &#x200B;](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-profile-for-promotional-temppass-flow.png)
 
 *プロモーション TempPass のプロファイルを取得*
 
@@ -541,7 +541,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[ 特定の mvpd のプロファイルを取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
+   > 次について詳しくは、[&#x200B; 特定の mvpd のプロファイルを取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
    > 
    > * _、_ など、すべての `serviceProvider` 必須 `mvpd` パラメーター
    > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -553,7 +553,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[ 特定の mvpd のプロファイルを取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd のプロファイルを取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -564,7 +564,7 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    >
    > <br/>
    > 
@@ -575,6 +575,6 @@ TempPass 機能の詳細については、[TempPass](/help/premium-workflow/temp
    >
    > <br/>
    > 
-   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 一時的なアクセスの検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **決定フローで続行：** プロファイルエンドポイント応答にプロファイルが含まれている場合、ストリーミングアプリケーションは一時的なプロファイル情報を使用して、後続の決定フローを続行します。

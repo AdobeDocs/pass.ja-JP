@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 Adobe Passの [!UICONTROL Premium Workflow] は、認証とストリーミングの信頼性を向上させる堅牢なツールスイートを提供します。 [!UICONTROL Entitlement Service Monitoring] を使用してリアルタイムの可視性を取得し、スマートな低下 API で稼働時間を確保し、[!UICONTROL TempPass] を介して柔軟にアクセスできます。
 
