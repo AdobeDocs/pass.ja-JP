@@ -25,8 +25,8 @@ TempPass は、プログラマーが次のことを行うための強力なソ�
 
 TempPass 機能は、Adobe Pass Authentication Server configuration 内に疑似MVPD（さらに「Temp Pass」と呼ばれる）を導入し、参加するプログラマーとの連携によって提供されます。 TempPass 機能は、次の 2 つの構成で使用できます。
 
-* 時間ベースのアクセス用 [&#x200B; 基本 TempPass](#basic-temp-pass)。
-* [&#x200B; プロモーション TempPass](#promotional-temp-pass) で、キャンペーン駆動型の柔軟なアクセスが可能になります。
+* 時間ベースのアクセス用 [ 基本 TempPass](#basic-temp-pass)。
+* [ プロモーション TempPass](#promotional-temp-pass) で、キャンペーン駆動型の柔軟なアクセスが可能になります。
 
 >[!IMPORTANT]
 >
@@ -426,4 +426,4 @@ $ curl -H "Authorization: Bearer <access_token_here>" -X DELETE -v "https://mgmt
 
 TempPass 機能を活用するには、TV Everywhere （TVE）アプリケーションとAdobe Pass認証 [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) のやり取りを変更するためのコード更新を実装する必要があります。
 
-これらのアップデートと関連ワークフローの包括的なガイドについては、[&#x200B; 一時的なアクセスフロー &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md) ドキュメントを参照してください。
+これらのアップデートと関連ワークフローの包括的なガイドについては、[ 一時的なアクセスフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md) ドキュメントを参照してください。

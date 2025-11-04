@@ -18,13 +18,13 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#Intro}
 
 iOS/tvOS AccessEnabler SDKのバージョン 3.0 以降、Adobe サーバでの認証メカニズムが変わります。 公開鍵と秘密鍵を使用して requestorID に署名する代わりに、SDKがサーバーに対して行うすべての呼び出しに後で使用されるアクセストークンを取得するために使用できるソフトウェアステートメント文字列の概念を導入します。 ソフトウェアのステートメントに加えて、アプリケーションのカスタム URL スキームも必要です。
 
-詳しくは、[&#x200B; 動的なクライアント登録の概要 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) を参照してください。
+詳しくは、[ 動的なクライアント登録の概要 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) を参照してください。
 
 ## ソフトウェア ステートメントとは {#Soft_state}
 
@@ -45,7 +45,7 @@ iOS/tvOS AccessEnabler SDKのバージョン 3.0 以降、Adobe サーバでの�
 - すべての登録済みアプリケーションのリストが表示されます。 「」をクリックします   作成 `Download` たアプリケーションのボタン。 ソフトウェアのステートメントをダウンロードする準備が整うまで、数分待つ必要がある場合があります。
 - テキストファイルがダウンロードされます。 その内容をソフトウェアのステートメントとして使用します。
 
-詳しくは、[&#x200B; 動的なクライアント登録管理 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#dynamic-client-registration-management) を参照してください。
+詳しくは、[ 動的なクライアント登録管理 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#dynamic-client-registration-management) を参照してください。
 
 ### Adobeの TVE Dashboard へのアクセス権がない場合：
 

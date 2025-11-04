@@ -17,18 +17,18 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#overview}
 
-このドキュメントでは、プログラマーのエンジニアリングチームが、REST API サービスを使用して「スマートデバイス」（ゲームコンソール、スマート TV アプリ、セットトップボックスなど）をAdobe Pass認証と統合する手順を順を追って説明します。 このクライアントからサーバーへのアプローチは、クライアント SDKではなく REST API を使用するので、一意の SDK を数多く開発することは不可能な、様々なプラットフォームの幅広いサポートが可能になります。 クライアントレスソリューションの仕組みに関する技術的な概要については、[&#x200B; クライアントレス技術概要 &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md) を参照してください。
+このドキュメントでは、プログラマーのエンジニアリングチームが、REST API サービスを使用して「スマートデバイス」（ゲームコンソール、スマート TV アプリ、セットトップボックスなど）をAdobe Pass認証と統合する手順を順を追って説明します。 このクライアントからサーバーへのアプローチは、クライアント SDKではなく REST API を使用するので、一意の SDK を数多く開発することは不可能な、様々なプラットフォームの幅広いサポートが可能になります。 クライアントレスソリューションの仕組みに関する技術的な概要については、[ クライアントレス技術概要 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md) を参照してください。
 
 
 このアプローチでは、必要なフローを完了するために 2 つのコンポーネント（ストリーミングアプリと AuthN アプリ）が必要です。ストリーミングアプリでの起動、登録、承認、ビューメディアフローと、AuthN アプリでの認証フローです。
 
 ### スロットルメカニズム
 
-Adobe Pass認証 REST API は、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) によって制御されます。
+Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) によって制御されます。
 
 ## コンポーネント {#components}
 

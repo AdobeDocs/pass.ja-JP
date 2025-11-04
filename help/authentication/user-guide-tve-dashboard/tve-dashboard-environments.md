@@ -60,7 +60,7 @@ Adobe Pass Authentication TVE Dashboard 環境を切り替えるには、次の�
 
 1. 左側のパネルの上部にある「**環境**」ドロップダウンメニューから、必要なステージング環境または実稼動環境を選択します。
 
-   ![TVE ダッシュボード環境ドロップダウン &#x200B;](/help/authentication/assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-environment-menu.png)
+   ![TVE ダッシュボード環境ドロップダウン ](/help/authentication/assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-environment-menu.png)
 
    *Adobe Pass認証 TVE ダッシュボード環境ドロップダウンメニュー*
 

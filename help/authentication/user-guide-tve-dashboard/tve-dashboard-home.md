@@ -26,12 +26,12 @@ ht-degree: 0%
 
 この節では、ようこそメッセージから直接パブリックなドキュメントにアクセスして、現在の設定のスナップショットを確認できます。
 
-* **アクティブな統合**：現在の環境におけるアクティブな統合の数。 **統合セクションで詳細を表示** を選択して、「[&#x200B; 統合 &#x200B;](tve-dashboard-integrations.md)」セクションの詳細情報にアクセスします。
-* **アクティブなチャネル数**：現在の環境のアクティブなチャネルの数。 **チャネルセクションで詳細を表示** を選択して、「[&#x200B; チャネル &#x200B;](tve-dashboard-channels.md)」セクションの詳細情報にアクセスします。
-* **データベースの更新**：現在の環境に対して行われた設定変更の数。 「**変更ログの詳細を表示**」セクションを選択して、「[&#x200B; 変更ログ &#x200B;](tve-dashboard-changes-log.md)」セクションの詳細情報にアクセスします。
+* **アクティブな統合**：現在の環境におけるアクティブな統合の数。 **統合セクションで詳細を表示** を選択して、「[ 統合 ](tve-dashboard-integrations.md)」セクションの詳細情報にアクセスします。
+* **アクティブなチャネル数**：現在の環境のアクティブなチャネルの数。 **チャネルセクションで詳細を表示** を選択して、「[ チャネル ](tve-dashboard-channels.md)」セクションの詳細情報にアクセスします。
+* **データベースの更新**：現在の環境に対して行われた設定変更の数。 「**変更ログの詳細を表示**」セクションを選択して、「[ 変更ログ ](tve-dashboard-changes-log.md)」セクションの詳細情報にアクセスします。
 * **ESM ダッシュボード**：現在の環境でのプロパティの使用状況に関する詳細な指標を提供する、今後の ESM ダッシュボードに注目してください。 この機能には、今後のアップデートでアクセスできるようになります。
 
-![&#x200B; ようこそ画面 &#x200B;](/help/authentication/assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-welcome-panel-view.png)
+![ ようこそ画面 ](/help/authentication/assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-welcome-panel-view.png)
 
 *ようこそ画面*
 
@@ -43,8 +43,8 @@ ht-degree: 0%
 * **プッシュ済み**：変更を行ったアカウント。
 * **プッシュ日**：変更が行われた日付。
 
-![&#x200B; 変更ログの設定ステータス &#x200B;](/help/authentication/assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-configuration-status-panel-view.png)
+![ 変更ログの設定ステータス ](/help/authentication/assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-configuration-status-panel-view.png)
 
 *変更ログの設定ステータス*
 
-変更の完全なリストを表示するには、右下の **変更ログで詳細を表示** を選択して、「[&#x200B; 変更ログ &#x200B;](tve-dashboard-changes-log.md)」セクションを表示します。
+変更の完全なリストを表示するには、右下の **変更ログで詳細を表示** を選択して、「[ 変更ログ ](tve-dashboard-changes-log.md)」セクションを表示します。

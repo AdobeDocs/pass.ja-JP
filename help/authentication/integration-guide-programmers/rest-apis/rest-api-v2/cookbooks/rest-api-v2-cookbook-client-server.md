@@ -17,15 +17,15 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 このドキュメントは、[Adobe Pass認証 REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) を、クライアントからサーバー（C2S）アーキテクチャを持つストリーミングアプリケーションに統合する開発者向けです。
 
 ## 前提条件 {#prerequisites}
 
-用語と定義については、[REST API V2 用語集 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md) ドキュメントを参照してください。
+用語と定義については、[REST API V2 用語集 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md) ドキュメントを参照してください。
 
-必須の要件と推奨事項については、[REST API V2 チェックリスト &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-checklist.md) ドキュメントを参照してください。
+必須の要件と推奨事項については、[REST API V2 チェックリスト ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-checklist.md) ドキュメントを参照してください。
 
 よくある質問については、[REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md) ドキュメントを参照してください。
 
@@ -101,15 +101,15 @@ ht-degree: 0%
 * **プロファイルの取得：** ストリーミングアプリケーションは、[**/api/v2/{serviceProvider}/profiles**](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) エンドポイントを呼び出して、既存のプロファイルを確認します。
 
 
-* **シナリオ 1:** 既存のプロファイルがある場合、ストリーミングアプリケーションは [&#x200B; 事前認証フェーズ &#x200B;](#preauthorization-phase) または [&#x200B; 認証フェーズ &#x200B;](#authorization-phase) に進みます。
+* **シナリオ 1:** 既存のプロファイルがある場合、ストリーミングアプリケーションは [ 事前認証フェーズ ](#preauthorization-phase) または [ 認証フェーズ ](#authorization-phase) に進みます。
 
 
-* **シナリオ 2:** 既存のプロファイルがありません。ストリーミングアプリケーションは次の手順に進んで [&#x200B; ユーザーの認証 &#x200B;](#step-3-authenticate-the-user) を行う場合があります。
+* **シナリオ 2:** 既存のプロファイルがありません。ストリーミングアプリケーションは次の手順に進んで [ ユーザーの認証 ](#step-3-authenticate-the-user) を行う場合があります。
 
 
 * **シナリオ 3:** 既存のプロファイルがありません。ストリーミングアプリケーションは、[TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md) 機能を通じてユーザーに一時的なアクセスを提供する場合があります。
 
-   * このシナリオはこのドキュメントの範囲外です。詳しくは、[&#x200B; 一時的なアクセスフロー &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md) のドキュメントを参照してください。
+   * このシナリオはこのドキュメントの範囲外です。詳しくは、[ 一時的なアクセスフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md) のドキュメントを参照してください。
 
 ### 手順 3：ユーザーの認証 {#step-3-authenticate-the-user}
 
@@ -136,15 +136,15 @@ ht-degree: 0%
 
    * ストリーミングアプリケーションは、次の条件下で **ポーリングを開始** メカニズムを使用する必要があります。
 
-      * **プライマリ（画面）アプリケーション内で実行される認証：** プライマリ（ストリーミング）アプリケーションは、ユーザーが最終的な宛先ページに到達したときに、ブラウザーコンポーネントが `redirectUrl` セッション [&#x200B; エンドポイントリクエストの &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) パラメーターに指定された URL を読み込んだ後、ポーリングを開始する必要があります。
+      * **プライマリ（画面）アプリケーション内で実行される認証：** プライマリ（ストリーミング）アプリケーションは、ユーザーが最終的な宛先ページに到達したときに、ブラウザーコンポーネントが `redirectUrl` セッション [ エンドポイントリクエストの ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) パラメーターに指定された URL を読み込んだ後、ポーリングを開始する必要があります。
 
-      * **セカンダリ（画面）アプリケーション内で実行される認証：** プライマリ（ストリーミング）アプリケーションは、ユーザーが認証プロセスを開始するとすぐに（[&#x200B; セッション &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) エンドポイント応答を受信し、認証コードをユーザーに表示した直後に）、ポーリングを開始する必要があります。
+      * **セカンダリ（画面）アプリケーション内で実行される認証：** プライマリ（ストリーミング）アプリケーションは、ユーザーが認証プロセスを開始するとすぐに（[ セッション ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) エンドポイント応答を受信し、認証コードをユーザーに表示した直後に）、ポーリングを開始する必要があります。
 
    * ストリーミングアプリケーションは、次の条件下で **ポーリングを停止** する必要があります。
 
       * **認証の成功：** ユーザーのプロファイル情報は正常に取得され、認証ステータスが確認されます。 この時点で、ポーリングは不要になります。
 
-      * **認証セッションとコードの有効期限：** 認証セッションとコードの有効期限が切れます。これは、`notAfter` セッション [&#x200B; エンドポイント応答の &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) タイムスタンプ （例：30 分）に示されています。 この場合、ユーザーは認証プロセスを再起動する必要があり、以前の認証コードを使用したポーリングは直ちに停止する必要があります。
+      * **認証セッションとコードの有効期限：** 認証セッションとコードの有効期限が切れます。これは、`notAfter` セッション [ エンドポイント応答の ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) タイムスタンプ （例：30 分）に示されています。 この場合、ユーザーは認証プロセスを再起動する必要があり、以前の認証コードを使用したポーリングは直ちに停止する必要があります。
 
       * **生成された新しい認証コード：** ユーザーがプライマリ（画面）デバイスで新しい認証コードを要求すると、既存のセッションは無効になり、以前の認証コードを使用したポーリングを直ちに停止する必要があります。
 
@@ -186,9 +186,9 @@ ht-degree: 0%
 
    * ストリーミングアプリケーションは、永続的なストレージに事前認証の決定を保存する必要はありません。 ただし、ユーザーエクスペリエンスを向上させるために、許可決定をメモリにキャッシュすることをお勧めします。 これにより、事前に承認されたリソースに対する不要な呼び出しを回避し、待ち時間を短縮し、パフォーマンスを向上させることができます。
 
-   * ストリーミングアプリケーションは、決定の事前承認エンドポイントからの応答に含まれる [&#x200B; エラーコードとメッセージ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を調べることで、拒否された事前承認の決定の理由を判断できます。 これらの詳細により、事前認証リクエストが拒否された具体的な理由がinsightに提供され、アプリケーションでの必要な処理をユーザーエクスペリエンスやトリガーに伝えるのに役立ちます。 事前認証の決定を取得するために実装された再試行メカニズムが、事前認証の決定が拒否された場合に無限ループが発生しないことを確認します。 再試行を適切な数に制限し、ユーザーに明確なフィードバックを表示して、拒否を適切に処理することを検討してください。
+   * ストリーミングアプリケーションは、決定の事前承認エンドポイントからの応答に含まれる [ エラーコードとメッセージ ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を調べることで、拒否された事前承認の決定の理由を判断できます。 これらの詳細により、事前認証リクエストが拒否された具体的な理由がinsightに提供され、アプリケーションでの必要な処理をユーザーエクスペリエンスやトリガーに伝えるのに役立ちます。 事前認証の決定を取得するために実装された再試行メカニズムが、事前認証の決定が拒否された場合に無限ループが発生しないことを確認します。 再試行を適切な数に制限し、ユーザーに明確なフィードバックを表示して、拒否を適切に処理することを検討してください。
 
-   * ストリーミングアプリケーションは、MVPD によって課せられる条件により、1 回の API リクエストで限られた数のリソースに対して、通常は最大 5 の事前認証決定を取得できます。 この最大数のリソースは、組織の管理者の 1 人がAdobe Pass [TVE ダッシュボード &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) を通じて、またはお客様に代わってAdobe Pass認証担当者が MVPD に同意した後に表示および変更できます。
+   * ストリーミングアプリケーションは、MVPD によって課せられる条件により、1 回の API リクエストで限られた数のリソースに対して、通常は最大 5 の事前認証決定を取得できます。 この最大数のリソースは、組織の管理者の 1 人がAdobe Pass [TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) を通じて、またはお客様に代わってAdobe Pass認証担当者が MVPD に同意した後に表示および変更できます。
 
 
 ## D.承認フェーズ {#authorization-phase}
@@ -219,7 +219,7 @@ ht-degree: 0%
 
    * ストリーミングアプリケーションは、認証決定を永続ストレージに保存するために必要ではありません。
 
-   * ストリーミングアプリケーションは、決定を承認エンドポイントからの応答に含まれる [&#x200B; エラーコードとメッセージ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を調べることで、拒否された承認決定の理由を判断できます。 これらの詳細により、認証リクエストが拒否された具体的な理由がinsightに提供され、アプリケーションでの必要な処理をユーザーエクスペリエンスやトリガーに伝えるのに役立ちます。 認証決定を取得するために実装された再試行メカニズムが、認証決定が拒否された場合に無限ループが発生しないことを確認します。 再試行を適切な数に制限し、ユーザーに明確なフィードバックを表示して、拒否を適切に処理することを検討してください。
+   * ストリーミングアプリケーションは、決定を承認エンドポイントからの応答に含まれる [ エラーコードとメッセージ ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を調べることで、拒否された承認決定の理由を判断できます。 これらの詳細により、認証リクエストが拒否された具体的な理由がinsightに提供され、アプリケーションでの必要な処理をユーザーエクスペリエンスやトリガーに伝えるのに役立ちます。 認証決定を取得するために実装された再試行メカニズムが、認証決定が拒否された場合に無限ループが発生しないことを確認します。 再試行を適切な数に制限し、ユーザーに明確なフィードバックを表示して、拒否を適切に処理することを検討してください。
 
    * ストリーミング アプリケーションは、ストリームのアクティブな再生中に期限切れのメディア トークンを更新する必要はありません。 再生中にメディアトークンの有効期限が切れた場合、ストリームが中断されることなく続行されるようにしてください。 ただし、次回ユーザーがリソースを再生しようとすると、クライアントは新しい認証決定をリクエストし、新しいメディアトークンを取得する必要があります。
 

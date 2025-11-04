@@ -39,7 +39,7 @@ OAuth 2.0 は大成功を収めており、これをサポートするために�
 
 OAuth 2.0 での認証をサポートするには、MVPDが次の前提条件を満たしている必要があります。
 
-まず第一に、MVPDが [&#x200B; 認証コード付与 &#x200B;](https://oauthlib.readthedocs.io/en/latest/oauth2/grants/authcode.html) フローをサポートしていることを確認する必要があります。
+まず第一に、MVPDが [ 認証コード付与 ](https://oauthlib.readthedocs.io/en/latest/oauth2/grants/authcode.html) フローをサポートしていることを確認する必要があります。
 
 フローがサポートされていることを確認した後、MVPDは次の情報を提供する必要があります。
 
@@ -67,7 +67,7 @@ OAuth 2.0 での認証をサポートするには、MVPDが次の前提条件を
 
 
 
-![&#x200B; 設定で選択したプロトコルでMVPDと通信する、Adobe認証での認証フローを示す図。](/help/authentication/assets/authn-flow.png)
+![ 設定で選択したプロトコルでMVPDと通信する、Adobe認証での認証フローを示す図。](/help/authentication/assets/authn-flow.png)
 
 **図 1: OAuth 2.0 認証フロー**
 

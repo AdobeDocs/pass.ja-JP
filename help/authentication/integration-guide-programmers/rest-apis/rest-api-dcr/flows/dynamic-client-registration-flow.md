@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> 動的なクライアント登録 API の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) に関するドキュメントに限られています。
+> 動的なクライアント登録 API の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) に関するドキュメントに限られています。
 
 ## Adobe Passで保護された API へのアクセス {#access-adobe-pass-protected-apis}
 
@@ -25,8 +25,8 @@ ht-degree: 0%
 
 Adobe Passで保護された API にアクセスする前に、次の前提条件が満たされていることを確認してください。
 
-* クライアント担当者は、[&#x200B; 登録アプリケーションの管理 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#manage-registered-applications) の節で説明しているように、登録アプリケーションを作成する必要があります。
-* クライアント担当者は、「ソフトウェア明細書の管理 [&#x200B; の節で説明しているように、ソフトウェア明細書をダウンロードして埋め込む必要が &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#manage-software-statements) ります。
+* クライアント担当者は、[ 登録アプリケーションの管理 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#manage-registered-applications) の節で説明しているように、登録アプリケーションを作成する必要があります。
+* クライアント担当者は、「ソフトウェア明細書の管理 [ の節で説明しているように、ソフトウェア明細書をダウンロードして埋め込む必要が ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#manage-software-statements) ります。
 
 >[!IMPORTANT]
 >
@@ -38,7 +38,7 @@ Adobe Passで保護された API にアクセスする前に、次の前提条�
 
 次の図に示すように、Adobe Passで保護された API にアクセスするには、次の手順に従います。
 
-![Adobe Pass保護 API へのアクセス &#x200B;](/help//authentication/assets/dcr-api/dcr-api-access-adobe-pass-protected-apis.png)
+![Adobe Pass保護 API へのアクセス ](/help//authentication/assets/dcr-api/dcr-api-access-adobe-pass-protected-apis.png)
 
 *Adobe Pass保護 API へのアクセス*
 
@@ -46,7 +46,7 @@ Adobe Passで保護された API にアクセスする前に、次の前提条�
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; クライアント資格情報の取得 &#x200B;](../apis/dynamic-client-registration-apis-retrieve-client-credentials.md#request) API ドキュメントを参照してください。
+   > 次について詳しくは、[ クライアント資格情報の取得 ](../apis/dynamic-client-registration-apis-retrieve-client-credentials.md#request) API ドキュメントを参照してください。
    >
    > * _のようなすべての_ 必須 `software_statement` パラメーター
    > * _、_ などのすべての `Content-Type` 必須 `X-Device-Info` ヘッダー
@@ -56,7 +56,7 @@ Adobe Passで保護された API にアクセスする前に、次の前提条�
 
    >[!IMPORTANT]
    >
-   > クライアント資格情報応答で提供される情報について詳しくは、[&#x200B; クライアント資格情報の取得 &#x200B;](../apis/dynamic-client-registration-apis-retrieve-client-credentials.md#success) API ドキュメントを参照してください。
+   > クライアント資格情報応答で提供される情報について詳しくは、[ クライアント資格情報の取得 ](../apis/dynamic-client-registration-apis-retrieve-client-credentials.md#success) API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -66,7 +66,7 @@ Adobe Passで保護された API にアクセスする前に、次の前提条�
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; クライアント資格情報の取得 &#x200B;](../apis/dynamic-client-registration-apis-retrieve-client-credentials.md#error) API ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ クライアント資格情報の取得 ](../apis/dynamic-client-registration-apis-retrieve-client-credentials.md#error) API ドキュメントに従った追加情報が提供されます。
 
    >[!TIP]
    >
@@ -76,7 +76,7 @@ Adobe Passで保護された API にアクセスする前に、次の前提条�
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; アクセストークンの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#request) API ドキュメントを参照してください。
+   > 次について詳しくは、[ アクセストークンの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#request) API ドキュメントを参照してください。
    >
    > * _、_、`client_id` など、すべての `client_secret` 必須 `grant_type` パラメーター
    > * _、_ などのすべての `Content-Type` 必須 `X-Device-Info` ヘッダー
@@ -86,7 +86,7 @@ Adobe Passで保護された API にアクセスする前に、次の前提条�
 
    >[!IMPORTANT]
    >
-   > アクセストークン応答で提供される情報について詳しくは、[&#x200B; アクセストークンの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#success) API ドキュメントを参照してください。
+   > アクセストークン応答で提供される情報について詳しくは、[ アクセストークンの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#success) API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -96,7 +96,7 @@ Adobe Passで保護された API にアクセスする前に、次の前提条�
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; アクセストークンの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#error) API ドキュメントに準拠する追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ アクセストークンの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#error) API ドキュメントに準拠する追加情報が提供されます。
 
    >[!TIP]
    >
@@ -114,4 +114,4 @@ Adobe Passで保護された API にアクセスする前に、次の前提条�
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。

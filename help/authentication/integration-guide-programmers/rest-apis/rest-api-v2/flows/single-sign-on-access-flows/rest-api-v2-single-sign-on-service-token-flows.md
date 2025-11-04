@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -41,11 +41,11 @@ ht-degree: 0%
 サービストークンを使用してシングルサインオンを通じた認証フローを実行する前に、次の前提条件が満たされていることを確認します。
 
 * 外部 ID サービスは、複数のデバイスとプラットフォームにまたがって、すべてのアプリケーション `JWS` 対してペイロードとして一貫した情報を返す必要があります。
-* 最初のストリーミングアプリケーションは、一意のユーザー識別子を取得し、それを指定するすべてのリクエストの `JWS`AD-Service-Token[&#x200B; ヘッダーの一部として &#x200B;](../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md) ペイロードを含める必要があります。
+* 最初のストリーミングアプリケーションは、一意のユーザー識別子を取得し、それを指定するすべてのリクエストの `JWS`AD-Service-Token[ ヘッダーの一部として ](../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md) ペイロードを含める必要があります。
 * 最初のストリーミングアプリケーションでは、MVPDを選択する必要があります。
 * 最初のストリーミングアプリケーションでは、選択したMVPDでログインするための認証セッションを開始する必要があります。
 * 最初のストリーミングアプリケーションは、ユーザーエージェントで選択されたMVPDを使用して認証される必要があります。
-* 2 番目のストリーミングアプリケーションは、一意のユーザー識別子を取得し、それを指定するすべてのリクエストの `JWS`AD-Service-Token[&#x200B; ヘッダーの一部として &#x200B;](../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md) ペイロードを含める必要があります。
+* 2 番目のストリーミングアプリケーションは、一意のユーザー識別子を取得し、それを指定するすべてのリクエストの `JWS`AD-Service-Token[ ヘッダーの一部として ](../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md) ペイロードを含める必要があります。
 
 >[!IMPORTANT]
 >
@@ -60,7 +60,7 @@ ht-degree: 0%
 
 次の図に示すように、サービストークンを使用してシングルサインオンを通じて認証フローを実装するには、指定された手順を実行します。
 
-![&#x200B; サービストークンを使用したシングルサインオンによる認証の実行 &#x200B;](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-perform-authentication-through-single-sign-on-using-service-token-flow.png)
+![ サービストークンを使用したシングルサインオンによる認証の実行 ](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-perform-authentication-through-single-sign-on-using-service-token-flow.png)
 
 *サービストークンを使用したシングルサインオンによる認証の実行*
 
@@ -74,7 +74,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; 認証セッションの作成 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
+   > 次について詳しくは、[ 認証セッションの作成 ](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
    >
    > * _、_、`serviceProvider`、`mvpd` などのすべての `domainName` 必須 `redirectUrl` パラメーター
    > * _、_ などのすべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -92,7 +92,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > セッション応答で提供される情報について詳しくは、[&#x200B; 認証セッションの作成 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
+   > セッション応答で提供される情報について詳しくは、[ 認証セッションの作成 ](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
    >
    > <br/>
    > 
@@ -103,7 +103,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **ユーザーエージェントで URL を開く：** セッションエンドポイントの応答には、次のデータが含まれます。
    * MVPDのログインページ内でインタラクティブ認証を開始するために使用できる `url`。
@@ -118,7 +118,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; 特定のコードのプロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)API ドキュメントを参照してください。
+   > 次について詳しくは、[ 特定のコードのプロファイルの取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)API ドキュメントを参照してください。
    > 
    > * _、_ などのすべての `serviceProvider` 必須 `code` パラメーター
    > * _、_ などのすべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -134,7 +134,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[&#x200B; 特定のコードのプロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[ 特定のコードのプロファイルの取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
    >
    > <br/>
    > 
@@ -144,7 +144,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **決定フローで続行：** 最初のストリーミングアプリケーションは、後続の決定フローで続行できます。
 
@@ -166,7 +166,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; プロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) API ドキュメントを参照してください。
+   > 次について詳しくは、[ プロファイルの取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) API ドキュメントを参照してください。
    >
    > * _のようなすべての_ 必須 `serviceProvider` パラメーター
    > * _、_ などのすべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -186,7 +186,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[&#x200B; プロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[ プロファイルの取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -196,7 +196,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **決定フローで続行：** 2 番目のストリーミングアプリケーションは、後続の決定フローで続行できます。
 
@@ -215,7 +215,7 @@ ht-degree: 0%
 サービストークンを使用してシングルサインオンを通じて認証フローを実行する前に、次の前提条件が満たされていることを確認します。
 
 * 外部 ID サービスは、複数のデバイスとプラットフォームにまたがって、すべてのアプリケーション `JWS` 対してペイロードとして一貫した情報を返す必要があります。
-* 最初のストリーミングアプリケーションは、一意のユーザー識別子を取得し、それを指定するすべてのリクエストの `JWS`AD-Service-Token[&#x200B; ヘッダーの一部として &#x200B;](../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md) ペイロードを含める必要があります。
+* 最初のストリーミングアプリケーションは、一意のユーザー識別子を取得し、それを指定するすべてのリクエストの `JWS`AD-Service-Token[ ヘッダーの一部として ](../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md) ペイロードを含める必要があります。
 * 2 つ目のストリーミングアプリケーションでは、ユーザーが選択したリソースを再生する前に、認証決定を取得する必要があります。
 
 >[!IMPORTANT]
@@ -230,7 +230,7 @@ ht-degree: 0%
 
 次の図に示すように、サービストークンを使用してシングルサインオンを通じて認証フローを実装するには、指定された手順を実行します。
 
-![&#x200B; サービストークンを使用したシングルサインオンを通じた認証決定の取得 &#x200B;](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-authorization-decisions-through-single-sign-on-using-service-token-flow.png)
+![ サービストークンを使用したシングルサインオンを通じた認証決定の取得 ](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-authorization-decisions-through-single-sign-on-using-service-token-flow.png)
 
 *サービストークンを使用したシングルサインオンを通じた認証決定の取得*
 
@@ -244,7 +244,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した認証決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[ 特定の mvpd を使用した認証決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    >
    > * _、_、`serviceProvider` など、すべての `mvpd` 必須 `resources` パラメーター
    > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -266,7 +266,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 決定応答で提供される情報について詳しくは、[ 特定の mvpd を使用した認証の決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -277,15 +277,15 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **メディアトークンでストリームを開始：** 2 番目のストリーミングアプリケーションは、メディアトークンを使用してコンテンツを再生します。
 
-1. **詳細を含んだ決定 `Deny` 返す：** 決定の承認承認エンドポイント応答には、`Deny` 拡張エラーコード [&#x200B; ドキュメントに従った &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) 決定とエラーペイロードが含まれています。
+1. **詳細を含んだ決定 `Deny` 返す：** 決定の承認承認エンドポイント応答には、`Deny` 拡張エラーコード [ ドキュメントに従った ](../../../../features-standard/error-reporting/enhanced-error-codes.md) 決定とエラーペイロードが含まれています。
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 決定応答で提供される情報について詳しくは、[ 特定の mvpd を使用した認証の決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -296,10 +296,10 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **決定の詳細 `Deny` 処理：** 2 番目のストリーミングアプリケーションは、応答からのエラー情報を処理し、それを使用して、オプションで特定のメッセージをユーザーインターフェイスに表示できます。
 
 >[!NOTE]
 >
-> 事前認証フローの手順は、認証フローの手順と同じです。ただし、使用されるエンドポイントが、「[&#x200B; 特定の mvpd を使用した事前認証決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) ドキュメントで説明されているエンドポイントである点が異なります。
+> 事前認証フローの手順は、認証フローの手順と同じです。ただし、使用されるエンドポイントが、「[ 特定の mvpd を使用した事前認証決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) ドキュメントで説明されているエンドポイントである点が異なります。

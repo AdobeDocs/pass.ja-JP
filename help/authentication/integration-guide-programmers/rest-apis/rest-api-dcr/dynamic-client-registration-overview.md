@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 動的クライアント登録は、[RFC 7591](https://datatracker.ietf.org/doc/html/rfc7591) で定義されている認証メカニズムを表し、[RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749) で説明されている OAuth 2.0 認証フレームワークに基づいています。
 
@@ -53,9 +53,9 @@ Adobe Passは、次の保護された API へのアクセスを可能にする�
 
 動的なクライアント登録管理プロセスにより、特定のプラットフォームで動作し、特定のAdobe Pass認証 API へのアクセスを必要とするクライアントアプリケーションは、[Adobe Pass TVE Dashboard](https://experience.adobe.com/#/pass/authentication) を使用して登録できます。
 
-Adobe Pass TVE ダッシュボードは、Adobe Pass認証のお客様（プログラマー）が設定とデータを管理するためのツールです。 このセルフサービスダッシュボードにより、[Adobe Pass TVE ダッシュボードユーザーガイド &#x200B;](../../../user-guide-tve-dashboard/tve-dashboard-overview.md) ドキュメントに記載されている様々な機能が有効になります。
+Adobe Pass TVE ダッシュボードは、Adobe Pass認証のお客様（プログラマー）が設定とデータを管理するためのツールです。 このセルフサービスダッシュボードにより、[Adobe Pass TVE ダッシュボードユーザーガイド ](../../../user-guide-tve-dashboard/tve-dashboard-overview.md) ドキュメントに記載されている様々な機能が有効になります。
 
-[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/#/pass/authentication) にアクセスできる場合は、以下の節の手順に従って、登録されたアプリケーションを作成し、ソフトウェアのステートメントをダウンロードします。
+[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication) にアクセスできる場合は、以下の節の手順に従って、登録されたアプリケーションを作成し、ソフトウェアのステートメントをダウンロードします。
 
 ### 登録済みアプリケーションの管理 {#manage-registered-applications}
 
@@ -67,12 +67,12 @@ Adobe Pass TVE ダッシュボードは、Adobe Pass認証のお客様（プロ�
 
 * **プログラマーレベル**
 
-  プログラマーレベルの登録プロセスを使用すると、使用可能なすべてのチャネルまたは選択したチャネルサブセットにリンクされた登録済みアプリケーションを作成できます。 詳しくは、プログラマー向け [TVE ダッシュボードユーザーガイド &#x200B;](../../../user-guide-tve-dashboard/tve-dashboard-programmers.md) ドキュメントを参照してください。
+  プログラマーレベルの登録プロセスを使用すると、使用可能なすべてのチャネルまたは選択したチャネルサブセットにリンクされた登録済みアプリケーションを作成できます。 詳しくは、プログラマー向け [TVE ダッシュボードユーザーガイド ](../../../user-guide-tve-dashboard/tve-dashboard-programmers.md) ドキュメントを参照してください。
 
 
 * **チャネルレベル**
 
-  チャネルレベルの登録プロセスでは、現在選択されているチャネルにのみリンクされた登録済みアプリケーションを作成できます。 詳しくは、チャネル用 [TVE ダッシュボードユーザーガイド &#x200B;](../../../user-guide-tve-dashboard/tve-dashboard-channels.md) ドキュメントを参照してください。
+  チャネルレベルの登録プロセスでは、現在選択されているチャネルにのみリンクされた登録済みアプリケーションを作成できます。 詳しくは、チャネル用 [TVE ダッシュボードユーザーガイド ](../../../user-guide-tve-dashboard/tve-dashboard-channels.md) ドキュメントを参照してください。
 
 >[!IMPORTANT]
 >
@@ -86,19 +86,19 @@ Adobe Pass TVE ダッシュボードは、Adobe Pass認証のお客様（プロ�
 >
 > Adobe Pass TVE Dashboard にアクセスできない場合は、[Zendesk](https://adobeprimetime.zendesk.com) を通じてチケットを作成し、テクニカルアカウントマネージャー（TAM）に登録されたアプリを作成してソフトウェアのステートメントを共有するように依頼します。
 
-ソフトウェアのステートメントをダウンロードする前に、[&#x200B; 登録アプリケーションの管理 &#x200B;](#manage-registered-applications) の節で説明されているように、クライアントアプリケーションの要件を満たす登録アプリケーションが作成されていることを確認します。
+ソフトウェアのステートメントをダウンロードする前に、[ 登録アプリケーションの管理 ](#manage-registered-applications) の節で説明されているように、クライアントアプリケーションの要件を満たす登録アプリケーションが作成されていることを確認します。
 
 登録済みアプリケーションが作成されたレベルに応じて、ソフトウェア・ステートメントをダウンロードする方法は 2 つあります。
 
 * **プログラマーレベル**
 
-  詳しくは、プログラマー向け [TVE ダッシュボードユーザーガイド &#x200B;](../../../user-guide-tve-dashboard/tve-dashboard-programmers.md) ドキュメントを参照してください。
+  詳しくは、プログラマー向け [TVE ダッシュボードユーザーガイド ](../../../user-guide-tve-dashboard/tve-dashboard-programmers.md) ドキュメントを参照してください。
 
 * **チャネルレベル**
 
-  詳しくは、チャネル用 [TVE ダッシュボードユーザーガイド &#x200B;](../../../user-guide-tve-dashboard/tve-dashboard-channels.md) ドキュメントを参照してください。
+  詳しくは、チャネル用 [TVE ダッシュボードユーザーガイド ](../../../user-guide-tve-dashboard/tve-dashboard-channels.md) ドキュメントを参照してください。
 
-software ステートメントは、クライアントアプリケーションソフトウェアに関する情報をバンドルとして含む JSON web トークン（`JWT`）です。 [&#x200B; クライアント資格情報の取得 &#x200B;](apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API に提示されると、ソフトウェアステートメントは、JSON web 署名（`JWS`）を使用してデジタル署名されます。
+software ステートメントは、クライアントアプリケーションソフトウェアに関する情報をバンドルとして含む JSON web トークン（`JWT`）です。 [ クライアント資格情報の取得 ](apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API に提示されると、ソフトウェアステートメントは、JSON web 署名（`JWS`）を使用してデジタル署名されます。
 
 ソフトウェア ステートメントとその動作の詳細については、[RFC 7591](https://tools.ietf.org/html/rfc7591) ドキュメントを参照してください。
 
@@ -108,12 +108,12 @@ software ステートメントは、クライアントアプリケーション�
 
 **管理**
 
-* クライアント担当者は、[&#x200B; 登録アプリケーションの管理 &#x200B;](#manage-registered-applications) の節で説明しているように、登録アプリケーションを作成する必要があります。
-* クライアント担当者は、「ソフトウェア明細書の管理 [&#x200B; の節で説明しているように、ソフトウェア明細書をダウンロードして埋め込む必要が &#x200B;](#manage-software-statements) ります。
+* クライアント担当者は、[ 登録アプリケーションの管理 ](#manage-registered-applications) の節で説明しているように、登録アプリケーションを作成する必要があります。
+* クライアント担当者は、「ソフトウェア明細書の管理 [ の節で説明しているように、ソフトウェア明細書をダウンロードして埋め込む必要が ](#manage-software-statements) ります。
 
 **フロー**
 
-* クライアントアプリケーションは、[&#x200B; クライアント資格情報の取得 &#x200B;](apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメントの説明に従って、クライアント資格情報を取得する必要があります。
-* クライアントアプリケーションは、[&#x200B; アクセストークンの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って、アクセストークンを取得する必要があります。
+* クライアントアプリケーションは、[ クライアント資格情報の取得 ](apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメントの説明に従って、クライアント資格情報を取得する必要があります。
+* クライアントアプリケーションは、[ アクセストークンの取得 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って、アクセストークンを取得する必要があります。
 
-Adobe Passで保護された API にアクセスする方法について詳しくは、[&#x200B; 動的クライアント登録フロー &#x200B;](flows/dynamic-client-registration-flow.md) ドキュメントを参照してください。 さらに、この [&#x200B; ウェビナー &#x200B;](https://my.adobeconnect.com/pzkp8ujrigg1/) 録画をご覧いただくこともできます。この録画では、より多くのコンテキストを提供し、デモも含まれています。
+Adobe Passで保護された API にアクセスする方法について詳しくは、[ 動的クライアント登録フロー ](flows/dynamic-client-registration-flow.md) ドキュメントを参照してください。 さらに、この [ ウェビナー ](https://my.adobeconnect.com/pzkp8ujrigg1/) 録画をご覧いただくこともできます。この録画では、より多くのコンテキストを提供し、デモも含まれています。

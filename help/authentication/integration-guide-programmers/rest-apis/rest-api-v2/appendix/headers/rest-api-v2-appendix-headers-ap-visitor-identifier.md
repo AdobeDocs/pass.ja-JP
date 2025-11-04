@@ -19,7 +19,7 @@ ht-degree: 2%
 
 <b>AP-Visitor-Identifier</b> リクエストヘッダーには、Adobe Experience Cloud ソリューション全体で訪問者を一意に識別するためにクライアントアプリケーションで必要な `ECID` が含まれています。
 
-Adobe Pass認証での ECID の使用について詳しくは、[Adobe Pass認証でのExperience Cloud ID の使用 &#x200B;](/help/authentication/integration-guide-programmers/features-standard/analytics/exp-cloud-id-authn.md) ドキュメントを参照してください。
+Adobe Pass認証での ECID の使用について詳しくは、[Adobe Pass認証でのExperience Cloud ID の使用 ](/help/authentication/integration-guide-programmers/features-standard/analytics/exp-cloud-id-authn.md) ドキュメントを参照してください。
 
 ## 構文 {#syntax}
 

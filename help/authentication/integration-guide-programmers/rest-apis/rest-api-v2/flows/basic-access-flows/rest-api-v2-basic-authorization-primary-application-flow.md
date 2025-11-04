@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 Adobe Pass認証使用権内の **認証フロー** により、ストリーミングアプリケーションは、MVPDがコンテンツのストリーミングリクエストを許可するか拒否するかを決定できます。 決定が `Permit` の場合、応答にはメディアトークンが含まれます。 Adobe Pass サーバーがメディアトークンに署名すると、ストリーミングアプリケーションでメディアトークン検証用ライブラリを使用して、ストリームがリリースされる前に信頼性を確認できます。
 
@@ -39,7 +39,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
 次の図に示すように、プライマリアプリケーション内で実行される特定のMVPDを使用した基本的な認証フローを実装するには、以下の手順に従います。
 
-![&#x200B; 特定の mvpd を使用した認証決定の取得 &#x200B;](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-authorization-decisions-within-primary-application-using-specific-mvpd.png)
+![ 特定の mvpd を使用した認証決定の取得 ](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-authorization-decisions-within-primary-application-using-specific-mvpd.png)
 
 *特定の mvpd を使用した認証決定の取得*
 
@@ -47,7 +47,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した認証決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[ 特定の mvpd を使用した認証決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    >
    > * _、_、`serviceProvider` など、すべての `mvpd` 必須 `resources` パラメーター
    > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -61,7 +61,7 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 決定応答で提供される情報について詳しくは、[ 特定の mvpd を使用した認証の決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -72,15 +72,15 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **メディアトークンでストリームを開始：** ストリーミングアプリケーションは、メディアトークンを使用してコンテンツを再生します。
 
-1. **詳細を含んだ決定 `Deny` 返す：** 決定の承認承認エンドポイント応答には、`Deny` 拡張エラーコード [&#x200B; ドキュメントに従った &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) 決定とエラーペイロードが含まれています。
+1. **詳細を含んだ決定 `Deny` 返す：** 決定の承認承認エンドポイント応答には、`Deny` 拡張エラーコード [ ドキュメントに従った ](../../../../features-standard/error-reporting/enhanced-error-codes.md) 決定とエラーペイロードが含まれています。
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 決定応答で提供される情報について詳しくは、[ 特定の mvpd を使用した認証の決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -91,6 +91,6 @@ Adobe Pass認証使用権内の **認証フロー** により、ストリーミ�
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **決定の詳細 `Deny` 処理：** ストリーミングアプリケーションは、応答からのエラー情報を処理し、それを使用して、オプションで特定のメッセージをユーザーインターフェイスに表示できます。

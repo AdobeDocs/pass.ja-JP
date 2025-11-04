@@ -221,12 +221,12 @@ Adobe Pass認証は、アクセスリクエストと削除リクエストをサ�
 
 お客様がAdobeにプライバシーリクエストを送信する方法は 2 つあります。
 
-* **手動** - [Privacy Service ユーザーインターフェイスを使用する場合 &#x200B;](#privacy-service-ui)
-* **自動で** - [Privacy Service API を使用 &#x200B;](#privacy-service-api)
+* **手動** - [Privacy Service ユーザーインターフェイスを使用する場合 ](#privacy-service-ui)
+* **自動で** - [Privacy Service API を使用 ](#privacy-service-api)
 
 ### Privacy Service UI を使用 {#privacy-service-ui}
 
-Privacy Service ユーザーインターフェイスへのアクセス方法と使用方法に関する [&#x200B; 完全なチュートリアル &#x200B;](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=ja#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md) を、Adobe I/O サービスを通じてオンラインで利用できます。 さらに、このリンクを使用して、プライバシー規制に関するビデオや記事のライブラリにアクセスできます。 Adobe Experience Cloudと GDPR メニューをクリックします。 これにより、いくつかのビデオが開きます。「GDPR UI の使い方」でその使用方法を説明しています。
+Privacy Service ユーザーインターフェイスへのアクセス方法と使用方法に関する [ 完全なチュートリアル ](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=en#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md) を、Adobe I/O サービスを通じてオンラインで利用できます。 さらに、このリンクを使用して、プライバシー規制に関するビデオや記事のライブラリにアクセスできます。 Adobe Experience Cloudと GDPR メニューをクリックします。 これにより、いくつかのビデオが開きます。「GDPR UI の使い方」でその使用方法を説明しています。
 
 UI で、お客様は独自の IMSOrgID と、各製品の GDPR リクエストの詳細を含む JSON を読み込む必要があります。
 
@@ -234,13 +234,13 @@ UI で、お客様は独自の IMSOrgID と、各製品の GDPR リクエスト�
 
 Adobe Experience Platform Privacy Serviceは、プライベートデータのアクセス/削除リクエストとオプトアウトリクエストを共通の一元化された方法で処理できるようにします。
 
-Adobeのお客様がPrivacy Service API を統合する方法について詳しくは **&#x200B;**&#x200B;Adobe API ドキュメントを参照してください。
+Adobeのお客様がPrivacy Service API を統合する方法について詳しくは **** Adobe API ドキュメントを参照してください。
 
 **Postman（無料のサードパーティソフトウェア）を使用した API 呼び出しの視覚化：**
 
-* [GitHub のPrivacy Service API Postman コレクション &#x200B;](https://github.com/adobe/experience-platform-postman-samples/blob/master/apis/experience-platform/Privacy%20Service%20API.postman_collection.json)
-* [Postman環境の作成に関するビデオガイド &#x200B;](https://video.tv.adobe.com/v/31656?captions=jpn)
-* [Postmanで環境とコレクションを読み込む手順 &#x200B;](https://learning.postman.com/docs/running-collections/intro-to-collection-runs/)
+* [GitHub のPrivacy Service API Postman コレクション ](https://github.com/adobe/experience-platform-postman-samples/blob/master/apis/experience-platform/Privacy%20Service%20API.postman_collection.json)
+* [Postman環境の作成に関するビデオガイド ](https://video.tv.adobe.com/v/28832)
+* [Postmanで環境とコレクションを読み込む手順 ](https://learning.postman.com/docs/running-collections/intro-to-collection-runs/)
 
 
 **API パス：**
@@ -259,7 +259,7 @@ Adobeのお客様がPrivacy Service API を統合する方法について詳し�
 
 >[!RELATEDINFORMATION]
 >
->* [Privacy Services Overview](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=ja#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md)
+>* [Privacy Services Overview](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=en#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md)
 >* Privacy Service API documentation
 
 -->

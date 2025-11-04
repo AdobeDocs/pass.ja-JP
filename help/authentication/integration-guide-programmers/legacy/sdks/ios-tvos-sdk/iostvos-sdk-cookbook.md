@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#intro}
 
@@ -48,26 +48,26 @@ AccessEnabler のネットワーク・アクティビティは独自のスレッ
 
 ## Experience Cloud ID サービスの設定（訪問者 ID） {#visitorIDSetup}
 
-[Experience Cloud ID](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=ja) の値の設定は、[!DNL Analytics] の観点から重要です。 `visitorID` の値が設定されると、SDKはネットワーク呼び出しごとにこの情報を送信し、[!DNL Adobe Pass] Authentication Server がこの情報を収集します。 Adobe Pass Authentication Service の Analytics を、他のアプリケーションや Web サイトからの他の分析レポートと関連付けることができます。 visitorID の設定方法について詳しくは、[&#x200B; こちら &#x200B;](#setOptions) を参照してください。
+[Experience Cloud ID](https://experienceleague.adobe.com/docs/id-service/using/home.html) の値の設定は、[!DNL Analytics] の観点から重要です。 `visitorID` の値が設定されると、SDKはネットワーク呼び出しごとにこの情報を送信し、[!DNL Adobe Pass] Authentication Server がこの情報を収集します。 Adobe Pass Authentication Service の Analytics を、他のアプリケーションや Web サイトからの他の分析レポートと関連付けることができます。 visitorID の設定方法について詳しくは、[ こちら ](#setOptions) を参照してください。
 
 ## 使用権限フロー {#entitlement}
 
-A. [&#x200B; 前提条件 &#x200B;](#prereqs)</br>
-B. [&#x200B; 起動フロー &#x200B;](#startup_flow) </br>
-C. [Apple SSO を使用しない認証フロー &#x200B;](#authn_flow_wo_applesso) </br>
-D. [iOS上のApple SSO による認証フロー &#x200B;](#authn_flow_with_applesso) </br>
-E. [tvOS のApple SSO での認証フロー &#x200B;](#authn_flow_with_applesso_tvOS) </br>
-F. [&#x200B; 認証フロー &#x200B;](#authz_flow) </br>
-G. [&#x200B; メディアフローを表示 &#x200B;](#media_flow) </br>
-H. [Apple SSO を使用しないログアウトフロー &#x200B;](#logout_flow_wo_AppleSSO)</br>
-I. [Apple SSO でのログアウトフロー &#x200B;](#logout_flow_with_AppleSSO) </br>
+A. [ 前提条件 ](#prereqs)</br>
+B. [ 起動フロー ](#startup_flow) </br>
+C. [Apple SSO を使用しない認証フロー ](#authn_flow_wo_applesso) </br>
+D. [iOS上のApple SSO による認証フロー ](#authn_flow_with_applesso) </br>
+E. [tvOS のApple SSO での認証フロー ](#authn_flow_with_applesso_tvOS) </br>
+F. [ 認証フロー ](#authz_flow) </br>
+G. [ メディアフローを表示 ](#media_flow) </br>
+H. [Apple SSO を使用しないログアウトフロー ](#logout_flow_wo_AppleSSO)</br>
+I. [Apple SSO でのログアウトフロー ](#logout_flow_with_AppleSSO) </br>
 
 
 ### A.前提条件 {#prereqs}
 
 1. コールバック関数を作成します。
    * `setRequestorComplete()` </br>
-   * [setRequestor （） &#x200B;](#$setReq) によってトリガーされ、成功または失敗を返します。</br>
+   * [setRequestor （） ](#$setReq) によってトリガーされ、成功または失敗を返します。</br>
    * 成功とは、資格コールを続行できることを示します。
 
    * [`displayProviderDialog(mvpds)`](#$dispProvDialog) </br>
@@ -88,11 +88,11 @@ I. [Apple SSO でのログアウトフロー &#x200B;](#logout_flow_with_AppleSS
 
    * `setToken(token, resource)`
 
-      * リソースの表示が正常に認証された後に、[checkAuthorization （） &#x200B;](#checkAuthZ) および [getAuthorization （） &#x200B;](#$getAuthZ) によってトリガーされます。
+      * リソースの表示が正常に認証された後に、[checkAuthorization （） ](#checkAuthZ) および [getAuthorization （） ](#$getAuthZ) によってトリガーされます。
       * `token` パラメーターは短時間のみ有効なメディアトークンです。`resource` パラメーターは、ユーザーが表示を許可されているコンテンツです。
 
    * `tokenRequestFailed(resource, code, description)` </br>
-      * 認証に失敗した後、[checkAuthorization （） &#x200B;](#checkAuthZ) および [getAuthorization （） &#x200B;](#$getAuthZ) によってトリガーされます。
+      * 認証に失敗した後、[checkAuthorization （） ](#checkAuthZ) および [getAuthorization （） ](#$getAuthZ) によってトリガーされます。
       * `resource` パラメーターは、ユーザーが表示しようとしたコンテンツです。`code` パラメーターは、エラーのタイプを示すエラーコードです。`description` パラメーターは、エラーコードに関連付けられたエラーの説明です。
 
    * `selectedProvider(mvpd)` </br>
@@ -101,7 +101,7 @@ I. [Apple SSO でのログアウトフロー &#x200B;](#logout_flow_with_AppleSS
 
    * `setMetadataStatus(metadata, key, arguments)`
       * `getMetadata().` によってトリガー
-      * `metadata` パラメーターは、要求された特定のデータを提供します。`key` パラメーターは、[getMetadata （） &#x200B;](#getMeta) 要求で使用されるキーで、`arguments` パラメーターは、[getMetadata （） &#x200B;](#getMeta) に渡されたディクショナリと同じです。
+      * `metadata` パラメーターは、要求された特定のデータを提供します。`key` パラメーターは、[getMetadata （） ](#getMeta) 要求で使用されるキーで、`arguments` パラメーターは、[getMetadata （） ](#getMeta) に渡されたディクショナリと同じです。
 
    * [&#39;preauthorizedResources （authorizedResources）&#39;](#preauthResources)
 
@@ -130,13 +130,13 @@ I. [Apple SSO でのログアウトフロー &#x200B;](#logout_flow_with_AppleSS
    a. [`init`](#$init) を呼び出して、Adobe Pass Authentication AccessEnabler のインスタンスを 1 つ作成します。
    * **依存関係：** Adobe Pass認証ネイティブ iOS/tvOS ライブラリ （AccessEnabler）
 
-   b. `setRequestor()` を呼び出して、プログラマーの ID を確立します。プログラマーの `requestorID` と（オプションで）Adobe Pass Authentication エンドポイントの配列を渡します。 tvOS の場合は、公開鍵と秘密鍵も指定する必要があります。 詳しくは、[&#x200B; クライアントレスドキュメント &#x200B;](#create_dev) を参照してください。
+   b. `setRequestor()` を呼び出して、プログラマーの ID を確立します。プログラマーの `requestorID` と（オプションで）Adobe Pass Authentication エンドポイントの配列を渡します。 tvOS の場合は、公開鍵と秘密鍵も指定する必要があります。 詳しくは、[ クライアントレスドキュメント ](#create_dev) を参照してください。
 
    * **依存関係：** 有効なAdobe Pass認証要求者 ID （Adobe Pass認証アカウントで動作）
 マネージャーが手配します）。
 
    * **トリガー:**
-     [setRequestorComplete （） &#x200B;](#$setReqComplete) コールバック。
+     [setRequestorComplete （） ](#$setReqComplete) コールバック。
 
    >[!NOTE]
    >
@@ -150,9 +150,9 @@ I. [Apple SSO でのログアウトフロー &#x200B;](#logout_flow_with_AppleSS
 
 1. 完全な認証フローを開始せずに既存の認証を確認するには、`checkAuthentication()` を呼び出します。  この呼び出しが成功した場合は、認証フローに直接進むことができます。 そうでない場合は、認証フローに進みます。
 
-   * **依存関係：** [setRequestor （）の呼び出しに成功しました &#x200B;](#$setReq) （この依存関係は、以降のすべての呼び出しにも適用されます）。
+   * **依存関係：** [setRequestor （）の呼び出しに成功しました ](#$setReq) （この依存関係は、以降のすべての呼び出しにも適用されます）。
 
-   * **トリガー:** [setAuthenticationStatus （） &#x200B;](#$setAuthNStatus) コールバック。
+   * **トリガー:** [setAuthenticationStatus （） ](#$setAuthNStatus) コールバック。
 
 
 ### C. Apple SSO を使用しない場合の認証フロー {#authn_flow_wo_applesso}
@@ -162,9 +162,9 @@ I. [Apple SSO でのログアウトフロー &#x200B;](#logout_flow_with_AppleSS
 
    **トリガー:**
 
-   * [setAuthenticationStatus （） &#x200B;](#$setAuthNStatus) コールバック （ユーザーが既に認証されている場合）。 この場合は、[&#x200B; 認証フロー &#x200B;](#authz_flow) に直接進みます。
+   * [setAuthenticationStatus （） ](#$setAuthNStatus) コールバック （ユーザーが既に認証されている場合）。 この場合は、[ 認証フロー ](#authz_flow) に直接進みます。
 
-   * [displayProviderDialog （） &#x200B;](#$dispProvDialog) コールバック （ユーザーがまだ認証されていない場合）
+   * [displayProviderDialog （） ](#$dispProvDialog) コールバック （ユーザーがまだ認証されていない場合）
 
 1. に送信されたプロバイダーのリストをユーザーに表示します
    [`displayProviderDialog()`](#dispProvDialog)。
@@ -175,7 +175,7 @@ I. [Apple SSO でのログアウトフロー &#x200B;](#logout_flow_with_AppleSS
 
 >[!NOTE]
 >
->この時点で、ユーザーは認証フローをキャンセルできます。 この問題が発生した場合、UI レイヤは、[&#x200B; をパラメータとして &#x200B;](#setSelProv)setSelectedProvider （） `null` を呼び出して、AccessEnabler にこのイベントを通知します。 これにより、AccessEnabler は内部状態をクリーンアップし、認証フローをリセットできます。
+>この時点で、ユーザーは認証フローをキャンセルできます。 この問題が発生した場合、UI レイヤは、[ をパラメータとして ](#setSelProv)setSelectedProvider （） `null` を呼び出して、AccessEnabler にこのイベントを通知します。 これにより、AccessEnabler は内部状態をクリーンアップし、認証フローをリセットできます。
 
 1. ユーザーが正常にログインすると、アプリケーションレイヤーが特定のカスタム URL の読み込みを検出します。 この特定のカスタム URL は、実際には無効であり、コントローラーが実際に読み込むことを目的としたものではないことに注意してください。 認証フローが完了し、`UIWebView/WKWebView` または `SFSafariViewController` のコントローラーを安全に閉じることができることを示すシグナルとして、アプリケーションによって解釈される必要があります。 `SFSafariViewController` コントローラーを使用する必要がある場合、特定のカスタム URL は **`application's custom scheme`** によって定義されます（例：`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com`）。そうでない場合、この特定のカスタム URL は **`ADOBEPASS_REDIRECT_URL`** 定数によって定義されます（つまり、`adobepass://ios.app`）。
 
@@ -193,11 +193,11 @@ I. [Apple SSO でのログアウトフロー &#x200B;](#logout_flow_with_AppleSS
 1. [`getAuthentication()`](#$getAuthN) を呼び出して認証フローを開始するか、ユーザーが既に認証されていることを確認します。
    **トリガー:**
 
-   * [presentTvProviderDialog （） &#x200B;](#presentTvDialog) コールバック（ユーザーが認証されておらず、現在のリクエスターに少なくとも SSO をサポートするMVPDがある場合）。 MVPD が SSO をサポートしていない場合は、クラシック認証フローが使用されます。
+   * [presentTvProviderDialog （） ](#presentTvDialog) コールバック（ユーザーが認証されておらず、現在のリクエスターに少なくとも SSO をサポートするMVPDがある場合）。 MVPD が SSO をサポートしていない場合は、クラシック認証フローが使用されます。
 
 1. ユーザーがプロバイダを選択すると、AccessEnabler ライブラリは、Appleの VSA フレームワークから提供された情報を使用して認証トークンを取得します。
 
-1. [setAuthenticatiosStatus （） &#x200B;](#setAuthNStatus) コールバックがトリガーされます。 この時点で、ユーザーはApple SSO で認証される必要があります。
+1. [setAuthenticatiosStatus （） ](#setAuthNStatus) コールバックがトリガーされます。 この時点で、ユーザーはApple SSO で認証される必要があります。
 
 1. [ オプション ] [`checkPreauthorizedResources(resources)`](#$checkPreauth) を呼び出して、ユーザーが表示を許可されているリソースを確認します。 `resources` パラメーターは、ユーザーの認証トークンに関連付けられた、保護されたリソースの配列です。 ユーザーのMVPDから取得する認証情報の 1 つの用途は、UI を装飾することです（例えば、保護されたコンテンツの横にあるロックされた記号やロック解除された記号など）。
 
@@ -226,22 +226,22 @@ I. [Apple SSO でのログアウトフロー &#x200B;](#logout_flow_with_AppleSS
 
 ### F.認証フロー {#authz_flow}
 
-1. [getAuthorization （） &#x200B;](#$getAuthZ) を呼び出して、認証フローを開始します。
+1. [getAuthorization （） ](#$getAuthZ) を呼び出して、認証フローを開始します。
 
    * **依存関係：** 有効な ResourceID がMVPDと合意されました。
-   * リソース ID は、他のデバイスまたはプラットフォームで使用される ID と同じである必要があり、MVPD 間でも同じになります。 リソース ID について詳しくは、[&#x200B; リソース識別子 &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier) を参照してください
+   * リソース ID は、他のデバイスまたはプラットフォームで使用される ID と同じである必要があり、MVPD 間でも同じになります。 リソース ID について詳しくは、[ リソース識別子 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier) を参照してください
 
 1. 認証と承認を検証します。
 
-   * [getAuthorization （） &#x200B;](#$getAuthZ) 呼び出しが成功した場合：ユーザーに有効な AuthN および AuthZ トークンがある（ユーザーは認証され、リクエストされたメディアを監視する権限を持つ）。
+   * [getAuthorization （） ](#$getAuthZ) 呼び出しが成功した場合：ユーザーに有効な AuthN および AuthZ トークンがある（ユーザーは認証され、リクエストされたメディアを監視する権限を持つ）。
 
-   * [getAuthorization （） &#x200B;](#$getAuthZ) が失敗した場合：スローされた例外を調べて、その型（AuthN、AuthZ など）を特定します。
+   * [getAuthorization （） ](#$getAuthZ) が失敗した場合：スローされた例外を調べて、その型（AuthN、AuthZ など）を特定します。
       * 認証（AuthN）エラーの場合は、認証フローを再開します。
       * 認証（AuthZ）エラーの場合、ユーザーは要求されたメディアを監視する権限がなく、何らかのエラーメッセージがユーザーに表示されます。
       * 他のタイプのエラー（接続エラー、ネットワークエラーなど）がある場合は、適切なエラーメッセージをユーザーに表示します。
 
 1. ショートメディアトークンを検証します。\
-   Adobe Pass認証メディアトークンベリファイアライブラリを使用して、上記の [getAuthorization （） &#x200B;](#$getAuthZ) 呼び出しから返された短時間のみ有効なメディアトークンを確認します。
+   Adobe Pass認証メディアトークンベリファイアライブラリを使用して、上記の [getAuthorization （） ](#$getAuthZ) 呼び出しから返された短時間のみ有効なメディアトークンを確認します。
 
    * 検証に成功した場合：ユーザーに要求されたメディアを再生します。
    * 検証に失敗した場合：AuthZ トークンが無効でした。メディアリクエストが拒否され、エラーメッセージがユーザーに表示されます。
@@ -254,7 +254,7 @@ I. [Apple SSO でのログアウトフロー &#x200B;](#logout_flow_with_AppleSS
 1. 表示するメディアを選択します。
 1. メディアは保護されていますか？ 選択したメディアが保護されているかどうかを確認します。
 
-   * 選択したメディアが保護されている場合、アプリケーションは上記の [&#x200B; 認証フロー &#x200B;](#authz_flow) を開始します。
+   * 選択したメディアが保護されている場合、アプリケーションは上記の [ 認証フロー ](#authz_flow) を開始します。
 
    * 選択したメディアが保護されていない場合、メディアを再生する時間
 ユーザー。
@@ -275,7 +275,7 @@ I. [Apple SSO でのログアウトフロー &#x200B;](#logout_flow_with_AppleSS
 ### I. Apple SSO でのログアウトフロー {#logout_flow_with_AppleSSO}
 
 1. [`logout()`](#$logout) を呼び出してユーザーをログアウトさせます。
-1. [status （） &#x200B;](#status_callback_implementation) コールバックは、ID VSA203 で呼び出されます。
+1. [status （） ](#status_callback_implementation) コールバックは、ID VSA203 で呼び出されます。
 1. また、システム設定からもログインするようにユーザーに指示する必要があります。 これをおこなわないと、アプリケーションが再起動された際に再認証が行われます。
 
 
