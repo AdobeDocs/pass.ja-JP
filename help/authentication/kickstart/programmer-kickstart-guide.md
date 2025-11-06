@@ -75,7 +75,7 @@ Adobe Pass認証チームは、統合プロセス中に発生した質問や技�
 
 ## ドキュメントへのアクセス {#access-documentation}
 
-**Adobeは** Adobe Experience League[&#x200B; 経由でアドビの公開ドキュメントに &#x200B;](https://experienceleague.adobe.com/en/docs/pass/authentication/home) アクセスを提供します。
+**Adobeは** Adobe Experience League[&#x200B; 経由でアドビの公開ドキュメントに &#x200B;](https://experienceleague.adobe.com/ja/docs/pass/authentication/home) アクセスを提供します。
 
 Adobe Pass認証チームは、[&#x200B; プログラマー向け統合ガイド &#x200B;](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md) の節で利用可能な機能と API の包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
 
