@@ -17,21 +17,21 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 Adobe Pass認証 REST API V1 は、iOS、iPadOS、tvOS で動作するクライアントアプリケーションのエンドユーザー向けに、パートナーシングルサインオン（SSO）をサポートしています。
 
-このドキュメントは、既存の REST API V1 ドキュメントの拡張機能として機能します。このドキュメントは [ こちら ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md) で参照できます。
+このドキュメントは、既存の REST API V1 ドキュメントの拡張機能として機能します。このドキュメントは [&#x200B; こちら &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md) で参照できます。
 
 ## クックブック {#apple-sso-cookbook-rest-api-v1-cookbook}
 
-Apple SSO のユーザーエクスペリエンスを活用するには、Appleが開発した [ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) を組み込む必要があります。一方、Adobe Pass認証 REST API V1 通信の場合は、以下に示す一連の手順に従う必要があります。
+Apple SSO のユーザーエクスペリエンスを活用するには、Appleが開発した [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) を組み込む必要があります。一方、Adobe Pass認証 REST API V1 通信の場合は、以下に示す一連の手順に従う必要があります。
 
 ### 権限 {#apple-sso-cookbook-rest-api-v1-permission}
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** ストリーミングアプリケーションは、デバイスレベルで保存されたユーザーの購読情報へのアクセスをリクエストする必要があります。これに対して、ユーザーは、デバイスのカメラまたはマイクへのアクセスを提供するのと同様に、続行する権限をアプリケーションに与える必要があります。 この権限は、Apple[ ビデオ購読者のアカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) を使用しているアプリケーションごとにリクエストされる必要があります。
+> **<u>ヒント：</u>** ストリーミングアプリケーションは、デバイスレベルで保存されたユーザーの購読情報へのアクセスをリクエストする必要があります。これに対して、ユーザーは、デバイスのカメラまたはマイクへのアクセスを提供するのと同様に、続行する権限をアプリケーションに与える必要があります。 この権限は、Apple[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) を使用しているアプリケーションごとにリクエストされる必要があります。
 
 >[!TIP]
 >
@@ -39,7 +39,7 @@ Apple SSO のユーザーエクスペリエンスを活用するには、Apple�
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** アプリケーションがフォアグラウンド状態になると、ユーザー認証を要求する前にいつでもユーザーの購読情報に対する [ アクセス許可 ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認できるので、ユーザーの許可を要求することをお勧めします。
+> **<u>ヒント：</u>** アプリケーションがフォアグラウンド状態になると、ユーザー認証を要求する前にいつでもユーザーの購読情報に対する [&#x200B; アクセス許可 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認できるので、ユーザーの許可を要求することをお勧めします。
 
 ### 認証 {#apple-sso-cookbook-rest-api-v1-authentication}
 
@@ -61,17 +61,17 @@ Apple SSO のユーザーエクスペリエンスを活用するには、Apple�
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** Adobe Pass認証 [ 認証トークンを確認 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/check-authentication-token.md)API サービスを使用して、これを実装します。
+> **<u>ヒント：</u>** Adobe Pass認証 [&#x200B; 認証トークンを確認 &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/check-authentication-token.md)API サービスを使用して、これを実装します。
 
 #### 手順：「ユーザーはパートナー SSO を使用してログインしていますか？」 {#step2}
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** [ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) のメディアを使用して、これを実装します。
+> **<u>ヒント：</u>** [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) のメディアを使用して、これを実装します。
 
-* アプリケーションは、ユーザーの購読情報 [ アクセス権限 ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
-* アプリケーションは、購読者のアカウント情報用に [ リクエスト ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
-* アプリケーションは、[ メタデータ ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
+* アプリケーションは、ユーザーの購読情報 [&#x200B; アクセス権限 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
+* アプリケーションは、購読者のアカウント情報用に [&#x200B; リクエスト &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
+* アプリケーションは、[&#x200B; メタデータ &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
 
 >[!TIP]
 >
@@ -135,7 +135,7 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** これをAdobe Pass認証 [MVPD リストの提供 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/provide-mvpd-list.md) API サービスで実装します。
+> **<u>ヒント：</u>** これをAdobe Pass認証 [MVPD リストの提供 &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/provide-mvpd-list.md) API サービスで実装します。
 
 >[!TIP]
 >
@@ -145,12 +145,12 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** [ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) のメディアを使用して、これを実装します。
+> **<u>ヒント：</u>** [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) のメディアを使用して、これを実装します。
 
-* アプリケーションは、ユーザーの購読情報 [ アクセス権限 ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
+* アプリケーションは、ユーザーの購読情報 [&#x200B; アクセス権限 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
 * アプリケーションは、VSAccountManager に [delegate](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
-* アプリケーションは、購読者のアカウント情報用に [ リクエスト ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
-* アプリケーションは、[ メタデータ ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
+* アプリケーションは、購読者のアカウント情報用に [&#x200B; リクエスト &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
+* アプリケーションは、[&#x200B; メタデータ &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
 
 >[!TIP]
 >
@@ -255,28 +255,28 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 >[!TIP]
 >
-> **<u>ヒント：</u>**[ 「Adobe設定でパートナー SSO ワークフローを開始する」 ](#step4) ステップのコードスニペットに注意してください。 *`vsaMetadata!.accountProviderIdentifier`* に有効な値が含まれ、現在の日付が *`vsaMetadata!.authenticationExpirationDate`* 値を渡していない場合、ユーザーログインは成功します。
+> **<u>ヒント：</u>**&#x200B;[&#x200B; 「Adobe設定でパートナー SSO ワークフローを開始する」 &#x200B;](#step4) ステップのコードスニペットに注意してください。 *`vsaMetadata!.accountProviderIdentifier`* に有効な値が含まれ、現在の日付が *`vsaMetadata!.authenticationExpirationDate`* 値を渡していない場合、ユーザーログインは成功します。
 
 #### 手順「選択したMVPDのAdobeからプロファイルリクエストを取得」 {#step6}
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** Adobe Pass Authentication [ プロファイルリクエスト ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-profilerequest.md) API サービスを使用して、これを実装します。
+> **<u>ヒント：</u>** Adobe Pass Authentication [&#x200B; プロファイルリクエスト &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-profilerequest.md) API サービスを使用して、これを実装します。
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** ビデオ購読者のアカウントフレームワークから取得されたプロバイダー ID は、Adobe Pass Authentication configuration の *`platformMappingId`* を表していることに注意してください。 そのため、アプリケーションは、Adobe Pass Authentication *`platformMappingId`* MVPD List の提供 [ API サービスを通じて、](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/provide-mvpd-list.md) 値を使用してMVPD ID プロパティ値を決定する必要があります。
+> **<u>ヒント：</u>** ビデオ購読者のアカウントフレームワークから取得されたプロバイダー ID は、Adobe Pass Authentication configuration の *`platformMappingId`* を表していることに注意してください。 そのため、アプリケーションは、Adobe Pass Authentication *`platformMappingId`* MVPD List の提供 [&#x200B; API サービスを通じて、](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/provide-mvpd-list.md) 値を使用してMVPD ID プロパティ値を決定する必要があります。
 
 #### 手順：「Adobe リクエストをパートナー SSO に転送してプロファイルを取得する」 {#step7}
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** [ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) のメディアを使用して、これを実装します。
+> **<u>ヒント：</u>** [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) のメディアを使用して、これを実装します。
 
 
-* アプリケーションは、ユーザーの購読情報 [ アクセス権限 ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
-* アプリケーションは、購読者のアカウント情報用に [ リクエスト ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
-* アプリケーションは、[ メタデータ ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
+* アプリケーションは、ユーザーの購読情報 [&#x200B; アクセス権限 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
+* アプリケーションは、購読者のアカウント情報用に [&#x200B; リクエスト &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
+* アプリケーションは、[&#x200B; メタデータ &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
 
 >[!TIP]
 >
@@ -348,17 +348,17 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** Adobe Pass Authentication [ トークン交換 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md) API サービスを使用して、これを実装します。
+> **<u>ヒント：</u>** Adobe Pass Authentication [&#x200B; トークン交換 &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md) API サービスを使用して、これを実装します。
 
 >[!TIP]
 >
-> **<u>ヒント：</u>**[ 「Adobe リクエストをパートナー SSO に転送してプロファイルを取得する」 ](#step7) 手順のコードスニペットに注意してください。 この *`vsaMetadata!.samlAttributeQueryResponse!`* は、*`SAMLResponse`* トークン交換 [ で渡す必要がある ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md) を表し、呼び出しを行う前に文字列操作とエンコード（*Base64* エンコードされ、*URL* 後でエンコードされた）が必要です。
+> **<u>ヒント：</u>**&#x200B;[&#x200B; 「Adobe リクエストをパートナー SSO に転送してプロファイルを取得する」 &#x200B;](#step7) 手順のコードスニペットに注意してください。 この *`vsaMetadata!.samlAttributeQueryResponse!`* は、*`SAMLResponse`* トークン交換 [&#x200B; で渡す必要がある &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md) を表し、呼び出しを行う前に文字列操作とエンコード（*Base64* エンコードされ、*URL* 後でエンコードされた）が必要です。
 
 #### 手順：「Adobe トークンは正常に生成されましたか？」 {#step9}
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** トークンが正常に作成され、認証フローに使用する準備ができていることを示す [ ールであるAdobe Pass Authentication ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md) トークン交換 *`204 No Content`* successful response を介して、これを実装します。
+> **<u>ヒント：</u>** トークンが正常に作成され、認証フローに使用する準備ができていることを示す [&#x200B; ールであるAdobe Pass Authentication &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md) トークン交換 *`204 No Content`* successful response を介して、これを実装します。
 
 #### 手順：「通常の認証ワークフローの開始」 {#step10}
 
@@ -370,46 +370,46 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 >
 > **<u>プロのヒント：</u>** tvOS の実装については、次の手順に従ってください。
 
-* アプリケーションは、[ 登録コードを取得 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) し、1 番目のデバイス（画面）でエンドユーザーに提示する必要があります。
-* アプリケーションは、登録コードが取得された後、1 台目のデバイス（画面）で [ ポーリングして認証状態を確認する ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) 必要があります。
-* 別のアプリケーションは、登録コードが使用される場合、2 番目のデバイス（画面）で [ 認証を開始 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authentication.md) する必要があります。
-* 認証トークンが生成されると、アプリケーションは最初のデバイス [ 画面）で ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) ポーリング）を停止する必要があります。
+* アプリケーションは、[&#x200B; 登録コードを取得 &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) し、1 番目のデバイス（画面）でエンドユーザーに提示する必要があります。
+* アプリケーションは、登録コードが取得された後、1 台目のデバイス（画面）で [&#x200B; ポーリングして認証状態を確認する &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) 必要があります。
+* 別のアプリケーションは、登録コードが使用される場合、2 番目のデバイス（画面）で [&#x200B; 認証を開始 &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authentication.md) する必要があります。
+* 認証トークンが生成されると、アプリケーションは最初のデバイス [&#x200B; 画面）で &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) ポーリング）を停止する必要があります。
 
 >[!TIP]
 >
 > **<u>プロのヒント：</u>** iOS/iPadOS を実装するには、次の手順に従います。
 
-* アプリケーションは、[ 登録コードを取得 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) する必要があります。このコードは、1 番目のデバイス（画面）でエンドユーザーに表示されるべきではありません。
-* アプリケーションは、登録コードと [WKWebView](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authentication.md) または [SFSafariViewController](https://developer.apple.com/documentation/webkit/wkwebview) コンポーネントを使用して、1 番目のデバイス（画面）で [ 認証を開始 ](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) する必要があります。
-* アプリケーションは、[WKWebView](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) または [SFSafariViewController](https://developer.apple.com/documentation/webkit/wkwebview) コンポーネントが閉じた後、最初のデバイス（画面）で [ 認証状態に関する情報のポーリング ](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) を開始する必要があります。
-* 認証トークンが生成されると、アプリケーションは最初のデバイス [ 画面）で ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) ポーリング）を停止する必要があります。
+* アプリケーションは、[&#x200B; 登録コードを取得 &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) する必要があります。このコードは、1 番目のデバイス（画面）でエンドユーザーに表示されるべきではありません。
+* アプリケーションは、登録コードと [WKWebView](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authentication.md) または [SFSafariViewController](https://developer.apple.com/documentation/webkit/wkwebview) コンポーネントを使用して、1 番目のデバイス（画面）で [&#x200B; 認証を開始 &#x200B;](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) する必要があります。
+* アプリケーションは、[WKWebView](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) または [SFSafariViewController](https://developer.apple.com/documentation/webkit/wkwebview) コンポーネントが閉じた後、最初のデバイス（画面）で [&#x200B; 認証状態に関する情報のポーリング &#x200B;](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) を開始する必要があります。
+* 認証トークンが生成されると、アプリケーションは最初のデバイス [&#x200B; 画面）で &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) ポーリング）を停止する必要があります。
 
 #### 手順：「認証フローを続行」 {#step11}
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** これをAdobe Pass認証 [ 認証の開始 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authorization.md) および [ ショートメディアトークンの取得 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/obtain-short-media-token.md)API サービスを通じて実装します。
+> **<u>ヒント：</u>** これをAdobe Pass認証 [&#x200B; 認証の開始 &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authorization.md) および [&#x200B; ショートメディアトークンの取得 &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/obtain-short-media-token.md)API サービスを通じて実装します。
 
 ### ログアウト {#apple-sso-cookbook-rest-api-v1-logout}
 
-[ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount) には、デバイスシステムレベルで TV プロバイダーアカウントにログインしたユーザーをプログラムでログアウトする API はありません。 そのため、ログアウトを完全に有効にするには、エンドユーザーはiOS/iPadOS の *`Settings -> TV Provider`* または tvOS の *`Settings -> Accounts -> TV Provider`* から明示的にログアウトする必要があります。 ユーザーが持つもう 1 つのオプションは、特定のアプリケーション設定セクション（TV プロバイダーへのアクセス）からユーザーの購読情報にアクセスするための権限を取り消すことです。
+[&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) には、デバイスシステムレベルで TV プロバイダーアカウントにログインしたユーザーをプログラムでログアウトする API はありません。 そのため、ログアウトを完全に有効にするには、エンドユーザーはiOS/iPadOS の *`Settings -> TV Provider`* または tvOS の *`Settings -> Accounts -> TV Provider`* から明示的にログアウトする必要があります。 ユーザーが持つもう 1 つのオプションは、特定のアプリケーション設定セクション（TV プロバイダーへのアクセス）からユーザーの購読情報にアクセスするための権限を取り消すことです。
 
 >[!TIP]
 >
-> **<u>ヒント：</u>** Adobe Pass認証 [ ユーザーメタデータ呼び出し ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md) および [ ログアウト ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md) API サービスを使用して、これを実装します。
+> **<u>ヒント：</u>** Adobe Pass認証 [&#x200B; ユーザーメタデータ呼び出し &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md) および [&#x200B; ログアウト &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md) API サービスを使用して、これを実装します。
 
 >[!TIP]
 >
 > **<u>プロのヒント：</u>** tvOS の実装については、次の手順に従ってください。
 
-* アプリケーションは、Adobe Pass Authentication サービスの「*tokenSource」*[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md) を使用して、認証がパートナー SSO を介したログインの結果として発生したかどうかを判断する必要があります。
+* アプリケーションは、Adobe Pass Authentication サービスの「*tokenSource」*[&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md) を使用して、認証がパートナー SSO を介したログインの結果として発生したかどうかを判断する必要があります。
 * *`Settings -> Accounts -> TV Provider`*&quot;tokenSource&quot;**の値が「** Apple *に等しい場合、tvOS の* で明示的にログアウトするようにユーザーに指示またはプロンプトを表示する必要があります *のみ*。
-* アプリケーションは、直接 HTTP 呼び出しを使用して、Adobe Pass Authentication サービスから [ ログアウトを開始 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md) する必要があります。 これは、MVPD側でのセッションクリーンアップを容易にするものではありません。
+* アプリケーションは、直接 HTTP 呼び出しを使用して、Adobe Pass Authentication サービスから [&#x200B; ログアウトを開始 &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md) する必要があります。 これは、MVPD側でのセッションクリーンアップを容易にするものではありません。
 
 >[!TIP]
 >
 > **<u>プロのヒント：</u>** iOS/iPadOS を実装するには、次の手順に従います。
 
-* アプリケーションは、Adobe Pass Authentication サービスの「*tokenSource」*[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md) を使用して、認証がパートナー SSO を介したログインの結果として発生したかどうかを判断する必要があります。
+* アプリケーションは、Adobe Pass Authentication サービスの「*tokenSource」*[&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md) を使用して、認証がパートナー SSO を介したログインの結果として発生したかどうかを判断する必要があります。
 * *`Settings -> TV Provider`*&quot;tokenSource&quot;**の値が**&quot;Apple&quot;*に等しい場合、iOS/iPadOS* のみ *で* から明示的にログアウトするようにユーザーに指示またはプロンプトする必要があります。
-* アプリケーションは、[WKWebView](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md) または [SFSafariViewController](https://developer.apple.com/documentation/webkit/wkwebview) コンポーネントを使用して、Adobe Pass Authentication サービスから [ ログアウトを開始 ](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) する必要があります。 これにより、MVPD側のクリーンアップが容易になります。
+* アプリケーションは、[WKWebView](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md) または [SFSafariViewController](https://developer.apple.com/documentation/webkit/wkwebview) コンポーネントを使用して、Adobe Pass Authentication サービスから [&#x200B; ログアウトを開始 &#x200B;](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) する必要があります。 これにより、MVPD側のクリーンアップが容易になります。

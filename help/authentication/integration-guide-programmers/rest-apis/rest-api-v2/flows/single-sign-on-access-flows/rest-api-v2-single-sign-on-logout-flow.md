@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -46,7 +46,7 @@ ht-degree: 0%
 
 次の図に示すように、特定のMVPDに対してシングルログアウトフローを実装するには、以下の手順を実行します。
 
-![ 特定の mvpd に対してシングルログアウトを開始する ](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-initiate-single-logout-for-specific-mvpd-flow.png)
+![&#x200B; 特定の mvpd に対してシングルログアウトを開始する &#x200B;](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-initiate-single-logout-for-specific-mvpd-flow.png)
 
 *特定の mvpd に対してシングルログアウトを開始する*
 
@@ -54,7 +54,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[ 特定の mvpd のログアウトの開始 ](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[&#x200B; 特定の mvpd のログアウトの開始 &#x200B;](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) API ドキュメントを参照してください。
    >
    > * _、_、`serviceProvider` など、すべての `mvpd` 必須 `redirectUrl` パラメーター
    > * _、_ などのすべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
@@ -80,7 +80,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > ログアウト応答で提供される情報について詳しくは、[ 特定の mvpd のログアウトの開始 ](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) API ドキュメントを参照してください。
+   > ログアウト応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd のログアウトの開始 &#x200B;](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -91,7 +91,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
 
 1. **ログアウト完了を示す：** MVPDがログアウトフローをサポートしていない場合、ストリーミングアプリケーションが応答を処理し、それを使用して、オプションで特定のメッセージをユーザーインターフェイスに表示できます。
 

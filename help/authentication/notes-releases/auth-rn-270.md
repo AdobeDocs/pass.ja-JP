@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -35,7 +35,7 @@ Adobe Pass認証：adobe-pass-**2.70**
 * パッチが適用されたセキュリティ脆弱性。
 * API サービスの低下を改善しました。
    * Degradation API のセキュリティメカニズムとして DCR を使用します。
-   * 詳細については、こちらを参照してください。[ 最適化機能 ](../integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
+   * 詳細については、こちらを参照してください。[&#x200B; 最適化機能 &#x200B;](../integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
 
 #### REST API
 

@@ -25,7 +25,7 @@ Adobeには、Adobe Pass Authentication を web サイトやアプリケーシ�
 
 設定プロセスには、特に次の手順が含まれます。
 
-![Adobe® 認証統合プロセスに合格 ](../assets/progr-flow-int-lifecycle.png)
+![Adobe® 認証統合プロセスに合格 &#x200B;](../assets/progr-flow-int-lifecycle.png)
 
 *Adobe® 認証統合プロセスに合格*
 
@@ -69,22 +69,22 @@ MVPDを使用して **指定します**。
 
 ## カスタマーサポートへのアクセス {#access-customer-support}
 
-**Adobeから** Zendesk[ 経由でカスタマーサポートシステムにアクセス ](https://tve.zendesk.com/home) きます。 Zendesk にアクセスするには、https://tve.zendesk.com/homeでアカウントを登録して作成する必要があります。 登録できるユーザー数に制限はありません。 登録すると、送信されたチケットに関するコメントを表示して共有できます。
+**Adobeから** Zendesk[&#x200B; 経由でカスタマーサポートシステムにアクセス &#x200B;](https://tve.zendesk.com/home) きます。 Zendesk にアクセスするには、https://tve.zendesk.com/homeでアカウントを登録して作成する必要があります。 登録できるユーザー数に制限はありません。 登録すると、送信されたチケットに関するコメントを表示して共有できます。
 
 Adobe Pass認証チームは、統合プロセス中に発生した質問や技術的な問題についてサポートを受けることができます。 [tve-support@adobe.com](mailto:tve-support@adobe.com) までお問い合わせください。
 
 ## ドキュメントへのアクセス {#access-documentation}
 
-**Adobeは** Adobe Experience League[ 経由でアドビの公開ドキュメントに ](https://experienceleague.adobe.com/en/docs/pass/authentication/home) アクセスを提供します。
+**Adobeは** Adobe Experience League[&#x200B; 経由でアドビの公開ドキュメントに &#x200B;](https://experienceleague.adobe.com/en/docs/pass/authentication/home) アクセスを提供します。
 
-Adobe Pass認証チームは、[ プログラマー向け統合ガイド ](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md) の節で利用可能な機能と API の包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
+Adobe Pass認証チームは、[&#x200B; プログラマー向け統合ガイド &#x200B;](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md) の節で利用可能な機能と API の包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
 
 ## テストツールへのアクセス {#access-testing-tool}
 
-**Adobeから**[Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイト経由で API 探索ツールにアクセスできるようになります。
+**Adobeから**&#x200B;[Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイト経由で API 探索ツールにアクセスできるようになります。
 
 ## 設定管理ツールへのアクセス {#access-configuration-management-tool}
 
-**Adobeは**[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/pass/authentication) を介して設定とデータを管理するためのセルフサービスツールへのアクセスを提供します。
+**Adobeは**&#x200B;[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/pass/authentication) を介して設定とデータを管理するためのセルフサービスツールへのアクセスを提供します。
 
-Adobe Pass認証チームは、「[TVE ダッシュボードのユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md) セクションで、TVE ダッシュボードの使用に関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
+Adobe Pass認証チームは、「[TVE ダッシュボードのユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md) セクションで、TVE ダッシュボードの使用に関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。

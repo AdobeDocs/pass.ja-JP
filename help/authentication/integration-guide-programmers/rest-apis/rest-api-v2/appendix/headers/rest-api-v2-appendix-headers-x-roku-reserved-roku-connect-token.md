@@ -21,7 +21,7 @@ ht-degree: 0%
 
 このヘッダーは、Platform ID メソッドを活用するシングルサインオン（SSO）対応フローで使用するように設計されています。
 
-Platform ID メソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[ プラットフォーム ID フローを使用したシングルサインオン ](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) ドキュメントを参照してください。
+Platform ID メソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[&#x200B; プラットフォーム ID フローを使用したシングルサインオン &#x200B;](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) ドキュメントを参照してください。
 
 ## 構文 {#syntax}
 

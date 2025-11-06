@@ -19,20 +19,20 @@ ht-degree: 0%
 >
 > Degradation API を使用する前に、次の前提条件が満たされていることを確認してください。
 >
-> * [ クライアント資格情報の取得 ](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメントの説明に従って、クライアント資格情報を取得します。
-> * [ アクセストークンの取得 ](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って、アクセストークンを取得します。
+> * [&#x200B; クライアント資格情報の取得 &#x200B;](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメントの説明に従って、クライアント資格情報を取得します。
+> * [&#x200B; アクセストークンの取得 &#x200B;](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って、アクセストークンを取得します。
 >
-> 登録されたアプリケーションを作成してソフトウェアのステートメントをダウンロードする方法について詳しくは、[ 動的クライアント登録の概要 ](../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
+> 登録されたアプリケーションを作成してソフトウェアのステートメントをダウンロードする方法について詳しくは、[&#x200B; 動的クライアント登録の概要 &#x200B;](../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
 
 ## API の概要 {#api-overview}
 
-権利付与サービスモニタリング（ESM）は，WOLAP （Web ベース [ オンライン分析処理 ](https://en.wikipedia.org/wiki/Online_analytical_processing){target=_blank}）プロジェクトとして実施される。 ESM は、データウェアハウスに基づく汎用のビジネスレポート Web API です。 これは、一般的な OLAP 操作を RESTfully で実行できる HTTP クエリ言語として機能します。
+権利付与サービスモニタリング（ESM）は，WOLAP （Web ベース [&#x200B; オンライン分析処理 &#x200B;](https://en.wikipedia.org/wiki/Online_analytical_processing){target=_blank}）プロジェクトとして実施される。 ESM は、データウェアハウスに基づく汎用のビジネスレポート Web API です。 これは、一般的な OLAP 操作を RESTfully で実行できる HTTP クエリ言語として機能します。
 
 >[!NOTE]
 >
 >ESM API は一般には使用できません。 可用性に関するご質問については、Adobe担当者にお問い合わせください。
 
-ESM API は、基盤となる OLAP キューブの階層ビューを提供します。 URL パスセグメントとしてマッピングされたディメンション階層内の各リソース [ ディメンション ](#esm_dimensions)）は、現在の選択対象の（集計） [ 指標 ](#esm_metrics) を含むレポートを生成します。 各リソースは、親リソース（ロールアップの場合）とそのサブリソース（ドリルダウンの場合）を指します。 スライスとダイシングは、ディメンションを特定の値や範囲にピン留めするクエリ文字列パラメーターによって実現されます。
+ESM API は、基盤となる OLAP キューブの階層ビューを提供します。 URL パスセグメントとしてマッピングされたディメンション階層内の各リソース [&#x200B; ディメンション &#x200B;](#esm_dimensions)）は、現在の選択対象の（集計） [&#x200B; 指標 &#x200B;](#esm_metrics) を含むレポートを生成します。 各リソースは、親リソース（ロールアップの場合）とそのサブリソース（ドリルダウンの場合）を指します。 スライスとダイシングは、ディメンションを特定の値や範囲にピン留めするクエリ文字列パラメーターによって実現されます。
 
 REST API は、ディメンションパス、提供されたフィルターおよび選択された指標に従って、リクエストで指定された期間内に使用可能なデータを提供します（提供されていない場合はデフォルト値にフォールバックします）。 時間範囲は、時間ディメンション（年、月、日、時間、分、秒）を含まないレポートには適用されません。
 
