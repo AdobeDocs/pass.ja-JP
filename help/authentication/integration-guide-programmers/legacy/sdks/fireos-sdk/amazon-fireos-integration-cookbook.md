@@ -2,7 +2,7 @@
 title: Amazon FireOS 統合クックブック
 description: Amazon FireOS 統合クックブック
 exl-id: 1982c485-f0ed-4df3-9a20-9c6a928500c2
-source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1447'
 ht-degree: 0%
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -107,7 +107,7 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
       - `authorizedResources` パラメーターは、ユーザーが表示を許可されているリソースを表します。
 
 
-![](/help//authentication/assets/android-entitlement-flows.png)
+![](../../../../assets/android-entitlement-flows.png)
 
 
 ### B.起動フロー {#startup_flow}
@@ -132,7 +132,7 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
    1. `setRequestorComplete()` コールバックのトリガー（`AccessEnabler` デリゲートの一部）を待ちます。  このオプションを使用すると、最も確実性の高い処理 `setRequestor()` 完了するので、ほとんどの実装に対してこのオプションを使用することをお勧めします。
    1. `setRequestorComplete()` コールバックのトリガーを待たずに続行し、使用権限リクエストの発行を開始します。 これらの呼び出し（checkAuthentication、checkAuthorization、getAuthentication、getAuthorization、checkPreauthorizedResource、getMetadata、logout）は `AccessEnabler` ライブラリによってキューに入れられ、`setRequestor()` の後に実際のネットワーク呼び出しを行います。 ネットワーク接続が不安定な場合など、このオプションが中断される場合があります。
 
-1. [checkAuthentication （） &#x200B;](#$checkAuthN) を呼び出すと、完全な認証フローを開始せずに既存の認証を確認できます。  この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
+1. [checkAuthentication （） ](#$checkAuthN) を呼び出すと、完全な認証フローを開始せずに既存の認証を確認できます。  この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
 
 - **依存関係：** `setRequestor()` の呼び出しが成功した（この依存関係は、後続のすべての呼び出しにも適用されます）。
 
@@ -144,7 +144,7 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
 
    **トリガー:**
 
-   - ユーザーが既に認証されている場合は、setAuthenticationStatus （） コールバック。  この場合は、[&#x200B; 認証フロー &#x200B;](#authz_flow) に直接進みます。
+   - ユーザーが既に認証されている場合は、setAuthenticationStatus （） コールバック。  この場合は、[ 認証フロー ](#authz_flow) に直接進みます。
    - ユーザーがまだ認証されていない場合の displayProviderDialog （） コールバック。
 
 1. `displayProviderDialog()` に送信されたプロバイダーのリストをユーザーに提示します。
@@ -193,7 +193,7 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
 
 1. 表示するメディアを選択します。
 1. メディアは保護されていますか？  選択したメディアが保護されているかどうかを確認します。
-   - 選択したメディアが保護されている場合、アプリケーションは上記の [&#x200B; 認証フロー &#x200B;](#authz_flow) を開始します。
+   - 選択したメディアが保護されている場合、アプリケーションは上記の [ 認証フロー ](#authz_flow) を開始します。
    - 選択したメディアが保護されていない場合は、そのユーザーのメディアを再生します。
 
 ### F. ログアウトフロー {#logout_flow}

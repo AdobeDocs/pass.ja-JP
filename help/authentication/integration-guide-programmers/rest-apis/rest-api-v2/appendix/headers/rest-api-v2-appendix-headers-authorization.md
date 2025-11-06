@@ -2,7 +2,7 @@
 title: ヘッダー – 認証
 description: REST API V2 - ヘッダー – 認証
 exl-id: 86917d7e-ffd9-4d34-8f9c-5a50083f85e6
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '118'
 ht-degree: 1%
@@ -20,7 +20,7 @@ ht-degree: 1%
 
 <b>Authorization</b> リクエストヘッダーには、Adobe Passで保護された API にアクセスするためにクライアントアプリケーションで必要な `Bearer` アクセストークンが含まれています。
 
-Adobe Passで保護された API へのアクセスの仕組みについて詳しくは、[Dynamic Client Registration Overview](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
+Adobe Passで保護された API へのアクセスの仕組みについて詳しくは、[Dynamic Client Registration Overview](../../../rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
 
 ## 構文 {#syntax}
 
@@ -42,7 +42,7 @@ Adobe Passで保護された API へのアクセスの仕組みについて詳�
 
 <b>&lt;access_token></b>
 
-アクセストークン値は、有効期限が限られている opaque 値（24 時間など）で、[&#x200B; アクセストークンの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントに記載されているように、Adobe Passから取得する必要があります。
+アクセストークン値は、有効期限が限られている opaque 値（24 時間など）で、[ アクセストークンの取得 ](../../../rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントに記載されているように、Adobe Passから取得する必要があります。
 
 ## 例 {#examples}
 

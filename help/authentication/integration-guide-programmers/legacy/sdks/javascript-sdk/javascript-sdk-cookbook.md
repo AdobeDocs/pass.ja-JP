@@ -2,7 +2,7 @@
 title: JavaScript SDK クックブック
 description: JavaScript SDK クックブック
 exl-id: d57f7a4a-ac77-4f3c-8008-0cccf8839f7c
-source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '957'
 ht-degree: 0%
@@ -17,13 +17,13 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#intro}
 
 このドキュメントでは、Adobe Pass Authentication Service とJavaScriptを統合するためにプログラマーの上位レベルのアプリケーションで実装される使用権限ワークフローについて説明します。 JavaScript API リファレンスへのリンクは、全体に含まれています。
 
-また、「関連情報 [&#x200B; の節には次の内容も含まれます &#x200B;](#related)
+また、「関連情報 [ の節には次の内容も含まれます ](#related)
 JavaScript コードサンプルのセットへのリンク。
 
 ## 使用権限フロー {#entitlement}
@@ -36,7 +36,7 @@ JavaScript コードサンプルのセットへのリンク。
 
 </br>
 
-![](/help//authentication/assets/javascript-flows.png)
+![](../../../../assets/javascript-flows.png)
 
 
 ## 前提条件 {#prereq}
@@ -186,7 +186,7 @@ AccessEnabler ライブラリ）
 
 ## 訪問者 ID の設定 {#visitorID}
 
-[Experience Cloud visitorID](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=ja) の値の設定は、分析の観点から非常に重要です。 EC visitorID の値が設定されると、SDKはネットワーク呼び出しごとにこの情報を送信し、Adobe Pass Authentication サービスはこの情報を収集します。 これにより、Adobe Pass Authentication Service からの分析データを、他のアプリケーションや web サイトからの他の分析レポートと関連付けることができます。 EC 訪問者 ID の設定方法については、[&#x200B; こちら &#x200B;](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=ja) を参照してください。
+[Experience Cloud visitorID](https://experienceleague.adobe.com/docs/id-service/using/home.html) の値の設定は、分析の観点から非常に重要です。 EC visitorID の値が設定されると、SDKはネットワーク呼び出しごとにこの情報を送信し、Adobe Pass Authentication サービスはこの情報を収集します。 これにより、Adobe Pass Authentication Service からの分析データを、他のアプリケーションや web サイトからの他の分析レポートと関連付けることができます。 EC 訪問者 ID の設定方法については、[ こちら ](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=en) を参照してください。
 
 
 >[!NOTE]

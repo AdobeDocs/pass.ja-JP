@@ -2,7 +2,7 @@
 title: Adobe Pass Authentication 2.69 リリースノート
 description: Adobe Pass Authentication 2.69 リリースノート
 exl-id: d031c4c5-dbd5-4a77-b298-a53b992cc4c5
-source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '210'
 ht-degree: 0%
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -34,7 +34,7 @@ Adobe Pass認証：adobe-pass-**2.69**
 
 * パッチが適用されたセキュリティ脆弱性。
 * Dynamic Client Registration （DCR）による一時パスセキュリティレイヤーのリセットの機能強化。
-   * 詳しくは、こちらを参照してください。[TempPass 機能 &#x200B;](/help/premium-workflow/temporary-access/temp-pass-feature.md)
+   * 詳しくは、こちらを参照してください。[TempPass 機能 ](../integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
 * プラットフォーム識別レポートの機能強化。
 
 #### REST API
@@ -52,4 +52,4 @@ Adobe Pass認証：adobe-pass-**2.69**
 #### JavaScript SDK 4.7.0
 
 * セキュリティの脆弱性により、Access Enabler JavaScript SDKの非推奨バージョン 2.0.1 を削除しました。
-   * 詳しくは、[Adobe Pass Authentication JavaScript 4.7.0 リリースノート &#x200B;](authn-rn-javascript-470.md) のリンクを参照してください。
+   * 詳しくは、[Adobe Pass Authentication JavaScript 4.7.0 リリースノート ](authn-rn-javascript-470.md) のリンクを参照してください。

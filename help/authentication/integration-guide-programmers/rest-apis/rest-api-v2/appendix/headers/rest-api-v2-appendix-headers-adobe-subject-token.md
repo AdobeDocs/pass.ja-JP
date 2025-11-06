@@ -2,7 +2,7 @@
 title: Header - Adobe-Subject-Token
 description: REST API V2 - ヘッダー – Adobe – 件名 – トークン
 exl-id: 906d88f4-3b8f-491a-ab58-8e63d3b958d8
-source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '166'
 ht-degree: 1%
@@ -21,7 +21,7 @@ ht-degree: 1%
 
 このヘッダーは、Platform ID メソッドを活用するシングルサインオン（SSO）対応フローで使用するように設計されています。
 
-Platform ID メソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[&#x200B; プラットフォーム ID フローを使用したシングルサインオン &#x200B;](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) ドキュメントを参照してください。
+Platform ID メソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[ プラットフォーム ID フローを使用したシングルサインオン ](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) ドキュメントを参照してください。
 
 ## 構文 {#syntax}
 
@@ -47,10 +47,10 @@ Platform ID メソッドを活用したシングルサインオン（SSO）有�
 
 これは、次のプラットフォームで使用できます。
 
-* [Amazon SSO クックブック（REST API V2）](/help/premium-workflow/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
+* [Amazon SSO クックブック（REST API V2）](../../../../features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
 
 ## 例 {#examples}
 
 次のプラットフォームについて説明した例を参照してください。
 
-* [Amazon SSO クックブック（REST API V2）](/help/premium-workflow/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
+* [Amazon SSO クックブック（REST API V2）](../../../../features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)

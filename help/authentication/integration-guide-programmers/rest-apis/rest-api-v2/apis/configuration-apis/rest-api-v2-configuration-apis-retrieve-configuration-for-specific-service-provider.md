@@ -2,7 +2,7 @@
 title: 特定のサービスプロバイダーの設定の取得
 description: REST API V2 – 特定のサービスプロバイダーの設定を取得します
 exl-id: ad7e4c6d-ed96-4ae7-82a9-3c24e5fc9302
-source-git-commit: 1c96904f67507ad127c29628963d74a9fb010e99
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '728'
 ht-degree: 1%
@@ -17,7 +17,7 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -229,7 +229,7 @@ ht-degree: 1%
                         <li><b>id</b><br/> オンボーディングプロセス中に ID プロバイダーに関連付けられた一意の内部識別子。</li>
                         <li><b>displayName</b><br/> オンボーディングプロセス中に ID プロバイダーに関連付けられた商用（ブランド）名。</li>
                         <li><b>logoUrl</b><br>ID プロバイダーに関連付けられたロゴのダウンロード元の URL です。</li>
-                        <li><b>isTempPass</b><br/>MVPDが <a href="/help/premium-workflow/temporary-access/temp-pass-feature.md">TempPass</a> 機能を提供するように設計されているかどうかを指定するフラグ。</li>
+                        <li><b>isTempPass</b><br/>MVPDが <a href="../../../../features-premium/temporary-access/temp-pass-feature.md">TempPass</a> 機能を提供するように設計されているかどうかを指定するフラグ。</li>
                         <li><b>isProxy</b><br/>MVPDがプロキシ化されたMVPDかどうかを指定するフラグ。</li>
                         <li><b>boardingStatus</b><br/> シングルサインオンフローで、ID プロバイダーがストリーミングデバイスプラットフォームによってオンボードされるかどうかを指定するステータス。</li>
                         <li><b>platformMappingId</b><br/> シングルサインオンフロー用のストリーミングデバイスプラットフォームによって ID プロバイダーに関連付けられた内部の一意の ID。</li>

@@ -2,7 +2,7 @@
 title: 変更のレビューとプッシュ
 description: TVE ダッシュボードで変更をレビューおよびプッシュする方法について説明します。
 exl-id: 2f29712e-7b3f-472a-a36f-32780bec1508
-source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '250'
 ht-degree: 0%
@@ -21,7 +21,7 @@ TVE ダッシュボードでは、現在の設定に対する変更を確認し�
 
 1. 画面の下部にあるレビューおよびプッシュの変更通知を見つけます。
 
-   ![&#x200B; 変更通知のレビューとプッシュ &#x200B;](/help/authentication/assets/tve-dashboard/new-tve-dashboard/review/review-and-push-changes-banner-view.png)
+   ![ 変更通知のレビューとプッシュ ](../assets/tve-dashboard/new-tve-dashboard/review/review-and-push-changes-banner-view.png)
 
    *変更のレビューとプッシュ通知ボックス*
 
@@ -29,7 +29,7 @@ TVE ダッシュボードでは、現在の設定に対する変更を確認し�
 
 1. **設定説明** に変更の簡単な説明を入力して、各変更の目的を効果的に追跡し理解します。
 
-   ![&#x200B; 設定の説明の追加 &#x200B;](/help/authentication/assets/tve-dashboard/new-tve-dashboard/review/review-and-push-configuration-details-panel-view.png)
+   ![ 設定の説明の追加 ](../assets/tve-dashboard/new-tve-dashboard/review/review-and-push-configuration-details-panel-view.png)
 
    *設定の説明の追加*
 
@@ -39,7 +39,7 @@ TVE ダッシュボードでは、現在の設定に対する変更を確認し�
 
 1. 「**表示**」を選択して、設定変更に関連付けられた以前の値と新しい値を確認します。
 
-   ![&#x200B; 設定の変更を表示 &#x200B;](/help/authentication/assets/tve-dashboard/new-tve-dashboard/review/review-and-push-changes-view-button.png)
+   ![ 設定の変更を表示 ](../assets/tve-dashboard/new-tve-dashboard/review/review-and-push-changes-view-button.png)
 
    *設定の変更を表示*
 
@@ -49,7 +49,7 @@ TVE ダッシュボードでは、現在の設定に対する変更を確認し�
    >
    >「**プッシュの変更**」ボタンは、「**設定の説明** を追加した後にのみアクティブになります。
 
-   ![&#x200B; プッシュの変更 &#x200B;](/help/authentication/assets/tve-dashboard/new-tve-dashboard/review/review-and-push-push-changes-button.png)
+   ![ プッシュの変更 ](../assets/tve-dashboard/new-tve-dashboard/review/review-and-push-push-changes-button.png)
 
    *プッシュの変更*
 

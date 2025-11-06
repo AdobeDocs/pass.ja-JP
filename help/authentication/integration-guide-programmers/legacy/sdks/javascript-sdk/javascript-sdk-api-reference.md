@@ -2,7 +2,7 @@
 title: JavaScript SDK API リファレンス
 description: JavaScript SDK API リファレンス
 exl-id: 48d48327-14e6-46f3-9e80-557f161acd8a
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '2883'
 ht-degree: 0%
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## API リファレンス {#api-reference}
 
@@ -51,7 +51,7 @@ ht-degree: 0%
 
 - *options* - アプリケーション ID 値、訪問者 ID 値の更新なしの設定（バックグラウンドログインログアウト）およびMVPD設定（iFrame）を含む JSON オブジェクト。 値はすべてオプションです。
    1. これを指定すると、ライブラリで実行されるすべてのネットワーク呼び出しでExperience Cloudの visitorID がレポートされます。 この値は、後で高度な分析レポートに使用できます。
-   2. アプリケーションの一意の識別子が – `applicationId` に指定されている場合、この値は、X-Device-Info HTTP ヘッダーの一部としてアプリケーションによって行われる後続のすべての呼び出しに追加されます。 この値は、後で適切なクエリを使用して [ESM](/help/premium-workflow/esm/entitlement-service-monitoring-overview.md) レポートから取得できます。
+   2. アプリケーションの一意の識別子が – `applicationId` に指定されている場合、この値は、X-Device-Info HTTP ヘッダーの一部としてアプリケーションによって行われる後続のすべての呼び出しに追加されます。 この値は、後で適切なクエリを使用して [ESM](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md) レポートから取得できます。
 
   **メモ：** すべての JSON キーでは大文字と小文字が区別されます。
 
@@ -115,7 +115,7 @@ ht-degree: 0%
 ```
 
 
-**コールバックがトリガーされました：** [setConfig （） &#x200B;](#setconfigconfigxml-setconfigconfigxml)
+**コールバックがトリガーされました：** [setConfig （） ](#setconfigconfigxml-setconfigconfigxml)
 </br>
 
 [トップに戻る](#top)
@@ -134,7 +134,7 @@ ht-degree: 0%
 - `redirect_url` - （オプション）リダイレクト URL を指定すると、MVPD認証プロセスは、認証が開始されたページではなく、そのページにユーザーを返します。
 
 
-**Callbacks triggered:** [setToken （） &#x200B;](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken) on success, [tokenRequestFailed](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage) on failed
+**Callbacks triggered:** [setToken （） ](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken) on success, [tokenRequestFailed](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage) on failed
 
 >[!CAUTION]
 >
@@ -150,13 +150,13 @@ ht-degree: 0%
 
 **説明：** 現在の顧客の認証を要求します。 通常、「ログイン」ボタンのクリックに応答して呼び出されます。 現在の顧客のキャッシュされた認証トークンを確認します。 そのようなトークンが見つからない場合は、認証プロセスを開始します。 これにより、デフォルトまたはカスタムの provider-selection ダイアログが呼び出され、選択されたプロバイダーを使用してMVPDのログインインターフェイスにリダイレクトされます。
 
-成功すると、はユーザーの認証トークンを作成して保存します。 認証が失敗した場合、プロバイダーは適切なエラーメッセージを [setAuthenticationStatus （） &#x200B;](#setauthenticationstatusisauthenticated-errorcode) コールバックに返します。
+成功すると、はユーザーの認証トークンを作成して保存します。 認証が失敗した場合、プロバイダーは適切なエラーメッセージを [setAuthenticationStatus （） ](#setauthenticationstatusisauthenticated-errorcode) コールバックに返します。
 
 **パラメーター：**
 
 - redirect_url - オプションで、リダイレクト URL を指定します。これにより、MVPD認証プロセスは、認証が開始されたページではなく、そのページにユーザーを返します。
 
-**コールバックがトリガーされました：** [setAuthenticationStatus （） &#x200B;](#setauthenticationstatusisauthenticated-errorcode), [displayProviderDialog （） &#x200B;](#displayproviderdialogproviders-displayproviderdialogproviders), [sendTrackingData （） &#x200B;](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
+**コールバックがトリガーされました：** [setAuthenticationStatus （） ](#setauthenticationstatusisauthenticated-errorcode), [displayProviderDialog （） ](#displayproviderdialogproviders-displayproviderdialogproviders), [sendTrackingData （） ](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
 
 </br>
 
@@ -168,7 +168,7 @@ ht-degree: 0%
 
 **説明：** 現在の顧客の現在の認証ステータスを確認します。  どの UI にも関連付けられていません。
 
-**コールバックがトリガーされました：** [setAuthentcationStatus （） &#x200B;](#setauthenticationstatusisauthenticated-errorcode)
+**コールバックがトリガーされました：** [setAuthentcationStatus （） ](#setauthenticationstatusisauthenticated-errorcode)
 
 </br>
 
@@ -190,7 +190,7 @@ ht-degree: 0%
 
 
 **トリガーされたコールバック：**
-[setToken （） &#x200B;](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken), [tokenRequestFailed （） &#x200B;](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage), [sendTrackingData （） &#x200B;](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata), [setAuthenticationStatus （） &#x200B;](#setauthenticationstatusisauthenticated-errorcode)
+[setToken （） ](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken), [tokenRequestFailed （） ](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage), [sendTrackingData （） ](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata), [setAuthenticationStatus （） ](#setauthenticationstatusisauthenticated-errorcode)
 
 </br>
 
@@ -216,11 +216,11 @@ ht-degree: 0%
 
 - *キャッシュ*：事前承認されたリソースを確認する際に内部キャッシュを使用するかどうか。 これはオプションのパラメーターで、デフォルトは **true** です。 true の場合、動作は上記の API と同じです。つまり、この関数への後続の呼び出しは、内部キャッシュを使用して事前承認済みリソースを解決します。 このパラメーターに **false** を渡すと、内部キャッシュが無効になり、**checkPreauthorizedResources** API が呼び出されるたびにサーバーが呼び出されます。
 
-**トリガーされたコールバック：** [preauthorizedResources （） &#x200B;](#preauthorizedresourcesauthorizedresources-preauthorizedresourcesauthorizedresources)
+**トリガーされたコールバック：** [preauthorizedResources （） ](#preauthorizedresourcesauthorizedresources-preauthorizedresourcesauthorizedresources)
 
 </br>
 
-[&#x200B; トップに戻る &#x200B;](#top)
+[ トップに戻る ](#top)
 </br>
 
 ## getMetadata （Key） {#getMetadata}
@@ -232,7 +232,7 @@ ht-degree: 0%
 - **静的** （認証トークン TTL、認証トークン TTL およびデバイス ID）
 - **ユーザーメタデータ** （認証フローや承認フローの最中に、MVPDからユーザーのデバイスに渡されるユーザー固有の情報を含みます）
 
-**詳細情報：**&#x200B;[&#x200B; ユーザーメタデータ &#x200B;](#UserMetadata)
+**詳細情報：**[ ユーザーメタデータ ](#UserMetadata)
 
 **パラメーター：**
 
@@ -271,7 +271,7 @@ ht-degree: 0%
 
    - `"acctParentID"` - アカウント親 ID
 
-  **メモ**：プログラマーが使用できる実際のユーザーメタデータは、MVPDが提供する内容によって異なります。  使用可能なユーザーメタデータの現在のリストについては、[&#x200B; ユーザーメタデータ &#x200B;](#UserMetadata) を参照してください。
+  **メモ**：プログラマーが使用できる実際のユーザーメタデータは、MVPDが提供する内容によって異なります。  使用可能なユーザーメタデータの現在のリストについては、[ ユーザーメタデータ ](#UserMetadata) を参照してください。
 
 
 例：
@@ -295,7 +295,7 @@ ht-degree: 0%
 ```
 
 
-**トリガーされたコールバック：** [setMetadataStatus （） &#x200B;](#setmetadatastatuskey-encrypted-data-setmetadatastatuskeyencrypteddata)
+**トリガーされたコールバック：** [setMetadataStatus （） ](#setmetadatastatuskey-encrypted-data-setmetadatastatuskeyencrypteddata)
 
 </br>
 
@@ -309,7 +309,7 @@ ht-degree: 0%
 **説明：** この関数は、ユーザーがプロバイダ選択 UI からMVPDを選択してアクセス イネーブラにプロバイダ選択を送信した場合は、この関数を呼び出します。または、ユーザーがプロバイダ選択 UI を閉じてもプロバイダを選択できない場合は、null パラメータを指定してこの関数を呼び出します。
 
 **コールバック
-triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthenticationstatusisauthenticated-errorcode), [sendTrackingData （） &#x200B;](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
+triggered:**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenticated-errorcode), [sendTrackingData （） ](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
 
 </br>
 
@@ -326,7 +326,7 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
 - **MVPD** 現在選択されているMVPD。MVPDが選択されていない場合は null。
 - **AE_State** 「新規ユーザー」、「ユーザー未認証」または「ユーザー認証済み」のうちの現在の顧客の認証結果
 
-**コールバックがトリガーされました：** [selectedProvider （） &#x200B;](#getselectedprovider-getselectedprovider)
+**コールバックがトリガーされました：** [selectedProvider （） ](#getselectedprovider-getselectedprovider)
 
 </br>
 
@@ -338,7 +338,7 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
 
 **説明：** 現在の顧客をログアウトし、そのユーザーのすべての認証情報と認証情報を消去します。 顧客のシステムからすべての authN および authZ トークンを削除します。
 
-**コールバックがトリガーされました：** [setAuthentcationStatus （） &#x200B;](#setauthenticationstatusisauthenticated-errorcode)
+**コールバックがトリガーされました：** [setAuthentcationStatus （） ](#setauthenticationstatusisauthenticated-errorcode)
 </br>
 
 [トップに戻る](#top)
@@ -381,7 +381,7 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
 - *configXML*:MVPD リストを含む、現在のリクエスターの設定を保持している xml オブジェクト。
 
 
-**トリガー：** [setRequestor （） &#x200B;](#setrequestor-inrequestorid-endpoints-optionssetreq)
+**トリガー：** [setRequestor （） ](#setrequestor-inrequestorid-endpoints-optionssetreq)
 
 </br>
 
@@ -405,9 +405,9 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
     }
 ```
 
-**トリガー：** [getAuthentication （） &#x200B;](#getauthenticationredirecturl-getauthenticationredirecturl), [getAuthorization （） &#x200B;](#getauthorizationinresourceid-redirecturl-getauthorizationinresourceidredirecturl)
+**トリガー：** [getAuthentication （） ](#getauthenticationredirecturl-getauthenticationredirecturl), [getAuthorization （） ](#getauthorizationinresourceid-redirecturl-getauthorizationinresourceidredirecturl)
 
-</br>[&#x200B; トップに戻る &#x200B;](#top)
+</br>[ トップに戻る ](#top)
 
 </br>
 
@@ -415,9 +415,9 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
 
 **説明：** 認証ログインページの UI を表示する iFrame を必要とするMVPDをユーザーが選択した場合に、このコールバックを実装します。
 
-**トリガー：:**&#x200B;[&#x200B; setSelectedProvider （） &#x200B;](#setselectedproviderproviderid-setselectedprovider)
+**トリガー：:**[ setSelectedProvider （） ](#setselectedproviderproviderid-setselectedprovider)
 
-</br> [&#x200B; トップに戻る &#x200B;](#top)
+</br> [ トップに戻る ](#top)
 
 </br>
 
@@ -427,7 +427,7 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
 
 >[!NOTE]
 > 
->現在の [&#x200B; 事前エラーレポート &#x200B;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) システムを使用している場合は、この関数に送信された errorCode パラメーターを無視できます。  ただし、isAuthenticated フラグは、使用権フローでのユーザーの認証状態の追跡にまだ使用されています
+>現在の [ 事前エラーレポート ](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) システムを使用している場合は、この関数に送信された errorCode パラメーターを無視できます。  ただし、isAuthenticated フラグは、使用権フローでのユーザーの認証状態の追跡にまだ使用されています
 
 
 **パラメーター：**
@@ -436,7 +436,7 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
 - *errorCode* – 認証ステータスの確認中に発生したエラー。 何も指定しない場合は、空の文字列を返します。
 
 
-**トリガー：** [checkAuthentication （） &#x200B;](#checkauthn-checkauthn)、[getAuthentication （） &#x200B;](#getauthenticationredirecturl-getauthenticationredirecturl)、[checkAuthorization （） &#x200B;](#checkauthorizationinresourceid-checkauthorizationinresourceid)
+**トリガー：** [checkAuthentication （） ](#checkauthn-checkauthn)、[getAuthentication （） ](#getauthenticationredirecturl-getauthenticationredirecturl)、[checkAuthorization （） ](#checkauthorizationinresourceid-checkauthorizationinresourceid)
 
 </br>
 
@@ -500,7 +500,7 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
 |  | 8: OS |
 
 
-**トリガー：** [checkAuthentication （） &#x200B;](#checkauthn-checkauthn)、[getAuthentication （） &#x200B;](#getauthenticationredirecturl-getauthenticationredirecturl)、[checkAuthorization （） &#x200B;](#checkauthorizationinresourceid-checkauthorizationinresourceid)、[getAuthorization （） &#x200B;](#getauthorizationinresourceid-redirecturl-getauthorizationinresourceidredirecturl)
+**トリガー：** [checkAuthentication （） ](#checkauthn-checkauthn)、[getAuthentication （） ](#getauthenticationredirecturl-getauthenticationredirecturl)、[checkAuthorization （） ](#checkauthorizationinresourceid-checkauthorizationinresourceid)、[getAuthorization （） ](#getauthorizationinresourceid-redirecturl-getauthorizationinresourceidredirecturl)
 
 </br>
 
@@ -512,7 +512,7 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
 
 **説明：** このコールバックを実装して、認証リクエストまたは承認確認リクエストが行われ、正常に完了した短期間有効のメディアトークン（inToken）とリソースの ID （inRequestedResourceID）を受け取ります。
 
-**トリガー：** [checkAuthorization （） &#x200B;](#checkAuthZ), [getAuthorization （） &#x200B;](#getAuthZ)
+**トリガー：** [checkAuthorization （） ](#checkAuthZ), [getAuthorization （） ](#getAuthZ)
 </br>
 
 [トップに戻る](#top)
@@ -535,7 +535,7 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
 
 
 
-**トリガー：** [checkAuthorization （） &#x200B;](#checkauthorizationinresourceid-checkauthorizationinresourceid), [getAuthorization （） &#x200B;](#getauthorizationinresourceid-redirecturl-getauthorizationinresourceidredirecturl)
+**トリガー：** [checkAuthorization （） ](#checkauthorizationinresourceid-checkauthorizationinresourceid), [getAuthorization （） ](#getauthorizationinresourceid-redirecturl-getauthorizationinresourceidredirecturl)
 </br>
 
 [トップに戻る](#top)
@@ -551,7 +551,7 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
 
 - *authorizedResources*：許可されたリソースのリストです。
 
-**トリガー：** [checkPreauthorizedResources （） &#x200B;](#checkPreauthRes)
+**トリガー：** [checkPreauthorizedResources （） ](#checkPreauthRes)
 </br>
 
 [トップに戻る](#top)
@@ -562,7 +562,7 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
 
 **説明：** アクセス イネーブラによってトリガーされ、`getMetadata()` 呼び出しを介して要求されたメタデータを配信するコールバック。
 
-**詳細情報：**&#x200B;[&#x200B; ユーザーメタデータ &#x200B;](#userMetadata)
+**詳細情報：**[ ユーザーメタデータ ](#userMetadata)
 
 **パラメーター：**
 
@@ -605,7 +605,7 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
 
 **Trigger by:** [`getMetadata()`](#getmetadatakey-getmetadata)
 </br>
-[&#x200B; トップに戻る &#x200B;](#top)
+[ トップに戻る ](#top)
 
 </br>
 
@@ -616,7 +616,7 @@ triggered:**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthentication
 - **MVPD** 現在選択されているMVPD。MVPDが選択されていない場合は null。
 - **AE\_State** 現在のユーザーの認証結果（「新規ユーザー」、「ユーザー未認証」、「ユーザー認証済み」）
 
-**トリガー：** [getSelectedProvider （） &#x200B;](#getSelProv)
+**トリガー：** [getSelectedProvider （） ](#getSelProv)
 
 </br>
 

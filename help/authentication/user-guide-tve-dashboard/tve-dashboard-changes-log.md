@@ -2,7 +2,7 @@
 title: 変更ログ
 description: 管理者が TVE ダッシュボードの設定変更を監視する方法を説明します。
 exl-id: 9b53a61b-679f-491e-90f3-5d827e21b32c
-source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '270'
 ht-degree: 0%
@@ -30,7 +30,7 @@ TVE Dashboard の **Changes Log** セクションでは、TVE Dashboard を通�
 
 1. 比較する 2 つの設定変更をリストから選択します。
 
-   ![&#x200B; 設定の変更を比較 &#x200B;](/help/authentication/assets/tve-dashboard/new-tve-dashboard/review/review-changes-compare-button.png)
+   ![ 設定の変更を比較 ](../assets/tve-dashboard/new-tve-dashboard/review/review-changes-compare-button.png)
 
    *設定の変更を比較*
 
@@ -42,12 +42,12 @@ TVE Dashboard の **Changes Log** セクションでは、TVE Dashboard を通�
 
 1. 「**表示**」を選択して、変更された値にアクセスします。
 
-   ![&#x200B; 設定の変更を表示 &#x200B;](/help/authentication/assets/tve-dashboard/new-tve-dashboard/review/review-changes-view-button.png)
+   ![ 設定の変更を表示 ](../assets/tve-dashboard/new-tve-dashboard/review/review-changes-view-button.png)
 
    *設定の変更を表示*
 
 次に、選択した設定で行われた変更の例を示します。 変更内の古い値と新しい値の違いを確認できます。
 
-![&#x200B; 古い値と新しい値 &#x200B;](/help/authentication/assets/tve-dashboard/new-tve-dashboard/review/review-change-modal-view.png)
+![ 古い値と新しい値 ](../assets/tve-dashboard/new-tve-dashboard/review/review-change-modal-view.png)
 
 *古い値と新しい値*

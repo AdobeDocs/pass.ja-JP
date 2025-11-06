@@ -2,7 +2,7 @@
 title: トラッキング防止の評価：Apple Safari
 description: トラッキング防止の評価：Apple Safari
 exl-id: a3362020-92ff-4232-b923-e462868730d5
-source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1849'
 ht-degree: 0%
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## Safari 10 {#safari10}
 
@@ -33,7 +33,7 @@ AccessEnabler JavaScript SDKの v2 （バージョン 2.x）、v3 （バージ�
 
 これらの制限を軽減するために、以下の画像に示すように、Safari 10 ブラウザープライバシー設定を変更し、環境設定からブラウザーのプライバシータブの「**Cookie と Web サイトデータ**」エントリに対して「**常に許可**」オプションを使用するようにユーザーに指示できます。
 
-![](/help/authentication/assets/always-allow-safari10.png)
+![](../../../assets/always-allow-safari10.png)
 
 
 ## Safari 11 {#safari11}
@@ -54,7 +54,7 @@ Adobe Pass Authentication サービスは、（機能するために **認証プ
 
 ### 軽減 {#mitigation-safari11}
 
-AccessEnabler JavaScript SDK v3 （バージョン 3.x）および AccessEnabler JavaScript SDK v4 （バージョン 4.x）の両方について、ライブラリには、必要な Cookie がないためにユーザーの認証がブロックされた状況を特定するためのメカニズムが含まれています。 このような状況で、ライブラリは特定のエラーコールバック [N130](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md#advanced-error-codes-reference) をトリガーし、Adobe Pass認証が有効な web サイトに返されて、問題を軽減できるアクションを実行するようにユーザーに指示するシグナルとして使用されます。 このメカニズムを活用するために、web サイトでは [&#x200B; エラーレポート &#x200B;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 仕様を実装する必要があります。
+AccessEnabler JavaScript SDK v3 （バージョン 3.x）および AccessEnabler JavaScript SDK v4 （バージョン 4.x）の両方について、ライブラリには、必要な Cookie がないためにユーザーの認証がブロックされた状況を特定するためのメカニズムが含まれています。 このような状況で、ライブラリは特定のエラーコールバック [N130](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md#advanced-error-codes-reference) をトリガーし、Adobe Pass認証が有効な web サイトに返されて、問題を軽減できるアクションを実行するようにユーザーに指示するシグナルとして使用されます。 このメカニズムを活用するために、web サイトでは [ エラーレポート ](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 仕様を実装する必要があります。
 
 AccessEnabler JavaScript SDK v2 （バージョン 2.x）の場合、前述のメカニズムはライブラリに含まれません。そのため、問題を軽減するためのアクションを実行するようユーザーに指示する際に、Adobe Pass認証が有効な Web サイトを通知できません。
 
@@ -64,12 +64,12 @@ AccessEnabler JavaScript SDKの前述の問題 **3 つのバージョンすべ�
 
 * Mac OS X High Sierra 以降の場合：以下の図に示すように、ブラウザーの環境設定から、ブラウザーのプライバシータブにある「**Website tracking**」エントリに対する「**クロスサイトトラッキングを防ぐ**」オプションのチェックを外します。
 
-  ![](/help/authentication/assets/uncheck-prvnt-cr-st-tr-safari11.png)
+  ![](../../../assets/uncheck-prvnt-cr-st-tr-safari11.png)
 
 
 * Mac OS X Sierra およびそれ以前の場合：以下の図に示すように、環境設定からブラウザーのプライバシータブの「**Cookies and website data**」エントリに対して「**Always allow**」オプションをオンにします。
 
-  ![](/help/authentication/assets/always-allow-safari11.png)
+  ![](../../../assets/always-allow-safari11.png)
 
 ## Safari 12 {#safari12}
 
@@ -126,14 +126,14 @@ AccessEnabler JavaScript SDKの前述の問題 **3 つのバージョンすべ�
 
 このドキュメントの作成時点では、軽減策は利用できないか、利用できる可能性もありません。 Appleでは、Safari 12 （`https://webkit.org/blog/8124/introducing-storage-access-api`）で「ストレージアクセス API」を導入しましたが、現在の実装は localStorage には適用されず、cookie にのみ適用されます。 さらに、API を使用するにはユーザーの操作が必要です。また、API を使用すると、以下のような権限ダイアログも表示されます。
 
-![](/help/authentication/assets/permission-dialog-apple.png)
+![](../../../assets/permission-dialog-apple.png)
 
 
 この時点では、これらの Safari の要件/プロンプトは UX の要件と一致せず、共通ドメイン localStorage にトークンを保存すると SSO が「機能」する他のブラウザーの場合とは異なります。
 
 **一時パス**
 
-個人化の問題を軽減し、ユーザーとのインタラクションを実現するために、**[プロモーション一時パス](/help/premium-workflow/temporary-access/temp-pass-feature.md#promotional-temp-pass)** をインタラクティブに使用し、ユーザーに関する 1 つ以上の追加情報（メールアドレスなど）を提供することをお勧めします。
+個人化の問題を軽減し、ユーザーとのインタラクションを実現するために、**[プロモーション一時パス](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass)** をインタラクティブに使用し、ユーザーに関する 1 つ以上の追加情報（メールアドレスなど）を提供することをお勧めします。
 
 ## Safari 13 {#safari13}
 
@@ -156,7 +156,7 @@ AccessEnabler JavaScript SDK v4 （バージョン 4.x）ライブラリでは�
 
 まず第一に、Safari ブラウザーで安定した予測可能な動作を実現するには、**AccessEnabler JavaScript SDK バージョン 4.x への移行** を強くお勧めします。
 
-次に、AccessEnabler JavaScript SDK v3 （バージョン 3.x）の場合、必要な Cookie がないためにユーザー認証がブロックされた状況を特定するメカニズムがライブラリに含まれます。 このような状況で、ライブラリは特定のエラーコールバック（[N130](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md#advanced-error-codes-reference)）をトリガーし、Adobe Pass認証が有効な web サイトに返されて、問題を軽減できるアクションを実行するようにユーザーに指示するシグナルとして使用されます。 このメカニズムを活用するために、web サイトでは [&#x200B; エラーレポート &#x200B;](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 仕様を実装する必要があります。
+次に、AccessEnabler JavaScript SDK v3 （バージョン 3.x）の場合、必要な Cookie がないためにユーザー認証がブロックされた状況を特定するメカニズムがライブラリに含まれます。 このような状況で、ライブラリは特定のエラーコールバック（[N130](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md#advanced-error-codes-reference)）をトリガーし、Adobe Pass認証が有効な web サイトに返されて、問題を軽減できるアクションを実行するようにユーザーに指示するシグナルとして使用されます。 このメカニズムを活用するために、web サイトでは [ エラーレポート ](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) 仕様を実装する必要があります。
 
 AccessEnabler JavaScript SDK v2 （バージョン 2.x）の場合、前述のメカニズムはライブラリに含まれません。そのため、問題を軽減するためのアクションを実行するようユーザーに指示する際に、Adobe Pass認証が有効な Web サイトを通知できません。
 
@@ -164,8 +164,8 @@ AccessEnabler JavaScript SDK v2 （バージョン 2.x）の場合、前述の�
 
 * Mac OS X High Sierra 以降の場合：以下の図に示すように、ブラウザーの環境設定から、ブラウザーのプライバシータブにある「**Website tracking**」エントリに対する「**クロスサイトトラッキングを防ぐ**」オプションのチェックを外します。
 
-  ![](/help/authentication/assets/prvnt-cross-site-tr-safari13.png)
+  ![](../../../assets/prvnt-cross-site-tr-safari13.png)
 
 * Mac OS X Sierra およびそれ以前の場合：以下の図に示すように、環境設定からブラウザーのプライバシータブの「</span>Cookies and website data **」エントリの「** Always allow **」オプションをオンにします**
 
-  ![](/help/authentication/assets/always-allow-safari13.png)
+  ![](../../../assets/always-allow-safari13.png)

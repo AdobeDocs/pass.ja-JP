@@ -2,7 +2,7 @@
 title: Dynamic Client Registration のAndroid SDK
 description: Dynamic Client Registration のAndroid SDK
 exl-id: 8d0c1507-8e80-40a4-8698-fb795240f618
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1301'
 ht-degree: 0%
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#Intro}
 
@@ -37,12 +37,12 @@ Androidの場合、Chromeのカスタムタブを使用すると、他のアプ�
 
 ## 動的なクライアント登録 {#DCR}
 
-Android SDK v3.0 以降では、[Dynamic Client Registration Overview](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) で定義されている Dynamic Client Registration 手順を使用します。
+Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) で定義されている Dynamic Client Registration 手順を使用します。
 
 
 ## 機能デモ {#Demo}
 
-機能のコンテキストを詳しく説明する [&#x200B; このウェビナー &#x200B;](https://my.adobeconnect.com/pzkp8ujrigg1/) をご覧ください。これには、TVE ダッシュボードを使用してソフトウェアステートメントを管理する方法と、Android SDKの一部としてAdobeから提供されるデモアプリケーションを使用して生成されたステートメントをテストする方法のデモが含まれています。
+機能のコンテキストを詳しく説明する [ このウェビナー ](https://my.adobeconnect.com/pzkp8ujrigg1/) をご覧ください。これには、TVE ダッシュボードを使用してソフトウェアステートメントを管理する方法と、Android SDKの一部としてAdobeから提供されるデモアプリケーションを使用して生成されたステートメントをテストする方法のデモが含まれています。
 
 ## API の変更点 {#API}
 

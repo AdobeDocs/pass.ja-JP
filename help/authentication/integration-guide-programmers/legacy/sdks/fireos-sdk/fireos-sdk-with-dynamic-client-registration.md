@@ -2,7 +2,7 @@
 title: Dynamic Client Registration を使用したAmazon FireOS SDK
 description: Dynamic Client Registration を使用したAmazon FireOS SDK
 exl-id: 27acf3f5-8b7e-4299-b0f0-33dd6782aeda
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1169'
 ht-degree: 0%
@@ -18,7 +18,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -26,7 +26,7 @@ ht-degree: 0%
 
 FireOS AccessEnabler SDK for FireTV は、セッション Cookie を使用せずに Authentication を有効にするように変更されました。 Cookie へのアクセスを制限するブラウザーが増えているので、認証を許可するには別の方法が必要でした。
 
-**FireOS SDK 3.0.4** は、署名済みリクエスター ID とセッション cookie 認証に基づく現在のアプリ登録メカニズムを [Dynamic Client Registration Overview](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) に置き換えます。
+**FireOS SDK 3.0.4** は、署名済みリクエスター ID とセッション cookie 認証に基づく現在のアプリ登録メカニズムを [Dynamic Client Registration Overview](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) に置き換えます。
 
 
 ## API の変更点 {#API}
@@ -152,7 +152,7 @@ FireOS AccessEnabler SDK for FireTV は、セッション Cookie を使用せず
    - ログインがキャンセルされました：MVPDの選択をリセット
    - 認証が完了したときにキャプチャするための URL スキームが「adobepass://android.app」として確立されています
 
-- e. get/checkAuthorization :SDKは、Authorization: Bearer **access\_token &#x200B;** として、ヘッダーに **access\_token** を含めます。
+- e. get/checkAuthorization :SDKは、Authorization: Bearer **access\_token **として、ヘッダーに **access\_token** を含めます。
 
 - 認証に成功すると、メディアトークンを取得するための呼び出しが行われます
 

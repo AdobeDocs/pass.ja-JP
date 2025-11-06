@@ -2,7 +2,7 @@
 title: REST API クックブック（サーバー間）
 description: REST API クックブックサーバーからサーバーへ。
 exl-id: 36ad4a64-dde8-4a5f-b0fe-64b6c0ddcbee
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1856'
 ht-degree: 0%
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#overview}
 
@@ -25,7 +25,7 @@ ht-degree: 0%
 
 ### スロットルメカニズム
 
-Adobe Pass認証 REST API は、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) によって制御されます。
+Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) によって制御されます。
 
 
 ## コンポーネント {#components}
@@ -48,7 +48,7 @@ Adobe Pass認証 REST API は、[&#x200B; スロットルメカニズム &#x200B
 ### 動的クライアント登録（DCR）
 
 
-Adobe Passは、DCR を使用して、プログラマーアプリケーションまたはサーバーとAdobe Pass サービスの間のクライアント通信を保護します。 DCR フローは独立しており、[Dynamic Client Registration Overview](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントで説明されています。
+Adobe Passは、DCR を使用して、プログラマーアプリケーションまたはサーバーとAdobe Pass サービスの間のクライアント通信を保護します。 DCR フローは独立しており、[Dynamic Client Registration Overview](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントで説明されています。
 
 
 ### 認証（authN）
@@ -67,13 +67,13 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 9. プログラマーサービスは、ストリーミングデバイスアプリと、手順\#7 でリクエストされた処理済みMVPD リストに regcode を返します。 注意：処理済みのMVPDのリスト形式はプログラマーによって指定され、特定の MVPD （許可リストまたはブロックリスト）を明示的に許可またはブロックするようにフィルタリングできます。
 10. が AuthN デバイスと異なる場合（つまり、「2 番目の画面」）、選択または必要に応じて（つまり、ストリーミングデバイスがユーザーエージェントをサポートしていない場合）、ストリーミングデバイスは regcode と、ユーザーが AuthN アプリケーションにアクセスするための URI を表示する必要があります。 ユーザーは、AuthN デバイスのユーザーエージェントに URI を入力して AuthN アプリケーションを起動し、そのアプリケーションに regcode を入力します。 ストリーミングデバイスが AuthN デバイスと同じ場合、regcode をプログラムによって AuthN モジュールに渡すことができます。
 11. AuthN モジュールは、MVPD ピッカーを表示して、MVPDでのユーザー認証を開始します。 ユーザーがMVPDを選択すると、AuthN モジュールが regcode を使用して **authenticate** を呼び出します。これにより、ユーザーエージェントがMVPD IdP にリダイレクトされます。 MVPDでユーザーが正常に認証されると、ユーザーエージェントはAdobe Pass サービスを通じてリダイレクトされ戻されます。ここで成功した認証は regcode で記録され、その後 AuthN モジュールにリダイレクトされます。
-12. ストリーミングデバイスが AuthN デバイスと異なる場合、AuthN デバイスは成功した認証メッセージをユーザーに表示し、続行する手順を示す必要があります（例：「成功」）。 ゲーム機に戻って [...\]&rbrack; を続けることができます）。 ストリーミングデバイスが AuthN デバイスと同じ場合、ストリーミングデバイスはプログラムによって認証完了を検出できます。
+12. ストリーミングデバイスが AuthN デバイスと異なる場合、AuthN デバイスは成功した認証メッセージをユーザーに表示し、続行する手順を示す必要があります（例：「成功」）。 ゲーム機に戻って [...\]] を続けることができます）。 ストリーミングデバイスが AuthN デバイスと同じ場合、ストリーミングデバイスはプログラムによって認証完了を検出できます。
 
 
 
 次の図に、認証フローを示します。
 
-![](/help//authentication/assets/authn-flow.png)
+![](../../../../assets/authn-flow.png)
 
 ### 認証（authZ）
 
@@ -86,7 +86,7 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 次の図に、認証フローを示します。
 
-![](/help//authentication/assets/authz-flow.png)
+![](../../../../assets/authz-flow.png)
 
 ### ログアウト
 
@@ -98,7 +98,7 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 次の図に、ログアウトフローを示します。
 
-![](/help//authentication/assets/logout-flow.png)
+![](../../../../assets/logout-flow.png)
 
 ### \[ オプション\] 事前認証（プリフライト）
 
@@ -106,7 +106,7 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 1. ユーザが認証されると、ストリーミングデバイスは、プログラマーサービスを呼び出して、ユーザがストリーミングする権利を有するコンテンツを要求することができる。
 
-1. プログラマーサービスは、リソース ID のリストを使用してAdobe Pass **事前認証** API を呼び出す必要があります。この ID は、通常、ユーザーがストリーム配信を受ける資格のあるチャネルを表す単純な文字列です。 *メモ：現在、* ***preauthorize*** *呼び出しは、リストを 5 つのリソース ID に制限するように設定されています。 5 つ以上のリソースが必要な場合は、複数の&#x200B;**&#x200B;**&#x200B;preauthorize&#x200B;**&#x200B;**&#x200B;コールを行うか、MVPD からの契約で 5 つ以上のリソースを受け入れるようにコールを設定することができます。 実装者は、MVPDのリソースに対する&#x200B;**&#x200B;**&#x200B;preauthorize&#x200B;**&#x200B;**&#x200B;call のコストと、プログラマへの応答時間を念頭に置き、呼び出しの使用を慎重に構造化する必要があります。*
+1. プログラマーサービスは、リソース ID のリストを使用してAdobe Pass **事前認証** API を呼び出す必要があります。この ID は、通常、ユーザーがストリーム配信を受ける資格のあるチャネルを表す単純な文字列です。 *メモ：現在、* ***preauthorize*** *呼び出しは、リストを 5 つのリソース ID に制限するように設定されています。 5 つ以上のリソースが必要な場合は、複数の****preauthorize****コールを行うか、MVPD からの契約で 5 つ以上のリソースを受け入れるようにコールを設定することができます。 実装者は、MVPDのリソースに対する****preauthorize****call のコストと、プログラマへの応答時間を念頭に置き、呼び出しの使用を慎重に構造化する必要があります。*
 
 1. **preauthorize** 呼び出しは、リクエストの各リソース ID に TRUE または FALSE の値を含む JSON オブジェクトを使用してプログラマーサービスに応答し、ユーザーに関連するチャネルの権利が付与されているかどうかを示します。 *メモ：ネットワークエラーやタイムアウトなどが原因で、MVPDから特定のリソース ID の回答が得られない場合、値はデフォルトで FALSE になります。*
 
@@ -114,7 +114,7 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 次の図に、事前認証フローを示します。
 
-![](/help//authentication/assets/preauthz-flow.png)
+![](../../../../assets/preauthz-flow.png)
 
 
 ### \[ オプション\] メタデータ
@@ -130,7 +130,7 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 
 
-![](/help//authentication/assets/user-metadata-api-preauthz.png)
+![](../../../../assets/user-metadata-api-preauthz.png)
 
 
 
@@ -171,7 +171,7 @@ Adobe Pass サービスは、米国全体に地理的に分散した複数のデ
     
     
     
-     ヘッダーは&#x200B;**regcode**&#x200B;および&#x200B;**authorize**&#x200B;呼び出しに追加する必要があります 
+     ヘッダーは**regcode**および**authorize**呼び出しに追加する必要があります 
     
      例：
     

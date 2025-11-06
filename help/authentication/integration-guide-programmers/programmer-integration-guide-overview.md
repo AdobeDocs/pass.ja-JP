@@ -2,7 +2,7 @@
 title: プログラマー統合ガイド
 description: プログラマー統合ガイド
 exl-id: 51461caf-08ef-459e-b284-8f317f45e7b1
-source-git-commit: 7ca9d8996756086a6b963c0b6d5b0bb64608ecbc
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '2119'
 ht-degree: 0%
@@ -28,13 +28,13 @@ ht-degree: 0%
 
 プログラマーにとって、使用権限の決定は必ずしも簡単ではありません。 MVPD は、顧客の識別データとアクセス権限の管理者です。 さらに複雑なことに、プログラマーの視聴者は多種多様な MVPD を購読することができ、それぞれが独自のシステムで動作します。 これらの複雑さにより、資格の検証が技術的に難しくなり、リソースを大量に消費することになります。
 
-![&#x200B; プログラマーが直接決定するユーザー使用権限 &#x200B;](/help/authentication/assets/user-ent-by-progr.png){align="center"}
+![ プログラマーが直接決定するユーザー使用権限 ](../assets/user-ent-by-progr.png){align="center"}
 
 *プログラマーが直接決定するユーザー使用権限*
 
 Adobe Pass Authentication を使用すると、プログラマーと MVPD 間の権利付与トランザクションを安全かつ迅速に実行でき、保護されたコンテンツを対象となるビューアに安全かつ簡単に提供できます。
 
-![Adobe Pass Authentication を介したユーザーエンタイトルメント &#x200B;](/help/authentication/assets/user-ent-mediatedby-authn.png){align="center"}
+![Adobe Pass Authentication を介したユーザーエンタイトルメント ](../assets/user-ent-mediatedby-authn.png){align="center"}
 
 *Adobe Pass Authentication を介したユーザーエンタイトルメント*
 
@@ -47,11 +47,11 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
    * [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/rest-api-v2-apis-overview.md)
 
 * Premium Adobe Pass認証 API:
-   * [Temp Pass API をリセット](/help/premium-workflow/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
-      * [TempPass フィーチャ](/help/premium-workflow/temporary-access/temp-pass-feature.md)
-   * [API の低下](/help/premium-workflow/degraded-access/degradation-feature.md#degradation-api-access)
-      * [縮退機能](/help/premium-workflow/degraded-access/degradation-feature.md)
-   * [使用権限サービスモニタリング API](/help/premium-workflow/esm/entitlement-service-monitoring-api.md)
+   * [Temp Pass API をリセット](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
+      * [TempPass フィーチャ](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
+   * [API の低下](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md#degradation-api-access)
+      * [縮退機能](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
+   * [使用権限サービスモニタリング API](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md)
 
 ### ユースケース {#use-cases}
 
@@ -71,24 +71,24 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
 
 | **フェーズ** | **優先度** | **ユースケース** | **書類** |
 |----------------------|--------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **認証** | **高** | 認証 | 詳しくは、「認証フェーズ [&#x200B; の節で集計したドキュメントを参照し &#x200B;](#authentication-phase) ください。 |
-|                      | **高** | ホームベースの認証（HBA） | 詳しくは、[&#x200B; ホームベースの認証 &#x200B;](/help/premium-workflow/hba-access/home-based-authentication.md) を参照してください。 |
-|                      | **高** | シングルサインオン（SSO） | 詳しくは、[&#x200B; シングルサインオン（SSO） &#x200B;](#sso) の節で集計したドキュメントを参照してください。 |
-|                      | **高** | MVPDを選択 | 詳しくは、「設定フェーズ [&#x200B; の節で集約されたドキュメントを参照し &#x200B;](#configuration-phase) ください。 |
+| **認証** | **高** | 認証 | 詳しくは、「認証フェーズ [ の節で集計したドキュメントを参照し ](#authentication-phase) ください。 |
+|                      | **高** | ホームベースの認証（HBA） | 詳しくは、[ ホームベースの認証 ](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md) を参照してください。 |
+|                      | **高** | シングルサインオン（SSO） | 詳しくは、[ シングルサインオン（SSO） ](#sso) の節で集計したドキュメントを参照してください。 |
+|                      | **高** | MVPDを選択 | 詳しくは、「設定フェーズ [ の節で集約されたドキュメントを参照し ](#configuration-phase) ください。 |
 |                      | **Medium** | ブランド MVPDのログインページ | MVPD が、既定の言語設定のサポートなど、プログラマまたはサービス プロバイダに固有のブランドを使用してログイン ページを提供できるようにします。 |
-|                      | **高** | プラットフォームごとの Time-To-Live （TTL）値の設定 | 詳しくは、[TVE ダッシュボード統合ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) を参照してください。 |
-| **事前認証** | **低** | 事前認証（プリフライト認証） | 詳しくは、「事前認証フェーズ [&#x200B; の節で集約されたドキュメントを参照し &#x200B;](#preauthorization-phase) ください。 |
-|                      | **Medium** | 拡張エラーコード | 詳しくは、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を参照してください。 |
-| **認可** | **高** | 認証 | 詳しくは、「承認フェーズ [&#x200B; の節で集約されたドキュメントを参照し &#x200B;](#authorization-phase) ください。 |
+|                      | **高** | プラットフォームごとの Time-To-Live （TTL）値の設定 | 詳しくは、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) を参照してください。 |
+| **事前認証** | **低** | 事前認証（プリフライト認証） | 詳しくは、「事前認証フェーズ [ の節で集約されたドキュメントを参照し ](#preauthorization-phase) ください。 |
+|                      | **Medium** | 拡張エラーコード | 詳しくは、[ 拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を参照してください。 |
+| **認可** | **高** | 認証 | 詳しくは、「承認フェーズ [ の節で集約されたドキュメントを参照し ](#authorization-phase) ください。 |
 |                      | **高** | ユニークチャネル認証 | ユーザーが単一の TVE アプリケーション内の複数のチャネル ネットワークからコンテンツにアクセスできるようにします。 プログラマーは、チャネル固有の認証呼び出しを行って、使用権限を確認できます。 |
 |                      | **低** | アセットレベルの認証 | MVPD が認証中に個々のコンテンツアセットの詳細な分析を収集できるようにします。 |
-|                      | **Medium** | 拡張エラーコード | 詳しくは、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を参照してください。 |
-|                      | **高** | プログラマー向けフェデレーテッド プレーヤー – ページレベルの認証を使用 | 詳しくは、[&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md) を参照してください。 |
-|                      | **Medium** | プログラマー向けフェデレーテッド プレーヤー – 内部プレーヤー認証付き | 詳しくは、[&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md) を参照してください。 |
-|                      | **高** | シンジケートプレーヤー – ページレベルの認証を使用してMVPD ポータルでホスト | 詳しくは、[&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md) を参照してください。 |
+|                      | **Medium** | 拡張エラーコード | 詳しくは、[ 拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を参照してください。 |
+|                      | **高** | プログラマー向けフェデレーテッド プレーヤー – ページレベルの認証を使用 | 詳しくは、[ メディアトークン ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md) を参照してください。 |
+|                      | **Medium** | プログラマー向けフェデレーテッド プレーヤー – 内部プレーヤー認証付き | 詳しくは、[ メディアトークン ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md) を参照してください。 |
+|                      | **高** | シンジケートプレーヤー – ページレベルの認証を使用してMVPD ポータルでホスト | 詳しくは、[ メディアトークン ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md) を参照してください。 |
 |                      | **低** | ペアレンタルコントロール – 認証リクエストのコンテンツ評価 | プログラマーが、アセットレベルの認証に役立つコンテンツ評価をMVPDへの認証リクエストの一部として含めることができるようにします。 |
 |                      | **低** | ペアレンタルコントロール – ユーザー属性に基づくコンテンツのフィルタリング | プログラマーが、ユーザーに許可されているコンテンツの最大評価を確認し、それに応じて使用可能なコンテンツをフィルタリングできるようにします。 |
-| **ログアウト** | **Medium** | ログアウト | 詳しくは、「ログアウトフェーズ [&#x200B; の節で集計したドキュメントを参照し &#x200B;](#logout-phase) ください。 |
+| **ログアウト** | **Medium** | ログアウト | 詳しくは、「ログアウトフェーズ [ の節で集計したドキュメントを参照し ](#logout-phase) ください。 |
 
 ## 使用権限フロー {#entitlement-flow}
 
@@ -114,7 +114,7 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
 
 ### 登録フェーズ {#registration-phase}
 
-登録フェーズの目的は、[Dynamic Client Registration （DCR） &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) プロセスを通じて、Adobe Pass Authentication に対してクライアントアプリケーションを登録することです。
+登録フェーズの目的は、[Dynamic Client Registration （DCR） ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) プロセスを通じて、Adobe Pass Authentication に対してクライアントアプリケーションを登録することです。
 
 動的クライアント登録（DCR）プロセスでは、クライアントアプリケーションがクライアント資格情報のペアを取得し、登録フェーズの最終目標としてアクセストークンを取得する必要があります。
 
@@ -129,7 +129,7 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
 
 **よくある質問**
 
-* [&#x200B; 登録フェーズに関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#registration-phase-faqs-general)。
+* [ 登録フェーズに関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#registration-phase-faqs-general)。
 
 ### 設定フェーズ {#configuration-phase}
 
@@ -143,7 +143,7 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
 
 **よくある質問**
 
-* [&#x200B; 設定フェーズに関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#configuration-phase-faqs-general)。
+* [ 設定フェーズに関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#configuration-phase-faqs-general)。
 
 >[!TIP]
 >
@@ -253,7 +253,7 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
 次の手順は、大まかな手順の概要を示しています。
 
 1. **リソース識別子の処理**\
-   保護されたコンテンツは、単純な文字列またはより複雑な構造の [&#x200B; リソース識別子 &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier) によって識別されます。 この ID は、プログラマーとMVPDによって事前に定義され、同意されています。 プログラマーのアプリケーションがリソース ID をAdobe Pass認証 [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) に送信します。
+   保護されたコンテンツは、単純な文字列またはより複雑な構造の [ リソース識別子 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier) によって識別されます。 この ID は、プログラマーとMVPDによって事前に定義され、同意されています。 プログラマーのアプリケーションがリソース ID をAdobe Pass認証 [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) に送信します。
 
 1. **MVPD認証チェック**\
    Adobe Pass Authentication Server は、標準化されたプロトコルを使用してMVPD認証エンドポイントと通信します。
@@ -262,10 +262,10 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
    検証が完了すると、MVPDはユーザーにコンテンツにアクセスする権限があることを確認し、応答をAdobe Pass Authentication に返します。
 
 1. **決定およびメディアトークンの生成**\
-   Adobe Pass Authentication は、応答を確認し、キャッシュされる [&#x200B; 決定 &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md) を生成し、メディアトークンを含む決定をプログラマーのアプリケーション（web サイト）に返します。
+   Adobe Pass Authentication は、応答を確認し、キャッシュされる [ 決定 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md) を生成し、メディアトークンを含む決定をプログラマーのアプリケーション（web サイト）に返します。
 
 1. **コンテンツアクセスの検証**\
-   プログラマーのアプリケーションは、[&#x200B; メディアトークン検証子 &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier) を使用して、正しいユーザーが正しいコンテンツにアクセスしていることを確認します。 検証が完了すると、保護されたコンテンツを表示するアクセス権がユーザーに付与されます。
+   プログラマーのアプリケーションは、[ メディアトークン検証子 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier) を使用して、正しいユーザーが正しいコンテンツにアクセスしていることを確認します。 検証が完了すると、保護されたコンテンツを表示するアクセス権がユーザーに付与されます。
 
 **API**
 

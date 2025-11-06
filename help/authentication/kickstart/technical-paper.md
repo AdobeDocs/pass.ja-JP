@@ -2,9 +2,9 @@
 title: Adobe Pass認証について
 description: Adobe Pass認証について
 exl-id: 5edeaccb-f9fa-4395-83b4-706c518d5a03
-source-git-commit: 7ca9d8996756086a6b963c0b6d5b0bb64608ecbc
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '1828'
+source-wordcount: '1832'
 ht-degree: 0%
 
 ---
@@ -72,7 +72,7 @@ TV Everywhere の機会には大きな課題があり、権利付与が最も重
 
 Adobe Pass Authentication は、プログラマーと有料テレビプロバイダー間の権利取引を安全に仲介し、適切な顧客が適切なコンテンツに簡単にアクセスできるようにします。
 
-![](/help/authentication/assets/programmers-connect-authn.png)
+![](../assets/programmers-connect-authn.png)
 
 *Adobe Pass認証を通じて接続するプログラマーと有料テレビプロバイダーの一部*
 
@@ -129,10 +129,10 @@ Adobe Pass Authentication は、プログラマーと有料テレビプロバイ
 
 * Adobe Pass認証 [REST API DCR](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) の統合
 * Adobe Pass認証 [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/rest-api-v2-apis-overview.md) の統合
-* Adobe Pass認証 [&#x200B; メディアトークンベリファイア &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier) を統合します。
+* Adobe Pass認証 [ メディアトークンベリファイア ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier) を統合します。
 * 認証、承認、ログアウトワークフロー用のユーザーインターフェイスを開発します。
 
-プログラマーの統合プロセスについて詳しくは、「[&#x200B; プログラマーのキックスタートガイド &#x200B;](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)」を参照してください。
+[ プログラマー統合プロセスの詳細については、「プログラマーのキックスタートガイド」と「プログラマー統合ガイド ](/help/authentication/kickstart/programmer-kickstart-guide.md) の各ドキュメントを参照して [ ださい ](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)。
 
 #### 有料テレビ プロバイダの統合プロセス {#pay-tv-provider-integration-process}
 
@@ -156,7 +156,7 @@ Adobe Pass Authentication は、次の 2 つの主要な方法で、有料 TV �
 * 認可リクエストを受信した際に有料 TV プロバイダーが自己完結型で適用するビジネスロジックの場合、Adobeは、適用をサポートするために必要なデータ（一意のデバイス ID、IP アドレスなど）を提供します。
 * Adobeがユーザーの介入や特別な処理を必要とするビジネスロジックの場合、カスタムプロパティは有料 TV プロバイダーごとに維持管理できます。 これらの設定には、認証プロセスの特定のポイントでトリガーされる事前定義済みのワークフローが含まれる場合があります。
 
-有料テレビ プロバイダーの統合プロセスの詳細については、[MVPD キックスタートガイド &#x200B;](/help/authentication/kickstart/mvpd-kickstart-guide.md) および [MVPD統合ガイド &#x200B;](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md) のドキュメントを参照してください。
+有料テレビ プロバイダーの統合プロセスの詳細については、[MVPD キックスタートガイド ](/help/authentication/kickstart/mvpd-kickstart-guide.md) および [MVPD統合ガイド ](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md) のドキュメントを参照してください。
 
 ### 使用権限フロー {#entitlement-flow}
 
@@ -169,13 +169,13 @@ Adobe Pass認証はプロキシとして機能し、プログラマーと MVPD �
    * [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/rest-api-v2-apis-overview.md)
 
 * Premium Adobe Pass認証 API:
-   * [Temp Pass API をリセット](/help/premium-workflow/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
-      * [TempPass フィーチャ](/help/premium-workflow/temporary-access/temp-pass-feature.md)
-   * [API の低下](/help/premium-workflow/degraded-access/degradation-feature.md#degradation-api-access)
-      * [縮退機能](/help/premium-workflow/degraded-access/degradation-feature.md)
-   * [使用権限サービスモニタリング API](/help/premium-workflow/esm/entitlement-service-monitoring-api.md)
+   * [Temp Pass API をリセット](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
+      * [TempPass フィーチャ](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
+   * [API の低下](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md#degradation-api-access)
+      * [縮退機能](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
+   * [使用権限サービスモニタリング API](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md)
 
-使用権限フローについて詳しくは、「[&#x200B; プログラマー統合ガイド &#x200B;](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md#entitlement-flow) ドキュメントを参照してください。
+使用権限フローについて詳しくは、「[ プログラマー統合ガイド ](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md#entitlement-flow) ドキュメントを参照してください。
 
 #### 使用権限について {#understanding-entitlements}
 
