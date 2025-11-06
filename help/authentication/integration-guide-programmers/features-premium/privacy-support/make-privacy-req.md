@@ -239,7 +239,7 @@ Adobeのお客様がPrivacy Service API を統合する方法について詳し�
 **Postman（無料のサードパーティソフトウェア）を使用した API 呼び出しの視覚化：**
 
 * [GitHub のPrivacy Service API Postman コレクション &#x200B;](https://github.com/adobe/experience-platform-postman-samples/blob/master/apis/experience-platform/Privacy%20Service%20API.postman_collection.json)
-* [Postman環境の作成に関するビデオガイド &#x200B;](https://video.tv.adobe.com/v/28832)
+* [Postman環境の作成に関するビデオガイド &#x200B;](https://video.tv.adobe.com/v/31656?captions=jpn)
 * [Postmanで環境とコレクションを読み込む手順 &#x200B;](https://learning.postman.com/docs/running-collections/intro-to-collection-runs/)
 
 
