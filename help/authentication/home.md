@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 Adobe Pass Authentication は、TV Everywhere （TVE）の強力な使用権限付与ソリューションです。保護されたコンテンツにアクセスする権限が視聴者にあるかどうかを確認するプロセスを合理化および保護するために設計されています。 このモジュール型フレームワークは、コンテンツプロバイダー（プログラマー）と有料テレビプロバイダー（MVPD）を接続し、使用権限のトランザクションを速度、一貫性、信頼性で促進します。
 
@@ -25,15 +25,15 @@ Adobe Pass認証は SaaS （Software as a Service）ソリューションとし�
 
 ## 📢 コミュニティとアップデート
 
-* [ 製品に関するお知らせ ](/help/authentication/product-announcements.md)\
+* [&#x200B; 製品に関するお知らせ &#x200B;](/help/authentication/product-announcements.md)\
   最新のAdobe Pass認証製品のお知らせと廃止予定タイムラインについて常に情報を得ます。
 
 ## ❓ のサポートとトラブルシューティング
 
-* [Zendesk カスタマーサポートポータル ](https://tve.zendesk.com/home)\
+* [Zendesk カスタマーサポートポータル &#x200B;](https://tve.zendesk.com/home)\
   チケットへのアクセス、クエリの送信、ナレッジベースの表示を行うには、ログインします。
 
-* [ サポート手順に関する FAQ](/help/authentication/kickstart/support-procedures-faqs.md)
+* [&#x200B; サポート手順に関する FAQ](/help/authentication/kickstart/support-procedures-faqs.md)
 Adobe Pass認証サポート手順に関するよくある質問です。
 
 * [Dynamic Client Registration （DCR）に関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md)\
@@ -46,31 +46,31 @@ Adobe Pass認証サポート手順に関するよくある質問です。
 
 **プログラマーの場合：**
 
-* [ プログラマー向けキックスタートガイド ](/help/authentication/kickstart/programmer-kickstart-guide.md)\
+* [&#x200B; プログラマー向けキックスタートガイド &#x200B;](/help/authentication/kickstart/programmer-kickstart-guide.md)\
   Adobe Pass認証の基本を学びます。
 
-* [ プログラマー向け統合ガイド ](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)\
+* [&#x200B; プログラマー向け統合ガイド &#x200B;](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)\
   Adobe Pass認証をプログラマーと統合する方法を説明します。
 
 **MVPD の場合：**
 
-* [MVPD キックスタートガイド ](/help/authentication/kickstart/mvpd-kickstart-guide.md)\
+* [MVPD キックスタートガイド &#x200B;](/help/authentication/kickstart/mvpd-kickstart-guide.md)\
   Adobe Pass認証の基本を学びます。
 
-* [MVPD 統合ガイド ](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md)\
+* [MVPD 統合ガイド &#x200B;](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md)\
   Adobe Pass認証をMVPDと統合する方法を説明します。
 
 *ページ上部の検索バーを使用するか、左側のメニュー内を移動して、特定のトピックを検索します。*
 
 ## 🛠️ ツールとライブラリ
 
-* [Adobe Developer Web サイト ](https://developer.adobe.com/adobe-pass/)\
+* [Adobe Developer Web サイト &#x200B;](https://developer.adobe.com/adobe-pass/)\
   Adobe Developer web サイトにアクセスして、Adobe Pass認証 REST API を試します。
 
-* [ メディアトークン検証機能 ](https://tve.zendesk.com/hc/en-us/articles/204963159-Media-Token-Verifier-library)\
+* [&#x200B; メディアトークン検証機能 &#x200B;](https://tve.zendesk.com/hc/en-us/articles/204963159-Media-Token-Verifier-library)\
   Adobe Pass認証で生成されたメディアトークンを検証するライブラリを統合します。
 
 ## 📧 連絡先
 
-* [Adobe サポートへのお問い合わせ ](mailto:tve-support@adobe.com)\
+* [Adobe サポートへのお問い合わせ &#x200B;](mailto:tve-support@adobe.com)\
   詳細なヘルプまたはビジネスに関するお問い合わせは、Adobe サポートチームまでメールでお問い合わせください。

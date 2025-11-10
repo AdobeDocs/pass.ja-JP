@@ -53,7 +53,7 @@ ht-degree: 2%
         <td></td>
         <td>primary ハードウェアタイプ</td>
         <td>デバイスの主要なハードウェアの種類。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>
@@ -110,7 +110,7 @@ ht-degree: 2%
         <td><i>必須</i></td>
         <td>osName</td>
         <td>デバイスのオペレーティングシステム（OS）名。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>
@@ -132,7 +132,7 @@ ht-degree: 2%
         <td></td>
         <td>osFamily</td>
         <td>デバイスのオペレーティングシステム（OS）グループ名。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>
@@ -155,7 +155,7 @@ ht-degree: 2%
         <td></td>
         <td>osVendor</td>
         <td>デバイスのオペレーティングシステム（OS）のサプライヤ。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>
@@ -185,7 +185,7 @@ ht-degree: 2%
         <td></td>
         <td>browserName</td>
         <td>ブラウザーの名前。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>
@@ -205,7 +205,7 @@ ht-degree: 2%
         <td></td>
         <td>browserVendor</td>
         <td>ブラウザーの建物会社/組織。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>
@@ -290,7 +290,7 @@ ht-degree: 2%
         <td></td>
         <td>connectionSecure</td>
         <td>ネットワーク接続のセキュリティの状態。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は制限されています。
             <ul>
@@ -339,7 +339,7 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 > 
 > コードスニペットは完全なものではないので、プロジェクトで機能させるには追加の変更が必要になる場合があります。
 >
-> 実際の実装に関係なく、`X-Device-Info` ヘッダーには、「[ ディレクティブ ](#directives) セクションで説明されている形式の値が含まれている必要があります。
+> 実際の実装に関係なく、`X-Device-Info` ヘッダーには、「[&#x200B; ディレクティブ &#x200B;](#directives) セクションで説明されている形式の値が含まれている必要があります。
 
 ### ブラウザー {#browsers}
 
@@ -351,10 +351,10 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 
 #### iOSと iPadOS {#ios-ipados}
 
-`X-Device-Info`iOSまたは iPadOS[ を実行するデバイスの ](https://developer.apple.com/documentation/ios-ipados-release-notes) ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照してください。
+`X-Device-Info`iOSまたは iPadOS[&#x200B; を実行するデバイスの &#x200B;](https://developer.apple.com/documentation/ios-ipados-release-notes) ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照してください。
 
 * [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice) のApple開発者向けドキュメント。
-* Apple開発者向けドキュメント [ 到達可能性 ](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
+* Apple開発者向けドキュメント [&#x200B; 到達可能性 &#x200B;](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
 * [uname](https://man7.org/linux/man-pages/man2/uname.2.html) に関する Linux マニュアルのドキュメント。
 
 ```C
@@ -452,9 +452,9 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 
 #### Android {#android}
 
-`X-Device-Info`Android[ を実行するデバイスの ](https://developer.android.com/about/versions) ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照します。
+`X-Device-Info`Android[&#x200B; を実行するデバイスの &#x200B;](https://developer.android.com/about/versions) ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照します。
 
-* [ ビルド ](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
+* [&#x200B; ビルド &#x200B;](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
 
 ```JAVA
 private JSONObject computeClientInformation() {
@@ -559,10 +559,10 @@ private JSONObject computeClientInformation() {
 
 #### tvOS {#tvos}
 
-`X-Device-Info`tvOS[ を実行するデバイスの ](https://developer.apple.com/documentation/tvos-release-notes) ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照してください。
+`X-Device-Info`tvOS[&#x200B; を実行するデバイスの &#x200B;](https://developer.apple.com/documentation/tvos-release-notes) ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照してください。
 
 * [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice) のApple開発者向けドキュメント。
-* Apple開発者向けドキュメント [ 到達可能性 ](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
+* Apple開発者向けドキュメント [&#x200B; 到達可能性 &#x200B;](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
 * [uname](https://man7.org/linux/man-pages/man2/uname.2.html) に関する Linux マニュアルのドキュメント。
 
 ```C
@@ -659,10 +659,10 @@ private JSONObject computeClientInformation() {
 
 #### Fire OS {#fireos}
 
-`X-Device-Info`Fire OS[ を実行するデバイスの ](https://developer.amazon.com/docs/fire-tv/fire-os-overview.html) ヘッダーを作成するには、次のドキュメントを参照してください。
+`X-Device-Info`Fire OS[&#x200B; を実行するデバイスの &#x200B;](https://developer.amazon.com/docs/fire-tv/fire-os-overview.html) ヘッダーを作成するには、次のドキュメントを参照してください。
 
-* [ ビルド ](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
-* Amazon開発者向けドキュメント [Fire TV デバイスの識別 ](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html)。
+* [&#x200B; ビルド &#x200B;](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
+* Amazon開発者向けドキュメント [Fire TV デバイスの識別 &#x200B;](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html)。
 
 デバイス情報は、次のように構成できます。
 
@@ -692,7 +692,7 @@ private JSONObject computeClientInformation() {
 
 #### Roku OS {#rokuos}
 
-`X-Device-Info`Roku OS[ を実行するデバイスの ](https://developer.roku.com/docs/developer-program/release-notes/roku-os-release-notes.md) ヘッダーを作成するには、次のドキュメントを参照してください。
+`X-Device-Info`Roku OS[&#x200B; を実行するデバイスの &#x200B;](https://developer.roku.com/docs/developer-program/release-notes/roku-os-release-notes.md) ヘッダーを作成するには、次のドキュメントを参照してください。
 
 * [ifDeviceInfo](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md) 用の Roku 開発者向けドキュメント。
 

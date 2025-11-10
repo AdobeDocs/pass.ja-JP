@@ -40,7 +40,7 @@ ht-degree: 0%
 
 サーバー間の実装では、「X-Forwarded-For」ヘッダーメカニズムを使用してクライアントの IP アドレスを転送する必要があります。
 
-X-Forwarded-For ヘッダーの渡し方の詳細については、[ こちら ](legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md) をご覧ください。
+X-Forwarded-For ヘッダーの渡し方の詳細については、[&#x200B; こちら &#x200B;](legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md) をご覧ください。
 
 ### 実際の上限とエンドポイント {#throttling-mechanism-limits}
 
@@ -136,7 +136,7 @@ p3p: CP="NOI DSP COR CURa ADMa DEVa OUR BUS IND UNI COM NAV STA"
 
 カスタム実装（サーバー間を含む）を使用して Pass Authentication API とやり取りするお客様は、ユーザー IP アドレスを確実に取得し、X-Forwarded-For ヘッダーを使用して正しく転送する必要があります。
 
-詳しくは [ こちら ](legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md) を参照してください。
+詳しくは [&#x200B; こちら &#x200B;](legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md) を参照してください。
 
 ### 新しい応答コードへの対応
 

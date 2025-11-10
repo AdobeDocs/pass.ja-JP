@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 **Charles:** <http://charlesproxy.com>
 
@@ -156,4 +156,4 @@ iOS デバイスで、「`\[ *Settings* -\> *Wi-FI* -\> (*YOUR\_WIFI\_NETWORK)* 
 <http://www.charlesproxy.com/documentation/configuration/browser-and-system-configuration>
 
 
-Android デバイスから [Charles プロキシ ](http://charlesproxy.com/charles.crt) を参照します。
+Android デバイスから [Charles プロキシ &#x200B;](http://charlesproxy.com/charles.crt) を参照します。

@@ -19,7 +19,7 @@ ht-degree: 0%
 
 >[!MORELIKETHIS]
 > 
-> * [REST API v2 用語集 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md)
+> * [REST API v2 用語集 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md)
 
 ## 用語集の用語 {#glossary-terms}
 
@@ -27,13 +27,13 @@ ht-degree: 0%
 
 #### アクセストークン {#access-token}
 
-アクセストークンは、保護された API へのアクセスを確実にすることを目的とした [Dynamic Client Registration （DCR） ](#dcr) プロセスの結果として、Adobe Pass Authentication によって生成されるトークンです。
+アクセストークンは、保護された API へのアクセスを確実にすることを目的とした [Dynamic Client Registration （DCR） &#x200B;](#dcr) プロセスの結果として、Adobe Pass Authentication によって生成されるトークンです。
 
 ### C {#c}
 
 #### クライアント資格情報 {#client-credentials}
 
-クライアント資格情報は、[Dynamic Client Registration （DCR） ](#dcr) プロセス中に生成される一意の値のセットであり、[ アクセストークン ](#access-token) の取得に使用されることを目的としています。
+クライアント資格情報は、[Dynamic Client Registration （DCR） &#x200B;](#dcr) プロセス中に生成される一意の値のセットであり、[&#x200B; アクセストークン &#x200B;](#access-token) の取得に使用されることを目的としています。
 
 #### カスタムスキーム {#custom-scheme}
 
@@ -45,7 +45,7 @@ ht-degree: 0%
 
 Dynamic Client Registration （DCR）は、[RFC 7591](https://datatracker.ietf.org/doc/html/rfc7591) で定義されている認証メカニズムであり、[RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749) で説明されている OAuth 2.0 認証フレームワークに基づいています。
 
-DCR は、保護された API へのアクセスをさらに可能にするAdobe Pass認証サービスとして [ プログラマー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#programmer) に配信されます。
+DCR は、保護された API へのアクセスをさらに可能にするAdobe Pass認証サービスとして [&#x200B; プログラマー &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#programmer) に配信されます。
 
 詳しくは、[Dynamic Client Registration Overview](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
 
@@ -53,10 +53,10 @@ DCR は、保護された API へのアクセスをさらに可能にするAdobe
 
 #### 登録アプリケーション {#registered-application}
 
-登録済みアプリケーションは、[Dynamic Client Registration （DCR](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#programmer) プロセスを続行する必要がある [ プログラマー ](#dcr) アプリケーションに関する情報を格納する、Adobe Pass認証コンセプトです。
+登録済みアプリケーションは、[Dynamic Client Registration （DCR](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#programmer) プロセスを続行する必要がある [&#x200B; プログラマー &#x200B;](#dcr) アプリケーションに関する情報を格納する、Adobe Pass認証コンセプトです。
 
 ### S {#s}
 
 #### ソフトウェア明細書 {#software-statement}
 
-このソフトウェアステートメントは、Adobe Pass[TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) からダウンロードできる JSON web トークン（JWT）であり、[Dynamic Client Registration （DCR） ](#dcr) プロセスの一部として使用することを目的としています。
+このソフトウェアステートメントは、Adobe Pass[TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) からダウンロードできる JSON web トークン（JWT）であり、[Dynamic Client Registration （DCR） &#x200B;](#dcr) プロセスの一部として使用することを目的としています。

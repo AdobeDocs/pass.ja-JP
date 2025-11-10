@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 概念的には、エンタイトルメントフローを開始する各ユーザーは、1 つの一意のユーザー ID に関連付けられます。 ただし、使用権限フローの過程を通じて、ID を取得する API に応じて、1 つのユーザー ID を様々な方法で表示できます。
 

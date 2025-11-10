@@ -19,11 +19,11 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 >[!NOTE]
 >
-> REST API の実装には、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
+> REST API の実装には、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
 
 &lt; レジストリ_FQDN>:
 
@@ -53,7 +53,7 @@ ht-degree: 0%
 | 承諾 | Header <br> Value: application/json | クライアントが理解できるコンテンツタイプを示します |
 | 要求者 | クエリパラメーター | この操作が有効なプログラマ requestorId です。 |
 | deviceId | クエリパラメーター | デバイス ID のバイト。 |
-| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: ヘッダー | ストリーミングデバイス情報。<br>**注意**：これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。 <br> 詳しくは、「デバイスと接続情報の受け渡し [ を参照してください ](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。 |
+| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: ヘッダー | ストリーミングデバイス情報。<br>**注意**：これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。 <br> 詳しくは、「デバイスと接続情報の受け渡し [&#x200B; を参照してください &#x200B;](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。 |
 | mvpd | クエリパラメーター | この操作が有効なMVPD ID。 |
 | ttl | クエリパラメーター | このリグレコードの有効期間（秒）。<br>**メモ**:ttl に許可されている最大値は 36000 秒（10 時間）です。 値を大きくすると、400 HTTP 応答（無効なリクエスト）が返されます。 `ttl` を空のままにすると、Adobe Pass Authentication はデフォルト値の 30 分を設定します。 |
 | _deviceType_ | クエリパラメーター | 非推奨（廃止予定）です。使用しないでください。 |
@@ -81,7 +81,7 @@ ht-degree: 0%
 >POST /reggie/v1/{req_id}/regcode HTTP/1.1<br>X-Forwarded-For:203.45.101.20
 >```
 >
-<br>
+><br>
 
 ### 応答 JSON
 

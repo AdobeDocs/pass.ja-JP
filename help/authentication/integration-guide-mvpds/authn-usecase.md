@@ -29,11 +29,11 @@ ht-degree: 0%
 
 上記の手順で説明しているように、AuthN フローの実行中、MVPDは SAML ベースの AuthN リクエストを受け入れ、SAML AuthN 応答を送信する必要があります。
 
-[ オンライン・コンテンツ・アクセス（OLCA）認証および承認インタフェースの仕様 ](https://www.cablelabs.com/specifications/search?query=&category=&subcat=&doctype=&content=false&archives=false){target=_blanck} は、標準の AuthN 要求および応答を示します。 Adobe Pass Authentication では、MVPD がこの標準に基づいて使用権限メッセージを行う必要はありませんが、仕様を調べると、AuthN トランザクションに必要な主要な属性にinsightを指定できます。
+[&#x200B; オンライン・コンテンツ・アクセス（OLCA）認証および承認インタフェースの仕様 &#x200B;](https://www.cablelabs.com/specifications/search?query=&category=&subcat=&doctype=&content=false&archives=false){target=_blanck} は、標準の AuthN 要求および応答を示します。 Adobe Pass Authentication では、MVPD がこの標準に基づいて使用権限メッセージを行う必要はありませんが、仕様を調べると、AuthN トランザクションに必要な主要な属性にinsightを指定できます。
 
 >[!NOTE]
 >
->MVPDがAdobe Pass Authentication で受け取る AuthN リクエストには、デジタル署名が含まれています。 ただし、次の例では、簡潔にするために、署名は表示されません。 デジタル署名の表示例については、以降の節の [ 認証応答 ](#authn-response) の例を参照してください。
+>MVPDがAdobe Pass Authentication で受け取る AuthN リクエストには、デジタル署名が含まれています。 ただし、次の例では、簡潔にするために、署名は表示されません。 デジタル署名の表示例については、以降の節の [&#x200B; 認証応答 &#x200B;](#authn-response) の例を参照してください。
 
 SAML 認証リクエストの例：
 
