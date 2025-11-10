@@ -13,11 +13,11 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -27,7 +27,7 @@ Adobe Pass認証を利用したアプリ間のシングルサインオン（SSO�
 
 このドキュメントでは、iOS認証 **アクセスイネーブラ** を使用する場合の **Adobe Pass上の SSO** について説明します。
 
-**Access Enabler**&#x200B;**1.10** は、Adobe Pass Authentication iOSのネイティブ SDKの最新バージョンです。 Adobeでは、古いバージョンのままにするのではなく、このバージョンに移行することを強くお勧めします。 古いバージョンの Access Enabler を使用している場合は、最新バージョン [&#x200B; こちら &#x200B;](https://tve.zendesk.com/hc/en-us/articles/204963209-iOS-Native-AccessEnabler-Library) をダウンロードできます。
+**Access Enabler****1.10** は、Adobe Pass Authentication iOSのネイティブ SDKの最新バージョンです。 Adobeでは、古いバージョンを使用するのではなく、このバージョンに移行することを強くお勧めします。 古いバージョンの Access Enabler を使用している場合は、最新バージョン [ こちら ](https://tve.zendesk.com/hc/en-us/articles/204963209-iOS-Native-AccessEnabler-Library) をダウンロードできます。
 
 iOS上の SSO は、次の条件によって決まります。
 

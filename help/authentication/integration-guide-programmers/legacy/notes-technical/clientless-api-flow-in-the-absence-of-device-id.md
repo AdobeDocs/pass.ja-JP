@@ -13,11 +13,11 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -43,7 +43,7 @@ ht-degree: 0%
 
 ## 永続的な解決策
 
-Adobeでは、今後のリリースでこれを変更する予定です。reg コードの作成時には `deviceId` をオプションのペイロードとし、`deviceId` が存在しない場合は `deviceId` の代わりに UUID をトークンキーとして使用します。
+Adobeは今後のリリースでこれを変更します。具体的には、reg コードの作成時に `deviceId` をオプションのペイロードにし、`deviceId` が存在しない場合は `deviceId` の代わりに UUID をトークンキーとして使用します。
 
 <!--
 ## Related Information

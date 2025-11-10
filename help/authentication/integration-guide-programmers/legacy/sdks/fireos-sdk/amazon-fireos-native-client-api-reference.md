@@ -13,11 +13,11 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -79,7 +79,7 @@ ht-degree: 0%
 - *appContext*:Amazon Fire OS アプリケーションコンテキスト。
 - softwareStatement
 - redirectUrl :FireOS の場合、パラメーター値は無視され、デフォルトに設定されます：adobepass://android.app
-- env_url: Adobeのステージング環境を使用してテストする場合は、env\_url を「sp.auth-staging.adobe.com」に設定できます
+- env_url: Adobe ステージング環境を使用してテストする場合は、env\_url を「sp.auth-staging.adobe.com」に設定できます
 
 **非推奨：**
 
@@ -91,11 +91,11 @@ ht-degree: 0%
 
 ### setRequestor {#setRequestor}
 
-**説明：** プログラマーの ID を確立します。 各プログラマーには、Adobe Pass Authentication System のAdobeに登録すると、一意の ID が割り当てられます。 この設定は、アプリケーションのライフサイクル中に 1 回だけ実行する必要があります。
+**説明：** プログラマーの ID を確立します。 各プログラマーは、Adobe Pass Authentication System のAdobeに登録すると、一意の ID が割り当てられます。 この設定は、アプリケーションのライフサイクル中に 1 回だけ実行する必要があります。
 
 サーバー応答には、MVPD のリストと、プログラマーの ID に添付されたいくつかの設定情報が含まれています。 サーバ応答は、アクセス イネーブラ コードによって内部的に使用されます。 setRequestorComplete （） コールバックを使用すると、操作のステータス（SUCCESS/FAIL）のみがアプリケーションに表示されます。
 
-*urls* パラメーターを使用しない場合、生成されるネットワーク呼び出しは、デフォルトのサービスプロバイダー URL （Adobeリリース/実稼動環境）をターゲットにします。
+*urls* パラメーターを使用しない場合、生成されるネットワーク呼び出しは、デフォルトのサービスプロバイダー URL （Adobe リリース/実稼動環境）をターゲットにします。
 
 *urls* パラメーターに値を指定すると、結果として得られるネットワーク呼び出しは、*urls* パラメーターで指定されるすべての URL をターゲットにします。 すべての設定要求が、別々のスレッドで同時にトリガーされます。 MVPD のリストをコンパイルする場合は、最初のレスポンダーが優先されます。 Access Enabler は、リスト内の各MVPDについて、関連するサービス プロバイダの URL を記憶します。 以降のすべての使用権限リクエストは、設定段階でターゲット MVPDとペアになっていた、サービスプロバイダーに関連付けられた URL に送られます。
 
@@ -116,8 +116,8 @@ ht-degree: 0%
 
 **パラメーター：**
 
-- *requestorID*：プログラマーに関連付けられた一意の ID。 Adobe Pass Authentication サービスに初めて登録したときに、Adobeによって割り当てられた一意の ID をサイトに渡します。
-- *urls*：オプションのパラメーターです。デフォルトでは、Adobe サービスプロバイダーが使用されます（http://sp.auth.adobe.com/）。 この配列を使用すると、Adobeが提供する認証サービスと承認サービスのエンドポイントを指定できます（デバッグ目的で別のインスタンスを使用することもできます）。 これを使用して、複数のAdobe Pass Authentication サービスプロバイダーインスタンスを指定できます。 その場合、MVPDのリストは、すべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー（最初に応答し、そのMVPDをサポートするプロバイダー）に関連付けられます。
+- *requestorID*：プログラマーに関連付けられた一意の ID。 最初にAdobe Pass Authentication サービスに登録したときに、Adobeによって割り当てられた一意の ID をサイトに渡します。
+- *urls*：オプションのパラメーターです。デフォルトでは、Adobe サービスプロバイダーが使用されます（http://sp.auth.adobe.com/）。 この配列を使用すると、Adobeが提供する認証サービスと承認サービスのエンドポイントを指定できます（デバッグ目的で別のインスタンスが使用される場合があります）。 これを使用して、複数のAdobe Pass Authentication サービスプロバイダーインスタンスを指定できます。 その場合、MVPDのリストは、すべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー（最初に応答し、そのMVPDをサポートするプロバイダー）に関連付けられます。
 
 **コールバックがトリガーされました：** `setRequestorComplete()`
 
@@ -175,7 +175,7 @@ ht-degree: 0%
 
 - *options*：グローバル SDK オプションを含む Map\&lt;String, String\>。 現在、次のオプションを使用できます。
    - **applicationProfile** – この値に基づいてサーバーを設定するために使用できます。
-   - **ap\_vi** -Experience CloudID サービス。 この値は、後で高度な分析レポートに使用できます。
+   - **ap\_vi** - Experience Cloud ID サービス。 この値は、後で高度な分析レポートに使用できます。
    - **device\_info** - **デバイス情報クックブックの受け渡し** に記載されているデバイス情報
 
 </br>
@@ -203,7 +203,7 @@ MVPDが「リクエスターごとの認証」機能をサポートしている�
 **説明：** 完全認証ワークフローを開始します。 まず、認証ステータスを確認します。 まだ認証されていない場合は、認証フロー state-machine が起動します。
 
 - 最後の認証が成功した場合、MVPD選択フェーズはスキップされ、WebView コントロールによってMVPDのログインページが表示されます。
-- 最後の認証の試行が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションは、このコールバックを使用してMVPD選択 UI を表示します。 また、[setSelectedProvider （） &#x200B;](#setSelectedProvider) メソッドを使用して Access Enabler ライブラリにユーザーのMVPD選択を通知することにより、認証フローを再開する必要があります。
+- 最後の認証の試行が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションは、このコールバックを使用してMVPD選択 UI を表示します。 また、[setSelectedProvider （） ](#setSelectedProvider) メソッドを使用して Access Enabler ライブラリにユーザーのMVPD選択を通知することにより、認証フローを再開する必要があります。
 
 MVPDが「要求者ごとの認証」機能をサポートしている場合、1 台のデバイスに複数の認証トークンを格納できます（プログラマーごとに 1 つ）。
 
@@ -260,7 +260,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 | ```public void setSelectedProvider(String mvpdId)``` |
 
 
-**提供：**&#x200B;v 1.0 以降
+**提供：**v 1.0 以降
 
 **パラメーター：** なし
 
@@ -323,7 +323,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
    - `AccessEnabler.ACCESS_ENABLER_STATUS_LOGOUT` - ログアウト
 - *コード*：提示されたステータスの理由。 *status* が `AccessEnabler.ACCESS_ENABLER_STATUS_SUCCESS` の場合、*code* は空の文字列です（つまり、`AccessEnabler.USER_AUTHENTICATED` 定数によって定義されます）。 認証されていない場合、このパラメーターは次のいずれかの値を取ります。
    - `AccessEnabler.USER_NOT_AUTHENTICATED_ERROR` - ユーザーが認証されていません。 ローカルトークンキャッシュに有効な認証トークンがない場合の *checkAuthentication （）* メソッド呼び出しに応答して。
-   - `AccessEnabler.PROVIDER_NOT_SELECTED_ERROR` - AccessEnabler は、上位層アプリケーションが `setSelectedProvider()` に渡された *null* 後に認証ステート マシンをリセットして、認証フローを中止します。  ユーザーが認証フローをキャンセルした（つまり、「戻る」ボタンを押した）と考えられます。
+   - `AccessEnabler.PROVIDER_NOT_SELECTED_ERROR` - AccessEnabler は、上位層アプリケーションが *に渡された* null`setSelectedProvider()` 後に認証ステート マシンをリセットして、認証フローを中止します。  ユーザーが認証フローをキャンセルした（つまり、「戻る」ボタンを押した）と考えられます。
    - `AccessEnabler.GENERIC_AUTHENTICATION_ERROR` - ネットワークが利用できないか、ユーザーが認証フローを明示的に取り消したなどの理由により、認証フローが失敗しました。
    - `AccessEnabler.LOGOUT` - ログアウトアクションにより、ユーザーが認証されていません。
 
@@ -355,7 +355,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 | --- |
 | ```public void checkPreauthorizedResources(ArrayList<String> resources)``` |
 
-**提供：**&#x200B;v 1.0 以降
+**提供：**v 1.0 以降
 
 **Parameters:** `resources` パラメーターは、ユーザーが既に表示を許可されているリソースの配列です。
 
@@ -427,7 +427,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 | --- |
 | ```public void setToken(String token, String resourceId)``` |
 
-**提供：**&#x200B;v 1.0 以降
+**提供：**v 1.0 以降
 
 **パラメーター：**
 
@@ -541,7 +541,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 
 **コールバックがトリガーされました：** [`setMetadataStatus()`](#setMetadaStatus)
 
-**詳細情報：**&#x200B;[&#x200B; ユーザーメタデータ &#x200B;](#setmetadatastatus)
+**詳細情報：**[ ユーザーメタデータ ](#setmetadatastatus)
 
 </br>
 
@@ -603,7 +603,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 
 **Trigger by:** [`getMetadata()`](#getMetadata)
 
-**詳細情報：**&#x200B;[&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
+**詳細情報：**[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
 
 </br>
 
@@ -625,7 +625,7 @@ Access Enabler は、エンタイトルメント フローに必ずしも関連�
 
 >[!WARNING]
 >
-> デバイスタイプとオペレーティングシステムは、公開 Java ライブラリ（http://java.net/projects/user-agent-utils）とユーザーエージェント文字列を使用して取得されます。 この情報は、操作指標をデバイスカテゴリに分類する粗い方法としてのみ提供されますが、Adobeは誤った結果に対して責任を負うことはありません。 それに応じて新しい機能を使用してください。
+> デバイスタイプとオペレーティングシステムは、公開 Java ライブラリ（http://java.net/projects/user-agent-utils）とユーザーエージェント文字列を使用して取得されます。 この情報は、操作指標をデバイスカテゴリに分類する粗い方法としてのみ提供されますが、Adobeは誤った結果に対して責任を負わないことに注意してください。 それに応じて新しい機能を使用してください。
 
 - デバイスタイプに指定可能な値：
    - `computer`

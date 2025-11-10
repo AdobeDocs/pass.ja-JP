@@ -15,7 +15,7 @@ ht-degree: 11%
 # Adobe Pass同時実行監視のヘルプ {#cm}
 
 - [同時実行性の監視の概要](cm-home.md)
-- [&#x200B; 同時実行性モニタリングの用語集 &#x200B;](cm-glossary.md)
+- [ 同時実行性モニタリングの用語集 ](cm-glossary.md)
 - [同時実行の監視の使用例](cm-use-cases.md)
 - [ポリシーの決定ポイント](cm-policy-decision-point.md)
 - [同時実行の監視 API の概要](cm-api-overview.md)

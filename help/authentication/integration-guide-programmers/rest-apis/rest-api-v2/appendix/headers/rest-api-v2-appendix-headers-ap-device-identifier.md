@@ -83,7 +83,7 @@ AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMW
 >
 > ドキュメントリソースは完全なものではなく、プロジェクトで機能するために追加の変更が必要になる場合があります。
 > 
-> 実際の実装に関係なく、`AP-Device-Identifier` ヘッダーには、[&#x200B; ディレクティブ &#x200B;](#directives) の節で説明されているように書式設定された値が含まれている必要があります。
+> 実際の実装に関係なく、`AP-Device-Identifier` ヘッダーには、[ ディレクティブ ](#directives) の節で説明されているように書式設定された値が含まれている必要があります。
 
 ### ブラウザー {#browsers}
 
@@ -95,7 +95,7 @@ _（*） ブラウザーまたはデバイスのフィンガープリントの�
 
 #### iOSと iPadOS {#ios-ipados}
 
-[iOSまたは iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes) が稼働するデバイス用の `AP-Device-Identifier` ヘッダーを作成するには、次のドキュメントを参照してください。
+`AP-Device-Identifier`iOSまたは iPadOS[ が稼働するデバイス用の ](https://developer.apple.com/documentation/ios-ipados-release-notes) ヘッダーを作成するには、次のドキュメントを参照してください。
 
 * [identifierForVendor](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor) に関するApple開発者向けドキュメント。
 
@@ -103,7 +103,7 @@ _（*） OS で指定された値に対して SHA-256 ハッシュ関数を適�
 
 #### Android {#android}
 
-[Android](https://developer.android.com/about/versions) を実行するデバイスの `AP-Device-Identifier` ヘッダーを作成するには、次のドキュメントを参照してください。
+`AP-Device-Identifier`Android[ を実行するデバイスの ](https://developer.android.com/about/versions) ヘッダーを作成するには、次のドキュメントを参照してください。
 
 * Android開発者向けドキュメント [ANDROID_ID](https://developer.android.com/reference/android/provider/Settings.Secure#ANDROID_ID)。
 
@@ -113,7 +113,7 @@ _（*） OS で指定された値に対して SHA-256 ハッシュ関数を適�
 
 #### tvOS {#tvos}
 
-[tvOS](https://developer.apple.com/documentation/tvos-release-notes) を実行しているデバイスの `AP-Device-Identifier` ヘッダーを作成するには、次のドキュメントを参照してください。
+`AP-Device-Identifier`tvOS[ を実行しているデバイスの ](https://developer.apple.com/documentation/tvos-release-notes) ヘッダーを作成するには、次のドキュメントを参照してください。
 
 * [identifierForVendor](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor) に関するApple開発者向けドキュメント。
 
@@ -121,7 +121,7 @@ _（*） OS で指定された値に対して SHA-256 ハッシュ関数を適�
 
 #### Fire OS {#fireos}
 
-[Fire OS](https://developer.amazon.com/docs/fire-tv/fire-os-overview.html) を実行するデバイスの `AP-Device-Identifier` ヘッダーを作成するには、次のドキュメントを参照してください。
+`AP-Device-Identifier`Fire OS[ を実行するデバイスの ](https://developer.amazon.com/docs/fire-tv/fire-os-overview.html) ヘッダーを作成するには、次のドキュメントを参照してください。
 
 * Android開発者向けドキュメント [ANDROID_ID](https://developer.android.com/reference/android/provider/Settings.Secure#ANDROID_ID)。
 
@@ -129,7 +129,7 @@ _（*） OS で指定された値に対して SHA-256 ハッシュ関数を適�
 
 #### Roku OS {#rokuos}
 
-[Roku OS](https://developer.roku.com/docs/developer-program/release-notes/roku-os-release-notes.md) を実行するデバイスの `AP-Device-Identifier` ヘッダーを作成するには、次のドキュメントを参照してください。
+`AP-Device-Identifier`Roku OS[ を実行するデバイスの ](https://developer.roku.com/docs/developer-program/release-notes/roku-os-release-notes.md) ヘッダーを作成するには、次のドキュメントを参照してください。
 
 * [GetChannelClientId](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md#getchannelclientid-as-string) に関する Roku 開発者向けドキュメント。
 

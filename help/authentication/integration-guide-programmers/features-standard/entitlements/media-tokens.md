@@ -15,7 +15,7 @@ ht-degree: 0%
 >
 > このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
-メディアトークンは、保護されたコンテンツ（リソース [&#128279;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) に対する表示アクセスを提供するための認証決定の結果として、Adobe Pass認証 REST API V2）によって生成されるトークンです。
+メディアトークンは、保護されたコンテンツ（リソース [ に対する表示アクセスを提供するための認証決定の結果として、Adobe Pass認証 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)REST API V2）によって生成されるトークンです。
 
 メディアトークンは、問題の時点で指定された制限された短い期間（デフォルトは 7 分）有効で、クライアントアプリケーションで検証および使用される必要がある前の時間制限を示します。 メディアトークンは 1 回限りの使用に制限され、絶対にキャッシュしないでください。
 
@@ -52,7 +52,7 @@ Adobe Pass Authentication では、ビデオストリームを開始する前に
 
 `ITokenVerifier` クラスは、次のメソッドを定義します。
 
-* メディアトークンの検証に使用する `isValid()` メソッド。 単一の引数 [&#x200B; リソース識別子 &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier) を受け入れます。 指定されたリソース識別子が `null` の場合、メソッドはメディアトークンの信頼性と有効期間のみを検証します。
+* メディアトークンの検証に使用する `isValid()` メソッド。 単一の引数 [ リソース識別子 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier) を受け入れます。 指定されたリソース識別子が `null` の場合、メソッドはメディアトークンの信頼性と有効期間のみを検証します。
 
   `isValid()` メソッドは、次のいずれかのステータス値を返します。
 
@@ -200,7 +200,7 @@ public class EntitlementVerifierTest {
 
 >[!IMPORTANT]
 >
-> [&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md) は、ユーザーアクセスを許可する認証決定に既に含まれているので、クライアントアプリケーションは、別のエンドポイントをクエリして取得する必要はありません。
+> [ メディアトークン ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md) は、ユーザーアクセスを許可する認証決定に既に含まれているので、クライアントアプリケーションは、別のエンドポイントをクエリして取得する必要はありません。
 
 上記の API を統合する方法とタイミングについて詳しくは、次のドキュメントを参照してください。
 
@@ -208,4 +208,4 @@ public class EntitlementVerifierTest {
 
 >[!MORELIKETHIS]
 >
-> [&#x200B; 承認フェーズに関するよくある質問 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)
+> [ 承認フェーズに関するよくある質問 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)

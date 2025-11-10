@@ -22,11 +22,11 @@ Harman は Primetime の広告および公開商品を管理し、Adobeは Accou
 
 | ガイド | 説明 |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| [Primetime ダイナミックAd Insertion](https://experienceleague.adobe.com/docs/primetime/ad-insertion/home.html?lang=ja) | Adobe Pass Ad Insertion ヘルプ |
+| [Primetime ダイナミックAd Insertion](https://experienceleague.adobe.com/docs/primetime/ad-insertion/home.html) | Adobe Pass Ad Insertion ヘルプ |
 
 ## Adobe Pass ガイド
 
 | ガイド | 説明 |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Adobe Pass認証 &#x200B;](/help/authentication/home.md) | Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。 |
-| [Adobe Pass同時実行監視 &#x200B;](/help/concurrency-monitoring/cm-home.md) | 複数のアプリケーションでの同時使用に関する制限を定義し、適用する方法を説明します。 |
+| [Adobe Pass認証 ](/help/authentication/home.md) | Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。 |
+| [Adobe Pass同時実行監視 ](/help/concurrency-monitoring/cm-home.md) | 複数のアプリケーションでの同時使用に関する制限を定義し、適用する方法を説明します。 |

@@ -13,17 +13,17 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要
 
-Adobeでは、AccessEnabler ライブラリの最新の JS v4.x にマイグレーションすることを強くお勧めします。
+Adobeでは、最新の JS v4.x の AccessEnabler ライブラリにマイグレーションすることを強くお勧めします。
 
-Adobe Pass Authentication JavaScript統合は、使い慣れた JS web アプリケーション開発環境で、プログラマーに TV-Everywhere ソリューションを提供します。 統合の主なコンポーネントは、「高レベル」のアプリケーション（ユーザー・インタラクション、ビデオ・プレゼンテーション）、Adobe提供の「低レベル」の AccessEnabler ライブラリです。これらは、使用権限フローへのエントリーを提供し、Adobe Pass認証サーバとの通信を処理します。
+Adobe Pass Authentication JavaScript統合は、使い慣れた JS web アプリケーション開発環境で、プログラマーに TV-Everywhere ソリューションを提供します。 統合の主なコンポーネントは、「高レベル」のアプリケーション（ユーザー・インタラクション、ビデオ・プレゼンテーション）、Adobeが提供する「低レベル」の AccessEnabler ライブラリです。これらは、使用権限フローへのエントリーを提供し、Adobe Pass認証サーバとの通信を処理します。
 
 次のセクションでは、JavaScript AccessEnabler の統合に関する説明とサンプルを示します。
 
@@ -35,7 +35,7 @@ Adobe Pass Authentication JavaScript統合は、使い慣れた JS web アプリ
 
 ユーザーがMVPDにログインして認証されるようにするには、ページまたはプレーヤーが、ユーザーがMVPDを識別する方法を提供する必要があります。 MVPDの選択ダイアログのデフォルトバージョンが、開発用に提供されています。 実稼動で使用するには、独自のMVPD セレクターを実装する必要があります。
 
-顧客のプロバイダーが既にわかっている場合は、ユーザーの操作なしで [&#x200B; プログラムによってMVPDを設定 &#x200B;](/help/authentication/home.md) できます。 方法は同じですが、プロバイダーセレクターダイアログを呼び出して顧客にMVPDを選択するように依頼する手順は省略されます。
+顧客のプロバイダーが既にわかっている場合は、ユーザーの操作なしで [ プログラムによってMVPDを設定 ](/help/authentication/home.md) できます。 方法は同じですが、プロバイダーセレクターダイアログを呼び出して顧客にMVPDを選択するように依頼する手順は省略されます。
 
 ## サービスプロバイダーの表示 {#displaying-the-service-provider}
 
@@ -55,7 +55,7 @@ Adobe Pass Authentication JavaScript統合は、使い慣れた JS web アプリ
     </head>
     <body>
         <div id="alternative">
-        <a href="http://www.adobe.com/go/getflashplayer_jp"> 
+        <a href="http://www.adobe.com/go/getflashplayer"> 
             <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" 
                  alt="Get Adobe Flash player"/> </a>
         </div> 

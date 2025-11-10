@@ -14,7 +14,7 @@ ht-degree: 0%
 >
 > このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
-プロファイルは、ユーザーが有料テレビプロバイダー（MVPD[&#128279;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) で正常に認証されると、Adobe Pass認証 REST API V2）によって作成されます。
+プロファイルは、ユーザーが有料テレビプロバイダー（MVPD[ で正常に認証されると、Adobe Pass認証 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)REST API V2）によって作成されます。
 
 プロファイルのタイプは、使用する認証方法によって異なります。
 
@@ -39,9 +39,9 @@ ht-degree: 0%
 * ユーザーの認証ステータスを判断します。
 * 使用する認証方法を識別します。
 * ID プロバイダーを識別します。
-* [&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) にアクセスします。
+* [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) にアクセスします。
 
-プロファイルは、Adobe Pass Authentication のバックエンドに安全に保存され、要求元のアプリケーション、デバイス、サービスプロバイダーの ID にリンクされます。 [&#x200B; 認証有効期間（TTL） &#x200B;](#authentication-ttl-management) で定義されている限られた期間、有効なままです。
+プロファイルは、Adobe Pass Authentication のバックエンドに安全に保存され、要求元のアプリケーション、デバイス、サービスプロバイダーの ID にリンクされます。 [ 認証有効期間（TTL） ](#authentication-ttl-management) で定義されている限られた期間、有効なままです。
 
 ## 認証有効期間（TTL）の管理 {#authentication-ttl-management}
 
@@ -50,9 +50,9 @@ ht-degree: 0%
 * プラットフォームカテゴリ（デスクトップ、モバイル、TV 接続デバイスなど）
 * 特定のプラットフォーム（iOS、Android、tvOS、Roku、FireTV など）
 
-認証（authN） TTL の表示や変更は、Adobe Pass[TVE ダッシュボード &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) を通じて、組織管理者の 1 人が、またはAdobe Pass認証担当者が代理で行うことができます。
+認証（authN） TTL の表示や変更は、Adobe Pass[TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) を通じて、組織管理者の 1 人が、またはAdobe Pass認証担当者が代理で行うことができます。
 
-詳しくは、[TVE ダッシュボード統合ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) ドキュメントを参照してください。
+詳しくは、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) ドキュメントを参照してください。
 
 ## REST API V2 {#rest-api-v2}
 
@@ -71,4 +71,4 @@ ht-degree: 0%
 
 >[!MORELIKETHIS]
 >
-> [&#x200B; 認証フェーズに関するよくある質問 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general)
+> [ 認証フェーズに関するよくある質問 ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general)

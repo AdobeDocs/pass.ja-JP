@@ -17,7 +17,7 @@ ht-degree: 3%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -142,7 +142,7 @@ ht-degree: 3%
 
 ## サンプル {#samples}
 
-### 1. ユーザーエージェントで認証を実行する
+### &#x200B;1. ユーザーエージェントで認証を実行する
 
 >[!BEGINTABS]
 

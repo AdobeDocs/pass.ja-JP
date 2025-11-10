@@ -1,6 +1,6 @@
 ---
-title: Adobe同時実行 Monitoring Services 3.1 リリースノート
-description: Adobe同時実行 Monitoring Services 3.1 リリースノート
+title: Adobe Concurrency Monitoring Services 3.1 リリースノート
+description: Adobe Concurrency Monitoring Services 3.1 リリースノート
 exl-id: 2c43d6fd-812b-438c-bebf-28b32e5f1935
 source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
@@ -9,7 +9,7 @@ ht-degree: 1%
 
 ---
 
-# Adobe同時実行 Monitoring Services 3.1 リリースノート {#cm-services-rns}
+# Adobe Concurrency Monitoring Services 3.1 リリースノート {#cm-services-rns}
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 

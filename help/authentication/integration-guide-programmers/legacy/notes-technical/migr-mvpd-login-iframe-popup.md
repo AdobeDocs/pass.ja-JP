@@ -4,7 +4,7 @@ description: MVPD ログインページを iFrame からポップアップに移
 exl-id: 389ea0ea-4e18-4c2e-a527-c84bffd808b4
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '709'
+source-wordcount: '708'
 ht-degree: 0%
 
 ---
@@ -13,11 +13,11 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## ポップアップと iFrame の比較 {#popup-vs-iframe}
 
@@ -109,7 +109,7 @@ function setSelectedProvider(providerID) {
 
 ## ポップアップウィンドウにログインページが表示されたMVPD ピッカー {#mvpd-pickr-popup}
 
-**iFrame** はもう使用しないので、HTMLコードには iFrame や、iFrame を閉じるボタンは含まれません。 以前は iFrame を含んでいた div （**mvpddiv**）は保持され、次の目的で使用されます。
+今後 **iFrame** を使用しないので、HTML コードには iFrame や、iFrame を閉じるボタンは含まれません。 以前は iFrame を含んでいた div （**mvpddiv**）は保持され、次の目的で使用されます。
 
 * ポップアップフォーカスが失われた場合に、MVPD ログインページが既に開いていることをユーザーに通知するには、次の手順に従います
 * ポップアップにフォーカスを取り戻すためのリンクを提供します
@@ -183,7 +183,7 @@ function displayProviderDialog(providers) {
 }
 ```
 
-ピッカーからMVPDを選択したら、ポップアップを作成する必要があります。 about:blank または別のドメインにあるページでポップアップを作成すると、一部のブラウザーでポップアップがブロックされる場合があります。そのため、AccessEnabler がロードされたホスト名を使用してポップアップを開くことをお勧めします。
+ピッカーからMVPDを選択したら、ポップアップを作成する必要があります。 一部のブラウザーでは、ポップアップが about で作成された場合 :blank または別のドメインにあるページで作成された場合に、ポップアップがブロックされる場合があります。そのため、AccessEnabler が読み込まれるホスト名を使用してポップアップを開くことを推奨します。
 
 iFrame の実装では、btnCloseIframe ボタンとJavaScript関数 closeIframeAction （）によって認証フローのリセットが行われていましたが、iFrame をデコレートすることはできなくなりました。 そのため、同じ動作は、（ユーザーによって、または認証フローが完了することによって）ポップアップが閉じられたときを監視することで達成されます。 ユーザーがポップアップのフォーカスを失った場合に役立つコードのスニペットが追加されました。
 
@@ -235,4 +235,4 @@ function checkClosed() {
 >* サンプルコードには、使用される requestorID - 「REF」のハードコード変数が含まれています。これは、実際のプログラマーのリクエスター ID に置き換える必要があります。
 >* サンプルコードは、使用されるリクエスター ID に関連付けられた、許可リストに登録されたドメインからのみ適切に実行されます。
 >* コード全体をダウンロードできるので、このテクニカルノートに示されているコードは切り捨てられています。 完全なサンプルについては、**JS iFrame とポップアップのサンプル** を参照してください。
->* 外部のJavaScript ライブラリは、[Googleがホストするサービス &#x200B;](https://developers.google.com/speed/libraries/) からリンクされていました。
+>* 外部のJavaScript ライブラリは、[Googleがホストするサービス ](https://developers.google.com/speed/libraries/) からリンクされていました。

@@ -1,6 +1,6 @@
 ---
-title: MVPD 認証
-description: MVPD 認証
+title: MVPD認証
+description: MVPD認証
 exl-id: 215780e4-12b6-4ba6-8377-4d21b63b6975
 source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
 workflow-type: tm+mt
@@ -9,23 +9,23 @@ ht-degree: 0%
 
 ---
 
-# MVPD 認証
+# MVPD認証
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 概要 {#mvpd-authz-overview}
 
-認証（AuthZ）は、Adobeがホストするバックエンドサーバーと MVPD AuthZ エンドポイントの間で、バックチャネル（サーバー間）通信を介して行われます。
+認証（AuthZ）は、AdobeがホストするバックエンドサーバーとMVPD AuthZ エンドポイントの間で、バックチャネル（サーバー間）通信を介して行われます。
 
 AuthZ リクエストの場合、認証エンドポイントは少なくとも次のパラメーターを処理できる必要があります。
 
 * **Uid**。 認証手順から受信したユーザー ID。
 
-* **リソース ID**。 特定のコンテンツリソースを識別する文字列。 このリソース ID はプログラマによって指定され、MVPD はこれらのリソースに関するビジネス ルールを強化する必要があります（たとえば、ユーザーが特定のチャネルを購読していることを確認するなど）。
+* **リソース ID**。 特定のコンテンツリソースを識別する文字列。 このリソース ID はプログラマーによって指定され、MVPDはこれらのリソースに関するビジネスルールを強化する必要があります（例えば、ユーザーが特定のチャネルを購読していることを確認するなど）。
 
-応答には、ユーザーが認証されているかどうかを判断する以外に、この認証の有効期間（TTL）（つまり認証の有効期限）を含める必要があります。 TTL が設定されていない場合、AuthZ リクエストは失敗します。  このため、MVPD がリクエストに TTL を含めない場合に対応するために、**TTL はAdobe Pass認証側の必須の設定です**。
+応答には、ユーザーが認証されているかどうかを判断する以外に、この認証の有効期間（TTL）（つまり認証の有効期限）を含める必要があります。 TTL が設定されていない場合、AuthZ リクエストは失敗します。  このため、MVPDがリクエストに TTL を含めない場合に対応するために、**TTL は、Adobe Pass認証側の必須の設定です**。
 
 ## 承認リクエスト {#authz-req}
 
@@ -40,7 +40,7 @@ AuthZ リクエストには、リクエストを行う主体、主体がアク�
 
 
 
-この時点で SP は、XACML Authorization DecisionQuery を準備し、（HTTPPOST経由で） IdP の（事前に合意された） Policy Decision Point （PDP; ポリシー決定ポイント）に送信する必要があります。 次に、単純な XACML リクエストの例を示します（XACML コア仕様を参照）。
+この時点の SP は、XACML Authorization DecisionQuery を準備し、（HTTP POST を介して） IdP の（事前に合意された） Policy Decision Point （PDP; ポリシー決定ポイント）に送信する必要があります。 次に、単純な XACML リクエストの例を示します（XACML コア仕様を参照）。
 
 ```XML
 POST https://authz.site.com/XACML_endpoint
@@ -80,11 +80,11 @@ http://docs.oasis-open.org/xacml/access_control-xacml-2.0-context-schema-os.xsd"
 ```
 
 
-AuthZ 要求を受信した後、MVPD の PDP は要求を評価し、要求されたアクションをリソースで実行することをサブジェクトに許可するかどうかを決定します。 次に、MVPD は、決定、ステータスコード、およびメッセージを含む応答を返します。以下の認証応答を参照してください。
+MVPDの PDP は、AuthZ 要求を受け取ると、その要求を評価し、要求されたアクションをリソースに対して実行することをサブジェクトに許可する必要があるかどうかを判断します。 次に、MVPDは、意思決定、ステータスコードおよびメッセージを含む応答を返します（以下の認証応答を参照）。
 
 ## 承認応答 {#authz-response}
 
-AuthZ 要求への応答は、MVPD が要求を評価し、要求されたビジネスルールを適用して、サブジェクトが要求されたアクションをリソースに対して実行することが許可されるかどうかを判断した後になります。 返されたAdobe Pass認証への応答は、SP が Policy Enforcement Point （PEP; ポリシー強制ポイント）として持つ Decision、Status code、message、および Oblidations を含む XACML コア仕様に従って再度表されます。 応答の例を次に示します。
+AuthZ リクエストへの応答は、MVPDがリクエストを評価し、リクエストされたビジネスルールを適用して、サブジェクトがリソースに対してリクエストされたアクションを実行できるかどうかを判断した後になります。 返されたAdobe Pass認証への応答は、SP が Policy Enforcement Point （PEP; ポリシー強制ポイント）として持つ Decision、Status code、message、および Oblidations を含む XACML コア仕様に従って再度表されます。 応答の例を次に示します。
 
 ```XML
 <Response xmlns="urn:oasis:names:tc:xacml:2.0:context:schema:os">

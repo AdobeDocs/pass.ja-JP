@@ -13,9 +13,9 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
-Adobe環境について説明した公式ドキュメントは [&#x200B; 環境の設定と Pre-qual でのテスト &#x200B;](/help/authentication/notes-technical/environments/setting-up-your-environment-and-testing-in-prequal.md) から入手できます。
+Adobe環境について説明した公式ドキュメントは [ 環境の設定と Pre-qual でのテスト ](/help/authentication/notes-technical/environments/setting-up-your-environment-and-testing-in-prequal.md) から入手できます。
 
 Adobe環境の概要は次のとおりです。
 
@@ -32,6 +32,6 @@ Adobeには、**事前認定** と **リリース** の 2 つの環境があり�
 
 2 つのプロファイルがある理由は、ステージングプロファイルで新しいパートナーの運用を開始する準備をしており、今後のビルド（事前検証）またはリリース 1 （より安定した）でシステムをテストしたいからです。
 
-パートナーが新しいバージョンをテストする場合は、いくつかの追加手順を行う必要があります。 [&#x200B; 環境の設定と Pre-qual でのテスト &#x200B;](/help/authentication/notes-technical/environments/setting-up-your-environment-and-testing-in-prequal.md) を参照してください。
+パートナーが新しいバージョンをテストする場合は、いくつかの追加手順を行う必要があります。 [ 環境の設定と Pre-qual でのテスト ](/help/authentication/notes-technical/environments/setting-up-your-environment-and-testing-in-prequal.md) を参照してください。
 
 上記の手順に従うことで、今後のリリースが事前認定環境でテストされることが保証されます。

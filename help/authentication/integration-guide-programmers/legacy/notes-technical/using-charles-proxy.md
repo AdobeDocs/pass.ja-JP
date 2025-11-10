@@ -13,11 +13,11 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 **Charles:** <http://charlesproxy.com>
 
@@ -97,7 +97,7 @@ Map remote を使用すると、「受信」リクエストを別のエンドポ
 
 ## モバイル {#mobile}
 
-### iOS デバイス（iPhone/iPad）での Charles の使用 {#use-charles-on-an-ios-device-(iphone-/-ipad)}
+### iOS デバイスでの Charles の使用（iPhone/iPad） {#use-charles-on-an-ios-device-(iphone-/-ipad)}
 
 #### iPhoneからの SSL 接続 {#ssl-connection-from-iphone}
 
@@ -156,4 +156,4 @@ iOS デバイスで、「`\[ *Settings* -\> *Wi-FI* -\> (*YOUR\_WIFI\_NETWORK)* 
 <http://www.charlesproxy.com/documentation/configuration/browser-and-system-configuration>
 
 
-Android デバイスから [Charles プロキシ &#x200B;](http://charlesproxy.com/charles.crt) を参照します。
+Android デバイスから [Charles プロキシ ](http://charlesproxy.com/charles.crt) を参照します。

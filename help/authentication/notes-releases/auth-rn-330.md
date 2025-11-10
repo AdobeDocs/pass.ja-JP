@@ -1,8 +1,8 @@
 ---
 title: Adobe Pass Authentication 3.3.0 リリースノート
 description: Adobe Pass Authentication 3.3.0 リリースノート
-exl-id: 8a7b4c9d-3e5f-42a1-b8c9-7d6e5f4a3b2c
-source-git-commit: bbbd3331c8c71aaf7e3ac4a102a5d8182722a271
+exl-id: 64867bd4-d406-491d-8f04-f40b0a84e5cd
+source-git-commit: b8ba9f65773b9d600183922cf42a13239aa9d58a
 workflow-type: tm+mt
 source-wordcount: '91'
 ht-degree: 0%
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 

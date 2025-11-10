@@ -1,51 +1,51 @@
 ---
-title: プロキシ MVPD SAML 統合
-description: プロキシ MVPD SAML 統合
+title: プロキシMVPD SAML 統合
+description: プロキシMVPD SAML 統合
 exl-id: 6c83e703-d8cd-476b-8514-05b8230902be
 source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
 workflow-type: tm+mt
-source-wordcount: '711'
+source-wordcount: '700'
 ht-degree: 0%
 
 ---
 
-# プロキシ MVPD SAML 統合
+# プロキシMVPD SAML 統合
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeから現在のライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
 ## 概要 {#overview-proxy-mvpd-saml-int}
 
-このドキュメントでは、プロキシ統合の SAML 認証フローについて説明します。  これらのフローは、Adobe Pass Authentication Server 設定に存在するプロキシ設定データによって異なります。 Proxy MVPD は、Proxy Config データをAdobe Pass Authentication Proxy Web Service を介してAdobe Pass Authentication Server にプッシュします。
+このドキュメントでは、プロキシ統合の SAML 認証フローについて説明します。  これらのフローは、Adobe Pass Authentication Server 設定に存在するプロキシ設定データによって異なります。 プロキシMVPDは、Adobe Pass Authentication Proxy Web Service を介して、プロキシ設定データをAdobe Pass Authentication Server にプッシュします。
 
 ## プロキシ設定データ {#proxy-config-data}
 
-各 MVPD プロキシは、プロキシ化された MVPD のプロキシ設定データをAdobe Pass Authentication Proxy Web サービスに提供します。  詳しくは、プロキシ web サービスのドキュメントを参照してください。   SAML AuthN フローが機能するには、プロキシ設定データに次のプロパティを含める必要があります。
+各MVPD Proxy は、プロキシ化された MVPD のプロキシ設定データをAdobe Pass Authentication Proxy Web サービスに提供します。  詳しくは、プロキシ web サービスのドキュメントを参照してください。   SAML AuthN フローが機能するには、プロキシ設定データに次のプロパティを含める必要があります。
 
 | プロパティ | 説明 |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| MVPD ID | Adobe Pass Authentication に内部的にプロキシ化された MVPD を表す文字列。  Adobeによって、Adobe Pass認証のコンテキストで一意であることが確認されます。 |
-| MVPD のデフォルトのロゴ URL | ユーザーの MVPD セレクターエクスペリエンスに表示できるロゴへの URL。  透明な背景を使用する必要があります。 |
-| MVPD 表示名 | ロゴと共に表示できる表示名テキストとして使用される文字列（場合によっては代替テキストとして使用される）。 |
+| MVPD ID | Adobe Pass Authentication に内部的にプロキシ化されたMVPDを表す文字列。  Adobeによって、Adobe Pass認証のコンテキストで一意であることが確認されます。 |
+| MVPDのデフォルトのロゴ URL | MVPD Selector エクスペリエンスでユーザーに表示できるロゴへの URL。  透明な背景を使用する必要があります。 |
+| MVPDの表示名 | ロゴと共に表示できる表示名テキストとして使用される文字列（場合によっては代替テキストとして使用される）。 |
 
 
 
 ## SAML 統合フロー {#saml-int-flows}
 
-MVPD 購読者がプログラマーのサイトまたはアプリケーションを訪問すると、Adobe Pass認証は、そのプログラマーに対してアクティブ化された MVPD のリストを使用して、サイトまたはアプリケーションからの API 呼び出しに応答します。  統合は、直接またはプロキシ化できます。プログラマーに対する区別はありません。 これにより、プログラマーは、アクティブな MVPD のリストを適切な方法で表示できます。 サブスクライバーが自分の MVPD を選択すると、Adobe Pass Authentication によって、サブスクライバーが MVPD の特定の ID プロバイダーにリダイレクトされます。
+MVPD サブスクライバーがプログラマーのサイトまたはアプリケーションにアクセスすると、そのプログラマーに対してアクティブ化された MVPD のリストを使用して、サイトまたはアプリケーションからの API 呼び出しに対してAdobe Pass認証が応答します。  統合は、直接またはプロキシ化できます。プログラマーに対する区別はありません。 これにより、プログラマーは、アクティブな MVPD のリストを適切な方法で表示できます。 購読者がMVPDを選択すると、Adobe Pass Authentication によって、MVPDの特定の ID プロバイダーに購読者がリダイレクトされます。
 
-統合 MVPD Proxy の場合、統合はAdobe Pass Authentication と MVPD Proxy の間で行われます。 Adobe Pass Authentication は MVPD Proxy にユーザー認証リクエストを送信し、MVPD Proxy がリダイレクトを処理します。 MVPD プロキシがユーザー認証リクエストのリダイレクト先を知るために、Adobe Pass認証は SAML 認証リクエストに MVPD 識別子を送信します。  この識別子は、上記で指定したプロキシ Web サービスを介してプロキシ プロバイダーによって指定された MVPD ID です。
+統合MVPD Proxy では、Adobe Pass Authentication とMVPD Proxy の間で統合が行われます。 Adobe Pass認証はユーザー認証リクエストをMVPD プロキシに送信し、MVPD プロキシがリダイレクトを処理します。 MVPD プロキシがユーザー認証リクエストのリダイレクト先を認識できるように、Adobe Pass認証は SAML 認証リクエストにMVPD ID を送信します。  この ID は、上記で指定したプロキシ Web サービスを介してプロキシ プロバイダーによって指定されたMVPD ID です。
 
 ### 認証 {#authn-saml-int}
 
-Adobe Pass Authentication をプロキシ MVPD と連携させるには、以下が必要です。
+Adobe Pass認証をプロキシMVPDと統合するには、次のものが必要です。
 
-* プロキシ MVPD は、プロキシ化された MVPD の一覧を提供し、Adobe プロキシ Web サービスにプッシュしました
+* プロキシMVPDがプロキシ化された MVPD のリストを提供し、Adobe プロキシ web サービスにプッシュしました
 
-* 親 MVPD プロキシの SAML メタデータ
+* 親MVPD プロキシの SAML メタデータ
 
-* （推奨） – プロキシ MVPD は、プロキシ化された MVPD のログインページ URL への追加のリダイレクトを処理します
+* （推奨） – プロキシMVPDは、プロキシ化されたMVPDのログインページ URL への追加のリダイレクトを処理します
 
 * MVPD プロキシは、次の IP のポート 443 および 80 を開く必要があります。
    * 192.150.4.5
@@ -63,13 +63,13 @@ Adobe Pass Authentication をプロキシ MVPD と連携させるには、以下
 
 #### 認証 SAML のリクエストと応答 {#authn-saml-req-resp}
 
-SAML AuthN リクエストでは、プロキシ統合に、MVPD プロキシで処理する必要がある次の追加プロパティが含まれます。  このプロパティは、プロキシ化された MVPD の代わりにリクエスターを正しく処理し、適切なログインエクスペリエンスをレンダリングするために必要です。 （このプロパティは、以下のサンプルリクエストでハイライト表示されています）。
+SAML AuthN リクエストの場合、プロキシ統合には、MVPD プロキシで処理する必要がある次の追加プロパティが含まれています。  このプロパティは、プロキシ化されたMVPDに代わってリクエスターを正しく処理し、適切なログインエクスペリエンスをレンダリングするために必要です。 （このプロパティは、以下のサンプルリクエストでハイライト表示されています）。
 
-**Scoping プロパティ** – 特定の MVPD_ID と MVPD 名を含む IDPEntry 項目を含みます。  これは、ユーザーがプログラマーのピッカーから実際に選択した MVPD を表し、プロキシ Web サービスで指定された MVPD_ID と一致します。
+**スコーピングプロパティ** – 特定のMVPD_ID とMVPD名を含む IDPEntry 項目を含みます。  これは、ユーザーがプログラマーのピッカーから実際に選択したMVPDを表し、プロキシ web サービスで指定されたMVPD_ID と一致します。
 
 RequestorID の追加のスコーピングプロパティがあり、必要に応じて、プログラマーの特定のブランドへのログインをカスタマイズするために使用できます。 または、リクエストの発信元に対する分析にのみ使用できます。
 
-SAML AuthN 応答では、プロキシ MVPD は、次のプロパティでプロキシ化された MVPD を IdP エンティティとして指定する必要があります。
+SAML AuthN 応答では、プロキシMVPDは、次のプロパティでプロキシ化されたMVPDを IdP エンティティとして指定する必要があります。
 
 * SAML 発行者
 * 名前修飾子
@@ -164,11 +164,11 @@ SAML AuthN 応答では、プロキシ MVPD は、次のプロパティでプロ
 
 ### 認証 {#authz-proxy-mvpd-saml-int}
 
-認証部分については、MVPD はプログラマが指定したリソースを認証に受け入れる必要がある。  ほとんどの場合、これは TBS や TNT などのチャネルネットワークの文字列識別子です。
+認証部分については、MVPDは、プログラマが指定したリソースを認証するために受け入れる必要があります。  ほとんどの場合、これは TBS や TNT などのチャネルネットワークの文字列識別子です。
 
 #### 認証 SAML リクエストおよび応答 {#authz-saml-req-resp}
 
-AuthZ 応答では、ISSUER は、SAML 応答の ISSUER と一致する必要があります。これは、プロキシ化された MVPD 識別子である必要があります。
+AuthZ レスポンスでは、ISSUER は SAML レスポンスの ISSUER と一致する必要があります。これはプロキシ化されたMVPD識別子である必要があります。
 
 **AuthZ XACML リクエストの例**
 
