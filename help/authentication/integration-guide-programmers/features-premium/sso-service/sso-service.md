@@ -121,7 +121,7 @@ POST /serviceToken エンドポイントの X-SSO-ID で共通の識別子を使
 
 ### 手順 3 - Adobe Pass REST API V2 を使用した TVE MVPDでの認証 {#step-3}
 
-Adobe Passの認証は、サービストークン [REST API V2 - シングルサインオンサービストークンフロー &#x200B;](https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-flows/rest-api-v2-single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows) を使用して実装する必要があります。
+Adobe Passの認証は、サービストークン [REST API V2 - シングルサインオンサービストークンフロー &#x200B;](https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-flows/rest-api-v2-single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows) を使用して実装する必要があります。
 
 ### 手順 4 – 別のデバイスをリンクする {#step-4}
 
@@ -211,13 +211,13 @@ Adobe Pass Authentication Services のエラーが原因でサービストーク
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
+      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
       <td>
-         デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。
+         デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。
          <br/><br/>
          この識別子は、X-SSO-ID が指定されていない場合のデフォルトの SSO 識別子として使用されます。
       </td>
@@ -226,7 +226,7 @@ Adobe Pass Authentication Services のエラーが原因でサービストーク
    <tr>
       <td style="background-color: #DEEBFF;">X-Device-Info</td>
       <td>
-         <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-x-device-info">X-Device-Info</a> ヘッダーのドキュメントで指定されているデバイス情報。
+         <a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-x-device-info">X-Device-Info</a> ヘッダーのドキュメントで指定されているデバイス情報。
          <br/><br/>
          <b> 強くお勧めします </b> アプリケーションのデバイスプラットフォームで有効な値を明示的に指定できる場合に使用します。
          <br/><br/>
@@ -287,21 +287,21 @@ Adobe Pass Authentication Services のエラーが原因でサービストーク
       <td>400</td>
       <td>リクエストが正しくありません</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
       <td>未認証</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
       </td>
    </tr>
 </table>
@@ -376,7 +376,7 @@ Adobe Pass Authentication Services のエラーが原因でサービストーク
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
@@ -487,7 +487,7 @@ Content-Type: application/json
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
+      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -534,21 +534,21 @@ Content-Type: application/json
       <td>400</td>
       <td>リクエストが正しくありません</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
       <td>未認証</td>
       <td>
-        アクセストークンまたはサービストークンが無効です。クライアントは新しいアクセストークンまたはサービストークンを取得して、もう一度試してください。 詳しくは、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンまたはサービストークンが無効です。クライアントは新しいアクセストークンまたはサービストークンを取得して、もう一度試してください。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
       </td>
    </tr>
 </table>
@@ -623,7 +623,7 @@ Content-Type: application/json
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
@@ -711,12 +711,12 @@ Adobe Pass Authentication Services エラーが原因でリンク API リクエ�
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
+      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。</td>
+      <td>デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -763,21 +763,21 @@ Adobe Pass Authentication Services エラーが原因でリンク API リクエ�
       <td>400</td>
       <td>リクエストが正しくありません</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
       <td>未認証</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
       </td>
    </tr>
 </table>
@@ -852,7 +852,7 @@ Adobe Pass Authentication Services エラーが原因でリンク API リクエ�
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
@@ -955,7 +955,7 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
+      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -969,7 +969,7 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。</td>
+      <td>デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -1016,14 +1016,14 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
       <td>400</td>
       <td>リクエストが正しくありません</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
       <td>未認証</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
       </td>
    </tr>
    <tr>
@@ -1037,7 +1037,7 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
       </td>
    </tr>
 </table>
@@ -1106,7 +1106,7 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
@@ -1251,12 +1251,12 @@ Adobe Pass Authentication Services のエラーが原因で List API リクエ�
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
+      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。</td>
+      <td>デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -1303,14 +1303,14 @@ Adobe Pass Authentication Services のエラーが原因で List API リクエ�
       <td>400</td>
       <td>リクエストが正しくありません</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
       <td>未認証</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
       </td>
    </tr>
    <tr>
@@ -1324,7 +1324,7 @@ Adobe Pass Authentication Services のエラーが原因で List API リクエ�
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
       </td>
    </tr>
 </table>
@@ -1357,7 +1357,7 @@ Adobe Pass Authentication Services のエラーが原因で List API リクエ�
       <td>
          キーと値のペアのマップを含む JSON。
          <br/><br/>
-         <b>Key:</b> deviceId - <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントに記載されているデバイス識別子ペイロード
+         <b>Key:</b> deviceId - <a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントに記載されているデバイス識別子ペイロード
          <br/><br/>
          <b>Value:</b> attributes - デバイスメタデータ属性のマップを含む JSON。以下が含まれます。
          <ul>
@@ -1397,7 +1397,7 @@ Adobe Pass Authentication Services のエラーが原因で List API リクエ�
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
@@ -1514,7 +1514,7 @@ Content-Type: application/json
     "code": "header_missing",
     "message": "Required header is missing",
     "action": "check_headers",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
     "trace": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
   }
 }
