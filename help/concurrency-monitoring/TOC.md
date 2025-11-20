@@ -4,48 +4,72 @@ feature: Concurrency Monitoring
 audience: end-user
 user-guide-title: Adobe Pass 同時実行モニタリング
 user-guide-description: 複数のアプリケーションでの同時使用に関する制限を定義し、適用する方法を説明します。
-source-git-commit: 8765ad6c7513ba9e6ddce1f47642458b6d248b51
+source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
 workflow-type: tm+mt
-source-wordcount: '171'
-ht-degree: 11%
+source-wordcount: '276'
+ht-degree: 5%
 
 ---
 
 
 # Adobe Pass同時実行監視のヘルプ {#cm}
 
-- [同時実行性の監視の概要](cm-home.md)
-- [&#x200B; 同時実行性モニタリングの用語集 &#x200B;](cm-glossary.md)
-- [同時実行の監視の使用例](cm-use-cases.md)
-- [ポリシーの決定ポイント](cm-policy-decision-point.md)
-- [同時実行の監視 API の概要](cm-api-overview.md)
-- [標準メタデータ属性](standard-metadata-attributes.md)
-- [データ保持ポリシー](data-retention-policy.md)
-- [スロットルメカニズム](throttling-mechanism.md)
-- [エスカレーション手順](cm-escalation-procedures.md)
-- 同時実行の監視の使用 {#cmu}
-   - [同時実行監視の使用状況レポート](cm-usage-reports.md)
-   - [同時実行監視の使用状況レポートの例](cm-usage-reports-examples.md)
-   - [同時実行性の監視使用状況 API](cmu-api.md)
-   - [同時実行性の監視の使用 API アクセス](cmu-api-access.md)
-- バージョン 1 API {#v1-api}
-   - [ポリシー情報ポイント](policy-info-pt-versionone.md)
-   - [カスタムメタデータ](custom-metadata.md)
-   - 統合クックブック {#int-cookbooks}
-      - [異なる所有者に属する複数のアプリケーションの同時使用を制限する](restrict-concurr-usage-mult-apps.md)
-      - [シングルテナント/ポリシーおよび複数のアプリケーション](single-tenant-policy-mult-app.md)
-   - [実装モデル](implementation-models.md)
-- リリースノート {#cm-release-notes}
-   - [同時実行性モニタリングサービス 3.1 リリースノート](rn-cm-services-31.md)
-   - [Concurrency Monitoring Services 3.0 リリース ノート](rn-cm-services-30.md)
-   - [同時実行性の監視 2.9.6 リリースノート](rn-cm-296.md)
-   - [同時実行性の監視 2.9 リリースノート](rn-cm-29.md)
-   - [同時実行性監視 – 2.8.2 リリースノート](rn-cm-282.md)
-   - [同時実行性監視 – 2.7.2 リリースノート](rn-cm-272.md)
-   - [同時実行性監視 – 2.6.0 リリースノート](rn-cm-260.md)
-   - [同時実行性監視 – 2.5.0 リリースノート](rn-cm-250.md)
-   - [同時実行性監視 – 2.3.2 リリースノート](rn-cm-232.md)
-   - [同時実行性監視 – 2.2.2 リリースノート](rn-cm-222.md)
+- [CM の概要 ](cm-home.md) {#cm-intro}
+- はじめに {#getting-started}
+   - [同時実行性監視の基本を学ぶ](getting-started/getting-started-overview.md)
+   - [主要な概念](getting-started/key-concepts.md)
+- 統合ガイド {#integration-guide}
+   - [用語集](cm-glossary.md)
+   - API リファレンス {#api-reference}
+      - [ 概要 ](api/api-reference-overview.md)
+      - [API エンドポイント](api/api-endpoints.md)
+      - [API リファレンス](api/cm-api-overview.md)
+   - [同時実行性の監視使用状況 API](reports/cmu-api.md)
+   - [API アクセス](reports/cmu-api-access.md)
+   - [同時実行監視の使用状況レポートの例](reports/cm-usage-reports-examples.md)
+- ユースケースと実装 {#use-cases-implementation}
+   - [ユースケースの概要](use-cases/cm-use-cases.md)
+   - [LIFO と FIFO 戦略](use-cases/lifo-fifo-strategies.md)
+   - [セッションの競合の処理](use-cases/handling-409-errors.md)
+   - [実装モデル](technical/implementation-models.md)
+   - [シングルテナントポリシーの複数のアプリ](technical/single-tenant-policy-mult-app.md)
+   - [複数のアプリの同時使用を制限する](technical/restrict-concurr-usage-mult-apps.md)
+- [CM 使用状況レポート ](reports/cm-usage-reports.md) {#cm-usage-reports}
 - テクニカルノート {#tech-notes}
-   - [同時実行性モニタリングでVODとライブコンテンツを区別する方法](vod-live-dist.md)
-
+   - [標準メタデータ属性](technical/standard-metadata-attributes.md)
+   - [カスタムメタデータ](technical/custom-metadata.md)
+   - [ポリシーの決定ポイント](technical/cm-policy-decision-point.md)
+   - [ポリシー情報ポイント](technical/policy-info-pt-versionone.md)
+   - [制限](technical/throttling-mechanism.md)
+   - [同時実行性モニタリングでVODとライブコンテンツを区別する方法](technical/vod-live-dist.md)
+   - [データ保持ポリシー](technical/data-retention-policy.md)
+- リリース {#cm-release-notes}
+   - [同時実行性の監視 – 3.6.2 リリースノート](releases/rn-cm-services-362.md)
+   - [同時実行性の監視 – 3.6.1 リリースノート](releases/rn-cm-services-361.md)
+   - [同時実行性の監視 – 3.6.0 リリースノート](releases/rn-cm-services-360.md)
+   - [同時実行性の監視 – 3.5.1 リリースノート](releases/rn-cm-services-351.md)
+   - [同時実行性の監視 – 3.5.0 リリースノート](releases/rn-cm-services-350.md)
+   - [同時実行性監視 – 3.4.4 リリースノート](releases/rn-cm-services-344.md)
+   - [同時実行性監視 – 3.4.3 リリースノート](releases/rn-cm-services-343.md)
+   - [同時実行性の監視 – 3.4.2 リリースノート](releases/rn-cm-services-342.md)
+   - [同時実行性の監視 – 3.4.0 リリースノート](releases/rn-cm-services-340.md)
+   - [同時実行性監視 – 3.3.7 リリースノート](releases/rn-cm-services-337.md)
+   - [同時実行性の監視 – 3.3.6 リリースノート](releases/rn-cm-services-336.md)
+   - [同時実行性監視 – 3.3.2 リリースノート](releases/rn-cm-services-332.md)
+   - [同時実行性の監視 – 3.3.1 リリースノート](releases/rn-cm-services-331.md)
+   - [同時実行性監視 – 3.3.0 リリースノート](releases/rn-cm-services-330.md)
+   - [同時実行性監視 – 3.2.3 リリースノート](releases/rn-cm-services-323.md)
+   - [同時実行性監視 – 3.2.2 リリースノート](releases/rn-cm-services-322.md)
+   - [同時実行性の監視 – 3.2.1 リリースノート](releases/rn-cm-services-321.md)
+   - [同時実行性の監視 – 3.2 リリースノート](releases/rn-cm-services-320.md)
+   - [同時実行性の監視 – 3.1 リリースノート](releases/rn-cm-services-31.md)
+   - [同時実行性の監視 – 3.0 リリースノート](releases/rn-cm-services-30.md)
+   - [同時実行性の監視 – 2.9.6 リリースノート](releases/rn-cm-296.md)
+   - [同時実行性の監視 – 2.9 リリースノート](releases/rn-cm-29.md)
+   - [同時実行性監視 – 2.8.2 リリースノート](releases/rn-cm-282.md)
+   - [同時実行性監視 – 2.7.2 リリースノート](releases/rn-cm-272.md)
+   - [同時実行性監視 – 2.6.0 リリースノート](releases/rn-cm-260.md)
+   - [同時実行性監視 – 2.5.0 リリースノート](releases/rn-cm-250.md)
+   - [同時実行性監視 – 2.3.2 リリースノート](releases/rn-cm-232.md)
+   - [同時実行性監視 – 2.2.2 リリースノート](releases/rn-cm-222.md)
+- [ 支援手続 ](support/cm-escalation-procedures.md) {#support-procedures}
