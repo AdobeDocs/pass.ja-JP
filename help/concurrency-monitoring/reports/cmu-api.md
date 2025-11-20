@@ -17,14 +17,14 @@ ht-degree: 0%
 
 ## API の概要 {#api-overview}
 
-同時実行性モニタリング使用状況（CMU）は、WOLAP （Web ベース [ オンライン分析処理 ](http://en.wikipedia.org/wiki/Online_analytical_processing)）プロジェクトとして実装されている。 CMU は、データウェアハウスに基づく汎用のビジネスレポート web API です。 これは、一般的な OLAP 操作を RESTfully で実行できる HTTP クエリ言語として機能します。
+同時実行性モニタリング使用状況（CMU）は、WOLAP （Web ベース [&#x200B; オンライン分析処理 &#x200B;](http://en.wikipedia.org/wiki/Online_analytical_processing)）プロジェクトとして実装されている。 CMU は、データウェアハウスに基づく汎用のビジネスレポート web API です。 これは、一般的な OLAP 操作を RESTfully で実行できる HTTP クエリ言語として機能します。
 
 
 >[!NOTE]
 >
 >CMU API は一般には使用できません。 可用性に関するご質問については、Adobe担当者にお問い合わせください。
 
-CMU API は、基礎となる OLAP キューブの階層ビューを提供します。 URL パスセグメントとしてマッピングされたディメンション階層内の各リソース [ ディメンション ](/help/concurrency-monitoring/reports/cm-usage-reports.md#dimensions-2-filter-metrics)）は、現在の選択対象の（集計） [ 指標 ](/help/concurrency-monitoring/reports/cm-usage-reports.md#monitor-metrics) を含むレポートを生成します。 各リソースは、親リソース（ロールアップの場合）とそのサブリソース（ドリルダウンの場合）を指します。 スライスとダイシングは、ディメンションを特定の値や範囲にピン留めするクエリ文字列パラメーターによって実現されます。
+CMU API は、基礎となる OLAP キューブの階層ビューを提供します。 URL パスセグメントとしてマッピングされたディメンション階層内の各リソース [&#x200B; ディメンション &#x200B;](/help/concurrency-monitoring/reports/cm-usage-reports.md#dimensions-2-filter-metrics)）は、現在の選択対象の（集計） [&#x200B; 指標 &#x200B;](/help/concurrency-monitoring/reports/cm-usage-reports.md#monitor-metrics) を含むレポートを生成します。 各リソースは、親リソース（ロールアップの場合）とそのサブリソース（ドリルダウンの場合）を指します。 スライスとダイシングは、ディメンションを特定の値や範囲にピン留めするクエリ文字列パラメーターによって実現されます。
 
 REST API は、ディメンションパス、提供されたフィルターおよび選択された指標に従って、リクエストで指定された期間内に使用可能なデータを提供します（提供されていない場合はデフォルト値にフォールバックします）。 時間範囲は、時間ディメンション（年、月、日、時間、分、秒）を含まないレポートには適用されません。
 

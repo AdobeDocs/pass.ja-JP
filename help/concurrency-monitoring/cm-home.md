@@ -33,5 +33,5 @@ ht-degree: 0%
 
 ## 同時実行性モニタリングを初めて使用する場合 {#new-to-cm}
 
-[ はじめる前に ](getting-started/getting-started-overview.md) ガイドから開始して、基本を理解し、最初の統合を設定します。
+[&#x200B; はじめる前に &#x200B;](getting-started/getting-started-overview.md) ガイドから開始して、基本を理解し、最初の統合を設定します。
 

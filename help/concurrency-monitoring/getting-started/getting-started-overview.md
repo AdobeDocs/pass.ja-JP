@@ -62,9 +62,9 @@ ht-degree: 0%
 
 ## クイックスタートパス {#quick-start-path}
 
-1. **主要概念の確認** - [ セッション、ポリシー、メタデータ ](key-concepts.md) について説明します
-2. **戦略の選択** - [LIFO 戦略と FIFO 戦略の比較 ](../use-cases/lifo-fifo-strategies.md)
-3. **実装の開始** - [API リファレンス ](../api/api-reference-overview.md) に従います。
+1. **主要概念の確認** - [&#x200B; セッション、ポリシー、メタデータ &#x200B;](key-concepts.md) について説明します
+2. **戦略の選択** - [LIFO 戦略と FIFO 戦略の比較 &#x200B;](../use-cases/lifo-fifo-strategies.md)
+3. **実装の開始** - [API リファレンス &#x200B;](../api/api-reference-overview.md) に従います。
 
 ## 統合する準備はできていますか？ {#ready-to-integrate}
 
@@ -74,7 +74,7 @@ ht-degree: 0%
 
 ## サービスの登録 {#service-registration}
 
-同時実行性の監視を開始するには、以下の情報をアドビの [ サポートチーム ](mailto:tve-support@adobe.com) にお問い合わせください。
+同時実行性の監視を開始するには、以下の情報をアドビの [&#x200B; サポートチーム &#x200B;](mailto:tve-support@adobe.com) にお問い合わせください。
 
 1. **会社名** 連絡先の詳細
 2. **アプリケーション** 同時実行監視と統合する。 各アプリケーションに対して、以下を指定してください。
@@ -86,6 +86,6 @@ ht-degree: 0%
 ## サポートが必要な場合 {#need-help}
 
 - **API エクスプローラー** - [Swagger UI](https://streams-stage.adobeprimetime.com/swagger-ui/index.html) で API をインタラクティブにテストします
-- **主な用語と定義** - [ 用語集 ](../cm-glossary.md)
-- **お問い合わせ方法** - [ サポート手順 ](../support/cm-escalation-procedures.md)
-- **サポート** - [tve-support@adobe.comにお問い合わせください ](mailto:tve-support@adobe.com)
+- **主な用語と定義** - [&#x200B; 用語集 &#x200B;](../cm-glossary.md)
+- **お問い合わせ方法** - [&#x200B; サポート手順 &#x200B;](../support/cm-escalation-procedures.md)
+- **サポート** - [tve-support@adobe.comにお問い合わせください &#x200B;](mailto:tve-support@adobe.com)

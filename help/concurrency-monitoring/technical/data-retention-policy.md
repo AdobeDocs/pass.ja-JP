@@ -30,7 +30,7 @@ Adobeは、お客様のデータ処理者としての役割を果たすために
 
 ## データ収集 {#data-collection}
 
-*クリックストリームデータ* は、セッションハートビートに関して顧客によって共有されたデータ（subjectID、mvpdName、metadata など）を表します。 すべてのカスタムメタデータフィールドは、[ 標準メタデータ属性 ](/help/concurrency-monitoring/technical/standard-metadata-attributes.md) で参照されます。
+*クリックストリームデータ* は、セッションハートビートに関して顧客によって共有されたデータ（subjectID、mvpdName、metadata など）を表します。 すべてのカスタムメタデータフィールドは、[&#x200B; 標準メタデータ属性 &#x200B;](/help/concurrency-monitoring/technical/standard-metadata-attributes.md) で参照されます。
 
 ## 顧客タイプ {#customer-types}
 
