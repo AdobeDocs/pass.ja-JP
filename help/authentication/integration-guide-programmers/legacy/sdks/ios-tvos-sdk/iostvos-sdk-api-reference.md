@@ -716,7 +716,7 @@ UIWebView/WKWebView` `controller は複数のリダイレクトを実行する�
 
 `navigateToUrl:` コールバックと同様に、`navigateToUrl:useSVC:` は AccessEnabler によってトリガーされ、アプリケーションに `SFSafariViewController` コントローラのインスタンス化と、コールバックの **`url`** パラメータで指定された URL のロードを要求します。 コールバックは、認証エンドポイントの URL またはログアウトエンドポイントの URL を表す **`url`** パラメーターと、アプリケーションが **`useSVC`** を使用する必要があることを指定する `SFSafariViewController` パラメーターを渡します。
 
-`SFSafariViewController` コントローラは複数のリダイレクトを実行するので、アプリケーションはコントローラのアクティビティを監視し、`application's custom scheme` ーザーが定義した特定のカスタム URL を読み込む瞬間を検出する必要があります（例：**&#x200B; **`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com`）。 この特定のカスタム URL は、実際には無効であり、コントローラーが実際に読み込むことを目的としたものではないことに注意してください。 認証またはログアウトの流れが完了し、コントローラを安全に閉じられるというシグナルとしてアプリケーションが解釈する必要があります。 コントローラがこの特定のカスタム URL を読み込むとき、アプリケーションは `SFSafariViewController` を閉じて AccessEnabler の `handleExternalURL:url `API メソッドを呼び出す必要があります。
+`SFSafariViewController` コントローラは複数のリダイレクトを実行するので、アプリケーションはコントローラのアクティビティを監視し、`application's custom scheme` ーザーが定義した特定のカスタム URL を読み込む瞬間を検出する必要があります（例：**&#x200B; &#x200B;**`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com`）。 この特定のカスタム URL は、実際には無効であり、コントローラーが実際に読み込むことを目的としたものではないことに注意してください。 認証またはログアウトの流れが完了し、コントローラを安全に閉じられるというシグナルとしてアプリケーションが解釈する必要があります。 コントローラがこの特定のカスタム URL を読み込むとき、アプリケーションは `SFSafariViewController` を閉じて AccessEnabler の `handleExternalURL:url `API メソッドを呼び出す必要があります。
 
 **注：** 認証フローの場合、認証フローの中止に相当する「戻る」ボタンを押せる点に注意してください。 このようなシナリオでは、[&#x200B; をパラメーターとして渡し、AccessEnabler に認証状態マシンをリセットする機会を与えるために、アプリケーションで &#x200B;](#setSelProv)setSelectedProvider:**`nil`** メソッドを呼び出す必要があります。
 
