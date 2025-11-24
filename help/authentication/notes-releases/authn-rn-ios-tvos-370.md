@@ -2,9 +2,9 @@
 title: Authentication iOS/tvOS 3.7.0 リリースノート
 description: Authentication iOS/tvOS 3.7.0 リリースノート
 exl-id: 19c1179e-16b1-4608-954f-25b0980d7ad9
-source-git-commit: ca2cda44b1dd8b907235053eff07f314b09249a2
+source-git-commit: cafdcf3b4df6adb54fba21b56ee427b87791bac2
 workflow-type: tm+mt
-source-wordcount: '123'
+source-wordcount: '122'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -32,5 +32,3 @@ Adobe Pass認証：iOS/tvOS 3.7.0
 ここからiOS/tvOS SDK v3.7.0 をダウンロードできます。
 
 このバージョンにアップグレードする前に、このテクニカルノートを確認してください。
-
-デモ
