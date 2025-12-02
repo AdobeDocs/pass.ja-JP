@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass 認証
 user-guide-description: Adobe Pass は、TV Everywhere の使用権限管理ソリューションです。リソースへのアクセスをリクエストするユーザーにそのリソースへの権限が付与されているかどうかを判断するためのモジュール型フレームワークを提供します。
-source-git-commit: 53ebbd82fc160f68fccdddb18cf98e249ad6ecce
+source-git-commit: 6ff46a124f5f3c78173028ae3efed68d71ee6e41
 workflow-type: tm+mt
-source-wordcount: '1287'
+source-wordcount: '1294'
 ht-degree: 3%
 
 ---
@@ -19,6 +19,7 @@ ht-degree: 3%
 - 製品リリース {#product-releases}
    - 2025 {#2025}
       - [Adobe Pass Authentication Android 3.8.0 リリースノート](notes-releases/authn-rn-android-380.md)
+      - [Adobe Pass Authentication 3.5.0 リリースノート](notes-releases/auth-rn-350.md)
       - [Adobe Pass Authentication 3.4.0 リリースノート](notes-releases/auth-rn-340.md)
       - [Adobe Pass Authentication 3.3.0 リリースノート](notes-releases/auth-rn-330.md)
       - [Adobe Pass Authentication 3.2.0 リリースノート](notes-releases/auth-rn-320.md)
