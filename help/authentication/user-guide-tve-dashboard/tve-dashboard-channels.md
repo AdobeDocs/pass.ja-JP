@@ -15,7 +15,7 @@ ht-degree: 0%
 >
 >このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
-TVE ダッシュボードの「**チャネル**」セクションでは、特定のプログラマーに関連付けられたチャネルの設定を表示および管理できます。 また、必要に応じて [ 新しいチャネルを追加 ](#add-new-channel) することもできます。
+TVE ダッシュボードの「**チャネル**」セクションでは、特定のプログラマーに関連付けられたチャネルの設定を表示および管理できます。 また、必要に応じて [&#x200B; 新しいチャネルを追加 &#x200B;](#add-new-channel) することもできます。
 
 左側のパネルの「**チャネル**」タブには、リンクされたチャネルのリストと次の詳細が表示されます。
 
@@ -23,7 +23,7 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 * **チャネル ID**：一意の ID。依頼者 ID とも呼ばれます。
 * **統合**: [MVPD](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#mvpd) で確立された接続数。
 
-![ 既存のチャネルのリスト ](../assets/tve-dashboard/new-tve-dashboard/channels/channels-list-view.png)
+![&#x200B; 既存のチャネルのリスト &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channels-list-view.png)
 
 *既存のチャネルのリスト*
 
@@ -46,13 +46,13 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
    * [登録アプリケーション](#registered-applications)
    * [カスタムスキーム](#custom-schemes)
 
-   ![ チャネル設定 ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-tabs-view.png)
+   ![&#x200B; チャネル設定 &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-tabs-view.png)
 
    *チャネル設定*
 
 >[!IMPORTANT]
 >
-> 設定変更のアクティベートについて詳しくは、[ 変更のレビューとプッシュ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) を参照してください。
+> 設定変更のアクティベートについて詳しくは、[&#x200B; 変更のレビューとプッシュ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) を参照してください。
 
 ### 一般設定 {#general-settings}
 
@@ -68,7 +68,7 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 * **エラーレポート**:「**はい**」を選択すると、Adobe Pass SDK はエラーレポートを分析用にAdobe Pass バックエンドに送信します。
 
-![ チャネル情報の編集 ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-general-settings-tab-view.png)
+![&#x200B; チャネル情報の編集 &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-general-settings-tab-view.png)
 
 *チャネル情報の編集*
 
@@ -78,25 +78,25 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 **Analytics 設定** を有効にするには、テクニカルアカウントマネージャー（TAM）に連絡して、レポートスイート ID （RSID）の設定について詳しく問い合わせてください。
 
-![Analytics 設定の有効化 ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-analytics-configuration-button.png)
+![Analytics 設定の有効化 &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-analytics-configuration-button.png)
 
 *Analytics 設定の有効化*
 
 「**新しい Analytics 設定を追加**」を選択して、複数の設定を追加します。
 
-新しい設定変更が作成され、サーバーを更新する準備が整いました。 「**Analytics 設定**」セクションの新しい分析設定を使用するには、[ 変更のレビューとプッシュ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。
+新しい設定変更が作成され、サーバーを更新する準備が整いました。 「**Analytics 設定**」セクションの新しい分析設定を使用するには、[&#x200B; 変更のレビューとプッシュ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。
 
 ### 統合 {#integrations}
 
-このタブには、現在選択されているチャネルと MVPD 間で使用可能な統合のリストが表示されます。 このリストには、各統合とそのステータスが表示され、統合が有効かどうかが示されます。 このリストから特定の統合を選択して、「[ 統合 ](tve-dashboard-integrations.md)」セクションに記載されている詳細情報にアクセスします。
+このタブには、現在選択されているチャネルと MVPD 間で使用可能な統合のリストが表示されます。 このリストには、各統合とそのステータスが表示され、統合が有効かどうかが示されます。 このリストから特定の統合を選択して、「[&#x200B; 統合 &#x200B;](tve-dashboard-integrations.md)」セクションに記載されている詳細情報にアクセスします。
 
-![ 使用可能な統合のリスト ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-integrations-tab-view.png)
+![&#x200B; 使用可能な統合のリスト &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-integrations-tab-view.png)
 
 *使用可能な統合のリスト*
 
 ### 証明書 {#certificates}
 
-このタブには、ユーザーメタデータ暗号化フローで使用される [ 使用可能な証明書 ](#available-certificates) および [ 継承された使用可能な証明書 ](#inherited-avail-certificates) の一覧が表示されます。 次の各証明書に関する詳細が表示されます。
+このタブには、ユーザーメタデータ暗号化フローで使用される [&#x200B; 使用可能な証明書 &#x200B;](#available-certificates) および [&#x200B; 継承された使用可能な証明書 &#x200B;](#inherited-avail-certificates) の一覧が表示されます。 次の各証明書に関する詳細が表示されます。
 
 * ステータス（「ユーザーメタデータの暗号化 **使用に対し** 有効になっているかどうか）
 * シリアル番号
@@ -120,7 +120,7 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 1. **利用可能な証明書** セクションの上部にある **新しい証明書を追加** を選択します。
 
-   ![ 新しい証明書を追加する ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-certificate-button.png)
+   ![&#x200B; 新しい証明書を追加する &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-certificate-button.png)
 
    *新しい証明書を追加する*
 
@@ -136,7 +136,7 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 1. **暗号化されたユーザーメタデータに使用** ドロップダウンメニューから **はい** を選択して、新しい証明書をアクティブにします。
 
-新しい設定変更が作成され、サーバーを更新する準備が整いました。 **使用可能な証明書** セクションにリストされている新しい証明書を使用するには、[ 変更の確認とプッシュ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。
+新しい設定変更が作成され、サーバーを更新する準備が整いました。 **使用可能な証明書** セクションにリストされている新しい証明書を使用するには、[&#x200B; 変更の確認とプッシュ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。
 
 ##### 証明書を削除 {#delete-certificate}
 
@@ -146,19 +146,19 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 1. 「**削除**」を選択します。
 
-   ![ 選択した証明書を削除する ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-delete-certificate-button.png)
+   ![&#x200B; 選択した証明書を削除する &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-delete-certificate-button.png)
 
    *選択した証明書を削除する*
 
 1. **アクティブな証明書を削除** ダイアログボックスから **削除** を選択します。
 
-新しい設定変更が作成され、サーバーを更新する準備が整いました。 証明書は、「レビューとプッシュの変更 **の後にのみ** 使用可能な証明書 [ セクションから削除さ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) ます。
+新しい設定変更が作成され、サーバーを更新する準備が整いました。 証明書は、「レビューとプッシュの変更 **の後にのみ** 使用可能な証明書 [&#x200B; セクションから削除さ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) ます。
 
 #### 継承された使用可能な証明書 {#inherited-avail-certificates}
 
 メディア会社は、これらの証明書を独自のレベルで定義します。 同じメディア会社に関連付けられているすべてのチャネルが、これらの証明書を使用できます。
 
-![ 継承された使用可能な証明書 ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-inherited-available-certificates-panel-view.png)
+![&#x200B; 継承された使用可能な証明書 &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-inherited-available-certificates-panel-view.png)
 
 *継承された使用可能な証明書*
 
@@ -181,7 +181,7 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 1. **使用可能なドメイン** セクションの右上隅にある **新しいドメインを追加** を選択します。
 
-   ![ 新しいドメインを追加 ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-domain-button.png)
+   ![&#x200B; 新しいドメインを追加 &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-domain-button.png)
 
    *新しいドメインを追加*
 
@@ -189,7 +189,7 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 1. **ドメインを追加** を選択して、選択したチャネルに新しいドメインを追加します。
 
-新しい設定変更が作成され、サーバーを更新する準備が整いました。 「**使用可能なドメイン**」セクションにリストされている新しいドメインを使用するには、[ 変更の確認とプッシュ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。
+新しい設定変更が作成され、サーバーを更新する準備が整いました。 「**使用可能なドメイン**」セクションにリストされている新しいドメインを使用するには、[&#x200B; 変更の確認とプッシュ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。
 
 #### ドメインを削除 {#delete-domain}
 
@@ -199,19 +199,19 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 1. 「**削除**」を選択します。
 
-   ![ 選択したドメインを削除 ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-remove-domain-button.png)
+   ![&#x200B; 選択したドメインを削除 &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-remove-domain-button.png)
 
    *選択したドメインを削除*
 
 1. **ドメインを削除** ダイアログボックスの **削除** を選択します。
 
-新しい設定変更が作成され、サーバーを更新する準備が整いました。 ドメインは、「確認とプッシュの変更 **の後にのみ** 「使用可能なドメイン [ セクションから削除され ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) す。
+新しい設定変更が作成され、サーバーを更新する準備が整いました。 ドメインは、「確認とプッシュの変更 **の後にのみ** 「使用可能なドメイン [&#x200B; セクションから削除され &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) す。
 
 選択したドメインは使用できなくなりました。 その結果、このドメインに関連付けられているアプリケーションは、Adobe Pass Authentication サービスへのアクセスができなくなります。
 
 ### 登録アプリケーション {#registered-applications}
 
-このタブには、登録済みアプリケーションのリストが表示されます。 登録されたアプリケーションの使用状況について詳しくは、[ 動的クライアント登録の概要 ](../integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
+このタブには、登録済みアプリケーションのリストが表示されます。 登録されたアプリケーションの使用状況について詳しくは、[&#x200B; 動的クライアント登録の概要 &#x200B;](../integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
 
 登録済みアプリケーションでは、次のアクションを実行できます。
 
@@ -224,7 +224,7 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 1. **登録済みアプリケーション** セクションの右上隅にある **新しいアプリケーションを追加** を選択します。
 
-   ![ 新しいアプリケーションの追加 ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-application-button.png)
+   ![&#x200B; 新しいアプリケーションの追加 &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-application-button.png)
 
    *新しいアプリケーションの追加*
 
@@ -252,7 +252,7 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 1. **アプリケーションを追加** を選択します。
 
-新しい設定変更が作成され、サーバーを更新する準備が整いました。 「**登録済みアプリケーション**」セクションにリストされている新しい登録済みアプリケーションを使用するには、[ 変更のレビューとプッシュ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローを続行します。
+新しい設定変更が作成され、サーバーを更新する準備が整いました。 「**登録済みアプリケーション**」セクションにリストされている新しい登録済みアプリケーションを使用するには、[&#x200B; 変更のレビューとプッシュ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローを続行します。
 
 #### ソフトウェアのダウンロードに関する声明 {#download-software-statement}
 
@@ -262,7 +262,7 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 1. 「**ダウンロード**」を選択します。
 
-   ![ ソフトウェアに関する声明のダウンロード ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-download-software-statement-button.png)
+   ![&#x200B; ソフトウェアに関する声明のダウンロード &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-download-software-statement-button.png)
 
    *ソフトウェアに関する声明のダウンロード*
 
@@ -281,11 +281,11 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 1. **新しいカスタムスキームを生成** を選択します。
 
-   ![ 新しいカスタムスキームの生成 ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-custom-scheme-button.png)
+   ![&#x200B; 新しいカスタムスキームの生成 &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-custom-scheme-button.png)
 
    *新しいカスタムスキームの生成*
 
-新しい設定変更が作成され、サーバーを更新する準備が整いました。 「**カスタムスキーム**」セクションにリストされている新しいカスタムスキームを使用するには、[ 変更のレビューとプッシュ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローを続行します。
+新しい設定変更が作成され、サーバーを更新する準備が整いました。 「**カスタムスキーム**」セクションにリストされている新しいカスタムスキームを使用するには、[&#x200B; 変更のレビューとプッシュ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローを続行します。
 
 #### Adobeの TVE Dashboard へのアクセス権がない場合：
 
@@ -322,7 +322,7 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 メディア会社は、これらのカスタムスキームを独自のレベルで定義します。 同じメディア会社に関連付けられたすべてのチャネルは、これらのカスタムスキームを使用できます。
 
-![ 継承されたカスタム スキーマ ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-inherited-custom-schemes-panel-view.png)
+![&#x200B; 継承されたカスタム スキーマ &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-inherited-custom-schemes-panel-view.png)
 
 *継承されたカスタム スキーマ*
 
@@ -334,7 +334,7 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 1. **チャネル** セクションの右上隅にある **新しいチャネルを追加** を選択します。
 
-   ![ 新しいチャネルを追加 ](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-channel-button.png)
+   ![&#x200B; 新しいチャネルを追加 &#x200B;](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-channel-button.png)
 
    *新しいチャネルを追加*
 
@@ -346,4 +346,4 @@ TVE ダッシュボードの「**チャネル**」セクションでは、特定
 
 1. **チャネルを追加** を選択します。
 
-新しい設定変更が作成され、サーバーを更新する準備が整いました。 「**チャネル**」セクションにリストされている新しいチャネルを使用するには、[ 変更のレビューとプッシュ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。
+新しい設定変更が作成され、サーバーを更新する準備が整いました。 「**チャネル**」セクションにリストされている新しいチャネルを使用するには、[&#x200B; 変更のレビューとプッシュ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。
