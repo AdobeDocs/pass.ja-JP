@@ -2,9 +2,9 @@
 title: ヘッダー – AP-Partner-Framework-Status
 description: REST API V2 - ヘッダー – AP-Partner-Framework-Status
 exl-id: f589d948-e23e-43d4-81c2-8db0e7a40e93
-source-git-commit: 5c912bbbe97fff65d38dbade32cd4554ad8c2fac
+source-git-commit: 22529618db679f7dbfb493906e1aeb4a0443a40c
 workflow-type: tm+mt
-source-wordcount: '404'
+source-wordcount: '415'
 ht-degree: 0%
 
 ---
@@ -70,8 +70,8 @@ ht-degree: 0%
                   <ul>
                      <li><b>granted</b><br/> ユーザーは、アプリケーションが購読情報にアクセスできるようにしました。</li>
                      <li><b> 拒否 </b><br/> ユーザーが、購読情報へのアクセスを求めるアプリケーションを拒否しました。</li>
-                     <li><b> 保留中 </b><br/> アプリケーションが購読情報にアクセスできるようにするための選択がまだ行われていません。</li>
-                     <li><b>notDetermined</b><br/> アプリケーションはサブスクリプション情報にアクセスできません。</li>
+                     <li><b>restricted</b><br/> アプリケーションはサブスクリプション情報にアクセスできません。</li>
+                     <li><b>notDetermined</b><br/> アプリケーションが購読情報にアクセスすることを許可するかどうかをユーザーが選択していません。</li>
                   </ul>
                </td>
             </tr>
