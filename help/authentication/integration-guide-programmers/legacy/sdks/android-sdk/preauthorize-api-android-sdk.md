@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -26,7 +26,7 @@ ht-degree: 0%
 
 
 
-事前認証 API リクエストがAdobe Pass Authentication Services によって処理される際に、予期しないエラー（ネットワークの問題、MVPD認証エンドポイントが利用できないなど）が発生した場合、影響を受けるリソースに対する 1 つ以上のエラー情報が事前認証 API 応答の結果の一部として含まれます。
+予期しないエラーが発生した場合（ネットワークの問題、MVPD認証エンドポイントが使用できないなど） 事前認証 API リクエストがAdobe Pass認証サービスによって処理される際に、影響を受けるリソースの 1 つ以上のエラー情報が事前認証 API 応答の結果の一部として含まれます。
 
 
 ## `public void preauthorize(PreauthorizeRequest request, AccessEnablerCallback<PreauthorizeResponse> callback);`

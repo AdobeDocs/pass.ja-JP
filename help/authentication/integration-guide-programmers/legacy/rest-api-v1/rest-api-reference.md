@@ -4,8 +4,8 @@ description: Rest api リファレンス
 exl-id: 67e4639e-db0b-4400-bb81-e214263e8395
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '661'
-ht-degree: 2%
+source-wordcount: '669'
+ht-degree: 7%
 
 ---
 
@@ -17,11 +17,11 @@ ht-degree: 2%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## スロットルメカニズム
 
-Adobe Pass認証 REST API は、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) によって制御されます。
+Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) によって制御されます。
 
 ## 応答形式 {#response-formats}
 
@@ -56,7 +56,7 @@ Adobe Pass認証 REST API は、[&#x200B; スロットルメカニズム &#x200B
 次の表に、クライアントレスアプローチで使用可能な web サービスを示します。 詳しくは、web サービスエンドポイントをクリックします（サンプルのリクエストと応答、入力パラメーター、HTTP メソッドなど）。
 
 
-| 共有済み | Web サービスエンドポイント | 説明 | <!--[Diag.  </br>Ref](http://tve.helpdocsonline.com/api-reference-v2-test#illustration)-->。 | ホスト： | 呼び出し元 |
+| 共有済み | Web サービスエンドポイント | 説明 | <!--[Diag.  </br>Ref](http://tve.helpdocsonline.com/api-reference-v2-test#illustration)-->. | ホスト： | 呼び出し元 |
 |-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------|
 | 1. | [&lt;REGGIE_FQDN>/reggie/v1/ </br>  {requestorId}/regcode](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) | ランダムに生成された登録コードとログインページ URI を返します | 2 | Adobe </br>Reg コードサービス | スマートデバイス |
 | 2. | [&lt;REGGIE_FQDN>/reggie/v1/ </br>  {requestorId}/regcode/ </br>{registrationCode}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/return-registration-record.md) | 登録コード UUID、登録コード、ハッシュ化されたデバイス ID を含む登録コードレコードを返します | 8 | Adobe </br>Reg コードサービス | Adobe Pass 認証 |
@@ -71,14 +71,14 @@ Adobe Pass認証 REST API は、[&#x200B; スロットルメカニズム &#x200B
 | 11. | [&lt;SP_FQDN>/api/v1/tokens/authn](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) | 見つかった場合は、AuthN トークンを返します。 |                                                                                             | Adobe Pass </br>authentication </br>Service | スマートデバイス |
 | 12. | [&lt;SP_FQDN>/api/v1/tokens/authz](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authorization-token.md) | 見つかった場合は、AuthZ トークンを返します。 |                                                                                             | Adobe Pass </br>authentication </br>Service | スマートデバイス |
 | 13. | [&lt;SP_FQDN>/api/v1/tokens/media](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/obtain-short-media-token.md) | 見つかった場合、短いメディアトークンを返します – /api/v1/mediatoken と同じ |                                                                                             | Adobe Pass </br>authentication </br>Service | スマートデバイス |
-| 14。 | [&lt;SP_FQDN>/api/v1/mediatoken](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/obtain-short-media-token.md) | ショートメディアトークンを取得 |                                                                                             | Adobe Pass </br>authentication </br>Service | スマートデバイス |
+| 14. | [&lt;SP_FQDN>/api/v1/mediatoken](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/obtain-short-media-token.md) | ショートメディアトークンを取得 |                                                                                             | Adobe Pass </br>authentication </br>Service | スマートデバイス |
 | 15. | [&lt;SP_FQDN>/api/v1/preauthorize](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-list-of-preauthorized-resources.md) | 事前承認済みリソースのリストを取得します |                                                                                             | Adobe Pass </br>authentication </br>Service | スマートデバイス |
-| 16。 | [&lt;SP_FQDN>/api/v1/preauthorize/{code}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-list-of-preauthorized-resources-by-second-screen-web-app.md) | 事前承認済みリソースのリストを取得します |                                                                                             | Adobe Pass </br>authentication </br>Service | ログイン Web アプリ |
-| 17。 | [&lt;SP_FQDN>/api/v1/logout](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md) | ストレージからの AuthN および AuthZ トークンの削除 |                                                                                             | Adobe Pass </br> 認証   </br> サービス | スマートデバイス |
-| 18。 | [&lt;SP_FQDN>/api/v1/tokens/usermetadata](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md) | 認証フロー完了後にユーザーメタデータを取得します | 該当なし | 該当なし | スマートデバイス |
-| 19。 | [&lt;SP_FQDN>/api/v1/authenticate/freepreview](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/free-preview-for-temp-pass-and-promotional-temp-pass.md) | 一時パスまたはプロモーション一時パスの認証トークンの作成 | 該当なし | Adobe Pass </br>authentication </br>Service | スマートデバイス |
+| 16. | [&lt;SP_FQDN>/api/v1/preauthorize/{code}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-list-of-preauthorized-resources-by-second-screen-web-app.md) | 事前承認済みリソースのリストを取得します |                                                                                             | Adobe Pass </br>authentication </br>Service | ログイン Web アプリ |
+| 17. | [&lt;SP_FQDN>/api/v1/logout](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md) | ストレージからの AuthN および AuthZ トークンの削除 |                                                                                             | Adobe Pass </br> 認証   </br> サービス | スマートデバイス |
+| 18. | [&lt;SP_FQDN>/api/v1/tokens/usermetadata](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md) | 認証フロー完了後にユーザーメタデータを取得します | 該当なし | 該当なし | スマートデバイス |
+| 19. | [&lt;SP_FQDN>/api/v1/authenticate/freepreview](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/free-preview-for-temp-pass-and-promotional-temp-pass.md) | 一時パスまたはプロモーション一時パスの認証トークンの作成 | 該当なし | Adobe Pass </br>authentication </br>Service | スマートデバイス |
 
 
 ## REST API セキュリティ {#security}
 
-すべてのAdobe Pass認証 REST API は、安全な通信のために HTTPS プロトコルを使用して呼び出す必要があります。 さらに、と呼ばれるほとんどの API には、[&#x200B; アクセストークンの取得 &#x200B;](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントで説明されているように取得されたアクセストークンが含まれている必要があります。
+すべてのAdobe Pass認証 REST API は、安全な通信のために HTTPS プロトコルを使用して呼び出す必要があります。 さらに、と呼ばれるほとんどの API には、[ アクセストークンの取得 ](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントで説明されているように取得されたアクセストークンが含まれている必要があります。

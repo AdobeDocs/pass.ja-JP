@@ -4,8 +4,8 @@ description: REST API V2 - パートナー認証応答を使用したプロフ�
 exl-id: cae260ff-a229-4df7-bbf9-4cdf300c0f9a
 source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '850'
-ht-degree: 1%
+source-wordcount: '885'
+ht-degree: 2%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 ## リクエスト {#request}
 
@@ -306,7 +306,7 @@ ht-degree: 1%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>400、401、405、500</td>
+      <td>400, 401, 405, 500</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -400,7 +400,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;2. パートナー認証応答を使用してプロファイルを作成および取得するが、低下が適用される
+### &#x200B;2. パートナー認証応答を使用してプロファイルを作成および取得しますが、低下が適用されます
 
 >[!BEGINTABS]
 

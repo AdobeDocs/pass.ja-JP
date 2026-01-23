@@ -4,18 +4,18 @@ description: 同時実行監視の API エンドポイントの使用
 exl-id: eb232926-9c68-4874-b76d-4c458d059f0d
 source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
 workflow-type: tm+mt
-source-wordcount: '2052'
-ht-degree: 0%
+source-wordcount: '2088'
+ht-degree: 1%
 
 ---
 
 # API の概要 {#api-overview}
 
-詳しくは、[&#x200B; オンライン API ドキュメント &#x200B;](https://streams-stage.adobeprimetime.com/swagger-ui/index.html) を参照してください。
+詳しくは、[ オンライン API ドキュメント ](https://streams-stage.adobeprimetime.com/swagger-ui/index.html) を参照してください。
 
 ## 目的と前提条件 {#purpose-prerequisites}
 
-このドキュメントは、アプリケーション開発者が同時実行性モニタリングとの統合を実装する際に、Swagger API 仕様を使用する際に役立ちます。 このガイドラインに従う前に、サービスで定義される概念について事前に理解しておくことを強くお勧めします。 この理解を得るには、[&#x200B; 製品ドキュメント &#x200B;](../cm-home.md) および [Swagger API 仕様 &#x200B;](https://streams-stage.adobeprimetime.com/swagger-ui/index.html) の概要を理解する必要があります。
+このドキュメントは、アプリケーション開発者が同時実行性モニタリングとの統合を実装する際に、Swagger API 仕様を使用する際に役立ちます。 このガイドラインに従う前に、サービスで定義される概念について事前に理解しておくことを強くお勧めします。 この理解を得るには、[ 製品ドキュメント ](../cm-home.md) および [Swagger API 仕様 ](https://streams-stage.adobeprimetime.com/swagger-ui/index.html) の概要を理解する必要があります。
 
 ## 概要 {#api-overview-intro}
 
@@ -43,7 +43,7 @@ curl -i -u ${user}:%{pass} http://streams-stage.adobeprimetime.com/v2/metadata
 []
 ```
 
-応答本文フィールドからわかるように、メタデータ属性のリストは空です。 つまり、設計に必要な属性は、このアプリケーションに割り当てられた 3 つのストリームポリシーを評価するのに十分です。 [&#x200B; 標準メタデータフィールドのドキュメント &#x200B;](../technical/standard-metadata-attributes.md) も参照してください。 この呼び出しの後、続行して、セッション REST リソースで新しいセッションを作成できます。
+応答本文フィールドからわかるように、メタデータ属性のリストは空です。 つまり、設計に必要な属性は、このアプリケーションに割り当てられた 3 つのストリームポリシーを評価するのに十分です。 [ 標準メタデータフィールドのドキュメント ](../technical/standard-metadata-attributes.md) も参照してください。 この呼び出しの後、続行して、セッション REST リソースで新しいセッションを作成できます。
 
 #### セッションの初期化 {#session-initial}
 
@@ -59,7 +59,7 @@ curl -i -X POST -u ${user}:%{pass} http://streams-stage.adobeprimetime.com/v2/se
 
 他にアクティブなストリームがないため、最初の呼び出しで終了コードを提供する必要はありません。 メタデータ取得呼び出しから返されたものがないので、メタデータ属性はありません。
 
-**subject** パラメーターと **idp** パラメーターは必須で、URI パス変数として指定されます。 **subject** および **idp** パラメーターを取得するには、Adobe Pass Authentication から **mvpd** および **upstreamUserID** メタデータフィールドを呼び出します。 [&#x200B; メタデータ API の概要 &#x200B;](https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/user-metadat/user-metadata-feature.html?lang=ja#) も参照してください。 この例では、値「12345」を件名として指定し、「adobe」を idp として指定します。
+**subject** パラメーターと **idp** パラメーターは必須で、URI パス変数として指定されます。 **subject** および **idp** パラメーターを取得するには、Adobe Pass Authentication から **mvpd** および **upstreamUserID** メタデータフィールドを呼び出します。 [ メタデータ API の概要 ](https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/user-metadat/user-metadata-feature.html?lang=en#) も参照してください。 この例では、値「12345」を件名として指定し、「adobe」を idp として指定します。
 
 ```
 # Response Code

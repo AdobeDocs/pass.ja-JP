@@ -4,8 +4,8 @@ description: API の概要
 exl-id: 3fe6f6d8-5b2f-47e5-a8da-06fb18a5d46b
 source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
 workflow-type: tm+mt
-source-wordcount: '2043'
-ht-degree: 0%
+source-wordcount: '2102'
+ht-degree: 1%
 
 ---
 
@@ -17,14 +17,14 @@ ht-degree: 0%
 
 ## API の概要 {#api-overview}
 
-同時実行性モニタリング使用状況（CMU）は、WOLAP （Web ベース [&#x200B; オンライン分析処理 &#x200B;](http://en.wikipedia.org/wiki/Online_analytical_processing)）プロジェクトとして実装されている。 CMU は、データウェアハウスに基づく汎用のビジネスレポート web API です。 これは、一般的な OLAP 操作を RESTfully で実行できる HTTP クエリ言語として機能します。
+同時実行性モニタリング使用状況（CMU）は、WOLAP （Web ベース [ オンライン分析処理 ](http://en.wikipedia.org/wiki/Online_analytical_processing)）プロジェクトとして実装されている。 CMU は、データウェアハウスに基づく汎用のビジネスレポート web API です。 これは、一般的な OLAP 操作を RESTfully で実行できる HTTP クエリ言語として機能します。
 
 
 >[!NOTE]
 >
 >CMU API は一般には使用できません。 可用性に関するご質問については、Adobe担当者にお問い合わせください。
 
-CMU API は、基礎となる OLAP キューブの階層ビューを提供します。 URL パスセグメントとしてマッピングされたディメンション階層内の各リソース [&#x200B; ディメンション &#x200B;](/help/concurrency-monitoring/reports/cm-usage-reports.md#dimensions-2-filter-metrics)）は、現在の選択対象の（集計） [&#x200B; 指標 &#x200B;](/help/concurrency-monitoring/reports/cm-usage-reports.md#monitor-metrics) を含むレポートを生成します。 各リソースは、親リソース（ロールアップの場合）とそのサブリソース（ドリルダウンの場合）を指します。 スライスとダイシングは、ディメンションを特定の値や範囲にピン留めするクエリ文字列パラメーターによって実現されます。
+CMU API は、基礎となる OLAP キューブの階層ビューを提供します。 URL パスセグメントとしてマッピングされたディメンション階層内の各リソース [ ディメンション ](/help/concurrency-monitoring/reports/cm-usage-reports.md#dimensions-2-filter-metrics)）は、現在の選択対象の（集計） [ 指標 ](/help/concurrency-monitoring/reports/cm-usage-reports.md#monitor-metrics) を含むレポートを生成します。 各リソースは、親リソース（ロールアップの場合）とそのサブリソース（ドリルダウンの場合）を指します。 スライスとダイシングは、ディメンションを特定の値や範囲にピン留めするクエリ文字列パラメーターによって実現されます。
 
 REST API は、ディメンションパス、提供されたフィルターおよび選択された指標に従って、リクエストで指定された期間内に使用可能なデータを提供します（提供されていない場合はデフォルト値にフォールバックします）。 時間範囲は、時間ディメンション（年、月、日、時間、分、秒）を含まないレポートには適用されません。
 
@@ -40,7 +40,7 @@ REST API は、ディメンションパス、提供されたフィルターお�
 
 ![](../assets/new_breakdown.png)
 
-`GET` API エンドポイントへの `https://mgmt.auth.adobe.com/cmu/v2` は、次を含む表現を返します。
+`https://mgmt.auth.adobe.com/cmu/v2` API エンドポイントへの `GET` は、次を含む表現を返します。
 
 * 使用可能なルート・ドリルダウン・パスへのリンク：
 
@@ -64,8 +64,8 @@ REST API は、ディメンションパス、提供されたフィルターお�
 
 * **次に等しい** フィルターは、ディメンション名をクエリ文字列内の特定の値に設定することで提供されます。
 * **IN** フィルターは、同じ dimension-name パラメーターを、異なる値で複数回追加することで指定できます。dimension=value1&amp;dimension=value2
-* **次に等しくない** フィルターには「!」を使用する必要があります ディメンション名の後の記号が「!=&#39; &quot;operator&quot;: ディメンション！=値
-* **NOT IN** フィルターには「!=&#39;演算子を複数回使用します（set: ディメンションの各値に 1 回ずつ）。=value1&amp;dimension!=値 2&amp;...
+* **次に等しくない** フィルターでは、ディメンション名の後に「!」記号を使用し、「!=」演算子を使用する必要があります：ディメンション！=値
+* **NOT IN** フィルターでは、「!=」演算子をセット内の値ごとに 1 回、複数回使用する必要があります：dimension!=value1&amp;dimension!=value2&amp;...
 
 
 また、クエリ文字列には、ディメンション名に特別な使用法があります。ディメンション名が値のないクエリ文字列パラメーターとして使用される場合、レポートにそのディメンションを含むプロジェクションを返すように API に指示されます。

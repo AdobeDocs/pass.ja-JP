@@ -4,7 +4,7 @@ description: Amazon FireOS アプリケーションの登録
 exl-id: 650fd4a2-dfc3-4c74-9b5b-6bea832a28ca
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '538'
+source-wordcount: '541'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -25,7 +25,7 @@ ht-degree: 0%
 
 FireOS AccessEnabler SDKのバージョン 3.0 以降、Adobe サーバの認証メカニズムが変わります。 公開鍵と秘密鍵を使用して requestorID に署名する代わりに、SDKがサーバーに対して行うすべての呼び出しに後で使用されるアクセストークンを取得するために使用できる Software Statement 文字列の概念を導入します。 ソフトウェアのステートメントに加えて、アプリケーションのディープリンクを作成する必要があります。
 
-詳しくは、[&#x200B; 動的クライアント登録の概要 &#x200B;](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) を参照してください。
+詳しくは、[ 動的クライアント登録の概要 ](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) を参照してください。
 
 ## ソフトウェア ステートメントとは {#what}
 

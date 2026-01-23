@@ -4,7 +4,7 @@ description: Adobe Pass認証でのExperience Cloud ID の使用
 exl-id: 03354c01-5aad-4d81-beee-1c3834599134
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '426'
+source-wordcount: '428'
 ht-degree: 0%
 
 ---
@@ -21,7 +21,7 @@ Experience Cloud ID （ECID）は、アプリケーションまたは web サイ
 
 訪問者 ID を提供するシステムが既に導入されている場合は、このドキュメントの範囲にも同じ ID を使用する必要があります。
 
-ECID を取得する 1 つの方法は、Experience Cloud ID サービスを使用することです。 TDM、JS ライブラリ、サーバー側、直接統合、モバイルプラットフォーム用のネイティブライブラリのいずれかに基づいて、好みの実装タイプを使用できます。 利用可能なサービス、ライブラリ、SDKのガイドおよび実装ガイドの包括的なビューについては、以下を参照してください。<https://experienceleague.adobe.com/docs/id-service/using/implementation/implementation-guides.html?lang=ja>
+ECID を取得する 1 つの方法は、Experience Cloud ID サービスを使用することです。 TDM、JS ライブラリ、サーバー側、直接統合、モバイルプラットフォーム用のネイティブライブラリのいずれかに基づいて、好みの実装タイプを使用できます。 利用可能なサービス、ライブラリ、SDKのガイドおよび実装ガイドの包括的なビューについては、以下を参照してください。<https://experienceleague.adobe.com/docs/id-service/using/implementation/implementation-guides.html>
 
 ## Adobe Pass認証でExperience Cloud ID を使用する利点は何ですか？ {#benefit-ex-cloud-id}
 

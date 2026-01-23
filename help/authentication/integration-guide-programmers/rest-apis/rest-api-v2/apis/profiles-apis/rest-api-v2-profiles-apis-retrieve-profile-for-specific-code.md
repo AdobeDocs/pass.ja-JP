@@ -4,8 +4,8 @@ description: REST API V2 – 特定のコードのプロファイルを取得
 exl-id: d6ead7d5-de5f-4033-8115-980953a370c0
 source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '822'
-ht-degree: 1%
+source-wordcount: '835'
+ht-degree: 2%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -221,7 +221,7 @@ ht-degree: 1%
                   <br/><br/>
                   使用可能な値は次のとおりです。
                   <ul>
-                    <li><b>mvpd （Spectrum、Cablevision など）</b><br/> プロファイルは、基本認証の結果として作成されました。</li>
+                    <li><b>mvpd （例：Spectrum、Cablevision など） </b><br/> プロファイルは、次の結果として作成されました。基本認証。</li>
                     <li><b>Adobe</b><br/> 縮退アクセス、一時アクセスの結果、プロファイルが作成されました。</li>
                   </ul>
                <td><i>必須</i></td>
@@ -274,7 +274,7 @@ ht-degree: 1%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>400、401、403、405、500</td>
+      <td>400, 401, 403, 405, 500</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -306,7 +306,7 @@ ht-degree: 1%
 
 ## サンプル {#samples}
 
-### 1.基本認証で取得した特定のコードのプロファイルを取得する
+### &#x200B;1. 基本認証で取得した特定のコードのプロファイルを取得します
 
 >[!BEGINTABS]
 
@@ -355,7 +355,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2.基本の TempPass が選択されているときに、特定のコードのプロファイルを取得する
+### &#x200B;2. 基本 TempPass が選択されているときに、特定のコードのプロファイルを取得します
 
 >[!BEGINTABS]
 
@@ -409,7 +409,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 403,
     "code": "temporary_access_duration_limit_exceeded",
     "message": "The temporary access duration limit has been exceeded.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "authentication"
 }
 ```
@@ -425,7 +425,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 500,
     "code": "invalid_configuration_temporary_access",
     "message": "The temporary access configuration is invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "configuration"
 }
 ```
@@ -500,7 +500,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 403,
     "code": "temporary_access_duration_limit_exceeded",
     "message": "The temporary access duration limit has been exceeded.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "authentication"
 }
 ```
@@ -516,7 +516,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 403,
     "code": "temporary_access_resources_limit_exceeded",
     "message": "The temporary access resources limit has been exceeded.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "authentication"
 }
 ```
@@ -532,7 +532,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 500,
     "code": "invalid_configuration_temporary_access",
     "message": "The temporary access configuration is invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "configuration"
 }
 ```
@@ -548,14 +548,14 @@ Content-Type: application/json;charset=UTF-8
     "status": 400,
     "code": "invalid_header_identity_for_temporary_access",
     "message": "The identity for temporary access header value is missing or invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "none"
 }
 ```
 
 >[!ENDTABS]
 
-### 4.最適化中に、特定のコードのプロファイルを取得する
+### &#x200B;4. 最適化適用中に、特定のコードのプロファイルを取得する
 
 >[!BEGINTABS]
 

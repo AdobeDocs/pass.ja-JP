@@ -4,7 +4,7 @@ description: Android SDKの概要
 exl-id: a1d98325-32a1-4881-8635-9a3c38169422
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '2754'
+source-wordcount: '2801'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#intro}
 
@@ -25,7 +25,7 @@ Android AccessEnabler は、モバイルアプリが TV Everywhere の権利付�
 
 ## Androidの要件 {#reqs}
 
-Android Platform およびAdobe Pass認証に関連する現在の技術要件については、[&#x200B; プラットフォーム/デバイス/ツールの要件 &#x200B;](#android) を参照するか、Android SDKのダウンロードに含まれるリリースノートを参照してください。
+Android Platform およびAdobe Pass認証に関連する現在の技術要件については、[ プラットフォーム/デバイス/ツールの要件 ](#android) を参照するか、Android SDKのダウンロードに含まれるリリースノートを参照してください。
 
 ## ネイティブクライアントワークフローについて {#native_client_workflows}
 
@@ -56,11 +56,11 @@ AccessEnabler でサポートされるすべての使用権限ワークフロー
 
 次のネイティブクライアントワークフローは、一般的なブラウザーベースの認証ワークフローとは異なりますが、手順 1～5 はネイティブクライアントとブラウザーベースのクライアントで同じです。
 
-1. ページまたはプレーヤーが、[getAuthentication （） &#x200B;](#getAuthN) を呼び出して認証ワークフローを開始します。これにより、有効なキャッシュ済み認証トークンが確認されます。 このメソッドにはオプションの `redirectURL` パラメーターがあります。`redirectURL` の値を指定しない場合、認証が成功すると、認証が初期化された URL にユーザーが返されます。
+1. ページまたはプレーヤーが、[getAuthentication （） ](#getAuthN) を呼び出して認証ワークフローを開始します。これにより、有効なキャッシュ済み認証トークンが確認されます。 このメソッドにはオプションの `redirectURL` パラメーターがあります。`redirectURL` の値を指定しない場合、認証が成功すると、認証が初期化された URL にユーザーが返されます。
 1. AccessEnabler は、現在の認証ステータスを決定します。 ユーザーが現在認証されている場合、AccessEnabler は `setAuthenticationStatus()` コールバック関数を呼び出し、成功を示す認証ステータスを渡します（次の手順 7）。
 1. ユーザーが認証されていない場合、AccessEnabler は、ユーザーの最後の認証試行が特定のMVPDで成功したかどうかを確認することにより、認証フローを続行します。 MVPD ID がキャッシュされていて、`canAuthenticate` フラグが true であるか、またはMVPDが [`setSelectedProvider()`](#setSelectedProvider) を使用して選択されている場合、MVPD選択ダイアログが表示されません。 認証フローは、MVPDのキャッシュされた値（最後に成功した認証で使用したMVPDと同じ）を使用して続行されます。 バックエンドサーバーに対してネットワーク呼び出しが実行され、ユーザーがMVPDのログインページにリダイレクトされます（以下の手順 6）。
-1. MVPD ID がキャッシュされておらず、[`setSelectedProvider()`](#setSelectedProvider) を使用してMVPDが選択されていない場合、または `canAuthenticate` フラグが false に設定されている場合、[`displayProviderDialog()`](#displayProviderDialog) コールバックが呼び出されます。 このコールバックは、ページまたはプレーヤーに対して、選択できる MVPD のリストをユーザーに提示する UI の作成を指示します。 MVPD セレクターを構築するために必要な情報を含む、MVPD オブジェクトの配列が提供されます。 各MVPD オブジェクトは 1 つのMVPD エンティティを表し、MVPDの ID （XFINITY、AT\&amp;T など）やMVPDのロゴが見つかる URL などの情報を含みます。
-1. 特定のMVPDを選択したら、ユーザーが選択したことを AccessEnabler に通知する必要があります。 Flash 以外のクライアントの場合、目的のMVPDを選択すると、[`setSelectedProvider()`](#setSelectedProvider) メソッドを呼び出して AccessEnabler に通知します。 代わりに、フラッシュ クライアントはタイプ「`MVPDEvent`」の共有 `mvpdSelection` をディスパッチし、選択したプロバイダを渡します。
+1. MVPD ID がキャッシュされておらず、[`setSelectedProvider()`](#setSelectedProvider) を使用してMVPDが選択されていない場合、または `canAuthenticate` フラグが false に設定されている場合、[`displayProviderDialog()`](#displayProviderDialog) コールバックが呼び出されます。 このコールバックは、ページまたはプレーヤーに対して、選択できる MVPD のリストをユーザーに提示する UI の作成を指示します。 MVPD セレクターを構築するために必要な情報を含む、MVPD オブジェクトの配列が提供されます。 各MVPD オブジェクトは、1 つのMVPD エンティティを表し、MVPDの ID （XFINITY、AT\&amp;T など）などの情報を含みます。 およびMVPD ロゴを見つけることができる URL です。
+1. 特定のMVPDを選択したら、ユーザーが選択したことを AccessEnabler に通知する必要があります。 Flash 以外のクライアントの場合、目的のMVPDを選択すると、[`setSelectedProvider()`](#setSelectedProvider) メソッドを呼び出して AccessEnabler に通知します。 代わりに、フラッシュ クライアントはタイプ「`mvpdSelection`」の共有 `MVPDEvent` をディスパッチし、選択したプロバイダを渡します。
 1. Android アプリケーションの場合、com.android.chrome が使用可能であれば、認証 URL はChromeのカスタムタブに読み込まれます。
 1. Chromeのカスタムタブを使用して、MVPDのログインページにアクセスし、資格情報を入力します。 この転送中に複数のリダイレクト操作が発生することに注意してください。
 1. Chromeのカスタム タブで、URL がスキーム（adobepass://）およびリソース「redirect\_uri」（つまり、adobepass://com.adobepass）からのディープリンクに一致することが検出されると、AccessEnabler はバックエンド サーバーから実際の認証トークンを取得します。 最終的なリダイレクト URL は実際には無効であり、Chromeのカスタムタブで実際に読み込むためのものではないことに注意してください。 これらは、認証フローが完了したことを示すシグナルとしてのみ、SDKで解釈される必要があります。
@@ -120,7 +120,7 @@ Adobe Pass認証使用権限ソリューションでは、認証および承認�
 1. 「要求者ごとの認証」機能が *無効* になっている場合、1 つの認証トークンがグローバルなペーストボードにローカルに保存されます。 このトークンは、現在のMVPDに統合されているすべてのアプリケーション間で共有されます。
 1. 「要求者ごとの認証」機能が *有効* になっている場合、トークンは認証フローを実行したプログラマーに明示的に関連付けられます（トークンはグローバルなペーストボードには保存されず、そのプログラマーのアプリケーションにのみ表示できるプライベートファイルに保存されます）。 より具体的には、異なるアプリケーション間でのシングルサインオン（SSO）は無効になります。ユーザーは、新しいアプリに切り替える際に認証フローを明示的に実行する必要があります（2 番目のアプリのプログラマーが現在のMVPDと統合されており、そのプログラマーの認証トークンがローカルキャッシュに存在しない場合）。
 
-   **メモ：** AE 1.6 Google GSON テクニカルノート：[Gson 依存関係の解決方法 &#x200B;](https://tve.zendesk.com/entries/22902516-Android-AccessEnabler-1-6-How-to-resolve-Gson-dependencies)
+   **メモ：** AE 1.6 Google GSON テクニカルノート：[Gson 依存関係の解決方法 ](https://tve.zendesk.com/entries/22902516-Android-AccessEnabler-1-6-How-to-resolve-Gson-dependencies)
 
 - **AccessEnabler 1.7** – このSDKでは、新しいトークン・ストレージ方式が導入されており、複数のプログラマーMVPD・バケットを使用できるため、複数の認証トークンを使用できます。 AE 1.7 以降では、「リクエスターごとの認証」シナリオと通常の認証フローの両方で同じストレージレイアウトが使用されます。 この 2 つの違いは、認証の実行方法にあります。「要求者ごとの認証」には、ストレージ内に（異なるプログラマの）認証トークンが存在することに基づいて、AccessEnabler がバックチャネル認証を実行できるようにする新しい改善点（パッシブ認証）が含まれています。 ユーザーは 1 回だけ認証する必要があり、このセッションは後続のアプリで認証トークンを取得するために使用されます。 このバックチャネルフローは、[`setRequestor()`](#setRequestor) 呼び出し時に発生し、プログラマーに対してほとんど透過的です。 ただし、ここで重要な要件が 1 つあります。プログラマーは、メイン UI スレッドおよびアクティビティ内から [`setRequestor()`](#setRequestor) を呼び出す必要があります。
 

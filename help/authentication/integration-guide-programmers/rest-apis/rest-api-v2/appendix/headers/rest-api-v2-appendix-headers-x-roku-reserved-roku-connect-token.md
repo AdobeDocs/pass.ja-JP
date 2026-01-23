@@ -4,7 +4,7 @@ description: REST API V2 - ヘッダー – X-Roku-Reserved-Roku-Connect-Token
 exl-id: 21016d5b-4d10-4018-a82c-f2797b2d9fb9
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '149'
+source-wordcount: '177'
 ht-degree: 0%
 
 ---
@@ -21,7 +21,7 @@ ht-degree: 0%
 
 このヘッダーは、Platform ID メソッドを活用するシングルサインオン（SSO）対応フローで使用するように設計されています。
 
-Platform ID メソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[&#x200B; プラットフォーム ID フローを使用したシングルサインオン &#x200B;](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) ドキュメントを参照してください。
+Platform ID メソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[ プラットフォーム ID フローを使用したシングルサインオン ](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) ドキュメントを参照してください。
 
 ## 構文 {#syntax}
 
@@ -43,7 +43,7 @@ Platform ID メソッドを活用したシングルサインオン（SSO）有�
 
 <b>unique_platform_identifier</b>
 
-一意のプラットフォーム識別情報を含む、署名済みまたは暗号化された JSON Web トークン（`JWS`）である JSON Web 署名（`JWE`）または JSON Web 暗号化（`JWT`）。
+一意のプラットフォーム識別情報を含む、署名済みまたは暗号化された JSON Web トークン（`JWT`）である JSON Web 署名（`JWS`）または JSON Web 暗号化（`JWE`）。
 
 これは、次のプラットフォームで使用できます。
 

@@ -4,7 +4,7 @@ description: Amazon FireOS Native Client API リファレンス
 exl-id: 8ac9f976-fd6b-4b19-a80d-49bfe57134b5
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '3451'
+source-wordcount: '3484'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -203,7 +203,7 @@ MVPDが「リクエスターごとの認証」機能をサポートしている�
 **説明：** 完全認証ワークフローを開始します。 まず、認証ステータスを確認します。 まだ認証されていない場合は、認証フロー state-machine が起動します。
 
 - 最後の認証が成功した場合、MVPD選択フェーズはスキップされ、WebView コントロールによってMVPDのログインページが表示されます。
-- 最後の認証の試行が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションは、このコールバックを使用してMVPD選択 UI を表示します。 また、[setSelectedProvider （） &#x200B;](#setSelectedProvider) メソッドを使用して Access Enabler ライブラリにユーザーのMVPD選択を通知することにより、認証フローを再開する必要があります。
+- 最後の認証の試行が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションは、このコールバックを使用してMVPD選択 UI を表示します。 また、[setSelectedProvider （） ](#setSelectedProvider) メソッドを使用して Access Enabler ライブラリにユーザーのMVPD選択を通知することにより、認証フローを再開する必要があります。
 
 MVPDが「要求者ごとの認証」機能をサポートしている場合、1 台のデバイスに複数の認証トークンを格納できます（プログラマーごとに 1 つ）。
 
@@ -260,7 +260,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 | ```public void setSelectedProvider(String mvpdId)``` |
 
 
-**提供：**&#x200B;v 1.0 以降
+**提供：**v 1.0 以降
 
 **パラメーター：** なし
 
@@ -323,7 +323,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
    - `AccessEnabler.ACCESS_ENABLER_STATUS_LOGOUT` - ログアウト
 - *コード*：提示されたステータスの理由。 *status* が `AccessEnabler.ACCESS_ENABLER_STATUS_SUCCESS` の場合、*code* は空の文字列です（つまり、`AccessEnabler.USER_AUTHENTICATED` 定数によって定義されます）。 認証されていない場合、このパラメーターは次のいずれかの値を取ります。
    - `AccessEnabler.USER_NOT_AUTHENTICATED_ERROR` - ユーザーが認証されていません。 ローカルトークンキャッシュに有効な認証トークンがない場合の *checkAuthentication （）* メソッド呼び出しに応答して。
-   - `AccessEnabler.PROVIDER_NOT_SELECTED_ERROR` - AccessEnabler は、上位層アプリケーションが *に渡された* null`setSelectedProvider()` 後に認証ステート マシンをリセットして、認証フローを中止します。  ユーザーが認証フローをキャンセルした（つまり、「戻る」ボタンを押した）と考えられます。
+   - `AccessEnabler.PROVIDER_NOT_SELECTED_ERROR` - AccessEnabler は、上位層アプリケーションが `setSelectedProvider()` に渡された *null* 後に認証ステート マシンをリセットして、認証フローを中止します。  ユーザーが認証フローをキャンセルした（つまり、「戻る」ボタンを押した）と考えられます。
    - `AccessEnabler.GENERIC_AUTHENTICATION_ERROR` - ネットワークが利用できないか、ユーザーが認証フローを明示的に取り消したなどの理由により、認証フローが失敗しました。
    - `AccessEnabler.LOGOUT` - ログアウトアクションにより、ユーザーが認証されていません。
 
@@ -355,7 +355,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 | --- |
 | ```public void checkPreauthorizedResources(ArrayList<String> resources)``` |
 
-**提供：**&#x200B;v 1.0 以降
+**提供：**v 1.0 以降
 
 **Parameters:** `resources` パラメーターは、ユーザーが既に表示を許可されているリソースの配列です。
 
@@ -427,7 +427,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 | --- |
 | ```public void setToken(String token, String resourceId)``` |
 
-**提供：**&#x200B;v 1.0 以降
+**提供：**v 1.0 以降
 
 **パラメーター：**
 
@@ -541,7 +541,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 
 **コールバックがトリガーされました：** [`setMetadataStatus()`](#setMetadaStatus)
 
-**詳細情報：**&#x200B;[&#x200B; ユーザーメタデータ &#x200B;](#setmetadatastatus)
+**詳細情報：**[ ユーザーメタデータ ](#setmetadatastatus)
 
 </br>
 
@@ -603,7 +603,7 @@ MVPDが「要求者ごとの認証」機能をサポートしている場合、1
 
 **Trigger by:** [`getMetadata()`](#getMetadata)
 
-**詳細情報：**&#x200B;[&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
+**詳細情報：**[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
 
 </br>
 

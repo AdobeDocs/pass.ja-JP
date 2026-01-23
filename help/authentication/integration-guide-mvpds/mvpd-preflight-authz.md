@@ -4,7 +4,7 @@ description: MVPD Preflight Authorization
 exl-id: da2e7150-b6a8-42f3-9930-4bc846c7eee9
 source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
 workflow-type: tm+mt
-source-wordcount: '750'
+source-wordcount: '755'
 ht-degree: 0%
 
 ---

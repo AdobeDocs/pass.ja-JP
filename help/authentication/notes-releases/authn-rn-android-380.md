@@ -4,8 +4,8 @@ description: Adobe Pass Authentication Android 3.8.0 リリースノート
 exl-id: ad020b9a-61ad-492f-9522-d0e7a668196a
 source-git-commit: c9958a17ad9dfb518bab1d24087c85fdcb6fd057
 workflow-type: tm+mt
-source-wordcount: '140'
-ht-degree: 0%
+source-wordcount: '148'
+ht-degree: 7%
 
 ---
 
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -31,4 +31,4 @@ Adobe Pass認証：Android 3.8.0
 
 ## リリースパッケージ {#release-package-380}
 
-Android SDK v3.8.0 は、（こちら [&#x200B; からダウンロードでき &#x200B;](https://tve.zendesk.com/hc/en-us/articles/204963219-Android-Native-AccessEnabler-Library) す。
+Android SDK v3.8.0 は、（こちら [ からダウンロードでき ](https://tve.zendesk.com/hc/en-us/articles/204963219-Android-Native-AccessEnabler-Library) す。

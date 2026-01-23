@@ -4,8 +4,8 @@ description: Adobe同時実行性モニタリング 2.9 リリースノート
 exl-id: fd793b1f-b704-492b-850c-dae6478b575a
 source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
 workflow-type: tm+mt
-source-wordcount: '158'
-ht-degree: 1%
+source-wordcount: '161'
+ht-degree: 3%
 
 ---
 
@@ -25,7 +25,7 @@ ht-degree: 1%
 * 各精度間隔で各同時実行レベルに到達したユーザーの数（2 つの同時ストリーム、3 つの同時ストリームを持ったユーザーの数など）
 * 各同時実行レベルの合計期間（分）（平均値は、この値を上記のカウントで割るだけで計算できます）
 * 特定のルールの影響を影響を受けるユーザーと集計ユーザーのエクスペリエンスの両方で推定するために、ユーザーが各同時実行レベルに遭遇した合計回数
-詳しくは、[&#x200B; 使用状況レポート &#x200B;](/help/concurrency-monitoring/reports/cm-usage-reports.md) ページを参照してください。
+詳しくは、[ 使用状況レポート ](/help/concurrency-monitoring/reports/cm-usage-reports.md) ページを参照してください。
 
 また、SQL インジェクションの保護を改善し、いくつかのバグ修正を追加しました。
 

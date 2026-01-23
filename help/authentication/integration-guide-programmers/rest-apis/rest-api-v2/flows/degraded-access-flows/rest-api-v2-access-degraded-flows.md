@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -25,7 +25,7 @@ ht-degree: 0%
 
 パフォーマンスが低下すると、特定のMVPD認証および承認エンドポイントが一時的にバイパスされます。 通常、プログラマはこのアクションを開始しますが、誰がデグレード イベントをトリガーしているかに関係なく、このアクションは影響を受ける MVPD との事前の取り決めに依存します。
 
-最適化機能について詳しくは、[&#x200B; 最適化 &#x200B;](../../../../features-premium/degraded-access/degradation-feature.md) ドキュメントを参照してください。
+最適化機能について詳しくは、[ 最適化 ](../../../../features-premium/degraded-access/degradation-feature.md) ドキュメントを参照してください。
 
 縮退アクセスフローを使用すると、次のシナリオについてクエリを実行できます。
 
@@ -55,7 +55,7 @@ ht-degree: 0%
 
 次の図に示すように、低下が適用されている間に認証フローを実装するには、次の手順に従います。
 
-![&#x200B; パフォーマンス低下が適用されている間に認証を実行 &#x200B;](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-perform-authentication-while-degradation-is-applied-flow.png)
+![ パフォーマンス低下が適用されている間に認証を実行 ](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-perform-authentication-while-degradation-is-applied-flow.png)
 
 *パフォーマンス低下が適用されている間に認証を実行*
 
@@ -63,10 +63,10 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; 認証セッションの作成 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
+   > 次について詳しくは、[ 認証セッションの作成 ](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
    > 
-   > * _、_、`serviceProvider`、`mvpd` などのすべての `domainName` 必須 `redirectUrl` パラメーター
-   > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
+   > * `serviceProvider`、`mvpd`、`domainName`、`redirectUrl` などのすべての _必須_ パラメーター
+   > * `Authorization` や `AP-Device-Identifier` など、すべての _必須_ ヘッダー
    > * すべての _オプション_ パラメーターおよびヘッダー
 
 1. **最適化規則の確認：** Adobe Pass サーバーは、指定された `serviceProvider` と `mvpd` の間の統合に適用された AuthNAll 最適化規則があるかどうかを確認します。
@@ -77,7 +77,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > セッション応答で提供される情報について詳しくは、[&#x200B; 認証セッションの作成 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
+   > セッション応答で提供される情報について詳しくは、[ 認証セッションの作成 ](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -88,7 +88,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本検証が失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    >
    > <br/>
    > 
@@ -123,7 +123,7 @@ ht-degree: 0%
 
 次の図に示すように、低下が適用されている間に認証フローを実装するには、次の手順に従います。
 
-![&#x200B; 最適化適用中に認証決定を取得 &#x200B;](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-authorization-decisions-while-degradation-is-applied-flow.png)
+![ 最適化適用中に認証決定を取得 ](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-authorization-decisions-while-degradation-is-applied-flow.png)
 
 *最適化適用中に認証決定を取得*
 
@@ -131,10 +131,10 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    > 
-   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した認証決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[ 特定の mvpd を使用した認証決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    >
-   > * _、_、`serviceProvider` など、すべての `mvpd` 必須 `resources` パラメーター
-   > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
+   > * `serviceProvider`、`mvpd`、`resources` など、すべての _必須_ パラメーター
+   > * `Authorization` や `AP-Device-Identifier` など、すべての _必須_ ヘッダー
    > * すべての _オプション_ パラメーターおよびヘッダー
 
 1. **最適化規則の確認：** Adobe Pass サーバーは、指定された `serviceProvider` と `mvpd` の間の統合に適用された AuthZAll または AuthNAll の最適化規則があるかどうかを確認します。
@@ -143,7 +143,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 決定応答で提供される情報について詳しくは、[ 特定の mvpd を使用した認証の決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    >
    > <br/>
    > 
@@ -154,7 +154,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本検証が失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    >
    > <br/>
    >
@@ -189,7 +189,7 @@ ht-degree: 0%
 
 次の図に示すように、事前認証フローを実装し、パフォーマンス低下が適用されている間は、次の手順に従います。
 
-![&#x200B; 最適化適用中に事前認証の決定を取得 &#x200B;](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-preauthorization-decisions-while-degradation-is-applied-flow.png)
+![ 最適化適用中に事前認証の決定を取得 ](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-preauthorization-decisions-while-degradation-is-applied-flow.png)
 
 *最適化適用中に事前認証の決定を取得*
 
@@ -197,10 +197,10 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した事前認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 次の項目について詳しくは、[ 特定の mvpd を使用した事前認証の決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    >
-   > * _、_、`serviceProvider` など、すべての `mvpd` 必須 `resources` パラメーター
-   > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
+   > * `serviceProvider`、`mvpd`、`resources` など、すべての _必須_ パラメーター
+   > * `Authorization` や `AP-Device-Identifier` など、すべての _必須_ ヘッダー
    > * すべての _オプション_ パラメーターおよびヘッダー
 
 1. **最適化規則の確認：** Adobe Pass サーバーは、指定された `serviceProvider` と `mvpd` の間の統合に適用された AuthZAll または AuthNAll の最適化規則があるかどうかを確認します。
@@ -209,7 +209,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した事前認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 決定応答で提供される情報について詳しくは、[ 特定の mvpd を使用した事前認証の決定の取得 ](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -220,7 +220,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本検証が失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    >
    > <br/>
    >
@@ -242,7 +242,7 @@ ht-degree: 0%
 >
 > <br/>
 > 
-> セッションエンドポイント応答は、低下が適用されている間、決定フローを続行するようにアプリケーションに指示します。 詳しくは、[&#x200B; パフォーマンス低下が適用されている間に認証を実行する &#x200B;](#perform-authentication-while-degradation-is-applied) の節を参照してください。
+> セッションエンドポイント応答は、低下が適用されている間、決定フローを続行するようにアプリケーションに指示します。 詳しくは、[ パフォーマンス低下が適用されている間に認証を実行する ](#perform-authentication-while-degradation-is-applied) の節を参照してください。
 
 ### 前提条件 {#prerequisites-retrieve-profile-while-degradation-is-applied}
 
@@ -263,7 +263,7 @@ ht-degree: 0%
 
 次の図に示すように、パフォーマンス低下が適用されている場合に特定のMVPDのプロファイル取得フローを実装するには、次の手順に従います。
 
-![&#x200B; 最適化適用中にプロファイルを取得 &#x200B;](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-profile-while-degradation-is-applied-flow.png)
+![ 最適化適用中にプロファイルを取得 ](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-profile-while-degradation-is-applied-flow.png)
 
 *最適化適用中にプロファイルを取得*
 
@@ -271,10 +271,10 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; 特定の mvpd のプロファイルを取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
+   > 次について詳しくは、[ 特定の mvpd のプロファイルを取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
    >
-   > * _、_ など、すべての `serviceProvider` 必須 `mvpd` パラメーター
-   > * _や_ など、すべての `Authorization` 必須 `AP-Device-Identifier` ヘッダー
+   > * `serviceProvider`、`mvpd` など、すべての _必須_ パラメーター
+   > * `Authorization` や `AP-Device-Identifier` など、すべての _必須_ ヘッダー
    > * すべての _オプション_ パラメーターおよびヘッダー
 
 1. **最適化規則の確認：** Adobe Pass サーバーは、指定された `serviceProvider` と `mvpd` の間の統合に適用された AuthNAll 最適化規則があるかどうかを確認します。
@@ -283,7 +283,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd のプロファイルを取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[ 特定の mvpd のプロファイルを取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -294,7 +294,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本検証が失敗した場合は、エラー応答が生成され、[ 拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
    >
    > <br/>
    > 
@@ -312,4 +312,4 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> 特定の認証コードのプロファイル取得フローの手順は前述と同じですが、使用するエンドポイントが「[&#x200B; 特定のコードのプロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) ドキュメントに記載されているエンドポイントである点が異なります。
+> 特定の認証コードのプロファイル取得フローの手順は前述と同じですが、使用するエンドポイントが「[ 特定のコードのプロファイルの取得 ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) ドキュメントに記載されているエンドポイントである点が異なります。

@@ -4,8 +4,8 @@ description: REST API V2 フローの概要
 exl-id: 84a9ac0f-c26a-4159-82a8-3a31bb31f529
 source-git-commit: fab5964aeb832d419702b41a6d3bc5676cb3354f
 workflow-type: tm+mt
-source-wordcount: '166'
-ht-degree: 0%
+source-wordcount: '174'
+ht-degree: 2%
 
 ---
 
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 開始するには、以下のリストに関心があるフローの公開ドキュメントを参照してください。
 

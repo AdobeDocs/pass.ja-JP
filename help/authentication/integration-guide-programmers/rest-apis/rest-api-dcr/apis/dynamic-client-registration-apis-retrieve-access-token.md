@@ -4,8 +4,8 @@ description: Dynamic Client Registration API - アクセストークンの取得
 exl-id: 23287acf-5d56-46f0-b65e-79bf7d667708
 source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '477'
-ht-degree: 0%
+source-wordcount: '488'
+ht-degree: 1%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> 動的なクライアント登録 API の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) に関するドキュメントに限られています。
+> 動的なクライアント登録 API の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) に関するドキュメントに限られています。
 
 ## リクエスト {#request}
 

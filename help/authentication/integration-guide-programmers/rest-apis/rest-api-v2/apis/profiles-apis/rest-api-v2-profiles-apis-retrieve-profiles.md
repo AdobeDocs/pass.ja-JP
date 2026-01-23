@@ -4,8 +4,8 @@ description: REST API V2 - プロファイルの取得
 exl-id: 72922aa8-95ca-48dc-8523-e335802fc366
 source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '891'
-ht-degree: 1%
+source-wordcount: '943'
+ht-degree: 2%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -248,7 +248,7 @@ ht-degree: 1%
                   <br/><br/>
                   使用可能な値は次のとおりです。
                   <ul>
-                    <li><b>mvpd （Spectrum、Cablevision など）</b><br/> プロファイルは、基本認証、Platform ID を使用したシングルサインオン、サービストークンを使用したシングルサインオンの結果として作成されました。</li>
+                    <li><b>mvpd （例：Spectrum、Cablevision など） </b><br/> プロファイルは、基本認証、プラットフォーム ID を使用したシングルサインオン、サービストークンを使用したシングルサインオンなどの結果として作成されました。</li>
                     <li><b>Apple</b><br/> プロファイルは次の結果として作成されました：パートナーAppleを使用したシングル サインオン。</li>
                   </ul>
                </td>
@@ -303,7 +303,7 @@ ht-degree: 1%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>400、401、405、500</td>
+      <td>400, 401, 405, 500</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -325,7 +325,7 @@ ht-degree: 1%
 
 ## サンプル {#samples}
 
-### 1.基本認証で取得したプロファイルの取得
+### &#x200B;1. 基本認証で取得したプロファイルの取得
 
 >[!BEGINTABS]
 
@@ -388,7 +388,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;2. サービストークン方式を使用した基本認証またはシングルサインオンを通じて取得したプロファイルの取得
+### &#x200B;2. サービストークン方式を使用した、基本認証またはシングルサインオンを通じて取得されたプロファイルの取得
 
 >[!BEGINTABS]
 
@@ -452,7 +452,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;3. Platform ID 方法を使用した基本認証またはシングルサインオンを通じて取得したプロファイルの取得
+### &#x200B;3. Platform ID 方法を使用した、基本認証またはシングルサインオンを通じて取得されたプロファイルの取得
 
 >[!BEGINTABS]
 

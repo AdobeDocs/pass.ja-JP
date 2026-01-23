@@ -4,8 +4,8 @@ description: REST API V2 – 認証セッションの再開
 exl-id: 66c33546-2be0-473f-9623-90499d1c13eb
 source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '956'
-ht-degree: 1%
+source-wordcount: '961'
+ht-degree: 2%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -309,7 +309,7 @@ ht-degree: 1%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>400、401、405、500</td>
+      <td>400, 401, 405, 500</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -341,7 +341,7 @@ ht-degree: 1%
 
 ## サンプル {#samples}
 
-### &#x200B;1. パラメーターなしで認証セッションを再開する
+### &#x200B;1. パラメーターなしで認証セッションを再開します
 
 >[!BEGINTABS]
 
@@ -383,7 +383,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;2. パラメーターがない状態で認証セッションを再開する
+### &#x200B;2. パラメーターがない場合は認証セッションを再開
 
 >[!BEGINTABS]
 
@@ -426,7 +426,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 3.有効なプロファイルが既に存在する間に認証セッションを再開する
+### &#x200B;3. 有効なプロファイルが既に存在する場合は、認証セッションを再開します
 
 >[!BEGINTABS]
 
@@ -465,7 +465,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 4.基本またはプロモーションの TempPass を使用して認証セッションを再開します（必須ではありません）
+### &#x200B;4. 基本またはプロモーションの TempPass を使用して認証セッションを再開します（必須ではありません）
 
 >[!BEGINTABS]
 
@@ -504,7 +504,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 5.縮退が適用されている間に認証セッションを再開する
+### &#x200B;5. 劣化適用中に認証セッションを再開する
 
 >[!BEGINTABS]
 

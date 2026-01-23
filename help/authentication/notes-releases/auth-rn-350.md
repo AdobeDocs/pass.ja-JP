@@ -3,8 +3,8 @@ title: Adobe Pass Authentication 3.5.0 リリースノート
 description: このリリースの新機能、変更点、既知の問題について説明します。
 source-git-commit: 6ff46a124f5f3c78173028ae3efed68d71ee6e41
 workflow-type: tm+mt
-source-wordcount: '198'
-ht-degree: 0%
+source-wordcount: '206'
+ht-degree: 3%
 
 ---
 
@@ -18,7 +18,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](https://experienceleague.adobe.com/ja/docs/pass/authentication/product-announcements) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](https://experienceleague.adobe.com/en/docs/pass/authentication/product-announcements) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 

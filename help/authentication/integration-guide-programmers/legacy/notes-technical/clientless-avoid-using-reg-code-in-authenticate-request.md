@@ -4,7 +4,7 @@ description: /authenticate 要求で'&'reg_code を使用しない
 exl-id: c0ecb6f9-2167-498c-8a2d-a692425b31c5
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '246'
+source-wordcount: '252'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -61,6 +61,6 @@ IE 9 ブラウザーは「\&amp;reg」を特別なコマンドとして解釈し
 
    これにより、`&reg` パラメーターが正しく解釈されなくなります。
 
-1. `&reg_code` を使用して `&amp;reg_code` を正規化します。
+1. `&amp;reg_code` を使用して `&reg_code` を正規化します。
 
 1. Adobeでは、AuthN トークンの作成に失敗した場合、認証呼び出しに応じてエラーコードを 2 番目の画面に送り返す新機能を導入できるようになりました。

@@ -4,8 +4,8 @@ description: Amazon SSO クックブック（REST API V2）
 exl-id: 63e4fa63-8ca3-40eb-b49a-84dd75c2ca1d
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '567'
-ht-degree: 0%
+source-wordcount: '587'
+ht-degree: 1%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 Adobe Pass認証 REST API V2 は、FireOS で動作するクライアントアプリケーションのエンドユーザーに対して、Platform シングルサインオン（SSO）をサポートしています。
 
-このドキュメントは、既存の [REST API V2 概要の拡張機能として機能し &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) 概要の概要と、[&#x200B; プラットフォーム ID フローを使用したシングルサインオン &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) の実装方法を説明するドキュメントを提供します。
+このドキュメントは、既存の [REST API V2 概要の拡張機能として機能し ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) 概要の概要と、[ プラットフォーム ID フローを使用したシングルサインオン ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) の実装方法を説明するドキュメントを提供します。
 
 ## platform id フローを使用したAmazonのシングルサインオン {#cookbook}
 
@@ -134,7 +134,7 @@ Amazon SSO SDKは、同期 API と非同期 API の両方を提供して、SSO �
 ストリーミングアプリケーションで次の処理が行われていることを確認します。
 
 * Amazon デバイス上で動作する必要のあるAmazon コンパニオンアプリケーションがない。
-   * ストリーミングアプリケーションでは、次のクラス `ClassNotFoundException` ードで実行時に `com.amazon.ottssotokenlib.SSOEnabler` が発生する場合があります。
+   * ストリーミングアプリケーションでは、次のクラス `com.amazon.ottssotokenlib.SSOEnabler` ードで実行時に `ClassNotFoundException` が発生する場合があります。
 
 * 上記の API で返す必要のある SSO トークン（プラットフォーム ID）ペイロードがありません。
    * ストリーミングアプリケーションは、AmazonおよびAdobeの担当者に問い合わせて調査する場合があります。

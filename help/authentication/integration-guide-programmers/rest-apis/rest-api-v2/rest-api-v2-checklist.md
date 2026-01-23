@@ -4,7 +4,7 @@ description: REST API V2 チェックリスト
 exl-id: 9095d1dd-a90c-4431-9c58-9a900bfba1cf
 source-git-commit: 63dc9636f74f8eee1af6205c4d31a01df4503050
 workflow-type: tm+mt
-source-wordcount: '2563'
+source-wordcount: '2558'
 ht-degree: 0%
 
 ---
@@ -21,11 +21,11 @@ ht-degree: 0%
 
 >[!TIP]
 >
-> AI による開発については、これらの要件を AI コーディングアシスタント用の構造化されたルールに変換する [AI ルール &#x200B;](rest-api-v2-ai-rules.md) を参照してください。
+> AI による開発については、これらの要件を AI コーディングアシスタント用の構造化されたルールに変換する [AI ルール ](rest-api-v2-ai-rules.md) を参照してください。
 
 ## 必須の要件 {#mandatory-requirements}
 
-### 1.登録段階 {#mandatory-requirements-registration-phase}
+### &#x200B;1. 登録フェーズ {#mandatory-requirements-registration-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -45,12 +45,12 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>アクセストークンのキャッシュ</i></td>
-      <td>アクセストークンを永続的なストレージに保存し、期限が切れるまで再利用します。<br/><br/>REST API v2 呼び出しごとに新しいトークンをリクエストしないでください。アクセストークンは期限切れになった場合にのみ更新します。</td>
+      <td>アクセストークンを永続ストレージに保存し、期限切れになるまで再利用します。<br/><br/>REST API v2 呼び出しごとに新しいトークンをリクエストしないでください。アクセストークンは期限切れになった場合にのみ更新します。</td>
       <td>システムリソースを過負荷にし、待ち時間が増加し、HTTP 429 「Too Many Requests」エラー応答がトリガーされる可能性があるリスクがあります。</td>
    </tr>
 </table>
 
-### 2.設定フェーズ {#mandatory-requirements-configuration-phase}
+### &#x200B;2. 設定フェーズ {#mandatory-requirements-configuration-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -60,7 +60,7 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>設定の取得</i></td>
-      <td>認証段階の前にMVPD（TV プロバイダー）を選択するように促す必要がある場合にのみ、設定応答を取得します。<br/><br/> 次の場合、設定応答を取得する必要はありません。<ul><li>ユーザーは既に認証済みです。</li><li>ユーザーには一時的なアクセスが提供されます。</li><li>ユーザー認証の有効期限が切れているが、以前に選択したMVPDの購読者であることを確認するプロンプトをユーザーに表示できます。</li></ul></td>
+      <td>認証段階の前にMVPD （TV プロバイダー）を選択するように促す必要がある場合にのみ、Configuration Response を取得します。<br/><br/> 次の場合には、Configuration Response を取得する必要はありません。<ul><li>ユーザーは既に認証済みです。</li><li>ユーザーには一時的なアクセスが提供されます。</li><li>ユーザー認証の有効期限が切れているが、以前に選択したMVPDの購読者であることを確認するプロンプトをユーザーに表示できます。</li></ul></td>
       <td>システムリソースを過負荷にして、待ち時間が長くなるリスクがあります。</td>
    </tr>
    <tr>
@@ -70,7 +70,7 @@ ht-degree: 0%
    </tr>
 </table>
 
-### 3.認証フェーズ {#mandatory-requirements-authentication-phase}
+### &#x200B;3. 認証フェーズ {#mandatory-requirements-authentication-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -95,7 +95,7 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>プロファイルのキャッシュ</i></td>
-      <td>パフォーマンスを向上させ、不要な REST API v2 呼び出しを最小限に抑えるために、ユーザーのプロファイル情報の一部を永続ストレージに保存します。<br/><br/> キャッシュは、次のプロファイル応答フィールドに焦点を当てる必要があります：<br/><br/><b>mvpd</b><ul><li>クライアントアプリケーションは、これを使用してユーザーが選択したテレビプロバイダーを追跡し、事前認証または認証フェーズ中にさらに使用できます。</li><li>現在のユーザープロファイルの有効期限が切れると、クライアントアプリケーションは記憶されているMVPDの選択内容を使用し、ユーザーに確認を求めることができます。</li></ul><br/><b> 属性 </b><ul><li>様々なユーザーメタデータキー（zip、maxRating など）に基づいてユーザーエクスペリエンスをパーソナライズするために使用されます。</li><li>ユーザーメタデータは認証フローが完了すると使用できるようになります。したがって、ユーザーメタデータ情報は既にプロファイル情報に含まれているため、クライアントアプリケーションはユーザーメタデータ情報を取得するために別のエンドポイントをクエリする必要はありません。</li><li>MVPD（Charter など）や特定のメタデータ属性（householdID など）に応じて、特定のメタデータ属性は認証フェーズ中に更新される場合があります。 その結果、最新のユーザーメタデータを取得するために、クライアントアプリケーションが認証後にプロファイル API を再度クエリする必要が生じる場合があります。</li></ul></td>
+      <td>パフォーマンスを向上させ、不要な REST API v2 呼び出しを最小限に抑えるために、ユーザーのプロファイル情報の一部を永続ストレージに保存します。<br/><br/> キャッシュでは、次のプロファイル応答フィールドに焦点を当てる必要があります。<br/><br/><b>mvpd</b><ul><li>クライアントアプリケーションは、これを使用してユーザーが選択したテレビプロバイダーを追跡し、事前認証または認証フェーズ中にさらに使用できます。</li><li>現在のユーザープロファイルの有効期限が切れると、クライアントアプリケーションは記憶されているMVPDの選択内容を使用し、ユーザーに確認を求めることができます。</li></ul><br/><b> 属性 </b><ul><li>様々なユーザーメタデータキー（zip、maxRating など）に基づいてユーザーエクスペリエンスをパーソナライズするために使用されます。</li><li>ユーザーメタデータは認証フローが完了すると使用できるようになります。したがって、ユーザーメタデータ情報は既にプロファイル情報に含まれているため、クライアントアプリケーションはユーザーメタデータ情報を取得するために別のエンドポイントをクエリする必要はありません。</li><li>MVPD（Charter など）や特定のメタデータ属性（householdID など）に応じて、特定のメタデータ属性は認証フェーズ中に更新される場合があります。 その結果、最新のユーザーメタデータを取得するために、クライアントアプリケーションが認証後にプロファイル API を再度クエリする必要が生じる場合があります。</li></ul></td>
       <td>システムリソースを過負荷にし、待ち時間が増加し、HTTP 429 「Too Many Requests」エラー応答がトリガーされる可能性があるリスクがあります。</td>
    </tr>
 </table>
@@ -111,11 +111,11 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;"><i>事前承認決定の取得</i></td>
       <td>コンテンツのフィルタリングには事前認証の決定を使用し、再生の決定には使用しません。</td>
-      <td>プログラマー、MVPD およびAdobe間の契約上の合意に違反するリスク。<br/><br/> 監視および警告システムをバイパスするリスク。</td>
+      <td>プログラマー、MVPD およびAdobe間の契約上の合意に違反するリスク <br/><br/> 当社のモニタリングおよび警告システムを迂回するリスク。</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>事前承認決定の取得の再試行</i></td>
-      <td><a href="/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> を適切に処理し、アクションフィールドを利用して、必要な是正手順を決定します。<br/><br/> 再試行が必要な拡張エラーコードは限られていますが、ほとんどの場合、アクションフィールドで指定された代替解決策が必要です。<br/><br/> 事前認証決定を取得するために実装された再試行メカニズムが無限ループを引き起こさず、再試行が適切な数（2-3 など）に制限されていることを確認します。</td>
+      <td><a href="/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> を適切に処理し、アクションフィールドを利用して必要な是正手順を判断します。<br/><br/> 拡張エラーコードの数が限られていれば、再試行が保証されますが、ほとんどの場合、アクションフィールドで指定されている代替解決策が必要です。<br/><br/> 認証前決定を取得するために実装された再試行メカニズムが無限ループを引き起こさず、再試行が適切な数（2-3 など）に制限されるようにします。</td>
       <td>システムリソースを過負荷にし、待ち時間が増加し、HTTP 429 「Too Many Requests」エラー応答がトリガーされる可能性があるリスクがあります。</td>
    </tr>
    <tr>
@@ -125,7 +125,7 @@ ht-degree: 0%
    </tr>
 </table>
 
-### 5.認証フェーズ {#mandatory-requirements-authorization-phase}
+### &#x200B;5. 承認フェーズ {#mandatory-requirements-authorization-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -135,12 +135,12 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>承認決定の取得</i></td>
-      <td>再生前に認証決定を取得 – 事前認証の決定が存在するかどうかに関係なく。<br/><br/> メディアトークンが再生中に期限切れになり、ユーザーが次の再生リクエストを行うときに（新規）メディアトークンを含む新しい認証決定をリクエストした場合でも、同じリソースまたは異なるリソースに対するものであっても、ストリームが中断されることなく続行することを許可します。<br/><br/> 長時間実行されるライブストリームでは、コンテンツの一時停止、コマーシャルブレークの開始、MRSS の変更に伴うアセットレベルの設定の変更など、ビデオ操作に続いて、新しい承認決定をリクエストする場合があります。</td>
-      <td>プログラマー、MVPD およびAdobe間の契約上の合意に違反するリスク。<br/><br/> 監視および警告システムをバイパスするリスク。</td>
+      <td>再生前に認証決定を取得します。<br/><br/> 再生中にメディアトークンが期限切れになってもストリームを中断せずに続行し、同じリソースまたは異なるリソースに対するユーザーが次の再生リクエストを行ったときに（新規）メディアトークンを含む新しい認証決定をリクエストできるようにします。<br/><br/> 長時間実行されるライブストリームは、コンテンツの一時停止、コマーシャルの一時停止、MRSS の変更などのビデオ操作に続く新しい認証決定をリクエストできます。</td>
+      <td>プログラマー、MVPD およびAdobe間の契約上の合意に違反するリスク <br/><br/> 当社のモニタリングおよび警告システムを迂回するリスク。</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>承認決定の取得の再試行</i></td>
-      <td><a href="/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> を適切に処理し、アクションフィールドを利用して、必要な是正手順を決定します。<br/><br/> 再試行が必要な拡張エラーコードは限られていますが、ほとんどの場合、アクションフィールドで指定された代替解決策が必要です。<br/><br/> 認証決定を取得するために実装された再試行メカニズムが無限ループを引き起こさず、再試行が適切な数（2-3 など）に制限されていることを確認します。</td>
+      <td><a href="/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> を適切に処理し、アクションフィールドを利用して必要な是正手順を判断します。<br/><br/> 拡張エラーコードの数が限られている場合にのみ、再試行が必要ですが、アクションフィールドで指定された代替解決策が必要です。<br/><br/> 認証決定を取得するために実装された再試行メカニズムが無限ループを引き起こさず、再試行が適切な数（2-3 など）に制限されるようにします。</td>
       <td>システムリソースを過負荷にし、待ち時間が増加し、HTTP 429 「Too Many Requests」エラー応答がトリガーされる可能性があるリスクがあります。</td>
    </tr>
 </table>
@@ -175,17 +175,17 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>AP-Device-Identifier ヘッダーの送信</i></td>
-      <td>すべての REST API v2 リクエストに対して <a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a> ヘッダーを送信します。<br/><br/> デバイスの代わりにサーバーからリクエストが送信された場合でも、AP-Device-Identifier ヘッダー値には、実際のストリーミングデバイスの識別子が反映されている必要があります。</td>
+      <td>すべての REST API v2 リクエストに対して、<a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a> ヘッダーを送信します。<br/><br/> デバイスの代わりにサーバーからリクエストが送信された場合でも、AP-Device-Identifier ヘッダーの値は、実際のストリーミングデバイスの識別子を反映する必要があります。</td>
       <td>HTTP 400 「無効なリクエスト」エラー応答がトリガーされ、システムリソースが過負荷になり、待ち時間が長くなるリスク。</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>X-Device-Info ヘッダーを送信</i></td>
-      <td>すべての REST API v2 リクエストに対して <a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md">X-Device-Info</a> ヘッダーを送信します。<br/><br/> デバイスの代わりにサーバーからリクエストが送信された場合でも、X-Device-Info ヘッダー値には、実際のストリーミングデバイス情報が反映されている必要があります。</td>
-      <td>リスクが、不明なプラットフォームから発生し、安全でないと見なされ、認証 TTL の短縮など、より制限が厳しいルールの対象となる。<br/><br/> さらに、ストリーミングデバイス connectionIp や connectionPort などの一部のフィールドは、Spectrum のホームベース認証などの機能に必須です。</td>
+      <td>REST API v2 リクエストごとに <a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md">X-Device-Info</a> ヘッダーを送信します。<br/><br/> デバイスの代わりにサーバーからリクエストが送信された場合でも、X-Device-Info ヘッダーの値は、実際のストリーミングデバイス情報を反映する必要があります。</td>
+      <td>未知のプラットフォームからのリスクに分類され、安全でないと扱われ、認証 TTL の短縮など、より厳しいルールの対象となります。<br/><br/> さらに、ストリーミングデバイスの connectionIp や connectionPort などの一部のフィールドは、Spectrum のホームベース認証などの機能に必須です。</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>安定したデバイス識別子</i></td>
-      <td><a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a> ヘッダーの更新やリブートを経ても変化しない、安定したデバイス識別子を計算して保存します。<br/><br/> ハードウェア ID のないプラットフォームの場合、アプリケーション属性から一意の ID を生成して保持します。</td>
+      <td><a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a> ヘッダーに対して、更新やリブート後に変更されない安定したデバイス ID を計算して保存します。<br/><br/> ハードウェア ID のないプラットフォームの場合、アプリケーション属性から一意の ID を生成して保持します。</td>
       <td>デバイス識別子が変更されると、認証が失われるリスクがあります。</td>
    </tr>
    <tr>
@@ -205,13 +205,13 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>エラーコード処理のサポートの強化</i></td>
-      <td><a href="/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> を適切に処理し、アクションフィールドを利用して、必要な是正手順を決定します。<br/><br/> 再試行が必要な拡張エラーコードは限られていますが、ほとんどの場合、アクションフィールドで指定された代替解決策が必要です。<br/><br/><a href="/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2"> 拡張エラーコード - REST API V2</a> ドキュメントにリストされているほとんどの拡張エラーコードは、アプリケーションを起動する前の開発段階で正しく処理すれば、完全に防止できます。</td>
-      <td>システムリソースを過負荷にし、待ち時間が増加し、HTTP 429 「Too Many Requests」エラー応答がトリガーされる可能性があるリスクがあります。<br/><br/> 拡張エラーコードの処理が欠落しているために、クライアントアプリケーションが誤動作するリスクがあります。その結果、不明なエラーメッセージが表示されたり、誤ったユーザーガイダンスが表示されたり、誤ったフォールバック動作が発生したりします。</td>
+      <td><a href="/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> を適切に処理し、アクションフィールドを利用して必要な是正手順を判断します。<br/><br/> 拡張エラーコードの数が限られていれば、再試行が保証されますが、アクションフィールドで指定されている代替解決が必要なエラーコードはほとんどありません。<br/><br/><a href="/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2"> 拡張エラーコード - REST API V2</a> のドキュメントに記載されている拡張エラーコードのほとんどは、アプリケーションを起動する前に開発フェーズで正しく処理すれば、完全ににに防止できます。</td>
+      <td>システムリソースを過負荷にし、待ち時間が長くなり、HTTP 429 「Too Many Requests」のエラー応答がトリガーされる可能性があります。<br/><br/> 拡張エラーコードの処理が行われないことでクライアントアプリケーションが誤動作するリスクがあります。原因は、不明なエラーメッセージ、不適切なユーザーガイダンス、誤ったフォールバック動作です。</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>HTTP エラー処理のサポート</i></td>
-      <td>上記のように、HTTP エラー応答（400、401、403、404、405、500 など）の処理と、拡張エラーコードペイロードを含む成功応答（200、201 など）の処理を区別します。<br/><br/> 再試行を保証するのは HTTP エラーコードの数が限られていますが、ほとんどの場合、別の解決策が必要です。<br/><br/> ほとんどの HTTP エラー応答は、アプリケーションを起動する前の開発フェーズで正しく処理すれば、完全に防ぐことができます。</td>
-      <td>システムリソースを過負荷にし、待ち時間が増加し、HTTP 429 「Too Many Requests」エラー応答がトリガーされる可能性があるリスクがあります。<br/><br/> 拡張エラーコードの処理が欠落しているために、クライアントアプリケーションが誤動作するリスクがあります。その結果、不明なエラーメッセージが表示されたり、誤ったユーザーガイダンスが表示されたり、誤ったフォールバック動作が発生したりします。</td>
+      <td>前述のように、HTTP エラー応答（400、401、403、404、405、500 など）の処理と、拡張エラーコードのペイロードを含む成功応答（200、201 など）を区別します。<br/><br/> 再試行が必要なのは限られた数の HTTP エラーコードのみですが、代替解決が必要な場合がほとんどです。<br/><br/> ほとんどの HTTP エラー応答は、アプリケーションを起動する前のフェーズで正しく処理すれば防止できます。</td>
+      <td>システムリソースを過負荷にし、待ち時間が長くなり、HTTP 429 「Too Many Requests」のエラー応答がトリガーされる可能性があります。<br/><br/> 拡張エラーコードの処理が行われないことでクライアントアプリケーションが誤動作するリスクがあります。原因は、不明なエラーメッセージ、不適切なユーザーガイダンス、誤ったフォールバック動作です。</td>
    </tr>
 </table>
 
@@ -225,14 +225,14 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>ライフサイクルテスト</i></td>
-      <td>公式のAdobe Pass認証非実稼動環境を使用して、アプリケーションを開発およびテストします。<ul><li>前生産</li><li>リリース – ステージング</li></ul><br/>リリース版の実稼働を開始する前に、これらの環境で徹底的な品質保証（QA）を実行します。<br/><br/> クライアントアプリケーションは、実稼動以外の環境で最初にエンドツーエンドの検証を完了しない限り、リリース実稼動に進んではなりません。</td>
-      <td>重大な欠陥や重大な欠陥が発生するリスク。<br/><br/> 短く効率的なデバッグパスがないと、Adobe サポートおよびエンジニアリングがすぐに介入できなくなる可能性があります。</td>
+      <td>公式のAdobe Pass認証非実稼動環境を使用して、アプリケーションを開発およびテストします。<ul><li>前生産</li><li>リリース – ステージング</li></ul><br/>リリース実稼動環境に移行する前に、これらの環境で徹底的な品質保証（QA）を実行します。<br/><br/> クライアントアプリケーションは、実稼動以外の環境でエンドツーエンドの検証を最初に完了することなく、リリース実稼動に進んではなりません。</td>
+      <td>重大な欠陥や重大な欠陥が発生するリスクがあります。<br/><br/> 短く効率的なデバッグパスが欠けていると、Adobe サポートおよびエンジニアリング部門の迅速な介入が妨げられることがあります。</td>
    </tr>
 </table>
 
 ## 推奨プラクティス {#recommended-practices}
 
-### 1.登録段階 {#recommended-practices-registration-phase}
+### &#x200B;1. 登録フェーズ {#recommended-practices-registration-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -242,12 +242,12 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>アクセストークンの検証</i></td>
-      <td>アクセストークンの有効期限が切れたときに、プロアクティブに有効性を確認して更新します。<br/><br/>HTTP 401 「未認証」エラーを処理する再試行メカニズムでは、最初にアクセストークンを更新してから元のリクエストを再試行するようにしてください。</td>
+      <td>アクセストークンの有効性をプロアクティブに確認し、有効期限が切れた場合に更新します。<br/><br/>HTTP 401 「未認証」エラーを処理する再試行メカニズムで、最初にアクセストークンが更新されることを確認してから、元のリクエストを再試行してください。</td>
       <td>HTTP 401 「未認証」エラー応答がトリガーされ、システムリソースが過負荷になり、待ち時間が長くなるリスクがあります。</td>
    </tr>
 </table>
 
-### 2.設定フェーズ {#recommended-practices-configuration-phase}
+### &#x200B;2. 設定フェーズ {#recommended-practices-configuration-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -262,7 +262,7 @@ ht-degree: 0%
    </tr>
 </table>
 
-### 3.認証フェーズ {#recommended-practices-authentication-phase}
+### &#x200B;3. 認証フェーズ {#recommended-practices-authentication-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -302,7 +302,7 @@ ht-degree: 0%
    </tr>
 </table>
 
-### 5.認証フェーズ {#recommended-practices-authorization-phase}
+### &#x200B;5. 承認フェーズ {#recommended-practices-authorization-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -347,7 +347,7 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>コードの再利用</i></td>
-      <td>軽微な調整を加えたデバイス識別子とデバイス情報の計算には REST API v1 のコードを再利用しますが、送信するのは REST API v2 で想定されるパラメーターとヘッダーのみにしてください。<br/><br/>DCR API を呼び出してアクセストークンを取得するために、REST API v1 のコードを再利用します</td>
+      <td>軽微な調整を加えたデバイス識別子とデバイス情報の計算には REST API v1 のコードを再利用しますが、送信するのは REST API v2 で想定されるパラメーターとヘッダーのみです。<br/><br/> アクセストークンを取得するための DCR API を呼び出すには、REST API v1 のコードを再利用します。</td>
       <td>-</td>
    </tr>
 </table>

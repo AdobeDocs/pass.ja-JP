@@ -4,7 +4,7 @@ description: MVPD統合ガイド
 exl-id: b918550b-96a8-4e80-af28-0a2f63a02396
 source-git-commit: 07bb12f7983f39b58e1b9795fdaa1bec4f68e674
 workflow-type: tm+mt
-source-wordcount: '1307'
+source-wordcount: '1326'
 ht-degree: 0%
 
 ---
@@ -71,7 +71,7 @@ Adobe Pass認証では、次のようなMVPD ビジネスロジックの効率�
 
 >[!NOTE]
 >
-> このドキュメントでは、Adobe Pass Authentication がサポートする各種プラットフォーム（ブラウザー、モバイルデバイス、TV に接続されたデバイスなど）で動作するアプリケーションの種類を総称してプログラマー（TVE）アプリケーションと呼びます。
+> このドキュメントでは、プログラマー（TVE）アプリケーションを、異なるプラットフォーム（ブラウザー、モバイルデバイス、TV 接続デバイスなど）で実行されるアプリケーションのタイプをまとめて指すために使用します。 Adobe Pass認証でサポートされます。
 
 ### 認証フェーズ {#authentication-phase}
 
@@ -105,7 +105,7 @@ Adobe Pass認証では、次のようなMVPD ビジネスロジックの効率�
 次の手順は、大まかな手順の概要を示しています。
 
 1. **リソース識別子の処理**\
-   保護されたコンテンツは、単純な文字列またはより複雑な構造の [&#x200B; リソース識別子 &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier) によって識別されます。 この ID は、プログラマーとMVPDによって事前に定義され、同意されています。 プログラマーのアプリケーションがリソース ID をAdobe Pass認証 [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) に送信します。
+   保護されたコンテンツは、単純な文字列またはより複雑な構造の [ リソース識別子 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier) によって識別されます。 この ID は、プログラマーとMVPDによって事前に定義され、同意されています。 プログラマーのアプリケーションがリソース ID をAdobe Pass認証 [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) に送信します。
 
 1. **MVPD認証チェック**\
    Adobe Pass Authentication Server は、標準化されたプロトコルを使用してMVPD認証エンドポイントと通信します。
@@ -114,10 +114,10 @@ Adobe Pass認証では、次のようなMVPD ビジネスロジックの効率�
    検証が完了すると、MVPDはユーザーにコンテンツにアクセスする権限があることを確認し、応答をAdobe Pass Authentication に返します。
 
 1. **決定およびメディアトークンの生成**\
-   Adobe Pass Authentication は、応答を確認し、キャッシュされる [&#x200B; 決定 &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md) を生成し、メディアトークンを含む決定をプログラマーのアプリケーション（web サイト）に返します。
+   Adobe Pass Authentication は、応答を確認し、キャッシュされる [ 決定 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md) を生成し、メディアトークンを含む決定をプログラマーのアプリケーション（web サイト）に返します。
 
 1. **コンテンツアクセスの検証**\
-   プログラマーのアプリケーションは、[&#x200B; メディアトークン検証子 &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier) を使用して、正しいユーザーが正しいコンテンツにアクセスしていることを確認します。 検証が完了すると、保護されたコンテンツを表示するアクセス権がユーザーに付与されます。
+   プログラマーのアプリケーションは、[ メディアトークン検証子 ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier) を使用して、正しいユーザーが正しいコンテンツにアクセスしていることを確認します。 検証が完了すると、保護されたコンテンツを表示するアクセス権がユーザーに付与されます。
 
 ## 使用権限について {#understanding-entitlements}
 

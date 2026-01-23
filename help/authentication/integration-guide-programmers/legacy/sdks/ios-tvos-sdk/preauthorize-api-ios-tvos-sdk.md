@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 事前認証 API を使用して、1 つ以上のリソースの事前認証決定を取得できます。これにより、アプリケーションで UI ヒントやコンテンツフィルタリングを実装できます。
 
@@ -173,7 +173,7 @@ Adobe Pass Authentication SDK エラーが原因で事前認証 API リクエス
 
 >[!IMPORTANT]
 >
->拡張エラーレポート機能のメディアを通じて取得できる追加エラーのリストは、[&#x200B; 詳細なエラーレポート &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) に記載されています。
+>拡張エラーレポート機能のメディアを通じて取得できる追加エラーのリストは、[ 詳細なエラーレポート ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) に記載されています。
 
 #### 成功
 
@@ -239,7 +239,7 @@ Adobe Pass Authentication SDK エラーが原因で事前認証 API リクエス
                    "code" : "authorization_denied_by_mvpd",
                    "message" : "User not authorized",
                    "details" : "Your subscription package does not include the "TestStream3" channel.",
-                   "helpUrl" : "https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+                   "helpUrl" : "https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                    "trace" : "0453f8c8-167a-4429-8784-cd32cfeaee58",
                    "action" : "none"
                 }
@@ -267,7 +267,7 @@ Adobe Pass認証サービスが事前認証 API リクエストのサービス�
             "code" : "bad_request",
             "message": "Missing required parameter : deviceId",
             "details": "",
-            "helpUrl" : "https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+            "helpUrl" : "https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/error-reportn/enhanced-error-codes.html",
             "trace" : "9f115e1c-0158-4a41-8805-9f68923f3646",
             "action" : "none"
         }

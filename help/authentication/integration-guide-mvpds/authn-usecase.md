@@ -4,8 +4,8 @@ description: MVPD認証
 exl-id: 9ff4a46e-a37b-414c-a163-9e586252a9c3
 source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
 workflow-type: tm+mt
-source-wordcount: '1851'
-ht-degree: 0%
+source-wordcount: '1908'
+ht-degree: 2%
 
 ---
 
@@ -29,11 +29,11 @@ ht-degree: 0%
 
 上記の手順で説明しているように、AuthN フローの実行中、MVPDは SAML ベースの AuthN リクエストを受け入れ、SAML AuthN 応答を送信する必要があります。
 
-[&#x200B; オンライン・コンテンツ・アクセス（OLCA）認証および承認インタフェースの仕様 &#x200B;](https://www.cablelabs.com/specifications/search?query=&category=&subcat=&doctype=&content=false&archives=false){target=_blanck} は、標準の AuthN 要求および応答を示します。 Adobe Pass Authentication では、MVPD がこの標準に基づいて使用権限メッセージを行う必要はありませんが、仕様を調べると、AuthN トランザクションに必要な主要な属性にinsightを指定できます。
+[ オンライン・コンテンツ・アクセス（OLCA）認証および承認インタフェースの仕様 ](https://www.cablelabs.com/specifications/search?query=&category=&subcat=&doctype=&content=false&archives=false){target=_blanck} は、標準の AuthN 要求および応答を示します。 Adobe Pass Authentication では、MVPD がこの標準に基づいて使用権限メッセージを行う必要はありませんが、仕様を調べると、AuthN トランザクションに必要な主要な属性にinsightを指定できます。
 
 >[!NOTE]
 >
->MVPDがAdobe Pass Authentication で受け取る AuthN リクエストには、デジタル署名が含まれています。 ただし、次の例では、簡潔にするために、署名は表示されません。 デジタル署名の表示例については、以降の節の [&#x200B; 認証応答 &#x200B;](#authn-response) の例を参照してください。
+>MVPDがAdobe Pass Authentication で受け取る AuthN リクエストには、デジタル署名が含まれています。 ただし、次の例では、簡潔にするために、署名は表示されません。 デジタル署名の表示例については、以降の節の [ 認証応答 ](#authn-response) の例を参照してください。
 
 SAML 認証リクエストの例：
 
@@ -189,7 +189,7 @@ SAML 認証リクエストの例：
 | InResponseTo | 証明中のエンティティがアサーションを提示する応答としての SAML プロトコル メッセージの ID です。 値は、認証リクエストで送信される ID 属性の値と等しい必要があります。 SAML core 2.0-os を参照 |
 | 問題の即時 | リクエストの発行時刻。 |
 | バージョン | リクエストのバージョン。 |
-| saml:Issuer | リクエストメッセージを生成したエンティティを識別します。 （この要素について詳しくは、2.2.5 節を参照してください。SAML core 2.0-os） |
+| saml:Issuer | リクエストメッセージを生成したエンティティを識別します。 （この要素について詳しくは、2.2.5 節を参照してください。 SAML core 2.0-os） |
 | samlp:Status | 対応するリクエストのステータスを表すコード。 |
 | samlp:StatusCode | 対応するリクエストに応答して実行されたアクティビティのステータスを表すコード。 |
 | saml:Assertion | このタイプは、すべてのアサーションに共通する基本情報を指定します。 |

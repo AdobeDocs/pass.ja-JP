@@ -4,7 +4,7 @@ description: Cookie の更新 – SameSite およびセキュアフラグ
 exl-id: cc1f60fd-fa64-48cb-a185-dba562a54c33
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '956'
+source-wordcount: '973'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -51,7 +51,7 @@ Adobe Pass Authentication Service は現在、一部のプラットフォーム�
 1. 重要：一部のユーザーエージェントは、*SameSite=None* 属性に対応していないことがわかっています。
 
    - Chrome 51 からChrome 66 までのChromeのバージョン（両端を含む）。 これらのChrome バージョンでは、*SameSite=None* が設定された Cookie が拒否されます。 これは、Android WebView だけでなく、Chromium 派生ブラウザーの古いバージョンにも影響します。 この動作は、当時の cookie 仕様のバージョンに従って正しく行われていましたが、仕様に新しい「なし」値が追加されたことで、Chrome 67 以降でこの動作が更新されました。 （Chrome 51 より前は、SameSite 属性は完全に無視され、すべての cookie は *SameSite=None* として扱われていました。）
-   - バージョン 12.13.2 以前のAndroidの UC ブラウザーのバージョン。古いバージョンでは *SameSite=None* の Cookie を拒否します。 この動作は、当時の cookie 仕様のバージョンに従って正しく動作していましたが、仕様に新しい「なし」値が追加され、UC ブラウザーの新しいバージョンでこの動作が更新されました。
+   - バージョン 12.13.2 以前のAndroidの UC ブラウザーのバージョン。 古いバージョンでは *SameSite=None* の Cookie を拒否します。 この動作は、当時の cookie 仕様のバージョンに従って正しく動作していましたが、仕様に新しい「なし」値が追加され、UC ブラウザーの新しいバージョンでこの動作が更新されました。
    - macOS 10.14 の Safari および埋め込みブラウザーのバージョンとiOS 12 のすべてのブラウザー。 これらのバージョンでは、*SameSite=None* がマークされた Cookie は、*SameSite=Strict* とマークされたかのように誤って処理されます。 このバグは、iOSおよびMacOSの新しいバージョンで修正されました。
 
 

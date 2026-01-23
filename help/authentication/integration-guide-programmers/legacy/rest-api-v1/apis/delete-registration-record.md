@@ -4,8 +4,8 @@ description: 登録リソースの削除
 exl-id: 42707070-2e1f-4847-93fd-30025aef56c1
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '174'
-ht-degree: 1%
+source-wordcount: '180'
+ht-degree: 7%
 
 ---
 
@@ -17,11 +17,11 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 >[!NOTE]
 >
-> REST API の実装には、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
+> REST API の実装には、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
 
 ## REST API エンドポイント {#clientless-endpoints}
 
@@ -44,7 +44,7 @@ ht-degree: 1%
 
 | エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;REGGIE_FQDN>/reggie/v1/{requestorId}/regcode/{registrationCode}</br></br> 例：</br></br>&lt;REGGIE_FQDN>/reggie/v1/regcode/ER45RTY | ストリーミングアプリ </br></br> プログラマ </br></br> サービス | 1.要求者 ID </br>    （パスコンポーネント） </br>2.  登録コード </br>    （パスコンポーネント） | DELETE | なし | 204 |
+| &lt;REGGIE_FQDN>/reggie/v1/{requestorId}/regcode/{registrationCode}</br></br> 例：</br></br>&lt;REGGIE_FQDN>/reggie/v1/regcode/ER45RTY | ストリーミングアプリ </br></br> プログラマ </br></br> サービス | &#x200B;1.  要求者 ID </br>    （パスコンポーネント） </br>2.  登録コード </br>    （パスコンポーネント） | DELETE | なし | 204 |
 
 {style="table-layout:auto"}
 
@@ -59,4 +59,4 @@ ht-degree: 1%
 
 </br>
 
-### [REST API リファレンスに戻る &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)
+### [REST API リファレンスに戻る ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)

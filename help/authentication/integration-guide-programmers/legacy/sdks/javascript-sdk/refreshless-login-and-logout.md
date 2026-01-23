@@ -4,7 +4,7 @@ description: 更新なしのログインとログアウト
 exl-id: 3ce8dfec-279a-4d10-93b4-1fbb18276543
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '1784'
+source-wordcount: '1816'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#overview}
 
@@ -58,7 +58,7 @@ Adobe Pass認証 Web クライアントには、MVPD の要件に応じて、2 �
 また、ユーザーがログインページを閉じることで、認証フローを明示的にキャンセルする場合もあります。 次に、プログラマーに対して提案するシナリオと解決策を示します。
 
 1. **フルページリダイレクト -** ログインページが閉じられると、ユーザーはプログラマーの web サイトに再度移動し、最初からフロー全体を開始する必要があります。 このシナリオでは、プログラマー側での明示的なアクションは必要ありません。
-1. **iFrame -** プログラマーは、「閉じる」ボタンがアタッチされた `div` （または同様の UI コンポーネント）内で iFrame をホストすることをお勧めします。 ユーザーが「閉じる」ボタンを押すと、プログラマーは関連する UI と共に iFrame を破棄し、`setSelectedProvider(null)` を実行します。 この呼び出しを使用すると、AccessEnabler は内部状態をクリアし、その後の認証フローを開始できるようになります。 `setAuthenticationStatus` と `sendTrackingData(AUTHENTICATION_DETECTION...)` は、（`getAuthentication` と `getAuthorization` の両方で）失敗した認証フローを知らせるためにトリガーされます。
+1. **iFrame -** プログラマーは、「閉じる」ボタンがアタッチされた `div` （または同様の UI コンポーネント）内で iFrame をホストすることをお勧めします。 ユーザーが「閉じる」ボタンを押すと、プログラマーは関連する UI と共に iFrame を破棄し、`setSelectedProvider(null)` を実行します。 この呼び出しを使用すると、AccessEnabler は内部状態をクリアし、その後の認証フローを開始できるようになります。`setAuthenticationStatus` と `sendTrackingData(AUTHENTICATION_DETECTION...)` は、（`getAuthentication` と `getAuthorization` の両方で）失敗した認証フローを知らせるためにトリガーされます。
 1. **ポップアップ** 一部のブラウザーではウィンドウの閉じるイベントを正確に検出できないので、ここでは別の方法を採用する必要があります（上記の iFrame フローとは対照的です）。 Adobeでは、ログインポップアップの有無を定期的に確認するタイマーをプログラマーが初期化することをお勧めします。 ウィンドウが存在しない場合、プログラマーはユーザーが手動でログインフローをキャンセルしたことを確認でき、プログラマーは `setSelectedProvider(null)` の呼び出しを続行できます。 トリガーされたコールバックは、上記のフロー 2 と同じです。
 
 </br>
@@ -79,7 +79,7 @@ AccessEnabler のログアウト API は、ライブラリのローカル・ス�
 >
 >更新のないログインとログアウトのフローが改善されたので、ブラウザーが web メッセージングを含む最新のHTML5 テクノロジーをサポートする必要があります。
 
-前述の認証（ログイン）フローとログアウトフローは、どちらも、各フローが完了した後にメインページをリロードすることで、同様のユーザーエクスペリエンスを提供します。  現在の機能は、更新なしのログイン（バックグラウンド）とログアウトを提供することで、ユーザーエクスペリエンスの向上を目的としています。 プログラマーは、2 つのブール値フラグ（`backgroundLogin` と `backgroundLogout`）を `configInfo` API の `setRequestor` パラメーターに渡すことで、バックグラウンドでのログインとログアウトを有効/無効にできます。 デフォルトでは、バックグラウンドのログイン/ログアウトは無効になっています（これにより、以前の実装との互換性が確保されます）。
+前述の認証（ログイン）フローとログアウトフローは、どちらも、各フローが完了した後にメインページをリロードすることで、同様のユーザーエクスペリエンスを提供します。  現在の機能は、更新なしのログイン（バックグラウンド）とログアウトを提供することで、ユーザーエクスペリエンスの向上を目的としています。 プログラマーは、2 つのブール値フラグ（`backgroundLogin` と `backgroundLogout`）を `setRequestor` API の `configInfo` パラメーターに渡すことで、バックグラウンドでのログインとログアウトを有効/無効にできます。 デフォルトでは、バックグラウンドのログイン/ログアウトは無効になっています（これにより、以前の実装との互換性が確保されます）。
 
 **例：**
 
@@ -96,7 +96,7 @@ AccessEnabler のログアウト API は、ライブラリのローカル・ス�
 
 次のポイントは、元の認証フローと改善されたフローの間の移行を説明します。
 
-1. フルページリダイレクトは、MVPDへのログインを実行する新しいブラウザータブに置き換えられます。 プログラマーは、ユーザーが（`window.open` を使用して）MVPDを選択すると、`mvpdwindow` という名前の新しいタブを（`iFrameRequired = false` を使用して）作成する必要があります。 次に、プログラマは `setSelectedProvider(<mvpd>)` を実行し、AccessEnabler が新しいタブにMVPDのログイン URL をロードできるようにします。 ユーザーが有効な認証情報を指定すると、Adobe Pass Authentication はタブを閉じ、window.postMessage をプログラマーの Web サイトに送信し、認証フローが完了したことを AccessEnabler に知らせます。 次のコールバックがトリガーされます。
+1. フルページリダイレクトは、MVPDへのログインを実行する新しいブラウザータブに置き換えられます。 プログラマーは、ユーザーが（`iFrameRequired = false` を使用して）MVPDを選択すると、`mvpdwindow` という名前の新しいタブを（`window.open` を使用して）作成する必要があります。 次に、プログラマは `setSelectedProvider(<mvpd>)` を実行し、AccessEnabler が新しいタブにMVPDのログイン URL をロードできるようにします。 ユーザーが有効な認証情報を指定すると、Adobe Pass Authentication はタブを閉じ、window.postMessage をプログラマーの Web サイトに送信し、認証フローが完了したことを AccessEnabler に知らせます。 次のコールバックがトリガーされます。
 
    - フローが `getAuthentication` によって開始された場合：`setAuthenticationStatus` および `sendTrackingData(AUTHENTICATION_DETECTION...)` がトリガーされて、認証の成功/失敗が通知されます。
 

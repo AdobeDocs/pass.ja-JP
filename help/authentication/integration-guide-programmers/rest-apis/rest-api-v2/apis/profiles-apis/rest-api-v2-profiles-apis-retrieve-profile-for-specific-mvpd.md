@@ -4,8 +4,8 @@ description: REST API V2 – 特定の mvpd のプロファイルを取得しま
 exl-id: ed1abc33-c279-4465-b5a0-b4e5b892076e
 source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '1083'
-ht-degree: 1%
+source-wordcount: '1138'
+ht-degree: 2%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -265,7 +265,7 @@ ht-degree: 1%
                   <br/><br/>
                   使用可能な値は次のとおりです。
                   <ul>
-                    <li><b>mvpd （Spectrum、Cablevision など）</b><br/> プロファイルは、基本認証、Platform ID を使用したシングルサインオン、サービストークンを使用したシングルサインオンの結果として作成されました。</li>
+                    <li><b>mvpd （例：Spectrum、Cablevision など） </b><br/> プロファイルは、基本認証、プラットフォーム ID を使用したシングルサインオン、サービストークンを使用したシングルサインオンなどの結果として作成されました。</li>
                     <li><b>Adobe</b><br/> 縮退アクセス、一時アクセスの結果、プロファイルが作成されました。</li>
                     <li><b>Apple</b><br/> プロファイルは次の結果として作成されました：パートナーAppleを使用したシングル サインオン。</li>
                   </ul>
@@ -322,7 +322,7 @@ ht-degree: 1%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>400、401、403、405、500</td>
+      <td>400, 401, 403, 405, 500</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -344,7 +344,7 @@ ht-degree: 1%
 
 ## サンプル {#samples}
 
-### 1.基本認証で取得した、特定の mvpd のプロファイルを取得する
+### &#x200B;1. 基本認証で取得した、特定の mvpd のプロファイルを取得します
 
 >[!BEGINTABS]
 
@@ -395,7 +395,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;2. サービストークン方式を使用した基本認証またはシングルサインオンにより取得した、特定の mvpd のプロファイルを取得する
+### &#x200B;2. 基本認証またはサービストークン方式を使用したシングルサインオンで取得した、特定の mvpd のプロファイルを取得します
 
 >[!BEGINTABS]
 
@@ -447,7 +447,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 3.基本認証または Platform ID 方式を使用したシングルサインオンにより取得した、特定の mvpd のプロファイルを取得する
+### &#x200B;3. Platform ID 方式を使用した、基本認証またはシングルサインオンによって取得された特定の mvpd のプロファイルを取得します
 
 >[!BEGINTABS]
 
@@ -499,7 +499,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 4.基本的な TempPass のプロファイルを取得
+### &#x200B;4. 基本 TempPass のプロファイルの取得
 
 >[!BEGINTABS]
 
@@ -555,7 +555,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 403,
     "code": "temporary_access_duration_limit_exceeded",
     "message": "The temporary access duration limit has been exceeded.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "authentication"
 }
 ```
@@ -571,14 +571,14 @@ Content-Type: application/json;charset=UTF-8
     "status": 500,
     "code": "invalid_configuration_temporary_access",
     "message": "The temporary access configuration is invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "configuration"
 }
 ```
 
 >[!ENDTABS]
 
-### 5.プロモーション TempPass のプロファイルを取得
+### &#x200B;5. プロモーション TempPass のプロファイルを取得
 
 >[!BEGINTABS]
 
@@ -648,7 +648,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 403,
     "code": "temporary_access_duration_limit_exceeded",
     "message": "The temporary access duration limit has been exceeded.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "none"
 }
 ```
@@ -664,7 +664,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 403,
     "code": "temporary_access_resources_limit_exceeded",
     "message": "The temporary access resources limit has been exceeded.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "authentication"
 }
 ```
@@ -680,7 +680,7 @@ Content-Type: application/json;charset=UTF-8
     "status": 500,
     "code": "invalid_configuration_temporary_access",
     "message": "The temporary access configuration is invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "none"
 }
 ```
@@ -696,14 +696,14 @@ Content-Type: application/json;charset=UTF-8
     "status": 400,
     "code": "invalid_header_identity_for_temporary_access",
     "message": "The identity for temporary access header value is missing or invalid.",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
     "action": "none"
 }
 ```
 
 >[!ENDTABS]
 
-### 6.最適化中に、特定の mvpd のプロファイルを取得する
+### &#x200B;6. 劣化が適用されている場合に、特定の mvpd のプロファイルを取得する
 
 >[!BEGINTABS]
 

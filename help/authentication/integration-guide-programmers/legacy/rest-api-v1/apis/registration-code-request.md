@@ -4,8 +4,8 @@ description: 登録ページ
 exl-id: 581b8e2e-7420-4511-88b9-f2cd43a41e10
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '509'
-ht-degree: 0%
+source-wordcount: '528'
+ht-degree: 2%
 
 ---
 
@@ -19,11 +19,11 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 >[!NOTE]
 >
-> REST API の実装には、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
+> REST API の実装には、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
 
 &lt; レジストリ_FQDN>:
 
@@ -43,7 +43,7 @@ ht-degree: 0%
 
 | エンドポイント | 呼び出 <br> 元 | 入力   <br> パラメーター | HTTP <br> メソッド | 応答 | HTTP <br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;REGGIE_FQDN>/reggie/v1/{requestor}/regcode<br> 例：<br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | ストリーミングアプリ <br> プログラマ <br> サービス | 1.依頼者 <br>    （パスコンポーネント） <br>2.  deviceId （ハッシュ化）   <br>    （必須） <br>3.  device_info/X-Device-Info （必須） <br>4.  mvpd （オプション） <br>5.  ttl （オプション） <br> | POST | 失敗した場合に登録コードおよび情報またはエラーの詳細を含む XML または JSON。 以下のサンプルを参照してください。 | 201 |
+| &lt;REGGIE_FQDN>/reggie/v1/{requestor}/regcode<br> 例：<br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | ストリーミングアプリ <br> プログラマ <br> サービス | &#x200B;1.  要求者 <br>    （パスコンポーネント） <br>2.  deviceId （ハッシュ化）   <br>    （必須） <br>3.  device_info/X-Device-Info （必須） <br>4.  mvpd （オプション） <br>5.  ttl （オプション） <br> | POST | 失敗した場合に登録コードおよび情報またはエラーの詳細を含む XML または JSON。 以下のサンプルを参照してください。 | 201 |
 
 {style="table-layout:auto"}
 
@@ -53,9 +53,9 @@ ht-degree: 0%
 | 承諾 | Header <br> Value: application/json | クライアントが理解できるコンテンツタイプを示します |
 | 要求者 | クエリパラメーター | この操作が有効なプログラマ requestorId です。 |
 | deviceId | クエリパラメーター | デバイス ID のバイト。 |
-| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: ヘッダー | ストリーミングデバイス情報。<br>**注意**：これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。 <br> 詳しくは、「デバイスと接続情報の受け渡し [&#x200B; を参照してください &#x200B;](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。 |
+| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: ヘッダー | Streaming Device information.<br>**Note**：これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。<br>詳しくは、「デバイスと接続情報の受け渡し [ を参照してください ](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。 |
 | mvpd | クエリパラメーター | この操作が有効なMVPD ID。 |
-| ttl | クエリパラメーター | このリグレコードの有効期間（秒）。<br>**メモ**:ttl に許可されている最大値は 36000 秒（10 時間）です。 値を大きくすると、400 HTTP 応答（無効なリクエスト）が返されます。 `ttl` を空のままにすると、Adobe Pass Authentication はデフォルト値の 30 分を設定します。 |
+| ttl | クエリパラメーター | この regcode の有効期間（秒）。<br>**注意**:ttl に使用できる最大値は 36000 秒（10 時間）です。 値を大きくすると、400 HTTP 応答（無効なリクエスト）が返されます。 `ttl` を空のままにすると、Adobe Pass Authentication はデフォルト値の 30 分を設定します。 |
 | _deviceType_ | クエリパラメーター | 非推奨（廃止予定）です。使用しないでください。 |
 | _deviceUser_ | クエリパラメーター | 非推奨（廃止予定）です。使用しないでください。 |
 | _appId_ | クエリパラメーター | 非推奨（廃止予定）です。使用しないでください。 |
@@ -64,24 +64,20 @@ ht-degree: 0%
 
 >[!CAUTION]
 >
->**ストリーミングデバイスの IP アドレス**
-><br>
->クライアントからサーバーへの実装の場合、ストリーミングデバイスの IP アドレスは、この呼び出しで暗黙的に送信されます。  **regcode** 呼び出しが、ストリーミングデバイスではなくプログラマーサービスとして行われるサーバー間実装の場合、ストリーミングデバイスの IP アドレスを渡すには次のヘッダーが必要です。
+>**ストリーミングデバイスの IP アドレス**><br>>クライアントからサーバーへの実装の場合、ストリーミングデバイスの IP アドレスは、この呼び出しで暗黙的に送信されます。  **regcode** 呼び出しが、ストリーミングデバイスではなくプログラマーサービスとして行われるサーバー間実装の場合、ストリーミングデバイスの IP アドレスを渡すには次のヘッダーが必要です。
 >
 >
 >```
 >X-Forwarded-For : <streaming_device_ip> 
 >```
 >
->ここで、`<streaming\_device\_ip>` はストリーミングデバイスのパブリック IP アドレスです。
-><br><br>
->例：<br>
+>ここで、`<streaming\_device\_ip>` はストリーミングデバイスのパブリック IP アドレスです。><br><br>>例：<br>
 >
 >```
 >POST /reggie/v1/{req_id}/regcode HTTP/1.1<br>X-Forwarded-For:203.45.101.20
 >```
 >
-><br>
+<br>
 
 ### 応答 JSON
 

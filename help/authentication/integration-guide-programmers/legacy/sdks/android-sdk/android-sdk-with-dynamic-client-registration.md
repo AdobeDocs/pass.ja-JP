@@ -4,7 +4,7 @@ description: Dynamic Client Registration のAndroid SDK
 exl-id: 8d0c1507-8e80-40a4-8698-fb795240f618
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '1301'
+source-wordcount: '1308'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#Intro}
 
@@ -42,7 +42,7 @@ Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../
 
 ## 機能デモ {#Demo}
 
-機能のコンテキストを詳しく説明する [&#x200B; このウェビナー &#x200B;](https://my.adobeconnect.com/pzkp8ujrigg1/) をご覧ください。これには、TVE ダッシュボードを使用してソフトウェアステートメントを管理する方法と、Android SDKの一部としてAdobeから提供されるデモアプリケーションを使用して生成されたステートメントをテストする方法のデモが含まれています。
+機能のコンテキストを詳しく説明する [ このウェビナー ](https://my.adobeconnect.com/pzkp8ujrigg1/) をご覧ください。これには、TVE ダッシュボードを使用してソフトウェアステートメントを管理する方法と、Android SDKの一部としてAdobeから提供されるデモアプリケーションを使用して生成されたステートメントをテストする方法のデモが含まれています。
 
 ## API の変更点 {#API}
 
@@ -98,7 +98,7 @@ Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../
 
 非推奨（廃止予定）:
 
-- *signedRequestorID*：秘密鍵でデジタル署名されたリクエスター ID のコピー。<!--For more details, see [Registering Native Clients](http://tve.helpdocsonline.com/registering-native-clients)-->。
+- *signedRequestorID*：秘密鍵でデジタル署名されたリクエスター ID のコピー。<!--For more details, see [Registering Native Clients](http://tve.helpdocsonline.com/registering-native-clients)-->.
 
 **コールバックがトリガーされました：** `setRequestorComplete()`
 
@@ -119,11 +119,11 @@ Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../
 
 ## プログラマ実装フロー {#Progr}
 
-### **1.アプリケーションの登録**
+### **1. アプリケーションの登録**
 
-a. Adobe Passから software\_statement と redirect\_uri を取得する（TVE Dashboard）
+a. software\_statement と redirect\_uri をAdobe Passから取得する（TVE Dashboard）
 
-b.これらの値をAdobe Pass SDKに渡す方法は 2 つあります。
+b. これらの値をAdobe Pass SDKに渡す方法は 2 つあります。
 
 strings.xml に次を追加します。
 
@@ -161,7 +161,7 @@ b. checkAuthentication （）
 - true：認証に移動します
 - false :「MVPDを選択」に移動します。
 
-c. getAuthentication :SDKの呼び出しパラメーターに **access_token** を含めます
+c. getAuthentication :SDKは、呼び出しパラメーターに **access_token** を含めます
 
 - mvpd remembered : setSelectedProvider （mvpd_id）に移動します
 - mvpd が選択されていません：displayProviderDialog
@@ -174,7 +174,7 @@ d. setSelectedProvider
 - ログインがキャンセルされました：MVPDの選択をリセット
 - 認証が完了したときにキャプチャするための URL スキームが「adobepass://redirect_uri」として確立されています
 
-e. get/checkAuthorization :SDKは、ヘッダーの **access_token** を Authorization:Bearer **access_token** として含めます。
+e. get/checkAuthorization :SDKは、ヘッダーに Authorization:Bearer **access_token** として **access_token** を含めます
 
 - 認証に成功した場合、
 メディアトークン

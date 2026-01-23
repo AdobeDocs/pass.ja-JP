@@ -4,7 +4,7 @@ description: Rest API クックブッククライアントからサーバーへ�
 exl-id: f54a1eda-47d5-4f02-b343-8cdbc99a73c0
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '886'
+source-wordcount: '906'
 ht-degree: 0%
 
 ---
@@ -17,18 +17,18 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#overview}
 
-このドキュメントでは、プログラマーのエンジニアリングチームが、REST API サービスを使用して「スマートデバイス」（ゲームコンソール、スマート TV アプリ、セットトップボックスなど）をAdobe Pass認証と統合する手順を順を追って説明します。 このクライアントからサーバーへのアプローチは、クライアント SDKではなく REST API を使用するので、一意の SDK を数多く開発することは不可能な、様々なプラットフォームの幅広いサポートが可能になります。 クライアントレスソリューションの仕組みに関する技術的な概要については、[&#x200B; クライアントレス技術概要 &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md) を参照してください。
+このドキュメントでは、プログラマーのエンジニアリングチームが「スマートデバイス」（ゲームコンソール、スマート TV アプリ、セットトップボックスなど）を統合する手順を順を追って説明します。 REST API サービスを使用したAdobe Pass認証で行います。 このクライアントからサーバーへのアプローチは、クライアント SDKではなく REST API を使用するので、一意の SDK を数多く開発することは不可能な、様々なプラットフォームの幅広いサポートが可能になります。 クライアントレスソリューションの仕組みに関する技術的な概要については、[ クライアントレス技術概要 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md) を参照してください。
 
 
 このアプローチでは、必要なフローを完了するために 2 つのコンポーネント（ストリーミングアプリと AuthN アプリ）が必要です。ストリーミングアプリでの起動、登録、承認、ビューメディアフローと、AuthN アプリでの認証フローです。
 
 ### スロットルメカニズム
 
-Adobe Pass認証 REST API は、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) によって制御されます。
+Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) によって制御されます。
 
 ## コンポーネント {#components}
 
@@ -72,17 +72,17 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 1. ユーザーが 2nd screen ログインアプリへのアクセスに使用する登録コードと URL を取得し、ユーザーに提示します。
 
-   a. ハッシュ化されたデバイス ID と「登録 URL」を渡して、Adobe Registration Code Service に POST リクエストを送信します。  例：[`<REGGIE_FQDN>/reggie/v1/[requestorId]/regcode [device ID]`](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md)
+   a.  ハッシュ化されたデバイス ID と「登録 URL」を渡して、Adobe Registration Code Service に POST リクエストを送信します。  例：[`<REGGIE_FQDN>/reggie/v1/[requestorId]/regcode [device ID]`](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md)
 
-   b.返された登録コードと URL をユーザーに提示します。
+   b.  返された登録コードと URL をユーザーに提示します。
 
-   c. Web 対応デバイスに切り替えるようにユーザーに指示し、URL に移動して、登録コードを入力します。
+   c.  Web 対応デバイスに切り替えるようにユーザーに指示し、URL に移動してから、登録コードを入力します。
 
 
 
 #### 認証フロー
 
-1. ユーザーは 2 番目の画面アプリから戻り、デバイスの「続行」ボタンを押します。 または、ポーリングメカニズムを実装して認証ステータスを確認することもできますが、Adobe Pass認証では、ポーリングよりも「続行」ボタンを使用することをお勧めします。 <!--(For information on employing a "Continue" button versus polling the Adobe Pass Authentication backend server, see the Clientless Technical Overview: Managing 2nd-Screen Workflow Transition.)--> 例：[\&lt;SP\_FQDN\>/api/v1/tokens/authn](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md)
+1. ユーザーは 2 番目の画面アプリから戻り、デバイスの「続行」ボタンを押します。 または、ポーリングメカニズムを実装して認証ステータスを確認することもできますが、Adobe Pass認証では、ポーリングよりも「続行」ボタンを使用することをお勧めします。<!--(For information on employing a "Continue" button versus polling the Adobe Pass Authentication backend server, see the Clientless Technical Overview: Managing 2nd-Screen Workflow Transition.)--> 例：[\&lt;SP\_FQDN\>/api/v1/tokens/authn](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md)
 
 2. GET リクエストをAdobe Pass Authentication Authorization サービスに送信して、認証を開始します。 例：`<SP_FQDN>/api/v1/authorize [device ID, Requestor ID, Resource ID]`
 
@@ -96,7 +96,7 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
    * AuthZ エラーの場合、ユーザーは要求されたメディアを監視する権限を持っていません。ユーザーに何らかのエラーメッセージが表示されるはずです。
 
-   * その他のエラー（接続エラー、ネットワークエラーなど）が発生した場合は、適切なエラーメッセージをユーザーに表示します。
+   * その他のエラー（接続エラー、ネットワークエラーなど）がある場合 次に、適切なエラーメッセージをユーザーに表示します。
 
 
 
@@ -106,12 +106,12 @@ Adobe Passは、DCR を使用して、プログラマーアプリケーション
 
 2. メディアは保護されていますか？
 
-   a. アプリがメディアが保護されているかどうかを確認します。
+   a.  アプリはメディアが保護されているかどうかを確認します。
 
-   b. メディアが保護されている場合、アプリは認証を開始します
+   b.  メディアが保護されている場合、アプリは認証を開始します
 （AuthZ）上記のフロー
 
-   c. メディアが保護されていない場合は、メディアを再生する
+   c.  メディアが保護されていない場合は、メディアを再生します
 ユーザー。
 
 3. メディアを再生します。

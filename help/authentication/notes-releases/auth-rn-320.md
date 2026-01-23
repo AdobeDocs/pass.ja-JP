@@ -4,7 +4,7 @@ description: Adobe Pass Authentication 3.2.0 リリースノート
 exl-id: 43aee317-dbac-4000-893e-839ee3e9f6ba
 source-git-commit: fcdf50b2caad20deef15fceeb3e23f4195c0078d
 workflow-type: tm+mt
-source-wordcount: '190'
+source-wordcount: '191'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -32,8 +32,8 @@ Adobe Pass認証：adobe-pass-**3.2.0**
 
 #### REST API v2
 
-* `missing_parameters_fallback` セッション API[&#x200B; 応答でパラメーターが見つからない場合に &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) 用される新しい理由が追加されました。
-* [&#x200B; セッション API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) 応答に新しいフィールド「device」が追加されました。
+* [ セッション API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) 応答でパラメーターが見つからない場合に `missing_parameters_fallback` 用される新しい理由が追加されました。
+* [ セッション API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) 応答に新しいフィールド「device」が追加されました。
 
 #### 新機能
 

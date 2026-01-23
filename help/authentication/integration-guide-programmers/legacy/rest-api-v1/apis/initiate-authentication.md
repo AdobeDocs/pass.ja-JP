@@ -4,8 +4,8 @@ description: 認証の開始
 exl-id: 55dddd29-68d6-4aae-8744-307fea285e29
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '306'
-ht-degree: 0%
+source-wordcount: '316'
+ht-degree: 4%
 
 ---
 
@@ -17,11 +17,11 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 >[!NOTE]
 >
-> REST API の実装には、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
+> REST API の実装には、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
 
 ## REST API エンドポイント {#clientless-endpoints}
 
@@ -46,7 +46,7 @@ MVPD選択イベントを通知して認証プロセスを開始します。 Ado
 
 | エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/authenticate | AuthN モジュール | &#x200B;1. requestor_id （必須） </br>2.  mso_id （必須） </br>3.  reg_code （必須） </br>4.  domain_name （必須） </br>5.  noflash=true - </br>    （必須、残差パラメーター） </br>6.  no_iframe=true （必須、残差パラメーター） </br>7.  追加のパラメーター（オプション） </br>8。  redirect_url （必須） | GET | ログイン Web アプリケーションは、MVPDのログインページにリダイレクトされます。 | 完全なリダイレクト実装用の 302 |
+| &lt;SP_FQDN>/api/v1/authenticate | AuthN モジュール | &#x200B;1.  requestor_id （必須） </br>2.  mso_id （必須） </br>3.  reg_code （必須） </br>4.  domain_name （必須） </br>5.  noflash=true - </br>    （必須、残差パラメーター） </br>6.  no_iframe=true （必須、残差パラメーター） </br>7.  追加のパラメーター（オプション） </br>8。  redirect_url （必須） | GET | ログイン Web アプリケーションは、MVPDのログインページにリダイレクトされます。 | 完全なリダイレクト実装用の 302 |
 
 {style="table-layout:auto"}
 
@@ -85,7 +85,7 @@ MVPD選択イベントを通知して認証プロセスを開始します。 Ado
 >
 >呼び出しには、次のような他の機能を有効にするオプションのパラメーターも含めることができます。
 >
-> * generic\_data - [&#x200B; プロモーション TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass) を使用できるようにします
+> * generic\_data - [ プロモーション TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass) を使用できるようにします
 >
 >```JSON
 >Example:

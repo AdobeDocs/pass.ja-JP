@@ -4,8 +4,8 @@ description: REST API V2 - ヘッダー – X-Device-Info
 exl-id: 0ef25e06-86de-427a-a938-7ba3817f0d5e
 source-git-commit: 42df16e34783807e1b5eb1a12ca9db92f4e4c161
 workflow-type: tm+mt
-source-wordcount: '1133'
-ht-degree: 2%
+source-wordcount: '1234'
+ht-degree: 16%
 
 ---
 
@@ -53,7 +53,7 @@ ht-degree: 2%
         <td></td>
         <td>primary ハードウェアタイプ</td>
         <td>デバイスの主要なハードウェアの種類。</td>
-        <td>&check;</td>
+        <td>チェック（&amp;check;）</td>
         <td>
             値は制限されています。
             <ul>
@@ -110,7 +110,7 @@ ht-degree: 2%
         <td><i>必須</i></td>
         <td>osName</td>
         <td>デバイスのオペレーティングシステム（OS）名。</td>
-        <td>&check;</td>
+        <td>チェック（&amp;check;）</td>
         <td>
             値は制限されています。
             <ul>
@@ -132,7 +132,7 @@ ht-degree: 2%
         <td></td>
         <td>osFamily</td>
         <td>デバイスのオペレーティングシステム（OS）グループ名。</td>
-        <td>&check;</td>
+        <td>チェック（&amp;check;）</td>
         <td>
             値は制限されています。
             <ul>
@@ -155,7 +155,7 @@ ht-degree: 2%
         <td></td>
         <td>osVendor</td>
         <td>デバイスのオペレーティングシステム（OS）のサプライヤ。</td>
-        <td>&check;</td>
+        <td>チェック（&amp;check;）</td>
         <td>
             値は制限されています。
             <ul>
@@ -185,7 +185,7 @@ ht-degree: 2%
         <td></td>
         <td>browserName</td>
         <td>ブラウザーの名前。</td>
-        <td>&check;</td>
+        <td>チェック（&amp;check;）</td>
         <td>
             値は制限されています。
             <ul>
@@ -205,7 +205,7 @@ ht-degree: 2%
         <td></td>
         <td>browserVendor</td>
         <td>ブラウザーの建物会社/組織。</td>
-        <td>&check;</td>
+        <td>チェック（&amp;check;）</td>
         <td>
             値は制限されています。
             <ul>
@@ -228,7 +228,7 @@ ht-degree: 2%
         <td>browserVersion</td>
         <td>デバイスのブラウザーのバージョン。</td>
         <td></td>
-        <td>例：60.0.3112</td>
+        <td>e.g. 60.0.3112</td>
     </tr>
     <tr>
         <td></td>
@@ -256,28 +256,28 @@ ht-degree: 2%
         <td>displayPpi</td>
         <td>デバイスの物理的な画面のピクセル密度。</td>
         <td></td>
-        <td>例：294</td>
+        <td>e.g. 294</td>
     </tr>
     <tr>
         <td></td>
         <td>diagonalScreenSize</td>
         <td>デバイスの物理的な画面の斜めの寸法（インチ）。</td>
         <td></td>
-        <td>例：5.5、10.1</td>
+        <td>e.g. 5.5, 10.1</td>
     </tr>
     <tr>
         <td></td>
         <td>connectionIp</td>
         <td>HTTP リクエストの送信に使用するデバイスの IP。</td>
         <td></td>
-        <td>例 8.8.4.4</td>
+        <td>e.g. 8.8.4.4</td>
     </tr>
     <tr>
         <td></td>
         <td>connectionPort</td>
         <td>HTTP リクエストの送信に使用するデバイスのポート。</td>
         <td></td>
-        <td>例：53124</td>
+        <td>e.g. 53124</td>
     </tr>
     <tr>
         <td><i>必須</i></td>
@@ -290,7 +290,7 @@ ht-degree: 2%
         <td></td>
         <td>connectionSecure</td>
         <td>ネットワーク接続のセキュリティの状態。</td>
-        <td>&check;</td>
+        <td>チェック（&amp;check;）</td>
         <td>
             値は制限されています。
             <ul>
@@ -339,7 +339,7 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 > 
 > コードスニペットは完全なものではないので、プロジェクトで機能させるには追加の変更が必要になる場合があります。
 >
-> 実際の実装に関係なく、`X-Device-Info` ヘッダーには、「[&#x200B; ディレクティブ &#x200B;](#directives) セクションで説明されている形式の値が含まれている必要があります。
+> 実際の実装に関係なく、`X-Device-Info` ヘッダーには、「[ ディレクティブ ](#directives) セクションで説明されている形式の値が含まれている必要があります。
 
 ### ブラウザー {#browsers}
 
@@ -351,10 +351,10 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 
 #### iOSと iPadOS {#ios-ipados}
 
-`X-Device-Info`iOSまたは iPadOS[&#x200B; を実行するデバイスの &#x200B;](https://developer.apple.com/documentation/ios-ipados-release-notes) ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照してください。
+[iOSまたは iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照してください。
 
 * [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice) のApple開発者向けドキュメント。
-* Apple開発者向けドキュメント [&#x200B; 到達可能性 &#x200B;](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
+* Apple開発者向けドキュメント [ 到達可能性 ](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
 * [uname](https://man7.org/linux/man-pages/man2/uname.2.html) に関する Linux マニュアルのドキュメント。
 
 ```C
@@ -452,9 +452,9 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 
 #### Android {#android}
 
-`X-Device-Info`Android[&#x200B; を実行するデバイスの &#x200B;](https://developer.android.com/about/versions) ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照します。
+[Android](https://developer.android.com/about/versions) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照します。
 
-* [&#x200B; ビルド &#x200B;](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
+* [ ビルド ](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
 
 ```JAVA
 private JSONObject computeClientInformation() {
@@ -559,10 +559,10 @@ private JSONObject computeClientInformation() {
 
 #### tvOS {#tvos}
 
-`X-Device-Info`tvOS[&#x200B; を実行するデバイスの &#x200B;](https://developer.apple.com/documentation/tvos-release-notes) ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照してください。
+[tvOS](https://developer.apple.com/documentation/tvos-release-notes) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照してください。
 
 * [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice) のApple開発者向けドキュメント。
-* Apple開発者向けドキュメント [&#x200B; 到達可能性 &#x200B;](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
+* Apple開発者向けドキュメント [ 到達可能性 ](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
 * [uname](https://man7.org/linux/man-pages/man2/uname.2.html) に関する Linux マニュアルのドキュメント。
 
 ```C
@@ -659,10 +659,10 @@ private JSONObject computeClientInformation() {
 
 #### Fire OS {#fireos}
 
-`X-Device-Info`Fire OS[&#x200B; を実行するデバイスの &#x200B;](https://developer.amazon.com/docs/fire-tv/fire-os-overview.html) ヘッダーを作成するには、次のドキュメントを参照してください。
+[Fire OS](https://developer.amazon.com/docs/fire-tv/fire-os-overview.html) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントを参照してください。
 
-* [&#x200B; ビルド &#x200B;](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
-* Amazon開発者向けドキュメント [Fire TV デバイスの識別 &#x200B;](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html)。
+* [ ビルド ](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
+* Amazon開発者向けドキュメント [Fire TV デバイスの識別 ](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html)。
 
 デバイス情報は、次のように構成できます。
 
@@ -692,7 +692,7 @@ private JSONObject computeClientInformation() {
 
 #### Roku OS {#rokuos}
 
-`X-Device-Info`Roku OS[&#x200B; を実行するデバイスの &#x200B;](https://developer.roku.com/docs/developer-program/release-notes/roku-os-release-notes.md) ヘッダーを作成するには、次のドキュメントを参照してください。
+[Roku OS](https://developer.roku.com/docs/developer-program/release-notes/roku-os-release-notes.md) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントを参照してください。
 
 * [ifDeviceInfo](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md) 用の Roku 開発者向けドキュメント。
 

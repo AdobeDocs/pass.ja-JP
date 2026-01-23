@@ -4,7 +4,7 @@ description: シングルテナント/ポリシーおよび複数のアプリケ
 exl-id: 5c579c7d-f235-4dba-95c2-8485021d9065
 source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
 workflow-type: tm+mt
-source-wordcount: '241'
+source-wordcount: '242'
 ht-degree: 0%
 
 ---

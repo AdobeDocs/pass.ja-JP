@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -31,7 +31,7 @@ iOS SDK バージョン 3.1 以降では、実装者は WKWebView または UIWe
 
 ## 既知の問題 {#known-issues}
 
-Adobeの AccessEnabler は、隠し内部の UIWebView インスタンスを使用して、特定の MVPD に対して「パッシブ認証 [&#x200B; を実行し &#x200B;](/help/authentication/integration-guide-programmers/legacy/sso-access/sso-passive-authn.md) す。 「パッシブ」フローは、各リクエスター ID に対して認証を必要とする MVPD で役立ち、このフローから、SSO エクスペリエンス（Adobe SSO）をシミュレーションするために複数のiOS アプリケーションで同じチーム ID を使用するプログラマーがメリットを受けました。 この機能は、現在、限られた数の MVPD で使用されています。
+Adobeの AccessEnabler は、隠し内部の UIWebView インスタンスを使用して、特定の MVPD に対して「パッシブ認証 [ を実行し ](/help/authentication/integration-guide-programmers/legacy/sso-access/sso-passive-authn.md) す。 「パッシブ」フローは、各リクエスター ID に対して認証を必要とする MVPD で役立ち、このフローから、SSO エクスペリエンス（Adobe SSO）をシミュレーションするために複数のiOS アプリケーションで同じチーム ID を使用するプログラマーがメリットを受けました。 この機能は、現在、限られた数の MVPD で使用されています。
 
 この機能では、Adobeが認証 Cookie を取得し、「パッシブ」フロー中に再生できる UIWebView の動作を使用しました。 WKWebView では、Adobeがログイン時に設定された Cookie を取得し、WKWebView の非表示インスタンスを使用して再生するのを防ぐ、より強力なセキュリティが導入されています。 このセキュリティの向上により、「パッシブ」フローでは、非常に限定的な MVPD のセット（同じチーム ID を使用する複数のアプリケーション）しかメリットを受けなかったことを考えると、Adobeでは、webview を使用して認証を行う MVPD の「パッシブ認証」機能を削除しました。
 

@@ -4,7 +4,7 @@ description: Xbox 360 および XboxOne クライアントレスでのプログ�
 exl-id: ff7254de-9ea4-4c27-a186-d1c2eea12222
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '476'
+source-wordcount: '484'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 
 1. プログラマーは、次の情報を提供して、Adobe Pass認証のクライアントレスソリューションに対して Xbox 360/One を有効にするための Zendesk チケットを作成します。

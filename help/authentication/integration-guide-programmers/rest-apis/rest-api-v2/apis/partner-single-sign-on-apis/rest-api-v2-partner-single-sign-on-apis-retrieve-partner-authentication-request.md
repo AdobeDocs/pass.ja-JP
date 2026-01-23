@@ -4,8 +4,8 @@ description: REST API V2 - パートナー認証リクエストの取得
 exl-id: 52d8a8e9-c176-410f-92bc-e83449278943
 source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '1283'
-ht-degree: 0%
+source-wordcount: '1311'
+ht-degree: 1%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 ## リクエスト {#request}
 
@@ -246,7 +246,7 @@ ht-degree: 0%
                   <ul>
                     <li><b>partner_profile</b><br/> ストリーミングデバイスは、提供されたパートナー認証要求を使用して、プロファイルの取得に利用できるパートナー認証応答を取得できます。</li>
                     <li><b> 認証 </b><br/> パートナーのシングルサインオンフローが続行できない場合、ストリーミングデバイスは基本認証フローにフォールバックする可能性があります。<br/> ストリーミングデバイスまたは別のデバイスが、指定された URL をユーザーエージェントで開く必要があります。</li>
-                    <li><b> 再開 </b><br/> パートナーのシングルサインオンフローが続行できない場合、ストリーミングデバイスは基本認証フローにフォールバックする可能性があります。<br/> ストリーミングデバイスまたは別のデバイスは、不足しているパラメーターを指定し、コードを使用して認証セッションを再開する必要があります。</li>
+                    <li><b> 再開 </b><br/> パートナーのシングルサインオンフローが続行できない場合、ストリーミングデバイスは基本認証フローにフォールバックする可能性があります。<br/> ストリーミングデバイスまたは別のデバイスは、欠落しているパラメーターを指定し、コードを使用して認証セッションを再開する必要があります。</li>
                     <li><b>authorize</b><br/> ストリーミングデバイスは、決定フローを直接続行できます。</li>
                   </ul>
                <td><i>必須</i></td>
@@ -358,7 +358,7 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>400、401、405、500</td>
+      <td>400, 401, 405, 500</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -380,7 +380,7 @@ ht-degree: 0%
 
 ## サンプル {#samples}
 
-### &#x200B;1. パートナー認証要求を取得する
+### &#x200B;1. パートナー認証要求の取得
 
 >[!BEGINTABS]
 
@@ -427,7 +427,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;2. パートナー認証要求を取得しますが、パフォーマンスの低下が適用されます
+### &#x200B;2. パートナー認証要求を取得しますが、低下が適用されます
 
 >[!BEGINTABS]
 
@@ -469,7 +469,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;3. パートナー認証要求を取得するが、AP-Partner-Framework-Status ヘッダー値が見つからないか無効なため、基本認証フローにフォールバックする
+### &#x200B;3. パートナー認証要求を取得しますが、AP-Partner-Framework-Status ヘッダー値が見つからないか無効なため、基本認証フローにフォールバックします
 
 >[!BEGINTABS]
 
@@ -514,7 +514,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;4. パートナー認証リクエストを取得するが、Adobe Pass バックエンドでのパートナーのシングルサインオン設定が原因で基本認証フローにフォールバックする
+### &#x200B;4. パートナー認証リクエストを取得しますが、Adobe Pass バックエンドでのパートナーのシングルサインオン設定が原因で、基本認証フローにフォールバックします
 
 >[!BEGINTABS]
 
@@ -559,7 +559,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;5. パートナー認証要求を取得するが、パラメーターが不足しているため基本認証フローにフォールバックする
+### &#x200B;5. パートナー認証要求を取得しますが、パラメーターが見つからないため、基本認証フローにフォールバックします
 
 >[!BEGINTABS]
 

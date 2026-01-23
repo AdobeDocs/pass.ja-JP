@@ -3,7 +3,7 @@ title: 主要な概念
 description: セッション、ポリシー、メタデータなど、同時実行監視の基本概念について説明します
 source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
 workflow-type: tm+mt
-source-wordcount: '697'
+source-wordcount: '702'
 ht-degree: 0%
 
 ---
@@ -76,8 +76,8 @@ ht-degree: 0%
 
 | カテゴリ | 例 | 目的 |
 |-----------------|------------------------------------------|---------------------------------|
-| **デバイス** | `deviceId`、`deviceType`、`osName` | デバイスの識別と分類 |
-| **コンテンツ** | `channel`、`contentType`、`assetId` | 監視の対象を記述 |
+| **デバイス** | `deviceId`, `deviceType`, `osName` | デバイスの識別と分類 |
+| **コンテンツ** | `channel`, `contentType`, `assetId` | 監視の対象を記述 |
 | **ユーザー** | `subject`, `subscriptionTier` | ユーザー固有の情報 |
 | **適用** | `applicationName`, `applicationPlatform` | アプリ固有の詳細 |
 | **場所** | `country`, `hba` | 地理的情報とネットワーク情報 |

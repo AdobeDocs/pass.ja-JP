@@ -4,8 +4,8 @@ description: 2 番目の画面の Web アプリによる認証フローの確認
 exl-id: 5807f372-a520-4069-b837-67ae41b7f79b
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '232'
-ht-degree: 0%
+source-wordcount: '240'
+ht-degree: 5%
 
 ---
 
@@ -17,11 +17,11 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 >[!NOTE]
 >
-> REST API の実装には、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
+> REST API の実装には、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
 
 ## REST API エンドポイント {#clientless-endpoints}
 
@@ -44,7 +44,7 @@ ht-degree: 0%
 
 | エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| SP_FQDN/api/v1/checkauthn/{registration code} | ログイン Web アプリ | （1）登録記号 </br>    （パスコンポーネント） </br>2.  要求者 </br>    （必須） | GET | 失敗した場合にエラーの詳細を含む XML または JSON。 | 200 – 成功   </br>403 – 禁止されています |
+| SP_FQDN/api/v1/checkauthn/{registration code} | ログイン Web アプリ | &#x200B;1.  登録コード </br>    （パスコンポーネント） </br>2.  要求者 </br>    （必須） | GET | 失敗した場合にエラーの詳細を含む XML または JSON。 | 200 – 成功   </br>403 – 禁止されています |
 
 </br>
 
@@ -63,4 +63,4 @@ ht-degree: 0%
     }
 ```
 
-### [REST API リファレンスに戻る &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)
+### [REST API リファレンスに戻る ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)

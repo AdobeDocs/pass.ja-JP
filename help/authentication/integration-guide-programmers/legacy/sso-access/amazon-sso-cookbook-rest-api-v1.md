@@ -4,8 +4,8 @@ description: Amazon SSO クックブック（REST API V1）
 exl-id: 4c65eae7-81c1-4926-9202-a36fd13af6ec
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '613'
-ht-degree: 0%
+source-wordcount: '629'
+ht-degree: 1%
 
 ---
 
@@ -17,11 +17,11 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 Adobe Pass認証 REST API V1 は、FireOS で動作するクライアントアプリケーションのエンドユーザーに対して、Platform シングルサインオン（SSO）をサポートしています。
 
-このドキュメントは、既存の [REST API V1 概要 &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md) の拡張機能として機能し、概要を示します。
+このドキュメントは、既存の [REST API V1 概要 ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md) の拡張機能として機能し、概要を示します。
 
 ## platform id フローを使用したAmazonのシングルサインオン {#cookbook}
 
@@ -136,7 +136,7 @@ Amazon SSO SDKは、同期 API と非同期 API の両方を提供して、SSO �
 ストリーミングアプリケーションで次の処理が行われていることを確認します。
 
 * Amazon デバイス上で動作する必要のあるAmazon コンパニオンアプリケーションがない。
-   * ストリーミングアプリケーションでは、次のクラス `ClassNotFoundException` ードで実行時に `com.amazon.ottssotokenlib.SSOEnabler` が発生する場合があります。
+   * ストリーミングアプリケーションでは、次のクラス `com.amazon.ottssotokenlib.SSOEnabler` ードで実行時に `ClassNotFoundException` が発生する場合があります。
 
 * 上記の API で返す必要のある SSO トークン（プラットフォーム ID）ペイロードがありません。
    * ストリーミングアプリケーションは、AmazonおよびAdobeの担当者に問い合わせて調査する場合があります。

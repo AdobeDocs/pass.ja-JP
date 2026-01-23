@@ -4,8 +4,8 @@ description: Charles プロキシの使用
 exl-id: bb38543f-f6bc-4b5a-91b8-41bc51ee4c56
 source-git-commit: 175755aa7463257487b29c5f4da989cf34e91bfd
 workflow-type: tm+mt
-source-wordcount: '376'
-ht-degree: 0%
+source-wordcount: '379'
+ht-degree: 1%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 **Charles:** <http://charlesproxy.com>
 
@@ -127,7 +127,7 @@ iOS デバイスで、「`\[ *Settings* -\> *Wi-FI* -\> (*YOUR\_WIFI\_NETWORK)* 
 -->
 
 </br>
-ここでは、Charles を実行しているマシンの IP とポートを指定する必要があります。 <span style="line-height: 1.6em;">iOS デバイスで Safari を開いて web ページを開こうとすると、Charles が稼働しているマシンで次のポップアップが表示されます。
+ここでは、Charles を実行しているマシンの IP とポートを指定する必要があります。<span style="line-height: 1.6em;">iOS デバイスで Safari を開いて web ページを開こうとすると、Charles が稼働しているマシンで次のポップアップが表示されます。
 
 </br>
 
@@ -156,4 +156,4 @@ iOS デバイスで、「`\[ *Settings* -\> *Wi-FI* -\> (*YOUR\_WIFI\_NETWORK)* 
 <http://www.charlesproxy.com/documentation/configuration/browser-and-system-configuration>
 
 
-Android デバイスから [Charles プロキシ &#x200B;](http://charlesproxy.com/charles.crt) を参照します。
+Android デバイスから [Charles プロキシ ](http://charlesproxy.com/charles.crt) を参照します。

@@ -4,7 +4,7 @@ description: Amazon FireOS 統合クックブック
 exl-id: 1982c485-f0ed-4df3-9a20-9c6a928500c2
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '1447'
+source-wordcount: '1428'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -58,7 +58,7 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
 ### A.前提条件 {#prereqs}
 
 1. コールバック関数を作成します。
-   - [`setRequestorComplete （）`](#$setRequestorComplete)
+   - [`setRequestorComplete()`](#$setRequestorComplete)
 
       - `setRequestor()` によってトリガーされ、成功または失敗を返します。     成功とは、資格コールを続行できることを示します。
 
@@ -66,7 +66,7 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
 
       - ユーザーがプロバイダー（MVPD）を選択しておらず、まだ認証されていない場合にのみ、`getAuthentication()` によってトリガーされます。 `mvpds` パラメーターは、ユーザーが使用できるプロバイダーの配列です。
 
-   - [&#39;setAuthenticationStatus （status, reason）&#39;](#$setAuthNStatus)
+   - [`setAuthenticationStatus(status, reason)`](#$setAuthNStatus)
 
       - 毎回 `checkAuthentication()` によってトリガーされます。 ユーザーが既に認証済みで、プロバイダーを選択している場合にのみ、`getAuthentication()` によってトリガーされます。
 
@@ -76,32 +76,32 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
 
       - AmazonFireOS SDKでは無視されます。このメソッドは、ユーザーがMVPDを選択した後、が `getAuthentication()` によってトリガーされるAndroid プラットフォームで使用されます。  `url` パラメーターは、MVPDのログインページの場所を指定します。
 
-   - [&#39;sendTrackingData （event, data）&#39;](#$sendTrackingData)
+   - [`sendTrackingData(event, data)`](#$sendTrackingData)
 
       - `checkAuthentication(), getAuthentication(), checkAuthorization(), getAuthorization(), setSelectedProvider()` によってトリガーされます。
 `event` パラメーターは、発生した使用権限イベントを示します。`data` パラメーターは、イベントに関連する値のリストです。
 
-   - [&#39;setToken （token, resource）&#39;](#$setToken)
+   - [`setToken(token, resource)`](#$setToken)
 
       - リソースを表示する認証が成功した後、`checkAuthorization()` および `getAuthorization()` によってトリガーされます。
       - `token` パラメーターは短時間のみ有効なメディアトークンです。`resource` パラメーターは、ユーザーが表示を許可されているコンテンツです。
 
-   - [&#39;tokenRequestFailed （resource, code, description）&#39;](#$tokenRequestFailed)
+   - [`tokenRequestFailed(resource, code, description)`](#$tokenRequestFailed)
 
       - 認証に失敗した後、`checkAuthorization()` および `getAuthorization()` によってトリガーされます。
       - `resource` パラメーターは、ユーザーが表示しようとしたコンテンツです。`code` パラメーターは、エラーのタイプを示すエラーコードです。`description` パラメーターは、エラーコードに関連付けられたエラーの説明です。
 
-   - [&#39;selectedProvider （mvpd）&#39;](#$selectedProvider)
+   - [`selectedProvider(mvpd)`](#$selectedProvider)
 
       - `getSelectedProvider()` によってトリガーされます。
       - `mvpd` パラメーターは、ユーザーが選択したプロバイダーに関する情報を提供します。
 
-   - [&#39;setMetadataStatus （metadata, key, arguments）&#39;](#$setMetadataStatus)
+   - [`setMetadataStatus(metadata, key, arguments)`](#$setMetadataStatus)
 
       - `getMetadata().` によってトリガー
       - `metadata` パラメーターは、要求された特定のデータを提供します。`key` パラメーターは、`getMetadata()` 要求で使用されるキーで、`arguments` パラメーターは、`getMetadata()` に渡された辞書と同じです。
 
-   - [&#39;preauthorizedResources （resources）&#39;](#$preauthResources)
+   - [`preauthorizedResources(resources)`](#$preauthResources)
 
       - `checkPreauthorizedResources()` によってトリガーされます。
       - `authorizedResources` パラメーターは、ユーザーが表示を許可されているリソースを表します。
@@ -132,7 +132,7 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
    1. `setRequestorComplete()` コールバックのトリガー（`AccessEnabler` デリゲートの一部）を待ちます。  このオプションを使用すると、最も確実性の高い処理 `setRequestor()` 完了するので、ほとんどの実装に対してこのオプションを使用することをお勧めします。
    1. `setRequestorComplete()` コールバックのトリガーを待たずに続行し、使用権限リクエストの発行を開始します。 これらの呼び出し（checkAuthentication、checkAuthorization、getAuthentication、getAuthorization、checkPreauthorizedResource、getMetadata、logout）は `AccessEnabler` ライブラリによってキューに入れられ、`setRequestor()` の後に実際のネットワーク呼び出しを行います。 ネットワーク接続が不安定な場合など、このオプションが中断される場合があります。
 
-1. [checkAuthentication （） &#x200B;](#$checkAuthN) を呼び出すと、完全な認証フローを開始せずに既存の認証を確認できます。  この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
+1. [checkAuthentication （） ](#$checkAuthN) を呼び出すと、完全な認証フローを開始せずに既存の認証を確認できます。  この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
 
 - **依存関係：** `setRequestor()` の呼び出しが成功した（この依存関係は、後続のすべての呼び出しにも適用されます）。
 
@@ -144,7 +144,7 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
 
    **トリガー:**
 
-   - ユーザーが既に認証されている場合は、setAuthenticationStatus （） コールバック。  この場合は、[&#x200B; 認証フロー &#x200B;](#authz_flow) に直接進みます。
+   - ユーザーが既に認証されている場合は、setAuthenticationStatus （） コールバック。  この場合は、[ 認証フロー ](#authz_flow) に直接進みます。
    - ユーザーがまだ認証されていない場合の displayProviderDialog （） コールバック。
 
 1. `displayProviderDialog()` に送信されたプロバイダーのリストをユーザーに提示します。
@@ -155,7 +155,7 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
    >この時点で、ユーザーは認証フローをキャンセルできます。 この場合、`AccessEnabler` は内部状態をクリーンアップし、認証フローをリセットします。
 
 1. ユーザーが正常にログインすると、WebView が閉じます。
-1. バックエンドサーバーから認証トークンを取得するように `getAuthenticationToken(),` に指示する `AccessEnabler` を呼び出します。
+1. バックエンドサーバーから認証トークンを取得するように `AccessEnabler` に指示する `getAuthenticationToken(),` を呼び出します。
 1. [ オプション ] [`checkPreauthorizedResources(resources)`](#$checkPreauth) を呼び出して、ユーザーが表示を許可されているリソースを確認します。 `resources` パラメーターは、ユーザーの認証トークンに関連付けられた、保護されたリソースの配列です。
 
    **トリガー:** `preAuthorizedResources()` コールバック\
@@ -178,7 +178,7 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
    - `getAuthorization()` が失敗した場合：スローされた例外を調べて、そのタイプ（AuthN、AuthZ など）を特定します。
       - 認証（AuthN）エラーの場合は、認証フローを再開します。
       - 認証（AuthZ）エラーの場合、ユーザーは要求されたメディアを監視する権限がなく、何らかのエラーメッセージがユーザーに表示されます。
-      - 他のタイプのエラー（接続エラー、ネットワークエラーなど）がある場合は、適切なエラーメッセージをユーザーに表示します。
+      - その他のタイプのエラー（接続エラー、ネットワークエラーなど）が発生した場合 次に、適切なエラーメッセージをユーザーに表示します。
 
 1. ショートメディアトークンを検証します。
 
@@ -193,7 +193,7 @@ Amazon FireOS 用のAdobe Pass認証使用権ソリューションは、最終�
 
 1. 表示するメディアを選択します。
 1. メディアは保護されていますか？  選択したメディアが保護されているかどうかを確認します。
-   - 選択したメディアが保護されている場合、アプリケーションは上記の [&#x200B; 認証フロー &#x200B;](#authz_flow) を開始します。
+   - 選択したメディアが保護されている場合、アプリケーションは上記の [ 認証フロー ](#authz_flow) を開始します。
    - 選択したメディアが保護されていない場合は、そのユーザーのメディアを再生します。
 
 ### F. ログアウトフロー {#logout_flow}

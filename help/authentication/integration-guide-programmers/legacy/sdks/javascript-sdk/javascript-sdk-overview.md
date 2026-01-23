@@ -4,7 +4,7 @@ description: JavaScript SDKの概要
 exl-id: 8756c804-a4c1-4ee3-b2b9-be45f38bdf94
 source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
 workflow-type: tm+mt
-source-wordcount: '510'
+source-wordcount: '515'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要
 
@@ -35,7 +35,7 @@ Adobe Pass Authentication JavaScript統合は、使い慣れた JS web アプリ
 
 ユーザーがMVPDにログインして認証されるようにするには、ページまたはプレーヤーが、ユーザーがMVPDを識別する方法を提供する必要があります。 MVPDの選択ダイアログのデフォルトバージョンが、開発用に提供されています。 実稼動で使用するには、独自のMVPD セレクターを実装する必要があります。
 
-顧客のプロバイダーが既にわかっている場合は、ユーザーの操作なしで [&#x200B; プログラムによってMVPDを設定 &#x200B;](/help/authentication/home.md) できます。 方法は同じですが、プロバイダーセレクターダイアログを呼び出して顧客にMVPDを選択するように依頼する手順は省略されます。
+顧客のプロバイダーが既にわかっている場合は、ユーザーの操作なしで [ プログラムによってMVPDを設定 ](/help/authentication/home.md) できます。 方法は同じですが、プロバイダーセレクターダイアログを呼び出して顧客にMVPDを選択するように依頼する手順は省略されます。
 
 ## サービスプロバイダーの表示 {#displaying-the-service-provider}
 
@@ -55,7 +55,7 @@ Adobe Pass Authentication JavaScript統合は、使い慣れた JS web アプリ
     </head>
     <body>
         <div id="alternative">
-        <a href="http://www.adobe.com/go/getflashplayer_jp"> 
+        <a href="http://www.adobe.com/go/getflashplayer"> 
             <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" 
                  alt="Get Adobe Flash player"/> </a>
         </div> 

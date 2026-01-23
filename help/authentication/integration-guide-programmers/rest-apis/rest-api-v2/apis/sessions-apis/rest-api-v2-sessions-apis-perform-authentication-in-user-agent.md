@@ -4,8 +4,8 @@ description: REST API V2 - ユーザーエージェントで認証を実行し�
 exl-id: d615dde0-71a8-4b6c-a12e-1e3b5e20728c
 source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '240'
-ht-degree: 3%
+source-wordcount: '242'
+ht-degree: 5%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 3%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -120,7 +120,7 @@ ht-degree: 3%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>400、405、500</td>
+      <td>400, 405, 500</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -142,7 +142,7 @@ ht-degree: 3%
 
 ## サンプル {#samples}
 
-### &#x200B;1. ユーザーエージェントで認証を実行する
+### &#x200B;1. ユーザーエージェントでの認証の実行
 
 >[!BEGINTABS]
 

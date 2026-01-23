@@ -4,7 +4,7 @@ description: Dynamic Client Registration を使用したAmazon FireOS SDK
 exl-id: 27acf3f5-8b7e-4299-b0f0-33dd6782aeda
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '1169'
+source-wordcount: '1173'
 ht-degree: 0%
 
 ---
@@ -18,7 +18,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
@@ -81,7 +81,7 @@ FireOS AccessEnabler SDK for FireTV は、セッション Cookie を使用せず
 
 非推奨（廃止予定）:
 
-- *signedRequestorID*：秘密鍵でデジタル署名されたリクエスター ID のコピー。<!--For more details, see [Registering Native Clients](http://tve.helpdocsonline.com/registering-native-clients)-->。
+- *signedRequestorID*：秘密鍵でデジタル署名されたリクエスター ID のコピー。<!--For more details, see [Registering Native Clients](http://tve.helpdocsonline.com/registering-native-clients)-->.
 
 **コールバックがトリガーされました：** `setRequestorComplete()`
 
@@ -103,7 +103,7 @@ FireOS AccessEnabler SDK for FireTV は、セッション Cookie を使用せず
 
 ## プログラマ実装フロー {#Progr}
 
-### **1.アプリケーションの登録**
+### **1. アプリケーションの登録**
 
 1. Adobe Passから software\_statement を取得する（TVE Dashboard）
 1. これらの値をAdobe Pass SDKに渡す方法は 2 つあります。
@@ -117,9 +117,9 @@ FireOS AccessEnabler SDK for FireTV は、セッション Cookie を使用せず
 
 
 
-### **2。 アプリケーションの設定**
+### **2. アプリケーションの設定**
 
-- a. setRequestor （requestor\_id）
+- a.  setRequestor （requestor\_id）
 
   SDKは、次の操作を実行します。
 
@@ -139,7 +139,7 @@ FireOS AccessEnabler SDK for FireTV は、セッション Cookie を使用せず
    - *true*：認証に移動します
    - *false* :「MVPDを選択」に移動します
 
-- c. getAuthentication :SDKの呼び出しパラメーターに **access_token** が含まれます
+- c. getAuthentication :SDKの呼び出しパラメーターには **access_token** が含まれます
 
    - mvpd remembered : setSelectedProvider （mvpd\_id）に移動します
    - mvpd が選択されていません：displayProviderDialog
@@ -152,7 +152,7 @@ FireOS AccessEnabler SDK for FireTV は、セッション Cookie を使用せず
    - ログインがキャンセルされました：MVPDの選択をリセット
    - 認証が完了したときにキャプチャするための URL スキームが「adobepass://android.app」として確立されています
 
-- e. get/checkAuthorization :SDKは、Authorization: Bearer **access\_token &#x200B;** として、ヘッダーに **access\_token** を含めます。
+- e. get/checkAuthorization :SDKは、Authorization: Bearer **access\_token**&#x200B;としてヘッダーに **access\_token ** を含めます
 
 - 認証に成功すると、メディアトークンを取得するための呼び出しが行われます
 

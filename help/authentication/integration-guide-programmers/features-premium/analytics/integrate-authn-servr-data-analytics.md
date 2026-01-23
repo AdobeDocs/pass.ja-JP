@@ -4,7 +4,7 @@ description: Adobe Pass Authentication サーバーサイドのデータのAdobe
 exl-id: c1f1f2a3-c98c-4aed-92ad-1f9bfd80b82b
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '1139'
+source-wordcount: '1140'
 ht-degree: 0%
 
 ---
@@ -19,7 +19,7 @@ Adobe Pass Authentication のお客様は、Adobe Pass Authentication （Adobe P
 
 このデータは、MVPDごとの認証コンバージョン率、MVPD ユーザー ID に基づく一意のユーザーなど、重要な TVE 指標をトラッキングする際に役立ちます。
 
-訪問者 ID がない場合、以下の特定のイベントを超えてユーザーアクティビティを追跡することはできないので、既にクライアントサイドの実装が存在する場合は、その実装を置き換えるためのものではありません。 お客様がパス呼び出しに訪問者 ID を指定している場合、別の種類の Analytics 統合（リアルタイム）のロックを解除できます。この統合では、すべてのパスイベントを既存のお客様データに結合できます。新しい種類の統合について詳しくは、「[Adobe Pass Authentication でのExperience Cloud ID の使用」を参照してください &#x200B;](/help/authentication/integration-guide-programmers/features-premium/analytics/exp-cloud-id-authn.md)
+訪問者 ID がない場合、以下の特定のイベントを超えてユーザーアクティビティを追跡することはできないので、既にクライアントサイドの実装が存在する場合は、その実装を置き換えるためのものではありません。 お客様がパス呼び出しに訪問者 ID を指定している場合、別の種類の Analytics 統合（リアルタイム）のロックを解除できます。この統合では、すべてのパスイベントを既存のお客様データに結合できます。新しい種類の統合について詳しくは、「[Adobe Pass Authentication でのExperience Cloud ID の使用」を参照してください ](/help/authentication/integration-guide-programmers/features-premium/analytics/exp-cloud-id-authn.md)
 
 ## 含まれる指標 {#metrics-included-int-authn-analyt}
 
@@ -49,8 +49,8 @@ Adobe Pass Authentication のお客様は、Adobe Pass Authentication （Adobe P
 | SDK版 | Adobe Pass認証クライアント SDKのバージョン |
 | リソース ID | 承認リクエストに含まれる実際のリソースタイトル（指定された場合は、MRSS ペイロードから項目/タイトルとして抽出されます） |
 | AuthZ エラータイプ | Adobe Pass Authentication で報告される、エラーの理由 <br/> 最も一般的な値は次のと <br/> りです **noAuthZ** = MVPDが、ユーザーのパッケージにチャネルがないことを返信しました <br/> **network** = MVPDに到達できませんでした（MVPDに問い合わせ時の問題があり、応答しませんでした） <br/> **norefreshtoken** =これは OAuth 実装にのみ使用される機能で、ユーザーがパスワードを変更した場合や、MVPDが何らかの理由でパスワードを拒否した場合に発生する可能性があります。 通常は、新しい認証が作成されます <br/> **不一致** =認証トークンがあるデバイスとは異なるデバイスからリクエストが行われた場合。 ユーザーがシステムを騙そうとした場合、これらのほとんどは、デバイス ID が計算の一部として IP アドレスを使用していた古いJavaScript SDKのコンテキストで発生した可能性があります。 ユーザーが自宅で TVE を視聴し、職場で視聴した場合、このエラーがトリガーされ、再度認証する必要があります <br/> **invalid** =無効なリクエスト、パラメータの不足または無効 <br/>  **authzNone** = プログラマは、特定の channelxMVPD の組み合わせに対する許可を拒否できます。 これは、プログラマーがアクセスできるバックエンド API によってトリガーされ <br/> す。 **詐欺** =私たちの側の保護メカニズムです。 ユーザーが認証に失敗し、短時間（秒）で何度も再度リクエストした場合は、呼び出しを直接拒否します。 これは通常、プログラマーが実装にバグがあり、そのバグが失敗した場合に絶えず認証を求める場合に発生します。 |
-| トークンタイプ | AuthZ All および AuthN All によってトークンが作成される場合、劣化対策によって何が発生するかを把握する必要があります。<br/>: <br/> &quot;normal&quot; =通常の場合 <br/> &quot;authnall&quot; = AuthN All が有効の場合 <br/> &quot;authzall&quot; = AuthZ All が有効の場合 <br/> &quot;hba&quot; = HBA が有効の場合 |
-| クライアントレスのデバイスタイプ | 現在クライアントレスに使用されているデバイスプラットフォーム（代替）。<br/> 値は次のとおりです。<br/> 該当なし – イベントがクライアントレス SDKから発生しなかった <br/> 不明 – **クライアントレス API** からの deviceType パラメーターはオプションなので、値を含まない呼び出しがあります。<br/> **クライアントレス API** を介して送信されたその他の値。 例えば、xbox、appletv、roku などです。 |
+| トークンタイプ | AuthZ All および AuthN All によってトークンが作成される場合、劣化測定によって何が発生するかを把握する必要があります。<br/> <br/> &quot;normal&quot; =通常の場合 <br/> &quot;authnall&quot; = AuthN All が有効な場合 <br/> &quot;authzall&quot; = AuthZ All が有効な場合 <br/> &quot;hba&quot; = HBA が有効な場合 |
+| クライアントレスのデバイスタイプ | デバイスプラットフォーム（代替）。現在クライアントレスで使用されています。<br/> 値は次の可能性があります。<br/> なし – イベントがクライアントレス SDKから発生しなかった <br/> 不明 – **クライアントレス API** からの deviceType パラメーターはオプションなので、値を含まない呼び出しがあります。<br/> **クライアントレス API** を通じて送信されたその他すべての値。 例えば、xbox、appletv、roku などです。 |
 | MVPD ユーザー ID | cookie ベースの訪問者 ID を置き換えます |
 
 

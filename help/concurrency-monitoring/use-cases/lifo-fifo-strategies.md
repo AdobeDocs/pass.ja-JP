@@ -3,7 +3,7 @@ title: LIFO と FIFO 戦略
 description: LIFO 戦略と FIFO 戦略の違い、および各アプローチを使用するタイミングについて
 source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
 workflow-type: tm+mt
-source-wordcount: '685'
+source-wordcount: '686'
 ht-degree: 0%
 
 ---
@@ -44,7 +44,7 @@ LIFO モードで、ユーザーが新しいストリームを開始しようと
 
 ### LIFO フロー図
 
-![LIFO のフロー図 &#x200B;](../assets/lifo-flow-diagram.png)
+![LIFO のフロー図 ](../assets/lifo-flow-diagram.png)
 
 *図：LIFO （ラストイン、ファーストアウト）戦略フロー – 制限に達すると、新しいセッションがブロックされ、既存のセッションを手動で終了する必要があります。*
 
@@ -73,7 +73,7 @@ FIFO モードでは、ユーザーが新しいストリームを開始しよう
 
 ### FIFO フロー図
 
-![FIFO フロー図 &#x200B;](../assets/fifo-flow-diagram.png)
+![FIFO フロー図 ](../assets/fifo-flow-diagram.png)
 
 *図：FIFO （First In, First Out）戦略フロー – 新規セッションは、ユーザー選択で既存のセッションを終了することで開始できます。*
 
@@ -123,7 +123,7 @@ FIFO モードで競合が発生した場合：
 
 ### （FIFO 実装の場合）
 
-1. 競合が発生した場合は常にセッション選択 UI を提供する **&#x200B;**
+1. 競合が発生した場合は常にセッション選択 UI を提供する ****
 2. **意味のあるセッションの詳細を表示** （デバイス、コンテンツ、期間）
 3. 誤って終了してしまうのを防ぐため **確認ダイアログの実装**
 4. **エッジケースの扱い** 終了に失敗した場合

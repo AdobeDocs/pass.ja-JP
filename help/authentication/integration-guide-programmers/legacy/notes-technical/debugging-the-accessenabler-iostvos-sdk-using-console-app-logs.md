@@ -4,8 +4,8 @@ description: コンソールアプリログを使用した AccessEnabler iOS/tvO
 exl-id: 0dad325e-db15-4ea0-a87a-75409eaf8d46
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '576'
-ht-degree: 0%
+source-wordcount: '577'
+ht-degree: 1%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要
 
@@ -71,7 +71,7 @@ AccessEnabler iOS/tvOS SDKの機能をデバッグするには、AccessEnabler �
 他のコンポーネントの機能をより適切にデバッグしたり、AccessEnabler フレームワークのログを **除外** したりするには、次の操作を行います。
 
 * com.adobe.pass.AccessEnabler の値と等しくない **Subsystem** オプションを使用して、コンソールアプリを検索します。
-* **AccessEnabler** 値を含まない [Any] オプションを使用して、コンソール・アプリ内を検索します。
+* [AccessEnabler] 値を含まない **Any** オプションを使用して、コンソール・アプリ内を検索します。
 
 ## 問題のレポート
 
@@ -80,4 +80,4 @@ Adobe Pass Authentication に問題を報告する際は、次の提案を考慮
 * 再現手順を指定してください。
 * 問題が発生した OS のバージョンとデバイスのモデルを指定してください。
 * この問題が発生している AccessEnabler iOS/tvOS SDKのバージョンを指定してください。
-* [&#x200B; 含む &#x200B;](#including) セクションに示されている 2 つのオプションのいずれかを使用して、すべての AccessEnabler iOS/tvOS SDK ログ メッセージをキャプチャし、添付してください。
+* [ 含む ](#including) セクションに示されている 2 つのオプションのいずれかを使用して、すべての AccessEnabler iOS/tvOS SDK ログ メッセージをキャプチャし、添付してください。

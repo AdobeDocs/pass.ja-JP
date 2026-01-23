@@ -4,7 +4,7 @@ description: Adobe Pass認証で使用されるスロットルメカニズムに
 exl-id: f00f6c8e-2281-45f3-b592-5bbc004897f7
 source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '1141'
+source-wordcount: '1162'
 ht-degree: 0%
 
 ---
@@ -40,7 +40,7 @@ ht-degree: 0%
 
 サーバー間の実装では、「X-Forwarded-For」ヘッダーメカニズムを使用してクライアントの IP アドレスを転送する必要があります。
 
-X-Forwarded-For ヘッダーの渡し方の詳細については、[&#x200B; こちら &#x200B;](legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md) をご覧ください。
+X-Forwarded-For ヘッダーの渡し方の詳細については、[ こちら ](legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md) をご覧ください。
 
 ### 実際の上限とエンドポイント {#throttling-mechanism-limits}
 
@@ -136,7 +136,7 @@ p3p: CP="NOI DSP COR CURa ADMa DEVa OUR BUS IND UNI COM NAV STA"
 
 カスタム実装（サーバー間を含む）を使用して Pass Authentication API とやり取りするお客様は、ユーザー IP アドレスを確実に取得し、X-Forwarded-For ヘッダーを使用して正しく転送する必要があります。
 
-詳しくは [&#x200B; こちら &#x200B;](legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md) を参照してください。
+詳しくは [ こちら ](legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md) を参照してください。
 
 ### 新しい応答コードへの対応
 

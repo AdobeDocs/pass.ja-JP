@@ -4,7 +4,7 @@ description: 同時実行性の監視の概要
 exl-id: 725cc64b-6b03-46e3-a038-41e9b1341c6b
 source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
 workflow-type: tm+mt
-source-wordcount: '221'
+source-wordcount: '225'
 ht-degree: 0%
 
 ---
@@ -33,5 +33,5 @@ ht-degree: 0%
 
 ## 同時実行性モニタリングを初めて使用する場合 {#new-to-cm}
 
-[&#x200B; はじめる前に &#x200B;](getting-started/getting-started-overview.md) ガイドから開始して、基本を理解し、最初の統合を設定します。
+[ はじめる前に ](getting-started/getting-started-overview.md) ガイドから開始して、基本を理解し、最初の統合を設定します。
 

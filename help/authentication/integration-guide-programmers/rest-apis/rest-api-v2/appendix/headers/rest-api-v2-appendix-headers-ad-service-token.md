@@ -4,7 +4,7 @@ description: REST API V2 - ヘッダー – AD-Service-Token
 exl-id: 856f76fc-cde6-4b3f-81f7-deaa0df015dc
 source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
-source-wordcount: '252'
+source-wordcount: '266'
 ht-degree: 1%
 
 ---
@@ -21,7 +21,7 @@ ht-degree: 1%
 
 このヘッダーは、サービストークンメソッドを活用するシングルサインオン（SSO）対応フローで使用するように設計されています。
 
-サービストークンメソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[&#x200B; サービストークンフローを使用したシングルサインオン &#x200B;](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md) ドキュメントを参照してください。
+サービストークンメソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[ サービストークンフローを使用したシングルサインオン ](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md) ドキュメントを参照してください。
 
 ## 構文 {#syntax}
 

@@ -4,7 +4,7 @@ description: 同時実行性モニタリングでVODとライブコンテンツ�
 exl-id: 51ba686a-7c1f-4403-9e8e-cd247bf9e345
 source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
 workflow-type: tm+mt
-source-wordcount: '221'
+source-wordcount: '226'
 ht-degree: 0%
 
 ---
@@ -15,7 +15,7 @@ ht-degree: 0%
 
 
 
-**A:** 同時実行性モニタリングでは、ライブコンテンツとビデオオンデマンド（VOD）を直接区別することはできません。 ビデオプレーヤーは、再生中のコンテンツのタイプを知っている必要があり、この情報を [&#x200B; セッション初期化呼び出し &#x200B;](/help/concurrency-monitoring/api/cm-api-overview.md#session-initial) 中に送信する必要があります（同時実行監視で必要）。 通常のワークフローは次のようになります。
+**A:** 同時実行性モニタリングでは、ライブコンテンツとビデオオンデマンド（VOD）を直接区別することはできません。 ビデオプレーヤーは、再生中のコンテンツのタイプを知っている必要があり、この情報を [ セッション初期化呼び出し ](/help/concurrency-monitoring/api/cm-api-overview.md#session-initial) 中に送信する必要があります（同時実行監視で必要）。 通常のワークフローは次のようになります。
 
 1. 同時実行性監視のお客様は、ルールを実装する一連のメタデータ（content-type=live|vod、device-type=mobile|console|desktop など）を定義します。
 1. 同時実行性の監視チームが、目的のポリシーを実装します。 例：

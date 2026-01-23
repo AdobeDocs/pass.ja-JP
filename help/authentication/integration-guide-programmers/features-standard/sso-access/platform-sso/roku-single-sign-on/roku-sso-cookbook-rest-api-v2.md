@@ -4,8 +4,8 @@ description: Roku SSO クックブック（REST API V2）
 exl-id: 77b154bc-c09f-49d4-b1af-cc33bc6dd22b
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '568'
-ht-degree: 0%
+source-wordcount: '599'
+ht-degree: 1%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 Adobe Pass認証 REST API V2 は、RokuOS で動作するクライアントアプリケーションのエンドユーザーに対して、Platform シングルサインオン（SSO）をサポートしています。
 
-このドキュメントは、既存の [REST API V2 概要の拡張機能として機能し &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) 概要の概要と、[&#x200B; プラットフォーム ID フローを使用したシングルサインオン &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) の実装方法を説明するドキュメントを提供します。
+このドキュメントは、既存の [REST API V2 概要の拡張機能として機能し ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) 概要の概要と、[ プラットフォーム ID フローを使用したシングルサインオン ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) の実装方法を説明するドキュメントを提供します。
 
 ## プラットフォーム ID フローを使用した Roku のシングルサインオン {#cookbook}
 
@@ -27,7 +27,7 @@ Adobe Pass Authentication は Roku と連携して、ログインユーザーエ
 
 プラットフォーム ID フローを使用して Roku のシングルサインオンを続行する前に、Roku SSO が有効になっていることを確認します。 Roku SSO は、プログラマーまたはMVPDが SSO をリクエストしていない限り、デフォルトで有効になっています。
 
-各プログラマーは、[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/pass/authentication) を使用して、特定の統合に対して Roku プラットフォームのシングルサインオン（SSO）を有効または無効にすることができます。
+各プログラマーは、[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/pass/authentication) を使用して、特定の統合に対して Roku プラットフォームのシングルサインオン（SSO）を有効または無効にすることができます。
 
 ### ワークフロー {#workflow}
 

@@ -4,7 +4,7 @@ description: 使用権限サービスの監視の概要
 exl-id: ebd5d650-0a32-4583-9045-5156356494e2
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '1303'
+source-wordcount: '1349'
 ht-degree: 0%
 
 ---
@@ -68,10 +68,10 @@ ESM API は一般には使用できません。  可用性に関するご質問�
 | チャネル | リソースフィールドから抽出されたチャネル web サイト（指定されている場合は MRSS ペイロードからチャネル/タイトルとして抽出され、RSS 形式でない場合はリソース値にマッピングされます）。 |
 | resource-id | 承認リクエストに含まれる実際のリソースタイトル（指定された場合は、MRSS ペイロードから項目/タイトルとして抽出されます） |
 | デバイス | デバイスプラットフォーム（PC、モバイル、コンソールなど） |
-| eap | 認証フローが外部システムを介して実行される場合の外部認証プロバイダー。 </br> 値は次のとおりです。</br> – 該当なし – Adobe Passによって認証が提供された </br> Apple – 認証を提供した外部システムがApple |
+| eap | 認証フローが外部システムを介して実行される場合の外部認証プロバイダー。</br> 値は次のとおりです。</br> – 該当なし – Adobe Passによって認証が提供された </br>Apple – 認証を提供した外部システムがApple |
 | os ファミリ | デバイス上で動作しているオペレーティングシステム |
 | browser-family | Adobe Pass認証へのアクセスに使用するユーザーエージェント |
-| cdt | 現在クライアントレスに使用されているデバイスプラットフォーム（代替）。 </br> 値は次のとおりです。</br> – なし – イベントがクライアントレス SDKから発生しなかった </br> – 不明 – クライアントレス API からの deviceType パラメーターはオプションなので、値を含まない呼び出しがあります。 </br> - Clientless API を通じて送信されたその他の値（xbox、appletv、roku など） </br> |
+| cdt | 現在クライアントレスに使用されているデバイスプラットフォーム（代替）。</br>  値は次のとおりです。</br> – 該当なし – イベントがクライアントレス SDKから発生しなかった </br> – 不明 – クライアントレス API からの deviceType パラメーターはオプションなので、値を含まない呼び出しがあります。</br> - クライアントレス API を通じて送信されたその他すべての値（xbox、appletv、roku など） </br> |
 | platform-version | クライアントレス SDKのバージョン |
 | os タイプ | デバイス上で実行されている代替オペレーティング システム （現在使用されていません） |
 | browser-version | ユーザーエージェントのバージョン |
@@ -83,7 +83,7 @@ ESM API は一般には使用できません。  可用性に関するご質問�
 | platform | デバイスが識別したプラットフォーム。 使用可能な値：</br> - Android </br> - FireTV </br> - Roku </br> - iOS </br> - tvOS </br> – など |
 | application-name | 使用するように設定された DCR 登録アプリケーションに対して TVE Dashboard で設定されたアプリケーション名。 |
 | application-version | 使用するように設定された DCR 登録済みアプリケーションに対して、TVE ダッシュボードで設定されたアプリケーションのバージョン。 |
-| customer-app | [&#x200B; デバイス情報 &#x200B;](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md) を介して渡されるカスタムアプリケーション ID。 |
+| customer-app | [ デバイス情報 ](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md) を介して渡されるカスタムアプリケーション ID。 |
 | content-category | アプリケーションからリクエストされたコンテンツのカテゴリ。 |
 
 ## MVPD 用 ESM {#esm-for-mvpds}
@@ -113,8 +113,8 @@ ESM API は一般には使用できません。  可用性に関するご質問�
 | 分 | 時刻の分 |
 | mvpd | 権利付与リクエストの実行に使用される mvpd ID |
 | requestor-id | 権利付与リクエストの実行に使用する要求者 ID |
-| eap | 認証フローが外部システムを介して実行される場合の外部認証プロバイダー。 </br> 値は次のとおりです。</br> – 該当なし – Adobe Passによって認証が提供された </br> Apple – 認証を提供した外部システムがApple |
-| cdt | 現在クライアントレスに使用されているデバイスプラットフォーム（代替）。 </br> 値は次のとおりです。</br> – なし – イベントがクライアントレス SDKから発生しなかった </br> – 不明 – クライアントレス API からの deviceType パラメーターはオプションなので、値を含まない呼び出しがあります。 </br> - Clientless API を通じて送信されたその他の値（xbox、appletv、roku など） </br> |
+| eap | 認証フローが外部システムを介して実行される場合の外部認証プロバイダー。</br> 値は次のとおりです。</br> – 該当なし – Adobe Passによって認証が提供された </br>Apple – 認証を提供した外部システムがApple |
+| cdt | 現在クライアントレスに使用されているデバイスプラットフォーム（代替）。</br>  値は次のとおりです。</br> – 該当なし – イベントがクライアントレス SDKから発生しなかった </br> – 不明 – クライアントレス API からの deviceType パラメーターはオプションなので、値を含まない呼び出しがあります。</br> - クライアントレス API を通じて送信されたその他すべての値（xbox、appletv、roku など） </br> |
 | sdk タイプ | 使用するクライアントSDK（Flash、HTML5、Android ネイティブ、iOS、クライアントレスなど） |
 | platform | デバイスが識別したプラットフォーム。 使用可能な値：</br> - Android </br> - FireTV </br> - Roku </br> - iOS </br> - tvOS </br> – など |
 | nsdk | 使用されたクライアント SDK （android、fireTV、js、iOS、tvOS、non-sdk） |

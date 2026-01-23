@@ -4,8 +4,8 @@ description: Dynamic Client Registration API - クライアント資格情報を
 exl-id: 0b39768b-25b8-47b9-8080-59c56fb829fb
 source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '437'
-ht-degree: 0%
+source-wordcount: '449'
+ht-degree: 2%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> 動的なクライアント登録 API の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) に関するドキュメントに限られています。
+> 動的なクライアント登録 API の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) に関するドキュメントに限られています。
 
 ## リクエスト {#request}
 

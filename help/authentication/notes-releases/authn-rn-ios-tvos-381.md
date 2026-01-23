@@ -4,8 +4,8 @@ description: Authentication iOS/tvOS 3.8.1 リリースノート
 exl-id: e1e24b47-e5b7-4706-8690-ad71dee35cb8
 source-git-commit: ecafc3a92f691203d8113a741f0b6cd00a134e80
 workflow-type: tm+mt
-source-wordcount: '92'
-ht-degree: 0%
+source-wordcount: '94'
+ht-degree: 7%
 
 ---
 
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -29,4 +29,4 @@ Adobe Pass認証：iOS/tvOS 3.8.1
 
 ## リリースパッケージ {#release-package-381}
 
-iOS/tvOS SDK v3.8.1 は、[&#x200B; こちら &#x200B;](https://tve.zendesk.com/hc/en-us/articles/204963209) からダウンロードできます。
+iOS/tvOS SDK v3.8.1 は、[ こちら ](https://tve.zendesk.com/hc/en-us/articles/204963209) からダウンロードできます。

@@ -4,8 +4,8 @@ description: REST API V2 – 特定の mvpd のログアウトの開始
 exl-id: 2482de87-b3d4-4ea8-bd4a-25bf10017e01
 source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '1028'
-ht-degree: 0%
+source-wordcount: '1060'
+ht-degree: 2%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 ## リクエスト {#request}
 
@@ -53,7 +53,7 @@ ht-degree: 0%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7;">クエリパラメーター</th>
+      <th style="background-color: #EFF2F7;">クエリのパラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
       <th style="background-color: #EFF2F7;"></th>
    </tr>
@@ -244,10 +244,10 @@ ht-degree: 0%
                   <br/><br/>
                   使用可能な値は次のとおりです。
                   <ul>
-                    <li><b> ログアウト </b><br/> ストリーミングデバイスは、指定された URL をユーザーエージェントで開く必要があります。<br/> このアクションは、次のシナリオに適用されます：ログアウトエンドポイントを使用してMVPDからログアウトします。</li>
-                    <li><b>partner_logout</b><br/> ストリーミングデバイスは、パートナー（システム）レベルからもログアウトするようにユーザーに通知する必要があります。<br/> これは、次のシナリオに当てはまります。プロファイルタイプが「appleSSO」の場合にMVPDからログアウトします。</li>
-                    <li><b> 完了 </b><br/> ストリーミングデバイスは後続のアクションを実行する必要はありません。<br/> この操作は、ログアウトエンドポイントを使用せずにMVPDからログアウトする（ダミーのログアウト機能）、縮退アクセス時にログアウトする、一時アクセス時にログアウトする、といったシナリオに適用されます。</li>
-                    <li><b> 無効 </b><br/> ストリーミングデバイスは後続のアクションを実行する必要はありません。<br/> これは、次のシナリオに当てはまります。有効なプロファイルが見つからない場合にMVPDからログアウトする。</li>
+                    <li><b> ログアウト </b><br/> ストリーミングデバイスは、指定された URL をユーザーエージェントで開く必要があります。<br/> この操作は、次のシナリオに適用されます。ログアウトエンドポイントを使用してMVPDからログアウトします。</li>
+                    <li><b>partner_logout</b><br/> ストリーミングデバイスは、パートナー（システム）レベルからもログアウトするようにユーザーに通知する必要があります。<br/> この操作は、次のシナリオに適用されます。プロファイルタイプが「appleSSO」の場合はMVPDからログアウトします。</li>
+                    <li><b>complete</b><br/> ストリーミングデバイスは後続のアクションを実行する必要はありません。<br/> このアクションは、ログアウトエンドポイントを使用せずにMVPDからログアウトする（ダミーのログアウト機能）、縮退アクセス時にログアウトする、一時アクセス時にログアウトする、といったシナリオに適用されます。</li>
+                    <li><b> 無効 </b><br/> ストリーミングデバイスは後続のアクションを実行する必要はありません。<br/> このアクションは、次のシナリオに適用されます。有効なプロファイルが見つからないときにMVPDからログアウトします。</li>
                   </ul>  
                <td><i>必須</i></td>
             </tr>
@@ -297,7 +297,7 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>400、401、405、500</td>
+      <td>400, 401, 405, 500</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -319,7 +319,7 @@ ht-degree: 0%
 
 ## サンプル {#samples}
 
-### &#x200B;1. logout エンドポイントを持つ特定の mvpd の logout を開始します
+### &#x200B;1. ログアウトエンドポイントを持つ特定の mvpd に対してログアウトを開始します
 
 >[!BEGINTABS]
 
@@ -356,7 +356,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;2. ログアウトエンドポイントを使用せずに、特定の mvpd に対してログアウトを開始する
+### &#x200B;2. ログアウトエンドポイントを使用しない特定の mvpd に対するログアウトの開始
 
 >[!BEGINTABS]
 
@@ -392,7 +392,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;3. サービストークン方式を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd に対するシングルログアウトを開始します
+### &#x200B;3. サービストークン方式を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd に対するシングルログアウトの開始
 
 >[!IMPORTANT]
 >
@@ -438,7 +438,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;4. Platform ID 方法を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd に対するシングルログアウトを開始します
+### &#x200B;4. Platform ID 方法を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd に対するシングルログアウトの開始
 
 >[!IMPORTANT]
 >
@@ -484,7 +484,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;5. パートナー（Apple）を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd のログアウトを開始する
+### &#x200B;5. パートナー（Apple）を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd のログアウトを開始します
 
 >[!BEGINTABS]
 
@@ -520,7 +520,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 6.特定の mvpd に対して logout を開始し、その間に最適化を適用する
+### &#x200B;6. 特定の mvpd に対してログアウトを開始する一方で、最適化が適用される
 
 >[!BEGINTABS]
 
@@ -556,7 +556,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 7.基本またはプロモーションの TempPass のログアウトを開始する（必須ではありません）
+### &#x200B;7. 基本またはプロモーションの TempPass にログアウトを開始します（必須ではありません）
 
 >[!BEGINTABS]
 

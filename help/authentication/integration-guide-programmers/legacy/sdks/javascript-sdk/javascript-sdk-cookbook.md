@@ -4,8 +4,8 @@ description: JavaScript SDK クックブック
 exl-id: d57f7a4a-ac77-4f3c-8008-0cccf8839f7c
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '957'
-ht-degree: 0%
+source-wordcount: '972'
+ht-degree: 2%
 
 ---
 
@@ -17,13 +17,13 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#intro}
 
 このドキュメントでは、Adobe Pass Authentication Service とJavaScriptを統合するためにプログラマーの上位レベルのアプリケーションで実装される使用権限ワークフローについて説明します。 JavaScript API リファレンスへのリンクは、全体に含まれています。
 
-また、「関連情報 [&#x200B; の節には次の内容も含まれます &#x200B;](#related)
+また、「関連情報 [ の節には次の内容も含まれます ](#related)
 JavaScript コードサンプルのセットへのリンク。
 
 ## 使用権限フロー {#entitlement}
@@ -95,9 +95,9 @@ mvpds パラメーターは、ユーザーが使用できるプロバイダー�
   `metadata` パラメーターは、要求された特定のデータを提供します。key パラメーターは、`getMetadata()`request で使用されるキーで、`arguments` パラメーターは、`getMetadata()` に渡されたディクショナリと同じです。
 
 
-## 2.起動フロー
+## &#x200B;2. 起動フロー
 
-**I. AccessEnabler JavaScriptをロードします。**
+**私。  AccessEnabler JavaScriptをロードします。**
 
 **ステージングプロファイル用**
 
@@ -121,14 +121,14 @@ src="https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.js">
 認証は `entitlementLoaded()` コールバック関数を呼び出します。 これは、アプリケーションが AccessEnabler と通信するためのエントリー・ポイントです。
 
 
-**二** を呼び出して `setRequestor()` を確立します
+**II.** `setRequestor()` を呼び出して、
 プログラマーの ID。プログラマーの `requestorID` を渡し、
 （オプション）Adobe Pass認証エンドポイントの配列。
 
 **トリガー:** なし。ただし、必要に応じて `displayProviderDialog()` を呼び出すことができます。
 
 
-**三** 完全な `checkAuthentication()` 認証フロー [ を開始せずに既存の認証を確認するには、] を呼び出します。  この呼び出しが成功した場合は、`authorization flow` に直接進むことができます。  そうでない場合は、`authentication flow` に進みます。
+**III.** `checkAuthentication()` を呼び出して、完全な [ 認証フロー ] を開始せずに既存の認証を確認します。  この呼び出しが成功した場合は、`authorization flow` に直接進むことができます。  そうでない場合は、`authentication flow` に進みます。
 
 **依存関係：** `setRequestor()` の呼び出しが成功しました（この依存関係は、後続のすべての呼び出しにも適用されます）。
 
@@ -136,7 +136,7 @@ src="https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.js">
 
 </br>
 
-## 3.認証フロー </span>
+## &#x200B;3. 認証フロー </span>
 
 
 **依存関係：** `setRequestor()` の呼び出しが成功しました（この依存関係は、後続のすべての呼び出しにも適用されます）。
@@ -149,9 +149,9 @@ src="https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.js">
 - `displayProviderDialog()` ユーザーがまだ認証されていない場合
 - 認証が既に実行されたかどうかを `setAuthenticationStatus()` します
 
-認証フローの完了は、AccessEnabler が `setAuthenticationStatus()` を使用して `isAuthenticated == 1` を呼び出したときに到達します。
+認証フローの完了は、AccessEnabler が `isAuthenticated == 1` を使用して `setAuthenticationStatus()` を呼び出したときに到達します。
 
-## 4.認証フロー {#authz}
+## &#x200B;4. 認証フロー {#authz}
 
 **依存関係：**
 
@@ -164,7 +164,7 @@ src="https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.js">
 - 呼び出しが失敗した場合：スローされた例外を調べて、そのタイプ（AuthN、AuthZ など）を特定します。
 - 呼び出しが AuthN エラーの場合は、AuthN フローを再起動します。
 - 呼び出しが AuthZ エラーの場合、ユーザーは要求されたメディアを監視する権限がないため、何らかのエラーメッセージがユーザーに表示されます。
-- その他のエラー（接続エラー、ネットワークエラーなど）が発生した場合は、適切なエラーメッセージをユーザーに表示します。
+- その他のエラー（接続エラー、ネットワークエラーなど）がある場合 次に、適切なエラーメッセージをユーザーに表示します。
 
 メディアトークン検証子を使用して、成功した `getAuthorization()` 呼び出しから返された shortMediaToken を検証します。
 
@@ -175,7 +175,7 @@ AccessEnabler ライブラリ）
 - 検証に合格した場合：ユーザーに要求されたメディアを表示/再生します。
 - 失敗した場合：AuthZ トークンが無効で、メディアリクエストが拒否され、エラーメッセージがユーザーに表示されます。
 
-## &#x200B;5. メディアフローの表示 {#logout}
+## &#x200B;5. メディアフローを表示 {#logout}
 
 - ユーザーが表示するメディアを選択します。
    - メディアは保護されていますか？
@@ -186,7 +186,7 @@ AccessEnabler ライブラリ）
 
 ## 訪問者 ID の設定 {#visitorID}
 
-[Experience Cloud visitorID](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=ja) の値の設定は、分析の観点から非常に重要です。 EC visitorID の値が設定されると、SDKはネットワーク呼び出しごとにこの情報を送信し、Adobe Pass Authentication サービスはこの情報を収集します。 これにより、Adobe Pass Authentication Service からの分析データを、他のアプリケーションや web サイトからの他の分析レポートと関連付けることができます。 EC 訪問者 ID の設定方法については、[&#x200B; こちら &#x200B;](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=ja) を参照してください。
+[Experience Cloud visitorID](https://experienceleague.adobe.com/docs/id-service/using/home.html) の値の設定は、分析の観点から非常に重要です。 EC visitorID の値が設定されると、SDKはネットワーク呼び出しごとにこの情報を送信し、Adobe Pass Authentication サービスはこの情報を収集します。 これにより、Adobe Pass Authentication Service からの分析データを、他のアプリケーションや web サイトからの他の分析レポートと関連付けることができます。 EC 訪問者 ID の設定方法については、[ こちら ](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=en) を参照してください。
 
 
 >[!NOTE]

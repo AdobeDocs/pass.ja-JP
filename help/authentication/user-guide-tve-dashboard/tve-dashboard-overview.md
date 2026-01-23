@@ -4,8 +4,8 @@ description: TVE ダッシュボードとそのリソースについて理解し
 exl-id: 91baeb34-a32a-4dc3-94d8-f6cfca59dc4e
 source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
 workflow-type: tm+mt
-source-wordcount: '305'
-ht-degree: 0%
+source-wordcount: '314'
+ht-degree: 1%
 
 ---
 
@@ -15,7 +15,7 @@ ht-degree: 0%
 >
 >このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
 
-[[!DNL Adobe]  パス TVE ダッシュボード &#x200B;](https://experience.adobe.com/pass/authentication) は、Adobe Pass認証のお客様（プログラマー）が設定とデータを管理するためのツールです。 このセルフサービスダッシュボードでは、次のような様々な機能が可能です。
+[[!DNL Adobe]  パス TVE ダッシュボード ](https://experience.adobe.com/pass/authentication) は、Adobe Pass認証のお客様（プログラマー）が設定とデータを管理するためのツールです。 このセルフサービスダッシュボードでは、次のような様々な機能が可能です。
 
 * **Integration management**:Adobe Pass認証エコシステムにおけるプログラマーの各ブランド（チャネル）とマルチチャネルビデオプログラミング配信会社（MVPD）の間の新しい統合を追加します。
 

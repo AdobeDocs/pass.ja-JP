@@ -28,7 +28,7 @@ Adobeは、お客様のデータ処理者としての役割を果たすために
 3. セッションの終了：DELETE /sessions/{idp}/{subject}/{sessionId}
 
 スロットルは、次の 2 つのレベルで設定されます。
-1. セッション：呼び出しと {sessionId} 呼び出しで送信され `Heartbeat` 一意の同じ `Terminate a session` パラメーター。
+1. セッション：呼び出しと `Terminate a session` 呼び出しで送信され `Heartbeat` 一意の同じ {sessionId} パラメーター。
 2. ユーザー：呼び出しで送信された一意の {subject} パラメーター `Create a new session` 同じです。
 
 セッションレベルのスロットルの制限は、1 分以内に 200 リクエストに設定されます。\

@@ -4,7 +4,7 @@ description: 同時実行監視の使用状況レポート
 exl-id: 20220436-e748-4b22-8e7c-e074e0bfe242
 source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
 workflow-type: tm+mt
-source-wordcount: '799'
+source-wordcount: '812'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,7 @@ ht-degree: 0%
 
 ## 前提条件 {#usage-rep-prerequisites}
 
-同時実行性の監視使用状況レポート製品にアクセスするには、最初に同時実行性の監視 [&#x200B; サポートチーム &#x200B;](mailto:tve-support@adobe.com) に問い合わせる必要があります。お客様は、API 製品へのアクセスを許可するために必要な手順を実行します。 [CMU API アクセス &#x200B;](/help/concurrency-monitoring/reports/cmu-api-access.md) の詳細。
+同時実行性の監視使用状況レポート製品にアクセスするには、最初に同時実行性の監視 [ サポートチーム ](mailto:tve-support@adobe.com) に問い合わせる必要があります。お客様は、API 製品へのアクセスを許可するために必要な手順を実行します。 [CMU API アクセス ](/help/concurrency-monitoring/reports/cmu-api-access.md) の詳細。
 
 ## 一般的なレポートの指標と分類 {#general-rep-metrics-breakdown}
 
@@ -91,6 +91,6 @@ ht-degree: 0%
 
 ### レポートの例
 
-データの精度を最大限に高めるために、このページで示すレポートをお勧めします [CMU レポートの例 &#x200B;](/help/concurrency-monitoring/reports/cm-usage-reports-examples.md)
+データの精度を最大限に高めるために、このページで示すレポートをお勧めします [CMU レポートの例 ](/help/concurrency-monitoring/reports/cm-usage-reports-examples.md)
 
-[^1]：詳細レポートは、デフォルトでは使用できません。 同時実行性の監視 [&#x200B; サポートチーム &#x200B;](mailto:tve-support@adobe.com) に依頼してください。
+[^1]：詳細レポートは、デフォルトでは使用できません。 同時実行性の監視 [ サポートチーム ](mailto:tve-support@adobe.com) に依頼してください。

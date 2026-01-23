@@ -4,8 +4,8 @@ description: 異なる所有者に属する複数のアプリケーションの�
 exl-id: c358befc-36d6-4f55-92cc-4d02064c65fb
 source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
 workflow-type: tm+mt
-source-wordcount: '275'
-ht-degree: 1%
+source-wordcount: '286'
+ht-degree: 3%
 
 ---
 

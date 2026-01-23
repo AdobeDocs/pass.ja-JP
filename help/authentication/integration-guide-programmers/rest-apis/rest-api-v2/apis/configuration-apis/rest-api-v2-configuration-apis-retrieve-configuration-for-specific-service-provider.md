@@ -4,8 +4,8 @@ description: REST API V2 – 特定のサービスプロバイダーの設定を
 exl-id: ad7e4c6d-ed96-4ae7-82a9-3c24e5fc9302
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '728'
-ht-degree: 1%
+source-wordcount: '733'
+ht-degree: 2%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2 の実装については、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -52,7 +52,7 @@ ht-degree: 1%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7;">クエリパラメーター</th>
+      <th style="background-color: #EFF2F7;">クエリのパラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
       <th style="background-color: #EFF2F7;"></th>
    </tr>
@@ -260,7 +260,7 @@ ht-degree: 1%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>400、401、405、500</td>
+      <td>400, 401, 405, 500</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -282,7 +282,7 @@ ht-degree: 1%
 
 ## サンプル {#samples}
 
-### 1.特定のサービスプロバイダーの設定を取得する
+### &#x200B;1. 特定のサービスプロバイダーの設定の取得
 
 >[!BEGINTABS]
 
