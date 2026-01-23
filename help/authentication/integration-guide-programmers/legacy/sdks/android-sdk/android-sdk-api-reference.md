@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要 {#intro}
 
@@ -163,7 +163,7 @@ ht-degree: 0%
    - **applicationProfile** – この値に基づいてサーバーを設定するために使用できます。
    - **ap_vi** - Experience Cloud ID （visitorID）。 この値は、後で高度な分析レポートに使用できます。
    - **ap_ai** - Advertising ID
-   - **device_info** – ここで説明するクライアント情報：[ クライアント情報デバイス接続とアプリケーションを渡す ](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。
+   - **device_info** – ここで説明するクライアント情報：[&#x200B; クライアント情報デバイス接続とアプリケーションを渡す &#x200B;](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。
 
 [先頭に戻る…](#apis)
 
@@ -172,7 +172,7 @@ ht-degree: 0%
 
 **説明：** 認証ステータスを確認します。 これを行うには、ローカルトークンのストレージスペースで有効な認証トークンを検索します。 このメソッドはネットワーク呼び出しを実行しないので、メインスレッドで呼び出すことをお勧めします。 アプリケーションがユーザーの認証ステータスをクエリし、それに応じて UI を更新するために使用されます（例：ログイン/ログアウト UI を更新）。 認証状態は、[*setAuthenticationStatus （）*](#setAuthNStatus) コールバックを介してアプリケーションに伝えられます。
 
-MVPDが「リクエスターごとの認証」機能をサポートしている場合、1 台のデバイスに複数の認証トークンを保存できます。  この機能について詳しくは、『Android技術概要』の [ キャッシュのガイドライン ](#$caching) 節を参照してください。
+MVPDが「リクエスターごとの認証」機能をサポートしている場合、1 台のデバイスに複数の認証トークンを保存できます。  この機能について詳しくは、『Android技術概要』の [&#x200B; キャッシュのガイドライン &#x200B;](#$caching) 節を参照してください。
 
 | API 呼び出し：認証ステータスの確認 |
 | --- |
@@ -192,11 +192,11 @@ MVPDが「リクエスターごとの認証」機能をサポートしている�
 **説明：** 完全認証ワークフローを開始します。 まず、認証ステータスを確認します。 まだ認証されていない場合は、認証フロー state-machine が起動します。
 
 - 最後の認証が成功した場合、MVPD selection フェーズはスキップされ、[*navigateToUrl （）*](#navigagteToUrl) コールバックがトリガーされます。 アプリケーションは、このコールバックを使用して、MVPDのログインページを持つユーザーを表す WebView コントロールをインスタンス化します。
-- 最後の認証の試行が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションは、このコールバックを使用してMVPD選択 UI を表示します。 また、[setSelectedProvider （） ](#setSelectedProvider) メソッドを使用して Access Enabler ライブラリにユーザーのMVPD選択を通知することにより、認証フローを再開する必要があります。
+- 最後の認証の試行が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションは、このコールバックを使用してMVPD選択 UI を表示します。 また、[setSelectedProvider （） &#x200B;](#setSelectedProvider) メソッドを使用して Access Enabler ライブラリにユーザーのMVPD選択を通知することにより、認証フローを再開する必要があります。
 
 ユーザーの資格情報はMVPDのログインページで確認されるため、ユーザーがMVPDのログインページで認証されている間に行われる複数のリダイレクト操作をモニタリングするには、アプリケーションが必要です。 正しい資格情報を入力すると、WebView コントロールは、*AccessEnabler.ADOBEPASS\_REDIRECT\_URL* 定数で定義されたカスタム URL にリダイレクトされます。 この URL は、WebView によって読み込まれることを意図していません。 アプリケーションはこの URL をインターセプトし、ログインフェーズが完了したことを示すシグナルとしてこのイベントを解釈する必要があります。 次に、認証フローを完了するために、アクセス イネーブラに制御を渡す必要があります（*getAuthenticationToken （）* メソッドを呼び出します）。
 
-MVPDが「要求者ごとの認証」機能をサポートしている場合、1 台のデバイスに複数の認証トークンを格納できます（プログラマーごとに 1 つ）。  この機能について詳しくは、『Android技術概要』の [ キャッシュのガイドライン ](#$caching) 節を参照してください。
+MVPDが「要求者ごとの認証」機能をサポートしている場合、1 台のデバイスに複数の認証トークンを格納できます（プログラマーごとに 1 つ）。  この機能について詳しくは、『Android技術概要』の [&#x200B; キャッシュのガイドライン &#x200B;](#$caching) 節を参照してください。
 
 最後に、*setAuthenticationStatus （）* コールバックを介して認証ステータスがアプリケーションに伝えられます。
 
@@ -612,7 +612,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **コールバックがトリガーされました：** [`setMetadataStatus()`](#setMetadaStatus)
 
-**詳細情報：**[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
+**詳細情報：**&#x200B;[&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
 
 [Android API に戻る…](#api)
 
@@ -674,7 +674,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **Trigger by:** [`getMetadata()`](#getMetadata)
 
-**詳細情報：**[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
+**詳細情報：**&#x200B;[&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
 
 
 [Android API に戻る…](#api)

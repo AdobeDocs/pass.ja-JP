@@ -33,7 +33,7 @@ Adobeには、Adobe Pass認証との統合に役立つ様々なリソースが�
 
 設定プロセスには、特に次の手順が含まれます。
 
-![Adobe® 認証統合プロセスに合格 ](../assets/mvpd-int-lifecycle.png)
+![Adobe® 認証統合プロセスに合格 &#x200B;](../assets/mvpd-int-lifecycle.png)
 
 *Adobe® 認証統合プロセスに合格*
 
@@ -121,7 +121,7 @@ Adobe Pass認証では **ポート 80 および 443 を通過するトラフィ�
 
   RELEASE 環境は、現在の（安定した）実稼動ビルドをホストします。
 
-これらの環境の使用方法について詳しくは、[Adobe環境について ](/help/authentication/notes-technical/environments/understanding-the-adobe-environments.md) ドキュメントを参照してください。
+これらの環境の使用方法について詳しくは、[Adobe環境について &#x200B;](/help/authentication/notes-technical/environments/understanding-the-adobe-environments.md) ドキュメントを参照してください。
 
 >[!IMPORTANT]
 > 
@@ -129,16 +129,16 @@ Adobe Pass認証では **ポート 80 および 443 を通過するトラフィ�
 
 ## カスタマーサポートへのアクセス {#access-customer-support}
 
-**Adobeから** Zendesk](https://tve.zendesk.com/home) 経由でカスタマーサポートシステムにアクセス [ きます。 Zendesk にアクセスするには、https://tve.zendesk.com/homeでアカウントを登録して作成する必要があります。
+**Adobeから** Zendesk[&#128279;](https://tve.zendesk.com/home) 経由でカスタマーサポートシステムにアクセス  きます。 Zendesk にアクセスするには、https://tve.zendesk.com/homeでアカウントを登録して作成する必要があります。
 
 Adobe Pass認証チームを使用すると、統合プロセス中に発生する可能性のある質問や技術的な問題に対応できます。 [tve-support@adobe.com](mailto:tve-support@adobe.com) までお問い合わせください。
 
 ## ドキュメントへのアクセス {#access-documentation}
 
-**Adobeは** Adobe Experience League](https://experienceleague.adobe.com/en/docs/pass/authentication/home) 経由でアドビの公開ドキュメントに [ アクセスを提供します。
+**Adobeは** Adobe Experience League[&#128279;](https://experienceleague.adobe.com/en/docs/pass/authentication/home) 経由でアドビの公開ドキュメントに  アクセスを提供します。
 
-Adobe Pass認証チームは、[MVPD の統合ガイド ](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md) の節で利用できる機能とワークフローに関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
+Adobe Pass認証チームは、[MVPD の統合ガイド &#x200B;](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md) の節で利用できる機能とワークフローに関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
 
 ## テストツールへのアクセス {#access-testing-tool}
 
-**Adobeから**[Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイト経由で API 探索ツールにアクセスできるようになります。
+**Adobeから**&#x200B;[Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイト経由で API 探索ツールにアクセスできるようになります。

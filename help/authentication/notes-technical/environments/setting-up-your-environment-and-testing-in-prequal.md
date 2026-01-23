@@ -101,7 +101,7 @@ Addresses:  52.26.79.43
 
 **これは簡単な手順です：**
 
-* [ 使用権限前環境 ](https://entitlement-prequal.auth.adobe.com/environment.html) および [ 使用権限 ](https://entitlement.auth.adobe.com/environment.html) を読み込みます。 同じ応答を返す必要があります。
+* [&#x200B; 使用権限前環境 &#x200B;](https://entitlement-prequal.auth.adobe.com/environment.html) および [&#x200B; 使用権限 &#x200B;](https://entitlement.auth.adobe.com/environment.html) を読み込みます。 同じ応答を返す必要があります。
 
 
 ## 手順 4.  プログラマーの web サイトを使用して、単純な認証/承認フローを実行します。 {#peform-a-simple-auth-flow}
@@ -115,6 +115,6 @@ Addresses:  52.26.79.43
 
 ## 手順 6.  API テストサイトを使用したテストの実行 {#perform-testing-using-api-testing-site}
 
-* Adobe Pass認証のテストを詳しく調べる場合は、[API テストサイト ](http://entitlement-prequal.auth.adobe.com/apitest/api.html) を使用することをお勧めします。
+* Adobe Pass認証のテストを詳しく調べる場合は、[API テストサイト &#x200B;](http://entitlement-prequal.auth.adobe.com/apitest/api.html) を使用することをお勧めします。
 
-API テストサイトについて詳しくは、[Adobe API テストサイトを使用して認証フローと承認フローをテストする方法 ](/help/authentication/integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md) を参照してください。
+API テストサイトについて詳しくは、[Adobe API テストサイトを使用して認証フローと承認フローをテストする方法 &#x200B;](/help/authentication/integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md) を参照してください。

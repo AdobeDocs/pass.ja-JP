@@ -17,13 +17,13 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 </br>
 
 ## コンテキスト
 
-オプションですが、クライアントレス API のパラメーター `deviceType` が存在する場合は、[ 使用権限サービスのモニタリング ](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md) で公開されるAdobe Pass認証指標で使用されます。
+オプションですが、クライアントレス API のパラメーター `deviceType` が存在する場合は、[&#x200B; 使用権限サービスのモニタリング &#x200B;](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md) で公開されるAdobe Pass認証指標で使用されます。
 
 Adobe Pass認証指標の `deviceType` パラメーターとその **メリット** との関連は最初は述べていなかったことを考慮すると、このテクニカルノートの範囲は、それらに関する詳細を追加することです。
 
@@ -35,10 +35,10 @@ Adobe Pass認証指標の `deviceType` パラメーターとその **メリッ�
 
 >[!IMPORTANT]
 >
->パラメーター `deviceType` が正しく設定されている場合、権利付与サービスのモニタリングに次の **特典** が含まれます。クライアントレスを使用する際に、[ デバイスタイプごとに分類 ](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type) される指標が提供されるので、Roku、AppleTV、Xbox など、様々なタイプの分析を実行できます。
+>パラメーター `deviceType` が正しく設定されている場合、権利付与サービスのモニタリングに次の **特典** が含まれます。クライアントレスを使用する際に、[&#x200B; デバイスタイプごとに分類 &#x200B;](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type) される指標が提供されるので、Roku、AppleTV、Xbox など、様々なタイプの分析を実行できます。
 
 
-使用権限サービスの監視 API について詳しくは、[ ドリルダウンツリー ](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md#drill-down_tree) を参照してください。このツリーには、ESM 2.0 で使用可能な [ ディメンション ](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#esm_dimensions) （リソース）が示されています。
+使用権限サービスの監視 API について詳しくは、[&#x200B; ドリルダウンツリー &#x200B;](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md#drill-down_tree) を参照してください。このツリーには、ESM 2.0 で使用可能な [&#x200B; ディメンション &#x200B;](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#esm_dimensions) （リソース）が示されています。
 
 >[!NOTE]
 >
@@ -49,7 +49,7 @@ Adobe Pass認証指標の `deviceType` パラメーターとその **メリッ�
 
 ## 実装
 
-Adobe Pass認証指標の利点を最大限に活用するために、現在使用されており、正しい `deviceType` ークフローを設定する必要がある [ クライアントレス API](#web_srvs_summary) は 2 種類あります。
+Adobe Pass認証指標の利点を最大限に活用するために、現在使用されており、正しい `deviceType` ークフローを設定する必要がある [&#x200B; クライアントレス API](#web_srvs_summary) は 2 種類あります。
 
 1. `regcode` を必須パラメーターとして持ち、`regcode` の作成時に設定された `deviceType` パラメーターを次の API 呼び出しで使用する API。
    - [\&lt;REGGIE\_FQDN\>/reggie/v1/{requestorId}/regcode](#reg_serv)

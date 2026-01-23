@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## ポップアップと iFrame の比較 {#popup-vs-iframe}
 
@@ -235,4 +235,4 @@ function checkClosed() {
 >* サンプルコードには、使用される requestorID - 「REF」のハードコード変数が含まれています。これは、実際のプログラマーのリクエスター ID に置き換える必要があります。
 >* サンプルコードは、使用されるリクエスター ID に関連付けられた、許可リストに登録されたドメインからのみ適切に実行されます。
 >* コード全体をダウンロードできるので、このテクニカルノートに示されているコードは切り捨てられています。 完全なサンプルについては、**JS iFrame とポップアップのサンプル** を参照してください。
->* 外部のJavaScript ライブラリは、[Googleがホストするサービス ](https://developers.google.com/speed/libraries/) からリンクされていました。
+>* 外部のJavaScript ライブラリは、[Googleがホストするサービス &#x200B;](https://developers.google.com/speed/libraries/) からリンクされていました。

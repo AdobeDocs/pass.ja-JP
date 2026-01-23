@@ -21,7 +21,7 @@ ht-degree: 0%
 
 >[!TIP]
 >
-> AI による開発については、これらの要件を AI コーディングアシスタント用の構造化されたルールに変換する [AI ルール ](rest-api-v2-ai-rules.md) を参照してください。
+> AI による開発については、これらの要件を AI コーディングアシスタント用の構造化されたルールに変換する [AI ルール &#x200B;](rest-api-v2-ai-rules.md) を参照してください。
 
 ## 必須の要件 {#mandatory-requirements}
 

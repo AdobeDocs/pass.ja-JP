@@ -17,7 +17,7 @@ ht-degree: 14%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 概要
 
@@ -38,7 +38,7 @@ Googleの開発者向け web サイトと、アドビが推奨する公式ブロ
 
 ## タイムライン
 
-概要を簡単に説明するために、Google Chromeでは、すべてのサードパーティ cookie に影響を与えるクロスサイトトラッキングを制限する新機能である [ トラッキング保護 ](https://privacysandbox.com/) のテストを開始しました。
+概要を簡単に説明するために、Google Chromeでは、すべてのサードパーティ cookie に影響を与えるクロスサイトトラッキングを制限する新機能である [&#x200B; トラッキング保護 &#x200B;](https://privacysandbox.com/) のテストを開始しました。
 
 当初は 2024 年初めに開始し、ユーザーの約 1% に影響を与えており、2024 年第 3 四半期からユーザーの最大 100% に拡張する（暫定）計画です。
 
@@ -68,7 +68,7 @@ GoogleChromeの利用者の経験を見直し、課題を事前に洗い出し�
 
 ### Cookie の使用の監査
 
-Chrome 118 以降の「[DevTools の問題 ](https://developer.chrome.com/docs/devtools/issues/)」タブでは、影響を受ける可能性のある Cookie がハイライト表示され、次のメッセージが表示されます。`Cookie sent in cross-site context will be blocked in future Chrome versions`
+Chrome 118 以降の「[DevTools の問題 &#x200B;](https://developer.chrome.com/docs/devtools/issues/)」タブでは、影響を受ける可能性のある Cookie がハイライト表示され、次のメッセージが表示されます。`Cookie sent in cross-site context will be blocked in future Chrome versions`
 
 サードパーティで使用するためにマークされた Cookie は、`SameSite=None` 属性値で識別できます。
 

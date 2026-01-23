@@ -27,7 +27,7 @@ Adobe Pass認証では、これらの課題に対応するために、固有のM
 
 最適化ルールを適用すると、プログラマーは自動認証または自動承認を一時的に有効にして、最適化が適用される期間のコンテンツに中断なくアクセスできるようになります。 MVPD との事前に決められた合意に基づいて、プログラマは常にデグレード アクションを開始します。 Adobeは現在、トリガーの低下を直接引き起こすことはありませんが、将来的には、サービスレベル契約（SLA）が確立された場合のプロアクティブな管理が含まれる可能性があります。
 
-この機能は、[ 使用状況モニタリング API](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md) と組み合わせて使用するように設計されており、MVPD との事前契約に基づいて、Adobe Pass認証は、重要な瞬間にユーザーエクスペリエンス、信頼性、運用制御のバランスを取る強力なツールを提供します。
+この機能は、[&#x200B; 使用状況モニタリング API](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md) と組み合わせて使用するように設計されており、MVPD との事前契約に基づいて、Adobe Pass認証は、重要な瞬間にユーザーエクスペリエンス、信頼性、運用制御のバランスを取る強力なツールを提供します。
 
 >[!IMPORTANT]
 >
@@ -49,4 +49,4 @@ Degradation API について詳しくは、次の Zendesk ドキュメント [Ad
 
 劣化機能を利用するには、TV Everywhere （TVE）アプリケーションとAdobe Pass認証 [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) のやり取りを変更するコード更新を実装する必要があります。
 
-これらのアップデートと関連ワークフローの包括的なガイドについては、[ 縮退したアクセスフロー ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/degraded-access-flows/rest-api-v2-access-degraded-flows.md) ドキュメントを参照してください。
+これらのアップデートと関連ワークフローの包括的なガイドについては、[&#x200B; 縮退したアクセスフロー &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/degraded-access-flows/rest-api-v2-access-degraded-flows.md) ドキュメントを参照してください。

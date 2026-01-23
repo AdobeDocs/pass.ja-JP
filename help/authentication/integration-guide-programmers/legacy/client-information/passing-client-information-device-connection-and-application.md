@@ -17,7 +17,7 @@ ht-degree: 8%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## 範囲 {#pass-client-info-scope}
 
@@ -104,19 +104,19 @@ AccessEnabler JavaScript SDKでは **setRequestor** の *applicationId* オプ�
 
 AccessEnabler iOS/tvOS SDKは、デフォルトでクライアント情報の JSON オブジェクトを作成します。このオブジェクトは、上書きされない限り、Adobe Pass Authentication サービスに渡されます。
 
-AccessEnabler iOS/tvOS SDKでは、[setOptions **の device_info パラメータを使用して** クライアント情報の JSON オブジェクトをオーバーライド ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setoptions) できます。
+AccessEnabler iOS/tvOS SDKでは、[setOptions **の device_info パラメータを使用して** クライアント情報の JSON オブジェクトをオーバーライド &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setoptions) できます。
 
 >[!CAUTION]
 >
 >*device_info* パラメーター値は **Base64 エンコード** *NSString* 値にする必要があります。
 >
->プログラマーアプリケーションが *device_info* を渡すことにした場合、AccessEnabler iOS/tvOS SDKによって計算されたすべてのクライアント情報キーが上書きされます。 したがって、できるだけ多くのキーの値を計算して渡すことが非常に重要です。 実装について詳しくは、[ 概要 ](#pass-client-info-overview) 表および [iOS/tvOS クックブック ](#ios-tvos) を参照してください。
+>プログラマーアプリケーションが *device_info* を渡すことにした場合、AccessEnabler iOS/tvOS SDKによって計算されたすべてのクライアント情報キーが上書きされます。 したがって、できるだけ多くのキーの値を計算して渡すことが非常に重要です。 実装について詳しくは、[&#x200B; 概要 &#x200B;](#pass-client-info-overview) 表および [iOS/tvOS クックブック &#x200B;](#ios-tvos) を参照してください。
 
 #### Android/FireOS SDK {#and-fire-os-sdk}
 
 `AccessEnabler` Android/FireOS SDKは、デフォルトでクライアント情報 JSON オブジェクトを作成し、上書きされない限り、これをAdobe Pass認証サービスに渡します。
 
-`AccessEnabler` Android/FireOS SDKは、**setOptions](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#setOptions) の/[setOptions](/help/authentication/integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md#fire_setOption) の `device_info` パラメーターを使用して** クライアント情報の JSON オブジェクトを上書き [ サポートしています。
+`AccessEnabler` Android/FireOS SDKは、**setOptions[&#128279;](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#setOptions) の/[setOptions](/help/authentication/integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md#fire_setOption) の `device_info` パラメーターを使用して** クライアント情報の JSON オブジェクトを上書き  サポートしています。
 
 >[!NOTE]
 >
@@ -124,7 +124,7 @@ AccessEnabler iOS/tvOS SDKでは、[setOptions **の device_info パラメータ
 
 >[!IMPORTANT]
 >
->プログラマーアプリケーションが `device_info` を渡すことにした場合、`AccessEnabler` Android/FireOS SDKで計算されたすべてのクライアント情報キーが上書きされます。 したがって、できるだけ多くのキーの値を計算して渡すことが非常に重要です。 実装について詳しくは、[ 概要 ](#pass-client-info-overview) テーブルおよび [Android](#android) と [FireOS](#fire-tv) のクックブックを参照してください。
+>プログラマーアプリケーションが `device_info` を渡すことにした場合、`AccessEnabler` Android/FireOS SDKで計算されたすべてのクライアント情報キーが上書きされます。 したがって、できるだけ多くのキーの値を計算して渡すことが非常に重要です。 実装について詳しくは、[&#x200B; 概要 &#x200B;](#pass-client-info-overview) テーブルおよび [Android](#android) と [FireOS](#fire-tv) のクックブックを参照してください。
 
 ## クックブック {#cookbooks}
 
@@ -281,8 +281,8 @@ private JSONObject computeClientInformation() {
 >[!NOTE]
 >
 >**リソース：**
->* Android開発者向けドキュメントのパブリッククラス [ ビルド ](https://developer.android.com/reference/android/os/Build.html){target=_blank}。
->* [FireTV デバイスの識別 ](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html){target=_blank}
+>* Android開発者向けドキュメントのパブリッククラス [&#x200B; ビルド &#x200B;](https://developer.android.com/reference/android/os/Build.html){target=_blank}。
+>* [FireTV デバイスの識別 &#x200B;](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html){target=_blank}
 
 ### iOS/tvOS {#ios-tvos}
 
@@ -390,7 +390,7 @@ private JSONObject computeClientInformation() {
 >**リソース：**
 >* [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice){target=_blank}
 >* [uname](https://man7.org/linux/man-pages/man2/uname.2.html){target=_blank}
->* [ 到達可能性について ](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html){target=_blank}
+>* [&#x200B; 到達可能性について &#x200B;](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html){target=_blank}
 
 ### Roku {#roku}
 

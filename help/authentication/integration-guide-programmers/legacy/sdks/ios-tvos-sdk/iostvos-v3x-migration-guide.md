@@ -17,7 +17,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 >[!TIP]
 > 
@@ -38,7 +38,7 @@ ht-degree: 0%
 
 > ソフトウェア ステートメントの取得方法の詳細については、このページを参照してください。
 > ページ：
-> [アプリケーションの登録 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-application-registration.md)
+> [アプリケーションの登録 &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-application-registration.md)
 
 ソフトウェアのステートメントを取得したら、それをリモートサーバーでホストすることをお勧めします。これにより、App Storeに新しいバージョンのアプリケーションをデプロイしなくても、簡単にソフトウェアを失効させたり、変更したりできます。 アプリケーションが起動したら、リモート・サイトからソフトウェア・ステートメントを取得し、それを AccessEnabler コンストラクタに渡します。
 
@@ -46,13 +46,13 @@ ht-degree: 0%
     accessEnabler = AccessEnabler("YOUR_SOFTWARE_STATEMENT_HERE");
 ```
 
-> API 情報はこちら：[iOS/tvOS API リファレンス ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
+> API 情報はこちら：[iOS/tvOS API リファレンス &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
 
 </br>
 
 ## カスタム URL スキームの追加 {#add-custom}
 
-> カスタム URL スキームの取得方法については、次のページを参照してください。[ 顧客 URL スキームの取得 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-application-registration.md)
+> カスタム URL スキームの取得方法については、次のページを参照してください。[&#x200B; 顧客 URL スキームの取得 &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-application-registration.md)
 
 カスタム URL スキームを取得したら、それをアプリケーションの info.plist ファイルに追加する必要があります。 カスタム スキームの形式は `adbe.u-XFXJeTSDuJiIQs0HVRAg://` です。 ファイルに追加する際は、コロンとスラッシュを省略する必要があります。 上記の例は `adbe.u-XFXJeTSDuJiIQs0HVRAg` になります。
 
@@ -72,7 +72,7 @@ ht-degree: 0%
 
 ## カスタム URL スキームでの呼び出しのインターセプト {#intercept}
 
-これは、以前にアプリケーションで [setOptions （\[&quot;handleSVC&quot;:true&quot;\]）呼び出しを介した手動の Safari View Controller （SVC）処理が有効になっており ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)Safari View Controller （SVC）を必要とする特定の MVPD に対してのみ適用されます。そのため、認証の URL を読み込み、UIWebView/WKWebViewController コントローラではなくコントローラでエンドポイントをからログアウトするする必要があります。
+これは、以前にアプリケーションで [setOptions （\[&quot;handleSVC&quot;:true&quot;\]）呼び出しを介した手動の Safari View Controller （SVC）処理が有効になっており &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)Safari View Controller （SVC）を必要とする特定の MVPD に対してのみ適用されます。そのため、認証の URL を読み込み、UIWebView/WKWebViewController コントローラではなくコントローラでエンドポイントをからログアウトするする必要があります。
 
 認証およびログアウトのフロー中、アプリケーションは `SFSafariViewController `controller のアクティビティを監視する必要があります。これは、複数のリダイレクトを実行するためです。 `application's custom URL scheme` ーザーが定義した特定のカスタム URL （など）をアプリケーションが読み込んだ瞬間を検出する必要があり `adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com)` す。コントローラがこの特定のカスタム URL を読み込むとき、アプリケーションは `SFSafariViewController` を閉じて AccessEnabler の `handleExternalURL:url `API メソッドを呼び出す必要があります。
 
@@ -87,7 +87,7 @@ ht-degree: 0%
         }
 ```
 
-> API 情報はこちら：[ 外部 URL を処理 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
+> API 情報はこちら：[&#x200B; 外部 URL を処理 &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
 
 </br>
 
@@ -126,7 +126,7 @@ ht-degree: 0%
     accessEnabler.setRequestor(requestorId)
 ```
 
-> API 情報はこちら：[ リクエスターを設定 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
+> API 情報はこちら：[&#x200B; リクエスターを設定 &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
 
 </br>
 
@@ -146,4 +146,4 @@ ht-degree: 0%
     accessEnabler.handleExternalURL(request.url?.description);
 ```
 
-> API 情報はこちら：[ 外部 URL を処理 ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
+> API 情報はこちら：[&#x200B; 外部 URL を処理 &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)

@@ -89,9 +89,9 @@ Adobe Pass SSO サービスは、複数のデバイスやアプリケーショ�
 
 このユースケースでは、1 つのデバイス上の D2C と TVE （MVPD）資格情報の間でリンクを設定し、そのリンクされたプロファイルを同じアプリケーション内の他のデバイスで活用できます。
 
-![D2C-TVE SSO フロー ](../../../assets/sso_service_d2c_1.png)
+![D2C-TVE SSO フロー &#x200B;](../../../assets/sso_service_d2c_1.png)
 
-![ クロスデバイス SSO フロー ](../../../assets/sso_service_d2c_2.png)
+![&#x200B; クロスデバイス SSO フロー &#x200B;](../../../assets/sso_service_d2c_2.png)
 
 ### クロスデバイス SSO {#cross-device-sso-detailed}
 
@@ -121,7 +121,7 @@ POST /serviceToken エンドポイントの X-SSO-ID で共通の識別子を使
 
 ### 手順 3 - Adobe Pass REST API V2 を使用した TVE MVPDでの認証 {#step-3}
 
-Adobe Passの認証は、サービストークン [REST API V2 - シングルサインオンサービストークンフロー ](https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-flows/rest-api-v2-single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows) を使用して実装する必要があります。
+Adobe Passの認証は、サービストークン [REST API V2 - シングルサインオンサービストークンフロー &#x200B;](https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-flows/rest-api-v2-single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows) を使用して実装する必要があります。
 
 ### 手順 4 – 別のデバイスをリンクする {#step-4}
 

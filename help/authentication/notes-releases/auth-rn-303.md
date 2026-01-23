@@ -13,7 +13,7 @@ ht-degree: 3%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -40,7 +40,7 @@ Adobe Pass認証：adobe-pass-**3.0.3**
 
 ##### マニュアル
 
-* 新しい REST API v2 の使用を開始するには、[REST API v2 の概要 ](../integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) ドキュメントを参照してください。
+* 新しい REST API v2 の使用を開始するには、[REST API v2 の概要 &#x200B;](../integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) ドキュメントを参照してください。
 
 ##### ツール
 

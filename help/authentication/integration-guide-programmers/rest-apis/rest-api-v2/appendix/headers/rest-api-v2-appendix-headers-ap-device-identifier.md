@@ -83,7 +83,7 @@ AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMW
 >
 > ドキュメントリソースは完全なものではなく、プロジェクトで機能するために追加の変更が必要になる場合があります。
 > 
-> 実際の実装に関係なく、`AP-Device-Identifier` ヘッダーには、[ ディレクティブ ](#directives) の節で説明されているように書式設定された値が含まれている必要があります。
+> 実際の実装に関係なく、`AP-Device-Identifier` ヘッダーには、[&#x200B; ディレクティブ &#x200B;](#directives) の節で説明されているように書式設定された値が含まれている必要があります。
 
 ### ブラウザー {#browsers}
 

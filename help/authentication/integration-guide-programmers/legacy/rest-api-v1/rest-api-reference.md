@@ -17,11 +17,11 @@ ht-degree: 7%
 
 >[!IMPORTANT]
 >
-> [ 製品のお知らせ ](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 ## スロットルメカニズム
 
-Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md) によって制御されます。
+Adobe Pass認証 REST API は、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) によって制御されます。
 
 ## 応答形式 {#response-formats}
 
@@ -81,4 +81,4 @@ Adobe Pass認証 REST API は、[ スロットルメカニズム ](/help/authent
 
 ## REST API セキュリティ {#security}
 
-すべてのAdobe Pass認証 REST API は、安全な通信のために HTTPS プロトコルを使用して呼び出す必要があります。 さらに、と呼ばれるほとんどの API には、[ アクセストークンの取得 ](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントで説明されているように取得されたアクセストークンが含まれている必要があります。
+すべてのAdobe Pass認証 REST API は、安全な通信のために HTTPS プロトコルを使用して呼び出す必要があります。 さらに、と呼ばれるほとんどの API には、[&#x200B; アクセストークンの取得 &#x200B;](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントで説明されているように取得されたアクセストークンが含まれている必要があります。
