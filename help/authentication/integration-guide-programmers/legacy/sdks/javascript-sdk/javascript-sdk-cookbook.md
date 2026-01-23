@@ -186,7 +186,7 @@ AccessEnabler ライブラリ）
 
 ## 訪問者 ID の設定 {#visitorID}
 
-[Experience Cloud visitorID](https://experienceleague.adobe.com/docs/id-service/using/home.html) の値の設定は、分析の観点から非常に重要です。 EC visitorID の値が設定されると、SDKはネットワーク呼び出しごとにこの情報を送信し、Adobe Pass Authentication サービスはこの情報を収集します。 これにより、Adobe Pass Authentication Service からの分析データを、他のアプリケーションや web サイトからの他の分析レポートと関連付けることができます。 EC 訪問者 ID の設定方法については、[&#x200B; こちら &#x200B;](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=en) を参照してください。
+[Experience Cloud visitorID](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=ja) の値の設定は、分析の観点から非常に重要です。 EC visitorID の値が設定されると、SDKはネットワーク呼び出しごとにこの情報を送信し、Adobe Pass Authentication サービスはこの情報を収集します。 これにより、Adobe Pass Authentication Service からの分析データを、他のアプリケーションや web サイトからの他の分析レポートと関連付けることができます。 EC 訪問者 ID の設定方法については、[&#x200B; こちら &#x200B;](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=ja) を参照してください。
 
 
 >[!NOTE]

@@ -135,7 +135,7 @@ Adobe Pass認証チームを使用すると、統合プロセス中に発生す�
 
 ## ドキュメントへのアクセス {#access-documentation}
 
-**Adobeは** Adobe Experience League[&#128279;](https://experienceleague.adobe.com/en/docs/pass/authentication/home) 経由でアドビの公開ドキュメントに  アクセスを提供します。
+**Adobeは** Adobe Experience League[&#128279;](https://experienceleague.adobe.com/ja/docs/pass/authentication/home) 経由でアドビの公開ドキュメントに  アクセスを提供します。
 
 Adobe Pass認証チームは、[MVPD の統合ガイド &#x200B;](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md) の節で利用できる機能とワークフローに関する包括的なドキュメントを提供します。 各トピックに関する詳細情報へのリンクについては、このセクションの目次を参照してください。
 

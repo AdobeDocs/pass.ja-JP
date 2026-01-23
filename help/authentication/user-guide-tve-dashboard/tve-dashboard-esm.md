@@ -25,7 +25,7 @@ ESM ダッシュボードは、エンタイトルメントデータとイベン�
 - MVPDのパフォーマンスの比較
 - アプリケーションごとの顧客使用状況の把握
 
-ESM のデータとイベントの詳細については、「[&#x200B; 使用権限サービスの監視の概要 &#x200B;](https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview) を参照してください。
+ESM のデータとイベントの詳細については、「[&#x200B; 使用権限サービスの監視の概要 &#x200B;](https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview) を参照してください。
 
 ## レポート {#reports}
 

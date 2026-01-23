@@ -22,7 +22,7 @@ Harman は Primetime の広告および公開商品を管理し、Adobeは Accou
 
 | ガイド | 説明 |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| [Primetime ダイナミックAd Insertion](https://experienceleague.adobe.com/docs/primetime/ad-insertion/home.html) | Adobe Pass Ad Insertion ヘルプ |
+| [Primetime ダイナミックAd Insertion](https://experienceleague.adobe.com/docs/primetime/ad-insertion/home.html?lang=ja) | Adobe Pass Ad Insertion ヘルプ |
 
 ## Adobe Pass ガイド
 
