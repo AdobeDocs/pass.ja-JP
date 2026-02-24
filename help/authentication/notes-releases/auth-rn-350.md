@@ -1,13 +1,13 @@
 ---
 title: Adobe Pass Authentication 3.5.0 リリースノート
 description: このリリースの新機能、変更点、既知の問題について説明します。
-source-git-commit: 6ff46a124f5f3c78173028ae3efed68d71ee6e41
+exl-id: b196f636-26a5-4974-903e-40b5f8b93a24
+source-git-commit: 1cbddf081fc7d57a187c9701e4ade8593baf8759
 workflow-type: tm+mt
-source-wordcount: '206'
-ht-degree: 3%
+source-wordcount: '273'
+ht-degree: 0%
 
 ---
-
 
 # Adobe Pass Authentication 3.5.0 リリースノート
 
@@ -18,7 +18,7 @@ ht-degree: 3%
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](https://experienceleague.adobe.com/ja/docs/pass/authentication/product-announcements) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [ 製品のお知らせ ](https://experienceleague.adobe.com/en/docs/pass/authentication/product-announcements) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
 
 このページでは、このリリースの新機能、変更点および既知の問題について説明します。
 
@@ -44,3 +44,15 @@ Adobe Pass認証：adobe-pass-**3.5.0**\
 * REST API V2 で、認証済みプロファイルの有効期限が切れたときにエラーコード `authenticated_profile_expired` 返されなかった問題を修正しました。
 * REST API V2 で、認証待ち時間の計算とプリフライト TTL 値が正しくない問題を修正しました。
 * DCR トークンの有効期限が切れると、一貫性のない応答形式が返される問題を修正しました。
+
+## メンテナンス更新 – 2026 年 2 月 {#maintenance-update-february-2026}
+
+Adobe Pass認証：adobe-pass-**3.5.0.5**\
+リリース日：2026 年 2 月 24 日（**）～2026 年 2 月 26 日（PT）**
+
+このメンテナンスアップデートリリースには、システムの信頼性とセキュリティを強化するための重要な機能強化が含まれています。
+
+### 機能強化
+
+* REST API V2 でプロキシ化されたMVPD設定の認証低下処理を改善し、MVPD サービスの中断時の動作の一貫性を向上しました。
+* URL パラメーターの検証とリダイレクト処理の機能を強化して、セキュリティ制御を強化し、システム全体の整合性を向上しました。
