@@ -19,20 +19,20 @@ ht-degree: 0%
 >
 > Degradation APIを使用する前に、次の前提条件が満たされていることを確認します。
 >
-> * 「[ クライアント資格情報の取得](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメント」の説明に従って、クライアント資格情報を取得します。
-> * 「[ アクセストークンの取得](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメント」の説明に従って、アクセストークンを取得します。
+> * 「[&#x200B; クライアント資格情報の取得](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメント」の説明に従って、クライアント資格情報を取得します。
+> * 「[&#x200B; アクセストークンの取得](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメント」の説明に従って、アクセストークンを取得します。
 >
 > 登録アプリケーションの作成方法とソフトウェアステートメントのダウンロード方法について詳しくは、[動的クライアント登録の概要](../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
 
 ## APIの概要 {#api-overview}
 
-使用権限サービス監視（ESM）は、WOLAP （Web ベースの[ オンライン分析処理](https://en.wikipedia.org/wiki/Online_analytical_processing){target=_blank}）プロジェクトとして実装されます。 ESMは、データウェアハウスに支えられた汎用ビジネスレポート web APIです。 典型的なOLAP操作をRESTfullyで実行できるようにするHTTP クエリ言語として機能します。
+使用権限サービス監視（ESM）は、WOLAP （Web ベースの[&#x200B; オンライン分析処理](https://en.wikipedia.org/wiki/Online_analytical_processing){target=_blank}）プロジェクトとして実装されます。 ESMは、データウェアハウスに支えられた汎用ビジネスレポート web APIです。 典型的なOLAP操作をRESTfullyで実行できるようにするHTTP クエリ言語として機能します。
 
 >[!NOTE]
 >
 >ESM APIは一般には使用できません。 ご利用に関するご質問は、Adobeの担当者までお問い合わせください。
 
-ESM APIは、基になるOLAP キューブの階層ビューを提供します。 ディメンション階層の各リソース （[ ディメンション ](#esm_dimensions)、URL パスセグメントとしてマッピング）は、現在の選択範囲に対して（集約）指標[を含むレポートを生成します。 ](#esm_metrics)各リソースは、親リソース（ロールアップの場合）とサブリソース（ドリルダウンの場合）を指します。 スライスとダイシングは、特定の値または範囲にディメンションをピン留めするクエリ文字列パラメーターを使用して実現されます。
+ESM APIは、基になるOLAP キューブの階層ビューを提供します。 ディメンション階層の各リソース （[&#x200B; ディメンション &#x200B;](#esm_dimensions)、URL パスセグメントとしてマッピング）は、現在の選択範囲に対して（集約）指標[を含むレポートを生成します。 &#x200B;](#esm_metrics)各リソースは、親リソース（ロールアップの場合）とサブリソース（ドリルダウンの場合）を指します。 スライスとダイシングは、特定の値または範囲にディメンションをピン留めするクエリ文字列パラメーターを使用して実現されます。
 
 REST APIは、ディメンションのパス、提供されたフィルター、選択された指標に従って、リクエストで指定された時間間隔で利用可能なデータを提供します（指定されていない場合はデフォルト値にフォールバックします）。 時間範囲は、時間ディメンション（年、月、日、時間、分、秒）を含まないレポートには適用されません。
 
@@ -42,7 +42,7 @@ REST APIは、ディメンションのパス、提供されたフィルター、
 
 ## ツリーをドリルダウン {#drill-down-tree}
 
-次のドリルダウンツリーは、[ プログラマー](#progr-dimensions)および[MVPD](#mvpd-dimensions)のESM 3.0で使用可能なディメンション（リソース）を示しています。
+次のドリルダウンツリーは、[&#x200B; プログラマー](#progr-dimensions)および[MVPD](#mvpd-dimensions)のESM 3.0で使用可能なディメンション（リソース）を示しています。
 
 
 ### プログラマが利用できるディメンション {#progr-dimensions}

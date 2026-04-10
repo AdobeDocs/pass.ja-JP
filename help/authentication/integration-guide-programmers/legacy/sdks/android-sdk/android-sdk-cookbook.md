@@ -139,7 +139,7 @@ Android Library （AccessEnabler）
 
    <!--Removed bad image link from first note cell above. ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/icons/1313859077_lightbulb.png) -->
 
-1. [checkAuthentication （） ](#$checkAuthN)を呼び出して、完全な認証フローを開始せずに既存の認証を確認します。   この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
+1. [checkAuthentication （） &#x200B;](#$checkAuthN)を呼び出して、完全な認証フローを開始せずに既存の認証を確認します。   この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
 
    - **依存関係：** `setRequestor()`への呼び出しが成功しました（この依存関係は、以降のすべての呼び出しにも適用されます）。
 
@@ -174,7 +174,7 @@ Android Library （AccessEnabler）
 
 ### ニ。認可の流れ {#authz_flow}
 
-1. [getAuthorization （） ](#$getAuthZ)を呼び出して、認証を開始します
+1. [getAuthorization （） &#x200B;](#$getAuthZ)を呼び出して、認証を開始します
 フロー。
 
    依存関係：MVPDで合意された有効なResourceID。
@@ -211,7 +211,7 @@ Android Library （AccessEnabler）
 1. ユーザーをログアウトするには、[`logout()`](#$logout)に電話してください。\
    AccessEnablerは、現在のMVPDのキャッシュされた値とトークンを、現在の依頼者とシングルサインオンの依頼者に対してすべてクリアします。 キャッシュをクリアした後、AccessEnablerはサーバーサイドのセッションをクリーンアップするためにサーバーコールを実行します。  サーバー呼び出しはIdPへのSAML リダイレクトにつながる可能性があるため（これにより、IdP側でセッションクリーンアップが可能になります）、この呼び出しはすべてのリダイレクトに従う必要があります。 このため、この呼び出しはWebView コントロール内で処理する必要があります。
 
-   a.  認証ワークフローと同じパターンに従って、AccessEnabler ドメインは（0} コールバックを介して） UI アプリケーション レイヤーにWebView コントロールを作成するようにリクエストし、そのコントロールにバックエンド サーバー上のログアウトエンドポイントのURLを読み込むように指示します。`navigateToUrl()`
+   a.  認証ワークフローと同じパターンに従って、AccessEnabler ドメインは（0&rbrace; コールバックを介して） UI アプリケーション レイヤーにWebView コントロールを作成するようにリクエストし、そのコントロールにバックエンド サーバー上のログアウトエンドポイントのURLを読み込むように指示します。`navigateToUrl()`
 
    b.  繰り返しますが、UIはWebView コントロールのアクティビティを監視し、コントロールが複数のリダイレクトを通過する際に、アプリケーションのカスタム URL （つまり、`http://adobepass.android.app/`）を読み込む瞬間を検出する必要があります。 このイベントが発生すると、UI アプリケーションレイヤーがWebViewを閉じ、ログアウトプロセスが完了します。
 

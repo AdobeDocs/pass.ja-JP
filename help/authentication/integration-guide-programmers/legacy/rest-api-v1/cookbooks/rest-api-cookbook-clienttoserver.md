@@ -21,14 +21,14 @@ ht-degree: 0%
 
 ## 概要 {#overview}
 
-このドキュメントでは、プログラマーのエンジニアリングチームが「スマートデバイス」（ゲームコンソール、スマートテレビアプリ、セットトップボックスなど）を統合するための手順を説明します。 REST API サービスを使用してAdobe Pass認証を行います。 クライアントSDKではなくREST APIを使用するこのクライアント間アプローチにより、一意のSDKを大量に開発できない様々なプラットフォームを幅広くサポートできます。 クライアントレスソリューションの仕組みについて詳しくは、[ クライアントレステクニカル概要](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)を参照してください。
+このドキュメントでは、プログラマーのエンジニアリングチームが「スマートデバイス」（ゲームコンソール、スマートテレビアプリ、セットトップボックスなど）を統合するための手順を説明します。 REST API サービスを使用してAdobe Pass認証を行います。 クライアントSDKではなくREST APIを使用するこのクライアント間アプローチにより、一意のSDKを大量に開発できない様々なプラットフォームを幅広くサポートできます。 クライアントレスソリューションの仕組みについて詳しくは、[&#x200B; クライアントレステクニカル概要](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)を参照してください。
 
 
 このアプローチでは、必要なフローを完了するために、2つのコンポーネント（ストリーミングアプリとAuthN アプリ）が必要です。ストリーミングアプリのスタートアップ、登録、認証、ビューメディアフローと、AuthN アプリの認証フローです。
 
 ### スロットル機構
 
-Adobe Pass Authentication REST APIは、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって管理されます。
+Adobe Pass Authentication REST APIは、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって管理されます。
 
 ## コンポーネント {#components}
 

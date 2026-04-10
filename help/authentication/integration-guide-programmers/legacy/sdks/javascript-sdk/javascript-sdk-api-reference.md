@@ -21,7 +21,7 @@ ht-degree: 0%
 
 ## API リファレンス {#api-reference}
 
-これらの関数は、MVPDとのインタラクションのリクエストを開始します。 すべての呼び出しは非同期です。応答を処理するには、[ コールバック ](#callbacks)を実装する必要があります。
+これらの関数は、MVPDとのインタラクションのリクエストを開始します。 すべての呼び出しは非同期です。応答を処理するには、[&#x200B; コールバック &#x200B;](#callbacks)を実装する必要があります。
 
 - [setRequestor （）](#setReq)
 - [getAuthorization （）](#getAuthZ)
@@ -134,7 +134,7 @@ ht-degree: 0%
 - `redirect_url` – 必要に応じてリダイレクト URLを指定します。これにより、MVPDの認証プロセスで、認証が開始されたページではなく、そのページにユーザーが戻されます。
 
 
-**コールバックがトリガーされました：** [setToken （） ](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken) （成功時）、[tokenRequestFailed](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage) （失敗時）
+**コールバックがトリガーされました：** [setToken （） &#x200B;](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken) （成功時）、[tokenRequestFailed](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage) （失敗時）
 
 >[!CAUTION]
 >
@@ -150,13 +150,13 @@ ht-degree: 0%
 
 **説明：**&#x200B;現在の顧客の認証を要求します。 通常、ログインボタンのクリックに応じて呼び出されます。 現在の顧客のキャッシュされた認証トークンを確認します。 そのようなトークンが見つからない場合は、認証プロセスを開始します。 これにより、デフォルトまたはカスタムプロバイダー選択ダイアログが呼び出され、選択したプロバイダーを使用してMVPDのログインインターフェイスにリダイレクトされます。
 
-成功すると、ユーザーの認証トークンを作成して保存します。 認証が失敗した場合、プロバイダーは[setAuthenticationStatus （） ](#setauthenticationstatusisauthenticated-errorcode) コールバックに適切なエラーメッセージを返します。
+成功すると、ユーザーの認証トークンを作成して保存します。 認証が失敗した場合、プロバイダーは[setAuthenticationStatus （） &#x200B;](#setauthenticationstatusisauthenticated-errorcode) コールバックに適切なエラーメッセージを返します。
 
 **パラメーター：**
 
 - redirect_url – 必要に応じてリダイレクト URLを指定します。これにより、MVPDの認証プロセスは、認証が開始されたページではなく、そのページにユーザーを返します。
 
-**コールバックがトリガーされました：** [setAuthenticationStatus （） ](#setauthenticationstatusisauthenticated-errorcode)、[displayProviderDialog （） ](#displayproviderdialogproviders-displayproviderdialogproviders)、[sendTrackingData （） ](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
+**コールバックがトリガーされました：** [setAuthenticationStatus （） &#x200B;](#setauthenticationstatusisauthenticated-errorcode)、[displayProviderDialog （） &#x200B;](#displayproviderdialogproviders-displayproviderdialogproviders)、[sendTrackingData （） &#x200B;](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
 
 </br>
 
@@ -168,7 +168,7 @@ ht-degree: 0%
 
 **説明：**&#x200B;現在の顧客の現在の認証ステータスを確認します。  UIに関連付けられていません。
 
-**コールバックがトリガーされました：** [setAuthentcationStatus （） ](#setauthenticationstatusisauthenticated-errorcode)
+**コールバックがトリガーされました：** [setAuthentcationStatus （） &#x200B;](#setauthenticationstatusisauthenticated-errorcode)
 
 </br>
 
@@ -190,13 +190,13 @@ ht-degree: 0%
 
 
 **コールバックがトリガーされました：**
-[setToken （） ](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken)、[tokenRequestFailed （） ](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage)、[sendTrackingData （） ](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)、[setAuthenticationStatus （） ](#setauthenticationstatusisauthenticated-errorcode)
+[setToken （） &#x200B;](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken)、[tokenRequestFailed （） &#x200B;](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage)、[sendTrackingData （） &#x200B;](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)、[setAuthenticationStatus （） &#x200B;](#setauthenticationstatusisauthenticated-errorcode)
 
 </br>
 
 ## checkPreauthorizedResources （リソース） {#checkPreauthorizedResources(resources)}
 
-**説明：**のリストに対して「プリフライト」認証ステータスを要求
+**説明：**&#x200B;のリストに対して「プリフライト」認証ステータスを要求
 リソース：
 
 **パラメーター：**
@@ -216,11 +216,11 @@ ht-degree: 0%
 
 - *cache*：事前承認済みのリソースを確認する際に内部キャッシュを使用するかどうかを指定します。 これはオプションのパラメーターで、デフォルトは&#x200B;**true**&#x200B;です。 trueの場合、動作は上記のAPIと同じであり、この関数に対する後続の呼び出しは、事前承認済みリソースを解決するために内部キャッシュを使用します。 このパラメーターに&#x200B;**false**&#x200B;を渡すと、内部キャッシュが無効になり、**checkPreauthorizedResources** APIが呼び出されるたびにサーバーコールが発生します。
 
-**コールバックがトリガーされました：** [preauthorizedResources （） ](#preauthorizedresourcesauthorizedresources-preauthorizedresourcesauthorizedresources)
+**コールバックがトリガーされました：** [preauthorizedResources （） &#x200B;](#preauthorizedresourcesauthorizedresources-preauthorizedresourcesauthorizedresources)
 
 </br>
 
-[ トップへ戻る](#top)
+[&#x200B; トップへ戻る](#top)
 </br>
 
 ## getMetadata （Key） {#getMetadata}
@@ -232,7 +232,7 @@ ht-degree: 0%
 - **静的** （認証トークン TTL、認証トークン TTL、およびデバイス ID）
 - **User Metadata** （これには、認証および/または認証フロー中にMVPDからユーザーのデバイスに渡されるユーザー固有の情報が含まれます）
 
-**詳細情報：** [ ユーザーメタデータ ](#UserMetadata)
+**詳細情報：** [&#x200B; ユーザーメタデータ &#x200B;](#UserMetadata)
 
 **パラメーター：**
 
@@ -271,7 +271,7 @@ ht-degree: 0%
 
    - `"acctParentID"` - アカウントの親ID
 
-  **注意**: プログラマが使用できる実際のユーザーメタデータは、MVPDで使用可能な内容によって異なります。  使用可能なユーザーメタデータの現在のリストについては、[ ユーザーメタデータ ](#UserMetadata)を参照してください。
+  **注意**: プログラマが使用できる実際のユーザーメタデータは、MVPDで使用可能な内容によって異なります。  使用可能なユーザーメタデータの現在のリストについては、[&#x200B; ユーザーメタデータ &#x200B;](#UserMetadata)を参照してください。
 
 
 例：
@@ -295,7 +295,7 @@ ht-degree: 0%
 ```
 
 
-**コールバックがトリガーされました：** [setMetadataStatus （） ](#setmetadatastatuskey-encrypted-data-setmetadatastatuskeyencrypteddata)
+**コールバックがトリガーされました：** [setMetadataStatus （） &#x200B;](#setmetadatastatuskey-encrypted-data-setmetadatastatuskeyencrypteddata)
 
 </br>
 
@@ -309,7 +309,7 @@ ht-degree: 0%
 **説明：** プロバイダーを選択せずにプロバイダー選択UIを閉じた場合に備えて、プロバイダー選択UIからMVPDを選択してこの関数を呼び出し、プロバイダー選択UIをAccess Enablerに送信するか、null パラメーターでこの関数を呼び出します。
 
 **コールバック
-トリガー：**[ setAuthentcationStatus （） ](#setauthenticationstatusisauthenticated-errorcode)、[sendTrackingData （） ](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
+トリガー：**[&#x200B; setAuthentcationStatus （） &#x200B;](#setauthenticationstatusisauthenticated-errorcode)、[sendTrackingData （） &#x200B;](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
 
 </br>
 
@@ -326,7 +326,7 @@ ht-degree: 0%
 - **MVPD**&#x200B;現在選択されているMVPD。MVPDが選択されていない場合はnull。
 - **AE_State**&#x200B;現在の顧客に対する認証結果（「新規ユーザー」、「未認証ユーザー」、「認証済みユーザー」のいずれか）
 
-**コールバックがトリガーされました：** [selectedProvider （） ](#getselectedprovider-getselectedprovider)
+**コールバックがトリガーされました：** [selectedProvider （） &#x200B;](#getselectedprovider-getselectedprovider)
 
 </br>
 
@@ -381,7 +381,7 @@ ht-degree: 0%
 - *configXML*: MVPD リストを含む、現在のREQUESTORの設定を保持するxml オブジェクト。
 
 
-**トリガー：** [setRequestor （） ](#setrequestor-inrequestorid-endpoints-optionssetreq)
+**トリガー：** [setRequestor （） &#x200B;](#setrequestor-inrequestorid-endpoints-optionssetreq)
 
 </br>
 
@@ -405,9 +405,9 @@ ht-degree: 0%
     }
 ```
 
-**トリガー：** [getAuthentication （） ](#getauthenticationredirecturl-getauthenticationredirecturl)、[getAuthorization （） ](#getauthorizationinresourceid-redirecturl-getauthorizationinresourceidredirecturl)
+**トリガー：** [getAuthentication （） &#x200B;](#getauthenticationredirecturl-getauthenticationredirecturl)、[getAuthorization （） &#x200B;](#getauthorizationinresourceid-redirecturl-getauthorizationinresourceidredirecturl)
 
-</br>[ トップへ戻る](#top)
+</br>[&#x200B; トップへ戻る](#top)
 
 </br>
 
@@ -415,9 +415,9 @@ ht-degree: 0%
 
 **説明：** ユーザーが認証ログインページ UIを表示するiFrameを必要とするMVPDを選択した場合、このコールバックを実装します。
 
-**トリガー：**[ setSelectedProvider （） ](#setselectedproviderproviderid-setselectedprovider)
+**トリガー：**&#x200B;[&#x200B; setSelectedProvider （） &#x200B;](#setselectedproviderproviderid-setselectedprovider)
 
-</br> [ トップへ戻る](#top)
+</br> [&#x200B; トップへ戻る](#top)
 
 </br>
 
@@ -436,7 +436,7 @@ ht-degree: 0%
 - *errorCode* – 認証ステータスの決定時に発生したエラー。 空の文字列（なし）。
 
 
-**トリガー：** [checkAuthentication （） ](#checkauthn-checkauthn)、[getAuthentication （） ](#getauthenticationredirecturl-getauthenticationredirecturl)、[checkAuthorization （） ](#checkauthorizationinresourceid-checkauthorizationinresourceid)
+**トリガー：** [checkAuthentication （） &#x200B;](#checkauthn-checkauthn)、[getAuthentication （） &#x200B;](#getauthenticationredirecturl-getauthenticationredirecturl)、[checkAuthorization （） &#x200B;](#checkauthorizationinresourceid-checkauthorizationinresourceid)
 
 </br>
 
@@ -500,7 +500,7 @@ ht-degree: 0%
 |  | 8: OS |
 
 
-**トリガー：** [checkAuthentication （） ](#checkauthn-checkauthn)、[getAuthentication （） ](#getauthenticationredirecturl-getauthenticationredirecturl)、[checkAuthorization （） ](#checkauthorizationinresourceid-checkauthorizationinresourceid)、[getAuthorization （） ](#getauthorizationinresourceid-redirecturl-getauthorizationinresourceidredirecturl)
+**トリガー：** [checkAuthentication （） &#x200B;](#checkauthn-checkauthn)、[getAuthentication （） &#x200B;](#getauthenticationredirecturl-getauthenticationredirecturl)、[checkAuthorization （） &#x200B;](#checkauthorizationinresourceid-checkauthorizationinresourceid)、[getAuthorization （） &#x200B;](#getauthorizationinresourceid-redirecturl-getauthorizationinresourceidredirecturl)
 
 </br>
 
@@ -512,7 +512,7 @@ ht-degree: 0%
 
 **説明：**&#x200B;このコールバックを実装して、承認要求または確認承認要求が行われ、正常に完了した短時間のみ有効なメディアトークン （inToken）とリソースのID （inRequestedResourceID）を受信します。
 
-**トリガー：** [checkAuthorization （） ](#checkAuthZ)、[getAuthorization （）](#getAuthZ)
+**トリガー：** [checkAuthorization （） &#x200B;](#checkAuthZ)、[getAuthorization （）](#getAuthZ)
 </br>
 
 [トップへ戻る](#top)
@@ -535,7 +535,7 @@ ht-degree: 0%
 
 
 
-**トリガー：** [checkAuthorization （） ](#checkauthorizationinresourceid-checkauthorizationinresourceid)、[getAuthorization （）](#getauthorizationinresourceid-redirecturl-getauthorizationinresourceidredirecturl)
+**トリガー：** [checkAuthorization （） &#x200B;](#checkauthorizationinresourceid-checkauthorizationinresourceid)、[getAuthorization （）](#getauthorizationinresourceid-redirecturl-getauthorizationinresourceidredirecturl)
 </br>
 
 [トップへ戻る](#top)
@@ -562,7 +562,7 @@ ht-degree: 0%
 
 **説明：** `getMetadata()`呼び出しを介して要求されたメタデータを配信するAccess Enablerによってトリガーされるコールバック。
 
-**詳細情報：** [ ユーザーメタデータ ](#userMetadata)
+**詳細情報：** [&#x200B; ユーザーメタデータ &#x200B;](#userMetadata)
 
 **パラメーター：**
 
@@ -605,7 +605,7 @@ ht-degree: 0%
 
 **トリガー：** [`getMetadata()`](#getmetadatakey-getmetadata)
 </br>
-[ トップに戻る](#top)
+[&#x200B; トップに戻る](#top)
 
 </br>
 
@@ -616,7 +616,7 @@ ht-degree: 0%
 - **MVPD**&#x200B;現在選択されているMVPD。MVPDが選択されていない場合はnull。
 - **AE\_State**&#x200B;現在のユーザーに対する認証結果（「新規ユーザー」、「ユーザーが認証されていません」、「ユーザーが認証されました」）
 
-**トリガー：** [getSelectedProvider （） ](#getSelProv)
+**トリガー：** [getSelectedProvider （） &#x200B;](#getSelProv)
 
 </br>
 

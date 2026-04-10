@@ -23,7 +23,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> REST APIの実装は[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
+> REST APIの実装は[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
 
 &lt;REGGIE_FQDN>:
 
@@ -53,7 +53,7 @@ ht-degree: 0%
 | 承認 | ヘッダー<br>値：application/json | 顧客が理解できる必要があるコンテンツタイプを示します |
 | 依頼者 | クエリパラメーター | この操作が有効なプログラマの依頼者Id。 |
 | deviceId | クエリパラメーター | デバイス ID バイト。 |
-| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: Header | ストリーミングデバイス情報。<br>**注**：これはdevice_infoをURL パラメーターとして渡すことができますが、このパラメーターの潜在的なサイズとGET URLの長さに制限があるため、http ヘッダーでX-Device-Infoとして渡す必要があります。 <br>詳細については、[ デバイスと接続情報の受け渡し](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)を参照してください。 |
+| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: Header | ストリーミングデバイス情報。<br>**注**：これはdevice_infoをURL パラメーターとして渡すことができますが、このパラメーターの潜在的なサイズとGET URLの長さに制限があるため、http ヘッダーでX-Device-Infoとして渡す必要があります。 <br>詳細については、[&#x200B; デバイスと接続情報の受け渡し](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)を参照してください。 |
 | mvpd | クエリパラメーター | この操作が有効なMVPD ID。 |
 | ttl | クエリパラメーター | このregcodeの有効期間を秒単位で指定します。<br>**注**: ttlに許可される最大値は36000秒（10時間）です。 値が大きいほど、400 HTTP応答（不正なリクエスト）が返されます。 `ttl`が空のままの場合、Adobe Pass Authenticationはデフォルト値を30分に設定します。 |
 | _deviceType_ | クエリパラメーター | 非推奨です。使用しないでください。 |
@@ -79,7 +79,7 @@ ht-degree: 0%
 >POST /reggie/v1/{req_id}/regcode HTTP/1.1<br>X-Forwarded-For:203.45.101.20
 >```
 >
-<br>
+><br>
 
 ### 応答JSON
 

@@ -25,12 +25,12 @@ Open Authentication Technology Committee （OATC）によると、
 
 >[!MORELIKETHIS]
 >
-> * [CTAMによるインスタント アクセス （HBA） ](http://www.ctamtve.com/instantaccess)
+> * [CTAMによるインスタント アクセス （HBA） &#x200B;](http://www.ctamtve.com/instantaccess)
 > * [OATCによるホームベース認証の使用例と要件](https://tve.helpdocsonline.com/topic/awsfiles/download_files?ref=https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/Defining%20TVE%20Home-Based%20Authentication%20(HBA)%20%20Use%20Cases%20and%20Requirements%20Recommended%20Practice%20Version%201_0%20FINAL%20DRAFT%20FOR%20BOARD%20APPROVAL.pdf)
-> * [Adobeによるホームベースの認証インフォグラフィック ](https://tve.helpdocsonline.com/topic/awsfiles/download_files?ref=https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf?dc=201604260953-2640)
+> * [Adobeによるホームベースの認証インフォグラフィック &#x200B;](https://tve.helpdocsonline.com/topic/awsfiles/download_files?ref=https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf?dc=201604260953-2640)
 > * [OAuth2が有効なMVPDを使用した認証](/help/authentication/integration-guide-mvpds/authn-oauth2-protocol.md)
 > * [SAMLが有効なMVPDを使用した認証](/help/authentication/integration-guide-mvpds/authn-usecase.md)
-> * [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
+> * [&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
 
 ## HBAの利点 {#hba-benefits}
 
@@ -52,7 +52,7 @@ SAML MVPDの場合、HBAはMVPD側でのみアクティブ化されます。
 
 **OAuth2 MVPD**
 
-OAuth2 MVPDの場合、[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication)を介して、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows)の手順に従ってHBAのオンとオフを切り替えることができます。
+OAuth2 MVPDの場合、[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/#/pass/authentication)を介して、[TVE ダッシュボード統合ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows)の手順に従ってHBAのオンとオフを切り替えることができます。
 
 ### MVPD {#hba-support-mvpds}
 
@@ -103,7 +103,7 @@ OAuth2 MVPDの場合、[Adobe Pass TVE ダッシュボード ](https://experienc
 | ユーザーアクション | システム操作 |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ユーザーはビデオを再生しようとします。<br/><br/>MVPD ピッカーが表示されます。<br/><br/> ユーザーは自分のMVPDを選択し、ログインを続行します。 | MVPDが利用者の身元確認に規則を適用する場合、バックグラウンドチェックが実施されます。 例えば、ユーザーのIP アドレスを、ディストリビューターがプロビジョニングしたモデムまたはブロードバンド接続されたセットトップボックスのMAC アドレスにマッピングする場合があります。 |
-| 約3秒間続く画面が表示されます。<br/><br/> インタースティシャル ページでは、MVPD アカウントを使用して自動的にサインインしていることをユーザーに知らせる場合があります。 | アプリケーションはユーザーエージェントで認証URLを開き、Adobe Pass認証エンドポイントへのHTTP リクエストを開始します。<br/><br/>Adobe Pass認証エンドポイントは、ユーザーエージェントリダイレクトを介してリクエストをMVPD認証エンドポイントに転送します。<br/><br/>MVPDは、「true」または「false」の値を持つHBA フラグ （`hba_status`）を含むSAML応答の形式で認証決定を送信することが期待されています。<br/><br/>Adobe Pass認証バックエンドは、`hba_status` フラグを[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)の一部として公開するようMVPD ユーザープロファイルエンドポイントにリクエストします。 |
+| 約3秒間続く画面が表示されます。<br/><br/> インタースティシャル ページでは、MVPD アカウントを使用して自動的にサインインしていることをユーザーに知らせる場合があります。 | アプリケーションはユーザーエージェントで認証URLを開き、Adobe Pass認証エンドポイントへのHTTP リクエストを開始します。<br/><br/>Adobe Pass認証エンドポイントは、ユーザーエージェントリダイレクトを介してリクエストをMVPD認証エンドポイントに転送します。<br/><br/>MVPDは、「true」または「false」の値を持つHBA フラグ （`hba_status`）を含むSAML応答の形式で認証決定を送信することが期待されています。<br/><br/>Adobe Pass認証バックエンドは、`hba_status` フラグを[&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)の一部として公開するようMVPD ユーザープロファイルエンドポイントにリクエストします。 |
 | ユーザーは認証され、TV Everywhereのコンテンツを閲覧できるようになりました。 | アプリケーションはユーザープロファイルを取得し、さらに決定フローに進んでコンテンツを再生できます。 |
 
 **OAuth2 MVPD**
@@ -113,7 +113,7 @@ OAuth2 MVPDの場合、[Adobe Pass TVE ダッシュボード ](https://experienc
 | ユーザーアクション | システム操作 |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ユーザーはビデオを再生しようとします。<br/><br/>MVPD ピッカーが表示されます。<br/><br/> ユーザーは自分のMVPDを選択し、ログインを続行します。 | MVPDが利用者の身元確認に規則を適用する場合、バックグラウンドチェックが実施されます。 例えば、ユーザーのIP アドレスを、ディストリビューターがプロビジョニングしたモデムまたはブロードバンド接続されたセットトップボックスのMAC アドレスにマッピングする場合があります。 |
-| 約3秒間続く画面が表示されます。<br/><br/> インタースティシャル ページでは、MVPD アカウントを使用して自動的にサインインしていることをユーザーに知らせる場合があります。 | アプリケーションはユーザーエージェントで認証URLを開き、Adobe Pass認証エンドポイントへのHTTP リクエストを開始します。<br/><br/>Adobe Pass認証エンドポイントは、ユーザーエージェントリダイレクトを介してリクエストをMVPD認証エンドポイントに転送します。<br/><br/>MVPD認証エンドポイントは、Adobe Pass認証エンドポイントに認証コードを送信します。<br/><br/>Adobe Pass認証では、認証コードを使用して、MVPD トークン エンドポイントから更新トークンとアクセス トークンをリクエストします。<br/><br/>MVPDは、`id_token`の一部として、「true」または「false」の値を持つHBA フラグ （`hba_status`）を含む認証判断を送信することが想定されています。<br/><br/>Adobe Pass認証バックエンドは、`hba_status` フラグを[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)の一部として公開するよう、MVPD ユーザープロファイルエンドポイントにリクエストします。<br/><br/>MVPDは更新トークン TTLをMVPDが合意した値に設定し、Adobeは更新トークンの値以下の値に認証TTLを設定します。 |
+| 約3秒間続く画面が表示されます。<br/><br/> インタースティシャル ページでは、MVPD アカウントを使用して自動的にサインインしていることをユーザーに知らせる場合があります。 | アプリケーションはユーザーエージェントで認証URLを開き、Adobe Pass認証エンドポイントへのHTTP リクエストを開始します。<br/><br/>Adobe Pass認証エンドポイントは、ユーザーエージェントリダイレクトを介してリクエストをMVPD認証エンドポイントに転送します。<br/><br/>MVPD認証エンドポイントは、Adobe Pass認証エンドポイントに認証コードを送信します。<br/><br/>Adobe Pass認証では、認証コードを使用して、MVPD トークン エンドポイントから更新トークンとアクセス トークンをリクエストします。<br/><br/>MVPDは、`id_token`の一部として、「true」または「false」の値を持つHBA フラグ （`hba_status`）を含む認証判断を送信することが想定されています。<br/><br/>Adobe Pass認証バックエンドは、`hba_status` フラグを[&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)の一部として公開するよう、MVPD ユーザープロファイルエンドポイントにリクエストします。<br/><br/>MVPDは更新トークン TTLをMVPDが合意した値に設定し、Adobeは更新トークンの値以下の値に認証TTLを設定します。 |
 | ユーザーは認証され、TV Everywhereのコンテンツを閲覧できるようになりました。 | アプリケーションはユーザープロファイルを取得し、さらに決定フローに進んでコンテンツを再生できます。 |
 
 >[!IMPORTANT]
@@ -124,7 +124,7 @@ OAuth2 MVPDの場合、[Adobe Pass TVE ダッシュボード ](https://experienc
 
 1. SAML プロトコルとOAuth2 プロトコルに対するHBA実装の違いは何ですか？
 
-   SAML用のホームベース認証（HBA）とOAuth2 プロトコルの分離は、これらのプロトコルが認証メカニズム、設定、実装の柔軟性の点で異なる動作を行うため存在します。 SAML MVPDの場合は、プログラマがHBAを有効にするための操作は必要ありません。一方、OAuth2 MVPDの場合は、[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication)を介してHBAのオンとオフを切り替えることができます。
+   SAML用のホームベース認証（HBA）とOAuth2 プロトコルの分離は、これらのプロトコルが認証メカニズム、設定、実装の柔軟性の点で異なる動作を行うため存在します。 SAML MVPDの場合は、プログラマがHBAを有効にするための操作は必要ありません。一方、OAuth2 MVPDの場合は、[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/#/pass/authentication)を介してHBAのオンとオフを切り替えることができます。
 
 1. HBAが有効になっている場合、ユーザーは初期認証時にユーザー名とパスワードを入力する必要がありますか？
 

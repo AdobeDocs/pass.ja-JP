@@ -37,7 +37,7 @@ Adobe Pass認証のエラーレポートは、現在、次の2つの方法で実
 
 >[!IMPORTANT]
 >
->古い[元のエラーレポート ](#original-error-reporting) APIは、以前と同様に引き続き機能します。高度なエラーレポートでは、機能は壊れませんが、元のエラーレポートでは更新は受け取られません。 すべての新しいエラーと更新は、高度なエラーレポートシステムに対して行われます。
+>古い[元のエラーレポート &#x200B;](#original-error-reporting) APIは、以前と同様に引き続き機能します。高度なエラーレポートでは、機能は壊れませんが、元のエラーレポートでは更新は受け取られません。 すべての新しいエラーと更新は、高度なエラーレポートシステムに対して行われます。
 
 ### AccessEnabler JavaScript SDK {#accessenabler-javascript-sdk}
 
@@ -243,7 +243,7 @@ accessEnabler.bind('errorEvent', 'errorLogger');
 | VSA503 | 情報 | Application Video Subscriber Account metadata requestが失敗しました。 | MVPD エンドポイントが応答しません。 通常の認証フローにフォールバックする可能性があります。 | なし | なし | はい | なし |
 | 500 | エラー | 内部エラー | AccessEnablerDebugを使用し、デバッグログ（console.log出力）を調べて、何が問題だったのかを判断します。 | なし | はい | はい | なし |
 | SEC403 | エラー | Domain Security エラー。 依頼者が無効なドメインを使用しています。 特定の依頼者IDで使用されるすべてのドメインは、Adobeでホワイトリストに登録する必要があります。 |  – 許可されたドメイン <br>のリストからのみAccessEnablerを読み込みます <br> – 使用されている依頼者IDのドメイン ホワイトリストを管理するには、Adobeにお問い合わせください<br> <br> - iOS：正しい証明書を使用していること、および署名が正しく作成されていることを確認してください | なし | なし | はい | なし |
-| SEC412 | 警告 | リリース 2.5]で使用可能な[ デバイス IDが一致しません。 これは、基盤となるプラットフォームがデバイス IDを変更するたびに発生する可能性があります。 この場合、既存のトークンはクリアされ、ユーザーは認証されなくなります。 これは、ユーザーがJS SDKを使用しており、ローミングしている場合（JSでは、クライアント IPはデバイス IDの一部です）に正当に発生することに注意してください。 そうでない場合、これは詐欺行為の兆候である可能性があります – 別のデバイスからトークンをコピーしようとする試み。 |  – 警告の数を監視します。 明らかな理由なくスパイクした場合（最近のブラウザー更新なし、新しいオペレーティングシステム）、不正行為の指標になる可能性があります。 <br> <br> – 必要に応じて、再度ログインする必要があることをユーザーに通知します。 | 再度ログインします。 | はい | はい | 3.2から可能 |
+| SEC412 | 警告 | リリース 2.5&rbrack;で使用可能な&lbrack; デバイス IDが一致しません。 これは、基盤となるプラットフォームがデバイス IDを変更するたびに発生する可能性があります。 この場合、既存のトークンはクリアされ、ユーザーは認証されなくなります。 これは、ユーザーがJS SDKを使用しており、ローミングしている場合（JSでは、クライアント IPはデバイス IDの一部です）に正当に発生することに注意してください。 そうでない場合、これは詐欺行為の兆候である可能性があります – 別のデバイスからトークンをコピーしようとする試み。 |  – 警告の数を監視します。 明らかな理由なくスパイクした場合（最近のブラウザー更新なし、新しいオペレーティングシステム）、不正行為の指標になる可能性があります。 <br> <br> – 必要に応じて、再度ログインする必要があることをユーザーに通知します。 | 再度ログインします。 | はい | はい | 3.2から可能 |
 | SEC420 | エラー | ADOBE PASS認証サーバーと通信する際のHTTP セキュリティエラー。 このエラーは、通常、スプーフィング/プロキシが配置されている場合に発生します。 | - `[https://]{SP_FQDN\}`をブラウザーに読み込み、SSL証明書を手動で受け入れます（例：**https://api.auth.adobe.com**&#x200B;または&#x200B;**https://api.auth-staging.adobe.com** <br>） <br>- プロキシ証明書を信頼済みとしてマーク | これが通常のユーザーに対して発生した場合は、中間者攻撃の可能性を示しています。 | はい | はい | 3.2から可能 |
 | CFG100 | 警告 | クライアントマシンの日付/時刻/タイムゾーンが正しく設定されていません。 これは認証/認証エラーにつながる可能性があります。 |  – 正しい時間を設定するようにユーザーに通知します。<br> <br>使用権限フローは失敗する可能性が高いため、防止するためのアクションを実行します。 | 正しい日付/時刻を設定します。 | はい | はい | 3.2から可能 |
 | CFG400 | エラー | 無効な依頼者IDが指定されました。 | 開発者は、有効な依頼者IDを指定する必要があります。 | なし | はい | はい | 3.2から可能 |
@@ -285,10 +285,10 @@ accessEnabler.bind('errorEvent', 'errorLogger');
 
 この節では、元のエラーレポートシステムと、元のエラーコードについて説明します。 元のエラー報告システムでは、AccessEnablerは`checkAuthentication()`への呼び出し後`setAuthenticationStatus()`、`tokenRequestFailed()`または`checkAuthorization()`または`getAuthorization()`への呼び出しの失敗後に、これらの2つのコールバック関数にエラーを渡します。
 
-元のエラーレポートとステータス APIは、以前とまったく同じように機能し続けます。 ただし、今後、元のエラーレポート APIは更新されません。 古いエラーに関するすべての新しいエラー報告と更新は、新しい[高度なエラー報告システム ](#advanced-error-reporting)にのみ反映されます。
+元のエラーレポートとステータス APIは、以前とまったく同じように機能し続けます。 ただし、今後、元のエラーレポート APIは更新されません。 古いエラーに関するすべての新しいエラー報告と更新は、新しい[高度なエラー報告システム &#x200B;](#advanced-error-reporting)にのみ反映されます。
 
 
-元のエラーレポートシステムの使用例については、[JavaScript API Reference](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md):[setAuthenticationStatus （） ](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#set-authn-status-isauthn-error)および[tokenRequestFailed （） ](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#token-request-failed-error-msg)関数、[iOS/tvOS API Reference](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md):[setAuthenticationStatus （） ](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#setAuthNStatus)および[tokentRequestFailed （） ](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#tokenReqFailed)、[Android API Reference](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md):[setAuthenticationStatus （） ](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#setAuthNStatus)および[tokenRequestFailed （） ](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#setAuthNStatus#tokenRequestFailed)。
+元のエラーレポートシステムの使用例については、[JavaScript API Reference](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md):[setAuthenticationStatus （） &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#set-authn-status-isauthn-error)および[tokenRequestFailed （） &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#token-request-failed-error-msg)関数、[iOS/tvOS API Reference](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md):[setAuthenticationStatus （） &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#setAuthNStatus)および[tokentRequestFailed （） &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md#tokenReqFailed)、[Android API Reference](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md):[setAuthenticationStatus （） &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#setAuthNStatus)および[tokenRequestFailed （） &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md#setAuthNStatus#tokenRequestFailed)。
 
 ### 元のコールバックエラーコード {#original-callback-error-codes}
 
