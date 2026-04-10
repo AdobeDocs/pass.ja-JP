@@ -4,18 +4,20 @@ type: Documentation
 product: adobe primetime
 solution: Pass
 feature-set: Pass
-git-repo: https://github.com/AdobeDocs/pass.ja-JP
+landing-page-name: pass
+landing-page-breadcrumb-title: Pass
+git-repo: https://github.com/AdobeDocs/pass.en
 index: true
-source-git-commit: bf172d5bcce6c298c5f2548cbdcfbda01aaa1723
+source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt
-source-wordcount: '53'
+source-wordcount: '68'
 ht-degree: 0%
 
 ---
 
 
-# 内部使用のメタデータ
+# 内部使用のためのメタデータ
 
-metadata.md ファイルには、リポジトリでユーザーガイドの TOC.md ファイルにパススルーされる、リポジトリレベルのメタデータが含まれています。 任意のユーザーガイドの metadata.md コンテンツを変更したい場合は、任意の TOC.md ファイル内で行います。
+metadata.md ファイルには、リポジトリ内のユーザーガイド TOC.md ファイルに渡されるリポジトレベルのメタデータが含まれています。 任意のユーザーガイドのmetadata.md コンテンツを変更する場合は、任意のTOC.md ファイルで変更します。
 
-[solution](https://experienceleague.adobe.com/docs/authoring-guide-exl/using/editing/user-guide-setup/metadata.html)、**product**、および **type** の有効な値のリストについては、**メタデータ** を参照してください。
+**solution**、**product**、**type**&#x200B;の有効な値のリストについては、[ メタデータ ](https://experienceleague.adobe.com/docs/authoring-guide-exl/using/editing/user-guide-setup/metadata.html)を参照してください。

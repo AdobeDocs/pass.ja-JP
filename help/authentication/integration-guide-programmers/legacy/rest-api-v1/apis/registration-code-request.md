@@ -2,10 +2,10 @@
 title: 登録ページ
 description: 登録ページ
 exl-id: 581b8e2e-7420-4511-88b9-f2cd43a41e10
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt
 source-wordcount: '528'
-ht-degree: 2%
+ht-degree: 0%
 
 ---
 
@@ -15,17 +15,17 @@ ht-degree: 2%
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 >[!NOTE]
 >
-> REST API の実装には、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
+> REST APIの実装は[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
 
-&lt; レジストリ_FQDN>:
+&lt;REGGIE_FQDN>:
 
 * 実稼動 – [api.auth.adobe.com](http://api.auth.adobe.com/)
 * ステージング - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
@@ -39,50 +39,52 @@ ht-degree: 2%
 
 ## 説明 {#create-reg-code-svc}
 
-ランダムに生成された登録コードとログインページ URI を返します。
+ランダムに生成された登録コードとログインページ URIを返します。
 
-| エンドポイント | 呼び出 <br> 元 | 入力   <br> パラメーター | HTTP <br> メソッド | 応答 | HTTP <br>Response |
+| エンドポイント | <br>様に呼び出されました | 入力   <br> パラメーター | HTTP <br> メソッド | 応答 | HTTP <br>応答 |
 | --- | --- | --- | --- | --- | --- |
-| &lt;REGGIE_FQDN>/reggie/v1/{requestor}/regcode<br> 例：<br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | ストリーミングアプリ <br> プログラマ <br> サービス | &#x200B;1.  要求者 <br>    （パスコンポーネント） <br>2.  deviceId （ハッシュ化）   <br>    （必須） <br>3.  device_info/X-Device-Info （必須） <br>4.  mvpd （オプション） <br>5.  ttl （オプション） <br> | POST | 失敗した場合に登録コードおよび情報またはエラーの詳細を含む XML または JSON。 以下のサンプルを参照してください。 | 201 |
+| &lt;REGGIE_FQDN>/reggie/v1/{requestor}/regcode<br>例：<br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | ストリーミングアプリ <br>または<br> プログラマーサービス | &#x200B;1.  依頼者<br>    （パスコンポーネント） <br>2。  deviceId （ハッシュ化）   <br>    （必須） <br>3.  device_info/X-Device-Info （必須） <br>4.  mvpd （オプション） <br>5。  ttl （オプション） <br> | 投稿する | 登録コードと情報またはエラーの詳細を含むXMLまたはJSONが失敗した場合。 以下のサンプルを参照してください。 | 201 |
 
 {style="table-layout:auto"}
 
 | 入力パラメーター | タイプ | 説明 |
 | --- |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 認証 | Header <br> Value: Bearer &lt;access_token> | DCR アクセストークン |
-| 承諾 | Header <br> Value: application/json | クライアントが理解できるコンテンツタイプを示します |
-| 要求者 | クエリパラメーター | この操作が有効なプログラマ requestorId です。 |
-| deviceId | クエリパラメーター | デバイス ID のバイト。 |
-| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: ヘッダー | Streaming Device information.<br>**Note**：これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。<br>詳しくは、「デバイスと接続情報の受け渡し [&#x200B; を参照してください &#x200B;](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。 |
+| 認証 | ヘッダー<br>の値：Bearer &lt;access_token> | DCR アクセストークン |
+| 承認 | ヘッダー<br>値：application/json | 顧客が理解できる必要があるコンテンツタイプを示します |
+| 依頼者 | クエリパラメーター | この操作が有効なプログラマの依頼者Id。 |
+| deviceId | クエリパラメーター | デバイス ID バイト。 |
+| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: Header | ストリーミングデバイス情報。<br>**注**：これはdevice_infoをURL パラメーターとして渡すことができますが、このパラメーターの潜在的なサイズとGET URLの長さに制限があるため、http ヘッダーでX-Device-Infoとして渡す必要があります。 <br>詳細については、[ デバイスと接続情報の受け渡し](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)を参照してください。 |
 | mvpd | クエリパラメーター | この操作が有効なMVPD ID。 |
-| ttl | クエリパラメーター | この regcode の有効期間（秒）。<br>**注意**:ttl に使用できる最大値は 36000 秒（10 時間）です。 値を大きくすると、400 HTTP 応答（無効なリクエスト）が返されます。 `ttl` を空のままにすると、Adobe Pass Authentication はデフォルト値の 30 分を設定します。 |
-| _deviceType_ | クエリパラメーター | 非推奨（廃止予定）です。使用しないでください。 |
-| _deviceUser_ | クエリパラメーター | 非推奨（廃止予定）です。使用しないでください。 |
-| _appId_ | クエリパラメーター | 非推奨（廃止予定）です。使用しないでください。 |
+| ttl | クエリパラメーター | このregcodeの有効期間を秒単位で指定します。<br>**注**: ttlに許可される最大値は36000秒（10時間）です。 値が大きいほど、400 HTTP応答（不正なリクエスト）が返されます。 `ttl`が空のままの場合、Adobe Pass Authenticationはデフォルト値を30分に設定します。 |
+| _deviceType_ | クエリパラメーター | 非推奨です。使用しないでください。 |
+| _deviceUser_ | クエリパラメーター | 非推奨です。使用しないでください。 |
+| _appId_ | クエリパラメーター | 非推奨です。使用しないでください。 |
 
 {style="table-layout:auto"}
 
 >[!CAUTION]
 >
->**ストリーミングデバイスの IP アドレス**><br>>クライアントからサーバーへの実装の場合、ストリーミングデバイスの IP アドレスは、この呼び出しで暗黙的に送信されます。  **regcode** 呼び出しが、ストリーミングデバイスではなくプログラマーサービスとして行われるサーバー間実装の場合、ストリーミングデバイスの IP アドレスを渡すには次のヘッダーが必要です。
+>**ストリーミングデバイス IP アドレス**
+><br>>クライアント間の実装の場合、ストリーミングデバイスのIP アドレスは、この呼び出しで暗黙的に送信されます。  サーバー間の実装では、**regcode**&#x200B;呼び出しがストリーミングデバイスではなくプログラマーサービスとして行われます。ストリーミングデバイスのIP アドレスを渡すには、次のヘッダーが必要です。
 >
 >
 >```
 >X-Forwarded-For : <streaming_device_ip> 
 >```
 >
->ここで、`<streaming\_device\_ip>` はストリーミングデバイスのパブリック IP アドレスです。><br><br>>例：<br>
+>ここで、`<streaming\_device\_ip>`はストリーミングデバイスのパブリック IP アドレスです。
+><br><br>>例：<br>
 >
 >```
 >POST /reggie/v1/{req_id}/regcode HTTP/1.1<br>X-Forwarded-For:203.45.101.20
 >```
 >
-><br>
+<br>
 
-### 応答 JSON
+### 応答JSON
 
 
-#### 登録コードの JSON サンプル
+#### 登録コード JSON サンプル
 
 ```JSON
 {
@@ -111,26 +113,26 @@ ht-degree: 2%
 
 | 要素名 | 説明 |
 |-----------------------------------|------------------------------------------------------------------------------------------------------------------|
-| id | 登録コードサービスで生成された UUID |
-| コード | 登録コードサービスで生成された登録コード |
-| 要求者 | 要求者 ID |
+| id | 登録コードサービスによって生成されたUUID |
+| コード | 登録コードサービスによって生成された登録コード |
+| 依頼者 | 依頼者ID |
 | mvpd | Mvpd ID |
-| 生成日時 | 登録コード作成タイムスタンプ（1970 年 1 月 1 日（PT）からのミリ秒単位） |
-| expires | 登録コードの有効期限が切れる際のタイムスタンプ（1970 年 1 月 1 日（GMT）からのミリ秒単位） |
-| deviceId | Base64 一意のデバイス ID |
-| 情報 :deviceId | Base64 デバイスタイプ |
-| 情報 :deviceInfo | User-Agent、X-Device-Info、または device_info から受信した情報に基づいて構築された Base64 Normalized Device Information |
-| 情報 :userAgent | アプリケーションから送信されたユーザーエージェント |
-| 情報 :originalUserAgent | アプリケーションから送信されたユーザーエージェント |
-| 情報 :authorizationType | DCR を使用した呼び出しの OAUTH2 |
-| 情報 :sourceApplicationInformation | DCR で設定されたアプリケーション情報 |
+| 生成日 | 登録コード作成タイムスタンプ（1970年1月1日GMTからのミリ秒単位） |
+| 期限切れ | 登録コードの有効期限が切れるタイムスタンプ（1970年1月1日GMTからのミリ秒単位） |
+| deviceId | Base64一意のデバイス ID |
+| 情報:deviceId | Base64 デバイスタイプ |
+| 情報:deviceInfo | Base64 Normalized Device Information build on information received from User-Agent, X-Device-Info or device_info |
+| 情報:userAgent | アプリケーションから送信されたユーザーエージェント |
+| 情報:originalUserAgent | アプリケーションから送信されたユーザーエージェント |
+| 情報:authorizationType | DCRを使用した呼び出しのOAUTH2 |
+| 情報:sourceApplicationInformation | DCRで設定されたアプリケーション情報 |
 
 {style="table-layout:auto"}
 
 
 <br>
 
-### エラーメッセージ JSON 応答のサンプル（#error-sample-response）
+### エラーメッセージ JSON応答サンプル （#error-sample-response）
 
 ```JSON
 {
