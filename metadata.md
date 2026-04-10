@@ -6,7 +6,7 @@ solution: Pass
 feature-set: Pass
 landing-page-name: pass
 landing-page-breadcrumb-title: Pass
-git-repo: https://github.com/AdobeDocs/pass.en
+git-repo: https://github.com/AdobeDocs/pass.ja-JP
 index: true
 source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt

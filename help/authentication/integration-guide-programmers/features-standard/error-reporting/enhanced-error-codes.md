@@ -101,7 +101,7 @@ Content-Type: application/json
         "code": "authorization_denied_by_mvpd",
         "message": "The MVPD has returned a \"Deny\" decision when requesting authorization for the specified resource",
         "details": "Your subscription package does not include the \"Live\" channel",
-        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
         "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
       }
     }
@@ -120,7 +120,7 @@ Content-Type: application/json
   "status": 400,
   "code": "invalid_parameter_service_provider",
   "message": "The service provider parameter value is missing or invalid.",
-  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
   "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
 }
 ```
@@ -154,7 +154,7 @@ Content-Type: application/json
         "code": "authorization_denied_by_mvpd",
         "message": "The MVPD has returned a \"Deny\" decision when requesting authorization for the specified resource",
         "details": "Your subscription package does not include the \"Live\" channel",
-        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
         "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
       }
     }
@@ -173,7 +173,7 @@ Content-Type: application/json
   "status": 400,
   "code": "invalid_requestor",
   "message": "The requestor parameter is missing or invalid.",
-  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
   "trace": "8bcb17f9-b172-47d2-86d9-3eb146eba85e"
 }
 ```
@@ -189,7 +189,7 @@ Content-Type: application/xml
   <status>400</status>
   <code>invalid_requestor</code>
   <message>The requestor parameter is missing or invalid.</message>
-  <helpUrl>https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html</helpUrl>
+  <helpUrl>https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja</helpUrl>
   <trace>8bcb17f9-b172-47d2-86d9-3eb146eba85e</trace>
 </error>
 ```
@@ -207,7 +207,7 @@ Content-Type: application/xml
 | *コード* | *文字列* | *authorization_denied_by_mvpd* | &check; | このドキュメントで定義されているように、エラーに関連付けられたAdobe Pass認証の一意のID コード。<br/><br/> 詳しくは、「[Code](#enhanced-error-codes-code)」の節を参照してください。 |
 | *メッセージ* | *文字列* | *指定されたリソースの認証をリクエストする際に、MVPDから「拒否」の判断が返されました* |            | エンドユーザーに表示できる、人間が判読可能なメッセージです。<br/><br/> 詳しくは、[応答処理](#enhanced-error-codes-response-handling) セクションを参照してください。 |
 | *詳細* | *文字列* | *サブスクリプションパッケージに「ライブ」チャネルが含まれていません* |            | 場合によっては、サービス パートナーから提供される可能性のある詳細なメッセージ、<br/><br/> サービス パートナーがカスタム メッセージを提供しない場合、このフィールドは存在しない可能性があります。 |
-| *helpUrl* | *url* | *https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html* |            | このエラーが発生した理由と考えられる解決策の詳細にリンクするAdobe Pass認証の公開ドキュメント URL。<br/><br/> このフィールドには絶対URLが含まれており、エラーコードから推測されるべきではありません。エラーコンテキストに応じて、異なるURLを指定できます。 |
+| *helpUrl* | *url* | *https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja* |            | このエラーが発生した理由と考えられる解決策の詳細にリンクするAdobe Pass認証の公開ドキュメント URL。<br/><br/> このフィールドには絶対URLが含まれており、エラーコードから推測されるべきではありません。エラーコンテキストに応じて、異なるURLを指定できます。 |
 | *トレース* | *文字列* | *12f6fef9-d2e0-422b-a9d7-60d799abe353* |            | Adobe Pass認証サポートに連絡して特定の問題のトラブルシューティングを行う際に使用できる応答の一意のID。 |
 
 >[!IMPORTANT]
