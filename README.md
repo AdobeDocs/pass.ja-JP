@@ -1,5 +1,5 @@
 ---
-source-git-commit: e1fcfc03f1084e9159a73ad4e18b864d796bff3c
+source-git-commit: 8d0633f64edecfacc3569d91931a204fac2d5e44
 workflow-type: tm+mt
 source-wordcount: '521'
 ht-degree: 0%
@@ -9,6 +9,7 @@ ht-degree: 0%
 
 私たちは、コミュニティやAdobeのドキュメント部門以外のスタッフからの寄付を歓迎します。
 
+
 ## AdobeオープンSource行動規範
 
 このプロジェクトでは、[Adobe Open Source Code of Conduct](code-of-conduct.md)または[.NET Foundation Code of Conduct](https://dotnetfoundation.org/code-of-conduct)を採用しています。 詳しくは、[寄付](contributing.md)の記事を参照してください。
@@ -17,7 +18,7 @@ ht-degree: 0%
 
 **Adobeの社員でない場合**&#x200B;は、外部コミュニティ投稿を送信できます。 コミュニティの投稿は社内システムに読み込まれ、公開リポジトリで編集および結合されます。 その後、公開リポジトリは最新の変更と同期され、プライベートリポジトリに結合されます。
 
-**Adobeの社員**&#x200B;であれば、プライベート [Adobe GitHub リポジトリ &#x200B;](https://git.corp.adobe.com/AdobeDocs/)に直接投稿できます。 詳しくは、Adobeの従業員のためのAdobe Experience League オーサリングガイドを参照してください。
+**Adobeの社員**&#x200B;であれば、プライベート [Adobe GitHub リポジトリ ](https://git.corp.adobe.com/AdobeDocs/)に直接投稿できます。 詳しくは、Adobeの従業員のためのAdobe Experience League オーサリングガイドを参照してください。
 
 ## 外部貢献者
 
@@ -29,7 +30,7 @@ ht-degree: 0%
 1. 「このコンテンツは役に立ちましたか？」 ブラウザーウィンドウの下部に表示されるバナーで、**詳細なフィードバックオプション**&#x200B;をクリックします。
 1. 「**編集を提案**」をクリックし、GitHub UIで変更を加えてプルリクエスト（PR）を送信します。
 
-   詳しくは、[Adobe Docs コントリビューターガイド &#x200B;](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html?lang=ja)を参照してください。
+   詳しくは、[Adobe Docs コントリビューターガイド ](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html)を参照してください。
 
 このリポジトリのドキュメントやコード例に対して提出する軽微な修正や明確化は、Adobe利用条件の対象となります。
 
@@ -43,11 +44,11 @@ Adobe コミュニティに参加していて、新しいトピックを作成�
 
 コミュニティのコントリビューターは、GitHub UIを使用して基本的な編集をおこなったり、リポジトリをフォークして主要なコントリビューションを作成したりできます。
 
-詳しくは、[Adobe Docs Contributor Guide](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html?lang=ja)を参照してください。
+詳しくは、[Adobe Docs Contributor Guide](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html)を参照してください。
 
 ## 内部貢献者
 
-テクニカルライター、プログラムマネージャー、またはAdobe Experience Cloud ソリューションのプロダクトチームの開発者で、技術記事の投稿や作成を担当する場合は、[&#x200B; プライベートリポジトリ &#x200B;](https://git.corp.adobe.com/AdobeDocs)を使用します。
+テクニカルライター、プログラムマネージャー、またはAdobe Experience Cloud ソリューションのプロダクトチームの開発者で、技術記事の投稿や作成を担当する場合は、[ プライベートリポジトリ ](https://git.corp.adobe.com/AdobeDocs)を使用します。
 
 ## トピックの書式設定
 
