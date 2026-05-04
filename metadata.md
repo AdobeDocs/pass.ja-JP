@@ -8,7 +8,7 @@ product_v2:
   - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
 landing-page-name: pass
 landing-page-breadcrumb-title: Pass
-git-repo: https://github.com/AdobeDocs/pass.en
+git-repo: https://github.com/AdobeDocs/pass.ja-JP
 index: true
 source-git-commit: 8d0633f64edecfacc3569d91931a204fac2d5e44
 workflow-type: tm+mt
