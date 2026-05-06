@@ -2,7 +2,7 @@
 title: 製品のお知らせ
 description: 製品のお知らせ
 exl-id: 3c9c66e1-d31d-4af3-8ab2-eb32492f42ca
-source-git-commit: 170d49b06e4ac8b31a840ee1bc5fac114bb3aa0b
+source-git-commit: c9ece6154c783fc6809fe0de5101b8e9c9ace6ae
 workflow-type: tm+mt
 source-wordcount: '1003'
 ht-degree: 21%
@@ -32,8 +32,8 @@ ht-degree: 21%
 ### 2026 {#product-releases-2026}
 
 | リリースノート | 日付 |
-|-----------------------------------------------------------------------------------------------------------|-------------------------|
-| [Adobe Pass Authentication 3.7.0 リリースノート &#x200B;](notes-releases/auth-rn-370.md) | 05/12/2026 - 05/14/2026 |
+|------------------------------------------------------------------------------------------------|-------------------------|
+| {hide-from-toc}[Adobe Pass Authentication 3.7.0 リリースノート &#x200B;](notes-releases/auth-rn-370.md) | 05/12/2026 - 05/14/2026 |
 | [Adobe Pass Authentication 3.6.0 リリースノート &#x200B;](notes-releases/auth-rn-360.md) | 04/07/2026 - 04/09/2026 |
 
 ### 2025 {#product-releases-2025}
