@@ -1,10 +1,9 @@
 ---
 title: Adobe Pass Authentication 3.7.0 リリースノート
 description: Adobe Pass Authentication 3.7.0 リリースノート
-hold: true
-source-git-commit: 170d49b06e4ac8b31a840ee1bc5fac114bb3aa0b
+source-git-commit: 89b5fbd8e8510cbf84ce7908e8cf86551e7a0cb9
 workflow-type: tm+mt
-source-wordcount: '142'
+source-wordcount: '141'
 ht-degree: 0%
 
 ---
@@ -33,7 +32,7 @@ Adobe Pass認証：adobe-pass-**3.7.0.2**\
 
 #### MVPDとの連携
 
-* PKCEでOAuth2を使用するBell MVPDのサポートを追加しました。
+* OAuth2 ベースのMVPD認証のPKCE サポートを追加しました。
 
 #### 機能強化
 
