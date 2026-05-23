@@ -9,7 +9,7 @@ product_v2:
 usetq: true
 landing-page-name: pass
 landing-page-breadcrumb-title: Adobe Pass
-git-repo: https://github.com/AdobeDocs/pass.en
+git-repo: https://github.com/AdobeDocs/pass.ja-JP
 index: true
 source-git-commit: 6b0a6f8496c775ba220be117771cff93bda8e8b8
 workflow-type: tm+mt
