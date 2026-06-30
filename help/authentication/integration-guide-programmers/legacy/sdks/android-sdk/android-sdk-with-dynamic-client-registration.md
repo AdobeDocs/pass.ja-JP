@@ -1,138 +1,137 @@
 ---
-title: Dynamic Client Registration のAndroid SDK
-description: Dynamic Client Registration のAndroid SDK
+title: Android SDKとDynamic Client Registration
+description: Android SDKとDynamic Client Registration
 exl-id: 8d0c1507-8e80-40a4-8698-fb795240f618
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+source-git-commit: c2a5591cd8fea44f66fc25beb1fb40532e18d8a6
 workflow-type: tm+mt
-source-wordcount: '1308'
-ht-degree: 0%
+source-wordcount: '1321'
+ht-degree: 1%
 
 ---
 
-# （従来の） Dynamic Client Registration を使用したAndroid SDK {#android-sdk-with-dynamic-client-registration}
+# （レガシー）動的クライアント登録を使用したAndroid SDK {#android-sdk-with-dynamic-client-registration}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 ## 概要 {#Intro}
 
-Android AccessEnabler SDK for Androidは、セッション Cookie を使用せずに認証を有効にするように変更されました。 cookie へのアクセスを制限するブラウザーが増えているので、認証を許可するには別の方法を使用する必要があります。
+Android AccessEnabler SDK Android版は、セッション Cookieを使用せずに認証を有効にするように変更されました。 ますます多くのブラウザがCookieへのアクセスを制限しているため、認証を許可するために別の方法を使用する必要があります。
 
-Androidの場合、Chromeのカスタムタブを使用すると、他のアプリケーションからの Cookie へのアクセスが制限されます。
+Androidの場合、Chromeのカスタムタブを使用すると、他のアプリケーションからのCookieへのアクセスが制限されます。
 
->**Android SDK 3.0.0** には次が導入されています。
+>**Android SDK 3.0.0**&#x200B;の紹介：
 
-- dynamic client registration は、署名済みリクエスター ID とセッション cookie 認証に基づいて、現在のアプリ登録メカニズムを置き換えます
-- Chrome認証フローのカスタムタブ
+- 動的クライアント登録は、署名済みの依頼者IDとセッション Cookie認証に基づいて、現在のアプリ登録メカニズムを置き換えます
+- 認証フロー用のChrome カスタムタブ
 
 >[!NOTE]
 >
->Chromeを使用していない古いバージョンのAndroidの場合、カスタムタブのサポートでは、古いバージョンの AccessEnabler SDKと同様の WebView 認証を使用します。
+>Chrome Custom Tabs サポートのない古いAndroid バージョンの場合、以前のAccessEnabler SDK バージョンと同様にWebView認証が使用されます。
 
 
 ## 動的なクライアント登録 {#DCR}
 
-Android SDK v3.0 以降では、[Dynamic Client Registration Overview](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) で定義されている Dynamic Client Registration 手順を使用します。
+Android SDK v3.0以降では、[Dynamic Client Registration Overview](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)で定義されているDynamic Client Registration プロシージャを使用します。
 
 
 ## 機能デモ {#Demo}
 
-機能のコンテキストを詳しく説明する [&#x200B; このウェビナー &#x200B;](https://my.adobeconnect.com/pzkp8ujrigg1/) をご覧ください。これには、TVE ダッシュボードを使用してソフトウェアステートメントを管理する方法と、Android SDKの一部としてAdobeから提供されるデモアプリケーションを使用して生成されたステートメントをテストする方法のデモが含まれています。
+機能の詳細を説明し、TVE ダッシュボードを使用してソフトウェアステートメントを管理する方法と、Android SDKの一部としてAdobeが提供するデモアプリケーションを使用して生成されたステートメントをテストする方法に関するデモを含む[このウェビナー](https://my.adobeconnect.com/pzkp8ujrigg1/)をご覧ください。
 
-## API の変更点 {#API}
+## APIの変更 {#API}
 
 
 ### Factory.getInstance
 
-**説明：** Access Enabler オブジェクトをインスタンス化します。 アプリケーション・インスタンスごとに 1 つの Access Enabler インスタンスが必要です。
+**説明：** Access Enabler オブジェクトをインスタンス化します。 アプリケーションインスタンスごとに1つのAccess Enabler インスタンスが必要です。
 
-| API 呼び出し：コンストラクター |
+| API呼び出し：コンストラクター |
 | --- |
-| public static AccessEnabler getInstance （Context appContext, String softwareStatement, String redirectUrl） <br>        AccessEnablerException をスロー |
+| public static AccessEnabler getInstance （Context appContext, String softwareStatement, String redirectUrl） <br>がAccessEnablerExceptionをスローします |
 
 
-**提供：** v3.0 以降
+**可用性：** v3.0以降
 
 **パラメーター：**
 
-- *appContext*:Android アプリケーションコンテキスト
-- softwareStatement: TVE ダッシュボードから取得された値。または string.xml で「software\_statement」が設定されている場合は *null*
-- redirectUrl：一意の URL です。TVE ダッシュボードに明示的に追加された、逆順のドメインの 1 つです。string.xml で *redirect\_uri」が設定されている場合は null* になります。
+- *appContext*: Android アプリケーションのコンテキスト
+- softwareStatement: strings.xmlに「software\_statement」が設定されている場合にTVE ダッシュボードまたは&#x200B;*null*&#x200B;から取得した値
+- redirectUrl：一意のURL。TVE ダッシュボードで明示的に追加された逆順のドメインの1つ。strings.xmlに「redirect\_uri」が設定されている場合は&#x200B;*null*
 
-注意：無効な softwareStatement または redirectUrl は、アプリケーションが AccessEnabler を初期化しないか、アプリケーションをAdobe Pass認証および認証用に登録します。
-</br>
-注意：strings.xml の redirectUrl パラメーターまたは redirect\_uri は、逆順でアプリケーションに対して TVE ダッシュボードで追加されたドメインの値にする必要があります（例：TVE ダッシュボードで追加されたドメイン「adobe.com」の場合、redirectUrl は「com.adobe」にする必要があります）。
+注意：無効なsoftwareStatementまたはredirectUrlが原因で、アプリケーションはAccessEnablerを初期化したり、Adobe Pass認証および認証にアプリケーションを登録したりしません</br>
+注意：strings.xmlのredirectUrl パラメーターまたはredirect\_uriは、アプリケーション用TVE ダッシュボードに逆順で追加されたドメインの値である必要があります（例：TVE ダッシュボードに追加されたドメイン「adobe.com」の場合、redirectUrlは「com.adobe」である必要があります）。
 
 
 ### setRequestor
 
-**説明：** チャネルの ID を確立します。 各チャネルには、Adobe Pass Authentication System のAdobeへの登録時に一意の ID が割り当てられます。 SSO およびリモート・トークンを処理する場合、アプリケーションがバックグラウンドにある場合に認証状態が変更される可能性があります。アプリケーションがフォアグラウンドになると、システム状態と同期するために setRequestor を再度呼び出すことができます（SSO が有効な場合はリモート・トークンを取得し、その間にログアウトが発生した場合はローカル・トークンを削除します）。
+**説明：** チャネルのIDを確立します。 各チャネルには、Adobe Pass認証システム用のAdobeに登録する際に一意のIDが割り当てられます。 SSOおよびリモートトークンを扱う場合、アプリケーションがバックグラウンドにあるときに認証状態が変更される可能性があります。システム状態と同期するためにアプリケーションがフォアグラウンドに投入されたときにsetRequestorを再度呼び出すことができます（SSOが有効になっている場合はリモートトークンを取得し、その間にログアウトが発生した場合はローカルトークンを削除します）。
 
-サーバー応答には、MVPD のリストと、チャネルの ID に添付されたいくつかの設定情報が含まれています。 サーバ応答は、アクセス イネーブラ コードによって内部的に使用されます。 setRequestorComplete （） コールバックを使用すると、操作のステータス（SUCCESS/FAIL）のみがアプリケーションに表示されます。
+サーバー応答には、MVPDのリストと、チャネルのIDに添付されているいくつかの設定情報が含まれています。 サーバー応答は、Access Enabler コードによって内部で使用されます。 setRequestorComplete （） コールバックを使用して、操作のステータス（SUCCESS/FAILなど）のみがアプリケーションに表示されます。
 
-*urls* パラメーターを使用しない場合、生成されるネットワーク呼び出しは、デフォルトのサービスプロバイダー URL （Adobe リリース/実稼動環境）をターゲットにします。
+*urls* パラメーターが使用されていない場合、結果のネットワーク呼び出しは、デフォルトのサービスプロバイダーURL （Adobe リリース/実稼動環境）をターゲットにします。
 
-*urls* パラメーターに値を指定すると、結果として得られるネットワーク呼び出しは、*urls* パラメーターで指定されるすべての URL をターゲットにします。 すべての設定要求が、別々のスレッドで同時にトリガーされます。 MVPD のリストをコンパイルする場合は、最初のレスポンダーが優先されます。 Access Enabler は、リスト内の各MVPDについて、関連するサービス プロバイダの URL を記憶します。 以降のすべての使用権限リクエストは、設定段階でターゲット MVPDとペアになっていた、サービスプロバイダーに関連付けられた URL に送られます。
+*urls* パラメーターに値が指定されている場合、結果のネットワーク呼び出しは、*urls* パラメーターで指定されたすべてのURLをターゲットにします。 すべての設定リクエストは、別々のスレッドで同時にトリガーされます。 MVPDのリストをコンパイルする場合は、最初のレスポンダーが優先されます。 リスト内の各MVPDについて、Access Enablerは関連するサービスプロバイダーのURLを記憶します。 その後のすべての使用権限リクエストは、設定フェーズでターゲット MVPDとペア設定されたサービスプロバイダーに関連付けられたURLに送信されます。
 
-| API 呼び出し：リクエスター設定 |
+| API呼び出し：依頼者設定 |
 | --- |
-| ```public void setRequestor(String requestorId)``` |
+| `public void setRequestor(String requestorId)` |
 
-**提供：** v3.0 以降
+**可用性：** v3.0以降
 
-| API 呼び出し：リクエスター設定 |
+| API呼び出し：依頼者設定 |
 | --- |
-| ```public void setRequestor(String requestorId, ArrayList<String> urls)``` |
+| `public void setRequestor(String requestorId, ArrayList<String> urls)` |
 
-**提供：** v3.0 以降
+**可用性：** v3.0以降
 
 **パラメーター：**
 
-- *requestorID*：チャネルに関連付けられた一意の ID。 最初にAdobe Pass Authentication サービスに登録したときに、Adobeによって割り当てられた一意の ID をサイトに渡します。
-- *urls*：オプションのパラメーターです。デフォルトでは、Adobe サービスプロバイダーが使用されます [http://sp.auth.adobe.com/](http://sp.auth.adobe.com/)。 この配列を使用すると、Adobeが提供する認証サービスと承認サービスのエンドポイントを指定できます（デバッグ目的で別のインスタンスが使用される場合があります）。 これを使用して、複数のAdobe Pass Authentication サービスプロバイダーインスタンスを指定できます。 その場合、MVPDのリストは、すべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー（最初に応答し、そのMVPDをサポートするプロバイダー）に関連付けられます。
+- *requestorID*: チャネルに関連付けられている一意のID。 Adobeで割り当てられた一意のIDを、Adobe Pass Authentication Serviceに初めて登録したときにサイトに渡します。
+- *urls*: オプションのパラメーター。デフォルトでは、Adobe サービスプロバイダーは[http://sp.auth.adobe.com/](http://sp.auth.adobe.com/)で使用されます。 この配列を使用すると、Adobeが提供する認証サービスと認証サービスのエンドポイントを指定できます（デバッグ目的で様々なインスタンスを使用する場合があります）。 これを使用して、複数のAdobe Pass認証サービスプロバイダーインスタンスを指定できます。 この場合、MVPD リストは、すべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー、つまり最初に応答し、そのMVPDをサポートするプロバイダーに関連付けられます。
 
-非推奨（廃止予定）:
+非推奨：
 
-- *signedRequestorID*：秘密鍵でデジタル署名されたリクエスター ID のコピー。<!--For more details, see [Registering Native Clients](http://tve.helpdocsonline.com/registering-native-clients)-->.
+- *signedRequestorID*：秘密鍵でデジタル署名された依頼者IDのコピー。 <!--For more details, see [Registering Native Clients](http://tve.helpdocsonline.com/registering-native-clients)-->.
 
 **コールバックがトリガーされました：** `setRequestorComplete()`
 
 ### ログアウト
 
-**説明：** このメソッドを使用して、ログアウトフローを開始します。 ログアウトは、ユーザーがAdobe PassMVPDサーバーと認証サーバーの両方からログアウトする必要があるために、一連の HTTP リダイレクト操作の結果です。 その結果、このフローでは、ログアウトを実行するための ChromeCustomTab ウィンドウが開きます。
+**説明：**&#x200B;このメソッドを使用して、ログアウトフローを開始します。 ログアウトは、ユーザーがAdobe Pass Authentication サーバーとMVPDのサーバーの両方からログアウトする必要があるため、一連のHTTP リダイレクト操作の結果です。 その結果、このフローはChromeCustomTab ウィンドウを開いてログアウトを実行します。
 
-| API 呼び出し：ログアウトフローの開始 |
+| API呼び出し：ログアウトフローを開始します |
 | --- |
 | public void logout （） |
 
-**提供：** v3.0 以降
+**可用性：** v3.0以降
 
-**パラメーター：** なし
+**パラメーター：**&#x200B;なし
 
-**コールバックがトリガーされました：** `setAuthenticationStatus()`
-</br></br>
+**コールバックがトリガーされました：** 
+
 
 ## プログラマ実装フロー {#Progr}
 
-### **1. アプリケーションの登録**
+### **1. アプリケーション**&#x200B;を登録
 
-a. software\_statement と redirect\_uri をAdobe Passから取得する（TVE Dashboard）
+a. Adobe Passからsoftware\_statementおよびredirect\_uriを取得します（TVE Dashboard）
 
-b. これらの値をAdobe Pass SDKに渡す方法は 2 つあります。
+b. これらの値をAdobe Pass SDKに渡すには、次の2つのオプションがあります。
 
-strings.xml に次を追加します。
+strings.xmlに次を追加します。
 
 ```XML
 <string name="software_statement">[softwarestatement value]</string>
 <string name="redirect_uri">application_url.com</string>
 ```
 
-AccessEnabler.getInstance （appContext,softwareStatement,
+AccessEnabler.getInstance （appContext,softwareStatementを呼び出します。
 redirectUrl）
 
 
@@ -140,57 +139,57 @@ redirectUrl）
 
 a. setRequestor （requestor\_id）
 
-SDKは次の操作を実行します。
+SDKでは、次の操作を行います。
 
-- アプリケーションを登録：**software\_statement** を使用して、SDKは **client\_id、client\_secret、client\_id\_issued\_at、redirect\_uris、grant\_types** を取得します。 この情報は、アプリケーションの内部ストレージに保存されます。
+- アプリケーションを登録：**software\_statement**&#x200B;を使用すると、SDKは&#x200B;**client\_id、client\_secret、client\_id\_issued\_at、redirect\_uris、grant\_types**&#x200B;を取得します。 この情報は、アプリケーションの内部ストレージに保存されます。
 
-- client\_id、client\_secret および grant\_type=&quot;client\_credentials **を使用して、** access\_token&quot;を取得します。 この access\_token は、SDKがAdobe Pass サーバーに対して行う各コールで使用されます
+- client\_id、client\_secret、grant\_type=&quot;client\_credentials&quot;を使用して&#x200B;**access\_token**&#x200B;を取得します。 このaccess\_tokenは、SDKからAdobe Pass サーバーへの呼び出しごとに使用されます
 
 **トークンエラー応答：**
 
-| エラーの応答 | | |
+| エラー応答 | | |
 | --- | --- | --- |
-| HTTP 400 （無効なリクエスト） | {&quot;error&quot;: &quot;invalid\_request&quot;} | 要求に必須パラメーターがないか、サポートされていないパラメーター値（許可タイプ以外）が含まれているか、パラメーターを繰り返しているか、複数の資格情報が含まれているか、クライアントの認証に複数のメカニズムが使用されているか、その他の形式が正しくありません。 |
-| HTTP 400 （無効なリクエスト） | {&quot;error&quot;: &quot;invalid\_client&quot;} | クライアントが不明なため、クライアント認証に失敗しました。 SDKは、再度認証サーバーに登録する必要があります。 |
-| HTTP 400 （無効なリクエスト） | {&quot;error&quot;: &quot;unauthorized\_client&quot;} | 認証済みクライアントには、この認証付与タイプの使用が許可されていません。 |
+| HTTP 400 （不正なリクエスト） | {&quot;error&quot;: &quot;invalid\_request&quot;} | 要求に必要なパラメーターが含まれていない、サポートされていないパラメーター値（付与タイプ以外）が含まれている、パラメーターを繰り返す、複数の資格情報が含まれている、クライアントを認証するための複数のメカニズムを利用する、またはその他の方法で不正な形式である。 |
+| HTTP 400 （不正なリクエスト） | {&quot;error&quot;: &quot;invalid\_client&quot;} | クライアントが不明なため、クライアント認証に失敗しました。 SDKは、認証サーバーに再度登録する必要があります。 |
+| HTTP 400 （不正なリクエスト） | {&quot;error&quot;: &quot;unauthorized\_client&quot;} | 認証されたクライアントは、この承認付与タイプを使用する権限がありません。 |
 
-- MVPDでパッシブ認証が必要な場合は、Chrome カスタムタブが開き、そのMVPDでパッシブに実行され、完了すると閉じられます
+- MVPDでパッシブ認証が必要な場合は、「Chromeカスタム」タブが開き、そのMVPDでパッシブ認証が実行され、完了すると閉じます
 
 b. checkAuthentication （）
 
-- true：認証に移動します
-- false :「MVPDを選択」に移動します。
+- true：認証に移動
+- false :MVPDを選択に移動します
 
-c. getAuthentication :SDKは、呼び出しパラメーターに **access_token** を含めます
+c. getAuthentication :SDKでは、呼び出しパラメーターに&#x200B;**access_token**&#x200B;が含まれます
 
-- mvpd remembered : setSelectedProvider （mvpd_id）に移動します
-- mvpd が選択されていません：displayProviderDialog
-- mvpd selected :setSelectedProvider （mvpd_id）に移動します
+- mvpd記憶：setSelectedProvider （mvpd_id）に移動
+- mvpdが選択されていません：displayProviderDialog
+- mvpdを選択：setSelectedProvider （mvpd_id）に移動
 
 d. setSelectedProvider
 
-- mvpd\_id 認証 URL は、ChromeCustomTabs に読み込まれる
-- ログイン成功：delegate.setAuthenticationStatus （成功）
-- ログインがキャンセルされました：MVPDの選択をリセット
-- 認証が完了したときにキャプチャするための URL スキームが「adobepass://redirect_uri」として確立されています
+- mvpd\_id認証URLがChromeCustomTabsに読み込まれます
+- ログインに成功しました：delegate.setAuthenticationStatus （SUCCESS）
+- ログインがキャンセルされました：MVPDの選択範囲をリセット
+- 認証が完了したときに取得するURL スキームは、「adobepass://redirect_uri」として確立されます
 
-e. get/checkAuthorization :SDKは、ヘッダーに Authorization:Bearer **access_token** として **access_token** を含めます
+e. get/checkAuthorization :SDKには、Authorization: Bearer **access_token**&#x200B;として&#x200B;**access_token**&#x200B;がヘッダーに含まれます
 
-- 認証に成功した場合、
+- 認証が成功した場合、を取得するための呼び出しが行われます。
 メディアトークン
 
 f. ログアウト :
 
-- SDKによって、現在の要求者の有効なトークンが削除されます（SSO を介さずに他のアプリケーションによって取得された認証は有効なままです）
-- SDKは、mvpd_id ログアウトエンドポイントに到達するために、Chromeのカスタムタブを開きます。 完了すると、Chromeのカスタムタブは閉じられます
+- SDKは、現在の依頼者の有効なトークンを削除します（SSOを介して取得した認証ではなく、他のアプリケーションで取得した認証は有効のままです）
+- SDKはChrome カスタムタブを開いて、mvpd_id ログアウトエンドポイントにアクセスします。 完了すると、Chrome カスタムタブは閉じられます
 - ログアウトが完了した瞬間をキャプチャするために、URL スキームは「adobepass://logout」として確立されます
-- logout は、sendTrackingData （new Event （EVENT_LOGOUT,USER_NOT_AUTHENTICATED_ERROR）と callback : setAuthenticationStatus （0,&quot;Logout&quot;）をトリガーにします。
+- logoutはsendTrackingData （new Event （EVENT_LOGOUT,USER_NOT_AUTHENTICATED_ERROR）とコールバック :setAuthenticationStatus （0,&quot;Logout&quot;）をトリガーします
 
-**メモ：** 各呼び出しには **access_token が必要なため** 以下のエラーコードがSDKで処理されます。
+**注：**&#x200B;各呼び出しには&#x200B;**access_tokenが必要なため、以下のエラーコードは**&#x200B;個がSDKで処理されます。
 
 
-| エラーの応答 | | |
+| エラー応答 | | |
 | --- | ---|--- |
-| invalid_request | 400 | リクエストの形式が正しくありません。 SDKは、サーバーへの呼び出しを実行しなくなるはずです。 |
-| invalid_client | 403 | このクライアント ID は、要求の実行が許可されなくなりました。 SDK は、クライアント登録を再度実行する必要があります。 |
-| access_denied | 401 | access\_token が無効です。 sdk は、新しい access_token をリクエストする必要があります。 |
+| invalid_request | 400 | リクエストの形式が正しくありません。 SDKは、サーバーへの呼び出しの実行を停止する必要があります。 |
+| invalid_client | 403 | クライアント IDは、リクエストの実行を許可されなくなりました。 Sdkは、クライアント登録を再度実行する必要があります。 |
+| access_denied | 401 | access\_tokenが無効です。 sdkは新しいaccess_tokenをリクエストする必要があります。 |
