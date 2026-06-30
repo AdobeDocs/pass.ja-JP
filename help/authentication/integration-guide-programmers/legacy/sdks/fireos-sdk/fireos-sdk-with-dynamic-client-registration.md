@@ -152,7 +152,7 @@ FireOS AccessEnabler SDK for FireTVは、セッション Cookieを使用せず�
    - ログインがキャンセルされました：MVPDの選択範囲をリセット
    - 認証が完了したときに取得するURL スキームは、「adobepass://android.app」として確立されます
 
-- e. get/checkAuthorization :SDKには、Authorization: Bearer **access\_token** 1}として**access\_tokenがヘッダーに含まれます**
+- e. get/checkAuthorization :SDKには、Authorization: Bearer **access\_token** 1&rbrace;として&#x200B;**access\_tokenがヘッダーに含まれます**
 
 - 認証に成功すると、メディアトークンを取得するための呼び出しが行われます
 
