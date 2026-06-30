@@ -2,9 +2,9 @@
 title: Amazon FireOS ネイティブクライアント API リファレンス
 description: Amazon FireOS ネイティブクライアント API リファレンス
 exl-id: 8ac9f976-fd6b-4b19-a80d-49bfe57134b5
-source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
+source-git-commit: c2a5591cd8fea44f66fc25beb1fb40532e18d8a6
 workflow-type: tm+mt
-source-wordcount: '3498'
+source-wordcount: '3519'
 ht-degree: 0%
 
 ---
@@ -68,7 +68,7 @@ ht-degree: 0%
 
 | API呼び出し：コンストラクター |
 | --- |
-| ```public static AccessEnabler getInstance(Context appContext, String softwareStatement, String redirectUrl)<br>        throws AccessEnablerException```<br><br>  <code>件のパブリック静的AccessEnabler getInstance （Context appContext、String env_url、String softwareStatement、String redirectUrl）がAccessEnablerExceptionをスローします </code> |
+| <code>public static AccessEnabler getInstance （Context appContext, String softwareStatement, String redirectUrl） <br>がAccessEnablerException<br><br>をスローしますpublic static AccessEnabler getInstance （Context appContext, String env_url, String softwareStatement, String redirectUrl） throws AccessEnablerException </code> |
 
 **可用性：** v3.0以降
 
@@ -100,7 +100,7 @@ ht-degree: 0%
 
 | API呼び出し：依頼者設定 |
 | --- |
-| ```public void setRequestor(String requestorId)``` |
+| `public void setRequestor(String requestorId)` |
 
 
 **可用性：** v3.0以降
@@ -108,7 +108,7 @@ ht-degree: 0%
 
 | API呼び出し：依頼者設定 |
 | --- |
-| ```public void setRequestor(String requestorId, ArrayList<String> urls)``` |
+| `public void setRequestor(String requestorId, ArrayList<String> urls)` |
 
 **可用性：** v3.0以降
 
@@ -139,7 +139,7 @@ ht-degree: 0%
 
 | コールバック：依頼者設定が完了しました |
 | --- |
-| ```public void setRequestorComplete(int status)``` |
+| `public void setRequestorComplete(int status)` |
 
 **可用性：** v1.0以降
 
@@ -166,7 +166,7 @@ ht-degree: 0%
 
 | API呼び出し：setOptions |
 | --- |
-| ```public void setOptions(HashMap<String,String> options)``` |
+| `public void setOptions(HashMap<String,String> options)` |
 
 **可用性：** v3.0以降
 
@@ -187,7 +187,7 @@ MVPDが「リクエスト者ごとの認証」機能をサポートしている�
 
 | API呼び出し：認証ステータスの確認 |
 | --- |
-| ```public void checkAuthentication()``` |
+| `public void checkAuthentication()` |
 
 **可用性：** v1.0以降
 
@@ -210,13 +210,13 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | API呼び出し：認証フローを開始します |
 | --- |
-| ```public void getAuthentication()``` |
+| `public void getAuthentication()` |
 
 **可用性：** v1.0以降
 
 | API呼び出し：認証フローを開始します |
 | --- |
-| ```public void getAuthentication(boolean forceAuthN, Map<String, Object> genericData)``` |
+| `public void getAuthentication(boolean forceAuthN, Map<String, Object> genericData)` |
 
 **可用性：** v1.0以降
 
@@ -238,7 +238,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **コールバック：MVPDの選択範囲UIの表示** |
 | --- |
-| ```public void displayProviderDialog(ArrayList<Mvpd> mvpds)``` |
+| `public void displayProviderDialog(ArrayList<Mvpd> mvpds)` |
 
 **可用性：** v1.0以降
 
@@ -256,15 +256,15 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **API呼び出し：現在選択されているプロバイダーを設定** |
 | --- |
-| ```public void setSelectedProvider(String mvpdId)``` |
+| `public void setSelectedProvider(String mvpdId)` |
 
 
 **&#x200B; 可用性：**&#x200B;v 1.0以降
 
 **パラメーター：**&#x200B;なし
 
-**コールバックがトリガーされました：** `setAuthenticationStatus(), sendTrackingData()`
-</br>
+**コールバックがトリガーされました：** 
+
 
 ### navigateToUrl {#navigagteToUrl}
 
@@ -272,7 +272,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **コールバック：MVPD ログインページの表示** |
 | --- |
-| ```public void navigateToUrl(String url)``` |
+| `public void navigateToUrl(String url)` |
 
 **可用性：** v1.0以降
 
@@ -290,7 +290,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **API呼び出し：認証トークンを取得** |
 | --- |
-| ```public void getAuthenticationToken(String cookies)``` |
+| `public void getAuthenticationToken(String cookies)` |
 
 **可用性：** v1.0以降
 
@@ -310,7 +310,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **コールバック：認証フローのステータスを報告** |
 | --- |
-| ```public void setAuthenticationStatus(int status, String errorCode)``` |
+| `public void setAuthenticationStatus(int status, String errorCode)` |
 
 **可用性：** v1.0以降
 
@@ -336,7 +336,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **API呼び出し：現在選択されているプロバイダーを設定** |
 | --- |
-| ```public void checkPreauthorizedResources(ArrayList<String> resources)``` |
+| `public void checkPreauthorizedResources(ArrayList<String> resources)` |
 
 **可用性：** v1.0以降
 
@@ -352,7 +352,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **API呼び出し：現在選択されているプロバイダーを設定** |
 | --- |
-| ```public void checkPreauthorizedResources(ArrayList<String> resources)``` |
+| `public void checkPreauthorizedResources(ArrayList<String> resources)` |
 
 **&#x200B; 可用性：**&#x200B;v 1.0以降
 
@@ -368,13 +368,13 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **API呼び出し：認証ステータスを確認** |
 | --- |
-| ```public void checkAuthorization(String resourceId)``` |
+| `public void checkAuthorization(String resourceId)` |
 
 **可用性：** v1.0以降
 
 | **API呼び出し：認証ステータスを確認** |
 | --- |
-| ```public void checkAuthorization(String resourceId, Map<String, Object> genericData)``` |
+| `public void checkAuthorization(String resourceId, Map<String, Object> genericData)` |
 
 **可用性：** v1.0以降
 
@@ -393,13 +393,13 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **API呼び出し：認証フローを開始** |
 | --- |
-| ```public void getAuthorization(String resourceId)``` |
+| `public void getAuthorization(String resourceId)` |
 
 **可用性：** v1.0以降
 
 | **API呼び出し：認証フローを開始** |
 | --- |
-| ```public void getAuthorization(String resourceId, Map<String, Object> genericData)``` |
+| `public void getAuthorization(String resourceId, Map<String, Object> genericData)` |
 
 **可用性：** v1.0以降
 
@@ -424,7 +424,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **コールバック：承認フローが正常に完了しました** |
 | --- |
-| ```public void setToken(String token, String resourceId)``` |
+| `public void setToken(String token, String resourceId)` |
 
 **&#x200B; 可用性：**&#x200B;v 1.0以降
 
@@ -443,7 +443,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **コールバック：認証フローが失敗しました** |
 | --- |
-| ```public void tokenRequestFailed(String resourceId, <br>        String errorCode, String errorDescription)``` |
+| <code>public void tokenRequestFailed （String resourceId, <br> String errorCode, String errorDescription）</code> |
 
 **可用性：** v1.0以降
 
@@ -464,7 +464,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **API呼び出し：ログアウトフローを開始** |
 | --- |
-| ```public void logout()``` |
+| `public void logout()` |
 
 **可用性：** v1.0以降
 
@@ -480,7 +480,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **API呼び出し：現在選択されているMVPDを決定** |
 | --- |
-| ```public void getSelectedProvider()``` |
+| `public void getSelectedProvider()` |
 
 **可用性：** v1.0以降
 
@@ -496,7 +496,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **コールバック：現在選択されているMVPD**&#x200B;に関する情報 |
 | --- |
-| ```public void selectedProvider(Mvpd mvpd)``` |
+| `public void selectedProvider(Mvpd mvpd)` |
 
 **可用性：** v1.0以降
 
@@ -514,7 +514,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **API呼び出し：メタデータのAccessEnablerのクエリ** |
 | --- |
-| ```public void getMetadata(MetadataKey metadataKey)``` |
+| `public void getMetadata(MetadataKey metadataKey)` |
 
 **可用性：** v1.0以降
 
@@ -550,7 +550,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **コールバック：メタデータ取得要求の結果** |
 | --- |
-| ```public void setMetadataStatus(MetadataKey key, MetadataStatus result)``` |
+| `public void setMetadataStatus(MetadataKey key, MetadataStatus result)` |
 
 **可用性：** v1.0以降
 
@@ -612,7 +612,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 | **API呼び出し：AccessEnabler バージョンを取得** |
 | --- |
-| ```public static String getVersion()``` |
+| `public static String getVersion()` |
 
 ## トラッキングイベント {#tracking}
 
@@ -643,7 +643,7 @@ Access Enablerは、必ずしも使用権限フローに関連しない追加の
 
 | コールバック：トラッキングイベント |
 | --- |
-| ```public void sendTrackingData(Event event, ArrayList<String> data)``` |
+| `public void sendTrackingData(Event event, ArrayList<String> data)` |
 
 **可用性：** v1.0以降
 
