@@ -2,7 +2,7 @@
 title: Amazon FireOS SDKとDynamic Client Registration
 description: Amazon FireOS SDKとDynamic Client Registration
 exl-id: 27acf3f5-8b7e-4299-b0f0-33dd6782aeda
-source-git-commit: c2a5591cd8fea44f66fc25beb1fb40532e18d8a6
+source-git-commit: b6ba687240799d1889302019613f426259f147ad
 workflow-type: tm+mt
 source-wordcount: '1185'
 ht-degree: 1%
@@ -152,7 +152,7 @@ FireOS AccessEnabler SDK for FireTVは、セッション Cookieを使用せず�
    - ログインがキャンセルされました：MVPDの選択範囲をリセット
    - 認証が完了したときに取得するURL スキームは、「adobepass://android.app」として確立されます
 
-- e. get/checkAuthorization :SDKには、Authorization: Bearer **access\_token** 1&rbrace;として&#x200B;**access\_tokenがヘッダーに含まれます**
+- e. get/checkAuthorization :SDKには、Authorization: Bearer **access\_token** 1}として**access\_tokenがヘッダーに含まれます**
 
 - 認証に成功すると、メディアトークンを取得するための呼び出しが行われます
 
@@ -172,3 +172,4 @@ FireOS AccessEnabler SDK for FireTVは、セッション Cookieを使用せず�
 | invalid_request | 400 | リクエストの形式が正しくありません。 SDKは、サーバーへの呼び出しの実行を停止する必要があります。 |
 | invalid_client | 403 | クライアント IDは、リクエストの実行を許可されなくなりました。 Sdkは、クライアント登録を再度実行する必要があります。 |
 | access_denied | 401 | access_tokenが無効です。 sdkは新しいaccess_tokenをリクエストする必要があります。 |
+

@@ -2,7 +2,7 @@
 title: Android SDK API リファレンス
 description: Android SDK API リファレンス
 exl-id: f932e9a1-2dbe-4e35-bd60-a4737407942d
-source-git-commit: c2a5591cd8fea44f66fc25beb1fb40532e18d8a6
+source-git-commit: b6ba687240799d1889302019613f426259f147ad
 workflow-type: tm+mt
 source-wordcount: '4628'
 ht-degree: 0%
@@ -163,7 +163,7 @@ ht-degree: 0%
    - **applicationProfile** – この値に基づいてサーバー設定を行うために使用できます。
    - **ap_vi** - Experience Cloud ID （visitorID）。 この値は、後で高度な分析レポートに使用できます。
    - **ap_ai** - Advertising ID
-   - **device_info** – ここに記載されているクライアント情報：[&#x200B; クライアント情報デバイス接続とアプリケーションを渡しています](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。
+   - **device_info** – ここに記載されているクライアント情報：[ クライアント情報デバイス接続とアプリケーションを渡しています](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。
 
 [トップへ戻る…](#apis)
 
@@ -172,7 +172,7 @@ ht-degree: 0%
 
 **説明：**&#x200B;認証ステータスを確認します。 これは、ローカルトークンのストレージ領域で有効な認証トークンを検索することで実現します。 このメソッドはネットワーク呼び出しを実行せず、メインスレッドで呼び出すことをお勧めします。 ユーザーの認証ステータスをクエリし、それに応じてUIを更新するためにアプリケーションによって使用されます（つまり、ログイン/ログアウト UIを更新します）。 認証ステータスは、[*setAuthenticationStatus （）*](#setAuthNStatus) コールバックを介してアプリケーションに通知されます。
 
-MVPDが「リクエスト者ごとの認証」機能をサポートしている場合、複数の認証トークンをデバイスに保存できます。  この機能について詳しくは、Androidの技術概要の「[&#x200B; キャッシングガイドライン &#x200B;](#$caching)」の節を参照してください。
+MVPDが「リクエスト者ごとの認証」機能をサポートしている場合、複数の認証トークンをデバイスに保存できます。  この機能について詳しくは、Androidの技術概要の「[ キャッシングガイドライン ](#$caching)」の節を参照してください。
 
 | API呼び出し：認証ステータスの確認 |
 | --- |
@@ -192,11 +192,11 @@ MVPDが「リクエスト者ごとの認証」機能をサポートしている�
 **説明：**&#x200B;完全な認証ワークフローを開始します。 まず、認証ステータスを確認します。 まだ認証されていない場合は、認証フローのstate-machineが開始されます。
 
 - 最後の認証が成功した場合、MVPDの選択フェーズはスキップされ、[*navigateToUrl （）*](#navigagteToUrl) コールバックがトリガーされます。 このコールバックを使用して、MVPDのログインページを表示するWebView コントロールをインスタンス化します。
-- 前回の認証が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションでは、このコールバックを使用してMVPDの選択UIを表示します。 また、[setSelectedProvider （） &#x200B;](#setSelectedProvider) メソッドを使用して、Access Enabler ライブラリにユーザーのMVPDの選択を通知することで、認証フローを再開する必要もあります。
+- 前回の認証が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションでは、このコールバックを使用してMVPDの選択UIを表示します。 また、[setSelectedProvider （） ](#setSelectedProvider) メソッドを使用して、Access Enabler ライブラリにユーザーのMVPDの選択を通知することで、認証フローを再開する必要もあります。
 
 ユーザーの資格情報はMVPD ログインページで確認されるため、ユーザーがMVPD ログインページで認証する間に行われる複数のリダイレクト操作をモニターする必要があります。 正しい資格情報を入力すると、WebView コントロールは&#x200B;*AccessEnabler.ADOBEPASS\_REDIRECT\_URL*&#x200B;定数で定義されたカスタム URLにリダイレクトされます。 このURLは、WebViewで読み込まれることを意図したものではありません。 アプリケーションはこのURLをインターセプトし、ログインフェーズが完了したことを示すシグナルとしてこのイベントを解釈する必要があります。 次に、認証フローを完了するためにAccess Enablerに制御を渡す必要があります（*getAuthenticationToken （）* メソッドを呼び出すことによって）。
 
-MVPDが「Authentication per Requestor」機能をサポートしている場合、1つのデバイス（プログラマーごとに1つ）に複数の認証トークンを保存できます。  この機能について詳しくは、Androidの技術概要の「[&#x200B; キャッシングガイドライン &#x200B;](#$caching)」の節を参照してください。
+MVPDが「Authentication per Requestor」機能をサポートしている場合、1つのデバイス（プログラマーごとに1つ）に複数の認証トークンを保存できます。  この機能について詳しくは、Androidの技術概要の「[ キャッシングガイドライン ](#$caching)」の節を参照してください。
 
 最後に、認証ステータスは&#x200B;*setAuthenticationStatus （）* コールバックを介してアプリケーションに通知されます。
 
@@ -612,7 +612,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **コールバックがトリガーされました：** [`setMetadataStatus()`](#setMetadaStatus)
 
-**詳細情報：** [&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
+**詳細情報：** [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
 
 [Android APIに戻る…](#api)
 
@@ -674,7 +674,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **トリガー：** [`getMetadata()`](#getMetadata)
 
-**詳細情報：** [&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
+**詳細情報：** [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
 
 
 [Android APIに戻る…](#api)
@@ -778,3 +778,4 @@ Access Enablerは、必ずしも使用権限フローに関連しない追加の
 - [Android Technical Overview](/help/authentication/android-sdk-overview.md)
 
 -->
+

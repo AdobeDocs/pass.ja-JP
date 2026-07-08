@@ -2,7 +2,7 @@
 title: Amazon FireOS ネイティブクライアント API リファレンス
 description: Amazon FireOS ネイティブクライアント API リファレンス
 exl-id: 8ac9f976-fd6b-4b19-a80d-49bfe57134b5
-source-git-commit: c2a5591cd8fea44f66fc25beb1fb40532e18d8a6
+source-git-commit: b6ba687240799d1889302019613f426259f147ad
 workflow-type: tm+mt
 source-wordcount: '3519'
 ht-degree: 0%
@@ -202,7 +202,7 @@ MVPDが「リクエスト者ごとの認証」機能をサポートしている�
 **説明：**&#x200B;完全な認証ワークフローを開始します。 まず、認証ステータスを確認します。 まだ認証されていない場合は、認証フローのstate-machineが開始されます。
 
 - 最後の認証が成功した場合、MVPDの選択フェーズはスキップされ、WebView コントロールがMVPDのログインページをユーザーに表示します。
-- 前回の認証が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションでは、このコールバックを使用してMVPDの選択UIを表示します。 また、[setSelectedProvider （） &#x200B;](#setSelectedProvider) メソッドを使用して、Access Enabler ライブラリにユーザーのMVPDの選択を通知することで、認証フローを再開する必要もあります。
+- 前回の認証が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションでは、このコールバックを使用してMVPDの選択UIを表示します。 また、[setSelectedProvider （） ](#setSelectedProvider) メソッドを使用して、Access Enabler ライブラリにユーザーのMVPDの選択を通知することで、認証フローを再開する必要もあります。
 
 MVPDが「Authentication per Requestor」機能をサポートしている場合、1つのデバイス（プログラマーごとに1つ）に複数の認証トークンを保存できます。
 
@@ -259,7 +259,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 | `public void setSelectedProvider(String mvpdId)` |
 
 
-**&#x200B; 可用性：**&#x200B;v 1.0以降
+** 可用性：**v 1.0以降
 
 **パラメーター：**&#x200B;なし
 
@@ -354,7 +354,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 | --- |
 | `public void checkPreauthorizedResources(ArrayList<String> resources)` |
 
-**&#x200B; 可用性：**&#x200B;v 1.0以降
+** 可用性：**v 1.0以降
 
 **パラメーター：** `resources` パラメーターは、ユーザーが既に表示を許可されているリソースの配列です。
 
@@ -426,7 +426,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 | --- |
 | `public void setToken(String token, String resourceId)` |
 
-**&#x200B; 可用性：**&#x200B;v 1.0以降
+** 可用性：**v 1.0以降
 
 **パラメーター：**
 
@@ -540,7 +540,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 **コールバックがトリガーされました：** [`setMetadataStatus()`](#setMetadaStatus)
 
-**詳細情報：** [&#x200B; ユーザーメタデータ &#x200B;](#setmetadatastatus)
+**詳細情報：** [ ユーザーメタデータ ](#setmetadatastatus)
 
 </br>
 
@@ -602,7 +602,7 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 **トリガー：** [`getMetadata()`](#getMetadata)
 
-**詳細情報：** [&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
+**詳細情報：** [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
 
 </br>
 
@@ -684,3 +684,4 @@ Access Enablerは、必ずしも使用権限フローに関連しない追加の
    - **3** - オペレーティング システムの種類
 
 **トリガー：** `checkAuthentication(), getAuthentication(), checkAuthorization(), getAuthorization(), setSelectedProvider()`
+

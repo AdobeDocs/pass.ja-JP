@@ -2,7 +2,7 @@
 title: iOS/tvOS API リファレンス
 description: iOS/tvOS API リファレンス
 exl-id: 017a55a8-0855-4c52-aad0-d3d597996fcb
-source-git-commit: c2a5591cd8fea44f66fc25beb1fb40532e18d8a6
+source-git-commit: b6ba687240799d1889302019613f426259f147ad
 workflow-type: tm+mt
 source-wordcount: '7035'
 ht-degree: 0%
@@ -27,7 +27,7 @@ ht-degree: 0%
 関連ドキュメント：
 
 * Adobe Passの実装方法をステップバイステップで学びましょう
-このAPIを使用した認証権限フローについては、[iOS統合クックブック &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-cookbook.md)を参照してください。
+このAPIを使用した認証権限フローについては、[iOS統合クックブック ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-cookbook.md)を参照してください。
 * 最新のiOS AccessEnabler SDKについては、[iOS Native Access Enabler Library](https://tve.zendesk.com/hc/en-us/articles/204963209-iOS-Native-AccessEnabler-Library)を参照してください。
 
 >[!NOTE]
@@ -47,7 +47,7 @@ ht-degree: 0%
 
 * [`setOptions:options:`](#setOptions) - プロファイルやvisitorIDなどのグローバル SDK オプションを設定します。
 
-* [`setRequestor:`](#setReqV3) [`requestorID`](#setReqV3),[`setRequestor:requestorID:serviceProviders:`](#setReqV3) - プログラマーのIDを確立します。
+* [`setRequestor:`](#setReqV3)[`requestorID`](#setReqV3),[`setRequestor:requestorID:serviceProviders:`](#setReqV3) - プログラマーのIDを確立します。
 
 * **[非推奨]** [`setRequestor:signedRequestorId:`](#setReq),[`setRequestor:signedRequestorId:serviceProviders:`](#setReq) - プログラマーのIDを確立します。
 
@@ -59,7 +59,7 @@ ht-degree: 0%
 
 * [`getAuthentication`](#getAuthN)、[`getAuthentication:withData:`](#getAuthN) – 完全な認証ワークフローを開始します。
 
-* [`getAuthentication:filter`](#getAuthN_filter),[`getAuthentication:withData:`](#getAuthN) [andFilter](#getAuthN_filter) – 完全な認証ワークフローを開始します。
+* [`getAuthentication:filter`](#getAuthN_filter),[`getAuthentication:withData:`](#getAuthN)[andFilter](#getAuthN_filter) – 完全な認証ワークフローを開始します。
 
 * [`displayProviderDialog:`](#dispProvDialog) - ユーザーがMVPDを選択するための適切なUI要素をインスタンス化するようにアプリケーションに通知します。
 
@@ -166,10 +166,10 @@ ht-degree: 0%
 * *options*：グローバル SDK オプションを含むNSDictionary。 現在、次のオプションを使用できます。
    * **applicationProfile** – この値に基づいてサーバー設定を行うために使用できます。
    * **visitorID** - Experience Cloud ID サービス。 この値は、後で高度な分析レポートに使用できます。
-   * **handleSVC** - プログラマがSFSafariViewControllersを処理するかどうかを示すブール値。 詳しくは、iOS SDK 3.2+[&#128279;](/help/authentication/integration-guide-programmers/legacy/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md)のSFSafariViewController サポートを参照してください。
+   * **handleSVC** - プログラマがSFSafariViewControllersを処理するかどうかを示すブール値。 詳しくは、iOS SDK 3.2+](/help/authentication/integration-guide-programmers/legacy/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md)の[SFSafariViewController サポートを参照してください。
       * **falseに設定すると、SDKは自動的にSFSafariViewControllerをエンドユーザーに表示します。** SDKは、MVPDのログインページ URLにさらに移動します。
       * **trueに設定すると、**&#x200B;のSDKは&#x200B;**NOT**&#x200B;によってSFSafariViewControllerがエンドユーザーに自動的に表示されます。 SDKは&#x200B;**navigate （toUrl:{url}, useSVC:YES）**&#x200B;をさらにトリガーします。
-* **device\_info** - [&#x200B; クライアント情報を渡す](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)の説明に従ったクライアント情報。
+* **device\_info** - [ クライアント情報を渡す](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)の説明に従ったクライアント情報。
 
 [トップへ戻る…](#apis)
 
@@ -316,7 +316,7 @@ ht-degree: 0%
 * *requestorID*: プログラマーに関連付けられている一意のID。 Adobeで割り当てられた一意のIDを、Adobe Pass Authentication Serviceに初めて登録したときにサイトに渡します。
 * *signedRequestorID*: **このパラメーターは、iOS AccessEnabler バージョン 1.2以降に存在します。** 秘密鍵でデジタル署名された依頼者IDのコピー。 <!--For more details, see [Registering Native Clients](https://tve.helpdocsonline.com/registering-native-clients)-->.
 * *urls*: オプションのパラメーター。デフォルトでは、Adobe サービスプロバイダーが使用されます（http://sp.auth.adobe.com/）。 この配列を使用すると、Adobeが提供する認証サービスと認証サービスのエンドポイントを指定できます（デバッグ目的で様々なインスタンスを使用する場合があります）。 これを使用して、複数のAdobe Pass認証サービスプロバイダーインスタンスを指定できます。 この場合、MVPD リストは、すべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー、つまり最初に応答し、そのMVPDをサポートするプロバイダーに関連付けられます。
-* secret and publicKey: 2回目のscreen呼び出しに署名するために使用される秘密鍵と公開鍵。 詳しくは、[&#x200B; クライアントレスのドキュメント &#x200B;](#create_dev)を参照してください。
+* secret and publicKey: 2回目のscreen呼び出しに署名するために使用される秘密鍵と公開鍵。 詳しくは、[ クライアントレスのドキュメント ](#create_dev)を参照してください。
 
 `serviceProviders` パラメーターなしで呼び出された場合、ライブラリはデフォルトのサービスプロバイダー（実稼動プロファイルの場合は`https://sp.auth.adobe.com`、ステージングプロファイルの場合はhttps://sp.auth-staging.adobe.com）から設定を取得します。 `serviceProviders` パラメーターが指定されている場合は、URLの配列である必要があります。 設定情報は、指定されたすべてのエンドポイントから取得され、結合されます。 異なるサービスプロバイダーの応答に重複する情報が存在する場合、競合は最速の応答サーバーに優先して解決されます（つまり、応答時間が最も短いサーバーが優先されます）。
 
@@ -369,7 +369,7 @@ ht-degree: 0%
 
 **ファイル：** AccessEnabler/headers/AccessEnabler.h
 
-**説明：**&#x200B;現在のユーザーの認証ステータスを確認します。これは、ローカルの有効な認証トークンを検索することで実現します
+**説明：**現在のユーザーの認証ステータスを確認します。これは、ローカルの有効な認証トークンを検索することで実現します
 トークンのストレージ容量： このメソッドはネットワーク呼び出しを実行せず、メインスレッドで呼び出すことをお勧めします。アプリケーションは、ユーザーの認証ステータスをクエリするために使用され、
 それに応じてUIを更新します（ログイン/ログアウト UIの更新など）。 を
 認証ステータスは、を介してアプリケーションに通知されます
@@ -476,7 +476,7 @@ ht-degree: 0%
 
 **説明：**&#x200B;完全な認証ワークフローを開始します。 まず、認証ステータスを確認します。 まだ認証されていない場合は、認証フローのstate-machineが開始されます。
 
-* 現在の依頼者にSSOをサポートするMVPDが1つ以上ある場合、[presentTvProviderDialog （） &#x200B;](#presentTvDialog)が呼び出されます。 MVPDでSSOがサポートされていない場合、クラシック認証フローが開始され、フィルターパラメーターは無視されます。
+* 現在の依頼者にSSOをサポートするMVPDが1つ以上ある場合、[presentTvProviderDialog （） ](#presentTvDialog)が呼び出されます。 MVPDでSSOがサポートされていない場合、クラシック認証フローが開始され、フィルターパラメーターは無視されます。
 * ユーザーが完了すると、Apple SSO フロー[`dismissTvProviderDialog()`](#dismissTvDialog)がトリガーされ、認証プロセスが終了します。
 
 最後に、認証ステータスが[`setAuthenticationStatus:errorCode:`](#setAuthNStatus) コールバックを介してアプリケーションに通知されます。
@@ -710,11 +710,11 @@ UIWebView/WKWebView` ` コントローラーが複数のリダイレクトを行
 
 **ファイル：** AccessEnabler/headers/EntitlementDelegate.h
 
-**説明：** [setOptions （\[&quot;handleSVC&quot;:true&quot;\]） &#x200B;](#setOptions)呼び出しを介した手動のSafari View Controller （SVC）処理を以前にアプリケーションで有効にした場合に、AccessEnablerではなく`navigateToUrl:` コールバックによってトリガーされるコールバック。また、Safari View Controller （SVC）を必要とするMVPDの場合のみ実行できます。 その他のすべてのMVPDでは、`navigateToUrl:` コールバックが呼び出されます。 Safari View Controller （SVC）の管理方法について詳しくは、[iOS SDK 3.2+](/help/authentication/integration-guide-programmers/legacy/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md)のSFSafariViewController サポートを参照してください。
+**説明：** [setOptions （\[&quot;handleSVC&quot;:true&quot;\]） ](#setOptions)呼び出しを介した手動のSafari View Controller （SVC）処理を以前にアプリケーションで有効にした場合に、AccessEnablerではなく`navigateToUrl:` コールバックによってトリガーされるコールバック。また、Safari View Controller （SVC）を必要とするMVPDの場合のみ実行できます。 その他のすべてのMVPDでは、`navigateToUrl:` コールバックが呼び出されます。 Safari View Controller （SVC）の管理方法について詳しくは、[iOS SDK 3.2+](/help/authentication/integration-guide-programmers/legacy/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md)のSFSafariViewController サポートを参照してください。
 
 `navigateToUrl:` コールバックと同様に、`navigateToUrl:useSVC:`はAccessEnablerによってトリガーされ、`SFSafariViewController` コントローラーのインスタンス化と、コールバックの&#x200B;**`url`** パラメーターで指定されたURLの読み込みをアプリケーションにリクエストします。 コールバックは、認証エンドポイントのURLまたはログアウトエンドポイントのURLを表す&#x200B;**`url`** パラメーターと、アプリケーションが`SFSafariViewController`を使用する必要があることを指定する&#x200B;**`useSVC`** パラメーターを渡します。
 
-`SFSafariViewController` コントローラーが複数のリダイレクトを行う場合、アプリケーションはコントローラーのアクティビティを監視し、`application's custom scheme`で定義された特定のカスタム URL （例：**&#x200B; **`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com`）を読み込む瞬間を検出する必要があります。 この特定のカスタム URLは実際には無効であり、コントローラが実際に読み込むことを意図していないことに注意してください。 認証またはログアウトフローが完了し、コントローラーを安全に閉じることができることを示すシグナルとしてのみ、アプリケーションによって解釈される必要があります。 コントローラーがこの特定のカスタム URLを読み込むと、アプリケーションは`SFSafariViewController`を閉じて、AccessEnablerの`handleExternalURL:url `API メソッドを呼び出す必要があります。
+`SFSafariViewController` コントローラーが複数のリダイレクトを行う場合、アプリケーションはコントローラーのアクティビティを監視し、`application's custom scheme`で定義された特定のカスタム URL （例：** **`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com`）を読み込む瞬間を検出する必要があります。 この特定のカスタム URLは実際には無効であり、コントローラが実際に読み込むことを意図していないことに注意してください。 認証またはログアウトフローが完了し、コントローラーを安全に閉じることができることを示すシグナルとしてのみ、アプリケーションによって解釈される必要があります。 コントローラーがこの特定のカスタム URLを読み込むと、アプリケーションは`SFSafariViewController`を閉じて、AccessEnablerの`handleExternalURL:url `API メソッドを呼び出す必要があります。
 
 **注意：**&#x200B;認証フローの場合、これはユーザーが「戻る」ボタンを押す機能を持つポイントです。これは、認証フローの中止と同じです。 このようなシナリオでは、アプリケーションは&#x200B;**`nil`**&#x200B;をパラメーターとして渡す[setSelectedProvider:](#setSelProv) メソッドを呼び出し、AccessEnablerに認証状態マシンをリセットする機会を提供する必要があります。
 
@@ -730,19 +730,19 @@ UIWebView/WKWebView` ` コントローラーが複数のリダイレクトを行
 <tbody>
 <tr class="odd">
 <td><pre><code>@optional
-&#x200B;- (void) navigateToUrl:(NSString *)url useSVC:(BOOL)useSVC; </code></pre></td>
+- (void) navigateToUrl:(NSString *)url useSVC:(BOOL)useSVC; </code></pre></td>
 </tr>
 </tbody>
 </table>
 
-**&#x200B; 可用性：**&#x200B;v 3.2以降
+** 可用性：**v 3.2以降
 
 **パラメーター**:
 
 * *url:* MVPDのログインページを指すURL
 * *useSVC:* URLをSFSafariViewControllerに読み込むかどうかを指定します。
 
-**トリガー：**&#x200B;[&#x200B; setOptions:](#setOptions)前[setSelectedProvider:](#setSelProv)
+**トリガー：**[ setOptions:](#setOptions)前[setSelectedProvider:](#setSelProv)
 
 [トップへ戻る…](#apis)
 
@@ -1329,7 +1329,7 @@ UIWebView/WKWebView` ` コントローラーが複数のリダイレクトを行
 
 **コールバックがトリガーされました：** [`setMetadataStatus:encrypted:forKey:andArguments:`](#setMetaStatus)
 
-**詳細情報：** [&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
+**詳細情報：** [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
 
 [トップへ戻る…](#apis)
 
@@ -1339,7 +1339,7 @@ UIWebView/WKWebView` ` コントローラーが複数のリダイレクトを行
 
 **ファイル：** AccessEnabler/headers/EntitlementDelegate.h
 
-現在の依頼者がSSO サポートを持つ少なくとも1つのMVPDをサポートしている場合、**説明**&#x200B;現在の依頼者が[getAuthentication （） &#x200B;](#getAuthN)を呼び出した後、AccessEnablerによってトリガーされるコールバック。
+現在の依頼者がSSO サポートを持つ少なくとも1つのMVPDをサポートしている場合、**説明**&#x200B;現在の依頼者が[getAuthentication （） ](#getAuthN)を呼び出した後、AccessEnablerによってトリガーされるコールバック。
 
 <table class="pass_api_table">
 <colgroup>
@@ -1365,7 +1365,7 @@ UIWebView/WKWebView` ` コントローラーが複数のリダイレクトを行
 
 **トリガー：** [`getAuthentication`](#getAuthN)
 
-**詳細情報：** [iOS/tvOS シングルサインオン &#x200B;](#presentTvDialog)
+**詳細情報：** [iOS/tvOS シングルサインオン ](#presentTvDialog)
 
 [トップへ戻る…](#apis)
 
@@ -1401,7 +1401,7 @@ UIWebView/WKWebView` ` コントローラーが複数のリダイレクトを行
 
 **トリガー：** ユーザーアクション
 
-**詳細情報：** [iOS/tvOS シングルサインオン &#x200B;](#presentTvDialog)
+**詳細情報：** [iOS/tvOS シングルサインオン ](#presentTvDialog)
 
 [トップへ戻る…](#apis)
 
@@ -1463,7 +1463,7 @@ UIWebView/WKWebView` ` コントローラーが複数のリダイレクトを行
 
 **トリガー：** [`getMetadata:`](#getMeta)
 
-**詳細情報：** [&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
+**詳細情報：** [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
 
 
 [トップへ戻る…](#apis)
@@ -1566,3 +1566,4 @@ AccessEnablerは、必ずしも使用権限フローに関連しない追加の�
    * **3** - オペレーティング システムの種類
 
 </br>
+

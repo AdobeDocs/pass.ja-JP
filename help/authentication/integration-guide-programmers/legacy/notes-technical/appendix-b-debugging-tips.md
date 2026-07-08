@@ -2,7 +2,7 @@
 title: 付録B 「デバッグのヒント」
 description: 付録B 「デバッグのヒント」
 exl-id: ea024797-315e-47c0-99ea-1ac49c8c9697
-source-git-commit: c2a5591cd8fea44f66fc25beb1fb40532e18d8a6
+source-git-commit: b6ba687240799d1889302019613f426259f147ad
 workflow-type: tm+mt
 source-wordcount: '192'
 ht-degree: 0%
@@ -24,7 +24,7 @@ ht-degree: 0%
 Adobe Pass認証は、ブラウザーキャッシュ、LSO キャッシュ、Cookieなどの一時データを保存します。 テスト時にクリーンなスレートを確実に取得するためには、一時データを消去することが重要です。
 
 - [ブラウザーのキャッシュとCookieの消去](#clearing-the-browser-cache-and-cookies)
-- [LSO キャッシュのクリア &#x200B;](#clearing-lsos-cache)
+- [LSO キャッシュのクリア ](#clearing-lsos-cache)
 
 
 ## ブラウザーのキャッシュとCookieの消去 {#clearing-the-browser-cache-and-cookies}
@@ -34,7 +34,7 @@ Adobe Pass認証は、ブラウザーキャッシュ、LSO キャッシュ、Coo
 
 ## LSO キャッシュのクリア {#clearing-lsos-cache}
 
-[Flash Player ヘルプ &#x200B;](http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html)にアクセスします。
+[Flash Player ヘルプ ](http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html)にアクセスします。
 
 「`entitlement.\*`」を選択し、「Web サイトを削除」をクリックします。
 
@@ -48,3 +48,4 @@ Adobe Pass認証エンジニアは、次のデバッグツールを使用しま�
 - Fiddler - <http://www.fiddler2.com/fiddler2/>
 - チャールズ - <http://www.charlesproxy.com/>
 - Wireshark - <http://www.wireshark.org/>
+
