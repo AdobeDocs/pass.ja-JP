@@ -2,7 +2,7 @@
 title: iOS/tvOS API リファレンス
 description: iOS/tvOS API リファレンス
 exl-id: 017a55a8-0855-4c52-aad0-d3d597996fcb
-source-git-commit: c2a5591cd8fea44f66fc25beb1fb40532e18d8a6
+source-git-commit: b6ba687240799d1889302019613f426259f147ad
 workflow-type: tm+mt
 source-wordcount: '7035'
 ht-degree: 0%
@@ -1566,3 +1566,4 @@ AccessEnablerは、必ずしも使用権限フローに関連しない追加の�
    * **3** - オペレーティング システムの種類
 
 </br>
+

@@ -2,7 +2,7 @@
 title: Android SDKとDynamic Client Registration
 description: Android SDKとDynamic Client Registration
 exl-id: 8d0c1507-8e80-40a4-8698-fb795240f618
-source-git-commit: c2a5591cd8fea44f66fc25beb1fb40532e18d8a6
+source-git-commit: b6ba687240799d1889302019613f426259f147ad
 workflow-type: tm+mt
 source-wordcount: '1321'
 ht-degree: 1%
@@ -193,3 +193,4 @@ f. ログアウト :
 | invalid_request | 400 | リクエストの形式が正しくありません。 SDKは、サーバーへの呼び出しの実行を停止する必要があります。 |
 | invalid_client | 403 | クライアント IDは、リクエストの実行を許可されなくなりました。 Sdkは、クライアント登録を再度実行する必要があります。 |
 | access_denied | 401 | access\_tokenが無効です。 sdkは新しいaccess_tokenをリクエストする必要があります。 |
+

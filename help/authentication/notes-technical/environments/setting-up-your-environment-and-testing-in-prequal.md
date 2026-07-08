@@ -2,7 +2,7 @@
 title: 環境の設定と事前定期テスト
 description: 環境の設定と事前定期テスト
 exl-id: f822c0a1-045a-401f-a44f-742ed25bfcdc
-source-git-commit: c2a5591cd8fea44f66fc25beb1fb40532e18d8a6
+source-git-commit: b6ba687240799d1889302019613f426259f147ad
 workflow-type: tm+mt
 source-wordcount: '492'
 ht-degree: 0%
@@ -118,3 +118,4 @@ Addresses:  52.26.79.43
 * Adobe Pass認証のテストについて詳しく説明する場合は、[API テストサイト &#x200B;](http://entitlement-prequal.auth.adobe.com/apitest/api.html)を使用することをお勧めします。
 
 API テストサイトの詳細については、[AdobeのAPI テストサイトを使用して認証と認証フローをテストする方法](/help/authentication/integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)を参照してください。
+
