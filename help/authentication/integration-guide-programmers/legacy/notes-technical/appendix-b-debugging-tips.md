@@ -24,7 +24,7 @@ ht-degree: 0%
 Adobe Pass認証は、ブラウザーキャッシュ、LSO キャッシュ、Cookieなどの一時データを保存します。 テスト時にクリーンなスレートを確実に取得するためには、一時データを消去することが重要です。
 
 - [ブラウザーのキャッシュとCookieの消去](#clearing-the-browser-cache-and-cookies)
-- [LSO キャッシュのクリア ](#clearing-lsos-cache)
+- [LSO キャッシュのクリア &#x200B;](#clearing-lsos-cache)
 
 
 ## ブラウザーのキャッシュとCookieの消去 {#clearing-the-browser-cache-and-cookies}
@@ -34,7 +34,7 @@ Adobe Pass認証は、ブラウザーキャッシュ、LSO キャッシュ、Coo
 
 ## LSO キャッシュのクリア {#clearing-lsos-cache}
 
-[Flash Player ヘルプ ](http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html)にアクセスします。
+[Flash Player ヘルプ &#x200B;](http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html)にアクセスします。
 
 「`entitlement.\*`」を選択し、「Web サイトを削除」をクリックします。
 
