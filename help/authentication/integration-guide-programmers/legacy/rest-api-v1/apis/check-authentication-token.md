@@ -21,7 +21,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> REST APIの実装は[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
+> REST APIの実装は[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
 
 ## REST API エンドポイント {#clientless-endpoints}
 
@@ -53,7 +53,7 @@ ht-degree: 0%
 | 依頼者 | この操作が有効なプログラマの依頼者Id。 |
 | deviceId | デバイス ID バイト。 |
 | device_info/</br></br>X-Device-Info | ストリーミングデバイス情報。</br></br>**注**：これはdevice_infoをURL パラメーターとして渡すことができますが、このパラメーターの潜在的なサイズとGET URLの長さに制限があるため、http ヘッダーのX-Device-Infoとして渡す必要があります。 </br></br><!--See the full details in [Passing Device and Connection Information](/help/authentication/passing-client-information-device-connection-and-application.md)(/help/authentication/passing-client-information-device-connection-and-application.md)-->. |
-| _deviceType_ | デバイスの種類（Roku、PCなど）。</br></br>このパラメーターが正しく設定されている場合、ESMは、クライアントレスを使用する場合にデバイスの種類](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type)ごとに[分割された指標を提供するため、Roku、AppleTV、Xboxなどのさまざまなタイプの分析を実行できます。</br></br>詳細については、[Adobe Pass Authentication metricsでClientless deviceType パラメーターを使用する利点&#x200B;](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br>**注**&#x200B;を参照してください。device_infoはこのパラメーターを置き換えます。 |
+| _deviceType_ | デバイスの種類（Roku、PCなど）。</br></br>このパラメーターが正しく設定されている場合、ESMは、クライアントレスを使用する場合にデバイスの種類[&#128279;](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type)ごとに分割された指標を提供するため、Roku、AppleTV、Xboxなどのさまざまなタイプの分析を実行できます。</br></br>詳細については、[Adobe Pass Authentication metricsでClientless deviceType パラメーターを使用する利点&#x200B;](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br>**注**&#x200B;を参照してください。device_infoはこのパラメーターを置き換えます。 |
 | _deviceUser_ | デバイスユーザーID。 |
 | _appId_ | アプリケーション ID/名前。</br>**注**:device_infoはこのパラメーターを置き換えます。 |
 
