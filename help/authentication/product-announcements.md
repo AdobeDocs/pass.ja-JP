@@ -2,7 +2,7 @@
 title: 製品のお知らせ
 description: 製品のお知らせ
 exl-id: 3c9c66e1-d31d-4af3-8ab2-eb32492f42ca
-source-git-commit: 89b5fbd8e8510cbf84ce7908e8cf86551e7a0cb9
+source-git-commit: 8d13375f86f4e28cafffe231e8b0c9b36a9a4132
 workflow-type: tm+mt
 source-wordcount: '1003'
 ht-degree: 21%
