@@ -19,7 +19,7 @@ ht-degree: 3%
 - [製品のお知らせ](product-announcements.md)
 - 製品リリース {#product-releases}
   - 2026 {#2026}
-    - {hide-from-toc}[Adobe Pass Authentication 3.8.0 リリースノート ](notes-releases/auth-rn-380.md)
+    - {hide-from-toc}[Adobe Pass Authentication 3.8.0 リリースノート &#x200B;](notes-releases/auth-rn-380.md)
     - [Adobe Pass Authentication 3.7.0 リリースノート](notes-releases/auth-rn-370.md)
     - [Adobe Pass Authentication 3.6.0 リリースノート](notes-releases/auth-rn-360.md)
   - 2025 {#2025}
