@@ -1,39 +1,39 @@
 ---
-title: Amazon SSO クックブック（REST API V2）
-description: Amazon SSO クックブック（REST API V2）
+title: Amazon SSO クックブック （REST API V2）
+description: Amazon SSO クックブック （REST API V2）
 exl-id: 63e4fa63-8ca3-40eb-b49a-84dd75c2ca1d
 source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '587'
-ht-degree: 1%
+ht-degree: 0%
 
 ---
 
-# Amazon SSO クックブック（REST API V2） {#amazon-sso-cookbook-rest-api-v2}
+# Amazon SSO クックブック （REST API V2） {#amazon-sso-cookbook-rest-api-v2}
 
 >[!IMPORTANT]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-Adobe Pass認証 REST API V2 は、FireOS で動作するクライアントアプリケーションのエンドユーザーに対して、Platform シングルサインオン（SSO）をサポートしています。
+Adobe Pass Authentication REST API V2は、FireOSで動作するクライアントアプリケーションのエンドユーザー向けに、Platform Single Sign-On （SSO）をサポートしています。
 
-このドキュメントは、既存の [REST API V2 概要の拡張機能として機能し &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) 概要の概要と、[&#x200B; プラットフォーム ID フローを使用したシングルサインオン &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) の実装方法を説明するドキュメントを提供します。
+このドキュメントは、プラットフォーム ID フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md)を使用して[ シングルサインオンを実装する方法を説明するドキュメントと、概要レベルのビューを提供する既存の[REST API V2概要](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)の拡張機能として機能します。
 
-## platform id フローを使用したAmazonのシングルサインオン {#cookbook}
+## Platform ID フローを使用したAmazon シングルサインオン {#cookbook}
 
-Adobe Pass Authentication はAmazonと協力して、ログインユーザーエクスペリエンスを向上し、TV サブスクライバーの TV Everywhere アプリケーション間でのシングルサインオン（SSO）を容易にします。
+Adobe Pass Authenticationは、Amazonと連携して、TV Everywhere アプリケーション全体でTV加入者のログインユーザーエクスペリエンスを向上させ、シングルサインオン（SSO）を促進します。
 
 ### 前提条件 {#prerequisites}
 
-プラットフォーム ID フローを使用してAmazonのシングルサインオンに進む前に、次の前提条件が満たされていることを確認してください。
+Platform ID フローを使用してAmazon シングルサインオンを続行する前に、次の前提条件を満たしていることを確認してください。
 
 #### Amazon SSO SDKの統合 {#integrate-amazon-sso-sdk}
 
-ストリーミングアプリケーションは、シングルサインオン（SSO）用の [Amazon SSO SDK](https://tve.zendesk.com/hc/en-us/article_attachments/360064368131/ottSSOTokenLib_v1.jar) ライブラリをビルドに統合する必要があります。
+ストリーミングアプリケーションは、[Amazon SSO SDK](https://tve.zendesk.com/hc/en-us/article_attachments/360064368131/ottSSOTokenLib_v1.jar) library for Single Sign-On （SSO）をビルドに統合する必要があります。
 
-* 最新のAmazon SSO SDK ライブラリをダウンロードして、アプリケーションのディレクトリと並行して `/SSOEnabler` フォルダーにコピーします。
+* 最新のAmazon SSO SDK ライブラリをダウンロードし、アプリケーションのディレクトリと並行して`/SSOEnabler` フォルダーにコピーします。
 
-* マニフェストと Gradle ファイルを更新して、Amazon SSO SDK ライブラリを使用するようにします。
+* Amazon SSO SDK ライブラリを使用するように、マニフェストファイルとGradle ファイルを更新します。
 
   **マニフェスト：**
 
@@ -43,7 +43,7 @@ Adobe Pass Authentication はAmazonと協力して、ログインユーザーエ
 
   **Gradle:**
 
-  リポジトリで：
+  リポジトリの下：
 
   ```JAVA
   flatDir {
@@ -51,7 +51,7 @@ Adobe Pass Authentication はAmazonと協力して、ログインユーザーエ
   }
   ```
 
-  依存関係の下：
+  依存関係で：
 
   ```JAVA
   provided fileTree(include: ['ottSSOTokenStub.jar'], dir: '../SSOEnabler')
@@ -59,15 +59,15 @@ Adobe Pass Authentication はAmazonと協力して、ログインユーザーエ
 
 #### Amazon SSO SDKの使用 {#use-amazon-sso-sdk}
 
-ストリーミングアプリケーションは、Amazon SSO SDKを使用して、SSO トークン（プラットフォーム ID）ペイロードを取得する必要があります。
+ストリーミングアプリケーションは、SSO トークン（Platform ID）ペイロードを取得するために、Amazon SSO SDKを使用する必要があります。
 
-Amazon SSO SDKは、同期 API と非同期 API の両方を提供して、SSO トークン（プラットフォーム ID）ペイロードを取得します。
+Amazon SSO SDKは、SSO トークン（Platform ID）ペイロードを取得するための同期APIと非同期APIの両方を提供します。
 
-ストリーミングアプリケーションは、アーキテクチャに基づいて 2 つのオプションのいずれかを選択できます。
+ストリーミングアプリケーションは、アーキテクチャに基づいて2つのオプションのいずれかを選択できます。
 
-##### 非同期 API
+##### 非同期API
 
-* `SSOEnabler` インスタンスを取得し、`SSOEnablerCallback` を設定します。
+* `SSOEnabler` インスタンスを取得し、`SSOEnablerCallback`を設定します。
 
   ```JAVA
   SSOEnabler ssoEnabler = SSOEnabler.getInstance(context);
@@ -86,14 +86,14 @@ Amazon SSO SDKは、同期 API と非同期 API の両方を提供して、SSO �
   }
   ```
 
-  SSO トークンサクセス応答バンドルには、次の情報が含まれます。
-   * キー「SSOToken」を持つ `string` としての SSO トークン。
+  SSO トークン成功応答バンドルには、次のものが含まれます。
+  * キー「SSOToken」を持つ`string`としてのSSO トークン。
 
   <br/>
 
-  SSO トークン失敗応答バンドルには、次の内容が含まれます。
-   * キー「ErrorCode」を含む `int` のエラーコード。
-   * キー「ErrorDescription」を含む `string` のエラーの説明。
+  SSO トークン失敗応答バンドルには、次のものが含まれます。
+  * エラーコードはキー「ErrorCode」を持つ`int`です。
+  * キー「ErrorDescription」を持つ`string`としてのエラー説明。
 
   <br/>
 
@@ -103,11 +103,11 @@ Amazon SSO SDKは、同期 API と非同期 API の両方を提供して、SSO �
   Bundle getSSOTokenAsync(Void);
   ```
 
-  この API は、初期化中に設定されたコールバックを介して応答を提供します。
+  このAPIは、初期化中に設定されたコールバックを介して応答を提供します。
 
-##### 同期 API
+##### 同期API
 
-* `SSOEnabler` インスタンスを取得します。
+* `SSOEnabler` インスタンスを取得：
 
   ```JAVA
   SSOEnabler ssoEnabler = SSOEnabler.getInstance(context);
@@ -119,37 +119,37 @@ Amazon SSO SDKは、同期 API と非同期 API の両方を提供して、SSO �
   Bundle getSSOTokenSync(Void);
   ```
 
-  この API は呼び出し元スレッドをブロックし、結果のバンドルで応答します。 これは同期呼び出しなので、メインスレッドでは使用しないでください。
+  このAPIは、呼び出し元のスレッドをブロックし、結果バンドルで応答します。 これは同期呼び出しなので、必ずメインスレッドで使用しないでください。
 
   ```JAVA
   void setSSOTokenTimeout(long);
   ```
 
-  この API は、同期呼び出しのタイムアウト値を設定します。 デフォルトタイムアウト値は 1 分です。
+  このAPIは、同期呼び出しのタイムアウト値を設定します。 デフォルトのタイムアウト値は1分です。
 
-#### Amazon SSO のフォールバック {#fallback-amazon-sso}
+#### Amazon SSOのフォールバック {#fallback-amazon-sso}
 
 ストリーミングアプリケーションは、Amazon SSO フローから通常の認証フローへのフォールバックシナリオを処理する必要があります。
 
-ストリーミングアプリケーションで次の処理が行われていることを確認します。
+ストリーミングアプリケーションが処理していることを確認します。
 
-* Amazon デバイス上で動作する必要のあるAmazon コンパニオンアプリケーションがない。
-   * ストリーミングアプリケーションでは、次のクラス `com.amazon.ottssotokenlib.SSOEnabler` ードで実行時に `ClassNotFoundException` が発生する場合があります。
+* Amazon デバイスで実行する必要があるAmazon コンパニオンアプリケーションがありません。
+  * ストリーミングアプリケーションで、次のクラス `com.amazon.ottssotokenlib.SSOEnabler`の実行時に`ClassNotFoundException`が発生する可能性があります。
 
-* 上記の API で返す必要のある SSO トークン（プラットフォーム ID）ペイロードがありません。
-   * ストリーミングアプリケーションは、AmazonおよびAdobeの担当者に問い合わせて調査する場合があります。
+* 上記のAPIから返されるSSO トークン（プラットフォーム ID）ペイロードがありません。
+  * ストリーミングアプリケーションは、AmazonおよびAdobeの担当者に連絡して調査する場合があります。
 
 ### ワークフロー {#workflow}
 
-Amazon SSO トークン（プラットフォーム ID）ペイロードは、Adobe Pass認証 REST API V2 エンドポイントに対して行われたすべての HTTP リクエストに存在する必要があります。
+Amazon SSO トークン（Platform ID）ペイロードは、Adobe Pass Authentication REST API V2 エンドポイントに対して行われたすべてのHTTP リクエストに存在する必要があります。
 
 ```
 /api/v2/*
 ```
 
-Adobe Pass認証 REST API V2 は、デバイススコープまたはプラットフォームスコープの識別子である SSO トークン（Platform ID）ペイロードを受け取るために次のメソッドをサポートしています。
+Adobe Pass Authentication REST API V2は、デバイス範囲またはプラットフォーム範囲のIDであるSSO トークン（プラットフォーム ID）ペイロードを受信するために、次のメソッドをサポートしています。
 
-* `Adobe-Subject-Token` という名前のヘッダーとして。
+* ヘッダー名：`Adobe-Subject-Token`
 
 >[!IMPORTANT]
 > 
@@ -157,7 +157,7 @@ Adobe Pass認証 REST API V2 は、デバイススコープまたはプラット
 
 #### サンプル
 
-**ヘッダーとしての送信**
+**ヘッダーとして送信**
 
 ```HTTPS
 GET /api/v2/{serviceProvider}/sessions HTTP/1.1 
@@ -168,4 +168,4 @@ Adobe-Subject-Token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2t1IiwiaW
 
 >[!IMPORTANT]
 >
-> `Adobe-Subject-Token` ヘッダー値がない場合や無効な場合、Adobe Pass Authentication はシングルサインオンを考慮せずにリクエストを処理します。
+> 「`Adobe-Subject-Token`」ヘッダー値が見つからないか無効な場合、Adobe Pass認証は、シングルサインオンを考慮せずにリクエストを処理します。
