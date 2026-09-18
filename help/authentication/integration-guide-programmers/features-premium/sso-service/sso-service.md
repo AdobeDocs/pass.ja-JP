@@ -88,7 +88,7 @@ TV接続デバイスでの認証は、携帯電話での認証よりも面倒に
 
 ![D2C-TVE SSO フロー](../../../assets/sso_service_d2c_1.png)
 
-![ クロスデバイス SSO フロー](../../../assets/sso_service_d2c_2.png)
+![&#x200B; クロスデバイス SSO フロー](../../../assets/sso_service_d2c_2.png)
 
 ### クロスデバイス SSO {#cross-device-sso-detailed}
 
