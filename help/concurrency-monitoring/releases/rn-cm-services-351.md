@@ -1,16 +1,15 @@
 ---
 title: Adobe Concurrency Monitoring Services 3.5.1 リリースノート
 description: Adobe Concurrency Monitoring Services 3.5.1 リリースノート
-source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
+exl-id: a09704d8-6db8-418a-ad70-81ca63f915a6
+source-git-commit: 39384d753e7808fa433f30d8dafabd531dbf3acf
 workflow-type: tm+mt
 source-wordcount: '62'
 ht-degree: 3%
-
 ---
-
 # Adobe Concurrency Monitoring Services 3.5.1 リリースノート {#cm-services-rns}
 
-このページでは、このリリースの新機能、変更点および既知の問題について説明します。
+このページでは、このリリースの新機能、変更点、既知の問題について説明します。
 
 ## リリース情報 {#release-info}
 
@@ -19,7 +18,7 @@ ht-degree: 3%
 
 ## リリースの概要 {#release-overview}
 
-* CMU レポート呼び出しでクエリパラメーターを使用できるようにします。 テナントパラメーターのデフォルト値を維持します。
+* CMU レポート呼び出しでクエリパラメーターの使用を許可します。 テナントパラメーターのデフォルト値を保持します。
 
 ## 既知の問題 {#known-issues}
 

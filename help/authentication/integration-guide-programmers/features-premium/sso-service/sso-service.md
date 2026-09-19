@@ -1,111 +1,108 @@
 ---
 title: Adobe シングルサインオンサービス
 description: 複数のデバイスやアプリケーションをまたいでシームレスな認証を可能にするAdobe Pass SSO サービスについて説明します。
-exl-id: a1ff85d4-f7d2-4dea-b82f-d29730d9012f
-source-git-commit: 151c64276377be5ef21bca4c0d3eaa04ac3da495
+exl-id: ffca2bcc-c933-4688-8d98-c5e03390f66c
+source-git-commit: 39384d753e7808fa433f30d8dafabd531dbf3acf
 workflow-type: tm+mt
-source-wordcount: '4395'
-ht-degree: 18%
-
+source-wordcount: '4447'
+ht-degree: 2%
 ---
-
-
 # Adobe シングルサインオンサービス {#sso-service}
 
-このドキュメントでは、Adobe シングルサインオンサービスのユースケース、エンドポイントおよび API について説明します。
+このドキュメントでは、Adobe Single Sign-On Serviceのユースケース、エンドポイント、およびAPIについて説明します。
 
-**最新リビジョン - 1.0.0**
+**現在のリビジョン - 1.0.0**
 
 ## 範囲 {#scope}
 
-Adobe Pass SSO サービスは、複数のデバイスやアプリケーション間でシームレスな認証を可能にし、セキュリティとコンプライアンスの標準を維持しながら、統一されたユーザーエクスペリエンスを提供します。 このサービスは、今日のマルチデバイスストリーミングの状況において、クロスプラットフォーム認証に対する高まるニーズに対応しています。
+Adobe Pass SSO サービスは、複数のデバイスやアプリケーションでのシームレスな認証を可能にし、セキュリティとコンプライアンス基準を維持しながら、統合されたユーザーエクスペリエンスを提供します。 このサービスは、今日のマルチデバイスストリーミング環境におけるクロスプラットフォーム認証の必要性の高まりに対応します。
 
 ## 概要 {#overview}
 
-### 概要 {#what-it-is}
+### 現状 {#what-it-is}
 
-ユーザーが 1 回認証を行い、情報に基づいた方法で他のデバイスへの認証の転送を管理できる、包括的なシングルサインオンソリューション
+利用者が一度認証を行えば、情報にもとづいて他のデバイスへの認証の転送を管理できる包括的なシングルサインオンソリューションです
 
 ### 認証の現在の課題 {#current-challenges}
 
-* ユーザーは、購読を持つすべてのストリーミングサービスで認証する必要があります
-* ユーザーは、デバイスまたはアプリケーションごとに個別に認証する必要があります
-* 一部のプラットフォームでは、認証フローでパスワードを入力することが困難なため、放棄の割合が増える場合があります
+* ユーザーは、サブスクリプションを持っているすべてのストリーミングサービスで認証する必要があります
+* ユーザーは、各デバイスまたはアプリケーションで個別に認証する必要があります
+* 一部のプラットフォームでは、認証フローでパスワードを入力するのが難しいため、放棄率が向上する可能性があります
 
-### Adobe Pass SSO サービスの機会 {#opportunity}
+### Adobe Pass SSO サービスのオポチュニティ {#opportunity}
 
 * 独自の認証を必要とするストリーミングサービスの数の増加
-* シームレスなクロスデバイスエクスペリエンスに対する需要の増加
+* シームレスなクロスデバイス体験に対する需要の高まり
 * 世帯あたりのストリーミングデバイス数の増加
-* 世帯ごとに統合された認証が必要
+* 世帯あたりの統合認証の必要性
 
-### ビジネス上のメリット {#business-benefits}
+### 導入のメリット {#business-benefits}
 
 #### コンテンツプロバイダー {#content-providers}
 
-* **ユーザーエンゲージメントの向上** - シームレスなエクスペリエンスにより、セッション時間が長くなります
-* **摩擦の軽減** – 認証の障壁を低くするとコンテンツ消費が増加
-* **リテンションの向上** - ユーザーエクスペリエンスの向上によりチャーンが減ります
-* **コストの削減** – 認証の問題に関するサポートチケットが少なくなる
+* **ユーザーエンゲージメントの向上** - シームレスなエクスペリエンスにより、セッション時間が長くなる
+* **摩擦の減少** – 認証障壁の低下によるコンテンツの消費量の増加
+* **リテンション率の向上** – 優れたユーザーエクスペリエンスにより、解約率が減少します
+* **コスト削減** – 認証の問題に関連するサポートチケットの数が少ない
 
 #### エンドユーザー {#end-users}
 
-* **シームレスなエクスペリエンス** – 一度認証すれば、どこからでもアクセス可能
-* **時間の節約** - ログインプロセスが繰り返されない
-* **デバイスの柔軟性** - デバイス間を中断することなく切り替える
+* **シームレスなエクスペリエンス** – 一度認証すれば、どこからでもアクセスできます
+* **時間の節約** – 繰り返しログインプロセスはありません
+* **デバイスの柔軟性** – 中断なくデバイスを切り替える
 * **一貫したエクスペリエンス** – すべてのプラットフォームで統一された認証
 
-#### IdPs （MVPD、Telcos など） {#idps}
+#### IdP （MVPD、通信事業者など） {#idps}
 
-* MVPD は、認証済み SSO を使用して追加のデバイスを通知できます
-* **ユーザー満足度の向上** – 認証体験の向上
-* **サポート負荷の軽減** – 認証関連のサポートコールを削減
-* **競争上の優位性** – 競合他社よりも優れたユーザーエクスペリエンス
+* MVPDは、認証されたSSOを使用して、追加のデバイスについて通知できます
+* **ユーザー満足度の向上** – 認証エクスペリエンスの向上
+* **サポート負荷の軽減** – 認証関連のサポート呼び出しが少ない
+* **競争優位性** – 競合他社よりも優れたユーザーエクスペリエンス
 
 ## ユースケース {#use-cases}
 
 ### ID マッピング {#identity-mapping}
 
-このサービスは、D2C と TVE アカウントを同じアプリ内でリンクする機能を構築します。
+このサービスは、同じアプリでD2CとTVE アカウントをリンクする機能を構築します。
 
-より多くのストリーミングサービスが、サードパーティ（MVPD/バーチャルMVPD/電話会社など）に販売されるバンドルを構築しています。 ユーザーは、同じアプリで複数のアカウントを処理する必要が生じる場合があります。 シームレスな認証エクスペリエンスを作成するには、これらのアカウントをブリッジして、ログインエクスペリエンスを簡素化する必要があります。
+より多くのストリーミングサービスが、サードパーティ（MVPD/バーチャルMVPD/通信会社など）に販売するバンドルを構築しています。 ユーザーは、同じアプリで複数のアカウントを処理する必要があります。 シームレスな認証エクスペリエンスを作成するには、ログインエクスペリエンスを簡素化するために、これらのアカウントをブリッジするサービスが必要です。
 
-ユーザーは D2C アカウントで認証し、別のアカウントで ONCE 認証します（例： MVPD）。 当社のサービスでは、これらのアカウントがリンクされます。つまり、今後、異なるデバイスでの後続の認証は D2C アカウントでのみ行うことができます。
+ユーザーはD2C アカウントで認証し、別のアカウントで一度認証します（例： MVPD）。 アドビのサービスでは、これらのアカウントはリンクされます。つまり、今後、さまざまなデバイスでのその後の認証は、D2C アカウントでのみ実行できます。
 
 ### クロスデバイス SSO {#cross-device-sso}
 
-テレビに接続されたデバイスでの認証は、携帯電話での認証よりも面倒な場合があります。 良いユーザーエクスペリエンスは、電話で認証し、その認証をスマートテレビに渡すことです。
+TV接続デバイスでの認証は、携帯電話での認証よりも面倒になる可能性があります。 優れたユーザーエクスペリエンスは、スマートフォンで認証してから、その認証をスマートテレビに渡すことです。
 
 ## 主要コンポーネント {#key-components}
 
-* **サービストークン API** - シングルサインオンメカニズムを安全に管理するキーコンポーネント
-* **List API** - アプリケーションは、ユーザーがエコシステム内のデバイスのリストを理解するのに役立ちます
-* **Link API** - アプリケーションを使用すると、ユーザーがエコシステムにデバイスを追加できます
-* **Unlink API** - アプリケーションを使用すると、ユーザーがエコシステムでデバイスを削除できます
+* **サービストークン API** - シングル サインオン メカニズムを安全に管理する主要コンポーネント
+* **リスト API** - アプリケーションは、ユーザーがエコシステム内のデバイスのリストを理解するのに役立ちます
+* **Link API** - ユーザーがエコシステムに追加のデバイスを追加できるようにするアプリケーション
+* **リンク解除API** - ユーザーがエコシステム内のデバイスを削除できるようにするアプリケーション
 
 ## 詳細なユースケース {#use-cases-detailed}
 
 ### D2C-TVE SSO {#d2c-tve-sso}
 
-このユースケースでは、1 つのデバイス上の D2C と TVE （MVPD）資格情報の間でリンクを設定し、そのリンクされたプロファイルを同じアプリケーション内の他のデバイスで活用できます。
+このユースケースでは、1つのデバイス上のD2CとTVE （MVPD）資格情報をリンクし、同じアプリケーション内の他のデバイス上のそのリンクされたプロファイルを活用することができます。
 
-![D2C-TVE SSO フロー &#x200B;](../../../assets/sso_service_d2c_1.png)
+![D2C-TVE SSO フロー](../../../assets/sso_service_d2c_1.png)
 
-![&#x200B; クロスデバイス SSO フロー &#x200B;](../../../assets/sso_service_d2c_2.png)
+![&#x200B; クロスデバイス SSO フロー](../../../assets/sso_service_d2c_2.png)
 
 ### クロスデバイス SSO {#cross-device-sso-detailed}
 
-このユースケースを使用すると、あるデバイスで既に認証されたユーザーが、他のデバイスにインストールされている同じ D2C または TVE アプリケーション（認証および承認用にAdobe Pass REST V2 を実装するために必要なアプリケーション）で認証済みプロファイルを再利用できます。
+このユースケースでは、1つのデバイスで既に認証されているユーザーが、他のデバイスにインストールされている同じD2CまたはTVE アプリケーション（認証と認証のためにAdobe Pass REST V2を実装するために必要なアプリケーション）で認証プロファイルを再利用できるようにします。
 
 ## D2C-TVE アプリケーションにAdobe SSO サービスを統合する方法 {#integration}
 
-### 手順 1 – 共通の識別子の取得 {#step-1}
+### 手順1 – 共通IDの取得 {#step-1}
 
-Adobe SSO サービスを統合するには、アプリケーション実装で X-SSO-ID の共通の識別情報 SSO 属性として使用する一意で永続的な ID を確立する必要があります。 これは、D2C サービスでユーザーを認証することで取得でき、この認証に関する属性を保持します。
+Adobe SSO サービスを統合するには、アプリケーションの実装で、X-SSO-IDで共通の識別子SSO属性として使用する一意の永続的なIDを確立する必要があります。 これは、D2C サービスを使用してユーザーを認証し、この認証に関する属性を保持することで取得できます。
 
-### 手順 2 - サービストークンの取得 {#step-2}
+### 手順2 - サービストークンの取得 {#step-2}
 
-POST /serviceToken エンドポイントの X-SSO-ID で共通の識別子を使用すると、次のペイロードを持つ署名済み JWT が取得されます。
+POST /serviceToken エンドポイントでX-SSO-IDの共通IDを使用すると、次のペイロードを含む署名済みJWTが取得されます。
 
 ```json
 {
@@ -117,15 +114,15 @@ POST /serviceToken エンドポイントの X-SSO-ID で共通の識別子を使
 }
 ```
 
-サービストークンには、サービストークンが有効な間隔を示す「iat」（発行日）と「exp」（有効期限）があります。 有効期限が切れた場合、期限切れのサービストークンと共にGET /serviceToken エンドポイントを使用して、新しい JWT を取得できます。
+サービストークンには、サービストークンが有効な期間の有効期限である「iat」が発行され、「exp」が発行されます。 有効期限が切れた場合は、期限切れのサービストークンを含むGET /serviceToken エンドポイントを使用して新しいJWTを取得できます。
 
-### 手順 3 - Adobe Pass REST API V2 を使用した TVE MVPDでの認証 {#step-3}
+### ステップ 3 - TVE MVPDでAdobe Pass REST API V2を使用して認証する {#step-3}
 
-Adobe Passの認証は、サービストークン [REST API V2 - シングルサインオンサービストークンフロー &#x200B;](https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-flows/rest-api-v2-single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows) を使用して実装する必要があります。
+Adobe Passによる認証は、サービストークンを使用して実装する必要があります：[REST API V2 - シングルサインオンサービストークンのフロー](https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-flows/rest-api-v2-single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows)
 
-### 手順 4 – 別のデバイスをリンクする {#step-4}
+### ステップ 4 – 別のデバイスをリンクする {#step-4}
 
-/link API を使用すると、認証済みアプリケーションから、別のデバイスで使用するリンクを作成できます
+認証されたアプリケーションから、/link APIを使用して、別のデバイスで使用するためのリンクを作成できます
 
 ```json
 {
@@ -136,24 +133,24 @@ Adobe Passの認証は、サービストークン [REST API V2 - シングルサ
 }
 ```
 
-「コード」は、ユーザーがセカンダリデバイス上の未認証のアプリケーションで発生させる 6 桁のシーケンスの短いリンクコードです
+「コード」は、ユーザーがセカンダリデバイス上の未認証のアプリケーションに導入する6桁のシーケンスの形式の短命なリンクコードです
 
-### 手順 5 - シングルサインオン認証の取得 {#step-5}
+### 手順5 - シングルサインオン認証の取得 {#step-5}
 
-別のデバイスでは、ユーザーがコードを導入すると、アプリケーションは次の操作を実行できます。
+別のデバイスでは、ユーザーがコードを導入すると、アプリケーションで次のことが可能になります。
 
-* d2C サービスからの ID の取得
-* rest V2 API を使用したAdobe PassからのMVPD プロファイルの取得
+* d2C サービスからのIDの取得
+* rest V2 APIを使用したAdobe PassからのMVPD プロファイルの取得
 
-MVPD プロファイルは、最初の認証が取得された期間中、SSO を通じて有効になります。
+MVPD プロファイルは、最初の認証が取得された期間、SSOを通じて有効になります。
 
-MVPDがプロファイルを無効にした場合、またはユーザーがMVPDからログアウトした場合、Adobe Pass REST API V2 を使用するアプリケーションにはプロファイルレコードがなくなり、ユーザーはMVPDでもう一度認証する必要があります。
+MVPDでプロファイルが無効になったり、ユーザーがMVPDからログアウトすることを選択した場合、Adobe Pass REST API V2を使用するアプリケーションにはプロファイルレコードがなくなり、ユーザーがMVPDで再度認証する必要があります。
 
-### 手順 6 – 他のデバイスでのシングルサインオンの管理 {#step-6}
+### 手順6 – 他のデバイスでのシングルサインオンの管理 {#step-6}
 
-アプリケーションは、/list API を使用して、同じ共通識別子でリンクされている他のすべてのデバイスに関する情報を取得できます。
+アプリケーションは、/list APIを使用して、同じ共通識別子にリンクされているすべての他のデバイスに関する情報を取得できます。
 
-/unlink API を使用してデバイスのリンクを解除することで、デバイスをいつでもシングル サインオンから削除できます。
+デバイスのリンクを/unlink APIで解除すると、いつでもシングルサインオンからデバイスを削除できます。
 
 ## API {#apis}
 
@@ -161,18 +158,18 @@ MVPDがプロファイルを無効にした場合、またはユーザーがMVPD
 
 #### 説明 {#service-token-description}
 
-サービストークン API を使用すると、複数のアプリケーションまたはデバイス間でのシングルサインオン（SSO）機能を有効にするサービストークンをリクエストおよび管理できます。 これらのサービストークンは、認証済みプロファイル（SSO プロファイル）を識別し、SSO 接続を確立および維持するために不可欠です。
+サービストークン APIを使用して、複数のアプリケーションまたはデバイス間のシングルサインオン（SSO）機能を有効にするサービストークンをリクエストおよび管理できます。 これらのサービストークンは、認証済みプロファイル（SSO プロファイル）を識別し、SSO接続の確立と維持に不可欠です。
 
 >[!WARNING]
 >
->サービストークンには、機密性の高い認証情報が含まれています。 アプリケーションは、これらのトークンを安全に処理し、信頼できない関係者に公開しないようにする必要があります。
+>サービストークンには、機密性の高い認証情報が含まれています。 アプリケーションはこれらのトークンを安全に処理し、信頼できない関係者に公開してはなりません。
 
-サービストークン API には、次の 2 つの主要なエンドポイントが用意されています。
+サービストークン APIには、次の2つの主要エンドポイントが用意されています。
 
-* **POST /api/{serviceProvider}/serviceToken** – 新しく作成された JWS サービストークンを取得します
-* **GET /api/{serviceProvider}/serviceToken** – 既存の JWS サービストークンを更新します
+* **POST /api/{serviceProvider}/serviceToken** – 新しく作成したJWS サービストークンを取得します
+* **GET /api/{serviceProvider}/serviceToken** – 既存のJWS サービストークンを更新します
 
-Adobe Pass Authentication Services のエラーが原因でサービストークン API リクエストに対応できなかった場合、API 応答の一部に追加のエラー情報が含まれます。
+Adobe Pass Authentication Services エラーが原因でサービストークン API リクエストを処理できなかった場合、API レスポンスの一部として追加のエラー情報が含まれます。
 
 #### POST - serviceToken {#post-service-token}
 
@@ -191,7 +188,7 @@ Adobe Pass Authentication Services のエラーが原因でサービストーク
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">メソッド</td>
-      <td>POST</td>
+      <td>投稿する</td>
       <td></td>
    </tr>
    <tr>
@@ -201,7 +198,7 @@ Adobe Pass Authentication Services のエラーが原因でサービストーク
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
-      <td>トークンがリクエストされているサービスプロバイダーの識別子。</td>
+      <td>トークンが要求されているサービスプロバイダーの識別子。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -211,60 +208,60 @@ Adobe Pass Authentication Services のエラーが原因でサービストーク
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
+      <td>ベアラートークンのペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
       <td>
-         デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。
+         デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダーのドキュメントを参照してください。
          <br/><br/>
-         この識別子は、X-SSO-ID が指定されていない場合のデフォルトの SSO 識別子として使用されます。
+         この識別子は、X-SSO-IDが指定されていない場合に、デフォルトのSSO識別子として使用されます。
       </td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">X-Device-Info</td>
       <td>
-         <a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-x-device-info">X-Device-Info</a> ヘッダーのドキュメントで指定されているデバイス情報。
+         <a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-x-device-info">X-Device-Info</a> ヘッダードキュメントで指定されているデバイス情報。
          <br/><br/>
-         <b> 強くお勧めします </b> アプリケーションのデバイスプラットフォームで有効な値を明示的に指定できる場合に使用します。
+         <b> アプリケーションのデバイスプラットフォームで有効な値の指定が明示的に許可されている場合に使用することを強くお勧めします</b>。
          <br/><br/>
-         Adobe Pass認証バックエンドは、明示的に設定された値を、暗黙的に抽出された値と結合します。 指定しない場合、デフォルトの抽出値が使用されます。
+         Adobe Pass認証バックエンドは、明示的に設定された値と暗黙的に抽出された値をマージします。 指定しない場合、デフォルトの抽出値が使用されます。
       </td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">X-SSO-LINK</td>
       <td>
-         このリクエストを既存の認証済みプロファイルに関連付けるリンクコード。 指定された場合、応答にはリンクコードを生成したプロファイルを含む SSO 用のサービストークンが含まれます。
+         このリクエストを既存の認証済みプロファイルに関連付けるリンクコード。 提供された場合、応答には、リンクコードを生成したプロファイルを含むSSOのサービストークンが含まれます。
          <br/><br/>
-         これは、通常、セカンダリアプリケーションまたはデバイスが、プライマリアプリケーションまたはデバイスから認証済みプロファイルに接続する場合に使用されます。
+         これは通常、セカンダリアプリケーションまたはデバイスがプライマリアプリケーションまたはデバイスから認証済みプロファイルに接続する場合に使用されます。
       </td>
-      <td>x-sso-id が指定されていない場合は必須</td>
+      <td>x-sso-idが指定されていない場合は必須</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">X-SSO-ID</td>
       <td>
-         アプリケーションが SSO のベースとしてリクエストする共通の識別子。
+         アプリケーションが基本SSOに対して要求する共通の識別子。
          <br/><br/>
-         指定された場合、この識別子は、デバイスやアプリケーションをまたいで共通の SSO プロファイルを確立するために使用されます。
+         この識別子を指定すると、デバイスやアプリケーション間で共通のSSO プロファイルを確立するために使用されます。
       </td>
-      <td>x-sso-link が指定されていない場合は必須</td>
+      <td>x-sso-linkが指定されていない場合は必須</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">承諾</td>
+      <td style="background-color: #DEEBFF;">承認</td>
       <td>
-         クライアントアプリケーションによって受け入れられるメディアタイプ。
+         クライアントアプリケーションが受け入れたメディアタイプ。
          <br/><br/>
-         指定する場合は、application/json にする必要があります。
+         指定する場合は、application/jsonにする必要があります。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">User-Agent</td>
       <td>クライアントアプリケーションのユーザーエージェント。</td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
 </table>
 
@@ -278,30 +275,30 @@ Adobe Pass Authentication Services のエラーが原因でサービストーク
    </tr>
    <tr>
       <td>201</td>
-      <td>作成日時</td>
+      <td>Created</td>
       <td>
         サービストークンが正常に生成され、応答本文に返されました。
       </td>
    </tr>
    <tr>
       <td>400</td>
-      <td>リクエストが正しくありません</td>
+      <td>不正なリクエスト</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        リクエストが無効です。クライアントはリクエストを修正して、もう一度試す必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
-      <td>未認証</td>
+      <td>未承認</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得し、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">動的クライアント登録の概要</a>のドキュメントを参照してください。
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        サーバーサイドで問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
 </table>
@@ -320,8 +317,8 @@ Adobe Pass Authentication Services のエラーが原因でサービストーク
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -331,22 +328,22 @@ Adobe Pass Authentication Services のエラーが原因でサービストーク
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>HTTP ステータス（「作成済み」など）</td>
+      <td>HTTP ステータス （例：「作成済み」）</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">jws</td>
-      <td>サービストークンを含む、Base64 でエンコードされた JSON web 署名（JWS）。 このトークンは、後続の API 呼び出しで使用して、認証済みプロファイルを識別し、SSO 機能を有効にすることができます。</td>
+      <td>サービストークンを含むBase64 エンコード JSON Web Signature （JWS）。 このトークンは、認証されたプロファイルを識別し、SSO機能を有効にするために、その後のAPI呼び出しで使用できます。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">notBefore</td>
-      <td>エポックミリ秒、またはエラー時に 0</td>
+      <td>エポックミリ秒、またはエラー時に0回</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">notAfter</td>
-      <td>エポックミリ秒、またはエラー時に 0</td>
+      <td>エポックミリ秒、またはエラー時に0回</td>
       <td><i>必須</i></td>
    </tr>
 </table>
@@ -365,8 +362,8 @@ Adobe Pass Authentication Services のエラーが原因でサービストーク
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -376,14 +373,14 @@ Adobe Pass Authentication Services のエラーが原因でサービストーク
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>応答本文は、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a> ドキュメントに準拠する追加のエラー情報を提供する場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
 
 ## サンプル {#samples-post-service-token}
 
-### &#x200B;1. （SSO ID を含む）新しいサービストークンをリクエスト
+### &#x200B;1. 新しいサービストークンをリクエスト（SSO ID付き）
 
 >[!BEGINTABS]
 
@@ -399,7 +396,7 @@ POST /api/{serviceProvider}/serviceToken HTTP/1.1
     Accept: application/json
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 201 Created
@@ -416,7 +413,7 @@ Content-Type: application/json
 
 >[!ENDTABS]
 
-### &#x200B;2. （SSO リンクを含む）新しいサービストークンをリクエスト
+### &#x200B;2. 新しいサービストークンのリクエスト（SSO リンク付き）
 
 >[!BEGINTABS]
 
@@ -433,7 +430,7 @@ POST /api/{serviceProvider}/serviceToken HTTP/1.1
     Accept: application/json
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 201 Created
@@ -477,7 +474,7 @@ Content-Type: application/json
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
-      <td>トークンがリクエストされているサービスプロバイダーの識別子。</td>
+      <td>トークンが要求されているサービスプロバイダーの識別子。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -487,31 +484,31 @@ Content-Type: application/json
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
+      <td>ベアラートークンのペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AD-Service-Token</td>
       <td>
-         以前に取得した、更新が必要なサービストークン。
+         更新が必要な、以前に取得したサービストークン。
          <br/><br/>
-         更新を行うには、このトークンが有効であるか、最近有効期限が切れている必要があります。
+         更新対象にするには、このトークンが有効であるか、最近有効期限が切れている必要があります。
       </td>
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">承諾</td>
+      <td style="background-color: #DEEBFF;">承認</td>
       <td>
-         クライアントアプリケーションによって受け入れられるメディアタイプ。
+         クライアントアプリケーションが受け入れたメディアタイプ。
          <br/><br/>
-         指定する場合は、application/json にする必要があります。
+         指定する場合は、application/jsonにする必要があります。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">User-Agent</td>
       <td>クライアントアプリケーションのユーザーエージェント。</td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
 </table>
 
@@ -527,28 +524,28 @@ Content-Type: application/json
       <td>200</td>
       <td>OK</td>
       <td>
-        サービストークンが正常に更新され、応答本文に返されました。
+        サービストークンは正常に更新され、応答本文で返されました。
       </td>
    </tr>
    <tr>
       <td>400</td>
-      <td>リクエストが正しくありません</td>
+      <td>不正なリクエスト</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        リクエストが無効です。クライアントはリクエストを修正して、もう一度試す必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
-      <td>未認証</td>
+      <td>未承認</td>
       <td>
-        アクセストークンまたはサービストークンが無効です。クライアントは新しいアクセストークンまたはサービストークンを取得して、もう一度試してください。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンまたはサービストークンが無効です。クライアントは新しいアクセストークンまたはサービストークンを取得して、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">動的クライアント登録の概要</a>のドキュメントを参照してください。
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        サーバーサイドで問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
 </table>
@@ -567,8 +564,8 @@ Content-Type: application/json
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -578,22 +575,22 @@ Content-Type: application/json
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>HTTP ステータス（例：「OK」）</td>
+      <td>HTTP ステータス （例：「OK」）</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">jws</td>
-      <td>更新されたサービストークンを含む、Base64 でエンコードされた JSON web 署名（JWS）。 このトークンは、後続の API 呼び出しで使用して、認証済みプロファイルを識別し、SSO 機能を有効にすることができます。</td>
+      <td>更新されたサービストークンを含む、Base64 エンコードされたJSON Web Signature （JWS）。 このトークンは、認証されたプロファイルを識別し、SSO機能を有効にするために、その後のAPI呼び出しで使用できます。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">notBefore</td>
-      <td>エポックミリ秒、またはエラー時に 0</td>
+      <td>エポックミリ秒、またはエラー時に0回</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">notAfter</td>
-      <td>エポックミリ秒、またはエラー時に 0</td>
+      <td>エポックミリ秒、またはエラー時に0回</td>
       <td><i>必須</i></td>
    </tr>
 </table>
@@ -612,8 +609,8 @@ Content-Type: application/json
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -623,7 +620,7 @@ Content-Type: application/json
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>応答本文は、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a> ドキュメントに準拠する追加のエラー情報を提供する場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
@@ -645,7 +642,7 @@ GET /api/{serviceProvider}/serviceToken HTTP/1.1
     User-Agent: <user_agent>
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -666,15 +663,15 @@ Content-Type: application/json
 
 #### 説明 {#link-description}
 
-Link API を使用すると、複数のアプリケーションまたはデバイス間でのシングルサインオン（SSO）を有効にできるリンクコード（または QR コード）をリクエストできます。 このリンクコードを使用すると、ユーザーは既存の認証済みプロファイル（SSO プロファイル）に新しいアプリケーションまたはデバイスを接続し、アプリケーションやデバイス間でシームレスな SSO エクスペリエンスを提供できます。
+リンク APIを使用して、複数のアプリケーションまたはデバイス間のシングルサインオン（SSO）を有効にできるリンクコード（またはQR コード）をリクエストできます。 このリンクコードを使用すると、新しいアプリケーションまたはデバイスを既存の認証プロファイル（SSO プロファイル）に接続し、アプリケーションまたはデバイス間でシームレスなSSO エクスペリエンスを提供できます。
 
-Link API では、AD-Service-Token ヘッダーに有効なサービストークンを指定する必要があります。
+リンク APIでは、AD-Service-Token ヘッダーで有効なサービストークンを指定する必要があります。
 
-生成されたリンクコードは、通常、プライマリアプリケーションまたはデバイスのユーザーに表示され、SSO 接続を確立するためにセカンダリアプリケーションまたはデバイスに入力されます。 リンクコードの有効期間は限られており（通常 5～30 分）、1 回限りの使用を意図しています。
+生成されたリンクコードは、通常、プライマリアプリケーションまたはデバイスのユーザーに表示され、セカンダリアプリケーションまたはデバイスに入力してSSO接続を確立します。 リンクコードの有効期間は限られており（通常5～30分）、1回限りの使用を目的としています。
 
-Adobe Pass Authentication Services エラーが原因でリンク API リクエストにサービスを提供できなかった場合は、その他のエラー情報がリンク API 応答の結果に含まれます。
+Adobe Pass Authentication Services エラーが原因でLink API リクエストを処理できなかった場合は、Link APIの応答結果の一部として追加のエラー情報が含まれます。
 
-#### 投稿 – リンク {#post-link}
+#### POST - リンク {#post-link}
 
 ##### リクエスト {#post-link-request}
 
@@ -691,7 +688,7 @@ Adobe Pass Authentication Services エラーが原因でリンク API リクエ�
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">メソッド</td>
-      <td>POST</td>
+      <td>投稿する</td>
       <td></td>
    </tr>
    <tr>
@@ -701,7 +698,7 @@ Adobe Pass Authentication Services エラーが原因でリンク API リクエ�
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
-      <td>トークンがリクエストされているサービスプロバイダーの識別子。</td>
+      <td>トークンが要求されているサービスプロバイダーの識別子。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -711,12 +708,12 @@ Adobe Pass Authentication Services エラーが原因でリンク API リクエ�
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
+      <td>ベアラートークンのペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。</td>
+      <td>デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -729,18 +726,18 @@ Adobe Pass Authentication Services エラーが原因でリンク API リクエ�
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">承諾</td>
+      <td style="background-color: #DEEBFF;">承認</td>
       <td>
-         クライアントアプリケーションによって受け入れられるメディアタイプ。
+         クライアントアプリケーションが受け入れたメディアタイプ。
          <br/><br/>
-         指定する場合は、application/json にする必要があります。
+         指定する場合は、application/jsonにする必要があります。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">User-Agent</td>
       <td>クライアントアプリケーションのユーザーエージェント。</td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
 </table>
 
@@ -754,30 +751,30 @@ Adobe Pass Authentication Services エラーが原因でリンク API リクエ�
    </tr>
    <tr>
       <td>201</td>
-      <td>作成日時</td>
+      <td>Created</td>
       <td>
         リンクコードが正常に生成され、応答本文に返されました。
       </td>
    </tr>
    <tr>
       <td>400</td>
-      <td>リクエストが正しくありません</td>
+      <td>不正なリクエスト</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        リクエストが無効です。クライアントはリクエストを修正して、もう一度試す必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
-      <td>未認証</td>
+      <td>未承認</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得し、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">動的クライアント登録の概要</a>のドキュメントを参照してください。
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        サーバーサイドで問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
 </table>
@@ -796,8 +793,8 @@ Adobe Pass Authentication Services エラーが原因でリンク API リクエ�
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -807,22 +804,22 @@ Adobe Pass Authentication Services エラーが原因でリンク API リクエ�
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>HTTP ステータス（「作成済み」など）</td>
+      <td>HTTP ステータス （例：「作成済み」）</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">リンク</td>
-      <td>SSO 接続を確立するためにセカンダリ・アプリケーションまたはデバイスで使用できる短い数字または英数字のコード。</td>
+      <td>セカンダリアプリケーションまたはデバイスでSSO接続を確立するために使用できる短い数値コードまたは英数字コード。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">notBefore</td>
-      <td>リンクコードが有効になる際のタイムスタンプ （エポックからのミリ秒）。</td>
+      <td>リンクコードが有効になるときのタイムスタンプ（エポックからのミリ秒単位）。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">notAfter</td>
-      <td>リンクコードの有効期限が切れる際のタイムスタンプ（エポックからのミリ秒）。</td>
+      <td>リンクコードの有効期限が切れるときのタイムスタンプ（エポックからのミリ秒単位）。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
@@ -841,8 +838,8 @@ Adobe Pass Authentication Services エラーが原因でリンク API リクエ�
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -852,14 +849,14 @@ Adobe Pass Authentication Services エラーが原因でリンク API リクエ�
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>応答本文は、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a> ドキュメントに準拠する追加のエラー情報を提供する場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
 
 ## サンプル {#samples-post-link}
 
-### &#x200B;1. 既存の認証済みプロファイルのリンクコードのリクエスト
+### &#x200B;1. 既存の認証プロファイルのリンクコードをリクエスト
 
 >[!BEGINTABS]
 
@@ -875,7 +872,7 @@ POST /api/{serviceProvider}/link HTTP/1.1
     User-Agent: <user_agent>
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 201 Created
@@ -896,15 +893,15 @@ Content-Type: application/json
 
 #### 説明 {#unlink-description}
 
-Unlink API を使用すると、認証済みプロファイル（SSO プロファイル）から 1 つまたは複数のデバイスの削除をリクエストできます。 この API を使用すると、ユーザーは SSO 設定からデバイスを切断し、認証済みプロファイルにアクセスできるデバイスを制御できます。
+Unlink APIを使用して、認証済みプロファイル（SSO プロファイル）からデバイスまたは複数のデバイスの削除をリクエストできます。 このAPIを使用すると、ユーザーはSSO設定からデバイスを切断でき、認証されたプロファイルにアクセスできるデバイスを制御できます。
 
 >[!WARNING]
 >
->Unlink API では、AD-Service-Token ヘッダーに有効なサービストークンを指定する必要があります。
+>Unlink APIでは、AD-Service-Token ヘッダーで有効なサービストークンを指定する必要があります。
 
-Adobe Pass Authentication Services エラーが原因で Unlink API リクエストに対応できなかった場合は、その他のエラー情報が Unlink API レスポンスの結果に含まれます。
+Adobe Pass Authentication Services エラーが原因でUnlink API リクエストを処理できなかった場合は、Unlink API レスポンス結果の一部として追加のエラー情報が含まれます。
 
-#### 投稿 – リンク解除 {#post-unlink}
+#### POST - リンク解除 {#post-unlink}
 
 ##### リクエスト {#post-unlink-request}
 
@@ -921,7 +918,7 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">メソッド</td>
-      <td>POST</td>
+      <td>投稿する</td>
       <td></td>
    </tr>
    <tr>
@@ -935,14 +932,14 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7;">本文パラメーター</th>
+      <th style="background-color: #EFF2F7;">Body パラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
       <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">デバイス</td>
       <td>
-         リンク解除するデバイス識別子の配列。
+         リンク解除するデバイス IDの配列。
          <br/><br/>
          例：<br/><code>["deviceid1", "deviceid2", "deviceid3"]</code>
       </td>
@@ -955,21 +952,21 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
+      <td>ベアラートークンのペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
       <td>
-         送信するリソースに使用できるメディアタイプ。
+         送信されるリソースの許可されたメディアタイプ。
          <br/><br/>
-         application/json にする必要があります。
+         application/jsonである必要があります。
       </td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。</td>
+      <td>デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -977,23 +974,23 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
       <td>
          サービストークンの生成については、サービストークン API ドキュメントを参照してください。
          <br/><br/>
-         このサービストークンは、デバイスのリンクが解除される認証済みプロファイルを識別します。
+         このサービストークンは、リンクを解除するデバイスの認証済みプロファイルを識別します。
       </td>
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">承諾</td>
+      <td style="background-color: #DEEBFF;">承認</td>
       <td>
-         クライアントアプリケーションによって受け入れられるメディアタイプ。
+         クライアントアプリケーションが受け入れたメディアタイプ。
          <br/><br/>
-         指定する場合は、application/json にする必要があります。
+         指定する場合は、application/jsonにする必要があります。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">User-Agent</td>
       <td>クライアントアプリケーションのユーザーエージェント。</td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
 </table>
 
@@ -1009,35 +1006,35 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
       <td>200</td>
       <td>OK</td>
       <td>
-        要求されたデバイスは、SSO 設定から正常にリンク解除されました。
+        要求されたデバイスは、SSO セットアップから正常にリンク解除されました。
       </td>
    </tr>
    <tr>
       <td>400</td>
-      <td>リクエストが正しくありません</td>
+      <td>不正なリクエスト</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        リクエストが無効です。クライアントはリクエストを修正して、もう一度試す必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
-      <td>未認証</td>
+      <td>未承認</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得し、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">動的クライアント登録の概要</a>のドキュメントを参照してください。
       </td>
    </tr>
    <tr>
       <td>405</td>
-      <td>許可されていないメソッド</td>
+      <td>メソッドは許可されていません</td>
       <td>
-        HTTP メソッドが無効です。クライアントは、リクエストされたリソースに許可されている HTTP メソッドを使用し、再試行する必要があります。
+        HTTP メソッドが無効です。クライアントは、リクエストされたリソースに対して許可されているHTTP メソッドを使用して、再試行する必要があります。
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        サーバーサイドで問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
 </table>
@@ -1056,8 +1053,8 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -1067,7 +1064,7 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">ステータス</td>
-      <td>操作結果の情報：「OK」</td>
+      <td>操作結果に関する情報：「OK」</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -1095,8 +1092,8 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -1106,7 +1103,7 @@ Adobe Pass Authentication Services エラーが原因で Unlink API リクエス
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>応答本文は、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a> ドキュメントに準拠する追加のエラー情報を提供する場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
@@ -1138,7 +1135,7 @@ POST /api/{serviceProvider}/unlink HTTP/1.1
 }
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -1157,7 +1154,7 @@ Content-Type: application/json
 
 >[!ENDTABS]
 
-### &#x200B;2. 部分的に成功したデバイスのリンク解除リクエスト
+### &#x200B;2. 部分的に成功したデバイスのリンク解除をリクエスト
 
 >[!BEGINTABS]
 
@@ -1182,7 +1179,7 @@ POST /api/{serviceProvider}/unlink HTTP/1.1
 }
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -1204,15 +1201,15 @@ Content-Type: application/json
 
 #### 説明 {#list-description}
 
-List API は、認証済みプロファイル（SSO プロファイル）に現在接続されているデバイスのリストを取得するために使用できます。 この API を使用すると、ユーザーとアプリケーションは、SSO 設定の一部であるデバイスを表示し、複数のデバイスをまたいで認証済みエクスペリエンスの表示と管理を行うことができます。
+List APIを使用して、認証済みプロファイル（SSO プロファイル）に現在接続されているデバイスのリストを取得できます。 このAPIを使用すると、ユーザーとアプリケーションは、SSO設定の一部であるデバイスを表示でき、複数のデバイスにまたがる認証済みエクスペリエンスの可視性と管理機能を提供します。
 
 >[!WARNING]
 >
->List API では、AD-Service-Token ヘッダーで有効なサービストークンを指定する必要があります。
+>List APIでは、AD-Service-Token ヘッダーで有効なサービストークンを指定する必要があります。
 
-List API は、ユーザーが自分のデバイスを認識するのに役立つデバイス識別子とメタデータなど、認証済みプロファイル（SSO プロファイル）内の各デバイスに関する詳細を返します。 この情報は、ユーザーが SSO 設定に残すデバイスに関して十分な情報に基づいた決定を下すために使用できます。
+List APIは、ユーザーがデバイスを認識するのに役立つ可能性のあるデバイス IDとメタデータを含む、認証済みプロファイル（SSO プロファイル）の各デバイスに関する詳細を返します。 この情報は、ユーザーがSSO設定に残す必要があるデバイスについて、情報に基づいた意思決定を行うのに役立ちます。
 
-Adobe Pass Authentication Services のエラーが原因で List API リクエストに対応できなかった場合は、List API 応答の結果にエラー情報が含まれます。
+Adobe Pass Authentication Services エラーが原因でList API リクエストを処理できない場合は、List APIの応答結果に追加のエラー情報が含まれます。
 
 #### GET - リスト {#get-list}
 
@@ -1251,12 +1248,12 @@ Adobe Pass Authentication Services のエラーが原因で List API リクエ�
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
+      <td>ベアラートークンのペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。</td>
+      <td>デバイス識別子ペイロードの生成については、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -1269,18 +1266,18 @@ Adobe Pass Authentication Services のエラーが原因で List API リクエ�
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">承諾</td>
+      <td style="background-color: #DEEBFF;">承認</td>
       <td>
-         クライアントアプリケーションによって受け入れられるメディアタイプ。
+         クライアントアプリケーションが受け入れたメディアタイプ。
          <br/><br/>
-         指定する場合は、application/json にする必要があります。
+         指定する場合は、application/jsonにする必要があります。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">User-Agent</td>
       <td>クライアントアプリケーションのユーザーエージェント。</td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
 </table>
 
@@ -1296,35 +1293,35 @@ Adobe Pass Authentication Services のエラーが原因で List API リクエ�
       <td>200</td>
       <td>OK</td>
       <td>
-        SSO 設定内のデバイスのリストは正常に取得され、応答本文に返されました。
+        SSO セットアップのデバイスのリストが正常に取得され、応答本文に返されました。
       </td>
    </tr>
    <tr>
       <td>400</td>
-      <td>リクエストが正しくありません</td>
+      <td>不正なリクエスト</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        リクエストが無効です。クライアントはリクエストを修正して、もう一度試す必要があります。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
-      <td>未認証</td>
+      <td>未承認</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得し、再試行する必要があります。 詳しくは、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">動的クライアント登録の概要</a>のドキュメントを参照してください。
       </td>
    </tr>
    <tr>
       <td>405</td>
-      <td>許可されていないメソッド</td>
+      <td>メソッドは許可されていません</td>
       <td>
-        HTTP メソッドが無効です。クライアントは、リクエストされたリソースに許可されている HTTP メソッドを使用し、再試行する必要があります。
+        HTTP メソッドが無効です。クライアントは、リクエストされたリソースに対して許可されているHTTP メソッドを使用して、再試行する必要があります。
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        サーバーサイドで問題が発生しました。 応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
 </table>
@@ -1343,8 +1340,8 @@ Adobe Pass Authentication Services のエラーが原因で List API リクエ�
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -1355,18 +1352,18 @@ Adobe Pass Authentication Services のエラーが原因で List API リクエ�
    <tr>
       <td style="background-color: #DEEBFF;">デバイス</td>
       <td>
-         キーと値のペアのマップを含む JSON。
+         キー、値のペアのマップを含むJSON。
          <br/><br/>
-         <b>Key:</b> deviceId - <a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダードキュメントに記載されているデバイス識別子ペイロード
+         <b> キー：</b> deviceId - <a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a> ヘッダーのドキュメントに記載されているデバイス識別子ペイロード
          <br/><br/>
-         <b>Value:</b> attributes - デバイスメタデータ属性のマップを含む JSON。以下が含まれます。
+         <b>値：</b>属性 – デバイスメタデータ属性のマップを含むJSON:
          <ul>
             <li>デバイスタイプ</li>
             <li>platform</li>
             <li>ユーザーエージェント</li>
-            <li>デバイスの識別に役立つその他の関連メタデータ</li>
+            <li>デバイスを特定するのに役立つその他の関連メタデータ</li>
          </ul>
-         属性の値は単純な値（文字列、整数、ブール値など）にすることができます
+         属性の値は単純です（文字列、整数、ブール値など）。
       </td>
       <td><i>必須</i></td>
    </tr>
@@ -1386,8 +1383,8 @@ Adobe Pass Authentication Services のエラーが原因で List API リクエ�
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -1397,14 +1394,14 @@ Adobe Pass Authentication Services のエラーが原因で List API リクエ�
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>応答本文は、<a href="https://experienceleague.adobe.com/ja/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">拡張エラーコード </a> ドキュメントに準拠する追加のエラー情報を提供する場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
 
 ## サンプル {#samples-get-list}
 
-### &#x200B;1. SSO プロファイル内のデバイスを一覧表示するリクエスト
+### &#x200B;1. SSO プロファイル内のデバイスの一覧表示を要求
 
 >[!BEGINTABS]
 
@@ -1420,7 +1417,7 @@ GET /api/{serviceProvider}/list HTTP/1.1
     User-Agent: <user_agent>
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -1459,7 +1456,7 @@ Content-Type: application/json
 
 >[!ENDTABS]
 
-### &#x200B;2. デバイスがリンクされていないデバイスのリストを要求
+### &#x200B;2. リンクされたデバイスがないデバイスの一覧表示をリクエスト
 
 >[!BEGINTABS]
 
@@ -1475,7 +1472,7 @@ GET /api/{serviceProvider}/list HTTP/1.1
     User-Agent: <user_agent>
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -1497,12 +1494,12 @@ Content-Type: application/json
 
 | フィールド | タイプ | 説明 |
 |:---|:---|:---|
-| ステータス | 整数 | HTTP ステータスコード（400、401、500 など） |
+| ステータス | 整数 | HTTP ステータスコード （400、401、500など） |
 | コード | 文字列 | 機械読み取り可能なエラーコード |
-| メッセージ | 文字列 | 人間が読み取れる説明 |
-| アクション | 文字列 | 推奨されるクライアント側のアクション |
+| メッセージ | 文字列 | 人間が判読できる説明 |
+| アクション | 文字列 | クライアントに対して提案されたアクション |
 | helpUrl | 文字列 | ドキュメントリンク |
-| trace | 文字列 | 関連付けの一意のリクエスト ID （UUID） |
+| trace | 文字列 | 相関用の一意のリクエスト ID （UUID） |
 
 **エラー応答の例**
 
@@ -1533,7 +1530,7 @@ Content-Type: application/json
 
 >[!NOTE]
 >
->成功応答にはエラーフィールドは含まれません。 エラー応答には、成功フィールドは含まれません。
+>成功応答にはエラーフィールドが含まれていません。 エラー応答には成功フィールドが含まれていません。
 
 ### エラーコードカタログ {#error-catalog}
 
@@ -1541,60 +1538,59 @@ Content-Type: application/json
 
 | コード | ステータス | メッセージ | アクション |
 |:---|:---|:---|:---|
-| token_invalid | 400 | 指定したトークンは無効です | get_new_token |
+| token_invalid | 400 | 指定されたトークンが無効です | get_new_token |
 | token_expired | 401 | トークンの有効期限が切れています | get_new_token |
-| header_missing | 400 | 必須ヘッダーがありません | check_heads |
-| 未認証 | 401 | 未認証のアクセス | なし |
+| header_missing | 400 | 必須ヘッダーがありません | check_headers |
+| 権限がありません | 401 | 不正アクセス | なし |
 | internal_error | 500 | 内部エラーが発生しました | なし |
 
 #### 検証エラー
 
 | コード | ステータス | メッセージ | アクション |
 |:---|:---|:---|:---|
-| request_null | 400 | リクエストオブジェクトを null にすることはできません | なし |
+| request_null | 400 | リクエストオブジェクトをnullにすることはできません | なし |
 
 #### POST ServiceToken エラー
 
 | コード | ステータス | メッセージ | アクション |
 |:---|:---|:---|:---|
-| header_missing | 400 | POST リクエストには、x-sso-id または x-sso-link ヘッダーのいずれかが必要です | check_heads |
-| header_missing | 400 | POST リクエストには AP デバイス識別子ヘッダーが必要です | check_heads |
+| header_missing | 400 | POST リクエストにはx-sso-idまたはx-sso-link ヘッダーが必要です | check_headers |
+| header_missing | 400 | POST リクエストにはAP-Device-Identifier ヘッダーが必要です | check_headers |
 
 #### GET ServiceToken エラー
 
 | コード | ステータス | メッセージ | アクション |
 |:---|:---|:---|:---|
-| header_missing | 400 | GET リクエストには AD-Service-Token ヘッダーが必要です | check_heads |
-| header_invalid | 401 | AD-Service-Token の JWT 署名が無効です | get_new_token |
-| header_invalid | 401 | JWT 署名の検証エラー | get_new_token |
-| header_invalid | 401 | AD-Service-Token に JWT 件名（サブ）がないか、空です | get_new_token |
-| header_invalid | 401 | JWT 件名の抽出中にエラーが発生しました | get_new_token |
+| header_missing | 400 | AD-Service-Token ヘッダーは、GET リクエストに必要です | check_headers |
+| header_invalid | 401 | AD-Service-TokenのJWT署名が無効です | get_new_token |
+| header_invalid | 401 | JWT署名の検証中にエラーが発生しました | get_new_token |
+| header_invalid | 401 | AD-Service-TokenでJWT件名（sub）が見つからないか、空です | get_new_token |
+| header_invalid | 401 | JWT件名の抽出中にエラーが発生しました | get_new_token |
 
 #### リンク検証エラー
 
 | コード | ステータス | メッセージ | アクション |
 |:---|:---|:---|:---|
-| header_missing | 401 | リンクリクエストには AD-Service-Token ヘッダーが必要です | check_heads |
-| header_invalid | 401 | AD-Service-Token の JWT 署名が無効です | get_new_token |
-| header_invalid | 401 | JWT 署名の検証エラー | get_new_token |
+| header_missing | 401 | AD-Service-Token ヘッダーは、リンク要求に必要です | check_headers |
+| header_invalid | 401 | AD-Service-TokenのJWT署名が無効です | get_new_token |
+| header_invalid | 401 | JWT署名の検証中にエラーが発生しました | get_new_token |
 
-#### 検証エラーのリンクを解除
-
-| コード | ステータス | メッセージ | アクション |
-|:---|:---|:---|:---|
-| header_missing | 401 | リンク解除リクエストには AD-Service-Token ヘッダーが必要です | check_heads |
-| header_invalid | 401 | AD-Service-Token の JWT 署名が無効です | get_new_token |
-| header_invalid | 401 | JWT 署名の検証エラー | get_new_token |
-| header_invalid | 401 | AD-Service-Token に JWT 件名（サブ）がないか、空です | get_new_token |
-| request_invalid | 400 | デバイスの一覧を Null または空にすることはできません | check_request_body |
-
-#### リスト検証エラー
+#### 検証エラーのリンク解除
 
 | コード | ステータス | メッセージ | アクション |
 |:---|:---|:---|:---|
-| header_missing | 401 | リストリクエストには AD-Service-Token ヘッダーが必要です | check_heads |
-| header_invalid | 401 | AD-Service-Token の JWT 署名が無効です | get_new_token |
-| header_invalid | 401 | JWT 署名の検証エラー | get_new_token |
-| header_invalid | 401 | AD-Service-Token に JWT 件名（サブ）がないか、空です | get_new_token |
-| header_invalid | 401 | JWT 件名の抽出中にエラーが発生しました | get_new_token |
+| header_missing | 401 | リンク解除リクエストにはAD-Service-Token ヘッダーが必要です | check_headers |
+| header_invalid | 401 | AD-Service-TokenのJWT署名が無効です | get_new_token |
+| header_invalid | 401 | JWT署名の検証中にエラーが発生しました | get_new_token |
+| header_invalid | 401 | AD-Service-TokenでJWT件名（sub）が見つからないか、空です | get_new_token |
+| request_invalid | 400 | デバイス リストをnullまたは空にすることはできません | check_request_body |
 
+#### 検証エラーのリスト
+
+| コード | ステータス | メッセージ | アクション |
+|:---|:---|:---|:---|
+| header_missing | 401 | リスト要求にはAD-Service-Token ヘッダーが必要です | check_headers |
+| header_invalid | 401 | AD-Service-TokenのJWT署名が無効です | get_new_token |
+| header_invalid | 401 | JWT署名の検証中にエラーが発生しました | get_new_token |
+| header_invalid | 401 | AD-Service-TokenでJWT件名（sub）が見つからないか、空です | get_new_token |
+| header_invalid | 401 | JWT件名の抽出中にエラーが発生しました | get_new_token |
