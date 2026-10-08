@@ -1,31 +1,32 @@
 ---
-title: MVPDリストを指定
-description: MVPDリストを指定
+title: MVPD リストの提供
+description: MVPD リストの提供
 exl-id: db2d8f19-d0b9-4195-bf0b-f9de0d96062b
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '262'
-ht-degree: 6%
-
+ht-degree: 2%
 ---
-
-# （従来の）MVPDリストの提供 {#provide-mvpd-list}
+# （従来）MVPD リストの提供 {#provide-mvpd-list}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 >[!NOTE]
 >
-> REST API の実装には、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
+> REST APIの実装は[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
 
 ## REST API エンドポイント {#clientless-endpoints}
 
-&lt; レジストリ_FQDN>:
+&lt;REGGIE_FQDN>:
 
 * 実稼動 – [api.auth.adobe.com](http://api.auth.adobe.com/)
 * ステージング - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
@@ -39,30 +40,30 @@ ht-degree: 6%
 
 ## 説明 {#description}
 
-リクエスターに設定された MVPD のリストを返します。
+要求者に対して設定されたMVPDのリストを返します。
 
-| エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
+| エンドポイント | </br>様に呼び出されました | 入力</br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>応答 |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/config/{requestorId}</br></br> 例：</br></br>&lt;SP_FQDN>/api/v1/config/sampleRequestorId | Adobe Pass 認証 | &#x200B;1.  要求者 </br>    （パスコンポーネント） </br>_2.  deviceType （非推奨）_ | GET | MVPD のリストを含む XML または JSON。 | 200 |
+| &lt;SP_FQDN>/api/v1/config/{requestorId}</br></br>例：</br></br>&lt;SP_FQDN>/api/v1/config/sampleRequestorId | Adobe Pass 認証 | &#x200B;1.  依頼者</br> （パスコンポーネント） </br>_2。  deviceType （非推奨）_ | GET | MVPDのリストを含むXMLまたはJSON。 | 200 |
 
 {style="table-layout:auto"}
 
 
 | 入力パラメーター | 説明 |
 | --------------- | ------------------------------------------------------------- |
-| 要求者 | この操作が有効なプログラマ requestorId です。 |
-| *deviceType* | デバイスタイプ。 |
+| 依頼者 | この操作が有効なプログラマの依頼者Id。 |
+| *deviceType* | デバイスタイプ： |
 
 {style="table-layout:auto"}
 
-### 応答のサンプル {#sample-response}
+### 応答サンプル {#sample-response}
 
-/config サーブレットに対する既存のMVPD XML 応答と同様
+/config サーブレットへの既存のMVPD XML Responseと同じ
 
-メモ：Platform SSO を使用するように設定されたすべての MVPD では、対応するノード（JSON/XML）内に次の追加のプロパティが含まれます。
+注：Platform SSOを使用するように設定されたすべてのMVPDには、対応するノード（JSON/XML）内に次の追加プロパティが含まれます。
 
-* **enablePlatformServices （boolean）：このMVPDが Platform SSO で統合されるかどうかを示す** フラグ
-* **boardingStatus （string）:MVPDが Platform SSO を完全にサポートしているか（サポート対象）、MVPDがプラットフォームピッカーにのみ表示されるかを示す** フラグ
-* **displayInPlatformPicker （ブール値）：このMVPD** プラットフォームピッカーに表示されるかどうか
-* **platformMappingId （string）:** プラットフォームで認識されるこのMVPDの識別子
-* **requiredMetadataFields （文字列配列）:** ログインが成功した場合に使用できるユーザーメタデータフィールド
+* **enablePlatformServices （ブール値）:** フラグは、このMVPDがPlatform SSO経由で統合されているかどうかを示します
+* **boardingStatus （文字列）:** MVPDがPlatform SSO （サポート）を完全にサポートしているか、またはMVPDがPlatform ピッカー（ピッカー）にのみ表示されているかどうかを示すフラグ
+* **displayInPlatformPicker （ブール値）:**&#x200B;このMVPDがプラットフォームピッカーに表示される場合
+* **platformMappingId （文字列）:** プラットフォームで既知であるこのMVPDの識別子
+* **requiredMetadataFields （文字列配列）:**&#x200B;正常なログインでユーザーメタデータフィールドが使用可能であることが期待されています

@@ -1,49 +1,50 @@
 ---
-title: MVPD コンテンツメタデータ交換
-description: MVPD コンテンツメタデータ交換
+title: MVPD Content Metadata Exchange
+description: MVPD Content Metadata Exchange
 exl-id: d17e60dc-6c61-4ca2-bad8-1840c95261e0
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '413'
 ht-degree: 0%
-
 ---
-
-# MVPD コンテンツメタデータ交換
+# MVPD Content Metadata Exchange
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 ## 概要 {#content-metadat-exchange-overview}
 
-ここでは、Adobe Pass Authentication が Authorization リクエストで構造化データを MVPD に送信する際に使用する 2 つの標準実装について説明します。  構造化されたデータは、リクエストを行うリソース（プログラマー）と、場合によっては、コンテンツ評価などの追加データを表します。
+このページでは、Adobe Pass Authenticationが認証リクエストで構造化データをMVPDに送信するために使用する2つの標準実装について説明します。  構造化データは、リクエストを行うリソース（プログラマー）と、場合によってはコンテンツレーティングなどの追加データを表します。
 
-プログラマー側では、Adobe Pass認証は、次のような構造化 MRSS データリソースをサポートします。
+プログラマー側では、Adobe Pass Authenticationは構造化MRSS データリソースを次のようにサポートしています。
 
-1. プログラマが Resource を MRSS 文字列として送信します。 Adobe Pass認証では、web またはネイティブデバイス用に、クライアント側でエンコードされません。 MRSS は通常の文字列としてAdobe Pass Authentication Server に送信されます。
-1. サーバー側では、MRSS は事前定義済みのスキーマ（http://search.yahoo.com/mrss/）に対して検証されます。  検証に合格すると、Adobe Pass認証によって MRSS フィールドから次のような情報が抽出されます。
+1. プログラマは、リソースをMRSS文字列として送信します。 Adobe Pass Authenticationは、web デバイスまたはネイティブデバイスのクライアントサイドではエンコードしません。 MRSSは、通常の文字列としてAdobe Pass Authentication Serverに送信されます。
+1. サーバー側では、MRSSが定義済みのスキーマ（http://search.yahoo.com/mrss/）に対して検証されます。  検証が合格すると、Adobe Pass AuthenticationはMRSS フィールドから次のような情報を抽出します。
    * チャネルタイトル
-   * 項目のタイトル
+   * 項目タイトル
    * リソース識別子
-   * 評価値とタイプ
-1. MRSS から抽出された値は、MVPDに渡される認証リクエストの作成に使用されます。
+   * 評価の値と種類
+1. MRSSから抽出された値は、MVPDに渡される認証リクエストを構築するために使用されます。
 
-Adobe Pass認証で MRSS を MVPD でサポートされる形式に変換するには、次の 2 つの方法があります。
+Adobe Pass Authenticationでは、MRSSをMVPDでサポートされる形式に変換する際に、次の2つのアプローチがサポートされています。
 
-* **XACML**。  1 つ目のアプローチは OLCA 規格に準拠しています。  MRSS 値が抽出される XACML を使用して、MRSS 要素にマッピングされる属性を持つ XACMLResource を作成します。  これは、その後、MVPDに渡されます。
-* **休む**。  2 つ目のアプローチは REST ベースです。  MRSS は base64 でエンコードされ、REST 呼び出しで URL パラメーターとして渡されます。
+* **XACML**。  1つ目のアプローチは、OLCA標準と一致しています。  これは、MRSS値を抽出して、MRSS要素にマッピングする属性を持つXACMLResourceを構築するXACMLを使用します。  これをMVPDに渡します。
+* **REST**。  2つ目のアプローチは、REST ベースのアプローチです。  MRSSはbase64でエンコードされ、REST呼び出しのURL パラメーターとして渡されます。
 
-どちらの方法でも、MVPDは、抽出された値を独自の論理フロー内に含め、認証応答を返すことによって、認証リクエストを処理します。
+どちらのアプローチでも、MVPDは、抽出された値を独自の論理フロー内に含め、認証リクエストを処理し、認証レスポンスを返します。
 
 ## 統合の詳細 {#integration-details}
 
-* OLCA ベースの XACML 構造化リソース
+* OLCA ベースのXACML構造化リソース
 * REST ベースの構造化リソース
 
-### OLCA ベースの XACML 構造化リソース {#olca-based-xacml-struc-resource}
+### OLCA ベースのXACML構造化リソース {#olca-based-xacml-struc-resource}
 
-ほとんどのケーブル指向 MVPD は XACML ベースのアプローチを使用していますが、まだ完全な構造化データアプローチをサポートしていません。  XACML をサポートする他の MVPD は、チャネルタイトルを受け取り、ResourceID 属性に受け入れます。 完全な構造化 XACML ベースのアプローチの例を以下に示します。 Adobe Pass Authentication チームは、XACML を使用しても、ペアレンタルコントロールなどの機能をまだサポートしていない MVPD の場合、XACML 統合を次の例に適合させることをお勧めします。
+ほとんどのケーブル指向MVPDは、XACML ベースのアプローチを使用していますが、完全な構造化データアプローチはまだサポートしていません。  XACMLをサポートするその他のMVPDは、チャネルタイトルを取得し、それをResourceID属性に受け入れます。 次の例は、構造化XACML ベースの完全なアプローチを示しています。 Adobe Pass Authentication チームは、XACMLを使用しているが、まだペアレンタルコントロールなどの機能をサポートしていないMVPDの場合、XACML統合を次の例に適応させることをお勧めします。
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -106,7 +107,7 @@ Adobe Pass認証で MRSS を MVPD でサポートされる形式に変換する�
 
 ### REST ベースの構造化リソース {#rest-based-struct-resource}
 
-一部の MVPD は、次の REST ベースのプロトコルに基づいて認証を標準化しています。 このアプローチは XACML アプローチと同様に完全な機能を備えていますが、「軽量」な実装を提供します。
+一部のMVPDは、次のREST ベースのプロトコルで認証のために標準化されています。 このアプローチは、XACML アプローチと同様にフル機能ですが、「軽量」実装を提供します。
 
 `// The MRSS is base64 encoded by Adobe Pass Authentication, and passed in that format to the REST-based Authorization endpoint.`
 

@@ -2,7 +2,10 @@
 title: REST API V2 AI ルール
 description: REST API V2 AI ルール
 exl-id: 7bcea820-2324-44a5-8628-9a10c1bec067
-source-git-commit: 39384d753e7808fa433f30d8dafabd531dbf3acf
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '197'
 ht-degree: 0%

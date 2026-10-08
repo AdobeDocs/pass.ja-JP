@@ -1,31 +1,32 @@
 ---
-title: 認証の開始
-description: 認証の開始
+title: 認証を開始
+description: 認証を開始
 exl-id: 55dddd29-68d6-4aae-8744-307fea285e29
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '316'
-ht-degree: 4%
-
+ht-degree: 0%
 ---
-
 # （レガシー）認証の開始 {#initiate-authentication}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 >[!NOTE]
 >
-> REST API の実装には、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
+> REST APIの実装は[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
 
 ## REST API エンドポイント {#clientless-endpoints}
 
-&lt; レジストリ_FQDN>:
+&lt;REGGIE_FQDN>:
 
 * 実稼動 – [api.auth.adobe.com](http://api.auth.adobe.com/)
 * ステージング - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
@@ -40,24 +41,24 @@ ht-degree: 4%
 
 ## 説明 {#description}
 
-MVPD選択イベントを通知して認証プロセスを開始します。 Adobe Pass認証データベースにレコードを作成します。これは、MVPDから応答が成功すると紐付けされます。
+MVPDの選択イベントを通知して、認証プロセスを開始します。 Adobe Pass認証データベースにレコードを作成します。これは、MVPDから正常な応答を受信したときに調整されます。
 
 
 
-| エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
+| エンドポイント | </br>様に呼び出されました | 入力</br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>応答 |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/authenticate | AuthN モジュール | &#x200B;1.  requestor_id （必須） </br>2.  mso_id （必須） </br>3.  reg_code （必須） </br>4.  domain_name （必須） </br>5.  noflash=true - </br>    （必須、残差パラメーター） </br>6.  no_iframe=true （必須、残差パラメーター） </br>7.  追加のパラメーター（オプション） </br>8。  redirect_url （必須） | GET | ログイン Web アプリケーションは、MVPDのログインページにリダイレクトされます。 | 完全なリダイレクト実装用の 302 |
+| &lt;SP_FQDN>/api/v1/authenticate | AuthN モジュール | &#x200B;1.  requestor_id （必須） </br>2.  mso_id （必須） </br>3.  reg_code （必須） </br>4.  domain_name （必須） </br>5。  noflash=true - </br> （必須、残差パラメーター） </br>6.  no_iframe=true （必須、残差パラメーター） </br>7。  追加パラメーター（オプション） </br>8。  redirect_url （必須） | GET | ログイン Web アプリは、MVPD ログインページにリダイレクトされます。 | 302：完全なリダイレクト実装 |
 
 {style="table-layout:auto"}
 
 
 | 入力パラメーター | 説明 |
 | --- | --- |
-| requestor_id | この操作が有効なプログラマ要求元。 |
+| requestor_id | この操作が有効なプログラマの依頼者。 |
 | mso_id | この操作が有効なMVPD ID。 |
-| reg_code | Reggie サービスによって生成される登録コード。 |
+| reg_code | レジサービスによって生成された登録コード。 |
 | domain_name | 元のドメイン。 |
-| redirect_url | 認証完了後のログイン Web アプリケーション リダイレクト URL。 |
+| redirect_url | 認証完了後のログイン Web アプリのリダイレクト URL。 |
 
 {style="table-layout:auto"}
 
@@ -65,7 +66,7 @@ MVPD選択イベントを通知して認証プロセスを開始します。 Ado
 
 >[!IMPORTANT]
 > 
->**重要：必須パラメーター –** クライアントサイドの実装に関係なく、上記のすべてのパラメーターは必須です。
+>**重要：必須パラメーター –** クライアント側の実装にかかわらず、上記のすべてのパラメーターは必須です。
 >
 >
 >例：
@@ -81,11 +82,11 @@ MVPD選択イベントを通知して認証プロセスを開始します。 Ado
 
 >[!IMPORTANT]
 > 
->**重要：オプションパラメーター**
+>**重要：オプションのパラメーター**
 >
 >呼び出しには、次のような他の機能を有効にするオプションのパラメーターも含めることができます。
 >
-> * generic\_data - [&#x200B; プロモーション TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass) を使用できるようにします
+> * generic\_data - [&#x200B; プロモーション TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass)の使用を有効にします
 >
 >```JSON
 >Example:
@@ -93,12 +94,12 @@ MVPD選択イベントを通知して認証プロセスを開始します。 Ado
 >```
 
 
-### **備考** {#notes}
+### **メモ** {#notes}
 
-* `domain_name` パラメーターの値は、Adobe Pass Authentication に登録されているドメイン名のいずれかに設定されている必要があります。
+* `domain_name` パラメーターの値は、Adobe Pass Authenticationに登録されたドメイン名のいずれかに設定する必要があります。
 
-* [/authenticate リクエストで「&amp;&#39;reg\_code」を使用するのを避ける（テクニカルノート）](/help/authentication/integration-guide-programmers/legacy/notes-technical/clientless-avoid-using-reg-code-in-authenticate-request.md)
+* [/authenticate リクエストで「&amp;」 reg\_codeを使用しないでください（技術メモ）](/help/authentication/integration-guide-programmers/legacy/notes-technical/clientless-avoid-using-reg-code-in-authenticate-request.md)
 
-* `redirect_url` パラメーターは最後でなければなりません
+* `redirect_url` パラメーターは、順番に最後のパラメーターである必要があります
 
-* `redirect_url` パラメーターの値は URL エンコードする必要があります
+* `redirect_url` パラメーターの値はURL エンコードする必要があります

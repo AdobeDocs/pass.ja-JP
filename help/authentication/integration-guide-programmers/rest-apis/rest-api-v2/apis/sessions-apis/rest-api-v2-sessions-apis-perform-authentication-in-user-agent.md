@@ -1,27 +1,28 @@
 ---
-title: ユーザーエージェントでの認証の実行
-description: REST API V2 - ユーザーエージェントで認証を実行します
+title: ユーザーエージェントで認証を実行する
+description: REST API V2 - ユーザーエージェントで認証を実行する
 exl-id: d615dde0-71a8-4b6c-a12e-1e3b5e20728c
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '242'
 ht-degree: 5%
-
 ---
-
-# ユーザーエージェントでの認証の実行 {#perform-authentication-in-user-agent}
-
->[!IMPORTANT]
->
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+# ユーザーエージェントで認証を実行する {#perform-authentication-in-user-agent}
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
+
+>[!IMPORTANT]
+>
+> REST API V2の実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 >[!MORELIKETHIS]
 >
-> また、[REST API V2 の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general) も必ず参照してください。
+> また、[REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general)にもアクセスしてください。
 
 ## リクエスト {#request}
 
@@ -48,12 +49,12 @@ ht-degree: 5%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
-      <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部の一意の ID。</td>
+      <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部一意のID。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">コード</td>
-      <td>ストリーミングデバイスで認証セッションを作成した後に取得した認証コード。</td>
+      <td>ストリーミングデバイスで認証セッションを作成した後に取得された認証コード。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -64,7 +65,7 @@ ht-degree: 5%
    <tr>
       <td style="background-color: #DEEBFF;">User-Agent</td>
       <td>クライアントアプリケーションのユーザーエージェント。</td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
 </table>
 
@@ -78,37 +79,37 @@ ht-degree: 5%
    </tr>
    <tr>
       <td>302</td>
-      <td>件見つかりました</td>
+      <td>見つかりました</td>
       <td>
-        応答本文には、MVPDのログインページに到達するまでフローを続行するための場所リダイレクトが含まれています
+        レスポンス本文には、MVPD ログインページに到達するまでフローを続行する場所リダイレクトが含まれています
       </td>
    </tr>
    <tr>
       <td>400</td>
-      <td>リクエストが正しくありません</td>
+      <td>不正なリクエスト</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。
+        リクエストが無効です。クライアントはリクエストを修正して、もう一度試す必要があります。
       </td>
    </tr>
    <tr>
       <td>405</td>
-      <td>許可されていないメソッド</td>
+      <td>メソッドは許可されていません</td>
       <td>
-        HTTP メソッドが無効です。クライアントは、リクエストされたリソースに許可されている HTTP メソッドを使用し、再試行する必要があります。 詳しくは、<a href="#request"> リクエスト </a> の節を参照してください。
+        HTTP メソッドが無効です。クライアントは、リクエストされたリソースに対して許可されているHTTP メソッドを使用して、再試行する必要があります。 詳しくは、「<a href="#request"> リクエスト </a>」の節を参照してください。
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。
+        サーバーサイドで問題が発生しました。
       </td>
    </tr>
 </table>
 
 ### 成功 {#success}
 
-正常な応答は、MVPDのログインページに到達するまでの一連の 1 つまたは複数のリダイレクトです。
+正常な応答は、MVPD ログインページに到達するまでの一連の1つまたは複数のリダイレクトです。
 
 ### エラー {#error}
 
@@ -124,7 +125,7 @@ ht-degree: 5%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
       <td>text/html</td>
       <td><i>必須</i></td>
    </tr>
@@ -142,7 +143,7 @@ ht-degree: 5%
 
 ## サンプル {#samples}
 
-### &#x200B;1. ユーザーエージェントでの認証の実行
+### &#x200B;1. ユーザーエージェントで認証を実行する
 
 >[!BEGINTABS]
 
@@ -154,7 +155,7 @@ GET /api/v2/authenticate/REF30/8KHP9RW HTTP/1.1
     User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 302 Found

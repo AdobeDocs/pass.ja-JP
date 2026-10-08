@@ -2,13 +2,14 @@
 title: Amazon SSO クックブック （REST API V2）
 description: Amazon SSO クックブック （REST API V2）
 exl-id: 63e4fa63-8ca3-40eb-b49a-84dd75c2ca1d
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '587'
 ht-degree: 0%
-
 ---
-
 # Amazon SSO クックブック （REST API V2） {#amazon-sso-cookbook-rest-api-v2}
 
 >[!IMPORTANT]

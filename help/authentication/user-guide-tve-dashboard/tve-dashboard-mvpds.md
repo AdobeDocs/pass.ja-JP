@@ -1,30 +1,31 @@
 ---
 title: TVE ダッシュボード MVPD
-description: TVE ダッシュボード内の MVPD とその設定について説明します。
+description: TVE ダッシュボード内のMVPDとその設定について説明します。
 exl-id: 802c1570-9a5b-4bec-8fb2-6c7738b28bc9
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '133'
 ht-degree: 0%
-
 ---
-
 # MVPD
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-TVE Dashboard の **MVPD** セクションでは、Adobe Pass認証エコシステムに統合された MVPD のリストを表示できます。
+TVE ダッシュボードの&#x200B;**MVPDs** セクションでは、Adobe Pass Authentication エコシステムに統合されたMVPDのリストを表示できます。
 
-左側のパネルの [**MVPD**] タブには、MVPD のリストと次の詳細が表示されます。
+左側のパネルの「**MVPDs**」タブには、次の詳細を含むMVPDのリストが表示されます。
 
-* **表示名**：各MVPDのピッカーに表示される名前。
+* **表示名**：各MVPDのピッカーの表示名。
 
-* **MVPD ID**: システム内の新しい統合の設定に使用されるMVPDの一意の ID。
+* **MVPD ID**: システムで新しい統合を設定するために使用されるMVPDの一意のID。
 
-![&#x200B; 統合 MVPD の一覧 &#x200B;](../assets/tve-dashboard/new-tve-dashboard/mvpds/mvpds-list-view.png)
+![統合MVPDの一覧](../assets/tve-dashboard/new-tve-dashboard/mvpds/mvpds-list-view.png)
 
-*統合 MVPD の一覧*
+*統合MVPDの一覧*
 
-特定のMVPDを検索するには、リストの上にある **検索** バーにMVPDの名前を入力します。
+リストの上の&#x200B;**検索** バーにMVPDの名前を入力すると、特定のMVPDが見つかります。

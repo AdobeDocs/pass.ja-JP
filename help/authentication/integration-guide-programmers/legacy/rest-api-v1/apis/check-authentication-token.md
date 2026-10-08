@@ -2,13 +2,14 @@
 title: 認証トークンを確認
 description: 認証トークンを確認
 exl-id: 9020f261-44d8-4bd5-b85b-a8667679f563
-source-git-commit: 689e2f86550d9fa59337c15dd38767975a1d6d30
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
-source-wordcount: '301'
-ht-degree: 0%
-
+source-wordcount: '331'
+ht-degree: 9%
 ---
-
 # （レガシー）認証トークンの確認 {#check-authentication-token}
 
 >[!NOTE]

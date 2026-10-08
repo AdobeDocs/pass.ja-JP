@@ -2,13 +2,14 @@
 title: JavaScript SDK API リファレンス
 description: JavaScript SDK API リファレンス
 exl-id: 48d48327-14e6-46f3-9e80-557f161acd8a
-source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
-source-wordcount: '2902'
+source-wordcount: '2904'
 ht-degree: 0%
-
 ---
-
 # （レガシー） JavaScript SDK API リファレンス {#javascript-sdk-api-reference}
 
 >[!NOTE]
@@ -44,14 +45,14 @@ ht-degree: 0%
 
 - *エンドポイント* – このパラメーターはオプションです。 次のいずれかの値を指定できます。
 
-   - Adobeが提供する認証サービスと認証サービスのエンドポイントを指定できる配列（デバッグ目的で様々なインスタンスを使用する場合があります）。 複数のURLが指定されている場合、MVPD リストは、すべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー、つまり最初に応答し、そのMVPDをサポートするプロバイダーに関連付けられます。 デフォルトでは（値が指定されていない場合）、Adobe サービスプロバイダーが使用されます（<http://sp.auth.adobe.com/>）。
+  - Adobeが提供する認証サービスと認証サービスのエンドポイントを指定できる配列（デバッグ目的で様々なインスタンスを使用する場合があります）。 複数のURLが指定されている場合、MVPD リストは、すべてのサービスプロバイダーのエンドポイントで構成されます。 各MVPDは、最速のサービスプロバイダー、つまり最初に応答し、そのMVPDをサポートするプロバイダーに関連付けられます。 デフォルトでは（値が指定されていない場合）、Adobe サービスプロバイダーが使用されます（<http://sp.auth.adobe.com/>）。
 
   例：
-   - `setRequestor("IFC", ["http://sp.auth-dev.adobe.com/adobe-services"])`
+  - `setRequestor("IFC", ["http://sp.auth-dev.adobe.com/adobe-services"])`
 
 - *options* - Application ID値、Visitor ID値、refresh-less settings （background login logout）およびMVPD settings （iFrame）を含むJSON オブジェクト。 値はすべてオプションです。
-   1. 指定した場合、Experience Cloud visitorIDは、ライブラリによって実行されたすべてのネットワーク呼び出しに対してレポートされます。 この値は、後で高度な分析レポートに使用できます。
-   2. アプリケーションの一意の識別子が指定されている場合 – `applicationId` – 値は、X-Device-Info HTTP ヘッダーの一部としてアプリケーションによって行われたその後のすべての呼び出しに追加されます。 この値は、後で適切なクエリを使用して[ESM](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md) レポートから取得できます。
+  1. 指定した場合、Experience Cloud visitorIDは、ライブラリによって実行されたすべてのネットワーク呼び出しに関してレポートされます。 この値は、後で高度な分析レポートに使用できます。
+  2. アプリケーションの一意の識別子が指定されている場合 – `applicationId` – 値は、X-Device-Info HTTP ヘッダーの一部としてアプリケーションによって行われたその後のすべての呼び出しに追加されます。 この値は、後で適切なクエリを使用して[ESM](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md) レポートから取得できます。
 
   **メモ：**&#x200B;すべてのJSON キーでは、大文字と小文字が区別されます。
 
@@ -237,39 +238,39 @@ ht-degree: 0%
 **パラメーター：**
 
 - *key*：要求されたメタデータを指定するID:
-   - キーが`"TTL_AUTHN",`の場合、認証トークンの有効期限を取得するためにクエリが実行されます。
+  - キーが`"TTL_AUTHN",`の場合、認証トークンの有効期限を取得するためにクエリが実行されます。
 
-   - キーが`"TTL_AUTHZ"`で、paramsがリソース IDを文字列として含む配列である場合、クエリは、指定されたリソースに関連付けられた認証トークンの有効期限を取得するために行われます。
+  - キーが`"TTL_AUTHZ"`で、paramsがリソース IDを文字列として含む配列である場合、クエリは、指定されたリソースに関連付けられた認証トークンの有効期限を取得するために行われます。
 
-   - キーが`"DEVICEID"`の場合、現在のデバイス IDを取得するためにクエリが実行されます。 この機能はデフォルトで無効になっており、プログラマーは有効化と料金についてAdobeに問い合わせる必要があります。
+  - キーが`"DEVICEID"`の場合、現在のデバイス IDを取得するためにクエリが実行されます。 この機能はデフォルトで無効になっており、プログラマーは有効化と料金についてAdobeに問い合わせる必要があります。
 
-   - キーが次のユーザーメタデータタイプのリストにある場合、対応するユーザーメタデータを含むJSON オブジェクトが[`setMetadataStatus()`](#setmetadatastatuskey-encrypted-data-setmetadatastatuskeyencrypteddata) コールバック関数に送信されます。
+  - キーが次のユーザーメタデータタイプのリストにある場合、対応するユーザーメタデータを含むJSON オブジェクトが[`setMetadataStatus()`](#setmetadatastatuskey-encrypted-data-setmetadatastatuskeyencrypteddata) コールバック関数に送信されます。
 
-   - `"zip"` – 郵便番号
+  - `"zip"` – 郵便番号
 
-   - `"encryptedZip"` – 暗号化された郵便番号
+  - `"encryptedZip"` – 暗号化された郵便番号
 
-   - `"householdID"` – 世帯ID。 MVPDがサブアカウントをサポートしていない場合、これはuserIDと同じです。
+  - `"householdID"` – 世帯ID。 MVPDがサブアカウントをサポートしていない場合、これはuserIDと同じです。
 
-   - `"maxRating"` - ユーザーの最大保護者の評価
+  - `"maxRating"` - ユーザーの最大保護者の評価
 
-   - `"userID"` - ユーザーID。 MVPDがサブアカウントをサポートしており、ユーザーがメインアカウントではない場合、userIDはhouseholdIDとは異なります。
+  - `"userID"` - ユーザーID。 MVPDがサブアカウントをサポートしており、ユーザーがメインアカウントではない場合、userIDはhouseholdIDとは異なります。
 
-   - `"channelID"` - ユーザーが表示できるチャネルのリスト
+  - `"channelID"` - ユーザーが表示できるチャネルのリスト
 
-   - `"is_hoh"` - ユーザーが世帯責任者かどうかを識別するフラグ
+  - `"is_hoh"` - ユーザーが世帯責任者かどうかを識別するフラグ
 
-   - `"encryptedZip"` – 暗号化された郵便番号
+  - `"encryptedZip"` – 暗号化された郵便番号
 
-   - `"typeID"` - ユーザーアカウントがプライマリ/セカンダリアカウントであるかどうかを識別するフラグ
+  - `"typeID"` - ユーザーアカウントがプライマリ/セカンダリアカウントであるかどうかを識別するフラグ
 
-   - `"primaryOID"` – 世帯ID
+  - `"primaryOID"` – 世帯ID
 
-   - `"postalCode"` – 郵便番号に似ています
+  - `"postalCode"` – 郵便番号に似ています
 
-   - `"acctID"` - アカウント ID
+  - `"acctID"` - アカウント ID
 
-   - `"acctParentID"` - アカウントの親ID
+  - `"acctParentID"` - アカウントの親ID
 
   **注意**: プログラマが使用できる実際のユーザーメタデータは、MVPDで使用可能な内容によって異なります。  使用可能なユーザーメタデータの現在のリストについては、[&#x200B; ユーザーメタデータ &#x200B;](#UserMetadata)を参照してください。
 
@@ -453,16 +454,16 @@ ht-degree: 0%
 **説明：**&#x200B;特定のイベントが発生したときにトラッキングデータを受信するには、このコールバックを実装します。 例えば、同じ資格情報でログインしたユーザーの数を追跡するために使用できます。 トラッキングは現在、設定可能ではありません。 Adobe Pass Authentication 1.6では、`sendTrackingData()`は、デバイス、Access Enabler クライアント、およびオペレーティング システムの種類に関する情報も報告します。 `sendTrackingData()` コールバックは後方互換性を維持します。
 
 - デバイスタイプの可能な値：
-   - コンピューター
-   - タブレット
-   - mobile
-   - gameconsole
-   - 不明
+  - コンピューター
+  - タブレット
+  - mobile
+  - gameconsole
+  - 不明
 
 - Access Enabler クライアントの種類に指定できる値：
-   - html5
-   - ios
-   - android
+  - html5
+  - ios
+  - android
 
 
 イベントタイプと関連情報の配列を渡します。 イベントタイプは次のとおりです。

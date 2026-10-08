@@ -2,111 +2,112 @@
 title: 決定
 description: 決定
 exl-id: 1efd70af-8c1d-43c4-87fc-14488d42b23d
-source-git-commit: a19f4fd40c9cd851a00f05f82adbabb85edd8422
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
-source-wordcount: '996'
+source-wordcount: '1014'
 ht-degree: 0%
-
 ---
-
 # 決定 {#decisions}
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-決定は、ユーザーのAdobe Pass認証または事前認証の問い合わせに基づいて、MVPD認証 [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) によって生成され、「保護されたコンテンツ [&#x200B; へのアクセスが許可されているか拒否されているかを判定し &#x200B;](#protected-resources) す。
+決定は、ユーザーのAdobe Pass認証または事前認証の問い合わせに基づいてMVPD認証[REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)によって生成され、[保護されたコンテンツ &#x200B;](#protected-resources)へのアクセスが許可されるか拒否されるかを判断します。
 
-提供される決定には、呼び出された API に応じて 2 つのタイプがあります。
+呼び出されるAPIに応じて、2種類の決定が提供されます。
 
-* 有益な決定である [&#x200B; 事前認証の決定 &#x200B;](#preauthorization-decisions)。
-* [&#x200B; 承認決定 &#x200B;](#authorization-decisions) 権限のある決定です。
+* 情報提供の決定である[事前認証の決定](#preauthorization-decisions)。
+* 権限のある決定である[承認決定](#authorization-decisions)。
 
 ## 事前認証の決定 {#preauthorization-decisions}
 
-事前認証の決定とは、[&#x200B; 保護されたリソース &#x200B;](#protected-resources) に対するユーザーのアクセスを、MVPDが許可するか拒否するかをクライアントアプリケーションに通知するための有益な決定です。
+事前認証の決定は、クライアントアプリケーションに対して、MVPDが[保護されたリソース &#x200B;](#protected-resources)へのユーザーのアクセスを許可するか拒否するかを知らせるための有益な決定です。
 
-事前認証（プリフライト認証）の目的は、ユーザーが表示する資格のあるコンテンツに関する正確な情報をアプリケーションに表示できるようにすることです。 これを実現するには、アクセスステータスを反映するロック済みアイコンやロック解除されたアイコンなどのインジケーターでユーザーインターフェイスを強化します。
-
->[!IMPORTANT]
->
-> 事前承認の決定は、[&#x200B; 承認の決定 &#x200B;](#authorization-decisions) の目的なので、リソースを再生する権限のある方法で使用しないでください。
-
-事前認証 API の使用は必須ではありません。フィルタリングを行わずにリソースのカタログを表示する場合は、クライアントアプリケーションでこれをスキップできます。
-
-クライアントアプリケーションでこの機能を使用する場合は、事前認証の決定は、API リクエストごとに限られた数のリソース（通常は 5 つまで）でのみ取得できることに注意が必要です。
-
->[!IMPORTANT]
-> 
-> リソースの最大数は、MVPD およびAdobe Pass認証担当者との合意に達した後にのみ増やすことができます。 同意が得られたら、組織の管理者またはユーザーに代わってAdobe Pass認証担当者が、Adobe Pass TVE ダッシュボードを使用して変更を実装できます。
-> 
-> 詳しくは、[TVE ダッシュボード統合ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#add-more-properties) ドキュメントを参照してください。
-
-MVPD は、パフォーマンスと 1 つの API リクエストで処理できる最大リソース数に明確な影響を与える、様々なメカニズムを通じて事前認証をサポートできます。
-
-事前認証をサポートする既存のメカニズムについて詳しくは、[MVPD Preflight Authorization](/help/authentication/integration-guide-mvpds/mvpd-preflight-authz.md) ドキュメントを参照してください。
+事前認証（プリフライト認証）の目的は、ユーザーが表示できる可能性のあるコンテンツに関する正確な情報をアプリケーションが表示できるようにすることです。 これは、アクセスステータスを反映するために、ロックされたアイコンやロック解除されたアイコンなどのインジケーターでユーザーインターフェイスを強化することで実現されます。
 
 >[!IMPORTANT]
 >
-> 完全なプリフライト認証のサポートを持たない MVPD の場合は、事前に MVPD およびAdobe Pass認証担当者と事前認証の使用を合意する必要があります。これにより、パフォーマンスの問題が発生し、応答時間が遅くなる可能性があります。
+> 事前認証の決定は、[認証の決定](#authorization-decisions)の目的であるため、リソースを再生する権限のある方法で使用してはなりません。
+
+事前認証APIの使用は必須ではありません。クライアントアプリケーションがフィルタリングなしでリソースカタログを表示する場合は、これをスキップできます。
+
+クライアントアプリケーションがこの機能を使用する場合は、事前認証の決定は、API リクエストごとに限られた数（通常は最大5）のリソースに対してのみ取得できることに注意してください。
+
+>[!IMPORTANT]
+> 
+> リソースの最大数は、MVPDおよびAdobe Pass Authenticationの担当者と契約を締結した後にのみ増加できます。 同意が得られたら、組織内の管理者またはユーザーの代理でAdobe Pass認証担当者がAdobe Pass TVE ダッシュボードを使用して、変更を実装できます。
+> 
+> 詳しくは、[TVE ダッシュボード統合ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#add-more-properties)のドキュメントを参照してください。
+
+MVPDは、パフォーマンスに対する明確な意味と、単一のAPI リクエストで処理できるリソースの最大数を持つ、様々なメカニズムを通じて事前認証をサポートする場合があります。
+
+事前認証をサポートする既存の仕組みについて詳しくは、[MVPD Preflight Authorization](/help/authentication/integration-guide-mvpds/mvpd-preflight-authz.md)のドキュメントを参照してください。
+
+>[!IMPORTANT]
+>
+> 完全なプリフライト認証サポートがないMVPDの場合、パフォーマンスの問題や応答時間の低下につながる可能性があるため、事前認証の使用について、MVPDおよびAdobe Pass認証担当者と事前に合意する必要があります。
 
 ## 認証の決定 {#authorization-decisions}
 
-認証決定とは、[&#x200B; 保護されたリソース &#x200B;](#protected-resources) に対するユーザーのアクセスを許可または拒否するMVPD決定に、クライアントアプリケーションが準拠できるようにする、権限のある決定です。
+承認決定は、クライアントアプリケーションがMVPDの決定に準拠し、[保護されたリソース &#x200B;](#protected-resources)へのユーザーのアクセスを許可または拒否することを許可する権限のある決定です。
 
-認証の目的は、MVPDでの権限検証やAdobe Pass Authentication からのメディアトークンの受信に従って、ユーザーから要求されたリソースをアプリケーションが再生できるようにすることです。
+認証の目的は、MVPDでの使用権限検証およびAdobe Pass Authenticationからのメディアトークンの受信に従って、ユーザーが要求したリソースをアプリケーションが再生できるようにすることです。
 
 >[!IMPORTANT]
 > 
-> Adobe Pass認証では、プログラマーがメディアトークン検証用ライブラリを使用して、認証決定に含まれるメディアトークンを検証し、ビデオストリームを開始する前に安全にアクセスできるようにすることをお勧めします。
+> Adobe Pass Authenticationでは、ビデオストリームを開始する前に安全なアクセスを確保しながら、認証決定に含まれるメディアトークンを検証するためにMedia Token Verifier ライブラリを使用することをお勧めします。
 > 
-> 詳しくは、[&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md) ドキュメントを参照してください。
+> 詳しくは、[&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)のドキュメントを参照してください。
 
-認証 API の使用は必須です。クライアントアプリケーションは、ユーザーがリクエストするリソースを再生する場合、このフェーズをスキップできません。ストリームをリリースする前に、ユーザーが権限を持っていることをMVPDで確認する必要があるからです。
+認証APIの使用は必須です。クライアントアプリケーションは、ユーザーがリクエストしたリソースを再生する場合、このフェーズをスキップできません。ユーザーがストリームをリリースする前に、MVPDで権限があることを確認する必要があるからです。
 
-承認の決定は、API リクエストごとに限られた数のリソース（通常は 1）に対してのみ取得できます。
+認証の決定は、API リクエストごとに限られた数のリソース（通常は1）に対してのみ取得できることに注意してください。
 
 >[!IMPORTANT]
 >
-> リソースの最大数は、MVPD およびAdobe Pass認証担当者との合意に達した後にのみ増やすことができます。
+> リソースの最大数は、MVPDおよびAdobe Pass Authenticationの担当者と契約を締結した後にのみ増加できます。
 
-## 認証有効期間（TTL）管理 {#authorization-ttl-management}
+## Authorization Time-to-Live （TTL）管理 {#authorization-ttl-management}
 
-認証有効期間（TTL）は、リソースが再認証される必要があるまでに、承認されたままになっている期間を定義します。 この期間は制限されており、MVPDの担当者と合意する必要があります。 TTL 値は、以下に基づいて変化する可能性があります。
+Authorization Time-to-Live （TTL）は、リソースが再認証を必要とする前に許可された状態を維持する期間を定義します。 この期間は限られており、MVPDの担当者と合意する必要があります。 TTL値は、次の要素によって異なります。
 
-* プラットフォームカテゴリ（デスクトップ、モバイル、TV 接続デバイスなど）
-* 特定のプラットフォーム（iOS、Android、tvOS、Roku、FireTV など）
+* プラットフォームカテゴリ（例：デスクトップ、モバイル、TV接続デバイス）
+* 特定のプラットフォーム（例：iOS、Android、tvOS、Roku、FireTV）
 
-認証（authZ） TTL の表示や変更は、Adobe Pass[TVE ダッシュボード &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) を通じて、組織管理者の 1 人が、またはAdobe Pass認証担当者が代理で行うことができます。
+認証（authZ） TTLは、Adobe Pass [TVE ダッシュボード &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)を通じて、組織管理者の1人またはAdobe Pass認証担当者が代理で表示および変更できます。
 
-詳しくは、[TVE ダッシュボード統合ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) ドキュメントを参照してください。
+詳しくは、[TVE ダッシュボード統合ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows)のドキュメントを参照してください。
 
 ## 保護されたリソース {#protected-resources}
 
-保護されたリソースとは、ストリーミング可能なコンテンツを指し、MVPD と参加プログラマーの間の契約を通じて定義された一意の値によって識別されます。
+保護されたリソースとは、MVPDと参加プログラマー間の合意によって定義された一意の値によって識別される、ストリーミング可能なコンテンツを指します。
 
-保護されたリソースは階層ツリー構造に従い、各レベルでコンテンツ認証の精度が向上します。
+保護されたリソースは階層的なツリー構造に従い、各レベルでコンテンツの認証をより詳細に行うことができます。
 
 * ネットワーク
-   * チャネル
-      * 表示
-         * エピソード
-            * アセット
+  * チャネル
+    * 表示
+      * エピソード
+        * アセット
 
 >[!IMPORTANT]
 >
-> 事前認証（preflight authorization）は、単純な文字列または MRSS 形式の識別子を持つチャネルレベルのリソースに焦点を当てています。
+> 事前認証（プリフライト認証）は、単純な文字列またはMRSS形式の識別子を使用するチャネルレベルのリソースに焦点を当てています。
 > 
-> 事前認証の場合は、`CDATA` セクションを含む識別子を持つリソースを使用することはお勧めしません。主に、MRSS によって定義されるアセットレベルのリソースに使用されるからです。
+> 事前認証の場合、`CDATA` セクションを含む識別子を持つリソースは、主にMRSSで定義されたアセットレベルのリソースに使用されるため、使用することはお勧めしません。
 
 ### リソース識別子 {#resource-identifier}
 
-リソースの一意の ID には、次の 2 つの形式があります。
+リソースの一意のIDには、次の2つの形式を使用できます。
 
-* チャネル（ブランド）の一意の ID などの単純な文字列形式。
-* タイトル、規制、保護者による制限のメタデータなどの追加情報を含むメディア RSS （MRSS）形式。
+* チャネル（ブランド）の一意の識別子などの簡単な文字列形式。
+* タイトル、評価、ペアレンタルコントロールのメタデータなどの追加情報を含むMedia RSS （MRSS）形式。
 
-「REF30」などの単純なリソース識別子（チャネルを表すと想定）の場合は、次のように RSS リソース識別子に変換できます。
+「REF30」（チャネルを表していると想定）などの単純なリソース識別子の場合、次のようにRSS リソース識別子に変換できます。
 
 ```RSS
     <rss version="2.0"> 
@@ -116,7 +117,7 @@ MVPD は、パフォーマンスと 1 つの API リクエストで処理でき�
     </rss>
 ```
 
-より複雑なリソース識別子の場合、RSS リソース識別子には次のような追加の評価情報を含めることができます。
+より複雑なリソース識別子の場合、RSS リソース識別子には、次のような追加のレーティング情報を含めることができます。
 
 ```RSS
     <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"> 
@@ -127,26 +128,26 @@ MVPD は、パフォーマンスと 1 つの API リクエストで処理でき�
     </rss>
 ```
 
-一意の ID は主にAdobe Pass Authentication に対して不透明ですが、トランスフォーマーはMVPDの機能と要件に基づいて適用される場合があります。 MVPDがリソース ID を認識または解析できない場合は、Adobe Pass Authentication にエラーを返し、その後、[Enhanced Error Code](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) を使用してエラーをクライアントアプリケーションにリレーします。
+一意のIDは主にAdobe Pass認証に対して不透明ですが、MVPDの機能と要件に基づいてトランスフォーマが適用される場合があります。 MVPDがリソース IDを認識または解析できない場合、Adobe Pass Authenticationにエラーを返し、その後[拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)を使用してクライアントアプリケーションにエラーをリレーします。
 
 ## REST API V2 {#rest-api-v2}
 
-事前認証の決定は、次の API を使用して取得できます。
+事前認証の決定は、次のAPIを使用して取得できます。
 
-* [特定の mvpd を使用した事前認証決定の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
+* [特定のmvpdを使用して事前承認決定を取得する](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
 
-認証決定は、次の API を使用して取得できます。
+認証の決定は、次のAPIを使用して取得できます。
 
-* [特定の mvpd を使用した認証決定の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
+* [特定のmvpdを使用して認証の決定を取得する](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
 
-事前認証と認証決定の構造を理解するには、上記の API の **Response** および **Samples** の節を参照してください。
+事前認証と認証の決定の構造については、上記のAPIの&#x200B;**応答**&#x200B;および&#x200B;**サンプル**&#x200B;のセクションを参照してください。
 
-上記の API を統合する方法とタイミングについて詳しくは、次のドキュメントを参照してください。
+上記のAPIを統合する方法とタイミングについて詳しくは、次のドキュメントを参照してください。
 
 * [プライマリアプリケーション内で実行される基本的な事前認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)
-* [プライマリアプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
+* [プライマリアプリケーション内で実行される基本的な認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
 
 >[!MORELIKETHIS]
 >
-> [&#x200B; 事前認証フェーズに関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#preauthorization-phase-faqs-general)
-> [承認フェーズの FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)
+> [事前承認フェーズに関するFAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#preauthorization-phase-faqs-general)
+> [承認フェーズに関するFAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)

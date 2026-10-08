@@ -1,38 +1,39 @@
 ---
-title: Adobe Pass認証とAndroid 6 「Marshmallow」新しい権限モデル
-description: Adobe Pass認証とAndroid 6 「Marshmallow」新しい権限モデル
+title: Adobe Pass認証とAndroid 6 「Marshmallow」の新しい権限モデル
+description: Adobe Pass認証とAndroid 6 「Marshmallow」の新しい権限モデル
 exl-id: 3c96769e-b25b-48ab-bb74-40f13d4e5a84
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '521'
-ht-degree: 3%
-
+ht-degree: 0%
 ---
-
-# （従来の）Adobe Pass認証とAndroid 6 「Marshmallow」新しい権限モデル {#adobe-primetime-authentication-and-the-android-6-marshmallow-new-permissions-model}
+# （レガシー） Adobe Pass認証とAndroid 6 「Marshmallow」新しい権限モデル {#adobe-primetime-authentication-and-the-android-6-marshmallow-new-permissions-model}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 </br>
 
-新しいAndroid 6 Marshmallow リリースでは、権限モデルが更新されており、既存のAdobe Pass Authentication SDK バージョン 1.8 以前を使用するアプリの動作に影響を与える可能性があります。
+新しいAndroid 6 Marshmallow リリースでは、既存のAdobe Pass Authentication SDK バージョン 1.8以前を使用するアプリの動作に影響を与える可能性のある、権限モデルの一部のアップデートが導入されました。
 
-新しいAndroid OS は新機能として、[&#x200B; インストール時および実行時にアプリで必要な権限を詳細に制御 &#x200B;](https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html) できます。
+新機能として、新しいAndroid OSでは、インストール時および実行時にアプリが必要とする権限を[細かく制御できます](https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html)。
 
 >[!IMPORTANT]
 >
->以下に説明する変更内容は、**Android 6.0 専用に開発されたアプリケーションにのみ影響します** （targetSdkVersion=23）。 Android 6.0 へのアップグレード時に、ユーザーのデバイスに既にインストールされている古いアプリケーションには影響しません。
+>以下に説明する変更は、**Android 6.0**&#x200B;専用に開発されたアプリケーションにのみ影響します（targetSdkVersion=23）。 Android 6.0へのアップグレード時に、ユーザーのデバイスにすでにインストールされている古いアプリケーションには影響しません。
 
 
-特に、Android Studio で [API レベル 23](http://developer.android.com/sdk/api_diff/23/changes.html) を使用して開発され、Adobe Pass Authentication SDKを使用するアプリの場合、開発者はカスタムコードを記述する必要があります（以下のコードスニペットを参照） [&#x200B; 権限を許可/拒否ダイアログをトリガーするため &#x200B;](https://developer.android.com/training/permissions/requesting.html)。
+具体的には、[API レベル 23](http://developer.android.com/sdk/api_diff/23/changes.html)を使用してAndroid Studioで開発され、Adobe Pass Authentication SDKを使用するアプリの場合、開発者はカスタムコードを記述する必要があります（以下のコードスニペットを参照） [権限の許可/拒否ダイアログをトリガーする](https://developer.android.com/training/permissions/requesting.html)。
 
-次に、デバイス外部ストレージへの書き込みアクセスのリクエストに使用するコード抜粋を示します。
+デバイス外部ストレージへの書き込みアクセスをリクエストするために使用されるコードの抜粋を次に示します。
 
 ```java
 // Here, thisActivity is the current activity
@@ -66,21 +67,21 @@ if (ContextCompat.checkSelfPermission(thisActivity,
 
 
 
-**ユーザーの視点から見ると** インストール時には、ユーザーにファイルの読み取り/書き込み権限を確認するように促すウィンドウが表示されます（下図 2 を参照）。 これにより、次の 2 つの結果のいずれかが生じます。
+**ユーザーの視点**&#x200B;から見ると、インストール時に、ファイルの読み取り/書き込み権限の確認を求めるウィンドウが表示されます（下の図2を参照）。 これは次の2つの結果のうちの1つです。
 
-1. ユーザーが権限を **確認** した場合、通常の認証フローが保持され、トークンがグローバルストレージに保存されます。 トークンが有効である限り、ユーザーは、Adobe Pass認証を使用してアプリ内およびアプリ間で認証されたままになります。
-1. ユーザーが権限を **拒否** すると、ストレージでの書き込みアクションが失敗し、ユーザーはアプリを終了するまで認証されません。 フォアグラウンドとバックグラウンドを切り替えると、一部のアプリケーションが再初期化されるため、このアクションを実行するとユーザーはログアウトされることに注意してください。 トークンは格納されず、ユーザーはアプリを使用するたびに認証する必要があります。
+1. ユーザー&#x200B;**が権限を確認**&#x200B;した場合、通常の認証フローは保持され、トークンはグローバルストレージに保存されます。 ユーザーは、トークンが有効である限り、アプリ内およびアプリ間でAdobe Pass認証を使用して認証されたままになります。
+1. ユーザー&#x200B;**が権限を拒否**&#x200B;した場合、ストレージ内の書き込みアクションは失敗し、ユーザーはアプリを終了するまで認証されません。 フォアグラウンドとバックグラウンドを切り替えると、一部のアプリケーションが再初期化されるため、このアクションを実行する際にユーザーがログアウトされることに注意してください。 トークンは保存されないので、ユーザーはアプリを使用するたびに認証する必要があります。
 
 
 >[!TIP]
 >
->現在、Adobe Pass認証SDK 1.9 でストレージの復元を導入する機能を開発中です。 新しいSDKは、**10 月最終週にリリース** される予定です。 一般ストレージを使用できない場合、アプリケーションはアプリケーションのサンドボックスストレージへの書き込みにフォールバックします。 ここでは、API レベル 23 で開発されたアプリケーションの場合、ユーザーがグローバルストレージでの読み取り/書き込み権限を受け付けない場合について説明します。 トークンはアプリごとに個別に保存されるため、Adobe Pass認証を使用したアプリ間のシングルサインオンは無効になります。
+>現在、Adobe Pass Authentication SDK 1.9用にストレージのレジリエンスを導入する機能が開発中です。 新しいSDKは、10月&#x200B;**の最終週の** リリースを目標としています。 一般的なストレージを使用できない場合、アプリケーションはアプリケーションのサンドボックスストレージへの書き込みにフォールバックします。 これは、API レベル 23で開発されたアプリケーションについて、ユーザーがグローバルストレージでの読み取り/書き込み権限を受け入れない場合をカバーします。 トークンはアプリごとに個別に保存されるため、Adobe Pass認証を使用したアプリ間のシングルサインオンは無効になります。
 
 
 ![](../../../assets/android-permissions-request.png)
 
-*図：ターゲット設定 API レベル 23 で記述されたアプリの権限リクエストダイアログ*
+*図：API レベル 23*&#x200B;をターゲットとして作成されたアプリの権限リクエストダイアログ
 
 >[!IMPORTANT]
 >
-> Adobeは、**パートナーは、認証プロセスで可能な限り最高のユーザーエクスペリエンスを保証するために、API レベル 22 （targetSdkVersion=22）以前を使用してアプリを開発すること** を推奨します。
+> Adobeは、認証プロセスで可能な限り優れたユーザーエクスペリエンスを保証するために、API レベル 22 （targetSdkVersion=22）以前を使用してアプリを開発するよう&#x200B;**のパートナーにアドバイスします**。

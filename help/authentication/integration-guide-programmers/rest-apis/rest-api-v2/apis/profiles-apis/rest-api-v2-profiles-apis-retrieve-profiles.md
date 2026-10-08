@@ -2,26 +2,27 @@
 title: プロファイルの取得
 description: REST API V2 - プロファイルの取得
 exl-id: 72922aa8-95ca-48dc-8523-e335802fc366
-source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
-source-wordcount: '943'
-ht-degree: 2%
-
+source-wordcount: '1026'
+ht-degree: 1%
 ---
-
 # プロファイルの取得 {#retrieve-profiles}
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2の実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 >[!MORELIKETHIS]
 >
-> また、[REST API V2 の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general) も必ず参照してください。
+> また、[REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general)にもアクセスしてください。
 
 ## リクエスト {#request}
 
@@ -48,7 +49,7 @@ ht-degree: 2%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
-      <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部の一意の ID。</td>
+      <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部一意のID。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -58,12 +59,12 @@ ht-degree: 2%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-authorization.md">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
+      <td>ベアラートークンのペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-authorization.md">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>デバイス識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。</td>
+      <td>デバイス識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -71,70 +72,70 @@ ht-degree: 2%
       <td>
          デバイス情報ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-x-device-info.md">X-Device-Info</a> ヘッダーのドキュメントを参照してください。
          <br/><br/>
-         アプリケーションのデバイスプラットフォームで有効な値を明示的に指定できる場合は、常に使用することを強くお勧めします。
+         アプリケーションのデバイスプラットフォームで有効な値の明示的なプロビジョニングが可能な場合は、必ず使用することを強くお勧めします。
          <br/><br/>
-         指定した場合、Adobe Pass認証バックエンドは、明示的に設定された値を、抽出された値と暗黙的に（デフォルトで）結合します。
+         指定すると、Adobe Pass認証バックエンドは、明示的に設定された値と抽出された値を暗黙的に（デフォルトで）マージします。
          <br/><br/>
-         指定しない場合、Adobe Pass認証バックエンドでは、抽出された値が暗黙的に（デフォルトで）使用されます。
+         指定しない場合、Adobe Pass認証バックエンドは、抽出された値を暗黙的に（デフォルトで）使用します。
       </td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">X-Forwarded-For</td>
       <td>
-         ストリーミングデバイスの IP アドレス。
+         ストリーミングデバイスのIP アドレス。
          <br/><br/>
-         サーバーからサーバーへの実装には常に使用することを強くお勧めします。特に、呼び出しがストリーミングデバイスではなくプログラマーサービスによって行われる場合に強くお勧めします。
+         特に、ストリーミングデバイスではなくプログラマーサービスによって呼び出しが行われる場合は、サーバーからサーバーへの実装に常に使用することを強くお勧めします。
          <br/><br/>
-         クライアントからサーバーへの実装の場合、ストリーミングデバイスの IP アドレスは暗黙的に送信されます。
+         クライアントからサーバーへの実装では、ストリーミングデバイスのIP アドレスが暗黙的に送信されます。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Adobe-Subject-Token<br/> または <br/>X-Roku-Reserved-Roku-Connect-Token</td>
+      <td style="background-color: #DEEBFF;">Adobe-Subject-Token<br/>または<br/>X-Roku-Reserved-Roku-Connect-Token</td>
       <td>
-        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a> / <a href="../../appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md">X-Roku-Reserved-Roku-Connect-Token</a> ヘッダードキュメントに記載されています。
+        Platform ID メソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a> / <a href="../../appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md">X-Roku-Reserved-Roku-Connect-Token</a> ヘッダードキュメントを参照してください。
         <br/><br/>
-        プラットフォーム ID を使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> プラットフォーム ID フローを使用したシングルサインオン </a> ドキュメントを参照してください。
+        プラットフォーム IDを使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> プラットフォーム ID フローを使用したシングルサインオン </a>のドキュメントを参照してください。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AD-Service-Token</td>
       <td>
-        サービストークンメソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md">AD-Service-Token</a> ヘッダーのドキュメントを参照してください。
+        サービストークン メソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md">AD-Service-Token</a> ヘッダーのドキュメントを参照してください。
         <br/><br/>
-        サービストークンを使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md"> サービストークンフローを使用したシングルサインオン </a> ドキュメントを参照してください。
+        サービストークンを使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md"> サービストークンのフローを使用したシングルサインオン </a>のドキュメントを参照してください。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Partner-Framework-Status</td>
       <td>
-        パートナーメソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md">AP-Partner-Framework-Status</a> ヘッダードキュメントを参照してください。
+        パートナーメソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md">AP-Partner-Framework-Status</a> ヘッダーのドキュメントを参照してください。
         <br/><br/>
-        パートナーを使用したシングルサインオン有効フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md"> パートナーフローを使用したシングルサインオン </a> ドキュメントを参照してください。</td>
-      <td>optional</td>
+        パートナーを使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md"> パートナーフローを使用したシングルサインオン </a>のドキュメントを参照してください。</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Visitor-Identifier</td>
       <td>
-        訪問者識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a> ヘッダードキュメントを参照してください。
-      <td>optional</td>
+        訪問者識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a> ヘッダーのドキュメントを参照してください。
+      <td>オプション</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">承諾</td>
+      <td style="background-color: #DEEBFF;">承認</td>
       <td>
-         クライアントアプリケーションによって受け入れられるメディアタイプ。
+         クライアントアプリケーションが受け入れたメディアタイプ。
          <br/><br/>
-         指定する場合は、application/json;charset=utf-8 にする必要があります。
+         指定する場合は、application/json;charset=utf-8である必要があります。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">User-Agent</td>
       <td>クライアントアプリケーションのユーザーエージェント。</td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
 </table>
 
@@ -150,35 +151,35 @@ ht-degree: 2%
       <td>200</td>
       <td>OK</td>
       <td>
-        応答本文には、有効なプロファイルのマップが含まれています。このマップは空の場合があります。
+        応答本文には、有効なプロファイルのマップが含まれています。空の場合があります。
       </td>
    </tr>
    <tr>
       <td>400</td>
-      <td>リクエストが正しくありません</td>
+      <td>不正なリクエスト</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        リクエストが無効です。クライアントはリクエストを修正して、もう一度試す必要があります。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
-      <td>未認証</td>
+      <td>未承認</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="../../../rest-api-dcr/dynamic-client-registration-overview.md"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得し、再試行する必要があります。 詳しくは、<a href="../../../rest-api-dcr/dynamic-client-registration-overview.md">動的クライアント登録の概要</a>のドキュメントを参照してください。
       </td>
    </tr>
    <tr>
       <td>405</td>
-      <td>許可されていないメソッド</td>
+      <td>メソッドは許可されていません</td>
       <td>
-        HTTP メソッドが無効です。クライアントは、リクエストされたリソースに許可されている HTTP メソッドを使用し、再試行する必要があります。 詳しくは、<a href="#request"> リクエスト </a> の節を参照してください。
+        HTTP メソッドが無効です。クライアントは、リクエストされたリソースに対して許可されているHTTP メソッドを使用して、再試行する必要があります。 詳しくは、「<a href="#request"> リクエスト </a>」の節を参照してください。
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        サーバーサイドで問題が発生しました。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
 </table>
@@ -197,8 +198,8 @@ ht-degree: 2%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -209,7 +210,7 @@ ht-degree: 2%
    <tr>
       <td style="background-color: #DEEBFF;">プロファイル</td>
       <td>
-        キーと値のペアのマップを含む JSON。
+        キー、値のペアのマップを含むJSON。
         <br/><br/>
         キー要素は、次の値で定義されます。
         <table style="table-layout:auto">
@@ -220,11 +221,11 @@ ht-degree: 2%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">mvpd</td>
-               <td>オンボーディングプロセス中に ID プロバイダーに関連付けられた内部の一意の ID。</td>
+               <td>オンボーディングプロセス中にID プロバイダーに関連付けられた内部一意のID。</td>
                <td><i>必須</i></td>
             </tr>
          </table>
-         value 要素は、次の属性で定義されます。
+         value エレメントは、次の属性で定義されます。
          <table style="table-layout:auto">
             <tr>
                <th style="background-color: #EFF2F7;">属性</th>
@@ -233,7 +234,7 @@ ht-degree: 2%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notBefore</td>
-               <td>プロファイルが無効になる前のタイムスタンプ（ミリ秒単位）。</td>
+               <td>プロファイルが無効になるまでのタイムスタンプ（ミリ秒単位）。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -242,14 +243,14 @@ ht-degree: 2%
                <td><i>必須</i></td>
             </tr>
             <tr>
-               <td style="background-color: #DEEBFF;">発行者</td>
+               <td style="background-color: #DEEBFF;">イシュア</td>
                <td>
                   プロファイルを所有するエンティティ。
                   <br/><br/>
                   使用可能な値は次のとおりです。
                   <ul>
-                    <li><b>mvpd （例：Spectrum、Cablevision など） </b><br/> プロファイルは、基本認証、プラットフォーム ID を使用したシングルサインオン、サービストークンを使用したシングルサインオンなどの結果として作成されました。</li>
-                    <li><b>Apple</b><br/> プロファイルは次の結果として作成されました：パートナーAppleを使用したシングル サインオン。</li>
+                    <li><b>mvpd （Spectrum、Cablevisionなど） </b><br/>このプロファイルは、基本認証、プラットフォーム IDを使用したシングルサインオン、サービストークンを使用したシングルサインオンの結果として作成されました。</li>
+                    <li><b>Apple</b><br/>このプロファイルは、次の結果として作成されました。パートナーAppleを使用したシングルサインオン。</li>
                   </ul>
                </td>
                <td><i>必須</i></td>
@@ -261,30 +262,30 @@ ht-degree: 2%
                   <br/><br/>
                   使用可能な値は次のとおりです。
                   <ul>
-                    <li><b> 通常 </b><br/> プロファイルは、基本認証の結果として作成されました。</li>
-                    <li><b>appleSSO</b><br/> プロファイルは次の結果として作成されました：パートナーのAppleを使用したシングルサインオン。</li>
-                    <li><b>platformSSO</b><br/> プロファイルは次の結果として作成されました：プラットフォーム ID を使用したシングルサインオン。</li>
-                    <li><b>serviceTokenSSO</b><br/> プロファイルは次の結果として作成されました：サービストークンを使用したシングルサインオン。</li>
+                    <li><b>regular</b><br/> プロファイルは次の結果として作成されました：基本認証。</li>
+                    <li><b>appleSSO</b><br/>このプロファイルは、次の結果として作成されました。パートナーAppleを使用したシングルサインオン。</li>
+                    <li><b>platformSSO</b><br/>このプロファイルは、次の結果として作成されました：プラットフォーム IDを使用したシングルサインオン。</li>
+                    <li><b>serviceTokenSSO</b><br/> プロファイルは、次の結果として作成されました：サービストークンを使用したシングルサインオン。</li>
                   </ul>
                <td><i>必須</i></td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">属性</td>
                <td>
-                    キーと値のペアのマップを含む JSON。
+                    キー、値のペアのマップを含むJSON。
                     <br/><br/>
-                    キー要素は、ユーザーメタデータ属性で定義され、次のいずれかになります。
+                    キー要素は、ユーザーのメタデータ属性によって定義され、次の要素を使用できます。
                     <ul>
-                        <li>必須（「userID」など）</li>
-                        <li>非必須（「zip」、「householdID」、「maxRating」など）。</li>
+                        <li>「userID」などの必須</li>
+                        <li>「zip」、「householdID」、「maxRating」など、必須ではないエレメント。</li>
                     </ul>
-                    属性の値には次の種類があります。
+                    属性の値は次のとおりです。
                     <ul>
                         <li>シンプル</li>
-                        <li>list</li>
+                        <li>リスト</li>
                         <li>マップ</li>
                     </ul>
-                    ユーザーメタデータは、認証フローが完了すると使用可能になりますが、MVPDと問題の特定のメタデータ属性に応じて、特定のメタデータ属性が認証フロー中に更新される場合があります。
+                    認証フローが完了すると、ユーザーメタデータが使用できるようになります。ただし、MVPDと特定のメタデータ属性に応じて、認証フロー中に特定のメタデータ属性が更新される場合があります。
                </td>
                <td><i>必須</i></td>
             </tr>
@@ -307,8 +308,8 @@ ht-degree: 2%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -318,14 +319,14 @@ ht-degree: 2%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>応答本文は、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">拡張エラーコード </a> ドキュメントに準拠する追加のエラー情報を提供する場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
 
 ## サンプル {#samples}
 
-### &#x200B;1. 基本認証で取得したプロファイルの取得
+### &#x200B;1. 基本認証を通じて取得したプロファイルの取得
 
 >[!BEGINTABS]
 
@@ -341,7 +342,7 @@ GET /api/v2/REF30/profiles HTTP/1.1
     User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -388,7 +389,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;2. サービストークン方式を使用した、基本認証またはシングルサインオンを通じて取得されたプロファイルの取得
+### &#x200B;2. サービストークン方式を使用して、基本認証またはシングルサインオンを通じて取得したプロファイルを取得します
 
 >[!BEGINTABS]
 
@@ -405,7 +406,7 @@ GET /api/v2/REF30/profiles HTTP/1.1
     User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -452,7 +453,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;3. Platform ID 方法を使用した、基本認証またはシングルサインオンを通じて取得されたプロファイルの取得
+### &#x200B;3. Platform ID メソッドを使用した基本認証またはシングルサインオンを通じて取得したプロファイルの取得
 
 >[!BEGINTABS]
 
@@ -469,7 +470,7 @@ GET /api/v2/REF30/profiles HTTP/1.1
     User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK

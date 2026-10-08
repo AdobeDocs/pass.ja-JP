@@ -2,13 +2,14 @@
 title: REST API V2 FAQ
 description: REST API V2 FAQ
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '11094'
 ht-degree: 1%
-
 ---
-
 # REST API V2 FAQ {#rest-api-v2-faqs}
 
 >[!IMPORTANT]
@@ -830,13 +831,13 @@ Apple SSOの問題をトラブルシューティングする場合は、次の�
 「appleSSO」タイプのプロファイルを持つユーザーのログアウトを開始する場合：
 
 * Adobe Pass ログアウトエンドポイントの応答には、次のものが含まれます。
-   * `actionName`が「partner_logout」に設定されました
-   * `actionType`が「partner_interactive」に設定されました
-   * `url`属性が見つかりません
+  * `actionName`が「partner_logout」に設定されました
+  * `actionType`が「partner_interactive」に設定されました
+  * `url`属性が見つかりません
 
 * ストリーミングアプリケーションは、次の場所に移動して、パートナー（システム）レベルでログアウトプロセスを完了するようにユーザーに促す必要があります。
-   * iOS/iPadOSの`Settings -> TV Provider`
-   * tvOSの`Settings -> Accounts -> TV Provider`
+  * iOS/iPadOSの`Settings -> TV Provider`
+  * tvOSの`Settings -> Accounts -> TV Provider`
 
 * ユーザーは、ログアウトプロセスを完了するために、システムレベルでTV プロバイダーから手動でログアウトする必要があります。
 

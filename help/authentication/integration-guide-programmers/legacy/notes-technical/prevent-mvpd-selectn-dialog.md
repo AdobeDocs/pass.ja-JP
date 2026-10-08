@@ -1,34 +1,35 @@
 ---
-title: MVPD が選択ダイアログに表示されないようにする
-description: MVPD が選択ダイアログに表示されないようにする
+title: 選択ダイアログにMVPDが表示されないようにする
+description: 選択ダイアログにMVPDが表示されないようにする
 exl-id: 20faf501-c006-45e2-a725-fb1273ecaffe
-source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '128'
 ht-degree: 0%
-
 ---
-
-# （レガシー） MVPD が選択ダイアログに表示されないようにする
+# （レガシー）選択ダイアログにMVPDが表示されないようにする
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
-## 問題 {#issue-prevent-mvpd-sel-dialog}
+## イシュー {#issue-prevent-mvpd-sel-dialog}
 
-（「ブロックリスト」）特定の MVPD がMVPD セレクターに表示されないようにする必要があります。
+MVPD セレクターに特定のMVPDが表示されないようにする必要があります（「ブロックリスト」）。
 
 
-## 解決策 {#solution-prevent-mvpd-sel-dialog}
+## Solution {#solution-prevent-mvpd-sel-dialog}
 
-これを解決するには、`displayProviderDialog()` が呼び出されたときにブロックリストへの登録を行います。
+解決策は、`displayProviderDialog()`が呼び出されたときにブロックリストを作成することです。
 
-例えば、CableCompany_1 と CableCompany_2 がMVPD セレクター内に表示されないようにするには、次の例のように操作します。
+例えば、CableCompany_1とCableCompany_2をMVPD セレクタ内に表示しない場合は、次の例に示すような操作を行います。
 
 ```C
 function displayProviderDialog(mvpdList) {

@@ -1,57 +1,58 @@
 ---
-title: iOS/tvOS API の事前認証
-description: iOS/tvOS API の事前認証
+title: iOS/tvOS APIの事前認証
+description: iOS/tvOS APIの事前認証
 exl-id: 79c596a4-0e38-4b6c-bb85-f97c6af45ed8
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '414'
 ht-degree: 0%
-
 ---
-
 # （レガシー）事前認証 {#preauthorize}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
-事前認証 API を使用して、1 つ以上のリソースの事前認証決定を取得できます。これにより、アプリケーションで UI ヒントやコンテンツフィルタリングを実装できます。
-
->[!IMPORTANT]
->
->指定したリソースへのユーザーアクセスを許可する前に、認証 API **必須** を使用する必要があります。
-
-事前認証 API 応答の結果に、拒否された事前認証の決定を含む 1 つ以上のリソースが含まれている場合、影響を受ける各リソースに対して **追加のエラー情報を含めることができます** （以下のメモを参照）。
+Preauthorize APIを使用して、1つ以上のリソースの事前承認決定を取得できます。これにより、アプリケーションはUI ヒントやコンテンツフィルタリングを実装できます。
 
 >[!IMPORTANT]
 >
->拒否された事前承認決定のエラー情報を追加する拡張エラーレポート機能は、Adobe Pass Authentication 設定側で有効にする必要があるので、リクエストに応じて使用できます。
+>ユーザーに指定されたリソースへのアクセス権を付与する前に、認証API **を使用する必要があります。**
 
-Adobe Pass Authentication SDK エラーが原因で事前認証 API リクエストに対応できなかった場合、またはAdobe Pass Authentication Services エラーが発生した場合は、追加のエラー情報（上記の設定に関係なく）が表示され、事前認証 API 応答の結果にリソースが含まれることはありません。
+事前認証API応答結果に、事前認証が拒否された決定を持つ1つ以上のリソースが含まれている場合、影響を受ける各リソースに追加のエラー情報&#x200B;**（以下のメモを参照）**&#x200B;を含めることができます。
+
+>[!IMPORTANT]
+>
+>拒否された事前認証の決定に関するエラー情報を追加する強化されたエラーレポート機能は、Adobe Pass認証の設定側で有効にする必要があるため、リクエスト時に使用できます。
+
+Adobe Pass Authentication SDK エラーが原因でPreauthorize API リクエストを処理できなかった場合、またはAdobe Pass Authentication Services エラーが発生した場合は、追加のエラー情報（上記の設定に関係なく）が含まれ、Preauthorize API レスポンス結果にリソースは含まれません。
 
 </br>
 
 ## `- (void) preauthorize:(nonnull PreauthorizeRequest *)request didCompleteWith:(nonnull AccessEnablerCallback<PreauthorizeResponse *> *)callback;`
 
 
-**提供：** v3.6.0 以降
+**可用性：** v3.6.0以降
 
 **パラメーター：**
 
-- PreauthorizeRequest:API リクエストのコンテンツを渡すために使用されるリクエストオブジェクト。
-- AccessEnablerCallback: API 応答を返すために使用されるコールバックオブジェクト。
-- PreauthorizeResponse: API 応答コンテンツを返すために使用される応答オブジェクト。
+- PreauthorizeRequest: API リクエストコンテンツを渡すために使用されるリクエストオブジェクト。
+- AccessEnablerCallback: API応答を返すために使用されるコールバックオブジェクト。
+- PreauthorizeResponse: API応答コンテンツを返すために使用される応答オブジェクト。
 
 
 </br>
 
 ## `class PreauthorizeRequest`{#androidpreauthorizerequest}
 
-### **PreauthorizeRequest.Builder クラス**
+### **class PreauthorizeRequest.Builder**
 
 ```
     ///
@@ -165,19 +166,19 @@ Adobe Pass Authentication SDK エラーが原因で事前認証 API リクエス
 
 ### 例：
 
-この節では、考えられる PreauthorizeResponse オブジェクトの JSON 構造について説明します。
+この節では、PreauthorizeResponse オブジェクトのJSON構造について説明します。
 
 >[!IMPORTANT]
 >
->次の例で示す JSON は、このドキュメントで示すモデルクラスでのみアクセスできます。 パブリックメソッドを使用しない限り、このような JSON のプロパティにアクセスすることはできません。
+>次の例で示すJSONは、このドキュメントで示すモデルクラスを通じてのみアクセスできます。 このようなJSONのプロパティには、パブリックメソッドを介してアクセスする以外はアクセスできません。
 
 >[!IMPORTANT]
 >
->拡張エラーレポート機能のメディアを通じて取得できる追加エラーのリストは、[&#x200B; 詳細なエラーレポート &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) に記載されています。
+>拡張エラーレポート機能のメディアを通じて取得される可能性のある追加エラーのリストについては、[詳細エラーレポート &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)を参照してください。
 
 #### 成功
 
-リクエストされたすべてのリソースに肯定的な事前承認の決定があります
+要求されたすべてのリソースは、肯定的な事前承認の決定を行っています
 
 ```JSON
     {
@@ -199,7 +200,7 @@ Adobe Pass Authentication SDK エラーが原因で事前認証 API リクエス
 ```
 
 
-1 つ以上のリソースの事前認証が拒否されており、Adobe Pass Authentication configuration で拡張エラーレポート機能が有効になっていません
+1つ以上のリソースで事前認証が拒否され、強化されたエラーレポート機能がAdobe Pass認証設定で有効になっていません
 
 ```JSON
     {
@@ -222,7 +223,7 @@ Adobe Pass Authentication SDK エラーが原因で事前認証 API リクエス
 ```
 
 
-1 つ以上のリソースの事前認証が拒否されています。Adobe Pass Authentication configuration で、enhanced error reporting 機能が有効になっています
+1つ以上のリソースで事前認証が拒否され、Adobe Pass認証設定で拡張エラーレポート機能が有効になっている
 
 ```JSON
     {
@@ -257,7 +258,7 @@ Adobe Pass Authentication SDK エラーが原因で事前認証 API リクエス
 
 
 
-Adobe Pass認証サービスが事前認証 API リクエストのサービス中にエラーにヒットしました
+Preauthorize API リクエストのサービス中にAdobe Pass Authentication サービスがエラーに遭遇しました
 
 ```JSON
     {
@@ -277,7 +278,7 @@ Adobe Pass認証サービスが事前認証 API リクエストのサービス�
 
 #### 失敗
 
-Adobe Pass認証SDKが、事前認証 API リクエストのサービス中にエラーをヒットしました
+Adobe Pass Authentication SDKで、Preauthorize API リクエストのサービス中にエラーが発生する
 
 ```JSON
     {
@@ -325,7 +326,7 @@ Adobe Pass認証SDKが、事前認証 API リクエストのサービス中に�
 
 </br>
 
-## **クラスの状態** {#status}
+## **クラスステータス** {#status}
 
 ```
     ///
@@ -381,7 +382,7 @@ Adobe Pass認証SDKが、事前認証 API リクエストのサービス中に�
 
 <br>
 
-## **級決定** {#decision}
+## **クラス決定** {#decision}
 
 ```
     ///

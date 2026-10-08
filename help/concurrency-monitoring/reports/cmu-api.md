@@ -2,13 +2,14 @@
 title: APIの概要
 description: APIの概要
 exl-id: 3fe6f6d8-5b2f-47e5-a8da-06fb18a5d46b
-source-git-commit: b6ba687240799d1889302019613f426259f147ad
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '2102'
 ht-degree: 0%
-
 ---
-
 # 同時実行モニタリング使用状況API {#cmu-api-usage}
 
 >[!NOTE]

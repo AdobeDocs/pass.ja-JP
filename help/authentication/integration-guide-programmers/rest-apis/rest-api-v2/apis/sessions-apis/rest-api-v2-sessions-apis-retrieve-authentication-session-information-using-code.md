@@ -2,26 +2,27 @@
 title: コードを使用した認証セッションの取得
 description: REST API V2 - コードを使用した認証セッションの取得
 exl-id: 5cc209eb-ee6b-4bb9-9c04-3444408844b7
-source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
-source-wordcount: '541'
+source-wordcount: '549'
 ht-degree: 3%
-
 ---
-
 # コードを使用した認証セッションの取得 {#retrieve-authentication-session-using-code}
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2の実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 >[!MORELIKETHIS]
 >
-> また、[REST API V2 の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general) も必ず参照してください。
+> また、[REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general)にもアクセスしてください。
 
 ## リクエスト {#request}
 
@@ -48,12 +49,12 @@ ht-degree: 3%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
-      <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部の一意の ID。</td>
+      <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部一意のID。</td>
       <td><i>必須</i></td>
    </tr>
     <tr>
       <td style="background-color: #DEEBFF;">コード</td>
-      <td>ストリーミングデバイスで認証セッションを作成した後に取得した認証コード。</td>
+      <td>ストリーミングデバイスで認証セッションを作成した後に取得された認証コード。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -63,39 +64,39 @@ ht-degree: 3%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-authorization.md">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
+      <td>ベアラートークンのペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-authorization.md">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">X-Forwarded-For</td>
       <td>
-         ストリーミングデバイスの IP アドレス。
+         ストリーミングデバイスのIP アドレス。
          <br/><br/>
-         サーバーからサーバーへの実装には常に使用することを強くお勧めします。特に、呼び出しがストリーミングデバイスではなくプログラマーサービスによって行われる場合に強くお勧めします。
+         特に、ストリーミングデバイスではなくプログラマーサービスによって呼び出しが行われる場合は、サーバーからサーバーへの実装に常に使用することを強くお勧めします。
          <br/><br/>
-         クライアントからサーバーへの実装の場合、ストリーミングデバイスの IP アドレスは暗黙的に送信されます。
+         クライアントからサーバーへの実装では、ストリーミングデバイスのIP アドレスが暗黙的に送信されます。
       </td> 
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Visitor-Identifier</td>
       <td>
-        訪問者識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a> ヘッダードキュメントを参照してください。
-      <td>optional</td>
+        訪問者識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a> ヘッダーのドキュメントを参照してください。
+      <td>オプション</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">承諾</td>
+      <td style="background-color: #DEEBFF;">承認</td>
       <td>
-         クライアントアプリケーションによって受け入れられるメディアタイプ。
+         クライアントアプリケーションが受け入れたメディアタイプ。
          <br/><br/>
-         指定する場合は、application/json;charset=utf-8 にする必要があります。
+         指定する場合は、application/json;charset=utf-8である必要があります。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">User-Agent</td>
       <td>クライアントアプリケーションのユーザーエージェント。</td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
 </table>
 
@@ -111,35 +112,35 @@ ht-degree: 3%
       <td>200</td>
       <td>OK</td>
       <td>
-        応答本文には、認証セッションに関する情報が含まれます。
+        応答本文は、認証セッションに関する情報を含む。
       </td>
    </tr>
    <tr>
       <td>400</td>
-      <td>リクエストが正しくありません</td>
+      <td>不正なリクエスト</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        リクエストが無効です。クライアントはリクエストを修正して、もう一度試す必要があります。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
-      <td>未認証</td>
+      <td>未承認</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="../../../rest-api-dcr/dynamic-client-registration-overview.md"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得し、再試行する必要があります。 詳しくは、<a href="../../../rest-api-dcr/dynamic-client-registration-overview.md">動的クライアント登録の概要</a>のドキュメントを参照してください。
       </td>
    </tr>
    <tr>
       <td>405</td>
-      <td>許可されていないメソッド</td>
+      <td>メソッドは許可されていません</td>
       <td>
-        HTTP メソッドが無効です。クライアントは、リクエストされたリソースに許可されている HTTP メソッドを使用し、再試行する必要があります。 詳しくは、<a href="#request"> リクエスト </a> の節を参照してください。
+        HTTP メソッドが無効です。クライアントは、リクエストされたリソースに対して許可されているHTTP メソッドを使用して、再試行する必要があります。 詳しくは、「<a href="#request"> リクエスト </a>」の節を参照してください。
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        サーバーサイドで問題が発生しました。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
 </table>
@@ -165,7 +166,7 @@ ht-degree: 3%
    <tr>
       <td style="background-color: #DEEBFF;"></td>
       <td>
-         次の属性を持つ JSON オブジェクト。
+         次の属性を持つJSON オブジェクト：
          <table style="table-layout:auto">
             <tr>
                <th style="background-color: #EFF2F7;">属性</th>
@@ -174,13 +175,13 @@ ht-degree: 3%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">existingParameters</td>
-               <td>既に指定されている既存のパラメーター。</td>
+               <td>既に指定された既存のパラメーター。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">missingParameters</td>
-               <td>認証フローを完了するために指定する必要がある、不足しているパラメーター。</td>
-               <td>optional</td>
+               <td>認証フローを完了するために指定する必要があるパラメーターがありません。</td>
+               <td>オプション</td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">デバイス</td>
@@ -189,7 +190,7 @@ ht-degree: 3%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notBefore</td>
-               <td>認証コードが無効になる前のタイムスタンプ（ミリ秒単位）。</td>
+               <td>認証コードが無効になるまでのタイムスタンプ（ミリ秒単位）。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -216,8 +217,8 @@ ht-degree: 3%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -228,15 +229,15 @@ ht-degree: 3%
    <tr>
       <td style="background-color: #DEEBFF;"></td>
       <td>
-            応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。
+            応答本文は、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">拡張エラーコード </a> ドキュメントに準拠する追加のエラー情報を提供する場合があります。
             <br/><br/>
-            クライアントアプリケーションは、この API で最も一般的に返されるエラーコードを適切に処理できるエラー処理メカニズムを実装する必要があります。
+            クライアントアプリケーションは、このAPIによって最も一般的に返されるエラーコードを適切に処理できるエラー処理メカニズムを実装する必要があります。
             <ul>
                 <li>invalid_authentication_session</li>
                 <li>invalid_parameter_code</li>
-                <li>等。</li>
+                <li>など。</li>
             </ul>
-            上記のリストは完全ではありません。 クライアントアプリケーションは、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 公開ドキュメント </a> で定義されているすべての拡張エラーコードを処理できる必要があります。
+            上記のリストは網羅的ではありません。 クライアントアプリケーションは、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">公開ドキュメント </a>で定義されているすべての強化エラーコードを処理できる必要があります。
       </td>
       <td><i>必須</i></td>
    </tr>
@@ -244,7 +245,7 @@ ht-degree: 3%
 
 ## サンプル {#samples}
 
-### &#x200B;1. パラメーターのない認証セッションを取得します
+### &#x200B;1. パラメーターを欠落せずに認証セッションを取得する
 
 >[!BEGINTABS]
 
@@ -258,7 +259,7 @@ GET /api/v2/sessions/REF30/8BLW4RW HTTP/1.1
     User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -339,7 +340,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;1. パラメーターがない認証セッションの取得
+### &#x200B;1. パラメーターが欠落している認証セッションの取得
 
 >[!BEGINTABS]
 
@@ -353,7 +354,7 @@ GET /api/v2/sessions/REF30/8BLW4RW HTTP/1.1
     User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK

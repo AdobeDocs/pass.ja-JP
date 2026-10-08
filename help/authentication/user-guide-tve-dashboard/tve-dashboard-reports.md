@@ -1,59 +1,60 @@
 ---
 title: レポート
-description: TVE ダッシュボードレポートでデータを集計する方法を説明します。
+description: TVE ダッシュボードレポートでのデータの集計方法について説明します。
 exl-id: d8ba48de-d743-4dc2-866c-7d6e3ff94773
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '988'
 ht-degree: 0%
-
 ---
-
 # レポート {#Reports}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-TVE ダッシュボードの「**レポート**」セクションでは、AuthN TTL、AuthZ TTL および SSO レポートの集計データにアクセスできます。 これらのレポートには、すべての [&#x200B; プラットフォーム &#x200B;](#platforms) で異なる MVPD とのチャネル統合が含まれます。
+TVE ダッシュボードの&#x200B;**レポート** セクションでは、AuthN TTL、AuthZ TTL、およびSSO レポートの集計データにアクセスできます。 これらのレポートには、すべての[&#x200B; プラットフォーム &#x200B;](#platforms)で異なるMVPDとのチャネル統合が含まれます。
 
-レポートを使用すると、データをフィルタリングし、[&#x200B; 特定のチャネルまたは MVPD](#selecting-specific-channels-mvpds) をまたいでインサイトを収集できます。 レポートを CSV ファイルに書き出して、さらに分析することもできます。
+レポートを使用すると、[特定のチャネルまたはMVPD](#selecting-specific-channels-mvpds)にわたってデータをフィルタリングし、インサイトを収集できます。 CSV ファイルでレポートをエクスポートして、詳細な分析を行うこともできます。
 
 ## レポートを表示 {#view-reports}
 
 特定のレポートを表示するには、次の手順に従います。
 
-1. 左パネルの「**レポート**」タブを選択します。
-1. 次のタブのいずれかを選択して、含まれるチャネルと MVPD の集計データを表示および書き出します。
+1. 左側のパネルで「**レポート**」タブを選択します。
+1. 次のいずれかのタブを選択して、含まれているチャネルとMVPDの集約データを表示および書き出します。
    * [AuthN TTL レポート](#authn-ttl-reports)
    * [AuthZ TTL レポート](#authz-ttl-reports)
    * [SSO レポート](#sso-reports)
 
-   ![&#x200B; 報告の種類 &#x200B;](../assets/tve-dashboard/new-tve-dashboard/reports/reports-tabs-view.png)
+   ![&#x200B; レポートの種類](../assets/tve-dashboard/new-tve-dashboard/reports/reports-tabs-view.png)
 
-   *報告の種類*
+   *レポートの種類*
 
 ### AuthN TTL レポート {#authn-ttl-reports}
 
-AuthN TTL レポート（認証有効期間（TTL）とも呼ばれます）は、すべての [&#x200B; プラットフォーム &#x200B;](#platforms) をまたいだ様々な MVPD とのチャネル統合に対して認証トークンが設定されている期間を表示します。 これらのレポートを使用すると、特定のMVPDおよびプラットフォームで、ユーザーが認証されたままになっている時間を調べることができます。 期間の値は、**days**、**hours**、**minutes**、**seconds** など使いやすい形式で表示されます。 AuthN TTL レポート テーブルには、異なる画面サイズに対応する水平および垂直のスクロール機能があります。
+AuthN TTL レポートは、Authentication Time-To-Live （TTL）とも呼ばれ、すべての[&#x200B; プラットフォーム &#x200B;](#platforms)で、様々なMVPDとのチャネル統合に対して認証トークンが設定される期間を表示します。 これらのレポートを使用すると、特定のMVPDおよびプラットフォームに対するユーザーの認証時間を調べることができます。 期間の値は、**日**、**時間**、**分**、**秒**&#x200B;など、ユーザーにとって使いやすい形式で表示されます。 AuthN TTL レポート テーブルは、様々な画面サイズに対応する水平および垂直スクロール機能を備えています。
 
-また、[&#x200B; 特定のチャネルまたは MVPD](#selecting-specific-channels-mvpds) のデータを表示してダウンロードすることもできます。
+また、[特定のチャネルまたはMVPD](#selecting-specific-channels-mvpds)のデータを表示およびダウンロードすることもできます。
 
-![AuthN TTL レポートのエクスポート &#x200B;](../assets/tve-dashboard/new-tve-dashboard/reports/reports-authn-ttl-export-button.png)
+![認証TTL レポートのエクスポート &#x200B;](../assets/tve-dashboard/new-tve-dashboard/reports/reports-authn-ttl-export-button.png)
 
-*AuthN TTL レポートのエクスポート*
+*認証TTL レポートのエクスポート*
 
 >[!IMPORTANT]
 >
-> **Set by MVPD** プレースホルダーは、MVPDでAdobe Pass認証設定ではなく AuthN TTL 値が適用される場合に使用されます。
+> MVPDによって設定された&#x200B;**Set** プレースホルダーは、MVPDがAdobe Pass Authentication設定ではなくAuthN TTL値を適用する場合に使用されます。
 
-**レポートを書き出し** を選択して、ローカルマシン上に CSV ファイルとしてデータを保存します。
+**レポートの書き出し**&#x200B;を選択して、データをローカルマシンにCSV ファイルとして保存します。
 
 ### AuthZ TTL レポート {#authz-ttl-reports}
 
-AuthZ TTL レポート（Authorization Time-To-Live （TTL）とも呼ばれます）は、すべての [&#x200B; プラットフォーム &#x200B;](#platforms) にわたる様々な MVPD とのチャネル統合のために設定された認証トークンの期間を表示します。 これらのレポートを使用すると、特定のMVPDおよびプラットフォームのコンテンツを視聴する権限がユーザーに与えられている時間を調べることができます。 期間の値は、**days**、**hours**、**minutes**、**seconds** など使いやすい形式で表示されます。 AuthZ TTL レポートテーブルは、異なる画面サイズに対応する水平および垂直スクロールを備えています。
+AuthZ TTL レポートは、Authorization Time-To-Live （TTL）とも呼ばれ、すべての[&#x200B; プラットフォーム &#x200B;](#platforms)で、様々なMVPDとのチャネル統合に設定された認証トークンの期間を表示します。 これらのレポートを使用すると、特定のMVPDおよびプラットフォームのコンテンツを視聴する権限をユーザーが保持している時間を調べることができます。 期間の値は、**日**、**時間**、**分**、**秒**&#x200B;など、ユーザーにとって使いやすい形式で表示されます。 AuthZ TTL レポート テーブルは、様々な画面サイズに対応する水平および垂直スクロール機能を備えています。
 
-また、[&#x200B; 特定のチャネルまたは MVPD](#selecting-specific-channels-mvpds) のデータを表示してダウンロードすることもできます。
+また、[特定のチャネルまたはMVPD](#selecting-specific-channels-mvpds)のデータを表示してダウンロードすることもできます。
 
 ![AuthZ TTL レポートのエクスポート &#x200B;](../assets/tve-dashboard/new-tve-dashboard/reports/reports-authz-ttl-export-button.png)
 
@@ -61,15 +62,15 @@ AuthZ TTL レポート（Authorization Time-To-Live （TTL）とも呼ばれま�
 
 >[!IMPORTANT]
 >
-> **Set by MVPD** プレースホルダーは、MVPDでAdobe Pass認証設定ではなく AuthZ TTL 値が適用される場合に使用されます。
+> MVPDによって設定された&#x200B;**Setのプレースホルダーは、MVPDがAdobe Pass Authentication設定ではなくAuthZ TTL値を適用する場合に使用されます。**
 
-**レポートを書き出し** を選択して、ローカルマシン上に CSV ファイルとしてデータを保存します。
+**レポートの書き出し**&#x200B;を選択して、データをローカルマシンにCSV ファイルとして保存します。
 
 ### SSO レポート {#sso-reports}
 
-SSO レポート（シングルサインオンとも呼ばれます）には、すべての [&#x200B; プラットフォーム &#x200B;](#platforms) をまたいだ様々な MVPD とのチャネル統合に設定されたシングルサインオンステータスが表示されます。 これらのレポートを使用すると、特定のMVPDおよびプラットフォームで期待されるユーザー認証 SSO エクスペリエンスを調べることができます。 値は、**SSO 無効**、**SSO 有効**、**SSO 不明** などの使いやすい形式で表示されます。 SSO レポートテーブルには、様々な画面サイズに対応する水平および垂直のスクロールが用意されています。
+シングルサインオンとも呼ばれるSSO レポートには、すべての[&#x200B; プラットフォーム &#x200B;](#platforms)で、様々なMVPDとのチャネル統合に設定されたシングルサインオンステータスが表示されます。 これらのレポートを使用すると、特定のMVPDおよびプラットフォームの想定されるユーザー認証SSO エクスペリエンスを調べることができます。 値は、**SSO Disabled**、**SSO Enabled**、**SSO Uncertain**&#x200B;など、使いやすい形式で表示されます。 SSO レポート テーブルには、様々な画面サイズに対応する水平および垂直スクロールが用意されています。
 
-また、[&#x200B; 特定のチャネルまたは MVPD](#selecting-specific-channels-mvpds) のデータを表示してダウンロードすることもできます。
+また、[特定のチャネルまたはMVPD](#selecting-specific-channels-mvpds)のデータを表示およびダウンロードすることもできます。
 
 ![SSO レポートのエクスポート &#x200B;](../assets/tve-dashboard/new-tve-dashboard/reports/reports-sso-export-button.png)
 
@@ -77,78 +78,78 @@ SSO レポート（シングルサインオンとも呼ばれます）には、�
 
 >[!IMPORTANT]
 >
-> **SSO が不明** プレースホルダーは、シングルサインオン（SSO）が有効で、動作している可能性があることを示しています。 ただし、次の例で説明するように、次の設定では SSO 認証が禁止される場合があります。
+> **SSO Uncertain** プレースホルダーは、シングルサインオン （SSO）が有効であり、運用できる可能性があることを示します。 ただし、次の例に示すように、次の設定ではSSO認証が禁止される場合があります。
 >
-> * ユーザープラットフォーム設定：サードパーティ Cookie をブロックするオプションです。
-> * ユーザーの決定：ユーザーは、自社の TV プロバイダー購読へのプラットフォームアクセスを拒否します。
-> * MVPDの設定：MVPDは、各チャネルの認証をリクエストします。
+> * ユーザープラットフォームの設定：サードパーティ Cookieをブロックするオプション。
+> * ユーザーの決定：ユーザーは、TV プロバイダーのサブスクリプションへのプラットフォームアクセスを拒否します。
+> * MVPDの設定：MVPDは、各チャネルに対して認証をリクエストします。
 
-**レポートを書き出し** を選択して、ローカルマシン上に CSV ファイルとしてデータを保存します。
+**レポートの書き出し**&#x200B;を選択して、データをローカルマシンにCSV ファイルとして保存します。
 
-## プラットフォーム {#platforms}
+## Platforms {#platforms}
 
-[AuthN TTL レポート &#x200B;](#authn-ttl-reports)、[AuthZ TTL レポート &#x200B;](#authz-ttl-reports) および [SSO レポート &#x200B;](#sso-reports) は、次のような様々なプラットフォームでデータを表示します。
+[AuthN TTL レポート &#x200B;](#authn-ttl-reports)、[AuthZ TTL レポート &#x200B;](#authz-ttl-reports)および[SSO レポート &#x200B;](#sso-reports)は、次のような様々なプラットフォームのデータを示します。
 
-* **デスクトップ**:Adobe Pass認証JavaScript SDKを使用してプログラマー実装に適用される値を表示します。
+* **デスクトップ**: Adobe Pass Authentication JavaScript SDKを介してプログラマ実装に適用された値を表示します。
 
 * **モバイル**
 
   **iOS**: Adobe Pass Authentication iOS SDKを使用して適用された値を表示します。
 
-  **Android**: Adobe Pass認証Android SDKで適用された値を表示します。
+  **Android**: Adobe Pass Authentication Android SDKを通じて適用された値を表示します。
 
-  **その他**：モバイルデバイス用に開発されたAdobe Pass認証 REST API を使用して適用された値を表示します。
+  **その他**: モバイルデバイス用に開発されたAdobe Pass Authentication REST APIを使用して適用された値を表示します。
 
 * **TVCD**
 
-  **Roku**:Roku をデバイスタイプとして識別し、Adobe Pass認証 REST API を介して適用された値を表示します。
+  **Roku**: Adobe Pass Authentication REST APIを介して適用された値を表示し、Rokuをデバイスタイプとして識別します。
 
-  **FireTV**:Adobe Pass認証の FireTV SDKで適用された値を表示します。
+  **FireTV**: Adobe Pass Authentication FireTV SDKを通じて適用された値を表示します。
 
-  **AppleTV**:Adobe Pass認証の tvOS SDKを通じて適用された値を表示します。
+  **AppleTV**: Adobe Pass Authentication tvOS SDKを介して適用された値を表示します。
 
-  **その他**：テレビに接続されているデバイスにAdobe Pass Authentication REST API を使用して適用された値を表示します。
+  **その他**: テレビ接続デバイスに対してAdobe Pass Authentication REST APIを使用して適用された値を表示します。
 
-* **Platform 未識別**: Adobe Pass Authentication Services が不明なデバイスタイプを検出した場合に、プログラマーの実装に適用される値を表示します。
+* **Platform unidentified**: Adobe Pass認証サービスが不明なデバイスタイプを検出したときに、プログラマー実装に適用される値を表示します。
 
-**Roku** などの目的のデバイスタイプをAdobe Pass認証 REST API または SDK と共有する方法について詳しくは、[&#x200B; クライアント情報を渡す &#x200B;](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md) メカニズムを参照してください。
+Adobe Pass Authentication REST APIまたはSDKと&#x200B;**Roku**&#x200B;などの目的のデバイスタイプを共有する方法について詳しくは、[&#x200B; クライアント情報を渡す](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)仕組みを参照してください。
 
 >[!IMPORTANT]
 >
-> 集計されるデータは、各Adobe Pass Authentication Environment の具体的な設定に基づいています。 異なる TVE ダッシュボード環境を切り替えると、レポート間でデータにバリエーションが生じることが予想されます。 詳しくは、[Adobe Pass認証環境 &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-environments.md) を参照してください。
+> 集計されたデータは、各Adobe Pass認証環境の特定の設定に基づいています。 異なるTVE ダッシュボード環境を切り替える場合、レポート間でデータのバリエーションが発生することを想定します。 詳しくは、[Adobe Pass Authentication environments](/help/authentication/user-guide-tve-dashboard/tve-dashboard-environments.md)を参照してください。
 
-## 特定のチャネルと MVPD の選択 {#selecting-specific-channels-mvpds}
+## 特定のチャネルとMVPDの選択 {#selecting-specific-channels-mvpds}
 
-[AuthN TTL レポート &#x200B;](#authn-ttl-reports)、[AuthZ TTL レポート &#x200B;](#authz-ttl-reports) および [SSO レポート &#x200B;](#sso-reports) は、デフォルトで **すべてのチャネル** 統合 **すべての MVPD** のデータを表示します。
+[AuthN TTL レポート &#x200B;](#authn-ttl-reports)、[AuthZ TTL レポート &#x200B;](#authz-ttl-reports)および[SSO レポート &#x200B;](#sso-reports)では、デフォルトで&#x200B;**すべてのMVPD**&#x200B;と&#x200B;**すべてのチャネル**&#x200B;統合のデータが表示されます。
 
 >[!NOTE]
 >
-> それぞれのドロップダウンメニューで **すべてのチャネル** または **すべての MVPD** の選択を解除すると、意味のあるレポートを表示するための選択を行うためのメッセージが表示されます。
+> それぞれのドロップダウンメニューで&#x200B;**すべてのチャネル**&#x200B;または&#x200B;**すべてのMVPD**&#x200B;の選択を解除すると、メッセージが表示され、有意義なレポートを表示するための選択が行われます。
 
 特定のチャネルに関するレポートを生成するには：
 
-1. 選択したレポートの上部にある **含まれるチャネル** ドロップダウンメニューを選択します。
+1. 選択したレポートの上部にある「**含まれるチャネル**」ドロップダウンメニューを選択します。
 
-   ![&#x200B; 含まれるチャネル ドロップダウンメニュー &#x200B;](../assets/tve-dashboard/new-tve-dashboard/reports/reports-included-channels-menu.png)
+   ![&#x200B; チャネルを含むドロップダウンメニュー](../assets/tve-dashboard/new-tve-dashboard/reports/reports-included-channels-menu.png)
 
-   *含まれるチャネル ドロップダウンメニュー*
+   *チャネルを含むドロップダウンメニュー*
 
-1. 「**すべてのチャネル**」の選択を解除します。
+1. **すべてのチャネル**&#x200B;の選択を解除します。
 
-1. **含まれるチャネル** ドロップダウンメニューから、データを生成するために必要なチャネルを選択します。
+1. データを生成する&#x200B;**含まれるチャネル** ドロップダウンメニューから必要なチャネルを選択します。
 
 >[!NOTE]
 >
-> **含まれる MVPD** ドロップダウンメニューでオプションを使用するには、**含まれるチャネル** ドロップダウンメニューで少なくとも 1 つのチャネルを選択する必要があります。
+> **含まれるMVPD** ドロップダウンメニューでオプションを使用するには、**含まれるチャネル** ドロップダウンメニューで少なくとも1つのチャネルを選択する必要があります。
 
-特定の MVPD のレポートを生成するには：
+特定のMVPDのレポートを生成するには：
 
-1. 選択したレポートの上部にある「**含まれる MVPD**」ドロップダウンメニューを選択します。
+1. 選択したレポートの上部にある「**含まれるMVPD**」ドロップダウンメニューを選択します。
 
-   ![&#x200B; 含まれる MVPD ドロップダウンメニュー &#x200B;](../assets/tve-dashboard/new-tve-dashboard/reports/reports-included-mvpds-menu.png)
+   ![MVPDs ドロップダウンメニューを含む](../assets/tve-dashboard/new-tve-dashboard/reports/reports-included-mvpds-menu.png)
 
-   *含まれる MVPD ドロップダウンメニュー*
+   *MVPDs ドロップダウンメニューを含む*
 
-1. 「**すべての MVPD**」の選択を解除します。
+1. **すべてのMVPD**&#x200B;の選択を解除します。
 
-1. データを生成する必要のある MVPD を **Included MVPDs** ドロップダウンメニューから選択します。
+1. データを生成する対象となる&#x200B;**含まれるMVPD** ドロップダウンメニューから、必要なMVPDを選択します。

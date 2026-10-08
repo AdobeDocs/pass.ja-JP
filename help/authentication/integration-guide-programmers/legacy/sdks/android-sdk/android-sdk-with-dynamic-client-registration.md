@@ -2,13 +2,14 @@
 title: Android SDKとDynamic Client Registration
 description: Android SDKとDynamic Client Registration
 exl-id: 8d0c1507-8e80-40a4-8698-fb795240f618
-source-git-commit: b6ba687240799d1889302019613f426259f147ad
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '1321'
 ht-degree: 1%
-
 ---
-
 # （レガシー）動的クライアント登録を使用したAndroid SDK {#android-sdk-with-dynamic-client-registration}
 
 >[!NOTE]
@@ -64,7 +65,8 @@ Android SDK v3.0以降では、[Dynamic Client Registration Overview](../../../r
 - softwareStatement: strings.xmlに「software\_statement」が設定されている場合にTVE ダッシュボードまたは&#x200B;*null*&#x200B;から取得した値
 - redirectUrl：一意のURL。TVE ダッシュボードで明示的に追加された逆順のドメインの1つ。strings.xmlに「redirect\_uri」が設定されている場合は&#x200B;*null*
 
-注意：無効なsoftwareStatementまたはredirectUrlが原因で、アプリケーションはAccessEnablerを初期化したり、Adobe Pass認証および認証にアプリケーションを登録したりしません</br>
+注意：無効なsoftwareStatementまたはredirectUrlが原因で、アプリケーションはAccessEnablerを初期化したり、Adobe Pass認証および認証にアプリケーションを登録したりしません
+</br>
 注意：strings.xmlのredirectUrl パラメーターまたはredirect\_uriは、アプリケーション用TVE ダッシュボードに逆順で追加されたドメインの値である必要があります（例：TVE ダッシュボードに追加されたドメイン「adobe.com」の場合、redirectUrlは「com.adobe」である必要があります）。
 
 
@@ -113,8 +115,8 @@ Android SDK v3.0以降では、[Dynamic Client Registration Overview](../../../r
 
 **パラメーター：**&#x200B;なし
 
-**コールバックがトリガーされました：** 
-
+**コールバックがトリガーされました：** `setAuthenticationStatus()`
+</br></br>
 
 ## プログラマ実装フロー {#Progr}
 

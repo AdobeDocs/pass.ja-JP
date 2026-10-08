@@ -2,7 +2,10 @@
 title: Adobe Concurrency Monitoring Services 3.4.0 リリースノート
 description: Adobe Concurrency Monitoring Services 3.4.0 リリースノート
 exl-id: cf436f40-5388-4b03-815e-d8be55fe005a
-source-git-commit: 39384d753e7808fa433f30d8dafabd531dbf3acf
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '57'
 ht-degree: 3%

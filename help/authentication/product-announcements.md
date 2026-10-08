@@ -2,13 +2,14 @@
 title: 製品のお知らせ
 description: 製品のお知らせ
 exl-id: 3c9c66e1-d31d-4af3-8ab2-eb32492f42ca
-source-git-commit: 7ec140485418d07e16a181d43b651ea6de331477
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '1027'
 ht-degree: 22%
-
 ---
-
 # 製品のお知らせ {#product-announcements}
 
 ## サポート終了（EOL） {#eol}

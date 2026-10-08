@@ -1,32 +1,33 @@
 ---
-title: Androidを事前認証
-description: Androidを事前認証
+title: Androidの事前認証
+description: Androidの事前認証
 exl-id: b5337595-135f-4981-a578-2da432f125d6
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '218'
 ht-degree: 0%
-
 ---
-
 # （レガシー）事前認証 {#preuthorize-android}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 </br>
 
 
-1 つ以上のリソースの事前認証の決定を取得するには、アプリケーションで事前認証 API メソッドを使用する必要があります。 事前認証 API リクエストは、UI ヒントやコンテンツフィルタリングに使用する必要があります。 指定したリソースへのアクセス権をユーザーに付与する前に、実際の認証 API リクエストを行う必要があります。
+Preauthorize API メソッドは、1つ以上のリソースの事前承認決定を取得するために、アプリケーションで使用する必要があります。 Preauthorize API リクエストは、UI ヒントやコンテンツフィルタリングに使用する必要があります。 指定されたリソースへのアクセス権をユーザーに付与する前に、実際の認証API リクエストを行う必要があります。
 
 
 
-予期しないエラーが発生した場合（ネットワークの問題、MVPD認証エンドポイントが使用できないなど） 事前認証 API リクエストがAdobe Pass認証サービスによって処理される際に、影響を受けるリソースの 1 つ以上のエラー情報が事前認証 API 応答の結果の一部として含まれます。
+予期しないエラーが発生した場合（ネットワークの問題、MVPD認証エンドポイントの使用不可など） Adobe Pass Authentication サービスによってPreauthorize API リクエストが処理されると、Preauthorize API レスポンス結果の一部として、影響を受けるリソースに対して1つまたは複数の区切られたエラー情報が含まれます。
 
 
 ## `public void preauthorize(PreauthorizeRequest request, AccessEnablerCallback<PreauthorizeResponse> callback);`
@@ -34,19 +35,19 @@ ht-degree: 0%
 
 **説明：**
 
-**提供：** v3.6.0 以降
+**可用性：** v3.6.0以降
 
 **パラメーター：**
 
-- *PreauthorizeRequest*：リクエストの定義に使用されるビルダーオブジェクト
-- AccessEnablerCallback :API 応答を返すために使用されるコールバック
-- PreauthorizeResponse :API を返すために使用されるオブジェクト
+- *PreauthorizeRequest*: リクエストの定義に使用されるビルダーオブジェクト
+- AccessEnablerCallback :API応答を返すために使用されるコールバック
+- PreauthorizeResponse :APIを返すために使用されるオブジェクト
 応答コンテンツ
 
 
-### public クラス PreauthorizeRequest {#androidpreauthorizerequest}
+### public class PreauthorizeRequest {#androidpreauthorizerequest}
 
-**PreauthorizeRequest.Builder クラス**
+**class PreauthorizeRequest.Builder**
 
 ```java
     ///
@@ -67,7 +68,7 @@ ht-degree: 0%
     ///
 ```
 
-**public Builder setResources （List\&lt;String\> resources）**
+**public Builder setResources （List\&lt;String\> リソース）**
 
 ```
     ///
@@ -89,7 +90,7 @@ ht-degree: 0%
 ```
 
 
-**パブリック ビルダー disableFeatures （Set\&lt;PreauthorizeRequest.Feature\>
+**public Builder disableFeatures （Set\&lt;PreauthorizeRequest.Feature\>
 機能）**
 
 ```
@@ -146,7 +147,7 @@ ht-degree: 0%
 
 
 
-### クラス PreauthorizeResponse {#preauthorizeresponse}
+### class PreauthorizeResponse {#preauthorizeresponse}
 
 ```java
     ///
@@ -167,7 +168,7 @@ ht-degree: 0%
 ```
 
 
-**クラスの状態** {#status}
+**クラスステータス** {#status}
 
 ```java
 ///
@@ -231,7 +232,7 @@ ht-degree: 0%
 
 </br>
 
->**級決定** {#decision}
+>**クラス決定** {#decision}
 
 ```
     ///

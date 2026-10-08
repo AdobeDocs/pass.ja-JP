@@ -2,26 +2,27 @@
 title: プライバシーリクエストの作成方法
 description: プライバシーリクエストの作成方法
 exl-id: abb21306-98d6-4899-914a-bdfa85cbd204
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '603'
-ht-degree: 6%
-
+ht-degree: 0%
 ---
-
 # プライバシーリクエストの作成方法 {#howto-make-privacy-request}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 ## 識別子と名前空間 {#identifier-namespace}
 
-プライバシーリクエストのアクセスまたは削除を送信する場合、顧客アプリケーションには次の識別子を含める必要があります。
+アクセスまたはプライバシーの削除リクエストを送信する場合、顧客アプリケーションには次の識別子を含める必要があります。
 
-* **mvpdID** - MVPDの一意の ID。
-* **userID** - プログラマーのアプリのユーザーを一意に識別しますが、MVPDから開始します。 プログラマーの概要のユーザー ID についてを参照してください。
-* **IMSOrgID** - Adobe Experience Cloudでお客様を一意に識別するAdobe Experience Cloud Identity Management サービス組織 ID。
+* **mvpdID** - MVPDの一意のID。
+* **userID** - プログラマーのアプリのユーザーを一意に識別しますが、MVPDから構成されます。 プログラマの概要の「ユーザーIDについて」を参照してください。
+* **IMSOrgID** - Adobe Experience Cloudのお客様を一意に識別するAdobe Experience Cloud Identity Management サービス組織ID
 
 
 以下のサンプルを確認してください。
@@ -36,23 +37,23 @@ ht-degree: 6%
 
 >[!IMPORTANT]
 >
->Adobe Pass Authentication でプライバシーリクエストを生成するには、ユーザーの認証が必要です。 そうしないと、プログラマーは、MVPDのユーザー ID を抽出する他の方法を見つける必要があります。
+>Adobe Pass認証のプライバシーリクエストを生成するには、ユーザーを認証する必要があります。 それ以外の場合、プログラマはMVPDのユーザーIDを抽出する他の手段を見つける必要があります。
 
-## リクエストのタイプ {#req-type}
+## リクエストの種類 {#req-type}
 
-Adobe Pass認証は、アクセスリクエストと削除リクエストをサポートします。
+Adobe Pass Authenticationでは、アクセス要求と削除要求をサポートしています。
 
 ### アクセス {#access-req}
 
-アクセスリクエストの場合：
+アクセス要求の場合：
 
-そのデータ主体に対して作成された認証および承認リクエストの合計数の概要を含む JSON ファイルを提供します。
+そのデータ主体に対して作成された認証リクエストと承認リクエストの合計数の概要を含むJSON ファイルを返します。
 これらのイベントはすべて、顧客ごとにフィルタリングされます。
 
 
-**リクエストのサンプル**
+**サンプルをリクエスト**
 
-データアクセスリクエストを送信するAdobe Pass認証識別子を含んだ JSON をアップロードする必要があります。 整形式の JSON を確認するには、次のサンプルを参照してください。
+データアクセスリクエストを送信するAdobe Pass認証識別子を含むJSONをアップロードする必要があります。 適切な形式のJSONの例を確認するには、次のサンプルを参照してください。
 
 ```JSON
 {
@@ -132,9 +133,9 @@ Adobe Pass認証は、アクセスリクエストと削除リクエストをサ�
 
 ### 削除 {#delete-req}
 
-データ削除リクエストを送信するAdobe Pass認証識別子を含んだ JSON をアップロードする必要があります。 整形式の JSON を確認するには、次のサンプルを参照してください。
+データ削除リクエストを送信するAdobe Pass認証識別子を含むJSONをアップロードする必要があります。 適切な形式のJSONの例を確認するには、次のサンプルを参照してください。
 
-**リクエストのサンプル**
+**サンプルをリクエスト**
 
 ```JSON
 {
@@ -162,10 +163,10 @@ Adobe Pass認証は、アクセスリクエストと削除リクエストをサ�
 
 **応答サンプル**
 
-削除リクエストの場合：
+Delete リクエストの場合：
 
-* データが削除されたレシートのみを共有し、削除されたすべてのデータを含む集計ファイルは共有されません。
-* 応答に含まれるレシートには、そのデータ主体で見つかった認証および認証トークンの合計数の概要が含まれます。
+* データが削除されたレシートのみを共有し、削除されたすべてのデータを含む集約ファイルは共有しません。
+* 応答に含まれるレシートには、そのデータ主体に対して見つかった認証トークンと認証トークンの合計数の概要が含まれています。
 
 ```JSON
 {
@@ -217,43 +218,43 @@ Adobe Pass認証は、アクセスリクエストと削除リクエストをサ�
 }
 ```
 
-## リクエストのトリガー方法 {#trigger-req}
+## リクエストをトリガーする方法 {#trigger-req}
 
-お客様がAdobeにプライバシーリクエストを送信する方法は 2 つあります。
+お客様がAdobeにプライバシーリクエストを送信する方法は2つあります。
 
-* **手動** - [Privacy Service ユーザーインターフェイスを使用する場合 &#x200B;](#privacy-service-ui)
-* **自動で** - [Privacy Service API を使用 &#x200B;](#privacy-service-api)
+* **手動** - [Privacy Service ユーザーインターフェイス &#x200B;](#privacy-service-ui)を使用
+* **自動** - [Privacy Service API](#privacy-service-api)を使用
 
-### Privacy Service UI を使用 {#privacy-service-ui}
+### Privacy Service UIを使用して {#privacy-service-ui}
 
-Privacy Service ユーザーインターフェイスへのアクセス方法と使用方法に関する [&#x200B; 完全なチュートリアル &#x200B;](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=ja#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md) を、Adobe I/O サービスを通じてオンラインで利用できます。 さらに、このリンクを使用して、プライバシー規制に関するビデオや記事のライブラリにアクセスできます。 Adobe Experience Cloudと GDPR メニューをクリックします。 これにより、いくつかのビデオが開きます。「GDPR UI の使い方」でその使用方法を説明しています。
+Privacy Service ユーザーインターフェイスにアクセスして使用する方法に関する[完全なチュートリアル &#x200B;](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=ja#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md)は、Adobe I/O サービスを通じてオンラインで利用できます。 さらに、このリンクを使用して、プライバシー規制に関するビデオや記事のライブラリにアクセスできます。 Adobe Experience CloudとGDPR メニューをクリックします。 これにより、多数のビデオが開きます。「GDPR UIの使い方」はその使用方法を説明しています。
 
-UI で、お客様は独自の IMSOrgID と、各製品の GDPR リクエストの詳細を含む JSON を読み込む必要があります。
+UIでは、ユーザーは独自のIMSOrgIDと、各製品のGDPR リクエストの詳細を含むJSONを読み込む必要があります。
 
-### Privacy Service API を使用 {#privacy-service-api}
+### Privacy Service APIを使用することで {#privacy-service-api}
 
-Adobe Experience Platform Privacy Serviceは、プライベートデータのアクセス/削除リクエストとオプトアウトリクエストを共通の一元化された方法で処理できるようにします。
+Adobe Experience Platform Privacy Serviceは、プライベートデータに対するアクセス要求/削除要求およびオプトアウト要求を一元的に処理する共通の機能を提供します。
 
-Adobeのお客様がPrivacy Service API を統合する方法について詳しくは **&#x200B;**&#x200B;Adobe API ドキュメントを参照してください。
+**Privacy Service API ドキュメント**&#x200B;では、Adobeのお客様がAdobe APIと統合する方法について詳しく説明しています。
 
-**Postman（無料のサードパーティソフトウェア）を使用した API 呼び出しの視覚化：**
+**Postmanを使用したAPI呼び出しの視覚化（無料のサードパーティ製ソフトウェア）:**
 
-* [GitHub のPrivacy Service API Postman コレクション](https://github.com/adobe/experience-platform-postman-samples/blob/master/apis/experience-platform/Privacy%20Service%20API.postman_collection.json)
+* [GitHub上のPrivacy Service API Postman コレクション](https://github.com/adobe/experience-platform-postman-samples/blob/master/apis/experience-platform/Privacy%20Service%20API.postman_collection.json)
 * [Postman環境の作成に関するビデオガイド](https://video.tv.adobe.com/v/31656?captions=jpn)
-* [Postmanで環境とコレクションをインポートする手順](https://learning.postman.com/docs/running-collections/intro-to-collection-runs/)
+* [Postmanで環境とコレクションを読み込む手順](https://learning.postman.com/docs/running-collections/intro-to-collection-runs/)
 
 
 **API パス：**
 
-* プラットフォーム ゲートウェイ URL: `https://platform.adobe.io/`
-* この API のベース パス：`/data/core/privacy/jobs`
-* 完全パスの例：`https://platform.adobe.io/data/core/privacy/jobs/ping`
+* PLATFORM ゲートウェイ URL: `https://platform.adobe.io/`
+* このAPIのベース パス：`/data/core/privacy/jobs`
+* 完全なパスの例：`https://platform.adobe.io/data/core/privacy/jobs/ping`
 
 
-**必須ヘッダー：**
+**必要なヘッダー：**
 
-* すべての呼び出しにはヘッダー `Authorization`、`x-gw-ims-org-id`、`x-api-key` が必要です。 これらの値の取得方法について詳しくは、**認証に関するチュートリアル** を参照してください。
-* リクエスト本文にペイロードを持つすべてのリクエスト（POST、PUT、PATCHの呼び出しなど）には、値 `application/json` のヘッダー `Content-Type` を含める必要があります。
+* すべての呼び出しには、ヘッダー`Authorization`、`x-gw-ims-org-id`、`x-api-key`が必要です。 これらの値の取得方法について詳しくは、**認証チュートリアル**&#x200B;を参照してください。
+* リクエスト本文にペイロードを含むすべてのリクエスト（POST、PUT、PATCH呼び出しなど）には、値`application/json`のヘッダー`Content-Type`を含める必要があります。
 
 <!--
 

@@ -1,23 +1,24 @@
 ---
-title: ヘッダー – X-Device-Info
-description: REST API V2 - ヘッダー – X-Device-Info
+title: Header - X-Device-Info
+description: REST API V2 - Header - X-Device-Info
 exl-id: 0ef25e06-86de-427a-a938-7ba3817f0d5e
-source-git-commit: 42df16e34783807e1b5eb1a12ca9db92f4e4c161
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '1234'
-ht-degree: 16%
-
+ht-degree: 3%
 ---
-
-# ヘッダー – X-Device-Info {#header-x-device-info}
+# Header - X-Device-Info {#header-x-device-info}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 ## 概要 {#overview}
 
-<b>X-Device-Info</b> 要求ヘッダーは、実際のストリーミング デバイスに関連するクライアント情報（デバイス、接続、およびアプリケーション）を格納し、MVPD が適用する可能性のあるプラットフォーム固有のルールを決定するために使用されます。
+<b>X-Device-Info</b> リクエストヘッダーには、実際のストリーミングデバイスに関連するクライアント情報（デバイス、接続、アプリケーション）が含まれており、MVPDが適用する可能性のあるプラットフォーム固有のルールを決定するために使用されます。
 
 ## 構文 {#syntax}
 
@@ -30,41 +31,41 @@ ht-degree: 16%
       <td>リクエストヘッダー</td>
    </tr>
    <tr>
-      <td>標準</td>
-      <td>不可</td>
+      <td>Standard</td>
+      <td>いいえ</td>
    </tr>
 </table>
 
-## ディレクティブ {#directives}
+## 指令 {#directives}
 
 <b>&lt;device_information></b>
 
-次の表で必要とマークされた属性を少なくとも含む JSON 要素の `Base64-encoded` 値。
+次の表で必須とマークされた属性を少なくとも含むJSON要素の`Base64-encoded`値。
 
 <table style="table-layout:auto">
     <tr>
-        <th style="background-color: #EFF2F7; width: 15%;">Presence</th>
+        <th style="background-color: #EFF2F7; width: 15%;">プレゼンス</th>
         <th style="background-color: #EFF2F7; width: 15%;">キー</th>
         <th style="background-color: #EFF2F7;">説明</th>    
         <th style="background-color: #EFF2F7; width: 15%;">制限付き</th>
-        <th style="background-color: #EFF2F7;">可能な値</th>
+        <th style="background-color: #EFF2F7;">使用可能な値</th>
     </tr>
     <tr>
         <td></td>
-        <td>primary ハードウェアタイプ</td>
-        <td>デバイスの主要なハードウェアの種類。</td>
-        <td>チェック（&check;）</td>
+        <td>primaryHardwareType</td>
+        <td>デバイスの主なハードウェアタイプ。</td>
+        <td>&check;</td>
         <td>
-            値は制限されています。
+            値は次のように制限されています。
             <ul>
                 <li>カメラ</li>
                 <li>DataCollectionTerminal</li>
                 <li>デスクトップ</li>
                 <li>EmbeddedNetworkModule</li>
                 <li>eReader</li>
-                <li>ゲーム コンソール</li>
+                <li>GamesConsole</li>
                 <li>GeolocationTracker</li>
-                <li>眼鏡</li>
+                <li>メガネ</li>
                 <li>MediaPlayer</li>
                 <li>MobilePhone</li>
                 <li>PaymentTerminal</li>
@@ -83,18 +84,18 @@ ht-degree: 16%
         <td>モデル</td>
         <td>デバイスのモデル名。</td>
         <td></td>
-        <td>例：iPhone、SM-G930V、AppleTV など</td>
+        <td>iPhone、SM-G930V、AppleTVなど</td>
     </tr>
     <tr>
         <td><i>必須</i></td>
-        <td>version</td>
+        <td>バージョン</td>
         <td>デバイスのバージョン。</td>
         <td></td>
-        <td>例：2.0.1 など</td>
+        <td>e.g. 2.0.1など</td>
     </tr>
     <tr>
         <td></td>
-        <td>製造元</td>
+        <td>メーカー</td>
         <td>デバイスの製造会社/組織。</td>
         <td></td>
         <td>例：Samsung、LG、ZTE、Huawei、Motorola、Appleなど</td>
@@ -110,9 +111,9 @@ ht-degree: 16%
         <td><i>必須</i></td>
         <td>osName</td>
         <td>デバイスのオペレーティングシステム（OS）名。</td>
-        <td>チェック（&check;）</td>
+        <td>&check;</td>
         <td>
-            値は制限されています。
+            値は次のように制限されています。
             <ul>
                 <li>Android</li>
                 <li>CHROME OS</li>
@@ -131,18 +132,18 @@ ht-degree: 16%
     <tr>
         <td></td>
         <td>osFamily</td>
-        <td>デバイスのオペレーティングシステム（OS）グループ名。</td>
-        <td>チェック（&check;）</td>
+        <td>デバイスのOS グループ名。</td>
+        <td>&check;</td>
         <td>
-            値は制限されています。
+            値は次のように制限されています。
             <ul>
                 <li>Android</li>
                 <li>BSD</li>
                 <li>Linux</li>
                 <li>PlayStation OS</li>
                 <li>Roku OS</li>
-                <li>Symbian</li>
-                <li>Tizen</li>
+                <li>シンビアン</li>
+                <li>タイゼン</li>
                 <li>Windows</li>
                 <li>iOS</li>
                 <li>tvOS</li>
@@ -154,10 +155,10 @@ ht-degree: 16%
     <tr>
         <td></td>
         <td>osVendor</td>
-        <td>デバイスのオペレーティングシステム（OS）のサプライヤ。</td>
-        <td>チェック（&check;）</td>
+        <td>デバイスのオペレーティングシステム（OS）サプライヤー。</td>
+        <td>&check;</td>
         <td>
-            値は制限されています。
+            値は次のように制限されています。
             <ul>
                 <li>Amazon</li>
                 <li>Apple</li>
@@ -166,8 +167,8 @@ ht-degree: 16%
                 <li>Microsoft</li>
                 <li>Mozilla</li>
                 <li>任天堂</li>
-                <li>Nokia</li>
-                <li>Roku</li>
+                <li>ノキア</li>
+                <li>六区</li>
                 <li>Samsung</li>
                 <li>ソニー</li>
                 <li>Tizen プロジェクト</li>
@@ -177,37 +178,37 @@ ht-degree: 16%
     <tr>
         <td><i>必須</i></td>
         <td>osVersion</td>
-        <td>デバイスのオペレーティングシステム（OS）のバージョン。</td>
+        <td>デバイスのオペレーティングシステム（OS）バージョン。</td>
         <td></td>
-        <td>例：10.2、9.0.1 など</td>
+        <td>例：10.2、9.0.1など</td>
     </tr>
     <tr>
         <td></td>
         <td>browserName</td>
         <td>ブラウザーの名前。</td>
-        <td>チェック（&check;）</td>
+        <td>&check;</td>
         <td>
-            値は制限されています。
+            値は次のように制限されています。
             <ul>
-                <li>Androidブラウザー</li>
+                <li>Android Browser</li>
                 <li>Chrome</li>
                 <li>Edge</li>
                 <li>Firefox</li>
                 <li>Internet Explorer</li>
-                <li>Opera</li>
+                <li>オペラ</li>
                 <li>Safari</li>
-                <li>海猿</li>
-                <li>Symbian ブラウザ</li>
+                <li>シーモンキー</li>
+                <li>Symbian ブラウザー</li>
             </ul>
         </td>
     </tr>
     <tr>
         <td></td>
         <td>browserVendor</td>
-        <td>ブラウザーの建物会社/組織。</td>
-        <td>チェック（&check;）</td>
+        <td>ブラウザーのビルド会社/組織。</td>
+        <td>&check;</td>
         <td>
-            値は制限されています。
+            値は次のように制限されています。
             <ul>
                 <li>Amazon</li>
                 <li>Apple</li>
@@ -217,16 +218,16 @@ ht-degree: 16%
                 <li>Mozilla</li>
                 <li>Netscape</li>
                 <li>任天堂</li>
-                <li>Nokia</li>
+                <li>ノキア</li>
                 <li>Samsung</li>
-                <li>ソニーエリクソン</li>
+                <li>ソニー・エリクソン</li>
             </ul>
         </td>
     </tr>
     <tr>
         <td></td>
         <td>browserVersion</td>
-        <td>デバイスのブラウザーのバージョン。</td>
+        <td>デバイスのブラウザーバージョン。</td>
         <td></td>
         <td>e.g. 60.0.3112</td>
     </tr>
@@ -235,12 +236,12 @@ ht-degree: 16%
         <td>userAgent</td>
         <td>デバイスのユーザーエージェント。</td>
         <td></td>
-        <td>例：Mozilla/5.0 （Macintosh、Intel Mac OS X 10_12_3） AppleWebKit/602.4.8 （KHTML、Gecko など） Version/10.0.3 Safari/602.4.8</td>
+        <td>e.g. Mozilla/5.0 （Macintosh; Intel Mac OS X 10_12_3） AppleWebKit/602.4.8 （KHTML, like Gecko） Version/10.0.3 Safari/602.4.8</td>
     </tr>
     <tr>
         <td></td>
         <td>displayWidth</td>
-        <td>デバイスの物理的な画面の幅。</td>
+        <td>デバイスの物理スクリーン幅。</td>
         <td></td>
         <td></td>
     </tr>
@@ -254,28 +255,28 @@ ht-degree: 16%
     <tr>
         <td></td>
         <td>displayPpi</td>
-        <td>デバイスの物理的な画面のピクセル密度。</td>
+        <td>デバイスの物理的な画面ピクセル密度。</td>
         <td></td>
         <td>e.g. 294</td>
     </tr>
     <tr>
         <td></td>
         <td>diagonalScreenSize</td>
-        <td>デバイスの物理的な画面の斜めの寸法（インチ）。</td>
+        <td>デバイスの物理的な画面の対角寸法（インチ）。</td>
         <td></td>
         <td>e.g. 5.5, 10.1</td>
     </tr>
     <tr>
         <td></td>
         <td>connectionIp</td>
-        <td>HTTP リクエストの送信に使用するデバイスの IP。</td>
+        <td>HTTP リクエストの送信に使用されるデバイスのIP。</td>
         <td></td>
         <td>e.g. 8.8.4.4</td>
     </tr>
     <tr>
         <td></td>
         <td>connectionPort</td>
-        <td>HTTP リクエストの送信に使用するデバイスのポート。</td>
+        <td>HTTP リクエストの送信に使用されるデバイスのポート。</td>
         <td></td>
         <td>e.g. 53124</td>
     </tr>
@@ -289,10 +290,10 @@ ht-degree: 16%
     <tr>
         <td></td>
         <td>connectionSecure</td>
-        <td>ネットワーク接続のセキュリティの状態。</td>
-        <td>チェック（&check;）</td>
+        <td>ネットワーク接続のセキュリティ状態。</td>
+        <td>&check;</td>
         <td>
-            値は制限されています。
+            値は次のように制限されています。
             <ul>
                 <li>true – 安全なネットワークの場合</li>
                 <li>false – 公共のホットスポットの場合</li>
@@ -302,9 +303,9 @@ ht-degree: 16%
     <tr>
         <td></td>
         <td>applicationId</td>
-        <td>アプリケーションの一意の ID。</td>
+        <td>アプリケーションの一意のID。</td>
         <td></td>
-        <td>例：REF30</td>
+        <td>e.g. REF30</td>
     </tr>
 </table>
 
@@ -331,31 +332,31 @@ ht-degree: 16%
 X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZGVsIjoiU00tUzkwMVUiLAogICJ2ZW5kb3IiOiJzYW1zdW5nIiwKICAidmVyc2lvbiI6InIwcSIsCiAgIm1hbnVmYWN0dXJlciI6InNhbXN1bmciLAogICJvc05hbWUiOiJBbmRyb2lkIiwKICAib3NWZXJzaW9uIjoiMTQiCn0=
 ```
 
-## クックブック {#cookbooks}
+## Cookbooks {#cookbooks}
 
 >[!IMPORTANT]
 > 
-> コードスニペットとドキュメントリソースは、参照用に提供されています。
+> コードスニペットとドキュメントリソースは、参照目的で提供されます。
 > 
-> コードスニペットは完全なものではないので、プロジェクトで機能させるには追加の変更が必要になる場合があります。
+> コードスニペットは完全なものではなく、プロジェクトで作業するには、追加の変更が必要になる場合があります。
 >
-> 実際の実装に関係なく、`X-Device-Info` ヘッダーには、「[&#x200B; ディレクティブ &#x200B;](#directives) セクションで説明されている形式の値が含まれている必要があります。
+> 実際の実装に関係なく、`X-Device-Info` ヘッダーには、[&#x200B; ディレクティブ &#x200B;](#directives) セクションで説明されているようにフォーマットされた値を含める必要があります。
 
 ### ブラウザー {#browsers}
 
-ブラウザーで実行されているクライアントアプリケーションの場合、ブラウザーは `X-Device-Info` ヘッダーに必要な最小限の情報のセットを自動的に送信するので、`User-Agent` ヘッダーは省略できます。
+ブラウザーで実行されているクライアントアプリケーションの場合、`X-Device-Info` ヘッダーは省略できます。ブラウザーは、`User-Agent` ヘッダーに必要な最小限の情報セットを自動的に送信します。
 
-引き続き `X-Device-Info` ヘッダーを使用して、デバイス、接続、およびアプリケーションに関する追加情報を提供できます。これは、デバイス識別メカニズムを提供するライブラリまたはサービスをクライアントアプリケーションが統合する場合に可能です。
+クライアントアプリケーションがデバイス識別メカニズムを提供するライブラリまたはサービスを統合する場合は、`X-Device-Info` ヘッダーを使用して、デバイス、接続、およびアプリケーションに関する追加情報を提供できます。
 
 ### モバイルデバイス {#mobile-devices}
 
-#### iOSと iPadOS {#ios-ipados}
+#### iOSとiPadOS {#ios-ipados}
 
-[iOSまたは iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照してください。
+[iOSまたはiPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes)を実行しているデバイスの`X-Device-Info` ヘッダーを作成するには、次のドキュメントとコードスニペットの下を参照してください。
 
-* [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice) のApple開発者向けドキュメント。
-* Apple開発者向けドキュメント [&#x200B; 到達可能性 &#x200B;](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
-* [uname](https://man7.org/linux/man-pages/man2/uname.2.html) に関する Linux マニュアルのドキュメント。
+* [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice)のApple開発者向けドキュメント。
+* [Reachability](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)のApple開発者向けドキュメント。
+* [uname](https://man7.org/linux/man-pages/man2/uname.2.html)のLinux マニュアル ドキュメント。
 
 ```C
 + (NSString *)computeClientInformation {        
@@ -423,20 +424,20 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 }
 ```
 
-デバイス情報は、次のように構成できます。
+デバイス情報は、次のように構築できます。
 
 | キー | Source | 値（例） |
 |---------------|------------------------|-----------------|
 | モデル | uname.machine | iPhone |
-| ベンダー | ハードコード | Apple |
-| 製造元 | ハードコード | Apple |
-| version | uname.machine | 8,1 |
+| ベンダー | ハードコードされた | Apple |
+| メーカー | ハードコードされた | Apple |
+| バージョン | uname.machine | 8,1 |
 | displayWidth | UIScreen.mainScreen | 320 |
 | displayHeight | UIScreen.mainScreen | 568 |
 | osName | UIDevice.systemName | iOS |
 | osVersion | UIDevice.systemVersion | 10.2 |
 
-接続情報は、次のように作成できます。
+接続情報は、次の方法で作成できます。
 
 | キー | Source | 値（例） |
 |------------------|------------------------------------------|-----------------|
@@ -448,11 +449,11 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 
 | キー | Source | 値（例） |
 |---------------|-----------|-----------------|
-| applicationId | ハードコード | REF30 |
+| applicationId | ハードコードされた | REF30 |
 
 #### Android {#android}
 
-[Android](https://developer.android.com/about/versions) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照します。
+[Android](https://developer.android.com/about/versions)を実行しているデバイスの`X-Device-Info` ヘッダーを作成するには、次のドキュメントとコードスニペットの下を参照してください。
 
 * [&#x200B; ビルド &#x200B;](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
 
@@ -529,20 +530,20 @@ private JSONObject computeClientInformation() {
 }
 ```
 
-デバイス情報は、次のように構成できます。
+デバイス情報は、次のように構築できます。
 
 | キー | Source | 値（例） |
 |---------------|-----------------------------|-----------------|
 | モデル | Build.MODEL | GT-I9505 |
 | ベンダー | Build.BRAND | samsung |
-| 製造元 | Build.MANUFACTURER | samsung |
-| version | Build.DEVICE | jflte |
+| メーカー | Build.MANUFACTURER | samsung |
+| バージョン | Build.DEVICE | jflte |
 | displayWidth | DisplayMetrics.widthPixels | 600 |
 | displayHeight | DisplayMetrics.heightPixels | 800 |
-| osName | ハードコード | Android |
+| osName | ハードコードされた | Android |
 | osVersion | Build.VERSION.RELEASE | 5.0.1 |
 
-接続情報は、次のように作成できます。
+接続情報は、次の方法で作成できます。
 
 | キー | Source | 値（例） |
 |------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
@@ -553,17 +554,17 @@ private JSONObject computeClientInformation() {
 
 | キー | Source | 値（例） |
 |---------------|-----------|-----------------|
-| applicationId | ハードコード | REF30 |
+| applicationId | ハードコードされた | REF30 |
 
-### テレビ接続デバイス {#tv-connected-devices}
+### TV接続デバイス {#tv-connected-devices}
 
 #### tvOS {#tvos}
 
-[tvOS](https://developer.apple.com/documentation/tvos-release-notes) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントと以下のコードスニペットを参照してください。
+[tvOS](https://developer.apple.com/documentation/tvos-release-notes)を実行しているデバイスの`X-Device-Info` ヘッダーを作成するには、次のドキュメントとコードスニペットの下を参照してください。
 
-* [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice) のApple開発者向けドキュメント。
-* Apple開発者向けドキュメント [&#x200B; 到達可能性 &#x200B;](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)。
-* [uname](https://man7.org/linux/man-pages/man2/uname.2.html) に関する Linux マニュアルのドキュメント。
+* [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice)のApple開発者向けドキュメント。
+* [Reachability](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html)のApple開発者向けドキュメント。
+* [uname](https://man7.org/linux/man-pages/man2/uname.2.html)のLinux マニュアル ドキュメント。
 
 ```C
 + (NSString *)computeClientInformation {        
@@ -631,20 +632,20 @@ private JSONObject computeClientInformation() {
 }
 ```
 
-デバイス情報は、次のように構成できます。
+デバイス情報は、次のように構築できます。
 
 | キー | Source | 値（例） |
 |---------------|------------------------|-----------------|
 | モデル | uname.machine | AppleTV |
-| ベンダー | ハードコード | Apple |
-| 製造元 | ハードコード | Apple |
-| version | uname.machine | 8,1 |
+| ベンダー | ハードコードされた | Apple |
+| メーカー | ハードコードされた | Apple |
+| バージョン | uname.machine | 8,1 |
 | displayWidth | UIScreen.mainScreen | 1920 |
 | displayHeight | UIScreen.mainScreen | 1080 |
 | osName | UIDevice.systemName | tvOS |
 | osVersion | UIDevice.systemVersion | 10.2 |
 
-接続情報は、次のように作成できます。
+接続情報は、次の方法で作成できます。
 
 | キー | Source | 値（例） |
 |------------------|------------------------------------------|-----------------|
@@ -655,29 +656,29 @@ private JSONObject computeClientInformation() {
 
 | キー | Source | 値（例） |
 |---------------|-----------|-----------------|
-| applicationId | ハードコード | REF30 |
+| applicationId | ハードコードされた | REF30 |
 
 #### Fire OS {#fireos}
 
-[Fire OS](https://developer.amazon.com/docs/fire-tv/fire-os-overview.html) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントを参照してください。
+[Fire OS](https://developer.amazon.com/docs/fire-tv/fire-os-overview.html)を実行しているデバイスの`X-Device-Info` ヘッダーを作成するには、次のドキュメントを参照してください。
 
 * [&#x200B; ビルド &#x200B;](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
-* Amazon開発者向けドキュメント [Fire TV デバイスの識別 &#x200B;](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html)。
+* Fire TV デバイスの特定[に関するAmazon開発者用ドキュメント &#x200B;](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html)。
 
-デバイス情報は、次のように構成できます。
+デバイス情報は、次のように構築できます。
 
 | キー | Source | 値（例） |
 |---------------|-----------------------------|-----------------|
 | モデル | Build.MODEL | AFTM |
 | ベンダー | Build.BRAND | Amazon |
-| 製造元 | Build.MANUFACTURER | Amazon |
-| version | Build.DEVICE | montoya |
+| メーカー | Build.MANUFACTURER | Amazon |
+| バージョン | Build.DEVICE | モントーヤ |
 | displayWidth | DisplayMetrics.widthPixels |                 |
 | displayHeight | DisplayMetrics.heightPixels |                 |
-| osName | ハードコード | Android |
+| osName | ハードコードされた | Android |
 | osVersion | Build.VERSION.RELEASE | 5.1.1 |
 
-接続情報は、次のように作成できます。
+接続情報は、次の方法で作成できます。
 
 | キー | Source | 値（例） |
 |------------------|--------|-----------------|
@@ -688,40 +689,40 @@ private JSONObject computeClientInformation() {
 
 | キー | Source | 値（例） |
 |---------------|-----------|-----------------|
-| applicationId | ハードコード | REF30 |
+| applicationId | ハードコードされた | REF30 |
 
 #### Roku OS {#rokuos}
 
-[Roku OS](https://developer.roku.com/docs/developer-program/release-notes/roku-os-release-notes.md) を実行するデバイスの `X-Device-Info` ヘッダーを作成するには、次のドキュメントを参照してください。
+[Roku OS](https://developer.roku.com/docs/developer-program/release-notes/roku-os-release-notes.md)を実行しているデバイスの`X-Device-Info` ヘッダーを作成するには、次のドキュメントを参照してください。
 
-* [ifDeviceInfo](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md) 用の Roku 開発者向けドキュメント。
+* [ifDeviceInfo](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md)のRoku開発者ドキュメント。
 
-デバイス情報は、次のように構成できます。
+デバイス情報は、次のように構築できます。
 
 | キー | Source | 値（例） |
 |---------------|--------------------------------------------|-----------------|
-| モデル | ハードコード | 「Roku」 |
-| ベンダー | ifDeviceInfo.GetModelDetails().VendorName | 「シャープ」「Roku」 |
-| 製造元 | ifDeviceInfo.GetModelDetails().VendorName | 「シャープ」「Roku」 |
-| version | ifDeviceInfo.GetModelDetails().ModelNumber | &quot;5303X&quot; |
-| displayWidth | ifDeviceInfo.GetDisplaySize().w | 1920 |
-| displayHeight | ifDeviceInfo.GetDisplaySize().h | 1080 |
-| osName | ハードコード | 「Roku」 |
-| osVersion | ifDeviceInfo.getVersion() |                 |
+| モデル | ハードコードされた | 「六」 |
+| ベンダー | ifDeviceInfo.GetModelDetails （）.VendorName | 「シャープ」「ロク」 |
+| メーカー | ifDeviceInfo.GetModelDetails （）.VendorName | 「シャープ」「ロク」 |
+| バージョン | ifDeviceInfo.GetModelDetails （）.ModelNumber | 「5303X」 |
+| displayWidth | ifDeviceInfo.GetDisplaySize （）.w | 1920 |
+| displayHeight | ifDeviceInfo.GetDisplaySize （）.h | 1080 |
+| osName | ハードコードされた | 「六」 |
+| osVersion | ifDeviceInfo.getVersion （） |                 |
 
-接続情報は、次のように作成できます。
+接続情報は、次の方法で作成できます。
 
 | キー | Source | 値（例） |
 |-------------------|------------------------------------|---------------------------------------|
-| connectionType | ifDeviceInfo.GetConnectionType() | &quot;WifiConnection&quot;, &quot;WiredConnection&quot; |
-| connectionSecure | ハードコード | 接続がワイヤリングされている場合は true |
+| connectionType | ifDeviceInfo.GetConnectionType （） | &quot;WifiConnection&quot;, &quot;WiredConnection&quot; |
+| connectionSecure | ハードコードされた | 接続が有線の場合はtrue |
 
 アプリケーション情報は、次の方法で作成できます。
 
 | キー | Source | 値（例） |
 |---------------|-----------|-----------------|
-| applicationId | ハードコード | REF30 |
+| applicationId | ハードコードされた | REF30 |
 
 ### その他 {#others}
 
-ドキュメントに記載されていないデバイスプラットフォームの場合、クライアント情報（デバイス、接続、アプリケーション）は、通常、デバイスのハードウェアおよび OS のマニュアルに記載されている利用可能なハードウェアおよび OS の属性にリンクする必要があります。
+ドキュメントに記載されていないデバイスプラットフォームの場合、クライアント情報（デバイス、接続、アプリケーション）は、使用可能なハードウェアおよびオペレーティングシステム（OS）属性（通常はデバイスのハードウェアおよびOS マニュアルで指定）にリンクする必要があります。

@@ -2,13 +2,14 @@
 title: ホームベース認証（HBA）
 description: ホームベース認証（HBA）
 exl-id: abdc7724-4290-404a-8f93-953662cdc2bc
-source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '1396'
 ht-degree: 0%
-
 ---
-
 # ホームベース認証（HBA） {#home-based-authentication}
 
 >[!IMPORTANT]

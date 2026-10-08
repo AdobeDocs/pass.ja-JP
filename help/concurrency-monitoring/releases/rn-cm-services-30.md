@@ -1,27 +1,28 @@
 ---
-title: Concurrency Monitoring Services 3.0 リリース ノート
-description: Concurrency Monitoring Services 3.0 リリース ノート
+title: 同時実行モニタリングサービス 3.0 リリースノート
+description: 同時実行モニタリングサービス 3.0 リリースノート
 exl-id: 247e310f-35a2-4078-a3d7-53b44ef08ad9
-source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '96'
 ht-degree: 2%
-
 ---
+# 同時実行モニタリングサービス 3.0 リリースノート {#cms-rn-30}
 
-# Concurrency Monitoring Services 3.0 リリース ノート {#cms-rn-30}
-
-このページでは、このリリースの新機能、変更点および既知の問題について説明します。
+このページでは、このリリースの新機能、変更点、既知の問題について説明します。
 
 ## リリース情報 {#release-info}
 
 バージョン：3.0
-リリース日：2020 年 5 月 5 日（Pt）
+リリース日：2020年5月5日（PT）
 
 ## リリースの概要 {#release-overview}
 
-* このリリースでは、すべてのアプリケーション、テナント、ポリシーの設定を管理する新しいクラウドベースのメカニズムが導入され、CM サービスが改善されています。
-* 新しい REST 設定 API （内部）。複数のデータセンターの設定管理をシンプルにし、コードや実稼動リリースを必要とせずに、設定変更のターンアラウンド時間を短縮します。
+* このリリースでは、すべてのアプリケーション、テナント、ポリシーの設定を管理する新しいクラウドベースのメカニズムを導入することで、CM サービスを改善します。
+* 新しいREST Configuration API （内部）により、複数のデータセンターをまたいだ構成管理の簡素化と、コードや実稼動リリースを必要とせずに構成変更のターンアラウンドタイムの短縮が可能になります。
 
 
 ## 既知の問題 {#known-issues}

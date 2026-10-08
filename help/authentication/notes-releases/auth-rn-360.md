@@ -2,7 +2,10 @@
 title: Adobe Pass Authentication 3.6.0 リリースノート
 description: Adobe Pass Authentication 3.6.0 リリースノート
 exl-id: a88ec78a-b3b0-46d2-9d79-f0d9a81ba94f
-source-git-commit: cc7123ecf09e1228e2aa4eddb0f0bcfa815da69f
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '126'
 ht-degree: 0%

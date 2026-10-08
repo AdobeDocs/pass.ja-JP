@@ -2,22 +2,23 @@
 title: MVPD ログアウト
 description: MVPD ログアウト
 exl-id: a2b57d02-9688-48e3-beff-1012cd361d0c
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '75'
 ht-degree: 0%
-
 ---
-
 # MVPD ログアウト
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-ログアウトのユースケースは、IdP に送信される SAML ログアウトリクエスト、またはカスタムログアウトエンドポイントが呼び出されることによって実装できます。  以下のリクエストと応答の例では、SAML ログアウト実装のサンプルを提供します。
+ログアウトユースケースは、IdPに送信されたSAML ログアウトリクエストまたは呼び出されるカスタムログアウトエンドポイントによって実装できます。  以下のリクエストと応答の例では、SAML ログアウト実装のサンプルを提供しています。
 
-## ログアウトリクエストの例 {#sample-logout-request}
+## ログアウトリクエストのサンプル {#sample-logout-request}
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>

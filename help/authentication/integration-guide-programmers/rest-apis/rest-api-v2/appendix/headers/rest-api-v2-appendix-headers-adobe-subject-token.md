@@ -1,56 +1,57 @@
 ---
 title: Header - Adobe-Subject-Token
-description: REST API V2 - ヘッダー – Adobe – 件名 – トークン
+description: REST API V2 - Header - Adobe-Subject-Token
 exl-id: 906d88f4-3b8f-491a-ab58-8e63d3b958d8
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '179'
 ht-degree: 1%
-
 ---
-
 # Header - Adobe-Subject-Token {#header-adobe-subject-token}
 
 >[!NOTE]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 ## 概要 {#overview}
 
-<b>Adobe-Subject-Token</b> リクエスト ヘッダーには、一意の Platform ID が含まれています。この ID は `JWS` または `JWE` で、Adobe Pass認証システムの外部で動作する ID サービスまたはライブラリから取得されたものです。
+<b>Adobe-Subject-Token</b> リクエストヘッダーには、Adobe Pass認証システム外で動作するID サービスまたはライブラリから取得した`JWS`または`JWE`という一意のプラットフォーム IDが含まれています。
 
-このヘッダーは、Platform ID メソッドを活用するシングルサインオン（SSO）対応フローで使用するように設計されています。
+このヘッダーは、Platform ID メソッドを活用したシングルサインオン（SSO）対応フローで使用するように設計されています。
 
-Platform ID メソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[&#x200B; プラットフォーム ID フローを使用したシングルサインオン &#x200B;](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md) ドキュメントを参照してください。
+Platform ID メソッドを使用したシングルサインオン（SSO）対応フローについて詳しくは、「[Platform ID フローを使用したシングルサインオン &#x200B;](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md)」のドキュメントを参照してください。
 
 ## 構文 {#syntax}
 
 <table style="table-layout:auto">
    <tr>
-      <td style="background-color: #DEEBFF;" colspan="2"><b>Adobe – 件名 – トークン </b>: &lt;unique_platform_identifier&gt;</td>
+      <td style="background-color: #DEEBFF;" colspan="2"><b>Adobe-Subject-Token</b>: &lt;unique_platform_identifier&gt;</td>
    </tr>
    <tr>
       <td>ヘッダータイプ</td>
       <td>リクエストヘッダー</td>
    </tr>
    <tr>
-      <td>標準</td>
-      <td>不可</td>
+      <td>Standard</td>
+      <td>いいえ</td>
    </tr>
 </table>
 
-## ディレクティブ {#directives}
+## 指令 {#directives}
 
 <b>unique_platform_identifier</b>
 
-一意のプラットフォーム識別情報を含む、署名済みまたは暗号化された JSON Web トークン（`JWT`）である JSON Web 署名（`JWS`）または JSON Web 暗号化（`JWE`）。
+一意のプラットフォーム ID情報を含む、署名済みまたは暗号化されたJSON Web トークン （`JWT`）であるJSON Web署名（`JWS`）またはJSON Web暗号化（`JWE`）。
 
 これは、次のプラットフォームで使用できます。
 
-* [Amazon SSO クックブック（REST API V2）](../../../../features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
+* [Amazon SSO クックブック （REST API V2）](../../../../features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
 
 ## 例 {#examples}
 
-次のプラットフォームについて説明した例を参照してください。
+次のプラットフォームについて説明されている例を参照してください。
 
-* [Amazon SSO クックブック（REST API V2）](../../../../features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
+* [Amazon SSO クックブック （REST API V2）](../../../../features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)

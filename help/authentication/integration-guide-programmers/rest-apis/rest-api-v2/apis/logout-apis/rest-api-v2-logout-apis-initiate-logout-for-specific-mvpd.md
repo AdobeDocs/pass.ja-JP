@@ -1,23 +1,24 @@
 ---
-title: 特定の mvpd に対するログアウトの開始
-description: REST API V2 – 特定の mvpd のログアウトの開始
+title: 特定のmvpdのログアウトを開始
+description: REST API V2 – 特定のmvpdのログアウトを開始する
 exl-id: 2482de87-b3d4-4ea8-bd4a-25bf10017e01
-source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
-source-wordcount: '1060'
+source-wordcount: '1130'
 ht-degree: 2%
-
 ---
-
-# 特定の mvpd に対するログアウトの開始 {#initiate-logout-for-specific-mvpd}
-
->[!IMPORTANT]
->
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+# 特定のmvpdのログアウトを開始 {#initiate-logout-for-specific-mvpd}
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
+
+>[!IMPORTANT]
+>
+> REST API V2の実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 ## リクエスト {#request}
 
@@ -44,12 +45,12 @@ ht-degree: 2%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
-      <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部の一意の ID。</td>
+      <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部一意のID。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">mvpd</td>
-      <td>オンボーディングプロセス中に ID プロバイダーに関連付けられた内部の一意の ID。</td>
+      <td>オンボーディングプロセス中にID プロバイダーに関連付けられた内部一意のID。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -60,9 +61,9 @@ ht-degree: 2%
    <tr>
       <td style="background-color: #DEEBFF;">redirectUrl</td>
       <td>
-        MVPDのログアウトフローが完了すると、ユーザーエージェントが移動する最後のリダイレクト URL です。
+        MVPDのログアウトフローが完了したときにユーザーエージェントが移動する最後のリダイレクト URL。
         <br/><br/>
-        値は URL エンコードする必要があります。
+        値はURL エンコードする必要があります。
       </td>
       <td><i>必須</i></td>
    </tr>
@@ -73,12 +74,12 @@ ht-degree: 2%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-authorization.md">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
+      <td>ベアラートークンのペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-authorization.md">Authorization</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>デバイス識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a> ヘッダードキュメントを参照してください。</td>
+      <td>デバイス識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a> ヘッダーのドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -86,62 +87,62 @@ ht-degree: 2%
       <td>
          デバイス情報ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-x-device-info.md">X-Device-Info</a> ヘッダーのドキュメントを参照してください。
          <br/><br/>
-         アプリケーションのデバイスプラットフォームで有効な値を明示的に指定できる場合は、常に使用することを強くお勧めします。
+         アプリケーションのデバイスプラットフォームで有効な値の明示的なプロビジョニングが可能な場合は、必ず使用することを強くお勧めします。
          <br/><br/>
-         指定した場合、Adobe Pass認証バックエンドは、明示的に設定された値を、抽出された値と暗黙的に（デフォルトで）結合します。
+         指定すると、Adobe Pass認証バックエンドは、明示的に設定された値と抽出された値を暗黙的に（デフォルトで）マージします。
          <br/><br/>
-         指定しない場合、Adobe Pass認証バックエンドでは、抽出された値が暗黙的に（デフォルトで）使用されます。
+         指定しない場合、Adobe Pass認証バックエンドは、抽出された値を暗黙的に（デフォルトで）使用します。
       </td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">X-Forwarded-For</td>
       <td>
-         ストリーミングデバイスの IP アドレス。
+         ストリーミングデバイスのIP アドレス。
          <br/><br/>
-         サーバーからサーバーへの実装には常に使用することを強くお勧めします。特に、呼び出しがストリーミングデバイスではなくプログラマーサービスによって行われる場合に強くお勧めします。
+         特に、ストリーミングデバイスではなくプログラマーサービスによって呼び出しが行われる場合は、サーバーからサーバーへの実装に常に使用することを強くお勧めします。
          <br/><br/>
-         クライアントからサーバーへの実装の場合、ストリーミングデバイスの IP アドレスは暗黙的に送信されます。
+         クライアントからサーバーへの実装では、ストリーミングデバイスのIP アドレスが暗黙的に送信されます。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Adobe-Subject-Token<br/> または <br/>X-Roku-Reserved-Roku-Connect-Token</td>
+      <td style="background-color: #DEEBFF;">Adobe-Subject-Token<br/>または<br/>X-Roku-Reserved-Roku-Connect-Token</td>
       <td>
-        Platform ID 方式のシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a> / <a href="../../appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md">X-Roku-Reserved-Roku-Connect-Token</a> ヘッダードキュメントに記載されています。
+        Platform ID メソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a> / <a href="../../appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md">X-Roku-Reserved-Roku-Connect-Token</a> ヘッダードキュメントを参照してください。
         <br/><br/>
-        プラットフォーム ID を使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> プラットフォーム ID フローを使用したシングルサインオン </a> ドキュメントを参照してください。
+        プラットフォーム IDを使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> プラットフォーム ID フローを使用したシングルサインオン </a>のドキュメントを参照してください。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AD-Service-Token</td>
       <td>
-        サービストークンメソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md">AD-Service-Token</a> ヘッダーのドキュメントを参照してください。
+        サービストークン メソッドのシングルサインオンペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md">AD-Service-Token</a> ヘッダーのドキュメントを参照してください。
         <br/><br/>
-        サービストークンを使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md"> サービストークンフローを使用したシングルサインオン </a> ドキュメントを参照してください。
+        サービストークンを使用したシングルサインオン対応フローについて詳しくは、<a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md"> サービストークンのフローを使用したシングルサインオン </a>のドキュメントを参照してください。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Visitor-Identifier</td>
       <td>
-        訪問者識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a> ヘッダードキュメントを参照してください。
-      <td>optional</td>
+        訪問者識別子ペイロードの生成については、<a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a> ヘッダーのドキュメントを参照してください。
+      <td>オプション</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">承諾</td>
+      <td style="background-color: #DEEBFF;">承認</td>
       <td>
-         クライアントアプリケーションによって受け入れられるメディアタイプ。
+         クライアントアプリケーションが受け入れたメディアタイプ。
          <br/><br/>
-         指定する場合は、application/json;charset=utf-8 にする必要があります。
+         指定する場合は、application/json;charset=utf-8である必要があります。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">User-Agent</td>
       <td>クライアントアプリケーションのユーザーエージェント。</td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
 </table>
 
@@ -157,35 +158,35 @@ ht-degree: 2%
       <td>200</td>
       <td>OK</td>
       <td>
-        応答本文には、削除された各プロファイルのログアウトフローを完了するためにクライアントが実行する必要があるアクションのリストが含まれています。
+        応答本文には、削除された各プロファイルのログアウトフローを完了するために、クライアントが実行する必要があるアクションのリストが含まれます。
       </td>
    </tr>
    <tr>
       <td>400</td>
-      <td>リクエストが正しくありません</td>
+      <td>不正なリクエスト</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        リクエストが無効です。クライアントはリクエストを修正して、もう一度試す必要があります。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
-      <td>未認証</td>
+      <td>未承認</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="../../../rest-api-dcr/dynamic-client-registration-overview.md"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得し、再試行する必要があります。 詳しくは、<a href="../../../rest-api-dcr/dynamic-client-registration-overview.md">動的クライアント登録の概要</a>のドキュメントを参照してください。
       </td>
    </tr>
    <tr>
       <td>405</td>
-      <td>許可されていないメソッド</td>
+      <td>メソッドは許可されていません</td>
       <td>
-        HTTP メソッドが無効です。クライアントは、リクエストされたリソースに許可されている HTTP メソッドを使用し、再試行する必要があります。 詳しくは、<a href="#request"> リクエスト </a> の節を参照してください。
+        HTTP メソッドが無効です。クライアントは、リクエストされたリソースに対して許可されているHTTP メソッドを使用して、再試行する必要があります。 詳しくは、「<a href="#request"> リクエスト </a>」の節を参照してください。
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>内部サーバーエラー</td>
       <td>
-        サーバー側で問題が発生しました。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従ったエラー情報が含まれている場合があります。
+        サーバーサイドで問題が発生しました。 応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">拡張エラーコード </a>のドキュメントに準拠するエラー情報が含まれる場合があります。
       </td>
    </tr>
 </table>
@@ -204,8 +205,8 @@ ht-degree: 2%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -216,7 +217,7 @@ ht-degree: 2%
    <tr>
       <td style="background-color: #DEEBFF;">ログアウト</td>
       <td>
-         キーと値のペアのマップを含む JSON。
+         キー、値のペアのマップを含むJSON。
          <br/><br/>
          キー要素は、次の値で定義されます。
          <table style="table-layout:auto">
@@ -227,10 +228,10 @@ ht-degree: 2%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">mvpd</td>
-               <td>オンボーディングプロセス中に ID プロバイダーに関連付けられた内部の一意の ID。</td>
+               <td>オンボーディングプロセス中にID プロバイダーに関連付けられた内部一意のID。</td>
                <td><i>必須</i></td>
          </table>
-         value 要素は、次の属性で定義されます。
+         value エレメントは、次の属性で定義されます。
          <table style="table-layout:auto">
             <tr>
                <th style="background-color: #EFF2F7;">属性</th>
@@ -240,39 +241,39 @@ ht-degree: 2%
             <tr>
                <td style="background-color: #DEEBFF;">actionName</td>
                <td>
-                  ログアウトフローを完了するためにストリーミングデバイスで実行する必要があるアクション。
+                  ログアウトフローを完了するためにストリーミングデバイスが実行する必要があるアクション。
                   <br/><br/>
                   使用可能な値は次のとおりです。
                   <ul>
-                    <li><b> ログアウト </b><br/> ストリーミングデバイスは、指定された URL をユーザーエージェントで開く必要があります。<br/> この操作は、次のシナリオに適用されます。ログアウトエンドポイントを使用してMVPDからログアウトします。</li>
-                    <li><b>partner_logout</b><br/> ストリーミングデバイスは、パートナー（システム）レベルからもログアウトするようにユーザーに通知する必要があります。<br/> この操作は、次のシナリオに適用されます。プロファイルタイプが「appleSSO」の場合はMVPDからログアウトします。</li>
-                    <li><b>complete</b><br/> ストリーミングデバイスは後続のアクションを実行する必要はありません。<br/> このアクションは、ログアウトエンドポイントを使用せずにMVPDからログアウトする（ダミーのログアウト機能）、縮退アクセス時にログアウトする、一時アクセス時にログアウトする、といったシナリオに適用されます。</li>
-                    <li><b> 無効 </b><br/> ストリーミングデバイスは後続のアクションを実行する必要はありません。<br/> このアクションは、次のシナリオに適用されます。有効なプロファイルが見つからないときにMVPDからログアウトします。</li>
+                    <li><b> ログアウト </b><br/> ストリーミングデバイスは、ユーザーエージェントで指定されたURLを開く必要があります。<br/>このアクションは、次のシナリオに適用されます。ログアウトエンドポイントを使用してMVPDからログアウトします。</li>
+                    <li><b>partner_logout</b><br/> ストリーミングデバイスは、パートナー（システム）レベルからもログアウトするようにユーザーに通知する必要があります。<br/>このアクションは、次のシナリオに適用されます。プロファイルの種類が「appleSSO」の場合、MVPDからログアウトします。</li>
+                    <li><b>complete</b><br/> ストリーミングデバイスは、その後のアクションを実行する必要はありません。<br/>このアクションは、ログアウトエンドポイント（ダミーログアウト機能）を使用せずにMVPDからログアウトする、低下したアクセス中にログアウトする、一時的なアクセス中にログアウトする、などのシナリオに適用されます。</li>
+                    <li><b>無効</b><br/> ストリーミングデバイスは、後続のアクションを実行する必要はありません。<br/>このアクションは、次のシナリオに適用されます。有効なプロファイルが見つからないときにMVPDからログアウトします。</li>
                   </ul>  
                <td><i>必須</i></td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">actionType</td>
                <td>
-                  「actionName」属性で指定されたアクションでフローを続行するために、ストリーミングデバイスが実行する必要があるインタラクションのタイプ。
+                  「actionName」属性で指定されたアクションでフローを続行するために、ストリーミングデバイスが実行するインタラクションのタイプ。
                   <br/><br/>
                   使用可能な値は次のとおりです。
                   <ul>
-                    <li><b>interactive</b><br/> このタイプは、「actionName」属性の次の値に適用されます：<b>logout</b>。</li>
-                    <li><b>partner_interactive</b><br/> この型は、「actionName」属性の次の値に適用されます：<b>partner_logout</b>。</li>
-                    <li><b>none</b><br/> このタイプは、「actionName」属性の次の値に適用されます。<b>complete</b>、<b>invalid</b>。</li>
+                    <li><b>interactive</b><br/>このタイプは、'actionName'属性<b> ログアウト </b>の次の値に適用されます。</li>
+                    <li><b>partner_interactive</b><br/>このタイプは、「actionName」属性<b>partner_logout</b>の次の値に適用されます。</li>
+                    <li><b>none</b><br/>このタイプは、「actionName」属性の次の値に適用されます：<b>complete</b>、<b>invalid</b>。</li>
                   </ul>
                <td><i>必須</i></td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">mvpd</td>
-               <td>オンボーディングプロセス中に ID プロバイダーに関連付けられた内部の一意の ID。</td>
+               <td>オンボーディングプロセス中にID プロバイダーに関連付けられた内部一意のID。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">url</td>
                <td>
-                  MVPD エンドポイントでログアウトフローを実行するために使用される URL。
+                  MVPD エンドポイントでログアウトフローを実行するために使用されるURL。
                   <br/><br/>
                   これは、「actionName」属性の次の値には存在しません。
                   <ul>
@@ -280,7 +281,7 @@ ht-degree: 2%
                     <li><b>無効</b></li>
                   </ul>
                </td>
-               <td>optional</td>
+               <td>オプション</td>
             </tr>
          </table>
       </td>
@@ -301,8 +302,8 @@ ht-degree: 2%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -312,14 +313,14 @@ ht-degree: 2%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>応答本文には、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md"> 拡張エラーコード </a> ドキュメントに従った追加のエラー情報が提供される場合があります。</td>
+      <td>応答本文は、<a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">拡張エラーコード </a> ドキュメントに準拠する追加のエラー情報を提供する場合があります。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
 
 ## サンプル {#samples}
 
-### &#x200B;1. ログアウトエンドポイントを持つ特定の mvpd に対してログアウトを開始します
+### &#x200B;1. ログアウトエンドポイントを持つ特定のmvpdのログアウトを開始する
 
 >[!BEGINTABS]
 
@@ -335,7 +336,7 @@ GET /api/v2/REF30/logout/Cablevision?redirectUrl=https%3A%2F%2Fadobe.com HTTP/1.
     User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)  
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -356,7 +357,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;2. ログアウトエンドポイントを使用しない特定の mvpd に対するログアウトの開始
+### &#x200B;2. ログアウトエンドポイントを使用せずに、特定のmvpdのログアウトを開始する
 
 >[!BEGINTABS]
 
@@ -372,7 +373,7 @@ GET /api/v2/REF30/logout/Dish?redirectUrl=https%3A%2F%2Fadobe.com HTTP/1.1
     User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -392,11 +393,11 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;3. サービストークン方式を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd に対するシングルログアウトの開始
+### &#x200B;3. サービストークン方式を使用してシングルサインオンで取得したプロファイルを含む、特定のmvpdに対してシングルログアウトを開始します
 
 >[!IMPORTANT]
 >
-> 前提
+> 前提条件
 >
 > <br/>
 >
@@ -417,7 +418,7 @@ GET /api/v2/REF30/logout/Spectrum?redirectUrl=https%3A%2F%2Fadobe.com HTTP/1.1
     User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -438,11 +439,11 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;4. Platform ID 方法を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd に対するシングルログアウトの開始
+### &#x200B;4. Platform ID メソッドを使用してシングルサインオンで取得したプロファイルを含む、特定のmvpdに対してシングルログアウトを開始します
 
 >[!IMPORTANT]
 >
-> 前提
+> 前提条件
 >
 > <br/>
 >
@@ -463,7 +464,7 @@ GET /api/v2/REF30/logout/Comcast_SSO?redirectUrl=https%3A%2F%2Fadobe.com HTTP/1.
     User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -484,7 +485,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;5. パートナー（Apple）を使用したシングルサインオンで取得したプロファイルを含む、特定の mvpd のログアウトを開始します
+### &#x200B;5. パートナー（Apple）を使用してシングルサインオンで取得したプロファイルを含む、特定のmvpdのログアウトを開始します
 
 >[!BEGINTABS]
 
@@ -500,7 +501,7 @@ GET /api/v2/REF30/logout/Cablevision?redirectUrl=https%3A%2F%2Fadobe.com HTTP/1.
     User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -520,7 +521,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;6. 特定の mvpd に対してログアウトを開始する一方で、最適化が適用される
+### &#x200B;6. 劣化が適用されている間に、特定のmvpdのログアウトを開始する
 
 >[!BEGINTABS]
 
@@ -536,7 +537,7 @@ GET /api/v2/REF30/logout/${degradedMvpd}?redirectUrl=https%3A%2F%2Fadobe.com HTT
     User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK
@@ -556,7 +557,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### &#x200B;7. 基本またはプロモーションの TempPass にログアウトを開始します（必須ではありません）
+### &#x200B;7. 基本またはプロモーション用のTempPassのログアウトを開始する（必須ではありません）
 
 >[!BEGINTABS]
 
@@ -572,7 +573,7 @@ GET /api/v2/logout/REF30/TempPass_5mins?redirectUrl=https%3A%2F%2Fadobe.com HTTP
     User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 ```
 
->[!TAB  応答 ]
+>[!TAB 応答]
 
 ```HTTPS
 HTTP/1.1 200 OK

@@ -1,39 +1,40 @@
 ---
-title: Adobe Pass認証でのExperience Cloud ID の使用
-description: Adobe Pass認証でのExperience Cloud ID の使用
+title: Adobe Pass認証でのExperience Cloud IDの使用
+description: Adobe Pass認証でのExperience Cloud IDの使用
 exl-id: 03354c01-5aad-4d81-beee-1c3834599134
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '428'
 ht-degree: 0%
-
 ---
-
-# Adobe Pass認証でのExperience Cloud ID の使用
+# Adobe Pass認証でのExperience Cloud IDの使用
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-## Experience Cloud ID とは何ですか？また、その取得方法を教えてください。 {#what-exp-cloud-id-obtain}
+## Experience Cloud IDとは何ですか？また、その取得方法は？ {#what-exp-cloud-id-obtain}
 
-Experience Cloud ID （ECID）は、アプリケーションまたは web サイトの個々のユーザーに対してAdobe Experience Cloudで生成される一意の ID です。 ECID は、複数のアプリケーションや web サイトをまたいで特定のユーザーに関する情報をリンクするために使用されるすべてのExperience Cloud レポートで頻繁に使用されます。
+Experience Cloud ID （略してECID）は、アプリケーションまたはweb サイト内の個々のユーザーに対してAdobe Experience Cloudによって生成された一意のIDです。 ECIDは、複数のアプリケーションやweb サイトをまたいで特定のユーザーに関する情報をリンクするために使用されているすべてのExperience Cloud レポートで頻繁に使用されます。
 
-訪問者 ID を提供するシステムが既に導入されている場合は、このドキュメントの範囲にも同じ ID を使用する必要があります。
+訪問者IDを提供するシステムを既に導入している場合は、このドキュメントの範囲に同じIDを使用する必要があります。
 
-ECID を取得する 1 つの方法は、Experience Cloud ID サービスを使用することです。 TDM、JS ライブラリ、サーバー側、直接統合、モバイルプラットフォーム用のネイティブライブラリのいずれかに基づいて、好みの実装タイプを使用できます。 利用可能なサービス、ライブラリ、SDKのガイドおよび実装ガイドの包括的なビューについては、以下を参照してください。<https://experienceleague.adobe.com/docs/id-service/using/implementation/implementation-guides.html?lang=ja>
+ECIDを取得する方法の1つは、Experience Cloud ID サービスを使用することです。 TDM、JS ライブラリ、サーバーサイド、ダイレクト統合、モバイルプラットフォーム用のネイティブライブラリなどにもとづいて、好みの実装タイプを使用できます。 利用可能なサービス、ライブラリ、SDKの実装ガイドの包括的なビューについては、<https://experienceleague.adobe.com/docs/id-service/using/implementation/implementation-guides.html?lang=ja>を参照してください。
 
-## Adobe Pass認証でExperience Cloud ID を使用する利点は何ですか？ {#benefit-ex-cloud-id}
+## Adobe Pass認証でExperience Cloud IDを使用するメリットは何ですか？ {#benefit-ex-cloud-id}
 
-SDK およびクライアントレス REST API を ECID を使用するように設定すると、後でAdobe Pass Authentication によって収集されたデータを既存のExperience Cloud ソリューションにリンクできるようになります。 これにより、Adobeが提供するすべてのソリューションを通じて、カスタマージャーニーとエクスペリエンスをより深く理解できます。
+ECIDを使用するようにSDKとクライアントレス REST APIを設定すると、後でAdobe Pass Authenticationによって収集されたデータを既存のExperience Cloud ソリューションにリンクできるようになります。 これにより、Adobeが提供するあらゆるソリューションをまたいで、カスタマージャーニーとエクスペリエンスをより詳細に把握できるようになります。
 
-## Adobe Pass認証でのExperience Cloud ID の使用方法は？ {#how-to-ex-cloud-id-authn}
+## Adobe Pass認証でExperience Cloud IDを使用する方法 {#how-to-ex-cloud-id-authn}
 
-（前述の） ECID を取得したら、この情報を SDK とクライアントレス REST API に渡す必要があります。 この情報は、後でSDKが行う各ネットワーク呼び出しでサーバーに渡されます。 設定プロセスは、次のようにSDKごとに異なります。
+ECID （上記）を取得した後、この情報をSDKとクライアントレス REST APIに渡す必要があります。 この情報は、後でSDKが行う各ネットワーク呼び出しでサーバーに渡されます。 設定プロセスは、次のようにSDKごとに異なります。
 
 ### JS SDK {#js-sdk}
 
-JavaScriptの場合、setRequestor 呼び出しの 3 番目のパラメーターとしてマップで ECID を渡す必要があります。
+JavaScriptの場合は、マップ内のECIDを3番目のパラメーターとしてsetRequestor呼び出しに渡す必要があります。
 
 **使用例：**
 
@@ -47,7 +48,7 @@ accessEnabler.setRequestor("REQUESTOR_ID", ["ENDPOINT_URL"],
 
 ### iOS/tvOS SDK {#ios-sdk}
 
-iOS/tvOS SDKの場合は、setOptions という専用のメソッドがあります。
+IOS/tvOS SDKには、setOptionsという専用のメソッドがあります。
 
 **使用例：**
 
@@ -61,7 +62,7 @@ accessEnabler.setOptions(
 
 ### Android/fireTV SDK {#android-sdk}
 
-Android/fireTV SDKの場合、この仕組みはiOSに似ています。 パラメーター名のみが異なります。 API については、こちらを参照してください。
+Android/fireTV SDKの場合、この仕組みはiOSに似ています。 パラメーター名だけが異なります。 APIのドキュメントはここにあります。
 
 **使用例：**
 
@@ -76,7 +77,7 @@ accessEnabler.setOptions(options);
 
 ### クライアントレス API {#clientless-api}
 
-REST API v1 経由でAdobe Passを使用する場合は、**ECID** 値を **&#39;ap_vi&#39;** という名前のパラメーターとして **すべての API で** 送信する必要があります。
+REST API v1を介してAdobe Passを使用する場合、すべてのAPI **で** ECID **値を**&#39;ap_vi&#39;**という名前のパラメーターとして**&#x200B;送信する必要があります。
 
 **使用例：**
 
@@ -84,7 +85,7 @@ REST API v1 経由でAdobe Passを使用する場合は、**ECID** 値を **&#39
 
 ### REST API V2 {#rest-api-v2}
 
-REST API v2 経由でAdobe Passを使用する場合は、**ECID** 値を **すべての API で** 「**AP-Visitor-Identifier&#39;** という名前のヘッダーとして送信する必要があります。
+REST API v2を介してAdobe Passを使用する場合、**ECID**&#x200B;の値は、すべてのAPI **で**&#x200B;という名前のヘッダーとして&#x200B;**送信する必要があります。&#39;AP-Visitor-Identifier&#39;**.
 
 **使用例：**
 

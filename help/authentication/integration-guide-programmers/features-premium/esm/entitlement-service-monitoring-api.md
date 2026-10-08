@@ -2,13 +2,14 @@
 title: 使用権限サービス監視API
 description: 使用権限サービス監視API
 exl-id: a9572372-14a6-4caa-9ab6-4a6baababaa1
-source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '2098'
 ht-degree: 0%
-
 ---
-
 # 使用権限サービス監視API {#entitlement-service-monitoring-api}
 
 >[!IMPORTANT]
@@ -63,13 +64,13 @@ REST APIは、ディメンションのパス、提供されたフィルター、
 
 ![](../../../assets/esm-mvpd-dimensions.png)
 
-`https://mgmt.auth.adobe.com/esm/v3` API エンドポイントに対するGETは、次を含む表現を返します。
+`https://mgmt.auth.adobe.com/esm/v3` API エンドポイントへのGETは、次を含む表現を返します。
 
 * 使用可能なルートドリルダウンパスへのリンク：
 
-   * `<link rel="drill-down" href="/v3/dimensionA"/>`
+  * `<link rel="drill-down" href="/v3/dimensionA"/>`
 
-   * `<link rel="drill-down" href="/v3/dimensionB"/>`
+  * `<link rel="drill-down" href="/v3/dimensionB"/>`
 
 * すべての指標の概要（集計値）（デフォルトでは
 intervalを指定します。クエリ文字列パラメーターは指定されていないので、以下を参照してください）。

@@ -1,21 +1,22 @@
 ---
-title: REST API V2 API の概要
-description: REST API V2 API の概要
+title: REST API V2 APIの概要
+description: REST API V2 APIの概要
 exl-id: 62b48bf0-d200-4949-b268-8f8ea2daabfa
-source-git-commit: fab5964aeb832d419702b41a6d3bc5676cb3354f
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '152'
-ht-degree: 3%
-
+ht-degree: 0%
 ---
-
-# REST API V2 API の概要 {#rest-api-v2-apis-overview}
+# REST API V2 APIの概要 {#rest-api-v2-apis-overview}
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
-開始するには、以下のリストに関心のある API の公開ドキュメントを参照してください。
+開始するには、以下のリストに興味のあるAPIの公開ドキュメントにアクセスしてください。
 
 ## 設定 {#rest-api-v2-apis-configuration}
 
@@ -24,30 +25,30 @@ ht-degree: 3%
 ## セッション {#rest-api-v2-apis-sessions}
 
 * [認証セッションの作成](sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
-* [認証セッションの再開](sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
+* [認証セッションを再開](sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
 * [認証セッションの取得](sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md)
-* [ユーザーエージェントでの認証の実行](sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)
+* [ユーザーエージェントで認証を実行する](sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)
 
 ## プロファイル {#rest-api-v2-apis-profiles}
 
 * [プロファイルの取得](profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
-* [特定の mvpd のプロファイルの取得](profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
+* [特定のmvpdのプロファイルの取得](profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
 * [特定のコードのプロファイルの取得](profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
 
 ## 決定 {#rest-api-v2-apis-decisions}
 
-* [特定の mvpd を使用した認証決定の取得](decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
-* [特定の mvpd を使用した事前認証決定の取得](decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
+* [特定のmvpdを使用して認証の決定を取得する](decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
+* [特定のmvpdを使用して事前承認決定を取得する](decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
 
 ## ログアウト {#rest-api-v2-apis-logout}
 
-* [特定の mvpd に対するログアウトの開始](logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)
+* [特定のmvpdのログアウトを開始](logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)
 
-## パートナーのシングル サインオン {#rest-api-v2-apis-partner-single-sign-on}
+## パートナーシングルサインオン {#rest-api-v2-apis-partner-single-sign-on}
 
-* [パートナー認証要求の取得](partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)
+* [パートナー認証リクエストの取得](partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)
 * [パートナー認証応答を使用したプロファイルの作成と取得](partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)
 
-## REST API V2 を試してみますか？
+## REST API V2を試してみますか？
 
-[Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイトの製品専用ページから REST API V2 を参照できるようになりました。
+[Adobe Developer](https://developer.adobe.com/adobe-pass/) web サイトから製品専用ページを介して、REST API V2を検索できるようになりました。

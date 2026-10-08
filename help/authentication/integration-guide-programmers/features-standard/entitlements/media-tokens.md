@@ -2,57 +2,58 @@
 title: メディアトークン
 description: メディアトークン
 exl-id: 7e486d2c-e078-464d-90b1-14e2cfb4d20a
-source-git-commit: a19f4fd40c9cd851a00f05f82adbabb85edd8422
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '697'
-ht-degree: 1%
-
+ht-degree: 0%
 ---
-
 # メディアトークン {#media-tokens}
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-メディアトークンは、保護されたコンテンツ（リソース [&#128279;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) に対する表示アクセスを提供するための認証決定の結果として、Adobe Pass認証 REST API V2）によって生成されるトークンです。
+メディアトークンは、保護されたコンテンツ（リソース）への表示アクセスを提供するための認証決定の結果として、Adobe Pass認証[REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)によって生成されたトークンです。
 
-メディアトークンは、問題の時点で指定された制限された短い期間（デフォルトは 7 分）有効で、クライアントアプリケーションで検証および使用される必要がある前の時間制限を示します。 メディアトークンは 1 回限りの使用に制限され、絶対にキャッシュしないでください。
+メディアトークンは、問題の時点で指定された制限付き短い期間（デフォルトは7分）有効であり、クライアントアプリケーションで検証して使用する前の時間制限を示します。 メディアトークンは1回限りの使用に制限されており、キャッシュしないでください。
 
-メディアトークンは、クリアテキストで送信される公開鍵インフラストラクチャ（PKI）に基づく署名済み文字列で構成されます。 PKI ベースの保護機能を使用すると、トークンは、証明機関（CA）によってAdobeに発行された非対称キーを使用して署名されます。
+メディアトークンは、クリアテキストで送信される公開鍵基盤（PKI）に基づく署名済み文字列で構成されます。 PKI ベースの保護では、トークンは、認証局（CA）によってAdobeに発行された非対称キーを使用して署名されます。
 
-メディアトークンはプログラマーに渡され、その後、ビデオストリームを開始する前にメディアトークン検証機能を使用して検証し、そのリソースへのアクセスのセキュリティを確保できます。
+メディアトークンはプログラマーに渡され、プログラマーはビデオストリームを開始する前にメディアトークン検証ツールを使用してメディアトークンを検証し、そのリソースへのアクセスのセキュリティを確保できます。
 
-メディアトークンベリファイアは、Adobe Pass認証によって配布されるライブラリで、メディアトークンの信頼性の検証を担当します。
+Media Token Verifierは、Adobe Pass Authenticationによって配布されるライブラリで、メディアトークンの信頼性を検証します。
 
-## メディアトークン検証子 {#media-token-verifier}
+## Media Token Verifier {#media-token-verifier}
 
-Adobe Pass Authentication では、ビデオストリームを開始する前に安全にアクセスできるよう、メディアトークン検証機能ライブラリを統合してメディアトークンを独自のバックエンドサービスに送信することをお勧めします。 メディアトークンの有効期間（TTL）は、トークン生成サーバーと検証サーバーの間で発生する可能性のあるクロック同期の問題を考慮するように設計されています。
+Adobe Pass Authenticationでは、ビデオストリームを開始する前に、Media Token Verifier ライブラリを統合した独自のバックエンドサービスにメディアトークンを送信して、安全なアクセスを確保することをお勧めします。 メディアトークンのTTL （Time-to-Live）は、トークン生成サーバーと検証サーバー間の潜在的なクロック同期の問題を考慮するように設計されています。
 
-トークン形式は保証されず、将来的に変更される可能性があるので、Adobe Pass認証ではメディアトークンの解析とそのデータの直接抽出に対する強いアドバイスを行います。 メディアトークン検証者ライブラリは、トークンの内容を分析するために使用される唯一のツールである必要があります。
+Adobe Pass Authenticationは、メディアトークンのフォーマットが保証されておらず、将来的に変更される可能性があるため、メディアトークンを解析し、そのデータを直接抽出することを強くお勧めします。 Media Token Verifier ライブラリは、トークンのコンテンツを分析するために使用される唯一のツールである必要があります。
 
-メディアトークン検証機能ライブラリは、次のリンクからダウンロードできます。
+Media Token Verifier ライブラリは、次のリンクからダウンロードできます。
 
 * https://tve.zendesk.com/hc/en-us/articles/204963159-Media-Token-Verifier-library
 
-メディアトークンベリファイライブラリでは、JDK バージョン 1.5 以降が必要で、署名アルゴリズム（`SHA256WithRSA`）用に優先される Java 暗号化拡張機能（JCE）プロバイダーの使用がサポートされています。
+Media Token Verifier ライブラリにはJDK バージョン 1.5以降が必要で、署名アルゴリズム （`SHA256WithRSA`）に優先Java Cryptography Extension （JCE） プロバイダーの使用をサポートしています。
 
-`mediatoken-verifier-VERSION.jar` Java アーカイブによって表されるメディアトークン検証者ライブラリには、次のものが含まれます。
+`mediatoken-verifier-VERSION.jar` Java アーカイブで表されるMedia Token Verifier ライブラリには、次のものが含まれます。
 
 * Adobe公開鍵。
-* トークン検証 API （`ITokenVerifier.java`）。
+* トークン検証API （`ITokenVerifier.java`）。
 * 参照実装（`com.adobe.entitlement.test.EntitlementVerifierTest.java`）。
-* 依存関係と証明書キーストア。
+* 依存関係と証明書キーストア：
 
 >[!IMPORTANT]
 > 
-> 含まれる証明書キーストアのデフォルトのパスワードは `123456` です。
+> 含まれる証明書キーストアのデフォルト パスワードは`123456`です。
 
 ### メソッド {#methods}
 
 `ITokenVerifier` クラスは、次のメソッドを定義します。
 
-* メディアトークンの検証に使用する `isValid()` メソッド。 単一の引数 [&#x200B; リソース識別子 &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier) を受け入れます。 指定されたリソース識別子が `null` の場合、メソッドはメディアトークンの信頼性と有効期間のみを検証します。
+* メディアトークンの検証に使用される`isValid()` メソッド。 単一の引数[&#x200B; リソース識別子](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier)を受け入れます。 指定されたリソース IDが`null`の場合、メソッドはメディアトークンの真正性と有効期間のみを検証します。
 
   `isValid()` メソッドは、次のいずれかのステータス値を返します。
 
@@ -60,25 +61,25 @@ Adobe Pass Authentication では、ビデオストリームを開始する前に
   |----------------------|-------------------------------------------|
   | INVALID_TOKEN_FORMAT | トークン形式が無効です |
   | INVALID_SIGNATURE | トークンの信頼性を検証できませんでした |
-  | TOKEN_EXPIRED | トークン TTL が無効です |
-  | INVALID_RESOURCE_ID | 指定されたリソースのトークンが無効です |
+  | TOKEN_EXPIRED | トークン TTLが無効です |
+  | INVALID_RESOURCE_ID | トークンは、指定されたリソースに対して無効です |
   | ERROR_UNKNOWN | トークンはまだ検証されていません |
 
-* メディアトークンに関連付けられたリソース識別子を取得し、認証決定応答から返された識別子と比較するために使用される `getResourceID()` メソッド。
+* メディアトークンに関連付けられているリソース IDを取得し、承認決定応答から返された識別子と比較するために使用される`getResourceID()` メソッド。
 
-* メディアトークンが発行された時刻を取得するために使用された `getTimeIssued()` メソッド。
+* メディアトークンが発行された時間を取得するために使用される`getTimeIssued()` メソッド。
 
-* メディアトークンの TTL を取得するために使用される `getTimeToLive()` メソッド。
+* メディアトークンのTTLを取得するために使用される`getTimeToLive()` メソッド。
 
-* MVPDによって設定された匿名化 GUID を取得するために使用される `getUserSessionGUID()` メソッド。
+* MVPDによって設定された匿名化されたGUIDを取得するために使用される`getUserSessionGUID()` メソッド。
 
-* ユーザーを認証したMVPDの識別情報を取得するために使用される `getMvpdId()` メソッド。
+* ユーザーを認証したMVPDのIDを取得するために使用される`getMvpdId()` メソッド。
 
-* ユーザーを認証したプロキシMVPDの識別子を取得するために使用される `getProxyMvpdId()` メソッド。
+* ユーザーを認証したプロキシ MVPDのIDを取得するために使用される`getProxyMvpdId()` メソッド。
 
 ### サンプル {#sample}
 
-メディアトークン検証者アーカイブには、参照実装（`com.adobe.entitlement.test.EntitlementVerifierTest.java`）と、テストクラスを使用した API の呼び出し例が含まれています。 このサンプル（`com.adobe.entitlement.text.EntitlementVerifierTest.java`）では、メディアトークンベリファイアライブラリをメディアサーバーに統合する方法を説明しています。
+Media Token Verifier アーカイブには、参照実装（`com.adobe.entitlement.test.EntitlementVerifierTest.java`）と、テストクラスでAPIを呼び出す例が含まれています。 このサンプル （`com.adobe.entitlement.text.EntitlementVerifierTest.java`）は、Media Token Verifier ライブラリをメディア サーバーに統合する方法を示しています。
 
 ```JAVA
 package com.adobe.entitlement.test;
@@ -192,20 +193,20 @@ public class EntitlementVerifierTest {
 
 ## REST API V2 {#rest-api-v2}
 
-メディアトークンは、次の API を使用して取得できます。
+メディアトークンは、次のAPIを使用して取得できます。
 
-* [特定の mvpd を使用した認証決定の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
+* [特定のmvpdを使用して認証の決定を取得する](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
 
-認証決定とメディアトークンの構造については、上記 API の **Response** および **Samples** の節を参照してください。
+承認決定とメディアトークンの構造については、上記のAPIの&#x200B;**応答**&#x200B;および&#x200B;**サンプル**&#x200B;のセクションを参照してください。
 
 >[!IMPORTANT]
 >
-> [&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md) は、ユーザーアクセスを許可する認証決定に既に含まれているので、クライアントアプリケーションは、別のエンドポイントをクエリして取得する必要はありません。
+> クライアントアプリケーションは、ユーザーアクセスを許可する承認決定に既に含まれているため、[&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)を取得するために別のエンドポイントをクエリする必要はありません。
 
-上記の API を統合する方法とタイミングについて詳しくは、次のドキュメントを参照してください。
+上記のAPIを統合する方法とタイミングについて詳しくは、次のドキュメントを参照してください。
 
-* [プライマリアプリケーション内で実行される基本認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
+* [プライマリアプリケーション内で実行される基本的な認証フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
 
 >[!MORELIKETHIS]
 >
-> [&#x200B; 承認フェーズに関するよくある質問 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)
+> [承認フェーズに関するFAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)

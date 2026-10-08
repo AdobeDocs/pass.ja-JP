@@ -1,27 +1,28 @@
 ---
-title: 登記記録を返還する
-description: 登記記録を返還する
+title: 登録レコードを返す
+description: 登録レコードを返す
 exl-id: 7b9e63a2-59b6-4123-a19b-ee1f021219ea
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
-source-wordcount: '283'
-ht-degree: 6%
-
+source-wordcount: '285'
+ht-degree: 3%
 ---
-
-# （レガシー）返品登録記録 {#return-registration-record}
+# （従来）返品登録記録 {#return-registration-record}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 >[!NOTE]
 >
-> REST API の実装には、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
+> REST APIの実装は[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
 
 ## REST API エンドポイント {#clientless-endpoints}
 
@@ -40,16 +41,16 @@ ht-degree: 6%
 
 ## 説明 {#description}
 
-登録コード UUID、登録コード、ハッシュ化されたデバイス ID を含む登録コードレコードを返します。
+登録コード UUID、登録コード、およびハッシュ化されたデバイス IDを含む登録コードレコードを返します。
 
 
 
 
 
 
-| エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
+| エンドポイント | </br>様に呼び出されました | 入力</br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>応答 |
 | --- | --- | --- | --- | --- | --- |
-| `<REGGIE_FQDN>`;/reggie/v1/`{requestorId}`/regcode/`{registrationCode}`<p>例：<p>`<REGGIE_FQDN>`/reggie/v1/sampleRequestorId/regcode/TJCFK?format=xml | ストリーミングアプリ </br></br> プログラマ </br></br> サービス | &#x200B;1.  要求者 </br>    （パスコンポーネント） </br>2.  登録コード </br>    （パスコンポーネント） | GET | 登録コードと情報を含む XML または JSON。 以下のスキーマとサンプルを参照してください。 | 200 |
+| `<REGGIE_FQDN>`;/reggie/v1/`{requestorId}`/regcode/`{registrationCode}`<p>例：<p>`<REGGIE_FQDN>`/reggie/v1/sampleRequestorId/regcode/TJCFK?format=xml | ストリーミングアプリ </br></br>または</br></br> プログラマーサービス | &#x200B;1.  依頼者</br> （パスコンポーネント） </br>2。  登録コード </br> （パスコンポーネント） | GET | 登録コードと情報を含むXMLまたはJSON。 以下のスキーマとサンプルを参照してください。 | 200 |
 
 {style="table-layout:auto"}
 
@@ -58,13 +59,13 @@ ht-degree: 6%
 
 | 入力パラメーター | 説明 |
 | --- | --- |
-| 要求者 | この操作が有効なプログラマ requestorId です。 |
-| 登録コード | ストリーミングデバイスに表示される（認証フローに入力される）登録コード値。 |
+| 依頼者 | この操作が有効なプログラマの依頼者Id。 |
+| 登録コード | ストリーミングデバイスに表示される登録コードの値（認証フローに入力される）。 |
 
 
 
 
-## 応答 XML スキーマ {#response-xml-schema}
+## 応答XML スキーマ {#response-xml-schema}
 
 ### 登録コード XSD
 
@@ -102,22 +103,22 @@ ht-degree: 6%
 
 | 要素名 | 説明 |
 | --- | --- |
-| id | 登録コードサービスで生成された UUID |
-| コード | 登録コードサービスで生成された登録コード |
-| 要求者 | 要求者 ID |
+| id | 登録コードサービスによって生成されたUUID |
+| コード | 登録コードサービスによって生成された登録コード |
+| 依頼者 | 依頼者ID |
 | mvpd | MVPD ID |
-| 生成日時 | 登録コード作成タイムスタンプ（1970 年 1 月 1 日（PT）からのミリ秒単位） |
-| expires | 登録コードの有効期限が切れるタイムスタンプ（1970 年 1 月 1 日（GMT）からのミリ秒単位） |
-| deviceId | 一意のデバイス ID （または XSTS トークン） |
+| 生成日 | 登録コード作成タイムスタンプ（1970年1月1日GMTからのミリ秒単位） |
+| 期限切れ | 登録コードの有効期限が切れるタイムスタンプ（1970年1月1日GMTからのミリ秒単位） |
+| deviceId | 一意のデバイス ID （またはXSTS トークン） |
 | deviceType | デバイスタイプ |
-| deviceUser | デバイスにログインしているユーザー |
+| deviceUser | ユーザーがこのデバイスにログインしました |
 | appId | アプリケーション Id |
-| appVersion | アプリケーション バージョン |
-| registrationurl | エンドユーザーに表示されるログイン Web アプリの URL |
+| appVersion | アプリケーションバージョン |
+| registrationURL | エンドユーザーに表示されるログイン Web アプリのURL |
 
 {style="table-layout:auto"}
 
-### 応答のサンプル {#sample-response}
+### 応答サンプル {#sample-response}
 
 ```XML
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>

@@ -2,7 +2,10 @@
 title: Adobe シングルサインオンサービス
 description: 複数のデバイスやアプリケーションをまたいでシームレスな認証を可能にするAdobe Pass SSO サービスについて説明します。
 exl-id: ffca2bcc-c933-4688-8d98-c5e03390f66c
-source-git-commit: 39384d753e7808fa433f30d8dafabd531dbf3acf
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '4447'
 ht-degree: 2%
