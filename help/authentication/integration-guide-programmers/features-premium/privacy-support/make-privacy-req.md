@@ -222,12 +222,12 @@ Delete リクエストの場合：
 
 お客様がAdobeにプライバシーリクエストを送信する方法は2つあります。
 
-* **手動** - [Privacy Service ユーザーインターフェイス ](#privacy-service-ui)を使用
+* **手動** - [Privacy Service ユーザーインターフェイス &#x200B;](#privacy-service-ui)を使用
 * **自動** - [Privacy Service API](#privacy-service-api)を使用
 
 ### Privacy Service UIを使用して {#privacy-service-ui}
 
-Privacy Service ユーザーインターフェイスにアクセスして使用する方法に関する[完全なチュートリアル ](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=en#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md)は、Adobe I/O サービスを通じてオンラインで利用できます。 さらに、このリンクを使用して、プライバシー規制に関するビデオや記事のライブラリにアクセスできます。 Adobe Experience CloudとGDPR メニューをクリックします。 これにより、多数のビデオが開きます。「GDPR UIの使い方」はその使用方法を説明しています。
+Privacy Service ユーザーインターフェイスにアクセスして使用する方法に関する[完全なチュートリアル &#x200B;](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=en#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md)は、Adobe I/O サービスを通じてオンラインで利用できます。 さらに、このリンクを使用して、プライバシー規制に関するビデオや記事のライブラリにアクセスできます。 Adobe Experience CloudとGDPR メニューをクリックします。 これにより、多数のビデオが開きます。「GDPR UIの使い方」はその使用方法を説明しています。
 
 UIでは、ユーザーは独自のIMSOrgIDと、各製品のGDPR リクエストの詳細を含むJSONを読み込む必要があります。
 

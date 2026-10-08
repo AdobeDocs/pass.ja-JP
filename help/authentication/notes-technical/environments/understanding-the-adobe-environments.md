@@ -16,7 +16,7 @@ ht-degree: 0%
 >
 >このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-Adobe環境について説明する公式ドキュメントは、[Pre-qualでの環境の設定とテスト ](/help/authentication/notes-technical/environments/setting-up-your-environment-and-testing-in-prequal.md)で利用できます。
+Adobe環境について説明する公式ドキュメントは、[Pre-qualでの環境の設定とテスト &#x200B;](/help/authentication/notes-technical/environments/setting-up-your-environment-and-testing-in-prequal.md)で利用できます。
 
 Adobeの環境は、いくつかの単語で要約されています。
 

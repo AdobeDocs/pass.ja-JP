@@ -40,9 +40,9 @@ ht-degree: 0%
 * ユーザーの認証ステータスを決定します。
 * 使用する認証方法を特定します。
 * ID プロバイダーを特定します。
-* [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)にアクセスします。
+* [&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)にアクセスします。
 
-プロファイルは、Adobe Pass認証のバックエンドに安全に保存され、リクエスト側のアプリケーション、デバイス、サービスプロバイダーのIDにリンクされます。 これらは、[認証の有効期間（TTL） ](#authentication-ttl-management)で定義されているように、期間限定で有効です。
+プロファイルは、Adobe Pass認証のバックエンドに安全に保存され、リクエスト側のアプリケーション、デバイス、サービスプロバイダーのIDにリンクされます。 これらは、[認証の有効期間（TTL） &#x200B;](#authentication-ttl-management)で定義されているように、期間限定で有効です。
 
 ## 認証の有効期間（TTL）管理 {#authentication-ttl-management}
 
@@ -51,9 +51,9 @@ Authentication Time-to-Live （TTL）: ユーザーが再認証を必要とす�
 * プラットフォームカテゴリ（例：デスクトップ、モバイル、TV接続デバイス）
 * 特定のプラットフォーム（例：iOS、Android、tvOS、Roku、FireTV）
 
-認証（authN） TTLは、Adobe Pass [TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)を通じて、組織の管理者またはAdobe Pass認証担当者が表示および変更できます。
+認証（authN） TTLは、Adobe Pass [TVE ダッシュボード &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)を通じて、組織の管理者またはAdobe Pass認証担当者が表示および変更できます。
 
-詳しくは、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows)のドキュメントを参照してください。
+詳しくは、[TVE ダッシュボード統合ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows)のドキュメントを参照してください。
 
 ## REST API V2 {#rest-api-v2}
 

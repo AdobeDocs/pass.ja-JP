@@ -22,7 +22,7 @@ ht-degree: 1%
 
 >[!NOTE]
 >
-> REST APIの実装は[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
+> REST APIの実装は[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
 
 ## REST API エンドポイント {#clientless-endpoints}
 
@@ -56,8 +56,8 @@ ht-degree: 1%
 | 依頼者 | この操作が有効なプログラマの依頼者Id。 |
 | deviceId | デバイス ID バイト。 |
 | リソース | resourceId （またはMRSS フラグメント）を含む文字列は、ユーザーが要求したコンテンツを識別し、MVPD認証エンドポイントによって認識されます。 |
-| device_info/</br></br>X-Device-Info | ストリーミングデバイス情報。</br></br>**注**：これはdevice_infoをURL パラメーターとして渡すことができますが、このパラメーターの潜在的なサイズとGET URLの長さに制限があるため、HTTP ヘッダーでX-Device-Infoとして渡す必要があります。 </br></br>詳細については、[ デバイスと接続情報の受け渡し](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)を参照してください。 |
-| _deviceType_ | デバイスの種類（Roku、PCなど）。</br></br>このパラメーターが正しく設定されている場合、ESMはClientlessを使用する場合に[ デバイスの種類](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type)ごとに分類される指標を提供するため、様々なタイプの分析を実行できます（Roku、AppleTV、Xboxなど）。</br></br>参照、[ パス指標でクライアントレスのデバイスの種類のパラメーターを使用する利点&#x200B;](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**注**:device_infoは、このパラメーターにを置置換じます。 |
+| device_info/</br></br>X-Device-Info | ストリーミングデバイス情報。</br></br>**注**：これはdevice_infoをURL パラメーターとして渡すことができますが、このパラメーターの潜在的なサイズとGET URLの長さに制限があるため、HTTP ヘッダーでX-Device-Infoとして渡す必要があります。 </br></br>詳細については、[&#x200B; デバイスと接続情報の受け渡し](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)を参照してください。 |
+| _deviceType_ | デバイスの種類（Roku、PCなど）。</br></br>このパラメーターが正しく設定されている場合、ESMはClientlessを使用する場合に[&#x200B; デバイスの種類](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type)ごとに分類される指標を提供するため、様々なタイプの分析を実行できます（Roku、AppleTV、Xboxなど）。</br></br>参照、[&#x200B; パス指標でクライアントレスのデバイスの種類のパラメーターを使用する利点&#x200B;](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**注**:device_infoは、このパラメーターにを置置換じます。 |
 | _deviceUser_ | デバイスユーザーID。 |
 | _appId_ | アプリケーション ID/名前。 </br></br>**メモ**:device_infoがこのパラメーターに置き換わります。 |
 

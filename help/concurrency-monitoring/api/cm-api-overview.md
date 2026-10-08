@@ -12,11 +12,11 @@ ht-degree: 0%
 ---
 # APIの概要 {#api-overview}
 
-詳しくは、[ オンライン API ドキュメント ](https://streams-stage.adobeprimetime.com/swagger-ui/index.html)を参照してください。
+詳しくは、[&#x200B; オンライン API ドキュメント &#x200B;](https://streams-stage.adobeprimetime.com/swagger-ui/index.html)を参照してください。
 
 ## 目的と前提条件 {#purpose-prerequisites}
 
-このドキュメントは、同時視聴数モニタリングとの統合を実装する際に、アプリケーション開発者がSwagger API仕様を使用する際に役立ちます。 このガイドラインに従う前に、サービスで定義されている概念を事前に理解しておくことを強くお勧めします。 この理解を得るには、[製品ドキュメント ](../cm-home.md)と[Swagger API仕様](https://streams-stage.adobeprimetime.com/swagger-ui/index.html)の概要を確認する必要があります。
+このドキュメントは、同時視聴数モニタリングとの統合を実装する際に、アプリケーション開発者がSwagger API仕様を使用する際に役立ちます。 このガイドラインに従う前に、サービスで定義されている概念を事前に理解しておくことを強くお勧めします。 この理解を得るには、[製品ドキュメント &#x200B;](../cm-home.md)と[Swagger API仕様](https://streams-stage.adobeprimetime.com/swagger-ui/index.html)の概要を確認する必要があります。
 
 ## 概要 {#api-overview-intro}
 
@@ -44,7 +44,7 @@ curl -i -u ${user}:%{pass} http://streams-stage.adobeprimetime.com/v2/metadata
 []
 ```
 
-応答本文フィールドからわかるように、メタデータ属性のリストは空です。 つまり、デザインで必要な属性は、このアプリケーションに割り当てられた3つのストリームポリシーを評価するのに十分です。 [標準メタデータフィールドのドキュメント ](../technical/standard-metadata-attributes.md)も参照してください。 この呼び出しの後、セッション REST リソースで新しいセッションを作成できます。
+応答本文フィールドからわかるように、メタデータ属性のリストは空です。 つまり、デザインで必要な属性は、このアプリケーションに割り当てられた3つのストリームポリシーを評価するのに十分です。 [標準メタデータフィールドのドキュメント &#x200B;](../technical/standard-metadata-attributes.md)も参照してください。 この呼び出しの後、セッション REST リソースで新しいセッションを作成できます。
 
 #### セッションの初期化 {#session-initial}
 

@@ -73,7 +73,7 @@ ht-degree: 0%
 
 ## カスタム URL スキームでの呼び出しのインターセプト {#intercept}
 
-これは、以前に[setOptions （\[&quot;handleSVC&quot;:true&quot;\]） ](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)呼び出しを介した手動Safari View Controller （SVC）処理をアプリケーションで有効にし、特定のMVPDでSafari View Controller （SVC）を必要としていたため、UIWebView/WKWebView コントローラーではなくSFSafariViewController コントローラーで認証エンドポイントとログアウトエンドポイントのURLを読み込む必要がある場合場合場合場合にのみ適用されます。
+これは、以前に[setOptions （\[&quot;handleSVC&quot;:true&quot;\]） &#x200B;](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)呼び出しを介した手動Safari View Controller （SVC）処理をアプリケーションで有効にし、特定のMVPDでSafari View Controller （SVC）を必要としていたため、UIWebView/WKWebView コントローラーではなくSFSafariViewController コントローラーで認証エンドポイントとログアウトエンドポイントのURLを読み込む必要がある場合場合場合場合にのみ適用されます。
 
 認証フローとログアウトフロー中に、アプリケーションが複数のリダイレクトを通過する際に`SFSafariViewController ` コントローラーのアクティビティを監視する必要があります。 アプリケーションは、`application's custom URL scheme`によって定義された特定のカスタム URL （例：`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com)`）を読み込む瞬間を検出する必要があります。コントローラーがこの特定のカスタム URLを読み込むと、アプリケーションは`SFSafariViewController`を閉じ、AccessEnablerの`handleExternalURL:url `API メソッドを呼び出す必要があります。
 
@@ -127,7 +127,7 @@ ht-degree: 0%
     accessEnabler.setRequestor(requestorId)
 ```
 
-> API情報はこちら：[ リクエスト者を設定](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
+> API情報はこちら：[&#x200B; リクエスト者を設定](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
 
 </br>
 

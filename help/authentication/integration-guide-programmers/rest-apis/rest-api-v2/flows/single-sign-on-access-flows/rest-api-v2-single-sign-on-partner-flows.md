@@ -18,7 +18,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2の実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
+> REST API V2の実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -34,7 +34,7 @@ ht-degree: 0%
 
 Adobe Pass Authentication REST API V2は、iOS、iPadOS、またはtvOSで動作するクライアントアプリケーションのエンドユーザー向けに、パートナーシングルサインオン（SSO）をサポートしています。
 
-Apple プラットフォームのシングルサインオン （SSO）について詳しくは、[Apple SSO Cookbook （REST API V2） ](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md)のドキュメントを参照してください。
+Apple プラットフォームのシングルサインオン （SSO）について詳しくは、[Apple SSO Cookbook （REST API V2） &#x200B;](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md)のドキュメントを参照してください。
 
 ## パートナー認証リクエストの取得 {#retrieve-partner-authentication-request}
 
@@ -60,7 +60,7 @@ Apple プラットフォームのシングルサインオン （SSO）につい�
 
 次の図に示すように、指定された手順を実行して、パートナー認証リクエストを取得します。
 
-![ パートナー認証要求を取得](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-partner-authentication-request-flow.png)
+![&#x200B; パートナー認証要求を取得](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-partner-authentication-request-flow.png)
 
 *パートナー認証要求を取得*
 
@@ -75,7 +75,7 @@ Apple プラットフォームのシングルサインオン （SSO）につい�
 
    >[!IMPORTANT]
    >
-   > 詳細については、[ パートナー認証リクエストの取得](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md) API ドキュメントを参照してください。
+   > 詳細については、[&#x200B; パートナー認証リクエストの取得](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md) API ドキュメントを参照してください。
    >
    > * `serviceProvider`や`partner`など、_必須_&#x200B;のすべてのパラメーター
    > * _必須_ ヘッダー（`Authorization`、`AP-Device-Identifier`、`Content-Type`、`X-Device-Info`、`AP-Partner-Framework-Status`など）
@@ -93,7 +93,7 @@ Apple プラットフォームのシングルサインオン （SSO）につい�
 
    >[!IMPORTANT]
    >
-   > セッション応答で提供される情報について詳しくは、[ パートナー認証リクエストの取得](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md) API ドキュメントを参照してください。
+   > セッション応答で提供される情報について詳しくは、[&#x200B; パートナー認証リクエストの取得](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -104,7 +104,7 @@ Apple プラットフォームのシングルサインオン （SSO）につい�
    >
    > <br/>
    > 
-   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
    >
    > <br/>
    >
@@ -126,7 +126,7 @@ Apple プラットフォームのシングルサインオン （SSO）につい�
 
    Adobe Pass バックエンドが有効なプロファイルを識別せず、パートナーのシングルサインオン検証が合格した場合、ストリーミングアプリケーションは、MVPDで認証フローを開始するためのパートナーフレームワークに渡すアクションとデータを含む応答を受け取ります。
 
-   パートナー認証応答を使用したプロファイル取得フローについて詳しくは、[ パートナー認証応答を使用したプロファイルの作成と取得](#create-and-retrieve-profile-using-partner-authentication-response)の節を参照してください。
+   パートナー認証応答を使用したプロファイル取得フローについて詳しくは、[&#x200B; パートナー認証応答を使用したプロファイルの作成と取得](#create-and-retrieve-profile-using-partner-authentication-response)の節を参照してください。
 
 1. **基本認証フローで続行：** セッション パートナーのエンドポイント応答には、次のデータが含まれています。
    * `actionName`属性が「authenticate」または「resume」に設定されています。
@@ -174,7 +174,7 @@ Apple プラットフォームのシングルサインオン （SSO）につい�
 
 次の図に示すように、パートナー認証応答を使用してプロファイル取得フローを実装するには、次の手順を実行します。
 
-![ パートナー認証応答を使用したプロファイルの作成と取得](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-profile-using-partner-authentication-response-flow.png)
+![&#x200B; パートナー認証応答を使用したプロファイルの作成と取得](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-profile-using-partner-authentication-response-flow.png)
 
 *パートナー認証応答を使用して、認証されたプロファイルを作成および取得*
 
@@ -189,7 +189,7 @@ Apple プラットフォームのシングルサインオン （SSO）につい�
 
    >[!IMPORTANT]
    >
-   > 詳細については、[ パートナー認証応答を使用したプロファイルの作成と取得](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md) API ドキュメントを参照してください。
+   > 詳細については、[&#x200B; パートナー認証応答を使用したプロファイルの作成と取得](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md) API ドキュメントを参照してください。
    >
    > * `serviceProvider`、`partner`、`SAMLResponse`など、_必須_&#x200B;のすべてのパラメーター
    > * `Authorization`、`AP-Device-Identifier`、`Content-Type`、`X-Device-Info`、`AP-Partner-Framework-Status`など、_必須_&#x200B;のすべてのヘッダー
@@ -209,7 +209,7 @@ Apple プラットフォームのシングルサインオン （SSO）につい�
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[ パートナー認証応答を使用したプロファイルの作成と取得](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md) API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[&#x200B; パートナー認証応答を使用したプロファイルの作成と取得](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -220,7 +220,7 @@ Apple プラットフォームのシングルサインオン （SSO）につい�
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
    >
    > <br/>
    >

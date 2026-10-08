@@ -16,7 +16,7 @@ ht-degree: 0%
 >
 > このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-決定は、ユーザーのAdobe Pass認証または事前認証の問い合わせに基づいてMVPD認証[REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)によって生成され、[保護されたコンテンツ ](#protected-resources)へのアクセスが許可されるか拒否されるかを判断します。
+決定は、ユーザーのAdobe Pass認証または事前認証の問い合わせに基づいてMVPD認証[REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)によって生成され、[保護されたコンテンツ &#x200B;](#protected-resources)へのアクセスが許可されるか拒否されるかを判断します。
 
 呼び出されるAPIに応じて、2種類の決定が提供されます。
 
@@ -25,7 +25,7 @@ ht-degree: 0%
 
 ## 事前認証の決定 {#preauthorization-decisions}
 
-事前認証の決定は、クライアントアプリケーションに対して、MVPDが[保護されたリソース ](#protected-resources)へのユーザーのアクセスを許可するか拒否するかを知らせるための有益な決定です。
+事前認証の決定は、クライアントアプリケーションに対して、MVPDが[保護されたリソース &#x200B;](#protected-resources)へのユーザーのアクセスを許可するか拒否するかを知らせるための有益な決定です。
 
 事前認証（プリフライト認証）の目的は、ユーザーが表示できる可能性のあるコンテンツに関する正確な情報をアプリケーションが表示できるようにすることです。 これは、アクセスステータスを反映するために、ロックされたアイコンやロック解除されたアイコンなどのインジケーターでユーザーインターフェイスを強化することで実現されます。
 
@@ -41,7 +41,7 @@ ht-degree: 0%
 > 
 > リソースの最大数は、MVPDおよびAdobe Pass Authenticationの担当者と契約を締結した後にのみ増加できます。 同意が得られたら、組織内の管理者またはユーザーの代理でAdobe Pass認証担当者がAdobe Pass TVE ダッシュボードを使用して、変更を実装できます。
 > 
-> 詳しくは、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#add-more-properties)のドキュメントを参照してください。
+> 詳しくは、[TVE ダッシュボード統合ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#add-more-properties)のドキュメントを参照してください。
 
 MVPDは、パフォーマンスに対する明確な意味と、単一のAPI リクエストで処理できるリソースの最大数を持つ、様々なメカニズムを通じて事前認証をサポートする場合があります。
 
@@ -53,7 +53,7 @@ MVPDは、パフォーマンスに対する明確な意味と、単一のAPI リ
 
 ## 認証の決定 {#authorization-decisions}
 
-承認決定は、クライアントアプリケーションがMVPDの決定に準拠し、[保護されたリソース ](#protected-resources)へのユーザーのアクセスを許可または拒否することを許可する権限のある決定です。
+承認決定は、クライアントアプリケーションがMVPDの決定に準拠し、[保護されたリソース &#x200B;](#protected-resources)へのユーザーのアクセスを許可または拒否することを許可する権限のある決定です。
 
 認証の目的は、MVPDでの使用権限検証およびAdobe Pass Authenticationからのメディアトークンの受信に従って、ユーザーが要求したリソースをアプリケーションが再生できるようにすることです。
 
@@ -61,7 +61,7 @@ MVPDは、パフォーマンスに対する明確な意味と、単一のAPI リ
 > 
 > Adobe Pass Authenticationでは、ビデオストリームを開始する前に安全なアクセスを確保しながら、認証決定に含まれるメディアトークンを検証するためにMedia Token Verifier ライブラリを使用することをお勧めします。
 > 
-> 詳しくは、[ メディアトークン ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)のドキュメントを参照してください。
+> 詳しくは、[&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)のドキュメントを参照してください。
 
 認証APIの使用は必須です。クライアントアプリケーションは、ユーザーがリクエストしたリソースを再生する場合、このフェーズをスキップできません。ユーザーがストリームをリリースする前に、MVPDで権限があることを確認する必要があるからです。
 
@@ -78,9 +78,9 @@ Authorization Time-to-Live （TTL）は、リソースが再認証を必要と�
 * プラットフォームカテゴリ（例：デスクトップ、モバイル、TV接続デバイス）
 * 特定のプラットフォーム（例：iOS、Android、tvOS、Roku、FireTV）
 
-認証（authZ） TTLは、Adobe Pass [TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)を通じて、組織管理者の1人またはAdobe Pass認証担当者が代理で表示および変更できます。
+認証（authZ） TTLは、Adobe Pass [TVE ダッシュボード &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)を通じて、組織管理者の1人またはAdobe Pass認証担当者が代理で表示および変更できます。
 
-詳しくは、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows)のドキュメントを参照してください。
+詳しくは、[TVE ダッシュボード統合ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows)のドキュメントを参照してください。
 
 ## 保護されたリソース {#protected-resources}
 
@@ -128,7 +128,7 @@ Authorization Time-to-Live （TTL）は、リソースが再認証を必要と�
     </rss>
 ```
 
-一意のIDは主にAdobe Pass認証に対して不透明ですが、MVPDの機能と要件に基づいてトランスフォーマが適用される場合があります。 MVPDがリソース IDを認識または解析できない場合、Adobe Pass Authenticationにエラーを返し、その後[拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)を使用してクライアントアプリケーションにエラーをリレーします。
+一意のIDは主にAdobe Pass認証に対して不透明ですが、MVPDの機能と要件に基づいてトランスフォーマが適用される場合があります。 MVPDがリソース IDを認識または解析できない場合、Adobe Pass Authenticationにエラーを返し、その後[拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)を使用してクライアントアプリケーションにエラーをリレーします。
 
 ## REST API V2 {#rest-api-v2}
 

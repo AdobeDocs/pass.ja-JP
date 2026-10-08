@@ -18,7 +18,7 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
-> 動的クライアント登録APIの実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
+> 動的クライアント登録APIの実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 ## リクエスト {#request}
 

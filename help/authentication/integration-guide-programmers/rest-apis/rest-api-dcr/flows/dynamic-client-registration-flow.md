@@ -18,7 +18,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> 動的クライアント登録APIの実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
+> 動的クライアント登録APIの実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 ## Adobe Passで保護されたAPIへのアクセス {#access-adobe-pass-protected-apis}
 
@@ -27,7 +27,7 @@ ht-degree: 0%
 Adobe Passで保護されたAPIにアクセスする前に、次の前提条件が満たされていることを確認します。
 
 * クライアント担当者は、[登録アプリケーションの管理](../dynamic-client-registration-overview.md#manage-registered-applications) セクションの説明に従って、登録アプリケーションを作成する必要があります。
-* クライアントの担当者は、[ ソフトウェアステートメントの管理](../dynamic-client-registration-overview.md#manage-software-statements) セクションの説明に従って、ソフトウェアステートメントをダウンロードして埋め込む必要があります。
+* クライアントの担当者は、[&#x200B; ソフトウェアステートメントの管理](../dynamic-client-registration-overview.md#manage-software-statements) セクションの説明に従って、ソフトウェアステートメントをダウンロードして埋め込む必要があります。
 
 >[!IMPORTANT]
 >
@@ -39,7 +39,7 @@ Adobe Passで保護されたAPIにアクセスする前に、次の前提条件�
 
 次の図に示すように、指定された手順に従って、Adobe Passで保護されたAPIにアクセスします。
 
-![Adobe Passで保護されたAPIへのアクセス ](../../../../assets/dcr-api/dcr-api-access-adobe-pass-protected-apis.png)
+![Adobe Passで保護されたAPIへのアクセス &#x200B;](../../../../assets/dcr-api/dcr-api-access-adobe-pass-protected-apis.png)
 
 *Adobe Passで保護されたAPIへのアクセス*
 
@@ -47,7 +47,7 @@ Adobe Passで保護されたAPIにアクセスする前に、次の前提条件�
 
    >[!IMPORTANT]
    >
-   > 詳しくは、[ クライアント資格情報の取得](../apis/dynamic-client-registration-apis-retrieve-client-credentials.md#request) API ドキュメントを参照してください。
+   > 詳しくは、[&#x200B; クライアント資格情報の取得](../apis/dynamic-client-registration-apis-retrieve-client-credentials.md#request) API ドキュメントを参照してください。
    >
    > * `software_statement`など、すべての&#x200B;_必須_ パラメーター
    > * `Content-Type`、`X-Device-Info`など、_必須_ ヘッダーすべて
@@ -57,7 +57,7 @@ Adobe Passで保護されたAPIにアクセスする前に、次の前提条件�
 
    >[!IMPORTANT]
    >
-   > クライアント認証情報レスポンスで提供される情報の詳細については、[ クライアント認証情報の取得](../apis/dynamic-client-registration-apis-retrieve-client-credentials.md#success) API ドキュメントを参照してください。
+   > クライアント認証情報レスポンスで提供される情報の詳細については、[&#x200B; クライアント認証情報の取得](../apis/dynamic-client-registration-apis-retrieve-client-credentials.md#success) API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -67,7 +67,7 @@ Adobe Passで保護されたAPIにアクセスする前に、次の前提条件�
    >
    > <br/>
    >
-   > 検証が失敗すると、エラー応答が生成され、[ クライアント資格情報の取得](../apis/dynamic-client-registration-apis-retrieve-client-credentials.md#error) API ドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[&#x200B; クライアント資格情報の取得](../apis/dynamic-client-registration-apis-retrieve-client-credentials.md#error) API ドキュメントに準拠する追加情報が提供されます。
 
    >[!TIP]
    >
@@ -77,7 +77,7 @@ Adobe Passで保護されたAPIにアクセスする前に、次の前提条件�
 
    >[!IMPORTANT]
    >
-   > 詳細については、[ アクセストークンの取得](../apis/dynamic-client-registration-apis-retrieve-access-token.md#request) API ドキュメントを参照してください。
+   > 詳細については、[&#x200B; アクセストークンの取得](../apis/dynamic-client-registration-apis-retrieve-access-token.md#request) API ドキュメントを参照してください。
    >
    > * `client_id`、`client_secret`、`grant_type`など、_必須_&#x200B;のすべてのパラメーター
    > * `Content-Type`、`X-Device-Info`など、_必須_ ヘッダーすべて
@@ -87,7 +87,7 @@ Adobe Passで保護されたAPIにアクセスする前に、次の前提条件�
 
    >[!IMPORTANT]
    >
-   > アクセストークン応答で提供される情報について詳しくは、[ アクセストークンの取得](../apis/dynamic-client-registration-apis-retrieve-access-token.md#success) API ドキュメントを参照してください。
+   > アクセストークン応答で提供される情報について詳しくは、[&#x200B; アクセストークンの取得](../apis/dynamic-client-registration-apis-retrieve-access-token.md#success) API ドキュメントを参照してください。
    >
    > <br/>
    >
@@ -97,7 +97,7 @@ Adobe Passで保護されたAPIにアクセスする前に、次の前提条件�
    >
    > <br/>
    >
-   > 検証が失敗すると、エラー応答が生成され、[ アクセストークンの取得](../apis/dynamic-client-registration-apis-retrieve-access-token.md#error) API ドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[&#x200B; アクセストークンの取得](../apis/dynamic-client-registration-apis-retrieve-access-token.md#error) API ドキュメントに準拠する追加情報が提供されます。
 
    >[!TIP]
    >
@@ -115,4 +115,4 @@ Adobe Passで保護されたAPIにアクセスする前に、次の前提条件�
    >
    > <br/>
    >
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。

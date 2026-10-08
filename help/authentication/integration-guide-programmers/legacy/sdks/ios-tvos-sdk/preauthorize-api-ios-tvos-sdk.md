@@ -174,7 +174,7 @@ Adobe Pass Authentication SDK エラーが原因でPreauthorize API リクエス
 
 >[!IMPORTANT]
 >
->拡張エラーレポート機能のメディアを通じて取得される可能性のある追加エラーのリストについては、[詳細エラーレポート ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)を参照してください。
+>拡張エラーレポート機能のメディアを通じて取得される可能性のある追加エラーのリストについては、[詳細エラーレポート &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)を参照してください。
 
 #### 成功
 

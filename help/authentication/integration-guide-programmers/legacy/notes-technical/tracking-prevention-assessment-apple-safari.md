@@ -45,7 +45,7 @@ accessEnabler JavaScript SDKの次のバージョン（バージョン 2.x）、
 >
 >上記のすべての詳細は、Safari 11の場合も引き続き適用されます。
 
-Safari 11以降、ブラウザーは[ インテリジェントトラッキング防止](https://webkit.org/blog/7675/intelligent-tracking-prevention/) （ITP）メカニズムを導入します。これは、クロスサイトトラッキングを防止するためにヒューリスティクスを使用するテクノロジーです。 これらのヒューリスティクスは、ネットワーク呼び出しに対するサードパーティ Cookieの保存と再生に影響します。つまり、ITP メカニズムのアクティベーションに応じて、Safari ブラウザーがクライアント – サーバーモデルの通信でサードパーティ Cookieをブロックします。
+Safari 11以降、ブラウザーは[&#x200B; インテリジェントトラッキング防止](https://webkit.org/blog/7675/intelligent-tracking-prevention/) （ITP）メカニズムを導入します。これは、クロスサイトトラッキングを防止するためにヒューリスティクスを使用するテクノロジーです。 これらのヒューリスティクスは、ネットワーク呼び出しに対するサードパーティ Cookieの保存と再生に影響します。つまり、ITP メカニズムのアクティベーションに応じて、Safari ブラウザーがクライアント – サーバーモデルの通信でサードパーティ Cookieをブロックします。
 
 Adobe Pass認証サービスは、機能&#x200B;**を実行するために、認証プロセス**&#x200B;の一部としてCookieを使用し、これに依存しています。 認証プロセスが自動的に行われる場合（Temp Passなど）、またはiFrameまたは「リフレッスレス」機能を使用する実装では、AdobeのCookieはサードパーティのCookieと見なされ、デフォルトでブロックされます。 それ以外の場合、Safariでは、マシンラーニングアルゴリズムを使用して、すべてのAdobe Pass Authentication Service Cookieをトラッキング Cookieとしてフラグ付けする可能性があります。これにより、ITPのブロックの対象となります。
 
@@ -55,7 +55,7 @@ Adobe Pass認証サービスは、機能&#x200B;**を実行するために、認
 
 ### 緩和 {#mitigation-safari11}
 
-AccessEnabler JavaScript SDK v3 （バージョン 3.x）とAccessEnabler JavaScript SDK v4 （バージョン 4.x）の両方で、必要なCookieが欠落しているためにユーザーの認証がブロックされた状況を特定できるメカニズムが含まれています。 このような状況では、ライブラリは特定のエラーコールバック [N130](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md#advanced-error-codes-reference)をトリガーします。このコールバックは、問題を軽減するためのアクションをユーザーに指示するためのシグナルとして使用するために、Adobe Pass認証対応web サイトに渡されます。 このメカニズムを利用するには、Web サイトで[ エラー報告](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md)仕様を実装する必要があります。
+AccessEnabler JavaScript SDK v3 （バージョン 3.x）とAccessEnabler JavaScript SDK v4 （バージョン 4.x）の両方で、必要なCookieが欠落しているためにユーザーの認証がブロックされた状況を特定できるメカニズムが含まれています。 このような状況では、ライブラリは特定のエラーコールバック [N130](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md#advanced-error-codes-reference)をトリガーします。このコールバックは、問題を軽減するためのアクションをユーザーに指示するためのシグナルとして使用するために、Adobe Pass認証対応web サイトに渡されます。 このメカニズムを利用するには、Web サイトで[&#x200B; エラー報告](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md)仕様を実装する必要があります。
 
 AccessEnabler JavaScript SDK v2 （バージョン 2.x）の場合、ライブラリには上記のメカニズムは提供されないため、Adobe Pass認証対応web サイトに、問題を軽減するためのアクションを実行するようにユーザーに指示する際に通知を送ることはできません。
 
@@ -145,7 +145,7 @@ AccessEnabler JavaScript SDK v2 （バージョン 2.x）の場合、ライブ�
 >Safari 10からSafari 12までの上記の詳細は、Safari 13の場合も引き続き適用されます。
 
 
-Safari 13以降、ブラウザーは[ インテリジェントトラッキング防止](https://webkit.org/blog/7675/intelligent-tracking-prevention/) （ITP）に新しい変更を導入し、クロスサイトトラッキングを防ぐために、サードパーティクッキーをトラッキングクッキーとしてフラグ付けするプロセスにおいて、メカニズムの背後にあるヒューリスティクスを強化しました。
+Safari 13以降、ブラウザーは[&#x200B; インテリジェントトラッキング防止](https://webkit.org/blog/7675/intelligent-tracking-prevention/) （ITP）に新しい変更を導入し、クロスサイトトラッキングを防ぐために、サードパーティクッキーをトラッキングクッキーとしてフラグ付けするプロセスにおいて、メカニズムの背後にあるヒューリスティクスを強化しました。
 
 前の節で説明したように、Adobe Pass Authentication Serviceは、実装でAccessEnabler JavaScript SDK v2 （バージョン 2.x）およびAccessEnabler JavaScript SDK v3 （バージョン 3.x）を使用する場合に、認証プロセスの一部としてサードパーティ Cookieを使用および使用します。 ITPがユーザーと関係者（プログラマーのウェブサイトとAdobe）との間のインタラクションについて「学習」するために少し時間を費やした後に開始された以前のバージョンのSafari ブラウザーと比較して、Safari 13 ブラウザーは、クライアントのトラッキング Cookieと見なされるサードパーティ Cookieの開始からブロックされています – サーバーモデル通信。
 
@@ -157,7 +157,7 @@ AccessEnabler JavaScript SDK v4 （バージョン 4.x）ライブラリでは�
 
 何よりもまず、Safari ブラウザーで安定した予測可能な動作を実現するために、AccessEnabler JavaScript SDK バージョン 4.x **への**&#x200B;移行を強くお勧めします。
 
-次に、AccessEnabler JavaScript SDK v3 （バージョン 3.x）の場合、ライブラリには、必須Cookieが欠落しているためにユーザー認証がブロックされた状況を特定できるメカニズムが含まれています。 このような状況では、ライブラリは特定のエラーコールバック（[N130](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md#advanced-error-codes-reference)）をトリガーします。このエラーコールバックは、問題を軽減するためのアクションをユーザーに指示するためのシグナルとして使用するために、Adobe Pass認証対応web サイトに渡されます。 このメカニズムを利用するには、Web サイトで[ エラー報告](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md)仕様を実装する必要があります。
+次に、AccessEnabler JavaScript SDK v3 （バージョン 3.x）の場合、ライブラリには、必須Cookieが欠落しているためにユーザー認証がブロックされた状況を特定できるメカニズムが含まれています。 このような状況では、ライブラリは特定のエラーコールバック（[N130](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md#advanced-error-codes-reference)）をトリガーします。このエラーコールバックは、問題を軽減するためのアクションをユーザーに指示するためのシグナルとして使用するために、Adobe Pass認証対応web サイトに渡されます。 このメカニズムを利用するには、Web サイトで[&#x200B; エラー報告](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md)仕様を実装する必要があります。
 
 AccessEnabler JavaScript SDK v2 （バージョン 2.x）の場合、ライブラリには上記のメカニズムは提供されないため、Adobe Pass認証対応web サイトに、問題を軽減するためのアクションを実行するようにユーザーに指示する際に通知を送ることはできません。
 

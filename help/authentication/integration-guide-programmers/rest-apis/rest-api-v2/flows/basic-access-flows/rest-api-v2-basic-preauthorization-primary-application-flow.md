@@ -18,7 +18,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2の実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
+> REST API V2の実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 Adobe Pass認証権限内の&#x200B;**事前認証フロー**&#x200B;により、ストリーミングアプリケーションは、MVPDがリソースのリストへのユーザーのアクセスを許可するか拒否するかを判断できます。 この検証により、アプリケーションは、表示する資格があるコンテンツに関する正確な情報をユーザーに提示できるようになります。
 
@@ -58,7 +58,7 @@ Adobe Pass認証権限内の&#x200B;**事前認証フロー**&#x200B;により�
 
 1. **事前承認の決定を返します：** 「決定事前承認」エンドポイント応答には、各リソースに対する`Permit`または`Deny`の決定が含まれています。
    * `Permit`の決定は、リソースが再生可能であることを意味します。 応答にはメディアトークンが含まれていません。事前承認フローを使用してリソースを再生することはできません。
-   * `Deny`の決定は、リソースが再生できないことを意味します。 応答には、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠するエラーペイロードが含まれます。
+   * `Deny`の決定は、リソースが再生できないことを意味します。 応答には、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠するエラーペイロードが含まれます。
 
    >[!IMPORTANT]
    >
@@ -73,6 +73,6 @@ Adobe Pass認証権限内の&#x200B;**事前認証フロー**&#x200B;により�
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **事前認証の決定を処理します：** ストリーミングアプリケーションは応答を処理し、オプションでユーザーインターフェイス上の各リソースの適切なステータスを表示するために使用できます。

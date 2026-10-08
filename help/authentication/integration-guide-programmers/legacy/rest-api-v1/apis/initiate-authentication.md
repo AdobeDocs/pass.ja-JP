@@ -22,7 +22,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> REST APIの実装は[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
+> REST APIの実装は[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
 
 ## REST API エンドポイント {#clientless-endpoints}
 
@@ -86,7 +86,7 @@ MVPDの選択イベントを通知して、認証プロセスを開始します�
 >
 >呼び出しには、次のような他の機能を有効にするオプションのパラメーターも含めることができます。
 >
-> * generic\_data - [ プロモーション TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass)の使用を有効にします
+> * generic\_data - [&#x200B; プロモーション TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass)の使用を有効にします
 >
 >```JSON
 >Example:

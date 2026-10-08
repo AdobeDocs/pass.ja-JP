@@ -36,7 +36,7 @@ Adobe Pass認証：adobe-pass-**2.70**
 * パッチを適用したセキュリティの脆弱性：
 * Degradation API サービスの機能強化。
   * 劣化APIのセキュリティメカニズムとしてDCRを使用します。
-  * 詳細については、こちらをご覧ください：[ デグラデーション機能](../integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
+  * 詳細については、こちらをご覧ください：[&#x200B; デグラデーション機能](../integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
 
 #### REST API
 

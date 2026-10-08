@@ -118,7 +118,7 @@ src="https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.js">
 </script>"
 ```
 
-**トリガー:**初期化が完了すると、Adobe Pass
+**トリガー:**&#x200B;初期化が完了すると、Adobe Pass
 認証は`entitlementLoaded()` コールバック関数を呼び出します。 これは、アプリケーションとAccessEnablerとの通信のエントリポイントです。
 
 

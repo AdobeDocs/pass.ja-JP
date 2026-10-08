@@ -18,7 +18,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2の実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
+> REST API V2の実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -34,8 +34,8 @@ Platform Identity メソッドを使用すると、複数のアプリケーシ�
 
 >[!MORELIKETHIS]
 > 
-> * [Amazon SSO クックブック ](/help/authentication/integration-guide-programmers/features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
-> * [Roku SSO クックブック ](/help/authentication/integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-cookbook-rest-api-v2.md)
+> * [Amazon SSO クックブック &#x200B;](/help/authentication/integration-guide-programmers/features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
+> * [Roku SSO クックブック &#x200B;](/help/authentication/integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-cookbook-rest-api-v2.md)
 
 ## プラットフォーム IDを使用したシングルサインオンによる認証の実行 {#perform-authentication-through-single-sign-on-using-platform-identity}
 
@@ -63,7 +63,7 @@ Platform Identity メソッドを使用すると、複数のアプリケーシ�
 
 次の図に示すように、プラットフォーム IDを使用してシングルサインオンによる認証フローを実装するには、次の手順を実行します。
 
-![ プラットフォーム IDを使用してシングルサインオンによる認証を実行](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-perform-authentication-through-single-sign-on-using-platform-identity-flow.png)
+![&#x200B; プラットフォーム IDを使用してシングルサインオンによる認証を実行](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-perform-authentication-through-single-sign-on-using-platform-identity-flow.png)
 
 *プラットフォーム IDを使用してシングルサインオンによる認証を実行*
 
@@ -106,7 +106,7 @@ Platform Identity メソッドを使用すると、複数のアプリケーシ�
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **ユーザーエージェントでURLを開く：** セッションエンドポイントの応答には、次のデータが含まれます。
    * MVPD ログインページ内でインタラクティブ認証を開始するために使用できる`url`。
@@ -121,7 +121,7 @@ Platform Identity メソッドを使用すると、複数のアプリケーシ�
 
    >[!IMPORTANT]
    >
-   > 次の詳細については、特定のコードの[ プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
+   > 次の詳細については、特定のコードの[&#x200B; プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
    > 
    > * `serviceProvider`、`code`など、_必須_&#x200B;のすべてのパラメーター
    > * `Authorization`、`AP-Device-Identifier`など、_必須_ ヘッダーすべて
@@ -147,7 +147,7 @@ Platform Identity メソッドを使用すると、複数のアプリケーシ�
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **決定フローで続行：**&#x200B;最初のストリーミングアプリケーションは、後続の決定フローで続行できます。
 
@@ -169,7 +169,7 @@ Platform Identity メソッドを使用すると、複数のアプリケーシ�
 
    >[!IMPORTANT]
    >
-   > 詳細については、[ プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) API ドキュメントを参照してください。
+   > 詳細については、[&#x200B; プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) API ドキュメントを参照してください。
    > 
    > * `serviceProvider`など、すべての&#x200B;_必須_ パラメーター
    > * `Authorization`、`AP-Device-Identifier`など、_必須_ ヘッダーすべて
@@ -189,7 +189,7 @@ Platform Identity メソッドを使用すると、複数のアプリケーシ�
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[ プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[&#x200B; プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) API ドキュメントを参照してください。
    >
    > <br/>
    > 
@@ -199,7 +199,7 @@ Platform Identity メソッドを使用すると、複数のアプリケーシ�
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **決定フローで続行：** 2番目のストリーミングアプリケーションは、後続の決定フローで続行できます。
 
@@ -233,7 +233,7 @@ Platform Identity メソッドを使用すると、複数のアプリケーシ�
 
 次の図に示すように、プラットフォーム IDを使用してシングルサインオンによる認証フローを実装するには、次の手順を実行します。
 
-![ プラットフォーム IDを使用して、シングルサインオンを通じて承認決定を取得](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-authorization-decisions-through-single-sign-on-using-platform-identity-flow.png)
+![&#x200B; プラットフォーム IDを使用して、シングルサインオンを通じて承認決定を取得](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-authorization-decisions-through-single-sign-on-using-platform-identity-flow.png)
 
 *プラットフォーム IDを使用して、シングルサインオンを通じて承認決定を取得*
 
@@ -247,7 +247,7 @@ Platform Identity メソッドを使用すると、複数のアプリケーシ�
 
    >[!IMPORTANT]
    >
-   > 詳しくは、特定のmvpd](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを使用した承認決定の取得を参照してください。[
+   > 詳しくは、特定のmvpd[&#128279;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを使用した承認決定の取得を参照してください。
    >
    > * `serviceProvider`、`mvpd`、`resources`など、_必須_&#x200B;のすべてのパラメーター
    > * `Authorization`や`AP-Device-Identifier`など、_必須_ ヘッダーすべて
@@ -280,11 +280,11 @@ Platform Identity メソッドを使用すると、複数のアプリケーシ�
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **メディアトークンを使用してストリームを開始：** 2番目のストリーミングアプリケーションは、メディアトークンを使用してコンテンツを再生します。
 
-1. **詳細を含む`Deny`の決定を返します：** 「決定を承認」エンドポイント応答には、`Deny`の決定と、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに準拠するエラーペイロードが含まれています。
+1. **詳細を含む`Deny`の決定を返します：** 「決定を承認」エンドポイント応答には、`Deny`の決定と、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに準拠するエラーペイロードが含まれています。
 
    >[!IMPORTANT]
    >
@@ -299,7 +299,7 @@ Platform Identity メソッドを使用すると、複数のアプリケーシ�
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **Handle `Deny`決定の詳細：** 2番目のストリーミングアプリケーションは、応答からエラー情報を処理し、オプションでユーザーインターフェイスに特定のメッセージを表示するために使用できます。
 

@@ -34,5 +34,5 @@ ht-degree: 0%
 
 ## 同時視聴数モニタリングを初めて利用する場合 {#new-to-cm}
 
-[はじめにガイド ](getting-started/getting-started-overview.md)から始めて、基本を理解し、最初の統合を設定してください。
+[はじめにガイド &#x200B;](getting-started/getting-started-overview.md)から始めて、基本を理解し、最初の統合を設定してください。
 

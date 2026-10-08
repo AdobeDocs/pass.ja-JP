@@ -32,7 +32,7 @@ IOS SDK バージョン 3.1以降、実装者はWKWebViewまたはUIWebViewを�
 
 ## 既知の問題 {#known-issues}
 
-AdobeのAccessEnablerは、非表示の内部UIWebView インスタンスを使用して、特定のMVPDに対して「[ パッシブ認証](/help/authentication/integration-guide-programmers/legacy/sso-access/sso-passive-authn.md)」を実行しました。 「パッシブ」フローは、各依頼者IDに対する認証を必要とするMVPDに役立ち、このフローから、SSO エクスペリエンス（Adobe SSO）をシミュレートするために、複数のiOS アプリケーションで同じチーム IDを使用するプログラマーにメリットをもたらしました。 この機能は現在、限られた数のMVPDで使用されています。
+AdobeのAccessEnablerは、非表示の内部UIWebView インスタンスを使用して、特定のMVPDに対して「[&#x200B; パッシブ認証](/help/authentication/integration-guide-programmers/legacy/sso-access/sso-passive-authn.md)」を実行しました。 「パッシブ」フローは、各依頼者IDに対する認証を必要とするMVPDに役立ち、このフローから、SSO エクスペリエンス（Adobe SSO）をシミュレートするために、複数のiOS アプリケーションで同じチーム IDを使用するプログラマーにメリットをもたらしました。 この機能は現在、限られた数のMVPDで使用されています。
 
 この機能では、UIWebViewのビヘイビアーを使用して、Adobeが認証Cookieを取得し、「パッシブ」フロー中にそれらを再生できるようにしました。 WKWebViewは、Adobeがログイン時に設定されたCookieを取得し、WKWebViewの非表示のインスタンスを使用して再生することを防ぐ、より強力なセキュリティを導入します。 このセキュリティ向上により、「パッシブ」フローは、非常に特定の実装シナリオ（同じチーム IDを使用する複数のアプリケーション）で非常に限定的なMVPDのセットにのみメリットを与えることを考慮して、Adobeは、Web ビューを使用してMVPDを認証する「パッシブ認証」機能を削除しました。
 

@@ -26,7 +26,7 @@ Adobe Pass Authentication REST APIでは、TV Everywhere （TVE）の認証お�
 
 ### スロットル機構
 
-Adobe Pass Authentication REST APIは、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって管理されます。
+Adobe Pass Authentication REST APIは、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって管理されます。
 
 
 ### サーバー間
@@ -105,4 +105,4 @@ SDKが使用できないため、ほとんどの接続デバイスでは、REST 
 
 ## 最小必要デバイス構成 {#min_reqs}
 
-Adobe Pass Authentication REST APIを使用するには、デバイスが[Adobe Pass Authentication Platform / Device / Tools Requirements ドキュメント ](#general_clientless_reqs)のREST API セクションに記載されている最小技術要件を満たすか、それを超える必要があります。
+Adobe Pass Authentication REST APIを使用するには、デバイスが[Adobe Pass Authentication Platform / Device / Tools Requirements ドキュメント &#x200B;](#general_clientless_reqs)のREST API セクションに記載されている最小技術要件を満たすか、それを超える必要があります。

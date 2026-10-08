@@ -50,4 +50,4 @@ Degradation APIについて詳しくは、次のZendesk ドキュメント [Adob
 
 デグラデーション機能を利用するには、コードの更新を実装して、TV Everywhere （TVE） アプリケーションがAdobe Pass Authentication [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)とどのように連携するかを変更する必要があります。
 
-これらの更新と関連ワークフローに関する包括的なガイドについては、[ デグレードされたアクセス フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/degraded-access-flows/rest-api-v2-access-degraded-flows.md)のドキュメントを参照してください。
+これらの更新と関連ワークフローに関する包括的なガイドについては、[&#x200B; デグレードされたアクセス フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/degraded-access-flows/rest-api-v2-access-degraded-flows.md)のドキュメントを参照してください。

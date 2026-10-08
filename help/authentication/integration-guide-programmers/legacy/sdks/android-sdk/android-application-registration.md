@@ -42,7 +42,7 @@ Android AccessEnabler SDKのバージョン 3.0以降、Adobeのサーバーを�
 
 ### AdobeのTVE ダッシュボードにアクセスできる場合
 
-1. ブラウザーを開き、[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication)に移動します。
+1. ブラウザーを開き、[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/#/pass/authentication)に移動します。
 
 1. 「**[!UICONTROL Channels]**」セクションに移動し、チャネルを選択します。
 

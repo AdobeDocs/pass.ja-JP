@@ -18,7 +18,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2の実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
+> REST API V2の実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -44,7 +44,7 @@ Adobe Pass認証権限内の&#x200B;**プロファイルフロー**&#x200B;に�
 
 次の図に示すように、プライマリアプリケーション内で実行される基本的なプロファイル取得フローを実装するには、次の手順に従います。
 
-![ プロファイルの取得](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profiles-within-primary-application.png)
+![&#x200B; プロファイルの取得](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profiles-within-primary-application.png)
 
 *プロファイルの取得*
 
@@ -52,7 +52,7 @@ Adobe Pass認証権限内の&#x200B;**プロファイルフロー**&#x200B;に�
 
    >[!IMPORTANT]
    >
-   > 詳細については、[ プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) API ドキュメントを参照してください。
+   > 詳細については、[&#x200B; プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) API ドキュメントを参照してください。
    >
    > * `serviceProvider`など、すべての&#x200B;_必須_ パラメーター
    > * `Authorization`、`AP-Device-Identifier`など、_必須_ ヘッダーすべて
@@ -64,7 +64,7 @@ Adobe Pass認証権限内の&#x200B;**プロファイルフロー**&#x200B;に�
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[ プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報について詳しくは、[&#x200B; プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
@@ -74,7 +74,7 @@ Adobe Pass認証権限内の&#x200B;**プロファイルフロー**&#x200B;に�
    >
    > <br/>
    >
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **プロファイルを選択し、決定フローに進みます：** プロファイル エンドポイントの応答にプロファイルが含まれている場合、ストリーミング アプリケーションは内部ロジック（最終的にはエンドユーザーとのやり取り）を使用して、使用可能なプロファイルの1つを選択し、その後の決定フローを続行します。
 
@@ -100,7 +100,7 @@ Adobe Pass認証権限内の&#x200B;**プロファイルフロー**&#x200B;に�
 
    >[!IMPORTANT]
    >
-   > 次の詳細については、特定のmvpd](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) API ドキュメントの[ プロファイルの取得を参照してください。
+   > 次の詳細については、特定のmvpd[&#128279;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) API ドキュメントの プロファイルの取得を参照してください。
    >
    > * `serviceProvider`や`mvpd`など、_必須_&#x200B;のすべてのパラメーター
    > * `Authorization`、`AP-Device-Identifier`など、_必須_ ヘッダーすべて
@@ -112,7 +112,7 @@ Adobe Pass認証権限内の&#x200B;**プロファイルフロー**&#x200B;に�
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、特定のmvpd](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) API ドキュメントの[ プロファイルの取得を参照してください。
+   > プロファイル応答で提供される情報について詳しくは、特定のmvpd[&#128279;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) API ドキュメントの プロファイルの取得を参照してください。
    > 
    > <br/>
    > 
@@ -123,7 +123,7 @@ Adobe Pass認証権限内の&#x200B;**プロファイルフロー**&#x200B;に�
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **決定フローで進む：** プロファイル エンドポイント応答にプロファイルが含まれている場合、ストリーミング アプリケーションはプロファイル情報を使用して後続の決定フローを続行します。
 
@@ -149,7 +149,7 @@ Adobe Pass認証権限内の&#x200B;**プロファイルフロー**&#x200B;に�
 
    >[!IMPORTANT]
    >
-   > 次の詳細については、特定のコードの[ プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
+   > 次の詳細については、特定のコードの[&#x200B; プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
    >
    > * `serviceProvider`や`code`など、すべての&#x200B;_必須_ パラメーター
    > * `Authorization`など、すべての&#x200B;_必須_ ヘッダー
@@ -171,7 +171,7 @@ Adobe Pass認証権限内の&#x200B;**プロファイルフロー**&#x200B;に�
    >
    > <br/>
    >
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **決定フローで進む：** プロファイル エンドポイント応答にプロファイルが含まれている場合、ストリーミング アプリケーションはプロファイル情報を使用して後続の決定フローを続行します。
 

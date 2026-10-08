@@ -18,7 +18,7 @@ ht-degree: 0%
 
 Adobe Pass Authentication REST API V2は、RokuOSで動作するクライアントアプリケーションのエンドユーザー向けに、Platform Single Sign-On （SSO）をサポートしています。
 
-このドキュメントは、プラットフォーム ID フロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md)を使用して[ シングルサインオンを実装する方法を説明するドキュメントと、概要レベルのビューを提供する既存の[REST API V2概要](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)の拡張機能として機能します。
+このドキュメントは、プラットフォーム ID フロー[&#128279;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md)を使用して シングルサインオンを実装する方法を説明するドキュメントと、概要レベルのビューを提供する既存の[REST API V2概要](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)の拡張機能として機能します。
 
 ## プラットフォーム ID フローを使用したRoku シングルサインオン {#cookbook}
 
@@ -28,7 +28,7 @@ Adobe Pass Authenticationは、Rokuと連携して、TV Everywhere アプリケ�
 
 プラットフォーム ID フローを使用してRoku シングルサインオンを続行する前に、Roku SSOが有効になっていることを確認します。 Roku SSOは、SSOに対するプログラマーまたはMVPDのリクエストを無効にしない限り、デフォルトで有効になっています。
 
-各プログラマーは、[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/pass/authentication)を通じて、特定の統合のためにRoku プラットフォーム上のシングルサインオン（SSO）を有効または無効にできます。
+各プログラマーは、[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/pass/authentication)を通じて、特定の統合のためにRoku プラットフォーム上のシングルサインオン（SSO）を有効または無効にできます。
 
 ### ワークフロー {#workflow}
 

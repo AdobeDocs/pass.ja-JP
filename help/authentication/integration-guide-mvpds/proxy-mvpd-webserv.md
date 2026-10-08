@@ -21,8 +21,8 @@ ht-degree: 0%
 >
 > Proxy MVPD web サービスを使用する前に、次の前提条件が満たされていることを確認します。
 >
-> * 「[ クライアント資格情報の取得](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメント」の説明に従って、クライアント資格情報を取得します。
-> * 「[ アクセストークンの取得](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメント」の説明に従って、アクセストークンを取得します。
+> * 「[&#x200B; クライアント資格情報の取得](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメント」の説明に従って、クライアント資格情報を取得します。
+> * 「[&#x200B; アクセストークンの取得](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメント」の説明に従って、アクセストークンを取得します。
 >
 > 登録アプリケーションの作成方法とソフトウェアステートメントのダウンロード方法について詳しくは、[動的クライアント登録の概要](../integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
 
@@ -37,8 +37,8 @@ ProxyMVPD機能を実装するために、Adobe Pass AuthenticationはRESTful we
 
 ## Proxy MVPD サービス {#proxy-mvpd-services}
 
-- [ プロキシ MVPDの取得](#retriev-proxied-mvpds)
-- [ プロキシ MVPDを送信](#submit-proxied-mvpds)
+- [&#x200B; プロキシ MVPDの取得](#retriev-proxied-mvpds)
+- [&#x200B; プロキシ MVPDを送信](#submit-proxied-mvpds)
 
 ### プロキシ MVPDの取得 {#retriev-proxied-mvpds}
 
@@ -232,7 +232,7 @@ Adobeでは、パブリック web サービスとの間でプロキシ MVPDを�
 
 リクエストを有効と見なすには、次のルールを尊重する必要があります。
 
-- リクエストヘッダーには、[ アクセストークンの取得](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って取得したセキュリティ Oauth2 アクセストークンが含まれている必要があります。
+- リクエストヘッダーには、[&#x200B; アクセストークンの取得](../integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って取得したセキュリティ Oauth2 アクセストークンが含まれている必要があります。
 - リクエストは、許可されている特定のIP アドレスから取得する必要があります。
 - リクエストはSSL プロトコル経由で送信する必要があります。
 

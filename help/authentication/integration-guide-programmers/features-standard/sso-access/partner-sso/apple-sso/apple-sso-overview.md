@@ -24,8 +24,8 @@ Apple デバイスでシングルサインオン（SSO）ユーザーエクス�
 
 最終的な結果は、次のユーザーフローに沿ったエクスペリエンスを作成する必要があります。アプリケーションの開発を開始する前に参照することをお勧めします。
 
-* IPhoneおよびiPad](https://tve.zendesk.com/hc/article_attachments/205624966/User_flows_AppleSSO_iOS_v2.pdf)のデバイスのシングルサインオン （SSO） [ ユーザーフロー。
-* Apple TV](https://tve.zendesk.com/hc/article_attachments/206669126/User_flows_tvOS.pdf) デバイスのシングルサインオン （SSO） [ ユーザーフロー。
+* IPhoneおよびiPad[&#128279;](https://tve.zendesk.com/hc/article_attachments/205624966/User_flows_AppleSSO_iOS_v2.pdf)のデバイスのシングルサインオン （SSO）  ユーザーフロー。
+* Apple TV[&#128279;](https://tve.zendesk.com/hc/article_attachments/206669126/User_flows_tvOS.pdf) デバイスのシングルサインオン （SSO）  ユーザーフロー。
 
 ## 前提条件 {#apple-sso-prerequisites}
 
@@ -39,7 +39,7 @@ Apple デバイスでシングルサインオン（SSO）ユーザーエクス�
 
   * Xcode バージョン 8以上およびiOS/tvOS バージョン 10以上を使用してください。
 
-* `Enable Single Sign On` プロパティを`Yes`に設定して、[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication)を介して、目的の統合およびプラットフォーム（iOS/tvOS）ごとにシングルサインオン（SSO）を有効にします。
+* `Enable Single Sign On` プロパティを`Yes`に設定して、[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/#/pass/authentication)を介して、目的の統合およびプラットフォーム（iOS/tvOS）ごとにシングルサインオン（SSO）を有効にします。
 
 | Adobe シングルサインオンを有効にする | Apple **オンボーディング済み（サポート済み）** MVPD | Apple **ピッカー** MVPD | Apple **オンボーディングされていません（サポートされていません）** MVPD |
 |-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
@@ -50,15 +50,15 @@ Apple デバイスでシングルサインオン（SSO）ユーザーエクス�
 
   * Adobe Pass Authentication REST API V2は、パートナーシングルサインオン（SSO）をサポートしています。
 
-    [Apple SSO クックブック （REST API V2） ](apple-sso-cookbook-rest-api-v2.md)のドキュメントを参照してください。
+    [Apple SSO クックブック （REST API V2） &#x200B;](apple-sso-cookbook-rest-api-v2.md)のドキュメントを参照してください。
 
   * 従来のAdobe Pass Authentication REST API V1は、パートナーシングルサインオン（SSO）をサポートしています。
 
-    [ （Legacy） Apple SSO Cookbook （REST API V1） ](../../../../legacy/sso-access/apple-sso-cookbook-rest-api-v1.md)のドキュメントを参照してください。
+    [&#x200B; （Legacy） Apple SSO Cookbook （REST API V1） &#x200B;](../../../../legacy/sso-access/apple-sso-cookbook-rest-api-v1.md)のドキュメントを参照してください。
 
   * 従来のAdobe Pass Authentication AccessEnabler iOS/tvOS SDKは、パートナーシングルサインオン（SSO）をサポートしています。
 
-    [ （Legacy） Apple SSO Cookbook （iOS/tvOS SDK） ](../../../../legacy/sso-access/apple-sso-cookbook-iostvos-sdk.md)のドキュメントを参照してください。
+    [&#x200B; （Legacy） Apple SSO Cookbook （iOS/tvOS SDK） &#x200B;](../../../../legacy/sso-access/apple-sso-cookbook-iostvos-sdk.md)のドキュメントを参照してください。
 
 ### MVPD {#apple-sso-prerequisites-mvpd}
 
@@ -76,7 +76,7 @@ Apple デバイスでシングルサインオン（SSO）ユーザーエクス�
 
 * Apple SSO ワークフローに問題が発生した場合、Adobe Pass Authentication AccessEnabler iOS/tvOS SDKを使用しているアプリケーションは、通常の認証フローにフォールバックできますか？
 
-  これは可能ですが、目的の統合とプラットフォーム（iOS/tvOS）の&#x200B;**NO**&#x200B;で&#x200B;**シングルサインオンを有効にする**&#x200B;を設定するには、[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication)を通じて設定を変更する必要があります。 クライアントアプリケーションは、[setRequestor](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setReqV3) APIを呼び出した後にのみ設定変更を承認することに注意してください。
+  これは可能ですが、目的の統合とプラットフォーム（iOS/tvOS）の&#x200B;**NO**&#x200B;で&#x200B;**シングルサインオンを有効にする**&#x200B;を設定するには、[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/#/pass/authentication)を通じて設定を変更する必要があります。 クライアントアプリケーションは、[setRequestor](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setReqV3) APIを呼び出した後にのみ設定変更を承認することに注意してください。
 
 
 * Apple SSOを介したログインの結果、認証がいつ行われたのかをアプリケーションに知らせますか？
@@ -109,7 +109,7 @@ Apple デバイスでシングルサインオン（SSO）ユーザーエクス�
   ユーザーがアプリケーションを起動すると、Apple SSO ワークフローを介して「その他のTV プロバイダー」ピッカーオプションが選択されます。 したがって、アプリケーションは通常の認証フローにフォールバックして、独自のMVPD ピッカーを表示する必要があります。
 
 
-* ユーザーが[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication)の中で劣化したMVPDを持っている場合はどうなりますか？
+* ユーザーが[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/#/pass/authentication)の中で劣化したMVPDを持っている場合はどうなりますか？
 
   ユーザーがアプリケーションを起動すると、Apple SSO ワークフローではなく、劣化メカニズムを使用してユーザーが認証されます。 エクスペリエンスはユーザーにとってシームレスである必要がありますが、Adobe Pass Authentication AccessEnabler iOS/tvOS SDKを使用している場合は、*N010*&#x200B;の警告コードを通じてアプリケーションに通知されます。
 

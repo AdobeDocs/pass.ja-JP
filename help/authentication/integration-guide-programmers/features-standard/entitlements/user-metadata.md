@@ -24,7 +24,7 @@ ht-degree: 0%
 
 Adobe Pass認証は、MVPDが異なる形式でデータを提供する場合、ユーザーメタデータ値を正規化します。 また、特定の属性（郵便番号など）については、プログラマーの証明書を使用して値を[暗号化](#encryption)できます。
 
-Adobe Pass Authenticationを使用すると、プログラマーはMVPD統合で使用可能なユーザーメタデータを確認し、[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication)を通じて[管理](#management)できます。
+Adobe Pass Authenticationを使用すると、プログラマーはMVPD統合で使用可能なユーザーメタデータを確認し、[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/#/pass/authentication)を通じて[管理](#management)できます。
 
 ## ユーザーメタデータ属性 {#attributes}
 
@@ -143,9 +143,9 @@ Adobe Pass Authenticationを使用すると、プログラマーはMVPD統合で
      openssl x509 -in mycompany-license-temp.pem -inform PEM -out mycompany-license.pem -outform PEM
      ```
 
-1. PEM ファイルを使用して、[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication)経由で証明書を[設定](#management)するか、PEM ファイルをAdobe Pass Authentication担当者に送信します。
+1. PEM ファイルを使用して、[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/#/pass/authentication)経由で証明書を[設定](#management)するか、PEM ファイルをAdobe Pass Authentication担当者に送信します。
 
-   * [Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication)を使用して証明書を管理する方法について詳しくは、次の節を参照してください。
+   * [Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/#/pass/authentication)を使用して証明書を管理する方法について詳しくは、次の節を参照してください。
 
    * Adobe Pass Authenticationは、プライマリ証明書とバックアップ証明書の両方をサポートしています。 何らかの形でプライマリ証明書が漏洩した場合は、プライマリ証明書を取り消して、セカンダリ証明書に切り替えることができます。 これにより、顧客への影響を最小限に抑えながら、証明書間でスムーズに移行できます。
 
@@ -155,11 +155,11 @@ Adobe Pass Authenticationを使用すると、プログラマーはMVPD統合で
 >
 > Adobe Pass TVE ダッシュボードにアクセスできない場合は、[Zendesk](https://adobeprimetime.zendesk.com)からチケットを作成し、テクニカルアカウントマネージャー（TAM）に適切な変更を依頼してください。
 
-Adobe Pass TVE ダッシュボードは、Adobe Pass認証のお客様（プログラマー）が設定とデータを管理するためのツールです。 このセルフサービスダッシュボードを使用すると、[Adobe Pass TVE ダッシュボードユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md)のドキュメントに記載されている様々な機能を利用できます。
+Adobe Pass TVE ダッシュボードは、Adobe Pass認証のお客様（プログラマー）が設定とデータを管理するためのツールです。 このセルフサービスダッシュボードを使用すると、[Adobe Pass TVE ダッシュボードユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md)のドキュメントに記載されている様々な機能を利用できます。
 
 MVPDで使用可能なユーザーメタデータ属性を確認および管理するには、[TVE Dashboard User Guide for Integrations](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#user-metadata) ドキュメントの手順に従います。
 
-ユーザーのメタデータ属性の暗号化に使用される証明書を確認および管理するには、[TVE Dashboard プログラマー向けユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#certificates)または[TVE Dashboard チャンネル向けユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#certificates)の手順に従います。
+ユーザーのメタデータ属性の暗号化に使用される証明書を確認および管理するには、[TVE Dashboard プログラマー向けユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#certificates)または[TVE Dashboard チャンネル向けユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#certificates)の手順に従います。
 
 ## REST API V2 {#rest-api-v2}
 
@@ -173,7 +173,7 @@ MVPDで使用可能なユーザーメタデータ属性を確認および管理�
 
 >[!IMPORTANT]
 >
-> 認証フローが完了すると、ユーザーメタデータが使用可能になります。そのため、クライアントアプリケーションは、プロファイル情報に既に含まれているため、[ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)情報を取得するために別のエンドポイントをクエリする必要はありません。
+> 認証フローが完了すると、ユーザーメタデータが使用可能になります。そのため、クライアントアプリケーションは、プロファイル情報に既に含まれているため、[&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)情報を取得するために別のエンドポイントをクエリする必要はありません。
 
 上記のAPIを統合する方法とタイミングについて詳しくは、次のドキュメントを参照してください。
 

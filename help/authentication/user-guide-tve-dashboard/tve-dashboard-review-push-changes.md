@@ -50,7 +50,7 @@ TVE ダッシュボードを使用すると、現在の設定の変更を確認�
    >
    >**プッシュ変更** ボタンは、**構成説明**&#x200B;を追加した後にのみアクティブになります。
 
-   ![変更をプッシュ ](../assets/tve-dashboard/new-tve-dashboard/review/review-and-push-push-changes-button.png)
+   ![変更をプッシュ &#x200B;](../assets/tve-dashboard/new-tve-dashboard/review/review-and-push-push-changes-button.png)
 
    *変更をプッシュ*
 

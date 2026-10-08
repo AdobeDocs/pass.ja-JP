@@ -16,7 +16,7 @@ ht-degree: 0%
 >
 >このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-TVE ダッシュボードの&#x200B;**レポート** セクションでは、AuthN TTL、AuthZ TTL、およびSSO レポートの集計データにアクセスできます。 これらのレポートには、すべての[ プラットフォーム ](#platforms)で異なるMVPDとのチャネル統合が含まれます。
+TVE ダッシュボードの&#x200B;**レポート** セクションでは、AuthN TTL、AuthZ TTL、およびSSO レポートの集計データにアクセスできます。 これらのレポートには、すべての[&#x200B; プラットフォーム &#x200B;](#platforms)で異なるMVPDとのチャネル統合が含まれます。
 
 レポートを使用すると、[特定のチャネルまたはMVPD](#selecting-specific-channels-mvpds)にわたってデータをフィルタリングし、インサイトを収集できます。 CSV ファイルでレポートをエクスポートして、詳細な分析を行うこともできます。
 
@@ -30,17 +30,17 @@ TVE ダッシュボードの&#x200B;**レポート** セクションでは、Aut
    * [AuthZ TTL レポート](#authz-ttl-reports)
    * [SSO レポート](#sso-reports)
 
-   ![ レポートの種類](../assets/tve-dashboard/new-tve-dashboard/reports/reports-tabs-view.png)
+   ![&#x200B; レポートの種類](../assets/tve-dashboard/new-tve-dashboard/reports/reports-tabs-view.png)
 
    *レポートの種類*
 
 ### AuthN TTL レポート {#authn-ttl-reports}
 
-AuthN TTL レポートは、Authentication Time-To-Live （TTL）とも呼ばれ、すべての[ プラットフォーム ](#platforms)で、様々なMVPDとのチャネル統合に対して認証トークンが設定される期間を表示します。 これらのレポートを使用すると、特定のMVPDおよびプラットフォームに対するユーザーの認証時間を調べることができます。 期間の値は、**日**、**時間**、**分**、**秒**&#x200B;など、ユーザーにとって使いやすい形式で表示されます。 AuthN TTL レポート テーブルは、様々な画面サイズに対応する水平および垂直スクロール機能を備えています。
+AuthN TTL レポートは、Authentication Time-To-Live （TTL）とも呼ばれ、すべての[&#x200B; プラットフォーム &#x200B;](#platforms)で、様々なMVPDとのチャネル統合に対して認証トークンが設定される期間を表示します。 これらのレポートを使用すると、特定のMVPDおよびプラットフォームに対するユーザーの認証時間を調べることができます。 期間の値は、**日**、**時間**、**分**、**秒**&#x200B;など、ユーザーにとって使いやすい形式で表示されます。 AuthN TTL レポート テーブルは、様々な画面サイズに対応する水平および垂直スクロール機能を備えています。
 
 また、[特定のチャネルまたはMVPD](#selecting-specific-channels-mvpds)のデータを表示およびダウンロードすることもできます。
 
-![認証TTL レポートのエクスポート ](../assets/tve-dashboard/new-tve-dashboard/reports/reports-authn-ttl-export-button.png)
+![認証TTL レポートのエクスポート &#x200B;](../assets/tve-dashboard/new-tve-dashboard/reports/reports-authn-ttl-export-button.png)
 
 *認証TTL レポートのエクスポート*
 
@@ -52,11 +52,11 @@ AuthN TTL レポートは、Authentication Time-To-Live （TTL）とも呼ばれ
 
 ### AuthZ TTL レポート {#authz-ttl-reports}
 
-AuthZ TTL レポートは、Authorization Time-To-Live （TTL）とも呼ばれ、すべての[ プラットフォーム ](#platforms)で、様々なMVPDとのチャネル統合に設定された認証トークンの期間を表示します。 これらのレポートを使用すると、特定のMVPDおよびプラットフォームのコンテンツを視聴する権限をユーザーが保持している時間を調べることができます。 期間の値は、**日**、**時間**、**分**、**秒**&#x200B;など、ユーザーにとって使いやすい形式で表示されます。 AuthZ TTL レポート テーブルは、様々な画面サイズに対応する水平および垂直スクロール機能を備えています。
+AuthZ TTL レポートは、Authorization Time-To-Live （TTL）とも呼ばれ、すべての[&#x200B; プラットフォーム &#x200B;](#platforms)で、様々なMVPDとのチャネル統合に設定された認証トークンの期間を表示します。 これらのレポートを使用すると、特定のMVPDおよびプラットフォームのコンテンツを視聴する権限をユーザーが保持している時間を調べることができます。 期間の値は、**日**、**時間**、**分**、**秒**&#x200B;など、ユーザーにとって使いやすい形式で表示されます。 AuthZ TTL レポート テーブルは、様々な画面サイズに対応する水平および垂直スクロール機能を備えています。
 
 また、[特定のチャネルまたはMVPD](#selecting-specific-channels-mvpds)のデータを表示してダウンロードすることもできます。
 
-![AuthZ TTL レポートのエクスポート ](../assets/tve-dashboard/new-tve-dashboard/reports/reports-authz-ttl-export-button.png)
+![AuthZ TTL レポートのエクスポート &#x200B;](../assets/tve-dashboard/new-tve-dashboard/reports/reports-authz-ttl-export-button.png)
 
 *AuthZ TTL レポートのエクスポート*
 
@@ -68,11 +68,11 @@ AuthZ TTL レポートは、Authorization Time-To-Live （TTL）とも呼ばれ�
 
 ### SSO レポート {#sso-reports}
 
-シングルサインオンとも呼ばれるSSO レポートには、すべての[ プラットフォーム ](#platforms)で、様々なMVPDとのチャネル統合に設定されたシングルサインオンステータスが表示されます。 これらのレポートを使用すると、特定のMVPDおよびプラットフォームの想定されるユーザー認証SSO エクスペリエンスを調べることができます。 値は、**SSO Disabled**、**SSO Enabled**、**SSO Uncertain**&#x200B;など、使いやすい形式で表示されます。 SSO レポート テーブルには、様々な画面サイズに対応する水平および垂直スクロールが用意されています。
+シングルサインオンとも呼ばれるSSO レポートには、すべての[&#x200B; プラットフォーム &#x200B;](#platforms)で、様々なMVPDとのチャネル統合に設定されたシングルサインオンステータスが表示されます。 これらのレポートを使用すると、特定のMVPDおよびプラットフォームの想定されるユーザー認証SSO エクスペリエンスを調べることができます。 値は、**SSO Disabled**、**SSO Enabled**、**SSO Uncertain**&#x200B;など、使いやすい形式で表示されます。 SSO レポート テーブルには、様々な画面サイズに対応する水平および垂直スクロールが用意されています。
 
 また、[特定のチャネルまたはMVPD](#selecting-specific-channels-mvpds)のデータを表示およびダウンロードすることもできます。
 
-![SSO レポートのエクスポート ](../assets/tve-dashboard/new-tve-dashboard/reports/reports-sso-export-button.png)
+![SSO レポートのエクスポート &#x200B;](../assets/tve-dashboard/new-tve-dashboard/reports/reports-sso-export-button.png)
 
 *SSO レポートのエクスポート*
 
@@ -88,7 +88,7 @@ AuthZ TTL レポートは、Authorization Time-To-Live （TTL）とも呼ばれ�
 
 ## Platforms {#platforms}
 
-[AuthN TTL レポート ](#authn-ttl-reports)、[AuthZ TTL レポート ](#authz-ttl-reports)および[SSO レポート ](#sso-reports)は、次のような様々なプラットフォームのデータを示します。
+[AuthN TTL レポート &#x200B;](#authn-ttl-reports)、[AuthZ TTL レポート &#x200B;](#authz-ttl-reports)および[SSO レポート &#x200B;](#sso-reports)は、次のような様々なプラットフォームのデータを示します。
 
 * **デスクトップ**: Adobe Pass Authentication JavaScript SDKを介してプログラマ実装に適用された値を表示します。
 
@@ -112,7 +112,7 @@ AuthZ TTL レポートは、Authorization Time-To-Live （TTL）とも呼ばれ�
 
 * **Platform unidentified**: Adobe Pass認証サービスが不明なデバイスタイプを検出したときに、プログラマー実装に適用される値を表示します。
 
-Adobe Pass Authentication REST APIまたはSDKと&#x200B;**Roku**&#x200B;などの目的のデバイスタイプを共有する方法について詳しくは、[ クライアント情報を渡す](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)仕組みを参照してください。
+Adobe Pass Authentication REST APIまたはSDKと&#x200B;**Roku**&#x200B;などの目的のデバイスタイプを共有する方法について詳しくは、[&#x200B; クライアント情報を渡す](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)仕組みを参照してください。
 
 >[!IMPORTANT]
 >
@@ -120,7 +120,7 @@ Adobe Pass Authentication REST APIまたはSDKと&#x200B;**Roku**&#x200B;など�
 
 ## 特定のチャネルとMVPDの選択 {#selecting-specific-channels-mvpds}
 
-[AuthN TTL レポート ](#authn-ttl-reports)、[AuthZ TTL レポート ](#authz-ttl-reports)および[SSO レポート ](#sso-reports)では、デフォルトで&#x200B;**すべてのMVPD**&#x200B;と&#x200B;**すべてのチャネル**&#x200B;統合のデータが表示されます。
+[AuthN TTL レポート &#x200B;](#authn-ttl-reports)、[AuthZ TTL レポート &#x200B;](#authz-ttl-reports)および[SSO レポート &#x200B;](#sso-reports)では、デフォルトで&#x200B;**すべてのMVPD**&#x200B;と&#x200B;**すべてのチャネル**&#x200B;統合のデータが表示されます。
 
 >[!NOTE]
 >
@@ -130,7 +130,7 @@ Adobe Pass Authentication REST APIまたはSDKと&#x200B;**Roku**&#x200B;など�
 
 1. 選択したレポートの上部にある「**含まれるチャネル**」ドロップダウンメニューを選択します。
 
-   ![ チャネルを含むドロップダウンメニュー](../assets/tve-dashboard/new-tve-dashboard/reports/reports-included-channels-menu.png)
+   ![&#x200B; チャネルを含むドロップダウンメニュー](../assets/tve-dashboard/new-tve-dashboard/reports/reports-included-channels-menu.png)
 
    *チャネルを含むドロップダウンメニュー*
 

@@ -34,7 +34,7 @@ Dynamic Client Registration （DCR）を統合する必要があるアプリケ�
 
 #### &#x200B;1. 登録段階の目的は何か？ {#rest-api-v2-access-faq1}
 
-登録フェーズの目的は、[Dynamic Client Registration （DCR） ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#dcr) プロセスを通じて、Adobe Pass Authenticationに対してクライアントアプリケーションを登録することです。
+登録フェーズの目的は、[Dynamic Client Registration （DCR） &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#dcr) プロセスを通じて、Adobe Pass Authenticationに対してクライアントアプリケーションを登録することです。
 
 動的クライアント登録（DCR）プロセスでは、クライアントアプリケーションが登録フェーズの最終目標として、1組のクライアント資格情報を取得し、アクセストークンを取得する必要があります。
 
@@ -48,7 +48,7 @@ Dynamic Client Registration （DCR）を統合する必要があるアプリケ�
 
 ソフトウェア文は、[用語集](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#software-statement)のドキュメントで定義されている用語です。
 
-ソフトウェアステートメントは、Adobe Pass [TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)から生成およびダウンロードできるJSON Web トークン（JWT）で構成されます。このトークンは、組織管理者またはAdobe Pass認証担当者が代わりに処理します。
+ソフトウェアステートメントは、Adobe Pass [TVE ダッシュボード &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)から生成およびダウンロードできるJSON Web トークン（JWT）で構成されます。このトークンは、組織管理者またはAdobe Pass認証担当者が代わりに処理します。
 
 ソフトウェアステートメントは無制限の期間で有効ですが、いつでもAdobe Pass認証担当者に取り消しを依頼することができます。
 
@@ -58,9 +58,9 @@ Dynamic Client Registration （DCR）を統合する必要があるアプリケ�
 
 #### &#x200B;4. ソフトウェアステートメントを生成してダウンロードするには？ {#rest-api-v2-access-faq4}
 
-この操作は、Adobe Pass [TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)を通じて、組織管理者の1人またはAdobe Pass認証担当者が代わりに実行します。
+この操作は、Adobe Pass [TVE ダッシュボード &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)を通じて、組織管理者の1人またはAdobe Pass認証担当者が代わりに実行します。
 
-詳しくは、[TVE ダッシュボード チャネル ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#registered-applications)または[TVE ダッシュボード プログラマーユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#registered-applications)のドキュメントを参照してください。
+詳しくは、[TVE ダッシュボード チャネル ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#registered-applications)または[TVE ダッシュボード プログラマーユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#registered-applications)のドキュメントを参照してください。
 
 #### &#x200B;5. ソフトウェアステートメントが失効した場合はどうなりますか？ {#rest-api-v2-access-faq5}
 
@@ -78,7 +78,7 @@ Dynamic Client Registration （DCR）を統合する必要があるアプリケ�
 
 クライアントアプリケーションは、クライアントの資格情報を保存し、アクセストークンを取得する必要がある場合に無期限に使用する必要があります。
 
-詳しくは、[ クライアント資格情報の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) ドキュメントを参照してください。
+詳しくは、[&#x200B; クライアント資格情報の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) ドキュメントを参照してください。
 
 #### &#x200B;7. クライアント資格情報の管理方法 {#rest-api-v2-access-faq7}
 
@@ -100,7 +100,7 @@ Adobe Pass Authenticationとクライアント間およびサーバー間の両�
 
 アクセストークンは、[用語集](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#access-token)のドキュメントで定義されている用語です。
 
-アクセストークンは、クライアントトークンエンドポイントから取得できる[ ベアラートークン ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md)で構成されます。
+アクセストークンは、クライアントトークンエンドポイントから取得できる[&#x200B; ベアラートークン &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md)で構成されます。
 
 アクセストークンは、発行の時点で指定された期間限定および短期間で有効です。
 
@@ -108,7 +108,7 @@ Adobe Pass Authenticationとクライアント間およびサーバー間の両�
 
 クライアントアプリケーションは、不正な要求を防ぐために、現在のアクセストークンが期限切れになる前に新しいアクセストークンを取得する必要があります。
 
-詳しくは、[ アクセストークンの取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) ドキュメントを参照してください。
+詳しくは、[&#x200B; アクセストークンの取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) ドキュメントを参照してください。
 
 #### &#x200B;11. クライアントアプリケーションは、アクセストークンを永続的なストレージにキャッシュする必要がありますか？ {#rest-api-v2-access-faq11}
 
@@ -120,7 +120,7 @@ Adobe Pass Authenticationとクライアント間およびサーバー間の両�
 
 クライアントアプリケーションは、アクセストークンを更新するために再登録しないでください。代わりに、保存されたクライアント資格情報を使用する必要があります。そうしないと、ユーザーは再認証する必要があります。
 
-詳しくは、[ アクセストークンの取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) ドキュメントを参照してください。
+詳しくは、[&#x200B; アクセストークンの取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) ドキュメントを参照してください。
 
 +++
 
@@ -140,9 +140,9 @@ Dynamic Client Registration （DCR）を使用するために既存のアプリ�
 
 クライアントアプリケーションは、既存の登録アプリケーション（ソフトウェアステートメント）を再利用できないため、REST API V2を使用するための新しい登録アプリケーション（ソフトウェアステートメント）を生成してダウンロードする必要があります。
 
-この操作は、Adobe Pass [TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)を通じて、組織管理者の1人またはAdobe Pass認証担当者が代わりに実行します。
+この操作は、Adobe Pass [TVE ダッシュボード &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)を通じて、組織管理者の1人またはAdobe Pass認証担当者が代わりに実行します。
 
-詳しくは、[TVE ダッシュボード チャネル ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#registered-applications)または[TVE ダッシュボード プログラマーユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#registered-applications)のドキュメントを参照してください。
+詳しくは、[TVE ダッシュボード チャネル ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#registered-applications)または[TVE ダッシュボード プログラマーユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#registered-applications)のドキュメントを参照してください。
 
 現時点では、新しく登録されたアプリケーション（ソフトウェアステートメント）に対してREST API V2の使用を有効にするようにAdobe Pass認証担当者に依頼する必要があります。この操作を自動管理できるようにAdobe Pass [TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)が更新されます。
 
@@ -150,8 +150,8 @@ REST API V2を使用するクライアントアプリケーションで使用さ
 
 #### &#x200B;2. クライアントアプリケーションは、既存のカスタムスキームを再利用できますか？ {#rest-api-v2-migration-faq2}
 
-クライアントアプリケーションは、Adobe Pass [TVE ダッシュボード ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)を通じて生成された既存のカスタムスキームを再利用できます。
+クライアントアプリケーションは、Adobe Pass [TVE ダッシュボード &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard)を通じて生成された既存のカスタムスキームを再利用できます。
 
-詳しくは、[TVE ダッシュボード チャネル ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#custom-schemes)または[TVE ダッシュボード プログラマーユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#custom-schemes)のドキュメントを参照してください。
+詳しくは、[TVE ダッシュボード チャネル ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#custom-schemes)または[TVE ダッシュボード プログラマーユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#custom-schemes)のドキュメントを参照してください。
 
 +++

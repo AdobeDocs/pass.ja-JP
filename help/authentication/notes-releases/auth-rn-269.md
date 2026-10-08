@@ -53,4 +53,4 @@ Adobe Pass認証：adobe-pass-**2.69**
 #### JavaScript SDK 4.7.0
 
 * セキュリティ上の問題により、Access Enabler JavaScript SDKの非推奨バージョン 2.0.1を削除しました。
-  * 詳細については、リンクを参照してください。[Adobe Pass Authentication JavaScript 4.7.0 リリースノート ](authn-rn-javascript-470.md)
+  * 詳細については、リンクを参照してください。[Adobe Pass Authentication JavaScript 4.7.0 リリースノート &#x200B;](authn-rn-javascript-470.md)

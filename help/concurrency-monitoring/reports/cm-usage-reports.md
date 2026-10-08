@@ -24,7 +24,7 @@ ht-degree: 0%
 
 ## 前提条件 {#usage-rep-prerequisites}
 
-同時視聴数モニタリング使用状況レポート製品にアクセスするには、お客様は最初に同時視聴数モニタリング [ サポートチーム ](mailto:tve-support@adobe.com)に連絡する必要があり、API製品へのアクセスを許可するために必要な手順を実行します。 [CMU API アクセス ](/help/concurrency-monitoring/reports/cmu-api-access.md)の詳細。
+同時視聴数モニタリング使用状況レポート製品にアクセスするには、お客様は最初に同時視聴数モニタリング [&#x200B; サポートチーム &#x200B;](mailto:tve-support@adobe.com)に連絡する必要があり、API製品へのアクセスを許可するために必要な手順を実行します。 [CMU API アクセス &#x200B;](/help/concurrency-monitoring/reports/cmu-api-access.md)の詳細。
 
 ## 一般的なレポート指標と内訳 {#general-rep-metrics-breakdown}
 
@@ -94,4 +94,4 @@ ht-degree: 0%
 
 最適なデータ精度を得るために、このページで提示するレポートをお勧めします[CMU レポートの例](/help/concurrency-monitoring/reports/cm-usage-reports-examples.md)
 
-[^1]：分単位のレポートはデフォルトでは使用できません。 同時視聴数モニタリング [ サポート チーム ](mailto:tve-support@adobe.com)に連絡して、リクエストしてください。
+[^1]：分単位のレポートはデフォルトでは使用できません。 同時視聴数モニタリング [&#x200B; サポート チーム &#x200B;](mailto:tve-support@adobe.com)に連絡して、リクエストしてください。

@@ -18,7 +18,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2の実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
+> REST API V2の実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -26,7 +26,7 @@ ht-degree: 0%
 
 デグラデーションは、特定のMVPD認証および認証エンドポイントを一時的にバイパスします。 通常、プログラマーはこのアクションを開始しますが、デグラデーションイベントをトリガーするユーザーに関係なく、このアクションは、影響を受けるMVPDとの事前の取り決めによって異なります。
 
-デグラデーション機能について詳しくは、[ デグラデーション ](../../../../features-premium/degraded-access/degradation-feature.md)のドキュメントを参照してください。
+デグラデーション機能について詳しくは、[&#x200B; デグラデーション &#x200B;](../../../../features-premium/degraded-access/degradation-feature.md)のドキュメントを参照してください。
 
 デグレードされたアクセスフローを使用すると、次のシナリオについてクエリを実行できます。
 
@@ -89,7 +89,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
    >
    > <br/>
    > 
@@ -132,7 +132,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    > 
-   > 詳しくは、特定のmvpd](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを使用した承認決定の取得を参照してください。[
+   > 詳しくは、特定のmvpd[&#128279;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを使用した承認決定の取得を参照してください。
    >
    > * `serviceProvider`、`mvpd`、`resources`など、_必須_&#x200B;のすべてのパラメーター
    > * `Authorization`や`AP-Device-Identifier`など、_必須_ ヘッダーすべて
@@ -155,7 +155,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
    >
    > <br/>
    >
@@ -221,7 +221,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
    >
    > <br/>
    >
@@ -272,7 +272,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > 次の詳細については、特定のmvpd](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) API ドキュメントの[ プロファイルの取得を参照してください。
+   > 次の詳細については、特定のmvpd[&#128279;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) API ドキュメントの プロファイルの取得を参照してください。
    >
    > * `serviceProvider`や`mvpd`など、すべての&#x200B;_必須_ パラメーター
    > * `Authorization`や`AP-Device-Identifier`など、_必須_ ヘッダーすべて
@@ -284,7 +284,7 @@ ht-degree: 0%
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、特定のmvpd](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) API ドキュメントの[ プロファイルの取得を参照してください。
+   > プロファイル応答で提供される情報について詳しくは、特定のmvpd[&#128279;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) API ドキュメントの プロファイルの取得を参照してください。
    >
    > <br/>
    >
@@ -295,7 +295,7 @@ ht-degree: 0%
    >
    > <br/>
    > 
-   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
    >
    > <br/>
    > 
@@ -313,4 +313,4 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> 特定の認証コードのプロファイル取得フローの手順は、使用されるエンドポイントが特定のコードの[取得プロファイル ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) ドキュメントに記載されているものを除き、上記と同じです。
+> 特定の認証コードのプロファイル取得フローの手順は、使用されるエンドポイントが特定のコードの[取得プロファイル &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) ドキュメントに記載されているものを除き、上記と同じです。

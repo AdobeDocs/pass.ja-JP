@@ -26,7 +26,7 @@ ht-degree: 1%
 
 ### スロットル機構
 
-Adobe Pass Authentication REST APIは、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって管理されます。
+Adobe Pass Authentication REST APIは、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって管理されます。
 
 
 ## コンポーネント {#components}
@@ -172,7 +172,7 @@ Adobeがトラフィックを再ルーティングする必要がある場合に
     
     
     
-     ヘッダーを**regcode**および**authorize**呼び出しに追加する必要があります
+     ヘッダーを&#x200B;**regcode**&#x200B;および&#x200B;**authorize**&#x200B;呼び出しに追加する必要があります
     
     例：
     

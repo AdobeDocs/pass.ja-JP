@@ -27,10 +27,10 @@ CMU レポートのアクセスを更新して、OAuth 2.0 Dynamic Client Regist
 
 ## アクセス手順の手順 {#access-procedure-steps}
 
-1. Adobe Pass DCR サーバーにアプリケーションを登録します。 この手順については、[ サポートチーム ](mailto:tve-support@adobe.com)にお問い合わせください。
+1. Adobe Pass DCR サーバーにアプリケーションを登録します。 この手順については、[&#x200B; サポートチーム &#x200B;](mailto:tve-support@adobe.com)にお問い合わせください。
 
 2. ソフトウェアについて詳しく見る
-   1. [Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication)に移動
+   1. [Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/#/pass/authentication)に移動
    2. プログラマーを選択
    3. 「*登録済みアプリケーション*」タブに移動
    4. アプリケーションを選択

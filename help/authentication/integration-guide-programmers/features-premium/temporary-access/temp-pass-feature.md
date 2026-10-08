@@ -27,7 +27,7 @@ TempPassは、プログラマーが次のことを行うための強力なソリ
 TempPass機能は、Adobe Pass Authentication Server Configuration内に疑似MVPD（さらに「Temp Pass」という名前）を導入し、関連するプログラマーとの統合として提供されます。 TempPass機能は、次の2つの構成で利用できます。
 
 * 時間ベースのアクセス用の[Basic TempPass](#basic-temp-pass)。
-* [ キャンペーン駆動型の柔軟なアクセスを実現するプロモーション TempPass](#promotional-temp-pass)。
+* [&#x200B; キャンペーン駆動型の柔軟なアクセスを実現するプロモーション TempPass](#promotional-temp-pass)。
 
 >[!IMPORTANT]
 >

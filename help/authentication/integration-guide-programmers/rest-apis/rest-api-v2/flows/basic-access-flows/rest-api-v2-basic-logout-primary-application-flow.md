@@ -18,7 +18,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2の実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
+> REST API V2の実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 Adobe Pass認証権限内の&#x200B;**ログアウトフロー**&#x200B;では、ストリーミングアプリケーションで次の2つの主な手順を実行できます。
 
@@ -54,7 +54,7 @@ Adobe Pass認証権限内の&#x200B;**ログアウトフロー**&#x200B;では�
 
 次の図に示すように、プライマリアプリケーション内で実行されるログアウトエンドポイントを使用して、特定のMVPDの基本的なログアウトフローを実装するには、次の手順に従います。
 
-![ ログアウトエンドポイント ](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-initiate-logout-within-primary-application-for-specific-mvpd-with-logout-endpoint.png)を使用して特定のmvpdのログアウトを開始
+![&#x200B; ログアウトエンドポイント &#x200B;](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-initiate-logout-within-primary-application-for-specific-mvpd-with-logout-endpoint.png)を使用して特定のmvpdのログアウトを開始
 
 *ログアウトエンドポイント*&#x200B;を使用して特定のmvpdのログアウトを開始
 
@@ -79,7 +79,7 @@ Adobe Pass認証権限内の&#x200B;**ログアウトフロー**&#x200B;では�
 
    >[!IMPORTANT]
    >
-   > ログアウト応答で提供される情報について詳しくは、特定のmvpd](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) API ドキュメントの[ ログアウトの開始を参照してください。
+   > ログアウト応答で提供される情報について詳しくは、特定のmvpd[&#128279;](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) API ドキュメントの ログアウトの開始を参照してください。
    > 
    > <br/>
    > 
@@ -90,7 +90,7 @@ Adobe Pass認証権限内の&#x200B;**ログアウトフロー**&#x200B;では�
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **MVPD ログアウトの開始：** ストリーミングアプリケーションは`url`を読み取り、ユーザーエージェントを使用してMVPDでログアウトフローを開始します。 フローには、MVPD システムへの複数のリダイレクトが含まれる場合があります。 その結果、MVPDは内部クリーンアップを実行し、最終的なログアウト確認をAdobe Pass バックエンドに送り返します。
 
@@ -120,7 +120,7 @@ Adobe Pass認証権限内の&#x200B;**ログアウトフロー**&#x200B;では�
 
 次の図に示すように、プライマリアプリケーション内で実行されるログアウトエンドポイントを使用せずに、特定のMVPDの基本的なログアウトフローを実装するには、次の手順に従います。
 
-![ ログアウトエンドポイントを使用せずに、特定のmvpdのログアウトを開始](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-initiate-logout-within-primary-application-for-specific-mvpd-without-logout-endpoint.png)
+![&#x200B; ログアウトエンドポイントを使用せずに、特定のmvpdのログアウトを開始](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-initiate-logout-within-primary-application-for-specific-mvpd-without-logout-endpoint.png)
 
 *ログアウトエンドポイントを使用せずに、特定のmvpdのログアウトを開始*
 
@@ -145,7 +145,7 @@ Adobe Pass認証権限内の&#x200B;**ログアウトフロー**&#x200B;では�
 
    >[!IMPORTANT]
    >
-   > ログアウト応答で提供される情報について詳しくは、特定のmvpd](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) API ドキュメントの[ ログアウトの開始を参照してください。
+   > ログアウト応答で提供される情報について詳しくは、特定のmvpd[&#128279;](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) API ドキュメントの ログアウトの開始を参照してください。
    > 
    > <br/>
    > 
@@ -156,6 +156,6 @@ Adobe Pass認証権限内の&#x200B;**ログアウトフロー**&#x200B;では�
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **ログアウト完了を示します：** ストリーミングアプリケーションは応答を処理し、オプションでユーザーインターフェイスに特定のメッセージを表示するために使用できます。

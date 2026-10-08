@@ -31,10 +31,10 @@ Adobe Pass Authenticationは、SaaS （Software as a Service）ソリューシ�
 
 ## ❓のサポートとトラブルシューティング
 
-* [Zendesk カスタマーサポートポータル ](https://tve.zendesk.com/home)\
+* [Zendesk カスタマーサポートポータル &#x200B;](https://tve.zendesk.com/home)\
   ログインしてチケットにアクセスしたり、クエリを送信したり、ナレッジベースを表示したりできます。
 
-* [ サポート手順に関するよくある質問](/help/authentication/kickstart/support-procedures-faqs.md)
+* [&#x200B; サポート手順に関するよくある質問](/help/authentication/kickstart/support-procedures-faqs.md)
 Adobe Pass認証サポート手順に関するよくある質問。
 
 * [動的クライアント登録（DCR）に関するFAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md)\
@@ -47,25 +47,25 @@ Adobe Pass認証サポート手順に関するよくある質問。
 
 **プログラマー：**
 
-* [番組制作会社向けスタートガイド ](/help/authentication/kickstart/programmer-kickstart-guide.md)\
+* [番組制作会社向けスタートガイド &#x200B;](/help/authentication/kickstart/programmer-kickstart-guide.md)\
   Adobe Pass認証の基本を学ぶ。
 
-* [ プログラマー向け統合ガイド ](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)\
+* [&#x200B; プログラマー向け統合ガイド &#x200B;](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)\
   Adobe Pass認証をプログラマーに統合する方法について説明します。
 
 **MVPDの場合：**
 
-* [MVPD キックスタートガイド ](/help/authentication/kickstart/mvpd-kickstart-guide.md)\
+* [MVPD キックスタートガイド &#x200B;](/help/authentication/kickstart/mvpd-kickstart-guide.md)\
   Adobe Pass認証の基本を学ぶ。
 
-* [MVPDの統合ガイド ](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md)\
+* [MVPDの統合ガイド &#x200B;](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md)\
   Adobe Pass認証をMVPDに統合する方法について説明します。
 
 *ページ上部の検索バーを使用して特定のトピックを検索するか、左側のメニューから移動します。*
 
 ## 🛠️個のツールとライブラリ
 
-* [Adobe Developer Web サイト ](https://developer.adobe.com/adobe-pass/)\
+* [Adobe Developer Web サイト &#x200B;](https://developer.adobe.com/adobe-pass/)\
   Adobe Developerのweb サイトにアクセスして、Adobe Pass Authentication REST APIを試します。
 
 * [Media Token Verifier](https://tve.zendesk.com/hc/en-us/articles/204963159-Media-Token-Verifier-library)\

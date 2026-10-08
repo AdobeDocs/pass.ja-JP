@@ -78,7 +78,7 @@ Adobe Pass認証チームは、統合プロセス中に発生する可能性の�
 
 **Adobeでは、[Adobe Experience League](https://experienceleague.adobe.com/en/docs/pass/authentication/home)経由で**&#x200B;の公開ドキュメントへのアクセスを提供します。
 
-Adobe Pass認証チームは、「[ プログラマー向け統合ガイド ](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)」のセクションで、利用可能な機能とAPIに関する包括的なドキュメントを提供しています。 各トピックの詳細については、この節の目次を参照してください。
+Adobe Pass認証チームは、「[&#x200B; プログラマー向け統合ガイド &#x200B;](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)」のセクションで、利用可能な機能とAPIに関する包括的なドキュメントを提供しています。 各トピックの詳細については、この節の目次を参照してください。
 
 ## テストツールへのアクセス {#access-testing-tool}
 
@@ -86,6 +86,6 @@ Adobe Pass認証チームは、「[ プログラマー向け統合ガイド ](/h
 
 ## 構成管理ツールへのアクセス {#access-configuration-management-tool}
 
-**Adobeは、[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/pass/authentication)を介して、設定とデータを管理するためのセルフサービスツールへの** アクセスを提供します。
+**Adobeは、[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/pass/authentication)を介して、設定とデータを管理するためのセルフサービスツールへの** アクセスを提供します。
 
-Adobe Pass認証チームは、「[TVE ダッシュボードのユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md)」セクションで、TVE ダッシュボードの使用方法に関する包括的なドキュメントを提供しています。 各トピックの詳細については、この節の目次を参照してください。
+Adobe Pass認証チームは、「[TVE ダッシュボードのユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md)」セクションで、TVE ダッシュボードの使用方法に関する包括的なドキュメントを提供しています。 各トピックの詳細については、この節の目次を参照してください。

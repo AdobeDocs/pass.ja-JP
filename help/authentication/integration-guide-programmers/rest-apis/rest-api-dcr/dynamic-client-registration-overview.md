@@ -52,11 +52,11 @@ Adobe Passでは、次の保護されたAPIへのアクセスを可能にする�
 
 ## 動的なクライアント登録管理 {#dynamic-client-registration-management}
 
-動的なクライアント登録管理プロセスにより、特定のプラットフォームで動作し、特定のAdobe Pass認証APIへのアクセスを必要とするクライアントアプリケーションが[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication)を通じて登録できるようになります。
+動的なクライアント登録管理プロセスにより、特定のプラットフォームで動作し、特定のAdobe Pass認証APIへのアクセスを必要とするクライアントアプリケーションが[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/#/pass/authentication)を通じて登録できるようになります。
 
-Adobe Pass TVE ダッシュボードは、Adobe Pass認証のお客様（プログラマー）が設定とデータを管理するためのツールです。 このセルフサービスダッシュボードを使用すると、[Adobe Pass TVE ダッシュボードユーザーガイド ](../../../user-guide-tve-dashboard/tve-dashboard-overview.md)のドキュメントに記載されている様々な機能を利用できます。
+Adobe Pass TVE ダッシュボードは、Adobe Pass認証のお客様（プログラマー）が設定とデータを管理するためのツールです。 このセルフサービスダッシュボードを使用すると、[Adobe Pass TVE ダッシュボードユーザーガイド &#x200B;](../../../user-guide-tve-dashboard/tve-dashboard-overview.md)のドキュメントに記載されている様々な機能を利用できます。
 
-[Adobe Pass TVE ダッシュボード ](https://experience.adobe.com/#/pass/authentication)にアクセスできる場合は、以下のセクションの手順に従って、登録済みアプリケーションを作成し、ソフトウェアステートメントをダウンロードしてください。
+[Adobe Pass TVE ダッシュボード &#x200B;](https://experience.adobe.com/#/pass/authentication)にアクセスできる場合は、以下のセクションの手順に従って、登録済みアプリケーションを作成し、ソフトウェアステートメントをダウンロードしてください。
 
 ### 登録済みアプリケーションの管理 {#manage-registered-applications}
 
@@ -99,7 +99,7 @@ Adobe Pass TVE ダッシュボードは、Adobe Pass認証のお客様（プロ�
 
   詳しくは、「[TVE Dashboard User Guide for Channels](../../../user-guide-tve-dashboard/tve-dashboard-channels.md)」のドキュメントを参照してください。
 
-software ステートメントは、クライアントアプリケーションソフトウェアに関する情報をバンドルとして含むJSON Web トークン （`JWT`）です。 [ クライアント資格情報を取得](apis/dynamic-client-registration-apis-retrieve-client-credentials.md) APIに提示すると、ソフトウェア文はJSON Web署名（`JWS`）を使用してデジタル署名されます。
+software ステートメントは、クライアントアプリケーションソフトウェアに関する情報をバンドルとして含むJSON Web トークン （`JWT`）です。 [&#x200B; クライアント資格情報を取得](apis/dynamic-client-registration-apis-retrieve-client-credentials.md) APIに提示すると、ソフトウェア文はJSON Web署名（`JWS`）を使用してデジタル署名されます。
 
 ソフトウェアステートメントとその仕組みについて詳しくは、[RFC 7591](https://tools.ietf.org/html/rfc7591)のドキュメントを参照してください。
 
@@ -110,11 +110,11 @@ software ステートメントは、クライアントアプリケーション�
 **管理**
 
 * クライアント担当者は、[登録アプリケーションの管理](#manage-registered-applications) セクションの説明に従って、登録アプリケーションを作成する必要があります。
-* クライアントの担当者は、[ ソフトウェアステートメントの管理](#manage-software-statements) セクションの説明に従って、ソフトウェアステートメントをダウンロードして埋め込む必要があります。
+* クライアントの担当者は、[&#x200B; ソフトウェアステートメントの管理](#manage-software-statements) セクションの説明に従って、ソフトウェアステートメントをダウンロードして埋め込む必要があります。
 
 **フロー**
 
-* クライアントアプリケーションは、[ クライアント資格情報の取得](apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメントの説明に従って、クライアント資格情報を取得する必要があります。
-* クライアントアプリケーションは、[ アクセストークンの取得](apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って、アクセストークンを取得する必要があります。
+* クライアントアプリケーションは、[&#x200B; クライアント資格情報の取得](apis/dynamic-client-registration-apis-retrieve-client-credentials.md) API ドキュメントの説明に従って、クライアント資格情報を取得する必要があります。
+* クライアントアプリケーションは、[&#x200B; アクセストークンの取得](apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って、アクセストークンを取得する必要があります。
 
-Adobe Passで保護されたAPIへのアクセス方法をより詳細に理解するには、[Dynamic Client Registration Flow](flows/dynamic-client-registration-flow.md) ドキュメントを参照してください。 さらに、この[ ウェビナー](https://my.adobeconnect.com/pzkp8ujrigg1/)の録画も視聴できます。この録画では、より多くのコンテキストが提供され、デモも含まれています。
+Adobe Passで保護されたAPIへのアクセス方法をより詳細に理解するには、[Dynamic Client Registration Flow](flows/dynamic-client-registration-flow.md) ドキュメントを参照してください。 さらに、この[&#x200B; ウェビナー](https://my.adobeconnect.com/pzkp8ujrigg1/)の録画も視聴できます。この録画では、より多くのコンテキストが提供され、デモも含まれています。

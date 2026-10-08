@@ -54,7 +54,7 @@ ht-degree: 3%
         <td></td>
         <td>primaryHardwareType</td>
         <td>デバイスの主なハードウェアタイプ。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は次のように制限されています。
             <ul>
@@ -111,7 +111,7 @@ ht-degree: 3%
         <td><i>必須</i></td>
         <td>osName</td>
         <td>デバイスのオペレーティングシステム（OS）名。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は次のように制限されています。
             <ul>
@@ -133,7 +133,7 @@ ht-degree: 3%
         <td></td>
         <td>osFamily</td>
         <td>デバイスのOS グループ名。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は次のように制限されています。
             <ul>
@@ -156,7 +156,7 @@ ht-degree: 3%
         <td></td>
         <td>osVendor</td>
         <td>デバイスのオペレーティングシステム（OS）サプライヤー。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は次のように制限されています。
             <ul>
@@ -186,7 +186,7 @@ ht-degree: 3%
         <td></td>
         <td>browserName</td>
         <td>ブラウザーの名前。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は次のように制限されています。
             <ul>
@@ -206,7 +206,7 @@ ht-degree: 3%
         <td></td>
         <td>browserVendor</td>
         <td>ブラウザーのビルド会社/組織。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は次のように制限されています。
             <ul>
@@ -291,7 +291,7 @@ ht-degree: 3%
         <td></td>
         <td>connectionSecure</td>
         <td>ネットワーク接続のセキュリティ状態。</td>
-        <td>&amp;check;</td>
+        <td>&check;</td>
         <td>
             値は次のように制限されています。
             <ul>
@@ -340,7 +340,7 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 > 
 > コードスニペットは完全なものではなく、プロジェクトで作業するには、追加の変更が必要になる場合があります。
 >
-> 実際の実装に関係なく、`X-Device-Info` ヘッダーには、[ ディレクティブ ](#directives) セクションで説明されているようにフォーマットされた値を含める必要があります。
+> 実際の実装に関係なく、`X-Device-Info` ヘッダーには、[&#x200B; ディレクティブ &#x200B;](#directives) セクションで説明されているようにフォーマットされた値を含める必要があります。
 
 ### ブラウザー {#browsers}
 
@@ -455,7 +455,7 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 
 [Android](https://developer.android.com/about/versions)を実行しているデバイスの`X-Device-Info` ヘッダーを作成するには、次のドキュメントとコードスニペットの下を参照してください。
 
-* [ ビルド ](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
+* [&#x200B; ビルド &#x200B;](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
 
 ```JAVA
 private JSONObject computeClientInformation() {
@@ -662,8 +662,8 @@ private JSONObject computeClientInformation() {
 
 [Fire OS](https://developer.amazon.com/docs/fire-tv/fire-os-overview.html)を実行しているデバイスの`X-Device-Info` ヘッダーを作成するには、次のドキュメントを参照してください。
 
-* [ ビルド ](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
-* Fire TV デバイスの特定[に関するAmazon開発者用ドキュメント ](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html)。
+* [&#x200B; ビルド &#x200B;](https://developer.android.com/reference/android/os/Build.html) クラスのAndroid開発者向けドキュメント。
+* Fire TV デバイスの特定[に関するAmazon開発者用ドキュメント &#x200B;](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html)。
 
 デバイス情報は、次のように構築できます。
 

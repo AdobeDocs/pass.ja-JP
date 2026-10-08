@@ -18,7 +18,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2の実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
+> REST API V2の実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -66,7 +66,7 @@ MVPDを選択し、ユーザーエージェントで選択したMVPDを使用し
 
 次の図に示すように、プライマリアプリケーション内で実行される基本認証フローを実装するには、次の手順に従います。
 
-![ プライマリアプリケーション内で認証を実行](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-primary-application.png)
+![&#x200B; プライマリアプリケーション内で認証を実行](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-primary-application.png)
 
 *プライマリアプリケーション内で認証を実行*
 
@@ -99,7 +99,7 @@ MVPDを選択し、ユーザーエージェントで選択したMVPDを使用し
    > 
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **決定フローで続行：** セッションエンドポイントの応答には、次のデータが含まれます。
    * `actionName`属性が「authorize」に設定されています。
@@ -120,7 +120,7 @@ MVPDを選択し、ユーザーエージェントで選択したMVPDを使用し
 
    >[!IMPORTANT]
    >
-   > 次の詳細については、特定のコードの[ プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
+   > 次の詳細については、特定のコードの[&#x200B; プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
    >
    > * `serviceProvider`、`code`など、_必須_&#x200B;のすべてのパラメーター
    > * `Authorization`、`AP-Device-Identifier`など、_必須_ ヘッダーすべて
@@ -144,4 +144,4 @@ MVPDを選択し、ユーザーエージェントで選択したMVPDを使用し
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。

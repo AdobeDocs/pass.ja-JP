@@ -32,14 +32,14 @@ Adobe Pass Authentication: adobe-pass-**3.4.0**
 
 #### REST API v2
 
-* ユーザーの識別と追跡機能を向上させるために、[Experience Cloud ID （ECID） ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md)のサポートを追加しました。
+* ユーザーの識別と追跡機能を向上させるために、[Experience Cloud ID （ECID） &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md)のサポートを追加しました。
 * REST API V2 [設定API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)のヘッダーAP-Device-IdentifierとX-Device-Infoをオプションに変更しました。
 
 #### バグ修正
 
 * REST API V2 [Decisions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)の応答からトークンでMVPD IDとプロキシ MVPD IDが反転される問題を修正しました。
 * REST API V2 [決定](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)応答のトークンに依頼者IDが存在しない問題を修正しました。
-* REST API V2 [Preauthorize Decisions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) APIにリソースが多すぎると、[拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) **too_many_resources**&#x200B;ではなく、応答に空の意思決定リストが表示される問題を修正しました。
+* REST API V2 [Preauthorize Decisions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) APIにリソースが多すぎると、[拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) **too_many_resources**&#x200B;ではなく、応答に空の意思決定リストが表示される問題を修正しました。
 
 #### その他
 

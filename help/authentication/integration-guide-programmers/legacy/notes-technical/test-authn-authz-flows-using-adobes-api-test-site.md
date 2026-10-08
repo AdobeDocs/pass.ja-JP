@@ -25,14 +25,14 @@ AuthNおよびAuthZ フローをテストするために、自由に使用でき
 
 ## パート I {#part-I}
 
-RELEASE環境に対するテストについては、パート IIに直接スキップしてください。  事前認定環境でテストを行うには、[事前認定環境の設定とテスト ](/help/authentication/notes-technical/environments/setting-up-your-environment-and-testing-in-prequal.md)を参照してください。
+RELEASE環境に対するテストについては、パート IIに直接スキップしてください。  事前認定環境でテストを行うには、[事前認定環境の設定とテスト &#x200B;](/help/authentication/notes-technical/environments/setting-up-your-environment-and-testing-in-prequal.md)を参照してください。
 
 ## パート II
 
 パート Iを完了したら、次の手順を実行します。
 
 
-1. Web ページを開きます：[ ステージング API テスト ](https://sp.auth-staging.adobe.com/apitest/api.html)。
+1. Web ページを開きます：[&#x200B; ステージング API テスト &#x200B;](https://sp.auth-staging.adobe.com/apitest/api.html)。
 1. 次の方法でアクセス イネーブラを読み込む：
    * アクセスする場所（ステージングまたは実稼動）とデバッグモードである必要がある場合は、ドロップダウンメニューから選択します
    * テストするソフトウェア文の入力

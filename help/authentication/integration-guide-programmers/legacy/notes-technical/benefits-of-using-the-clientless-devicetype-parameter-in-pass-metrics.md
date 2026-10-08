@@ -24,7 +24,7 @@ ht-degree: 0%
 
 ## コンテキスト
 
-オプションですが、クライアントレス APIのパラメーター`deviceType`が存在する場合は、[使用権限サービスモニタリング ](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md)を通じて公開されているAdobe Pass認証メトリックで使用されます。
+オプションですが、クライアントレス APIのパラメーター`deviceType`が存在する場合は、[使用権限サービスモニタリング &#x200B;](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md)を通じて公開されているAdobe Pass認証メトリックで使用されます。
 
 Adobe Pass認証指標に関する`deviceType` パラメーターとその&#x200B;**benefits**&#x200B;の間の接続が最初に記載されていなかったことを考えると、このテクニカルノートの範囲は、それらのパラメーターに関する詳細情報を追加することです。
 
@@ -36,21 +36,21 @@ Adobe Pass認証指標に関する`deviceType` パラメーターとその&#x200
 
 >[!IMPORTANT]
 >
->パラメーター`deviceType`が正しく設定されている場合は、使用権限サービス監視で次の&#x200B;**benefit**&#x200B;が使用されます。クライアントレスを使用する場合は、デバイスの種類](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type)ごとに[分割される指標が提供されるため、Roku、AppleTV、Xboxなどでさまざまな種類の分析を実行できます。
+>パラメーター`deviceType`が正しく設定されている場合は、使用権限サービス監視で次の&#x200B;**benefit**&#x200B;が使用されます。クライアントレスを使用する場合は、デバイスの種類[&#128279;](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type)ごとに分割される指標が提供されるため、Roku、AppleTV、Xboxなどでさまざまな種類の分析を実行できます。
 
 
-使用権限サービス監視APIについて詳しくは、[ ドリルダウンツリー](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md#drill-down_tree)を参照してください。このツリーには、ESM 2.0で使用可能な[ ディメンション ](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#esm_dimensions) （リソース）が示されています。
+使用権限サービス監視APIについて詳しくは、[&#x200B; ドリルダウンツリー](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md#drill-down_tree)を参照してください。このツリーには、ESM 2.0で使用可能な[&#x200B; ディメンション &#x200B;](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#esm_dimensions) （リソース）が示されています。
 
 >[!NOTE]
 >
->このテクニカルノートの内容は、[ クライアントレス API](#clientless_device_type)にも追加されました。
+>このテクニカルノートの内容は、[&#x200B; クライアントレス API](#clientless_device_type)にも追加されました。
 
 
 
 
 ## 導入
 
-Adobe Pass認証メトリックを最大限に活用するには、現在使用されている[ クライアントレス API](#web_srvs_summary)の2種類があり、正しい`deviceType`を設定する必要があります。
+Adobe Pass認証メトリックを最大限に活用するには、現在使用されている[&#x200B; クライアントレス API](#web_srvs_summary)の2種類があり、正しい`deviceType`を設定する必要があります。
 
 1. 必須パラメーターとして`regcode`を持ち、次のAPI呼び出しで`regcode`を作成するときに設定された`deviceType` パラメーターを使用するAPI:
    - [\&lt;REGGIE\_FQDN\>/reggie/v1/{requestorId}/regcode](#reg_serv)

@@ -22,7 +22,7 @@ ht-degree: 1%
 
 このヘッダーは、サービストークン方式を利用したシングルサインオン（SSO）対応フローで使用するように設計されています。
 
-サービストークン方式を使用したシングルサインオン（SSO）対応フローの詳細については、[ サービストークンのフローを使用したシングルサインオン ](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md)のドキュメントを参照してください。
+サービストークン方式を使用したシングルサインオン（SSO）対応フローの詳細については、[&#x200B; サービストークンのフローを使用したシングルサインオン &#x200B;](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md)のドキュメントを参照してください。
 
 ## 構文 {#syntax}
 

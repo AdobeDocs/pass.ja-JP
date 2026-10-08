@@ -49,7 +49,7 @@ AccessEnablerでサポートされているすべての資格ワークフロー�
 
 次のネイティブクライアントワークフローは、一般的なブラウザーベースの認証ワークフローとは異なりますが、手順1～5はネイティブクライアントとブラウザーベースのクライアントの両方で同じです。
 
-1. ページまたはプレーヤーは、[getAuthentication （） ](#getAuthN)への呼び出しで認証ワークフローを開始し、有効なキャッシュ済み認証トークンを確認します。 このメソッドにはオプションの`redirectURL` パラメーターがあります。`redirectURL`の値を指定しない場合、認証が成功すると、認証が初期化されたURLにユーザーが返されます。
+1. ページまたはプレーヤーは、[getAuthentication （） &#x200B;](#getAuthN)への呼び出しで認証ワークフローを開始し、有効なキャッシュ済み認証トークンを確認します。 このメソッドにはオプションの`redirectURL` パラメーターがあります。`redirectURL`の値を指定しない場合、認証が成功すると、認証が初期化されたURLにユーザーが返されます。
 1. AccessEnablerは、現在の認証ステータスを決定します。 ユーザーが現在認証されている場合、AccessEnablerは`setAuthenticationStatus()` コールバック関数を呼び出し、成功を示す認証ステータスを渡します（以下の手順7）。
 1. ユーザーが認証されていない場合、AccessEnablerは、特定のMVPDでユーザーの最後の認証試行が成功したかどうかを判断することで、認証フローを続行します。 MVPD IDがキャッシュされ、`canAuthenticate` フラグがtrueであるか、[`setSelectedProvider()`](#setSelectedProvider)を使用してMVPDが選択された場合、MVPDの選択ダイアログでユーザーにメッセージが表示されません。 認証フローは、MVPDのキャッシュされた値（つまり、最後に成功した認証時に使用したのと同じMVPD）を使用して続行されます。 バックエンドサーバーにネットワーク呼び出しが行われ、ユーザーはMVPD ログインページにリダイレクトされます（以下の手順6）。
 1. MVPD IDがキャッシュされておらず、[`setSelectedProvider()`](#setSelectedProvider)を使用してMVPDが選択されていないか、`canAuthenticate` フラグがfalseに設定されている場合、[`displayProviderDialog()`](#displayProviderDialog) コールバックが呼び出されます。 このコールバックは、ページまたはプレーヤーに、選択するMVPDのリストをユーザーに表示するUIを作成するように指示します。 MVPD セレクターの構築に必要な情報を含む、MVPD オブジェクトの配列が提供されます。 各MVPD オブジェクトは、MVPD エンティティを表し、MVPDのID （XFINITY、AT\&amp;Tなど）などの情報を含みます。 MVPDロゴが見つかるURLです。

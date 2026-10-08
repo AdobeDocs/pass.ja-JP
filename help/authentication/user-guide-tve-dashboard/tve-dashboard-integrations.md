@@ -25,7 +25,7 @@ TVE ダッシュボードの&#x200B;**統合** セクションでは、チャネ
 * チャネル IDを持つチャネル名
 * MVPDの表示名とMVPD ID
 
-![既存の統合のリスト ](../assets/tve-dashboard/new-tve-dashboard/integrations/integrations-list.png)
+![既存の統合のリスト &#x200B;](../assets/tve-dashboard/new-tve-dashboard/integrations/integrations-list.png)
 
 *既存の統合のリスト*
 
@@ -44,13 +44,13 @@ TVE ダッシュボードの&#x200B;**統合** セクションでは、チャネ
 
 >[!IMPORTANT]
 >
-> 設定変更のアクティベートについて詳しくは、[変更内容の確認とプッシュ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)を参照してください。
+> 設定変更のアクティベートについて詳しくは、[変更内容の確認とプッシュ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)を参照してください。
 
 ### エンドポイントの選択 {#endpoint-selection}
 
 このセクションでは、認証、認証、ログアウトフローに使用するMVPDのエンドポイントを、それぞれのドロップダウンメニューから選択できます。
 
-![認証、認証、ログアウトフローのエンドポイント ](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-endpoint-selection-panel-view.png)
+![認証、認証、ログアウトフローのエンドポイント &#x200B;](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-endpoint-selection-panel-view.png)
 
 *認証、認証、ログアウトフローのエンドポイント*
 
@@ -64,7 +64,7 @@ TVE ダッシュボードの&#x200B;**統合** セクションでは、チャネ
 
 ### プラットフォーム設定 {#platform-settings}
 
-このセクションでは、すべての[ プラットフォーム ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-reports.md#platforms)で統合設定を表示および編集できます。 個々のプラットフォームに基づいて、これらの設定を変更できます。 例えば、別のプラットフォームのデフォルト値を維持しながら、Androidで認証TTL期間を調整できます。
+このセクションでは、すべての[&#x200B; プラットフォーム &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-reports.md#platforms)で統合設定を表示および編集できます。 個々のプラットフォームに基づいて、これらの設定を変更できます。 例えば、別のプラットフォームのデフォルト値を維持しながら、Androidで認証TTL期間を調整できます。
 
 Platform設定の各プロパティは、MVPDで設定されたデフォルト値を継承しますが、必要に応じて調整できます。
 
@@ -88,7 +88,7 @@ Platform設定の各プロパティは、MVPDで設定されたデフォルト�
 
 * **未特定のデバイス**：現在のメカニズムでプラットフォームを正確に識別できない、すべてのデバイスに適用されるプロパティの値を設定します。 そのような場合は、MVPDで定義されている最も制限的なルールを適用します。
 
-  ![ プラットフォームとそのデバイスのカテゴリ ](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-menu.png)
+  ![&#x200B; プラットフォームとそのデバイスのカテゴリ &#x200B;](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-menu.png)
 
   *プラットフォームとそのデバイスのカテゴリ*
 
@@ -126,7 +126,7 @@ Select 各プロパティの右側にある<img alt= "継承チェーンアイ�
 
 1. 上向き矢印と下向き矢印を選択して、**AuthN TTL**&#x200B;および&#x200B;**AuthZ TTL** プロパティの日数、時間、分、秒数を調整します。
 
-すべてのプラットフォームの&#x200B;**AuthN TTL**&#x200B;および&#x200B;**AuthZ TTL**&#x200B;の期間は、[ レビューおよびプッシュの変更](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)後にのみ更新されます。
+すべてのプラットフォームの&#x200B;**AuthN TTL**&#x200B;および&#x200B;**AuthZ TTL**&#x200B;の期間は、[&#x200B; レビューおよびプッシュの変更](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)後にのみ更新されます。
 
 **プラットフォーム SSOを有効にする**
 
@@ -184,7 +184,7 @@ OAuth2 ベースのMVPDのホームベース認証を有効または無効にす
 >
 >**HBA AuthN TTL** プロパティの期間を変更することは避けてください。 認証プロセスで予期しないエラーが発生する可能性があります。
 
-特定のMVPDの&#x200B;**試行HBA** プロパティは、[ レビューおよびプッシュの変更](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)後にのみ有効または無効になります。
+特定のMVPDの&#x200B;**試行HBA** プロパティは、[&#x200B; レビューおよびプッシュの変更](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)後にのみ有効または無効になります。
 
 #### さらにプロパティを追加 {#add-more-properties}
 
@@ -205,7 +205,7 @@ OAuth2 ベースのMVPDのホームベース認証を有効または無効にす
 
 **Preflight Max Resources**&#x200B;は、MVPDで合意された制限を指定できる新しい属性を追加します。
 
-![ プリフライトの最大リソース数プロパティを追加](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-preflight-max-resources-properties.png)
+![&#x200B; プリフライトの最大リソース数プロパティを追加](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-preflight-max-resources-properties.png)
 
 *プリフライトの最大リソース数プロパティを追加*
 
@@ -221,7 +221,7 @@ MVPD ピッカーを構築せず、指定された設定に依存するプログ
 
 *表示名またはロゴ URL プロパティを追加*
 
-**表示名**&#x200B;または&#x200B;**ロゴ URL** プロパティは、[ レビューおよびプッシュの変更](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)後にのみ追加されます。
+**表示名**&#x200B;または&#x200B;**ロゴ URL** プロパティは、[&#x200B; レビューおよびプッシュの変更](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)後にのみ追加されます。
 
 **アプリ（チャネル）の切り替え時に新しい認証フローをリクエスト**
 
@@ -229,11 +229,11 @@ MVPD ピッカーを構築せず、指定された設定に依存するプログ
 
 アグリゲーター&#x200B;**ごとに**&#x200B;認証を追加すると、各チャネルのシングルサインオンが効果的に解除されます。
 
-![ アグリゲーターごとの認証プロパティを追加](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-auth-per-aggregator-properties.png)
+![&#x200B; アグリゲーターごとの認証プロパティを追加](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-auth-per-aggregator-properties.png)
 
 *アグリゲーターごとの認証プロパティを追加*
 
-アグリゲーターごとの&#x200B;**Auth** プロパティは、[ レビューおよびプッシュの変更](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)後にのみ追加されます。
+アグリゲーターごとの&#x200B;**Auth** プロパティは、[&#x200B; レビューおよびプッシュの変更](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)後にのみ追加されます。
 
 追加したら、**はい**&#x200B;を選択して、選択した統合に対して&#x200B;**アグリゲーター** プロパティごとに認証を有効にします。
 
@@ -268,11 +268,11 @@ Select 各プロパティの右側にある<img alt= "「プロパティを削�
 >
 > **ZIP** パラメーターが暗号化されていることを常に確認してください。
 
-利用可能な証明書について詳しくは、[ プログラマー](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#available-certificates)および[ チャネル ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#available-certificates)の節を参照してください。
+利用可能な証明書について詳しくは、[&#x200B; プログラマー](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#available-certificates)および[&#x200B; チャネル &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#available-certificates)の節を参照してください。
 
 **有効**：この列では、ドロップダウンメニューからそれぞれ&#x200B;**はい**&#x200B;または&#x200B;**いいえ**&#x200B;を選択して、APIのパラメーターを有効または無効にできます。
 
-![ ユーザーメタデータに使用できるパラメーター](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-user-metadata-panel-view.png)
+![&#x200B; ユーザーメタデータに使用できるパラメーター](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-user-metadata-panel-view.png)
 
 *ユーザーメタデータに使用できるパラメーター*
 
@@ -294,7 +294,7 @@ Select 各プロパティの右側にある<img alt= "「プロパティを削�
 
    「**チャネルを選択**」ドロップダウンメニューから「**チャネル**」を選択して、新しい統合を追加します。 チャネルを選択したら、**MVPDを選択** ドロップダウンメニューから必要な&#x200B;**MVPD**&#x200B;を選択し、選択したチャネルと統合します。
 
-   ![ チャネルとMVPDを選択](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-new-integration-select-channel-and-mvpd-panel-view.png)
+   ![&#x200B; チャネルとMVPDを選択](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-new-integration-select-channel-and-mvpd-panel-view.png)
 
    *チャネルとMVPDを選択*
 
@@ -306,7 +306,7 @@ Select 各プロパティの右側にある<img alt= "「プロパティを削�
    >
    >MVPDで特に指定されていない限り、フローのデフォルトエンドポイントを変更しないでください。
 
-   ![ エンドポイントを選択](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-new-integration-select-endpoints-panel-view.png)
+   ![&#x200B; エンドポイントを選択](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-new-integration-select-endpoints-panel-view.png)
 
    *エンドポイントを選択*
 
@@ -326,7 +326,7 @@ Select 各プロパティの右側にある<img alt= "「プロパティを削�
 
    「**新しい統合を作成**」セクションの右上にある「**統合を保存**」を選択します。
 
-新しい統合は、[ レビューして変更をプッシュした後にのみ作成されます](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)。
+新しい統合は、[&#x200B; レビューして変更をプッシュした後にのみ作成されます](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)。
 
 
 ## 連携を無効にする {#disable-integration}
@@ -343,6 +343,6 @@ Select 各プロパティの右側にある<img alt= "「プロパティを削�
 
    *統合を無効にする*
 
-統合は、[ レビューして変更をプッシュした後にのみ無効になります](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)。
+統合は、[&#x200B; レビューして変更をプッシュした後にのみ無効になります](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)。
 
 統合を無効にすると、エンドユーザーは特定のMVPDを使用して認証または認証できなくなります。

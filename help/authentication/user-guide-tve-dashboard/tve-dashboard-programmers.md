@@ -16,14 +16,14 @@ ht-degree: 0%
 >
 >このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-TVE ダッシュボードの&#x200B;**プログラマー** セクションでは、アカウントの使用権限にリンクされている[ プログラマー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#programmer)の設定を表示および管理できます。 必要に応じて[新しいプログラマ ](#add-new-programmer)を追加することもできます。
+TVE ダッシュボードの&#x200B;**プログラマー** セクションでは、アカウントの使用権限にリンクされている[&#x200B; プログラマー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#programmer)の設定を表示および管理できます。 必要に応じて[新しいプログラマ &#x200B;](#add-new-programmer)を追加することもできます。
 
 左側のパネルの「**プログラマー**」タブには、既存のプログラマーのリストが表示され、次の詳細が表示されます。
 
 * **プログラマーID**: システム内のメディア企業ID。
 * **チャネル**: プログラマーにリンクされている関連チャネルの数。
 
-![既存のプログラマーのリスト ](../assets/tve-dashboard/new-tve-dashboard/programmers/programmers-list-view.png)
+![既存のプログラマーのリスト &#x200B;](../assets/tve-dashboard/new-tve-dashboard/programmers/programmers-list-view.png)
 
 *既存のプログラマーのリスト*
 
@@ -42,17 +42,17 @@ TVE ダッシュボードの&#x200B;**プログラマー** セクションでは
    * [登録済みアプリ](#registered-applications)
    * [カスタムスキーム](#custom-schemes)
 
-   ![ プログラマー設定](../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-tabs-view.png)
+   ![&#x200B; プログラマー設定](../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-tabs-view.png)
 
    *プログラマー設定*
 
 >[!IMPORTANT]
 >
-> 設定変更のアクティベートについて詳しくは、[変更内容の確認とプッシュ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)を参照してください。
+> 設定変更のアクティベートについて詳しくは、[変更内容の確認とプッシュ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)を参照してください。
 
 ### チャネル {#channels}
 
-このタブには、現在のプログラマーにリンクされているチャネルのリストが表示されます。 このリストから特定のチャネルを選択して、[ チャネル ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md) セクションの詳細情報にアクセスします。
+このタブには、現在のプログラマーにリンクされているチャネルのリストが表示されます。 このリストから特定のチャネルを選択して、[&#x200B; チャネル &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md) セクションの詳細情報にアクセスします。
 
 選択したプログラマーに新しいチャネルを追加するには、**利用可能なチャネル** セクションの右上隅にある&#x200B;**新しいチャネル**&#x200B;を追加を選択します。 [新しいチャネルを追加する方法](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#add-new-channel)について説明します。
 
@@ -103,7 +103,7 @@ TVE ダッシュボードの&#x200B;**プログラマー** セクションでは
 
 1. **から「**&#x200B;はい&#x200B;**」を選択します。ユーザーのメタデータを暗号化するために使用します**」ドロップダウンメニューをクリックして、新しい証明書をアクティベートします。
 
-新しい設定変更が作成され、サーバー更新の準備が整いました。 「**使用可能な証明書**」セクションに記載されている新しい証明書を使用するには、[ レビューと変更のプッシュ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。
+新しい設定変更が作成され、サーバー更新の準備が整いました。 「**使用可能な証明書**」セクションに記載されている新しい証明書を使用するには、[&#x200B; レビューと変更のプッシュ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。
 
 ##### 証明書を削除 {#delete-certificate}
 
@@ -119,7 +119,7 @@ TVE ダッシュボードの&#x200B;**プログラマー** セクションでは
 
 1. 「**証明書を削除**」ダイアログボックスで「**削除**」を選択します。
 
-新しい設定変更が作成され、サーバー更新の準備が整いました。 証明書は、[ レビューと変更のプッシュ後](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)にのみ、**利用可能な証明書** セクションから削除されます。
+新しい設定変更が作成され、サーバー更新の準備が整いました。 証明書は、[&#x200B; レビューと変更のプッシュ後](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)にのみ、**利用可能な証明書** セクションから削除されます。
 
 ### 登録済みアプリ {#registered-applications}
 
@@ -170,7 +170,7 @@ TVE ダッシュボードの&#x200B;**プログラマー** セクションでは
 
 1. 「**アプリケーションを追加**」を選択します。
 
-新しい設定変更が作成され、サーバー更新の準備が整いました。 **登録済みアプリケーション** セクションに記載されている新しい登録済みアプリケーションを使用するには、[ レビューと変更をプッシュ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)のフローに進みます。
+新しい設定変更が作成され、サーバー更新の準備が整いました。 **登録済みアプリケーション** セクションに記載されている新しい登録済みアプリケーションを使用するには、[&#x200B; レビューと変更をプッシュ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md)のフローに進みます。
 
 #### ソフトウェアステートメントのダウンロード {#download-software-statement}
 
@@ -180,7 +180,7 @@ TVE ダッシュボードの&#x200B;**プログラマー** セクションでは
 
 1. **ダウンロード**&#x200B;を選択します。
 
-   ![ ソフトウェアステートメントのダウンロード ](../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-download-software-statement-button.png)
+   ![&#x200B; ソフトウェアステートメントのダウンロード &#x200B;](../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-download-software-statement-button.png)
 
    *ソフトウェアステートメントのダウンロード*
 
@@ -203,7 +203,7 @@ TVE ダッシュボードの&#x200B;**プログラマー** セクションでは
 
    *新しいカスタムスキームを生成*
 
-新しい設定変更が作成され、サーバー更新の準備が整いました。 「**カスタムスキーム**」セクションに記載されている新しいカスタムスキームを使用するには、[変更のレビューとプッシュ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。
+新しい設定変更が作成され、サーバー更新の準備が整いました。 「**カスタムスキーム**」セクションに記載されている新しいカスタムスキームを使用するには、[変更のレビューとプッシュ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。
 
 ## 新しいプログラマーを追加 {#add-new-programmer}
 
@@ -223,4 +223,4 @@ TVE ダッシュボードの&#x200B;**プログラマー** セクションでは
 
 1. 「**プログラマーを追加**」を選択します。
 
-新しい設定変更が作成され、サーバー更新の準備が整いました。 「**プログラマー**」セクションに記載されている新しいプログラマーを使用するには、[のレビューと変更のプッシュ ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。
+新しい設定変更が作成され、サーバー更新の準備が整いました。 「**プログラマー**」セクションに記載されている新しいプログラマーを使用するには、[のレビューと変更のプッシュ &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md) フローに進みます。

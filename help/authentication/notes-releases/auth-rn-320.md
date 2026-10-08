@@ -33,7 +33,7 @@ Adobe Pass認証：adobe-pass-**3.2.0**
 
 #### REST API v2
 
-* [ セッション API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)応答でパラメーターが見つからない場合に、新しい理由`missing_parameters_fallback`が追加されました。
+* [&#x200B; セッション API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)応答でパラメーターが見つからない場合に、新しい理由`missing_parameters_fallback`が追加されました。
 * [Sessions API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md)応答に新しいフィールド「デバイス」が追加されました。
 
 #### 新機能

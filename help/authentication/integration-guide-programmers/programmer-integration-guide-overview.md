@@ -29,7 +29,7 @@ ht-degree: 0%
 
 プログラマーにとって、使用権限の決定は必ずしも簡単ではありません。 MVPDは、顧客の識別データとアクセス権限を管理する役割を果たします。 さらに複雑な問題は、プログラマーの視聴者は、それぞれ独自のシステムで動作する多種多様なMVPDを購読する可能性があります。 これらの複雑さにより、資格情報の検証は技術的に困難で、リソースを集約する必要があります。
 
-![ ユーザーの使用権限がプログラマーによって直接決定されました](../assets/user-ent-by-progr.png){align="center"}
+![&#x200B; ユーザーの使用権限がプログラマーによって直接決定されました](../assets/user-ent-by-progr.png){align="center"}
 
 *ユーザーの使用権限がプログラマーによって直接決定されました*
 
@@ -72,24 +72,24 @@ Adobe Pass Authenticationは、プロキシとして機能し、両当事者に�
 
 | **フェーズ** | **優先度** | **ユースケース** | **ドキュメント** |
 |----------------------|--------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **認証** | **高** | 認証 | 詳しくは、[認証フェーズ ](#authentication-phase) セクションで集計されたドキュメントを参照してください。 |
-|                      | **高** | ホームベース認証（HBA） | 詳細については、[ ホームベースの認証](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md)を参照してください。 |
-|                      | **高** | シングルサインオン（SSO） | 詳細については、「[ シングルサインオン （SSO） ](#sso)」セクションで集計されたドキュメントを参照してください。 |
-|                      | **高** | MVPDを選択 | 詳しくは、[設定フェーズ ](#configuration-phase) セクションで集計されたドキュメントを参照してください。 |
+| **認証** | **高** | 認証 | 詳しくは、[認証フェーズ &#x200B;](#authentication-phase) セクションで集計されたドキュメントを参照してください。 |
+|                      | **高** | ホームベース認証（HBA） | 詳細については、[&#x200B; ホームベースの認証](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md)を参照してください。 |
+|                      | **高** | シングルサインオン（SSO） | 詳細については、「[&#x200B; シングルサインオン （SSO） &#x200B;](#sso)」セクションで集計されたドキュメントを参照してください。 |
+|                      | **高** | MVPDを選択 | 詳しくは、[設定フェーズ &#x200B;](#configuration-phase) セクションで集計されたドキュメントを参照してください。 |
 |                      | **Medium** | MVPDにログインします | MVPDが、デフォルトの言語設定のサポートを含め、プログラマーまたはサービスプロバイダーに固有のブランディングをログインページに提供できるようにします。 |
-|                      | **高** | プラットフォームごとのTime-To-Live （TTL）値の設定 | 詳しくは、[TVE ダッシュボード統合ユーザーガイド ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows)を参照してください。 |
-| **事前認証** | **低** | 事前認証（プリフライト認証） | 詳しくは、[事前認証フェーズ ](#preauthorization-phase) セクションで集計されたドキュメントを参照してください。 |
-|                      | **Medium** | 強化されたエラーコード | 詳しくは、[強化エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)を参照してください。 |
-| **認証** | **高** | 認証 | 詳しくは、[認証フェーズ ](#authorization-phase) セクションで集計されたドキュメントを参照してください。 |
+|                      | **高** | プラットフォームごとのTime-To-Live （TTL）値の設定 | 詳しくは、[TVE ダッシュボード統合ユーザーガイド &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows)を参照してください。 |
+| **事前認証** | **低** | 事前認証（プリフライト認証） | 詳しくは、[事前認証フェーズ &#x200B;](#preauthorization-phase) セクションで集計されたドキュメントを参照してください。 |
+|                      | **Medium** | 強化されたエラーコード | 詳しくは、[強化エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)を参照してください。 |
+| **認証** | **高** | 認証 | 詳しくは、[認証フェーズ &#x200B;](#authorization-phase) セクションで集計されたドキュメントを参照してください。 |
 |                      | **高** | 個別のチャネル認証 | ユーザーが1つのTVE アプリケーション内で複数のチャネル ネットワークからコンテンツにアクセスできるようにします。 プログラマーは、チャンネル固有の認証呼び出しを行って、使用権限を検証できます。 |
 |                      | **低** | アセットレベルの認証 | MVPDが、承認時に個々のコンテンツアセットの詳細な分析を収集できるようにします。 |
-|                      | **Medium** | 強化されたエラーコード | 詳しくは、[強化エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)を参照してください。 |
-|                      | **高** | プログラマーFederated Player - ページレベルの承認付き | 詳しくは、[ メディアトークン ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)を参照してください。 |
-|                      | **Medium** | プログラマーFederated Player – 内部プレイヤー認証を使用 | 詳しくは、[ メディアトークン ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)を参照してください。 |
-|                      | **高** | 同時配信プレーヤー – ページレベルの認証を使用してMVPD ポータルでホスト | 詳しくは、[ メディアトークン ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)を参照してください。 |
+|                      | **Medium** | 強化されたエラーコード | 詳しくは、[強化エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)を参照してください。 |
+|                      | **高** | プログラマーFederated Player - ページレベルの承認付き | 詳しくは、[&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)を参照してください。 |
+|                      | **Medium** | プログラマーFederated Player – 内部プレイヤー認証を使用 | 詳しくは、[&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)を参照してください。 |
+|                      | **高** | 同時配信プレーヤー – ページレベルの認証を使用してMVPD ポータルでホスト | 詳しくは、[&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)を参照してください。 |
 |                      | **低** | ペアレンタルコントロール – 承認要求のコンテンツレーティング | アセットレベルの認証に役立つMVPDへの認証リクエストの一部として、コンテンツレーティングをプログラマーに含めることができます。 |
 |                      | **低** | ペアレンタルコントロール – ユーザー属性に基づくコンテンツフィルタリング | プログラマがユーザーに許可されている最大コンテンツレーティングを確認し、それに応じて利用可能なコンテンツをフィルタリングできるようにします。 |
-| **ログアウト** | **Medium** | ログアウト | 詳細については、「[ ログアウトフェーズ ](#logout-phase)」セクションで集計されたドキュメントを参照してください。 |
+| **ログアウト** | **Medium** | ログアウト | 詳細については、「[&#x200B; ログアウトフェーズ &#x200B;](#logout-phase)」セクションで集計されたドキュメントを参照してください。 |
 
 ## 使用権限のフロー {#entitlement-flow}
 
@@ -115,7 +115,7 @@ Adobe Pass Authenticationは、プロキシとして機能し、両当事者に�
 
 ### 登録フェーズ {#registration-phase}
 
-登録フェーズの目的は、[Dynamic Client Registration （DCR） ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) プロセスを通じて、Adobe Pass Authenticationに対してクライアントアプリケーションを登録することです。
+登録フェーズの目的は、[Dynamic Client Registration （DCR） &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) プロセスを通じて、Adobe Pass Authenticationに対してクライアントアプリケーションを登録することです。
 
 動的クライアント登録（DCR）プロセスでは、クライアントアプリケーションが登録フェーズの最終目標として、1組のクライアント資格情報を取得し、アクセストークンを取得する必要があります。
 
@@ -254,7 +254,7 @@ Adobe Pass Authenticationは、プロキシとして機能し、両当事者に�
 次の手順は、大まかな手順の概要を示しています。
 
 1. **リソース Idの処理**\
-   保護されたコンテンツは、[ リソース識別子](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier)によって識別されます。これは、単純な文字列または複雑な構造である可能性があります。 このIDは、プログラマとMVPDによって事前に定義され、合意されています。 プログラマーのアプリケーションは、リソース IDをAdobe Pass Authentication [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)に送信します。
+   保護されたコンテンツは、[&#x200B; リソース識別子](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier)によって識別されます。これは、単純な文字列または複雑な構造である可能性があります。 このIDは、プログラマとMVPDによって事前に定義され、合意されています。 プログラマーのアプリケーションは、リソース IDをAdobe Pass Authentication [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)に送信します。
 
 1. **MVPD認証チェック**\
    Adobe Pass Authentication Serverは、標準化されたプロトコルを使用してMVPDの認証エンドポイントと通信します。

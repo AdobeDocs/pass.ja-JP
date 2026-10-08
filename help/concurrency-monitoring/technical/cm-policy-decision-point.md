@@ -28,7 +28,7 @@ ht-degree: 0%
 
 **ストリーム「S」は、ポリシーの中にポリシー「P」を含むアプリケーションによって開始されます。**
 
-![ ストリーム「S」は、ポリシーの中にポリシー「P」を含むアプリケーションによって開始されます。](../assets/pdp-domain-model.png)
+![&#x200B; ストリーム「S」は、ポリシーの中にポリシー「P」を含むアプリケーションによって開始されます。](../assets/pdp-domain-model.png)
 
 ## ドライランの使用例 {#dry-run-use-cases}
 
@@ -40,7 +40,7 @@ ht-degree: 0%
 
 ストリームが開始されると、アクティビティはそのストリームのみで構成され、再生が許可されます。
 
-![1人のテナント。 またいで申し込む。 ひとつのポリシーで。 1つのストリーム ](../assets/onetenant-app-policy-stream.png)
+![1人のテナント。 またいで申し込む。 ひとつのポリシーで。 1つのストリーム &#x200B;](../assets/onetenant-app-policy-stream.png)
 
 
 ### &#x200B;2. ひとつのテナント。 またいで申し込む。 ひとつのポリシーで。 2つのストリーム。 {#onetenant-oneapp-onepolicy-twostreams}

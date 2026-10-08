@@ -33,14 +33,14 @@ Adobe Pass認証：adobe-pass-**3.1.0**
 
 #### REST API v2
 
-* REST API v2 [ ログアウト API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)応答で、通常のログアウトとパートナーのシングルサインオン ログアウトを区別する新しい`partner_logout` アクション名と`partner_interactive` アクションタイプ。
-* REST API v2 [ セッション API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)および[ セッション SSO API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)応答のアクション名に関する詳細なインサイトを提供する新しい`reason` フィールド。
+* REST API v2 [&#x200B; ログアウト API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)応答で、通常のログアウトとパートナーのシングルサインオン ログアウトを区別する新しい`partner_logout` アクション名と`partner_interactive` アクションタイプ。
+* REST API v2 [&#x200B; セッション API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)および[&#x200B; セッション SSO API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)応答のアクション名に関する詳細なインサイトを提供する新しい`reason` フィールド。
 
 #### バグ修正
 
 * REST API v2 [Authenticate API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)を介してSpectrum サブスクライバーが認証できない問題を修正しました。
 * REST API V2 [Authenticate API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)で生成されたイベントがESMで適切に集約されない問題を修正しました。
-* REST API v2 [ プロファイル API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)応答のユーザープロファイルに対して`notBefore` タイムスタンプの誤った計算が発生する問題を修正しました。
+* REST API v2 [&#x200B; プロファイル API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)応答のユーザープロファイルに対して`notBefore` タイムスタンプの誤った計算が発生する問題を修正しました。
 
 #### JavaScript SDK
 

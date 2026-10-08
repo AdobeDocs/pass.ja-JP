@@ -282,7 +282,7 @@ private JSONObject computeClientInformation() {
 >[!NOTE]
 >
 >**リソース：**
->* Android開発者ドキュメントのパブリッククラス [ ビルド ](https://developer.android.com/reference/android/os/Build.html){target=_blank}。
+>* Android開発者ドキュメントのパブリッククラス [&#x200B; ビルド &#x200B;](https://developer.android.com/reference/android/os/Build.html){target=_blank}。
 >* [FireTV デバイスの特定](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html){target=_blank}
 
 ### iOS/tvOS {#ios-tvos}

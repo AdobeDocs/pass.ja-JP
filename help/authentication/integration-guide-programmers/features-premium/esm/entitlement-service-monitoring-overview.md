@@ -84,7 +84,7 @@ ESM APIは一般には使用できません。  ご利用に関するご質問�
 | platform | デバイスはプラットフォームを識別しました。 可能な値：</br> - Android </br> - FireTV </br> - Roku </br> - iOS </br> - tvOS </br> – など |
 | application-name | 使用するように設定されたDCR登録済みアプリケーションに対して、TVE ダッシュボードで設定されたアプリケーション名。 |
 | application-version | 使用するように設定されたDCR登録済みアプリケーションに対して、TVE ダッシュボードで設定されたアプリケーションバージョン。 |
-| customer-app | [ デバイス情報](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)を介して渡されたカスタムアプリケーション ID。 |
+| customer-app | [&#x200B; デバイス情報](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)を介して渡されたカスタムアプリケーション ID。 |
 | content-category | アプリケーションによって要求されたコンテンツのカテゴリ。 |
 
 ## MVPD向けESM {#esm-for-mvpds}

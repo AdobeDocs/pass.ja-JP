@@ -18,7 +18,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> REST API V2の実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
+> REST API V2の実装は、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 >[!MORELIKETHIS]
 >
@@ -99,7 +99,7 @@ MVPDを選択し、ユーザーエージェントで選択したMVPDを使用し
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **決定フローで続行：** セッションエンドポイントの応答には、次のデータが含まれます。
    * `actionName`属性が「authorize」に設定されています。
@@ -140,7 +140,7 @@ MVPDを選択し、ユーザーエージェントで選択したMVPDを使用し
    >
    > <br/>
    >
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
    >[!TIP]
    >
@@ -150,7 +150,7 @@ MVPDを選択し、ユーザーエージェントで選択したMVPDを使用し
 
    >[!IMPORTANT]
    >
-   > 詳細については、[ ユーザーエージェント ](../../apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md) APIでの認証の実行に関するドキュメントを参照してください。
+   > 詳細については、[&#x200B; ユーザーエージェント &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md) APIでの認証の実行に関するドキュメントを参照してください。
    >
    > * `serviceProvider`や`code`など、_必須_&#x200B;のすべてのパラメーター
    > * すべての&#x200B;_optional_ パラメーターとヘッダー
@@ -161,7 +161,7 @@ MVPDを選択し、ユーザーエージェントで選択したMVPDを使用し
 
    >[!IMPORTANT]
    >
-   > 次の詳細については、特定のコードの[ プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
+   > 次の詳細については、特定のコードの[&#x200B; プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
    > 
    > * `serviceProvider`や`code`など、_必須_&#x200B;のすべてのパラメーター
    > * `Authorization`、`AP-Device-Identifier`など、_必須_ ヘッダーすべて
@@ -185,7 +185,7 @@ MVPDを選択し、ユーザーエージェントで選択したMVPDを使用し
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 ## 事前に選択したmvpdを使用せずに、セカンダリアプリケーション内で認証を実行します {#perform-authentication-within-secondary-application-without-preselected-mvpd}
 
@@ -245,7 +245,7 @@ MVPDを選択し、ユーザーエージェントで選択したMVPDを使用し
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 1. **認証コードを表示：** ストリーミング アプリケーションには、セカンダリ アプリケーション内で認証セッションを再開するために使用できる`code`が表示されます。
 
@@ -274,7 +274,7 @@ MVPDを選択し、ユーザーエージェントで選択したMVPDを使用し
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
    >[!TIP]
    >
@@ -299,7 +299,7 @@ MVPDを選択し、ユーザーエージェントで選択したMVPDを使用し
 
    >[!IMPORTANT]
    >
-   > 次の詳細については、特定のコードの[ プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
+   > 次の詳細については、特定のコードの[&#x200B; プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
    >
    > * `serviceProvider`や`code`など、_必須_&#x200B;のすべてのパラメーター
    > * `Authorization`、`AP-Device-Identifier`など、_必須_ ヘッダーすべて
@@ -323,4 +323,4 @@ MVPDを選択し、ユーザーエージェントで選択したMVPDを使用し
    >
    > <br/>
    > 
-   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。

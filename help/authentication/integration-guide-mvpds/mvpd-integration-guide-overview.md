@@ -106,7 +106,7 @@ Adobe Pass Authenticationは、次のように、MVPD ビジネスロジック�
 次の手順は、大まかな手順の概要を示しています。
 
 1. **リソース Idの処理**\
-   保護されたコンテンツは、[ リソース識別子](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier)によって識別されます。これは、単純な文字列または複雑な構造である可能性があります。 このIDは、プログラマとMVPDによって事前に定義され、合意されています。 プログラマーのアプリケーションは、リソース IDをAdobe Pass Authentication [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)に送信します。
+   保護されたコンテンツは、[&#x200B; リソース識別子](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier)によって識別されます。これは、単純な文字列または複雑な構造である可能性があります。 このIDは、プログラマとMVPDによって事前に定義され、合意されています。 プログラマーのアプリケーションは、リソース IDをAdobe Pass Authentication [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)に送信します。
 
 1. **MVPD認証チェック**\
    Adobe Pass Authentication Serverは、標準化されたプロトコルを使用してMVPDの認証エンドポイントと通信します。

@@ -133,7 +133,7 @@ Amazon FireOS用のAdobe Pass認証資格ソリューションは、最終的に
    1. `setRequestorComplete()` コールバックのトリガー（`AccessEnabler` デリゲートの一部）を待ちます。  このオプションは、`setRequestor()`が完了した最も確実な結果を提供するので、ほとんどの実装で推奨されます。
    1. `setRequestorComplete()` コールバックのトリガーを待たずに続行し、使用権限リクエストの発行を開始します。 これらの呼び出し（checkAuthentication、checkAuthorization、getAuthentication、getAuthorization、checkPreauthorizedResource、getMetadata、logout）は`AccessEnabler` ライブラリによってキューに入れられ、`setRequestor()`の後に実際のネットワーク呼び出しが行われます。 例えば、ネットワーク接続が不安定な場合、このオプションが中断されることがあります。
 
-1. [checkAuthentication （） ](#$checkAuthN)を呼び出して、完全な認証フローを開始せずに既存の認証を確認します。  この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
+1. [checkAuthentication （） &#x200B;](#$checkAuthN)を呼び出して、完全な認証フローを開始せずに既存の認証を確認します。  この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
 
 - **依存関係：** `setRequestor()`への呼び出しが成功しました（この依存関係は、以降のすべての呼び出しにも適用されます）。
 

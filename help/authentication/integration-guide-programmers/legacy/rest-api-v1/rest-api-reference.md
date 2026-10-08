@@ -22,7 +22,7 @@ ht-degree: 5%
 
 ## スロットル機構
 
-Adobe Pass Authentication REST APIは、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって管理されます。
+Adobe Pass Authentication REST APIは、[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって管理されます。
 
 ## 応答形式 {#response-formats}
 
@@ -57,7 +57,7 @@ Adobe Pass Authentication REST APIは、[ スロットル メカニズム ](/hel
 次の表に、クライアントレスアプローチで使用可能なweb サービスを示します。 詳しくは、web サービスエンドポイントをクリックしてください（リクエストとレスポンスのサンプル、入力パラメーター、HTTP メソッドなど）。
 
 
-| Sr | Web サービスエンドポイント | 説明 | <!--[Diag.  </br>Ref](http://tve.helpdocsonline.com/api-reference-v2-test#illustration)-->. | ホスト先： | 呼び出し元 |
+&#x200B;| Sr | Web サービスエンドポイント | 説明 | <!--[Diag.  </br>Ref](http://tve.helpdocsonline.com/api-reference-v2-test#illustration)-->. | ホスト先： | 呼び出し元 |
 |-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------|
 | 1. | [&lt;REGGIE_FQDN>/reggie/v1/ </br>  {requestorId}/regcode](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) | ランダムに生成された登録コードとログインページ URIを返します | 2 | Adobe </br>Reg Code Service | スマートデバイス |
 | 2. | [&lt;REGGIE_FQDN>/reggie/v1/ </br>  {requestorId}/regcode/ </br>{registrationCode}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/return-registration-record.md) | 登録コード UUID、登録コード、およびハッシュ化されたデバイス IDを含む登録コードレコードを返します | 8 | Adobe </br>Reg Code Service | Adobe Pass 認証 |
@@ -82,4 +82,4 @@ Adobe Pass Authentication REST APIは、[ スロットル メカニズム ](/hel
 
 ## REST API セキュリティ {#security}
 
-すべてのAdobe Pass認証REST APIは、安全な通信のためにHTTPS プロトコルを使用して呼び出す必要があります。 さらに、呼び出されるAPIのほとんどは、[ アクセストークンの取得](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って取得されたアクセストークンを含める必要があります。
+すべてのAdobe Pass認証REST APIは、安全な通信のためにHTTPS プロトコルを使用して呼び出す必要があります。 さらに、呼び出されるAPIのほとんどは、[&#x200B; アクセストークンの取得](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントの説明に従って取得されたアクセストークンを含める必要があります。

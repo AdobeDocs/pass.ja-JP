@@ -133,7 +133,7 @@ Adobe Pass認証を利用すれば、番組制作会社と有料テレビ事業�
 * Adobe Pass認証[Media Token Verifier](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier)を統合します。
 * 認証、認証、ログアウトワークフローのユーザーインターフェイスを開発します。
 
-プログラマー統合プロセスについて詳しくは、[ プログラマーのキックスタートガイド ](/help/authentication/kickstart/programmer-kickstart-guide.md)および[ プログラマー統合ガイド ](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)のドキュメントを参照してください。
+プログラマー統合プロセスについて詳しくは、[&#x200B; プログラマーのキックスタートガイド &#x200B;](/help/authentication/kickstart/programmer-kickstart-guide.md)および[&#x200B; プログラマー統合ガイド &#x200B;](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)のドキュメントを参照してください。
 
 #### 有料テレビ事業者の統合プロセス {#pay-tv-provider-integration-process}
 
@@ -157,7 +157,7 @@ Adobe Pass Authenticationは、有料テレビ プロバイダー固有のビジ
 * 認証リクエストを受信したときに有料テレビ事業者が自己完結型で適用するビジネスロジックの場合、Adobeは履行をサポートするために必要なデータ（一意のデバイス ID、IP アドレスなど）を提供します。
 * ユーザーの操作やAdobeによる特定の処理を必要とするビジネスロジックの場合、有料テレビ事業者ごとにカスタムプロパティを管理できます。 これらの設定には、認証プロセスの特定のポイントでトリガーされる事前定義済みのワークフローが含まれる場合があります。
 
-有料テレビ事業者の統合プロセスについて詳しくは、[MVPDのキックスタートガイド ](/help/authentication/kickstart/mvpd-kickstart-guide.md)および[MVPD統合ガイド ](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md)を参照してください。
+有料テレビ事業者の統合プロセスについて詳しくは、[MVPDのキックスタートガイド &#x200B;](/help/authentication/kickstart/mvpd-kickstart-guide.md)および[MVPD統合ガイド &#x200B;](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md)を参照してください。
 
 ### 使用権限のフロー {#entitlement-flow}
 
@@ -176,7 +176,7 @@ Adobe Pass Authenticationは、プロキシとして機能し、両当事者に�
     * [デグラデーション機能](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
   * [使用権限サービス監視API](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md)
 
-エンタイトルメントのフローについて詳しくは、[ プログラマー統合ガイド ](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md#entitlement-flow)のドキュメントを参照してください。
+エンタイトルメントのフローについて詳しくは、[&#x200B; プログラマー統合ガイド &#x200B;](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md#entitlement-flow)のドキュメントを参照してください。
 
 #### 使用権限について {#understanding-entitlements}
 
