@@ -227,7 +227,7 @@ Delete リクエストの場合：
 
 ### Privacy Service UIを使用して {#privacy-service-ui}
 
-Privacy Service ユーザーインターフェイスにアクセスして使用する方法に関する[完全なチュートリアル &#x200B;](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=en#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md)は、Adobe I/O サービスを通じてオンラインで利用できます。 さらに、このリンクを使用して、プライバシー規制に関するビデオや記事のライブラリにアクセスできます。 Adobe Experience CloudとGDPR メニューをクリックします。 これにより、多数のビデオが開きます。「GDPR UIの使い方」はその使用方法を説明しています。
+Privacy Service ユーザーインターフェイスにアクセスして使用する方法に関する[完全なチュートリアル &#x200B;](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=ja#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md)は、Adobe I/O サービスを通じてオンラインで利用できます。 さらに、このリンクを使用して、プライバシー規制に関するビデオや記事のライブラリにアクセスできます。 Adobe Experience CloudとGDPR メニューをクリックします。 これにより、多数のビデオが開きます。「GDPR UIの使い方」はその使用方法を説明しています。
 
 UIでは、ユーザーは独自のIMSOrgIDと、各製品のGDPR リクエストの詳細を含むJSONを読み込む必要があります。
 
@@ -260,7 +260,7 @@ Adobe Experience Platform Privacy Serviceは、プライベートデータに対
 
 >[!RELATEDINFORMATION]
 >
->* [Privacy Services Overview](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=en#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md)
+>* [Privacy Services Overview](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=ja#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md)
 >* Privacy Service API documentation
 
 -->

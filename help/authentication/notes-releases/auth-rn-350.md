@@ -19,7 +19,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
-> [製品のお知らせ](https://experienceleague.adobe.com/en/docs/pass/authentication/product-announcements) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
+> [製品のお知らせ](https://experienceleague.adobe.com/ja/docs/pass/authentication/product-announcements) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 このページでは、このリリースの新機能、変更点、既知の問題について説明します。
 

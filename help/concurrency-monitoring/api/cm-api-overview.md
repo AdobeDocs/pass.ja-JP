@@ -60,7 +60,7 @@ curl -i -X POST -u ${user}:%{pass} http://streams-stage.adobeprimetime.com/v2/se
 
 最初の呼び出しで終了コードを提供する必要はありません。他のアクティブなストリームはありません。 メタデータの取得呼び出しから返されたものはないため、メタデータ属性も返されません。
 
-**subject**&#x200B;および&#x200B;**idp** パラメーターは必須です。これらはURI パス変数として指定されます。 Adobe Pass Authenticationから&#x200B;**mvpd**&#x200B;および&#x200B;**upstreamUserID** メタデータフィールドの呼び出しを行うことで、**subject**&#x200B;および&#x200B;**idp** パラメーターを取得できます。 メタデータ APIの[概要](https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/user-metadat/user-metadata-feature.html?lang=en#)も参照してください。 この例では、値「12345」を件名として、「adobe」をidpとして指定します。
+**subject**&#x200B;および&#x200B;**idp** パラメーターは必須です。これらはURI パス変数として指定されます。 Adobe Pass Authenticationから&#x200B;**mvpd**&#x200B;および&#x200B;**upstreamUserID** メタデータフィールドの呼び出しを行うことで、**subject**&#x200B;および&#x200B;**idp** パラメーターを取得できます。 メタデータ APIの[概要](https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/user-metadat/user-metadata-feature.html?lang=ja#)も参照してください。 この例では、値「12345」を件名として、「adobe」をidpとして指定します。
 
 ```
 # Response Code

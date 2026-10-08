@@ -23,7 +23,7 @@ Harman氏は、Primetimeの広告および公開製品を管理し、Adobeは、
 
 | ガイド | 説明 |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| [Primetime Dynamic Ad Insertion](https://experienceleague.adobe.com/docs/primetime/ad-insertion/home.html) | Adobe Pass Ad Insertion ヘルプ |
+| [Primetime Dynamic Ad Insertion](https://experienceleague.adobe.com/docs/primetime/ad-insertion/home.html?lang=ja) | Adobe Pass Ad Insertion ヘルプ |
 
 ## Adobe Pass Guides
 

@@ -22,7 +22,7 @@ Experience Cloud ID （略してECID）は、アプリケーションまたはwe
 
 訪問者IDを提供するシステムを既に導入している場合は、このドキュメントの範囲に同じIDを使用する必要があります。
 
-ECIDを取得する方法の1つは、Experience Cloud ID サービスを使用することです。 TDM、JS ライブラリ、サーバーサイド、ダイレクト統合、モバイルプラットフォーム用のネイティブライブラリなどにもとづいて、好みの実装タイプを使用できます。 利用可能なサービス、ライブラリ、SDKの実装ガイドの包括的なビューについては、<https://experienceleague.adobe.com/docs/id-service/using/implementation/implementation-guides.html>を参照してください。
+ECIDを取得する方法の1つは、Experience Cloud ID サービスを使用することです。 TDM、JS ライブラリ、サーバーサイド、ダイレクト統合、モバイルプラットフォーム用のネイティブライブラリなどにもとづいて、好みの実装タイプを使用できます。 利用可能なサービス、ライブラリ、SDKの実装ガイドの包括的なビューについては、<https://experienceleague.adobe.com/docs/id-service/using/implementation/implementation-guides.html?lang=ja>を参照してください。
 
 ## Adobe Pass認証でExperience Cloud IDを使用するメリットは何ですか？ {#benefit-ex-cloud-id}
 
