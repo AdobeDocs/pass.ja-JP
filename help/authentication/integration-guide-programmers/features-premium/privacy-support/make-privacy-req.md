@@ -240,7 +240,7 @@ Adobe Experience Platform Privacy Serviceは、プライベートデータに対
 **Postmanを使用したAPI呼び出しの視覚化（無料のサードパーティ製ソフトウェア）:**
 
 * [GitHub上のPrivacy Service API Postman コレクション](https://github.com/adobe/experience-platform-postman-samples/blob/master/apis/experience-platform/Privacy%20Service%20API.postman_collection.json)
-* [Postman環境の作成に関するビデオガイド](https://video.tv.adobe.com/v/28832)
+* [Postman環境の作成に関するビデオガイド](https://video.tv.adobe.com/v/31656?captions=jpn)
 * [Postmanで環境とコレクションを読み込む手順](https://learning.postman.com/docs/running-collections/intro-to-collection-runs/)
 
 
