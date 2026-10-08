@@ -2,13 +2,14 @@
 title: APIの概要
 description: APIの概要
 exl-id: 3fe6f6d8-5b2f-47e5-a8da-06fb18a5d46b
-source-git-commit: b6ba687240799d1889302019613f426259f147ad
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '2102'
 ht-degree: 0%
-
 ---
-
 # 同時実行モニタリング使用状況API {#cmu-api-usage}
 
 >[!NOTE]
@@ -17,14 +18,14 @@ ht-degree: 0%
 
 ## APIの概要 {#api-overview}
 
-同時視聴数モニタリングの使用状況（CMU）は、WOLAP （Web ベースの[&#x200B; オンライン分析処理](http://en.wikipedia.org/wiki/Online_analytical_processing)）プロジェクトとして実装されます。 CMUは、データウェアハウスに裏打ちされた汎用ビジネスレポート Web APIです。 典型的なOLAP操作をRESTfullyで実行できるようにするHTTP クエリ言語として機能します。
+同時視聴数モニタリングの使用状況（CMU）は、WOLAP （Web ベースの[ オンライン分析処理](http://en.wikipedia.org/wiki/Online_analytical_processing)）プロジェクトとして実装されます。 CMUは、データウェアハウスに裏打ちされた汎用ビジネスレポート Web APIです。 典型的なOLAP操作をRESTfullyで実行できるようにするHTTP クエリ言語として機能します。
 
 
 >[!NOTE]
 >
 >CMU APIは一般には使用できません。 ご利用に関するご質問は、Adobeの担当者までお問い合わせください。
 
-CMU APIは、基になるOLAP キューブの階層ビューを提供します。 ディメンション階層の各リソース （[&#x200B; ディメンション &#x200B;](/help/concurrency-monitoring/reports/cm-usage-reports.md#dimensions-2-filter-metrics)、URL パスセグメントとしてマッピング）は、現在の選択範囲に対して（集約）指標[を含むレポートを生成します。 &#x200B;](/help/concurrency-monitoring/reports/cm-usage-reports.md#monitor-metrics)各リソースは、親リソース（ロールアップの場合）とサブリソース（ドリルダウンの場合）を指します。 スライスとダイシングは、特定の値または範囲にディメンションをピン留めするクエリ文字列パラメーターを使用して実現されます。
+CMU APIは、基になるOLAP キューブの階層ビューを提供します。 ディメンション階層の各リソース （[ ディメンション ](/help/concurrency-monitoring/reports/cm-usage-reports.md#dimensions-2-filter-metrics)、URL パスセグメントとしてマッピング）は、現在の選択範囲に対して（集約）指標[を含むレポートを生成します。 ](/help/concurrency-monitoring/reports/cm-usage-reports.md#monitor-metrics)各リソースは、親リソース（ロールアップの場合）とサブリソース（ドリルダウンの場合）を指します。 スライスとダイシングは、特定の値または範囲にディメンションをピン留めするクエリ文字列パラメーターを使用して実現されます。
 
 REST APIは、ディメンションのパス、提供されたフィルター、選択された指標に従って、リクエストで指定された時間間隔で利用可能なデータを提供します（指定されていない場合はデフォルト値にフォールバックします）。 時間範囲は、時間ディメンション（年、月、日、時間、分、秒）を含まないレポートには適用されません。
 

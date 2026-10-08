@@ -1,140 +1,141 @@
 ---
-title: Apple SSO クックブック（REST API V2）
-description: Apple SSO クックブック（REST API V2）
+title: Apple SSO クックブック （REST API V2）
+description: Apple SSO クックブック （REST API V2）
 exl-id: 81476312-9ba4-47a0-a4f7-9a557608cfd6
-source-git-commit: 0be4216ba816ddace095e557f9f61a8a42e1a1ff
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '3908'
 ht-degree: 0%
-
 ---
-
-# Apple SSO クックブック（REST API V2） {#apple-sso-cookbook-rest-api-v2}
+# Apple SSO クックブック （REST API V2） {#apple-sso-cookbook-rest-api-v2}
 
 >[!IMPORTANT]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライアントアプリケーションのエンドユーザー向けに、パートナーシングルサインオン（SSO）をサポートしています。
+Adobe Pass Authentication REST API V2は、iOS、iPadOS、またはtvOSで動作するクライアントアプリケーションのエンドユーザー向けに、パートナーシングルサインオン（SSO）をサポートしています。
 
-このドキュメントは、既存の [REST API V2 概要の拡張機能として機能し &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) 概要の概要と、[&#x200B; パートナーフローを使用したシングルサインオン &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md) を実装する方法を説明するドキュメントを提供します。
+このドキュメントは、上位レベルのビューを提供する既存の[REST API V2概要](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)と、パートナーフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md)を使用して[ シングルサインオンを実装する方法を説明するドキュメントの拡張機能として機能します。
 
-## パートナーフローを使用したAppleのシングルサインオン {#cookbook}
+## パートナーフローを使用したApple シングルサインオン {#cookbook}
 
 ### 前提条件 {#prerequisites}
 
-パートナーフローを使用してAppleのシングルサインオンを続行する前に、次の前提条件が満たされていることを確認してください。
+パートナーフローを使用してApple シングルサインオンを続行する前に、次の前提条件を満たしていることを確認してください。
 
-* ストリーミングアプリケーションは、Adobe Pass Authentication バックエンドがデバイスプラットフォームとその機能を識別できるように、`X-Device-Info` や `User-Agent` ヘッダーで必要なすべてのデータを収集する必要があります。 ヘッダーについて詳 `X-Device-Info` くは、[X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) ドキュメントを参照してください。
+* ストリーミングアプリケーションは、Adobe Pass Authentication バックエンドがデバイスプラットフォームとその機能を識別できるように、`X-Device-Info`および/または`User-Agent` ヘッダーで必要なすべてのデータを収集する必要があります。 `X-Device-Info` ヘッダーについて詳しくは、[X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) ドキュメントを参照してください。
 
-* ストリーミングアプリケーションは、デバイスレベルで保存されたユーザーの購読情報へのアクセスをリクエストする必要があります。これに対して、ユーザーは、デバイスのカメラまたはマイクへのアクセスを提供するのと同様に、続行を許可するアプリケーション権限を付与する必要があります。 この権限は、Apple[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) を使用しているアプリケーションごとにリクエストされる必要があります。
+* ストリーミングアプリケーションは、デバイスレベルで保存されたユーザーのサブスクリプション情報へのアクセスを要求する必要があります。この場合、ユーザーは、デバイスのカメラまたはマイクへのアクセスを提供するのと同様に、続行するためのアプリケーション権限を付与する必要があります。 この権限は、Appleの[Video Subscriber Account Framework](https://developer.apple.com/documentation/videosubscriberaccount)を使用してアプリケーションごとに要求する必要があり、デバイスはユーザーの選択内容を保存します。
 
-  Appleのシングルサインオンユーザーエクスペリエンスの利点を説明することで、購読情報へのアクセスを拒否するユーザーにインセンティブを与えることをお勧めしますが、アプリ設定（TV プロバイダーのアクセス）またはiOSと iPadOS または tvOS の *`Settings -> Accounts -> TV Provider`* を使用する *`Settings -> TV Provider`* とで、ユーザーが判断を変えることができることに注意してください。
+  Apple シングルサインオンのユーザーエクスペリエンスのメリットを説明して、サブスクリプション情報へのアクセスを拒否するユーザーにインセンティブを提供することをお勧めしますが、アプリケーションの設定（TV プロバイダーのアクセス権）に移動するか、iOSおよびiPadOSの&#x200B;*`Settings -> TV Provider`*&#x200B;またはtvOSの&#x200B;*`Settings -> Accounts -> TV Provider`*&#x200B;に移動して決定を変更できることに注意してください。
 
-  ストリーミングアプリケーションは、アプリケーションがフォアグラウンド状態になると、ユーザー認証を要求する前の任意の時点でユーザーの購読情報に対する [&#x200B; アクセス許可 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認できるので、ユーザーの許可を要求できます。
+  ストリーミングアプリケーションは、ユーザー認証を必要とする前に、任意の時点で[ ユーザーのサブスクリプション情報にアクセスする権限](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus)を確認できるため、アプリケーションがフォアグラウンド状態に入ると、ユーザーの権限を要求できます。
 
 >[!IMPORTANT]
 >
-> 前提
+> 前提条件
 >
 > <br/>
 >
-> * ストリーミングアプリケーションは、プログラマーに適用され、Appleのシングルサインオンユーザーエクスペリエンスを有効にするために必要な [&#x200B; オンボーディングの前提条件 &#x200B;](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md#apple-sso-prerequisites-programmer) を完了しています。
+> * ストリーミングアプリケーションは、プログラマーに適用される[ オンボーディングの前提条件](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md#apple-sso-prerequisites-programmer)を完了しました。Apple シングルサインオン ユーザーエクスペリエンスを有効にするために必要です。
 
 ### ワークフロー {#workflow}
 
-次の図に示すパートナーフローを使用してAppleのシングルサインオンを実装するには、指定された手順を実行します。
+次の図に示すように、パートナーフローを使用してApple シングルサインオンを実装するには、所定の手順を実行します。
 
-![&#x200B; パートナーフローを使用したAppleのシングルサインオン &#x200B;](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-apple-single-sign-on-using-partner-flows.png)
+![ パートナーフローを使用したApple シングルサインオン ](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-apple-single-sign-on-using-partner-flows.png)
 
-*パートナーフローを使用したAppleのシングルサインオン*
+*パートナーフローを使用したApple シングルサインオン*
 
-+++A.登録フェーズ
++++イ。登録段階
 
-1. **クライアント資格情報の取得：** ストリーミングアプリケーションは、クライアント登録エンドポイントを呼び出してクライアント資格情報を取得するために必要なすべてのデータを収集します。
-
-   >[!IMPORTANT]
-   >
-   > 次について詳しくは、[&#x200B; クライアント資格情報の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md#request) API ドキュメントを参照してください。
-   >
-   > * `software_statement` のようなすべての _必須_ パラメーター
-   > * `Content-Type`、`X-Device-Info` などのすべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
-
-1. **クライアント資格情報を返す：** クライアント登録エンドポイント応答には、受信したパラメーターおよびヘッダーに関連付けられたクライアント資格情報に関する情報が含まれます。
+1. **クライアント資格情報の取得：** ストリーミングアプリケーションは、クライアント登録エンドポイントを呼び出して、クライアント資格情報を取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > クライアント資格情報応答で提供される情報について詳しくは、[&#x200B; クライアント資格情報の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md#success) API ドキュメントを参照してください。
+   > 詳しくは、[ クライアント資格情報の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md#request) API ドキュメントを参照してください。
+   >
+   > * `software_statement`など、すべての&#x200B;_必須_ パラメーター
+   > * `Content-Type`、`X-Device-Info`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
+
+1. **クライアント資格情報を返します：** クライアント登録エンドポイントの応答には、受信したパラメーターとヘッダーに関連付けられたクライアント資格情報に関する情報が含まれます。
+
+   >[!IMPORTANT]
+   >
+   > クライアント認証情報レスポンスで提供される情報の詳細については、[ クライアント認証情報の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md#success) API ドキュメントを参照してください。
    >
    > <br/>
    >
-   > クライアントレジスタがリクエストデータを検証し、基本的な条件が満たされていることを確認します。
+   > クライアントレジスタは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
    >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; クライアント資格情報の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md#error) API ドキュメントに従った追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[ クライアント資格情報の取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md#error) API ドキュメントに準拠する追加情報が提供されます。
 
    >[!TIP]
    >
-   > クライアント資格情報はキャッシュし、無期限に使用する必要があります。
+   > クライアントの資格情報はキャッシュして無期限に使用する必要があります。
 
-1. **アクセストークンを取得：** ストリーミングアプリケーションは、クライアントトークンエンドポイントを呼び出してアクセストークンを取得するために必要なすべてのデータを収集します。
-
-   >[!IMPORTANT]
-   >
-   > 次について詳しくは、[&#x200B; アクセストークンの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#request) API ドキュメントを参照してください。
-   >
-   > * `client_id`、`client_secret`、`grant_type` など、すべての _必須_ パラメーター
-   > * `Content-Type`、`X-Device-Info` などのすべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
-
-1. **アクセストークンを返す：** クライアントトークンエンドポイント応答には、受信したパラメーターとヘッダーに関連付けられたアクセストークンに関する情報が含まれています。
+1. **アクセストークンの取得：** ストリーミングアプリケーションは、クライアントトークンエンドポイントを呼び出して、アクセストークンを取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > アクセストークン応答で提供される情報について詳しくは、[&#x200B; アクセストークンの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#success) API ドキュメントを参照してください。
+   > 詳細については、[ アクセストークンの取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#request) API ドキュメントを参照してください。
+   >
+   > * `client_id`、`client_secret`、`grant_type`など、_必須_&#x200B;のすべてのパラメーター
+   > * `Content-Type`、`X-Device-Info`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
+
+1. **戻りアクセストークン：** クライアントトークンエンドポイントの応答には、受信したパラメーターとヘッダーに関連付けられたアクセストークンに関する情報が含まれます。
+
+   >[!IMPORTANT]
+   >
+   > アクセストークン応答で提供される情報について詳しくは、[ アクセストークンの取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#success) API ドキュメントを参照してください。
    >
    > <br/>
    >
-   > クライアントトークンは、リクエストデータを検証して、基本的な条件が満たされていることを確認します。
+   > クライアントトークンは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
    >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; アクセストークンの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#error) API ドキュメントに準拠する追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[ アクセストークンの取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#error) API ドキュメントに準拠する追加情報が提供されます。
 
    >[!TIP]
    >
-   > アクセストークンは、指定された時間内（例：24 時間の有効期間）にのみキャッシュおよび使用する必要があります。 有効期限が切れた後、ストリーミングアプリケーションは新しいアクセストークンをリクエストする必要があります。
+   > アクセストークンはキャッシュされ、指定された期間内（24時間の有効期間など）にのみ使用する必要があります。 有効期限が切れた後、ストリーミングアプリケーションは新しいアクセストークンをリクエストする必要があります。
 
 +++
 
 +++B.認証フェーズの確認
 
-1. **パートナーフレームワークのステータスの取得：** ストリーミングアプリケーションは、Appleが開発した [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) を呼び出して、ユーザー権限とプロバイダー情報を取得します。
+1. **パートナーフレームワークのステータスを取得：** ストリーミングアプリケーションは、Appleによって開発された[ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount)を呼び出して、ユーザーの権限とプロバイダー情報を取得します。
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
+   > 詳しくは、[ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount)のドキュメントを参照してください。
    >
    > <br/>
    >
-   > * ストリーミングアプリケーションは、ユーザーの購読情報 [&#x200B; アクセス権限 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
-   > * ストリーミングアプリケーションは、`VSAccountManager` に [&#x200B; デリゲート &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
-   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [&#x200B; リクエスト &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
-   > * ストリーミングアプリケーションは、[&#x200B; メタデータ &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
+   > * ストリーミングアプリケーションは、ユーザーのサブスクリプション情報](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus)にアクセスするための[権限を確認し、ユーザーが許可した場合にのみ続行する必要があります。
+   > * ストリーミングアプリケーションは、`VSAccountManager`に[ デリゲート ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate)を提供する必要があります。
+   > * ストリーミングアプリケーションは、購読者アカウント情報に対して[ リクエスト ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest)を送信する必要があります。
+   > * ストリーミングアプリケーションは、[ メタデータ ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata)情報を待機して処理する必要があります。
    >
    > <br/>
    >
-   > ストリーミングアプリケーションは、このフェーズでユーザーを中断できないことを示すために、必ず `VSAccountMetadataRequest` オブジェクトの [`isInterruptionAllowed`](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest/1771708-isinterruptionallowed) プロパティのブール値が `false` に等しいことを指定する必要があります。
+   > ストリーミングアプリケーションは、このフェーズでユーザーを中断できないことを示すために、`VSAccountMetadataRequest` オブジェクトの[`isInterruptionAllowed`](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest/1771708-isinterruptionallowed) プロパティに`false`と等しいブール値を指定する必要があります。
 
    >[!TIP]
    >
-   > **<u>プロのヒント：</u>** コードスニペットに従い、コメントに特に注意を払ってください。
+   > **<u>プロ向けのヒント：</u>** コードスニペットに従い、コメントに細心の注意を払います。
 
    ```swift
    ...
@@ -188,105 +189,105 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
    ...
    ```
 
-1. **パートナーフレームワークのステータス情報を返す：** ストリーミングアプリケーションは、基本条件が満たされていることを確認するために応答データを検証します。
+1. **パートナーフレームワークのステータス情報を返します：** ストリーミングアプリケーションは、応答データを検証して、基本的な条件が満たされていることを確認します。
    * ユーザー権限のアクセスステータスが付与されます。
    * ユーザープロバイダーマッピング識別子が存在し、有効です。
    * ユーザープロバイダープロファイルの有効期限（使用可能な場合）は有効です。
 
-1. **プロファイルの取得：** ストリーミングアプリケーションは、プロファイルエンドポイントにリクエストを送信することで、すべてのプロファイル情報を取得するために必要なすべてのデータを収集します。
+1. **プロファイルの取得：** ストリーミングアプリケーションは、プロファイルエンドポイントにリクエストを送信して、すべてのプロファイル情報を取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    > 
-   > この手順で使用する **必要がある** REST API v2 エンドポイントは、次のとおりです。
+   > この手順で&#x200B;**必ず**&#x200B;使用するREST API v2 エンドポイントは、次のいずれかです。
    >
-   > * [&#x200B; プロファイルの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md#Request)API
+   > * [ プロファイルの取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md#Request) API
    > 
    > または
    > 
-   > * [&#x200B; 特定の mvpd のプロファイルの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md#Request) API
+   > * [特定のmvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md#Request) APIのプロファイルを取得
    >
-   > この手順では、パートナー認証応答 **API を使用して [&#x200B; プロファイルの作成と取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Request) を利用する** しないでください。
+   > この手順では、**パートナー認証応答](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Request) APIを使用して[ プロファイルを作成および取得する**&#x200B;を使用しないでください。
 
    >[!IMPORTANT]
    >
-   > 詳しくは、[&#x200B; プロファイルの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md#Request) API または [&#x200B; 特定の mvpd のプロファイルの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md#Request) API ドキュメントを参照してください。
+   > 詳しくは、[ プロファイルの取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md#Request) APIまたは[特定のmvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md#Request) API ドキュメントのプロファイルの取得を参照してください。
    >
-   > * `serviceProvider` （または `mvpd`）など、すべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier`、`AP-Partner-Framework-Status` など、すべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
-   >
-   > <br/>
-   >
-   > ストリーミングアプリケーションは、取得した応答に「appleSSO」タイプのプロファイルを含められるように、パートナーフレームワークステータスに有効な値が含まれていることを確認する必要があります。
+   > * `serviceProvider` （または`mvpd`）など、すべての&#x200B;_必須_ パラメーター
+   > * `Authorization`、`AP-Device-Identifier`、`AP-Partner-Framework-Status`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
    >
    > <br/>
    >
-   > ヘッダーについて詳 `AP-Partner-Framework-Status` くは、[AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md) ドキュメントを参照してください。
+   > ストリーミングアプリケーションは、取得した応答に「appleSSO」タイプのプロファイルが含まれるように、パートナーフレームワークのステータスに有効な値が含まれていることを確認する必要があります。
+   >
+   > <br/>
+   >
+   > `AP-Partner-Framework-Status` ヘッダーについて詳しくは、[AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)のドキュメントを参照してください。
 
-1. **見つかったプロファイルに関する情報を返す：** プロファイルエンドポイント応答には、受信したパラメーターとヘッダーに関連付けられた、見つかったプロファイルに関する情報が含まれます。
+1. **見つかったプロファイルに関する情報を返します：** プロファイル エンドポイントの応答には、受信したパラメーターとヘッダーに関連付けられている見つかったプロファイルに関する情報が含まれます。
 
-1. **プロファイルを選択し、決定フローを続行：** プロファイルエンドポイント応答にプロファイルが含まれている場合、ストリーミングアプリケーションは（最終的にエンドユーザーとやり取りすることで）内部ロジックを使用して、使用可能なプロファイルの 1 つを選択し、後続の決定フローを続行します。
+1. **プロファイルを選択し、決定フローに進みます：** プロファイル エンドポイントの応答にプロファイルが含まれている場合、ストリーミング アプリケーションは内部ロジック（最終的にはエンドユーザーとのやり取り）を使用して、使用可能なプロファイルの1つを選択し、その後の決定フローを続行します。
 
-1. **パートナー認証フローを続行：** プロファイルエンドポイント応答にプロファイルが含まれていない場合、ストリーミングアプリケーションはパートナー認証フローを続行します。
+1. **パートナー認証フローで続行：** プロファイル エンドポイント応答にプロファイルが含まれていない場合、ストリーミング アプリケーションはパートナー認証フローで続行します。
 
 +++
 
 +++C. パートナー認証フェーズ
 
-1. **設定の取得：** ストリーミングアプリケーションは、設定エンドポイントにリクエストを送信して、アクティブな統合を持つ MVPD のリストを取得するために必要なすべてのデータを収集します。
+1. **設定の取得：** ストリーミングアプリケーションは、構成エンドポイントにリクエストを送信することで、アクティブな統合を持つMVPDのリストを取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[&#x200B; 特定のサービスプロバイダーの設定の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md#Request)API ドキュメントを参照してください。
+   > 詳細については、[特定のサービスプロバイダー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md#Request) APIの設定の取得に関するドキュメントを参照してください。
    >
-   > * `serviceProvider` のようなすべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier`、`X-Device-Info` など、すべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
+   > * `serviceProvider`など、すべての&#x200B;_必須_ パラメーター
+   > * `Authorization`、`AP-Device-Identifier`、`X-Device-Info`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
 
-1. **設定を返す：** 設定エンドポイント応答には、サービスプロバイダーとアクティブに統合されている MVPD に関する情報が含まれています。
-
-   >[!IMPORTANT]
-   >
-   > 設定応答で提供される情報について詳しくは、[&#x200B; 特定のサービスプロバイダーの設定の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md#Response)API ドキュメントを参照してください。
-   >
-   > <br/>
-   >
-   > 設定エンドポイントは、基本条件が満たされていることを確認するためにリクエストデータを検証します。
-   >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
-   >
-   > <br/>
-   >
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+1. **戻り値の設定：**&#x200B;設定エンドポイントの応答には、サービスプロバイダーとのアクティブな統合を持つMVPDに関する情報が含まれます。
 
    >[!IMPORTANT]
    >
-   > ストリーミングアプリケーションは、先に進む際に、各MVPDに提供される次の詳細を処理する必要があります。
+   > 設定応答で提供される情報について詳しくは、特定のサービスプロバイダー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md#Response) API ドキュメントの[設定の取得を参照してください。
    >
-   > * `enablePlatformServices`:MVPDが現在Appleのシングルサインオンをサポートしているかどうかを示します。
-   > * `displayInPlatformPicker`:AppleピッカーでMVPDを表示できるかどうかを示します。
-   > * `boardingStatus`:MVPDがAppleのシングルサインオンでオンボードされているかどうかを示します。
-
-1. **パートナーフレームワークのステータスの取得：** ストリーミングアプリケーションは、Appleが開発した [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) を呼び出して、ユーザー権限とプロバイダー情報を取得します。
+   > <br/>
+   >
+   > 設定エンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
+   >
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
+   >
+   > <br/>
+   >
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
+   > ストリーミングアプリケーションは、さらに進む際に、各MVPDに提供される次の詳細を処理する必要があります。
+   >
+   > * `enablePlatformServices`: MVPDが現在Apple シングルサインオンをサポートしているかどうかを示します。
+   > * `displayInPlatformPicker`: MVPDをApple ピッカーに表示できるかどうかを示します。
+   > * `boardingStatus`: MVPDがApple シングルサインオンでオンボーディングされているかどうかを示します。
+
+1. **パートナーフレームワークのステータスを取得：** ストリーミングアプリケーションは、Appleによって開発された[ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount)を呼び出して、ユーザーの権限とプロバイダー情報を取得します。
+
+   >[!IMPORTANT]
+   >
+   > 詳しくは、[ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount)のドキュメントを参照してください。
    >
    > <br/>
    >
-   > * ストリーミングアプリケーションは、ユーザーの購読情報 [&#x200B; アクセス権限 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
-   > * ストリーミングアプリケーションは、`VSAccountManager` に [&#x200B; デリゲート &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
-   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [&#x200B; リクエスト &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
-   > * ストリーミングアプリケーションは、[&#x200B; メタデータ &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
+   > * ストリーミングアプリケーションは、ユーザーのサブスクリプション情報](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus)にアクセスするための[権限を確認し、ユーザーが許可した場合にのみ続行する必要があります。
+   > * ストリーミングアプリケーションは、`VSAccountManager`に[ デリゲート ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate)を提供する必要があります。
+   > * ストリーミングアプリケーションは、購読者アカウント情報に対して[ リクエスト ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest)を送信する必要があります。
+   > * ストリーミングアプリケーションは、[ メタデータ ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata)情報を待機して処理する必要があります。
    >
    > <br/>
    >
-   > ストリーミングアプリケーションは、ユーザーがこの段階で TV プロバイダーを選択するために中断できることを示すために、`VSAccountMetadataRequest` オブジェクトの [`isInterruptionAllowed`](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest/1771708-isinterruptionallowed) プロパティのブール値が `true` に等しいことを指定する必要があります。
+   > ストリーミングアプリケーションは、`VSAccountMetadataRequest` オブジェクトの[`isInterruptionAllowed`](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest/1771708-isinterruptionallowed) プロパティに`true`に等しいブール値を指定し、このフェーズでTV プロバイダーを選択するためにユーザーを中断できることを示す必要があります。
 
    >[!TIP]
    >
-   > **<u>プロのヒント：</u>** コードスニペットに従い、コメントに特に注意を払ってください。
+   > **<u>プロ向けのヒント：</u>** コードスニペットに従い、コメントに細心の注意を払います。
 
    ```swift
     ...
@@ -380,103 +381,103 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
     ...
    ```
 
-1. **パートナーフレームワークのステータス情報を返す：** ストリーミングアプリケーションは、基本条件が満たされていることを確認するために応答データを検証します。
+1. **パートナーフレームワークのステータス情報を返します：** ストリーミングアプリケーションは、応答データを検証して、基本的な条件が満たされていることを確認します。
    * ユーザー権限のアクセスステータスが付与されます。
    * ユーザープロバイダーマッピング識別子が存在し、有効です。
    * ユーザープロバイダープロファイルの有効期限（使用可能な場合）は有効です。
 
-1. **パートナー認証リクエストの取得：** ストリーミングアプリケーションは、セッションパートナーエンドポイントを呼び出して認証セッションを開始するために必要なすべてのデータを収集します。
+1. **パートナー認証要求を取得：** ストリーミングアプリケーションは、Sessions パートナーエンドポイントを呼び出して、認証セッションを開始するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[&#x200B; パートナー認証リクエストの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md#Request) API ドキュメントを参照してください。
+   > 詳細については、[ パートナー認証リクエストの取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md#Request) API ドキュメントを参照してください。
    >
-   > * `serviceProvider` や `partner` など、すべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier`、`Content-Type`、`X-Device-Info`、`AP-Partner-Framework-Status` など、すべての _必須_ ヘッダー
-   > * すべての _オプション_ ヘッダーとパラメーター
-   >
-   > <br/>
-   >
-   > ストリーミングアプリケーションは、取得した応答にパートナー認証要求（SAML 要求）が含まれるように、パートナーフレームワークステータスに有効な値が含まれていることを確認する必要があります。
+   > * `serviceProvider`や`partner`など、_必須_&#x200B;のすべてのパラメーター
+   > * _必須_ ヘッダー（`Authorization`、`AP-Device-Identifier`、`Content-Type`、`X-Device-Info`、`AP-Partner-Framework-Status`など）
+   > * すべての&#x200B;_optional_ ヘッダーとパラメーター
    >
    > <br/>
    >
-   > ヘッダーについて詳 `AP-Partner-Framework-Status` くは、[AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md) ドキュメントを参照してください。
+   > ストリーミングアプリケーションは、取得した応答にパートナー認証要求（SAML リクエスト）が含まれるように、パートナーフレームワークのステータスに有効な値が含まれていることを確認する必要があります。
+   >
+   > <br/>
+   >
+   > `AP-Partner-Framework-Status` ヘッダーについて詳しくは、[AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)のドキュメントを参照してください。
 
-1. **次のアクションを示す：** セッションパートナーエンドポイント応答には、次のアクションに関するストリーミングアプリケーションをガイドするために必要なデータが含まれています。
+1. **次のアクションを示します：** セッション パートナーのエンドポイント応答には、次のアクションに関するストリーミングアプリケーションを導くために必要なデータが含まれています。
 
    >[!IMPORTANT]
    >
-   > セッション応答で提供される情報について詳しくは、[&#x200B; パートナー認証リクエストの取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md#Response) API ドキュメントを参照してください。
+   > セッション応答で提供される情報について詳しくは、[ パートナー認証リクエストの取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md#Response) API ドキュメントを参照してください。
    >
    > <br/>
    >
-   > セッションパートナーエンドポイントは、基本条件が満たされていることを確認するためにリクエストデータを検証します。
+   > セッションパートナーエンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
    >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
-   > * 指定した `serviceProvider` と `mvpd` の統合はアクティブである必要があります。
-   >
-   > <br/>
-   >
-   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
+   > * 指定された`serviceProvider`と`mvpd`の統合はアクティブである必要があります。
    >
    > <br/>
    >
-   > セッションパートナーエンドポイントは、リクエストデータを検証して、パートナーのシングルサインオン条件が満たされていることを確認します。
-   >
-   >  * Adobe Pass サーバーのパートナーのシングルサインオン設定が有効であり、有効である必要があります。
-   >  * [AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md) ヘッダーを介して受信したパートナーフレームワークステータスペイロードは、有効である必要があります。
+   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
    >
    > <br/>
    >
-   > パートナーのシングルサインオン検証が失敗した場合、応答はデフォルトで基本認証フローに設定されます。
+   > セッションパートナーエンドポイントは、パートナーシングルサインオン条件が満たされていることを確認するために、リクエストデータを検証します。
+   >
+   >  * Adobe Pass サーバーのパートナーシングルサインオン設定は、有効で有効である必要があります。
+   >  * [AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md) ヘッダーを介して受信したパートナーフレームワークの状態ペイロードは有効である必要があります。
+   >
+   > <br/>
+   >
+   > パートナーのシングルサインオンの検証が失敗した場合、応答はデフォルトで基本認証フローになります。
 
-1. **決定フローで続行：** セッションパートナーエンドポイント応答には、次のデータが含まれます。
-   * `actionName` 属性は「authorize」に設定されます。
-   * `actionType` 属性は「direct」に設定されます。
+1. **決定フローで続行：** セッション パートナーのエンドポイント応答には、次のデータが含まれています。
+   * `actionName`属性が「authorize」に設定されています。
+   * `actionType`属性が「direct」に設定されています。
 
-   Adobe Pass バックエンドが有効なプロファイルを特定した場合、その後の決定フローに使用できるプロファイルが既に存在するので、ストリーミングアプリケーションは選択したMVPDで再認証する必要はありません。
+   Adobe Pass バックエンドが有効なプロファイルを識別する場合、後続の意思決定フローに使用できるプロファイルが既に存在するため、ストリーミングアプリケーションは選択したMVPDで再認証する必要がありません。
 
-1. **基本認証フローを続行：** セッションパートナーエンドポイント応答には、次のデータが含まれています。
-   * `actionName` 属性は、「authenticate」または「resume」に設定されます。
-   * `actionType` 属性は、「interactive」または「direct」に設定されます。
+1. **基本認証フローで続行：** セッション パートナーのエンドポイント応答には、次のデータが含まれています。
+   * `actionName`属性が「authenticate」または「resume」に設定されています。
+   * `actionType`属性が「インタラクティブ」または「ダイレクト」に設定されています。
 
-   Adobe Pass バックエンドが有効なプロファイルを識別せず、パートナーのシングルサインオン検証に失敗した場合、Adobe Pass サーバーは基本認証フローにフォールバックします。
+   Adobe Pass バックエンドで有効なプロファイルが識別されず、パートナーのシングルサインオン検証が失敗した場合、Adobe Pass サーバーは基本認証フローにフォールバックします。
 
    基本認証フローについて詳しくは、次のドキュメントを参照してください。
-   * [プライマリアプリケーション内での認証の実行](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
-   * [事前に選択された mvpd を使用して、セカンダリ・アプリケーション内で認証を実行](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
-   * [事前に選択された mvpd を使用せずに、セカンダリ・アプリケーション内で認証を実行](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
+   * [プライマリアプリケーション内で認証を実行](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
+   * [事前に選択したmvpdを使用して、セカンダリアプリケーション内で認証を実行します](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
+   * [事前に選択したmvpdを使用せずに、セカンダリアプリケーション内で認証を実行します](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
 
-1. **パートナー認証応答フローを使用したプロファイルの作成および取得に進みます：** セッションパートナーエンドポイント応答には、次のデータが含まれています。
-   * `actionName` 属性は「partner_profile」に設定されます。
-   * `actionType` 属性は「direct」に設定されます。
-   * `authenticationRequest - type` 属性には、MVPD ログイン用にパートナーフレームワークが使用するセキュリティプロトコルが含まれます（現在、SAML のみに設定されています）。
-   * `authenticationRequest - request` 属性には、パートナーフレームワークに渡される SAML リクエストが含まれます。
-   * `authenticationRequest - attributesNames` 属性には、パートナーフレームワークに渡される SAML 属性が含まれます。
+1. **パートナー認証応答フローを使用してプロファイルの作成と取得を進めます：** セッション パートナーエンドポイント応答には、次のデータが含まれます。
+   * `actionName`属性が「partner_profile」に設定されています。
+   * `actionType`属性が「direct」に設定されています。
+   * `authenticationRequest - type`属性には、パートナーフレームワークがMVPD ログインに使用するセキュリティプロトコルが含まれます（現在はSAMLのみ）。
+   * `authenticationRequest - request`属性には、パートナーフレームワークに渡されるSAML リクエストが含まれます。
+   * `authenticationRequest - attributesNames`属性には、パートナーフレームワークに渡されるSAML属性が含まれます。
 
-   Adobe Pass バックエンドが有効なプロファイルを識別せず、パートナーのシングルサインオン検証に合格した場合、ストリーミングアプリケーションはアクションとデータを含む応答を受け取り、MVPDとの認証フローを開始するためにパートナーフレームワークに渡します。
+   Adobe Pass バックエンドが有効なプロファイルを識別せず、パートナーのシングルサインオン検証が合格した場合、ストリーミングアプリケーションは、MVPDで認証フローを開始するためのパートナーフレームワークに渡すアクションとデータを含む応答を受け取ります。
 
-1. **パートナーフレームワークでMVPD認証を完了：** 前の手順で取得したパートナー認証要求（SAML 要求）を [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) に転送します。 認証フローが成功すると、MVPDとの [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) インタラクションによってパートナー認証応答（SAML 応答）が生成され、パートナーフレームワークのステータス情報と共に返されます。
+1. **パートナーフレームワークを使用してMVPD認証を完了：**&#x200B;前の手順で取得したパートナー認証リクエスト （SAML リクエスト）を[Video Subscriber Account Framework](https://developer.apple.com/documentation/videosubscriberaccount)に転送します。 認証フローが成功すると、MVPDとの[Video Subscriber Account Framework](https://developer.apple.com/documentation/videosubscriberaccount)のインタラクションにより、パートナーフレームワークのステータス情報とともに返されるパートナー認証応答（SAML応答）が生成されます。
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
+   > 詳しくは、[ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount)のドキュメントを参照してください。
    >
    > <br/>
    >
-   > * ストリーミングアプリケーションは、ユーザーの購読情報 [&#x200B; アクセス権限 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
-   > * ストリーミングアプリケーションは、`VSAccountManager` に [&#x200B; デリゲート &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
-   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [&#x200B; リクエスト &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があり、さらに、前の手順で取得したパートナー認証要求（SAML 要求）を含める必要があります。
-   > * ストリーミングアプリケーションは、[&#x200B; メタデータ &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
+   > * ストリーミングアプリケーションは、ユーザーのサブスクリプション情報](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus)にアクセスするための[権限を確認し、ユーザーが許可した場合にのみ続行する必要があります。
+   > * ストリーミングアプリケーションは、`VSAccountManager`に[ デリゲート ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate)を提供する必要があります。
+   > * ストリーミングアプリケーションは、購読者アカウント情報に対して[要求](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest)を送信し、前の手順で取得したパートナー認証要求（SAML要求）を含める必要があります。
+   > * ストリーミングアプリケーションは、[ メタデータ ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata)情報を待機して処理する必要があります。
    >
    > <br/>
    >
-   > ストリーミングアプリケーションは、このフェーズでユーザーが選択された TV プロバイダーによる認証を中断できることを示すために、`VSAccountMetadataRequest` オブジェクトの [`isInterruptionAllowed`](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest/1771708-isinterruptionallowed) プロパティのブール値が `true` に等しいことを指定する必要があります。
+   > ストリーミングアプリケーションは、`VSAccountMetadataRequest` オブジェクトの[`isInterruptionAllowed`](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest/1771708-isinterruptionallowed) プロパティに`true`に等しいブール値を指定し、このフェーズで選択したTV プロバイダーとの認証をユーザーが中断できることを示す必要があります。
 
    >[!TIP]
    >
-   > **<u>プロのヒント：</u>** コードスニペットに従い、コメントに特に注意を払ってください。
+   > **<u>プロ向けのヒント：</u>** コードスニペットに従い、コメントに細心の注意を払います。
 
    ```swift
     ...
@@ -540,242 +541,242 @@ Adobe Pass認証 REST API V2 は、iOS、iPadOS、tvOS で動作するクライ�
     ...
    ```
 
-1. **パートナー認証応答を返す：** ストリーミングアプリケーションは、基本条件が満たされていることを確認するために応答データを検証します。
+1. **パートナー認証応答を返します：** ストリーミングアプリケーションは、応答データを検証して、基本的な条件が満たされていることを確認します。
    * ユーザー権限のアクセスステータスが付与されます。
    * ユーザープロバイダーマッピング識別子が存在し、有効です。
    * ユーザープロバイダープロファイルの有効期限（使用可能な場合）は有効です。
-   * パートナー認証応答（SAML 応答）が存在し、有効です。
+   * パートナー認証応答（SAML応答）が存在し、有効です。
 
-1. **パートナー認証応答を使用したプロファイルの作成と取得：** ストリーミングアプリケーションは、プロファイルパートナーエンドポイントを呼び出してプロファイルを作成および取得するために必要なすべてのデータを収集します。
-
-   >[!IMPORTANT]
-   >
-   > 次について詳しくは、[&#x200B; パートナー認証応答を使用したプロファイルの作成と取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Request)API ドキュメントを参照してください。
-   >
-   > * `serviceProvider`、`partner`、`SAMLResponse` など、すべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier`、`Content-Type`、`X-Device-Info`、`AP-Partner-Framework-Status` など、すべての _必須_ ヘッダー
-   > * すべての _オプション_ ヘッダーとパラメーター
-   >
-   > <br/>
-   >
-   > ストリーミングアプリケーションは、取得した応答に「appleSSO」タイプのプロファイルを含められるように、パートナーフレームワークステータスおよびパートナー認証応答（SAML 応答）の有効な値が含まれていることを確認する必要があります。
-   >
-   > <br/>
-   >
-   > ヘッダーについて詳 `AP-Partner-Framework-Status` くは、[AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md) ドキュメントを参照してください。
-
-1. **パートナープロファイルに関する情報を返す：** プロファイルエンドポイント応答には、「appleSSO」に設定されている属性 `type` ど、パートナープロファイルに関する情報が含まれています。
+1. **パートナー認証応答を使用したプロファイルの作成と取得：** ストリーミングアプリケーションは、プロファイル パートナーエンドポイントを呼び出して、プロファイルの作成と取得に必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[&#x200B; パートナー認証応答を使用したプロファイルの作成と取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Response)API ドキュメントを参照してください。
+   > 詳細については、[ パートナー認証応答を使用したプロファイルの作成と取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Request) API ドキュメントを参照してください。
+   >
+   > * `serviceProvider`、`partner`、`SAMLResponse`など、_必須_&#x200B;のすべてのパラメーター
+   > * `Authorization`、`AP-Device-Identifier`、`Content-Type`、`X-Device-Info`、`AP-Partner-Framework-Status`など、_必須_&#x200B;のすべてのヘッダー
+   > * すべての&#x200B;_optional_ ヘッダーとパラメーター
    >
    > <br/>
    >
-   > プロファイルパートナーエンドポイントは、基本条件が満たされていることを確認するために、リクエストデータを検証します。
-   >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
-   > * 指定した `serviceProvider` と `mvpd` の統合はアクティブである必要があります。
+   > ストリーミングアプリケーションは、取得した応答に「appleSSO」タイプのプロファイルが含まれるように、パートナーフレームワークのステータスとパートナー認証応答（SAML応答）の有効な値が含まれていることを確認する必要があります。
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > `AP-Partner-Framework-Status` ヘッダーについて詳しくは、[AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)のドキュメントを参照してください。
+
+1. **パートナープロファイルに関する情報を返します：** プロファイルエンドポイントの応答には、パートナープロファイルに関する情報が含まれます。これには、属性`type`が「appleSSO」に設定されていることが含まれます。
+
+   >[!IMPORTANT]
+   >
+   > プロファイル応答で提供される情報について詳しくは、[ パートナー認証応答を使用したプロファイルの作成と取得](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Response) API ドキュメントを参照してください。
    >
    > <br/>
    >
-   > プロファイルパートナーエンドポイントは、リクエストデータを検証して、パートナーのシングルサインオン条件が満たされていることを確認します。
+   > プロファイルパートナーエンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
    >
-   >  * Adobe Pass サーバーのパートナーのシングルサインオン設定が有効であり、有効である必要があります。
-   >  * [AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md) ヘッダーを介して受信したパートナーフレームワークステータスペイロードは、有効である必要があります。
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
+   > * 指定された`serviceProvider`と`mvpd`の統合はアクティブである必要があります。
    >
    > <br/>
    >
-   > パートナーのシングルサインオン検証が失敗した場合、応答はデフォルトで基本プロファイル取得フローに設定されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   >
+   > <br/>
+   >
+   > プロファイルパートナーエンドポイントは、パートナーシングルサインオン条件が満たされていることを確認するために、リクエストデータを検証します。
+   >
+   >  * Adobe Pass サーバーのパートナーシングルサインオン設定は、有効で有効である必要があります。
+   >  * [AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md) ヘッダーを介して受信したパートナーフレームワークの状態ペイロードは有効である必要があります。
+   >
+   > <br/>
+   >
+   > パートナーシングルサインオンの検証が失敗した場合、応答はデフォルトで基本プロファイル取得フローになります。
 
 1. **決定フローで続行：** ストリーミングアプリケーションは、後続の決定フローで続行できます。
 
 +++
 
-+++ D.決定フェーズ
++++ D.決定段階
 
-1. **パートナーフレームワークのステータスの取得：** ストリーミングアプリケーションは、Appleが開発した [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) を呼び出して、ユーザー権限とプロバイダー情報を取得します。
+1. **パートナーフレームワークのステータスを取得：** ストリーミングアプリケーションは、Appleによって開発された[ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount)を呼び出して、ユーザーの権限とプロバイダー情報を取得します。
 
    >[!IMPORTANT]
    > 
-   > 選択したユーザープロファイルのタイプが「appleSSO」でない場合、ストリーミングアプリケーションはこの手順をスキップできます。
+   > 選択したユーザープロファイルタイプが「appleSSO」でない場合、ストリーミングアプリケーションはこの手順をスキップできます。
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
+   > 詳しくは、[ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount)のドキュメントを参照してください。
    >
    > <br/>
    >
-   > * ストリーミングアプリケーションは、ユーザーの購読情報 [&#x200B; アクセス権限 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
-   > * ストリーミングアプリケーションは、`VSAccountManager` に [&#x200B; デリゲート &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
-   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [&#x200B; リクエスト &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
-   > * ストリーミングアプリケーションは、[&#x200B; メタデータ &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
+   > * ストリーミングアプリケーションは、ユーザーのサブスクリプション情報](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus)にアクセスするための[権限を確認し、ユーザーが許可した場合にのみ続行する必要があります。
+   > * ストリーミングアプリケーションは、`VSAccountManager`に[ デリゲート ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate)を提供する必要があります。
+   > * ストリーミングアプリケーションは、購読者アカウント情報に対して[ リクエスト ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest)を送信する必要があります。
+   > * ストリーミングアプリケーションは、[ メタデータ ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata)情報を待機して処理する必要があります。
    >
    > <br/>
    >
-   > ストリーミングアプリケーションは、このフェーズでユーザーを中断できないことを示すために、必ず `VSAccountMetadataRequest` オブジェクトの [`isInterruptionAllowed`](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest/1771708-isinterruptionallowed) プロパティのブール値が `false` に等しいことを指定する必要があります。
+   > ストリーミングアプリケーションは、このフェーズでユーザーを中断できないことを示すために、`VSAccountMetadataRequest` オブジェクトの[`isInterruptionAllowed`](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest/1771708-isinterruptionallowed) プロパティに`false`と等しいブール値を指定する必要があります。
 
    >[!TIP]
    >
-   > ストリーミングアプリケーションでは、パートナーフレームワークのステータス情報に、キャッシュされた値を代わりに使用できます。アプリケーションがバックグラウンド状態からフォアグラウンド状態に移行したら、更新することをお勧めします。 その場合、ストリーミングアプリケーションは、「パートナーフレームワークのステータス情報を返す」手順で説明されているように、パートナーフレームワークのステータスの有効な値のみをキャッシュおよび使用することを確認する必要があります。
+   > ストリーミングアプリケーションでは、代わりにパートナーフレームワークのステータス情報にキャッシュ値を使用できます。これは、アプリケーションがバックグラウンドからフォアグラウンド状態に移行する際に更新することをお勧めします。 その場合、ストリーミングアプリケーションは、「パートナーフレームワークのステータス情報を返す」ステップで説明されているように、パートナーフレームワークのステータスに対して有効な値のみをキャッシュして使用する必要があります。
 
-1. **パートナーフレームワークのステータス情報を返す：** ストリーミングアプリケーションは、基本条件が満たされていることを確認するために応答データを検証します。
+1. **パートナーフレームワークのステータス情報を返します：** ストリーミングアプリケーションは、応答データを検証して、基本的な条件が満たされていることを確認します。
    * ユーザー権限のアクセスステータスが付与されます。
    * ユーザープロバイダーマッピング識別子が存在し、有効です。
-   * ユーザープロバイダープロファイルの有効期限は有効です。
+   * ユーザープロバイダープロファイルの有効期限が有効です。
 
    >[!IMPORTANT]
    >
-   > 選択したユーザープロファイルのタイプが「appleSSO」でない場合、ストリーミングアプリケーションはこの手順をスキップできます。
+   > 選択したユーザープロファイルタイプが「appleSSO」でない場合、ストリーミングアプリケーションはこの手順をスキップできます。
 
-1. **事前認証決定の取得：** ストリーミングアプリケーションは、決定の事前認証エンドポイントを呼び出すことにより、リソースのリストに対する事前認証決定を取得するために必要なすべてのデータを収集します。
-
-   >[!IMPORTANT]
-   >
-   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した事前認証の決定の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md#request) API ドキュメントを参照してください。
-   >
-   > * `serviceProvider`、`mvpd`、`resources` など、すべての _必須_ パラメーター
-   > * `Authorization` や `AP-Device-Identifier` など、すべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
-   >
-   > <br/>
-   >
-   > 選択したプロファイルが「appleSSO」タイプのプロファイルの場合、ストリーミングアプリケーションがリクエストを送信する前に、パートナーフレームワークステータスに有効な値が含まれていることを確認する必要があります。 ただし、選択したユーザープロファイルのタイプが「appleSSO」でない場合は、この手順をスキップできます。
-   >
-   > <br/>
-   >
-   > ヘッダーについて詳 `AP-Partner-Framework-Status` くは、[AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md) ドキュメントを参照してください。
-
-1. **再来訪の事前認証の決定：** 決定の事前認証エンドポイント応答には、各リソースの `Permit` または `Deny` の決定が含まれています。
-   * `Permit` の決定は、リソースが再生可能であることを意味します。 事前認証フローはリソースの再生に使用できないので、応答にはメディアトークンが含まれていません。
-   * `Deny` の決定は、リソースが再生可能でないことを意味します。 応答には、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従ったエラーペイロードが含まれています。
+1. **事前認証の決定を取得：** ストリーミングアプリケーションは、「決定の事前認証エンドポイント」を呼び出して、リソースのリストに対する事前認証の決定を取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した事前認証の決定の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md#response) API ドキュメントを参照してください。
+   > 詳しくは、[特定のmvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md#request) API ドキュメントを使用した事前承認決定の取得を参照してください。
+   >
+   > * `serviceProvider`、`mvpd`、`resources`など、_必須_&#x200B;のすべてのパラメーター
+   > * `Authorization`や`AP-Device-Identifier`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
    >
    > <br/>
    >
-   > 決定の事前認証エンドポイントは、基本条件が満たされていることを確認するためにリクエストデータを検証します。
-   >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
-   > * 指定した `serviceProvider` と `mvpd` の統合はアクティブである必要があります。
+   > 選択したプロファイルが「appleSSO」タイプのプロファイルである場合、リクエストを実行する前に、ストリーミングアプリケーションにパートナーフレームワークのステータスの有効な値が含まれていることを確認する必要があります。 ただし、選択したユーザープロファイルタイプが「appleSSO」でない場合、この手順はスキップできます。
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > `AP-Partner-Framework-Status` ヘッダーについて詳しくは、[AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)のドキュメントを参照してください。
 
-1. **パートナーフレームワークのステータスの取得：** ストリーミングアプリケーションは、Appleが開発した [&#x200B; ビデオ購読者アカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) を呼び出して、ユーザー権限とプロバイダー情報を取得します。
+1. **事前承認の決定を返します：** 「決定事前承認」エンドポイント応答には、各リソースに対する`Permit`または`Deny`の決定が含まれています。
+   * `Permit`の決定は、リソースが再生可能であることを意味します。 応答にはメディアトークンが含まれていません。事前承認フローを使用してリソースを再生することはできません。
+   * `Deny`の決定は、リソースが再生できないことを意味します。 応答には、[拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠するエラーペイロードが含まれます。
 
    >[!IMPORTANT]
    >
-   > 選択したユーザープロファイルのタイプが「appleSSO」でない場合、ストリーミングアプリケーションはこの手順をスキップできます。
+   > 決定応答で提供される情報について詳しくは、[特定のmvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md#response) API ドキュメントを使用した事前承認決定の取得を参照してください。
+   >
+   > <br/>
+   >
+   > 決定事前認証エンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
+   >
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
+   > * 指定された`serviceProvider`と`mvpd`の統合はアクティブである必要があります。
+   >
+   > <br/>
+   >
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+
+1. **パートナーフレームワークのステータスを取得：** ストリーミングアプリケーションは、Appleによって開発された[ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount)を呼び出して、ユーザーの権限とプロバイダー情報を取得します。
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[&#x200B; ビデオ購読者のアカウントフレームワーク &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount) ドキュメントを参照してください。
+   > 選択したユーザープロファイルタイプが「appleSSO」でない場合、ストリーミングアプリケーションはこの手順をスキップできます。
+
+   >[!IMPORTANT]
+   >
+   > 詳しくは、[ ビデオ購読者アカウントフレームワーク ](https://developer.apple.com/documentation/videosubscriberaccount)のドキュメントを参照してください。
    >
    > <br/>
    >
-   > * ストリーミングアプリケーションは、ユーザーの購読情報 [&#x200B; アクセス権限 &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) を確認し、ユーザーが許可した場合にのみ続行する必要があります。
-   > * ストリーミングアプリケーションは、`VSAccountManager` に [&#x200B; デリゲート &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) を提供する必要があります。
-   > * ストリーミングアプリケーションは、購読者のアカウント情報用に [&#x200B; リクエスト &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) を送信する必要があります。
-   > * ストリーミングアプリケーションは、[&#x200B; メタデータ &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) 情報を待機して処理する必要があります。
+   > * ストリーミングアプリケーションは、ユーザーのサブスクリプション情報](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus)にアクセスするための[権限を確認し、ユーザーが許可した場合にのみ続行する必要があります。
+   > * ストリーミングアプリケーションは、`VSAccountManager`に[ デリゲート ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate)を提供する必要があります。
+   > * ストリーミングアプリケーションは、購読者アカウント情報に対して[ リクエスト ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest)を送信する必要があります。
+   > * ストリーミングアプリケーションは、[ メタデータ ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata)情報を待機して処理する必要があります。
    >
    > <br/>
    >
-   > ストリーミングアプリケーションは、このフェーズでユーザーを中断できないことを示すために、必ず `VSAccountMetadataRequest` オブジェクトの [`isInterruptionAllowed`](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest/1771708-isinterruptionallowed) プロパティのブール値が `false` に等しいことを指定する必要があります。
+   > ストリーミングアプリケーションは、このフェーズでユーザーを中断できないことを示すために、`VSAccountMetadataRequest` オブジェクトの[`isInterruptionAllowed`](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest/1771708-isinterruptionallowed) プロパティに`false`と等しいブール値を指定する必要があります。
 
    >[!TIP]
    >
-   > ストリーミングアプリケーションでは、パートナーフレームワークのステータス情報に、キャッシュされた値を代わりに使用できます。アプリケーションがバックグラウンド状態からフォアグラウンド状態に移行したら、更新することをお勧めします。 その場合、ストリーミングアプリケーションは、「パートナーフレームワークのステータス情報を返す」手順で説明されているように、パートナーフレームワークのステータスの有効な値のみをキャッシュおよび使用することを確認する必要があります。
+   > ストリーミングアプリケーションでは、代わりにパートナーフレームワークのステータス情報にキャッシュ値を使用できます。これは、アプリケーションがバックグラウンドからフォアグラウンド状態に移行する際に更新することをお勧めします。 その場合、ストリーミングアプリケーションは、「パートナーフレームワークのステータス情報を返す」ステップで説明されているように、パートナーフレームワークのステータスに対して有効な値のみをキャッシュして使用する必要があります。
 
-1. **パートナーフレームワークのステータス情報を返す：** ストリーミングアプリケーションは、基本条件が満たされていることを確認するために応答データを検証します。
+1. **パートナーフレームワークのステータス情報を返します：** ストリーミングアプリケーションは、応答データを検証して、基本的な条件が満たされていることを確認します。
    * ユーザー権限のアクセスステータスが付与されます。
    * ユーザープロバイダーマッピング識別子が存在し、有効です。
-   * ユーザープロバイダープロファイルの有効期限は有効です。
+   * ユーザープロバイダープロファイルの有効期限が有効です。
 
    >[!IMPORTANT]
    >
-   > 選択したユーザープロファイルのタイプが「appleSSO」でない場合、ストリーミングアプリケーションはこの手順をスキップできます。
+   > 選択したユーザープロファイルタイプが「appleSSO」でない場合、ストリーミングアプリケーションはこの手順をスキップできます。
 
-1. **認証決定の取得：** ストリーミングアプリケーションは、決定の承認エンドポイントを呼び出して、特定のリソースの認証決定を取得するために必要なすべてのデータを収集します。
-
-   >[!IMPORTANT]
-   >
-   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した認証決定の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md#request) API ドキュメントを参照してください。
-   >
-   > * `serviceProvider`、`mvpd`、`resources` など、すべての _必須_ パラメーター
-   > * `Authorization` や `AP-Device-Identifier` など、すべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
-   >
-   > <br/>
-   >
-   > 選択したプロファイルが「appleSSO」タイプのプロファイルの場合、ストリーミングアプリケーションがリクエストを送信する前に、パートナーフレームワークステータスに有効な値が含まれていることを確認する必要があります。 ただし、選択したユーザープロファイルのタイプが「appleSSO」でない場合は、この手順をスキップできます。
-   >
-   > <br/>
-   >
-   > ヘッダーについて詳 `AP-Partner-Framework-Status` くは、[AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md) ドキュメントを参照してください。
-
-1. **再来訪承認決定：** 決定の承認エンドポイント応答には、特定のリソースの `Permit` または `Deny` の決定が含まれています。
-   * `Permit` の決定は、リソースが再生可能であることを意味します。 応答にはメディアトークンが含まれます。
-   * `Deny` の決定は、リソースが再生可能でないことを意味します。 応答には、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従ったエラーペイロードが含まれています。
+1. **承認決定の取得：** ストリーミングアプリケーションは、「決定の承認」エンドポイントを呼び出して、特定のリソースの承認決定を取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した認証の決定の取得 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md#response) API ドキュメントを参照してください。
+   > 詳しくは、特定のmvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md#request) API ドキュメントを使用した承認決定の取得を参照してください。[
+   >
+   > * `serviceProvider`、`mvpd`、`resources`など、_必須_&#x200B;のすべてのパラメーター
+   > * `Authorization`や`AP-Device-Identifier`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
    >
    > <br/>
    >
-   > 決定の認証エンドポイントは、基本条件が満たされていることを確認するためにリクエストデータを検証します。
-   >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
-   > * 指定した `serviceProvider` と `mvpd` の統合はアクティブである必要があります。
+   > 選択したプロファイルが「appleSSO」タイプのプロファイルである場合、リクエストを実行する前に、ストリーミングアプリケーションにパートナーフレームワークのステータスの有効な値が含まれていることを確認する必要があります。 ただし、選択したユーザープロファイルタイプが「appleSSO」でない場合、この手順はスキップできます。
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > `AP-Partner-Framework-Status` ヘッダーについて詳しくは、[AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)のドキュメントを参照してください。
+
+1. **返品承認決定：**&#x200B;決定承認エンドポイント応答には、特定のリソースに対する`Permit`または`Deny`の決定が含まれています：
+   * `Permit`の決定は、リソースが再生可能であることを意味します。 応答には、メディアトークンが含まれます。
+   * `Deny`の決定は、リソースが再生できないことを意味します。 応答には、[拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠するエラーペイロードが含まれます。
+
+   >[!IMPORTANT]
+   >
+   > 決定応答で提供される情報について詳しくは、[特定のmvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md#response) API ドキュメントを使用した承認決定の取得を参照してください。
+   >
+   > <br/>
+   >
+   > 決定承認エンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
+   >
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
+   > * 指定された`serviceProvider`と`mvpd`の統合はアクティブである必要があります。
+   >
+   > <br/>
+   >
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 +++
 
 +++ D. ログアウトフェーズ
 
-1. **Adobe Pass ログアウトの開始：** ストリーミングアプリケーションは、Adobe Pass ログアウトエンドポイントを呼び出して、ログアウトフローを開始するために必要なすべてのデータを収集します。
+1. **Adobe Pass ログアウトの開始：** ストリーミング アプリケーションは、Adobe Pass ログアウトエンドポイントを呼び出して、ログアウトフローを開始するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > 次の項目について詳しくは、[&#x200B; 特定の mvpd のログアウトの開始 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md#request) API ドキュメントを参照してください。
+   > 詳しくは、[特定のmvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md#request) API ドキュメントのログアウトの開始を参照してください。
    >
-   > * `serviceProvider`、`mvpd`、`redirectUrl` など、すべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier` などのすべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
+   > * `serviceProvider`、`mvpd`、`redirectUrl`など、_必須_&#x200B;のすべてのパラメーター
+   > * `Authorization`、`AP-Device-Identifier`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
 
-1. **次のアクションを示す：** Adobe Pass ログアウトエンドポイント応答には、次のアクションに関するストリーミングアプリケーションのガイドとして必要なデータが含まれます。
-   * ログアウトフローを完了するにはユーザーがパートナー（システム） レベルとやり取りする必要があるので、`url` 属性がありません。
-   * `actionName` 属性は「partner_logout」に設定されます。
-   * `actionType` 属性は「partner_interactive」に設定されます。
-
-   >[!IMPORTANT]
-   >
-   > 削除されたユーザープロファイルのタイプが「appleSSO」の場合、ストリーミングアプリケーションは、`actionName` 属性と `actionType` 属性で指定されたパートナーレベルでログアウトプロセスを完了するようにユーザーに促す必要があります。
+1. **次のアクションを示します。** Adobe Pass ログアウトエンドポイントの応答には、次のアクションに関するストリーミングアプリケーションをガイドするために必要なデータが含まれています。
+   * ユーザーがログアウトフローを完了するにはパートナー（システム）レベルとやり取りする必要があるため、`url`属性がありません。
+   * `actionName`属性が「partner_logout」に設定されています。
+   * `actionType`属性が「partner_interactive」に設定されています。
 
    >[!IMPORTANT]
    >
-   > ログアウト応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd のログアウトの開始 &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md#response) API ドキュメントを参照してください。
+   > 削除されたユーザープロファイルタイプが「appleSSO」の場合、ストリーミングアプリケーションは、`actionName`および`actionType`属性で指定されているように、パートナーレベルでログアウトプロセスを完了するようにユーザーに促す必要があります。
+
+   >[!IMPORTANT]
+   >
+   > ログアウト応答で提供される情報について詳しくは、特定のmvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md#response) API ドキュメントの[ ログアウトの開始を参照してください。
    >
    > <br/>
    >
-   > Adobe Pass ログアウトエンドポイントは、基本的な条件が満たされていることを確認するためにリクエストデータを検証します。
+   > Adobe Pass ログアウトエンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
    >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
-   > * 指定した `serviceProvider` と `mvpd` の統合はアクティブである必要があります。
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
+   > * 指定された`serviceProvider`と`mvpd`の統合はアクティブである必要があります。
    >
    > <br/>
    >
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
 
 +++

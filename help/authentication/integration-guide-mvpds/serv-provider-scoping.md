@@ -1,41 +1,42 @@
 ---
-title: サービスプロバイダーのスコーピング
-description: サービスプロバイダーのスコーピング
+title: サービスプロバイダースコーピング
+description: サービスプロバイダースコーピング
 exl-id: 730c43e1-46c0-4eec-b562-b1ad93cce6d3
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '314'
 ht-degree: 0%
-
 ---
-
-# サービスプロバイダーのスコーピング {#service-provoider-scoping}
+# サービスプロバイダースコーピング {#service-provoider-scoping}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 ## 概要 {#overview}
 
-MVPDとAdobe Pass認証の統合のデフォルト実装は、**OLCA 仕様** に基づいています。 OLCA 仕様（6.5、サブジェクト識別子）の「認証要件」セクションには、サブジェクト識別子のサービスプロバイダー（SP）のスコープを示すことが可能であることが記載されています。 （サブジェクト ID は、MVPDが SP に返す、不明化されたユーザー ID です。）  Adobe Pass Authentication Integration では、MVPD によって SP Authentication 要求のスコーピングが可能になっている必要があります。
+MVPDとのAdobe Pass Authentication統合のデフォルトの実装は、**OLCA Specification**&#x200B;に基づいています。 OLCA仕様（6.5、Subject Identifier）の「認証要件」セクションでは、Subject Identifierに対するサービスプロバイダー（SP）の範囲を示すことが可能であると述べています。 （件名IDは、MVPDがSPに返す難読化されたユーザーIDです）。  Adobe Pass認証の統合では、MVPDでSP認証リクエストのスコープを有効にする必要があります。
 
-Adobe Pass Authentication がプログラマーの SP の役割を担う場合、認証リクエストの SP スコーピングを有効にするカスタマイズを実装する必要があります。  これは、SAML アサーションでMVPDの ID プロバイダー（IdP）に渡されたネットワークブランドをMVPDが識別できるようにするために行う必要があります。  スコーピングは、次の節で説明する 2 つの方法のいずれかで実装できます。
+Adobe Pass認証がプログラマのSPの役割を引き受ける場合、認証リクエストのSP スコープを有効にするカスタマイズを実装する必要があります。  これは、MVPDがMVPDのID プロバイダー（IdP）にSAML アサーションで渡されるネットワークブランドを識別できるように行う必要があります。  スコーピングは、次の節で説明する2つの方法のいずれかで実装できます。
 
-## サービスプロバイダーのスコーピング {#service-provider-scoping}
+## サービスプロバイダースコーピング {#service-provider-scoping}
 
-Adobe Pass Authentication は、Authentication リクエストの SP スコーピングを有効にする次の 2 つの方法をサポートしています。
+Adobe Pass Authenticationでは、次の2つの方法でAuthentication リクエストのSP スコーピングを有効にできます。
 
-* **SAML 発行者のアプローチ**  このアプローチでは、「リクエスター ID」が SAML 認証リクエストの SAML 発行者文字列に追加されます。
+* **SAML イシュア アプローチ。**  この方法では、SAML認証リクエストのSAML イシュア文字列に「依頼者ID」が追加されます。
 
-* **カスタムスコーピングプロパティアプローチ。**  このアプローチでは、「リクエスター ID」が SAML 認証リクエストのカスタム「スコーピング」プロパティとして明示的に含まれます。
+* **カスタムスコーププロパティのアプローチ。**  このアプローチでは、「依頼者ID」は、SAML認証リクエストのカスタム「スコーピング」プロパティとして明示的に含まれます。
 
 >[!NOTE]
 >
->「リクエスター ID」は、Adobe Pass Authentication がプログラマーのネットワークブランドをどのように参照するかです（例：「CNN」は Turner Network のブランドの 1 つです）。
+>「依頼者ID」は、Adobe Pass認証がプログラマーのネットワークブランドを指す方法です（例：「CNN」はターナーネットワークのブランドの1つです）。
 
-### SAML 発行者アプローチ {#saml-issuer-approach}
+### SAML発行者アプローチ {#saml-issuer-approach}
 
-このアプローチでは、次のスニペットに示すように、SAML 認証リクエストで SAML `<Issuer>` 要素を使用します。
+このアプローチでは、次のスニペットに示すように、SAML認証リクエストのSAML `<Issuer>`要素を使用します。
 
 ```xml
 ...
@@ -45,9 +46,9 @@ Adobe Pass Authentication は、Authentication リクエストの SP スコー�
 ...
 ```
 
-### カスタムスコーピングプロパティアプローチ {#custom-scoping-property-approach}
+### カスタムスコーププロパティアプローチ {#custom-scoping-property-approach}
 
-このアプローチでは、「Scoping」という名前のカスタムプロパティを使用します（SAML 認証リクエストのこのスニペットを参照）。
+このアプローチでは、SAML認証リクエストのこのスニペットに示すように、「スコーピング」という名前のカスタムプロパティを使用します。
 
 ```xml
 ...

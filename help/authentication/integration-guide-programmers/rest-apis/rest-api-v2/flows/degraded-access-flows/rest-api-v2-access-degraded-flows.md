@@ -1,315 +1,316 @@
 ---
-title: アクセス フローの低下
-description: REST API V2 – 低下したアクセスフロー
+title: 劣化したアクセスフロー
+description: REST API V2 - デグレードされたアクセスフロー
 exl-id: 9276f5d9-8b1a-4282-8458-0c1e1e06bcf5
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '1615'
 ht-degree: 0%
-
 ---
-
-# アクセスフローの低下 {#degraded-access-flows}
-
->[!IMPORTANT]
->
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+# 劣化したアクセスフロー {#degraded-access-flows}
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
+
+>[!IMPORTANT]
+>
+> REST API V2の実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 >[!MORELIKETHIS]
 >
-> また、[REST API V2 の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general) も必ず参照してください。
+> また、[REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general)にもアクセスしてください。
 
-パフォーマンスが低下すると、特定のMVPD認証および承認エンドポイントが一時的にバイパスされます。 通常、プログラマはこのアクションを開始しますが、誰がデグレード イベントをトリガーしているかに関係なく、このアクションは影響を受ける MVPD との事前の取り決めに依存します。
+デグラデーションは、特定のMVPD認証および認証エンドポイントを一時的にバイパスします。 通常、プログラマーはこのアクションを開始しますが、デグラデーションイベントをトリガーするユーザーに関係なく、このアクションは、影響を受けるMVPDとの事前の取り決めによって異なります。
 
-最適化機能について詳しくは、[&#x200B; 最適化 &#x200B;](../../../../features-premium/degraded-access/degradation-feature.md) ドキュメントを参照してください。
+デグラデーション機能について詳しくは、[ デグラデーション ](../../../../features-premium/degraded-access/degradation-feature.md)のドキュメントを参照してください。
 
-縮退アクセスフローを使用すると、次のシナリオについてクエリを実行できます。
+デグレードされたアクセスフローを使用すると、次のシナリオについてクエリを実行できます。
 
-* [パフォーマンス低下が適用されている間に認証を実行](#perform-authentication-while-degradation-is-applied)
-* [劣化適用中の認証決定の取得](#retrieve-authorization-decisions-while-degradation-is-applied)
-* [劣化適用中の事前認証決定の取得](#retrieve-preauthorization-decisions-while-degradation-is-applied)
-* [最適化適用中にプロファイルを取得](#retrieve-profile-while-degradation-is-applied)
+* [劣化が適用されている場合に認証を実行する](#perform-authentication-while-degradation-is-applied)
+* [劣化の適用中に認証の決定を取得する](#retrieve-authorization-decisions-while-degradation-is-applied)
+* [劣化が適用されている間に事前認証の決定を取得する](#retrieve-preauthorization-decisions-while-degradation-is-applied)
+* [劣化の適用中にプロファイルを取得](#retrieve-profile-while-degradation-is-applied)
 
-## パフォーマンス低下が適用されている間に認証を実行 {#perform-authentication-while-degradation-is-applied}
+## 劣化が適用されている場合に認証を実行する {#perform-authentication-while-degradation-is-applied}
 
 ### 前提条件 {#prerequisites-perform-authentication-while-degradation-is-applied}
 
-低下が適用されている場合の認証フローを実行する前に、次の前提条件が満たされていることを確認してください。
+劣化が適用されている間に認証フローを実行する前に、次の前提条件が満たされていることを確認します。
 
-* ストリーミングアプリケーションは、MVPDでログインする必要がある場合、認証セッションを開始する必要があります。
+* ストリーミングアプリケーションは、MVPDでログインする必要がある場合に、認証セッションを開始する必要があります。
 
 >[!IMPORTANT]
 > 
-> 前提
+> 前提条件
 > 
 > <br/>
 > 
-> * ストリーミングアプリケーションには、Adobe Pass バックエンドに保存されたその特定のMVPDに対する有効なプロファイルがありません。
-> * 指定された `serviceProvider` と `mvpd` の間の統合に適用される AuthNAll 低下ルールがあります。
+> * ストリーミングアプリケーションには、Adobe Pass バックエンドに保存されている特定のMVPDの有効なプロファイルがありません。
+> * 指定された`serviceProvider`と`mvpd`の間の統合に適用されたAuthNAll劣化ルールがあります。
 
 ### ワークフロー {#workflow-perform-authentication-while-degradation-is-applied}
 
-次の図に示すように、低下が適用されている間に認証フローを実装するには、次の手順に従います。
+次の図に示すように、劣化が適用されている間に認証フローを実装するには、次の手順に従います。
 
-![&#x200B; パフォーマンス低下が適用されている間に認証を実行 &#x200B;](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-perform-authentication-while-degradation-is-applied-flow.png)
+![劣化が適用されている間に認証を実行する](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-perform-authentication-while-degradation-is-applied-flow.png)
 
-*パフォーマンス低下が適用されている間に認証を実行*
+*劣化が適用されている間に認証を実行する*
 
-1. **認証セッションの作成：** ストリーミングアプリケーションは、セッションエンドポイントを呼び出して認証セッションを開始するために必要なすべてのデータを収集します。
-
-   >[!IMPORTANT]
-   >
-   > 次について詳しくは、[&#x200B; 認証セッションの作成 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
-   > 
-   > * `serviceProvider`、`mvpd`、`domainName`、`redirectUrl` などのすべての _必須_ パラメーター
-   > * `Authorization` や `AP-Device-Identifier` など、すべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
-
-1. **最適化規則の確認：** Adobe Pass サーバーは、指定された `serviceProvider` と `mvpd` の間の統合に適用された AuthNAll 最適化規則があるかどうかを確認します。
-
-1. **次のアクションを示す：** セッションエンドポイント応答には、次のアクションに関するストリーミングアプリケーションのガイドとして必要なデータが含まれます。
-   * `actionName` 属性は「authorize」に設定されます。
-   * `actionType` 属性は「direct」に設定されます。
+1. **認証セッションの作成：** ストリーミングアプリケーションは、Sessions エンドポイントを呼び出して、認証セッションを開始するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > セッション応答で提供される情報について詳しくは、[&#x200B; 認証セッションの作成 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
+   > 詳細については、[認証セッションの作成](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
+   > 
+   > * `serviceProvider`、`mvpd`、`domainName`、`redirectUrl`など、_必須_&#x200B;のすべてのパラメーター
+   > * `Authorization`や`AP-Device-Identifier`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
+
+1. **劣化ルールを確認：** Adobe Pass サーバーは、指定された`serviceProvider`と`mvpd`の間の統合に適用されたAuthNAll劣化ルールがあるかどうかを確認します。
+
+1. **次のアクションを示します。** セッション エンドポイントの応答には、次のアクションに関するストリーミング アプリケーションをガイドするために必要なデータが含まれています。
+   * `actionName`属性が「authorize」に設定されています。
+   * `actionType`属性が「direct」に設定されています。
+
+   >[!IMPORTANT]
+   >
+   > セッション応答で提供される情報について詳しくは、[認証セッションの作成](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
-   > セッション エンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
+   > セッションエンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
    >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
-   > * 指定した `serviceProvider` と `mvpd` の統合はアクティブである必要があります。
-   >
-   > <br/>
-   > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
+   > * 指定された`serviceProvider`と`mvpd`の統合はアクティブである必要があります。
    >
    > <br/>
    > 
-   > セッション エンドポイントは要求データを使用して、縮退したアクセス条件が満たされているかどうかを確認します。
-   >
-   > * 指定された `serviceProvider` と `mvpd` の統合には、AuthNAll 低下ルールが適用されている必要があります。
+   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
    >
    > <br/>
    > 
-   > 縮退アクセスの検証に失敗した場合、応答はデフォルトで基本認証フローに設定されます。
+   > セッションエンドポイントは、リクエストデータを使用して、劣化したアクセス条件が満たされているかどうかを確認します。
+   >
+   > * 指定された`serviceProvider`と`mvpd`の間の統合には、AuthNAll劣化ルールが適用されている必要があります。
+   >
+   > <br/>
+   > 
+   > 劣化したアクセス検証が失敗した場合、応答は基本認証フローにデフォルトで送信されます。
 
 1. **決定フローで続行：** ストリーミングアプリケーションは、後続の決定フローで続行できます。
 
-## 劣化適用中の認証決定の取得 {#retrieve-authorization-decisions-while-degradation-is-applied}
+## 劣化の適用中に認証の決定を取得する {#retrieve-authorization-decisions-while-degradation-is-applied}
 
 ### 前提条件 {#prerequisites-retrieve-authorization-decisions-while-degradation-is-applied}
 
-劣化適用中の認証決定を取得する前に、次の前提条件を満たしていることを確認してください。
+劣化が適用されている間に認証の決定を取得する前に、次の前提条件が満たされていることを確認します。
 
 * ストリーミングアプリケーションは、ユーザーが選択したリソースを再生する前に、認証決定を取得する必要があります。
 
 >[!IMPORTANT]
 >
-> 前提
+> 前提条件
 > 
 > <br/>
 > 
 > * ストリーミングアプリケーションには、その特定のMVPDに対する有効なプロファイルがありません。
-> * 指定された `serviceProvider` と `mvpd` の間の統合に、AuthZAll または AuthNAll の最適化規則が適用されています。
+> * 指定された`serviceProvider`と`mvpd`の間の統合に適用されたAuthZAllまたはAuthNAll劣化ルールがあります。
 
 ### ワークフロー {#workflow-retrieve-authorization-decisions-while-degradation-is-applied}
 
-次の図に示すように、低下が適用されている間に認証フローを実装するには、次の手順に従います。
+次の図に示すように、劣化が適用されている間に認証フローを実装するには、次の手順に従います。
 
-![&#x200B; 最適化適用中に認証決定を取得 &#x200B;](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-authorization-decisions-while-degradation-is-applied-flow.png)
+![劣化が適用されている間に認証の決定を取得する](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-authorization-decisions-while-degradation-is-applied-flow.png)
 
-*最適化適用中に認証決定を取得*
+*劣化が適用されている間に認証の決定を取得する*
 
-1. **認証決定の取得：** ストリーミングアプリケーションは、決定の承認エンドポイントを呼び出して、特定のリソースの認証決定を取得するために必要なすべてのデータを収集します。
-
-   >[!IMPORTANT]
-   > 
-   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した認証決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
-   >
-   > * `serviceProvider`、`mvpd`、`resources` など、すべての _必須_ パラメーター
-   > * `Authorization` や `AP-Device-Identifier` など、すべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
-
-1. **最適化規則の確認：** Adobe Pass サーバーは、指定された `serviceProvider` と `mvpd` の間の統合に適用された AuthZAll または AuthNAll の最適化規則があるかどうかを確認します。
-
-1. **メディアトークン `Permit` 決定を返す：** 決定の承認エンドポイント応答には、`Permit` 決定とメディアトークンが含まれています。
+1. **承認決定の取得：** ストリーミングアプリケーションは、「決定の承認」エンドポイントを呼び出して、特定のリソースの承認決定を取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
-   >
-   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
-   >
-   > <br/>
    > 
-   > 決定の認証エンドポイントは、基本条件が満たされていることを確認するためにリクエストデータを検証します。
+   > 詳しくは、特定のmvpd](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを使用した承認決定の取得を参照してください。[
    >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
-   > * 指定した `serviceProvider` と `mvpd` の統合はアクティブである必要があります。
-   >
-   > <br/>
-   > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
-   >
-   > <br/>
-   >
-   > 決定の認証エンドポイントは、リクエストデータを使用して、低下したアクセス条件が満たされているかどうかを確認します。
-   >
-   > * 指定された `serviceProvider` と `mvpd` の間の統合には、AuthZAll または AuthNAll 低下ルールが適用されている必要があります。
-   >
-   > <br/>
-   > 
-   > 縮退アクセスの検証に失敗した場合、応答はデフォルトで基本認証フローに設定されます。
+   > * `serviceProvider`、`mvpd`、`resources`など、_必須_&#x200B;のすべてのパラメーター
+   > * `Authorization`や`AP-Device-Identifier`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
 
-1. **メディアトークンでストリームを開始：** ストリーミングアプリケーションは、メディアトークンを使用してコンテンツを再生します。
+1. **劣化ルールを確認：** Adobe Pass サーバーは、指定された`serviceProvider`と`mvpd`の間の統合に適用されたAuthZAllまたはAuthNAll劣化ルールがあるかどうかを確認します。
 
-## 劣化適用中の事前認証決定の取得 {#retrieve-preauthorization-decisions-while-degradation-is-applied}
+1. **メディアトークンを使用して`Permit`の決定を返します：**&#x200B;決定承認エンドポイント応答には、`Permit`の決定とメディアトークンが含まれています。
+
+   >[!IMPORTANT]
+   >
+   > 決定応答で提供される情報について詳しくは、[特定のmvpd](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) API ドキュメントを使用した承認決定の取得を参照してください。
+   >
+   > <br/>
+   > 
+   > 決定承認エンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
+   >
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
+   > * 指定された`serviceProvider`と`mvpd`の統合はアクティブである必要があります。
+   >
+   > <br/>
+   > 
+   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   >
+   > <br/>
+   >
+   > 決定承認エンドポイントは、リクエストデータを使用して、劣化したアクセス条件が満たされているかどうかを確認します。
+   >
+   > * 指定された`serviceProvider`と`mvpd`の間の統合には、AuthZAllまたはAuthNAll劣化ルールが適用されている必要があります。
+   >
+   > <br/>
+   > 
+   > 劣化したアクセス検証が失敗した場合、応答は基本的な認証フローにデフォルトで送信されます。
+
+1. **メディアトークンを使用してストリームを開始：** ストリーミングアプリケーションは、メディアトークンを使用してコンテンツを再生します。
+
+## 劣化が適用されている間に事前認証の決定を取得する {#retrieve-preauthorization-decisions-while-degradation-is-applied}
 
 ### 前提条件 {#prerequisites-retrieve-preauthorization-decisions-while-degradation-is-applied}
 
-劣化適用中に事前認証の決定を取得する前に、次の前提条件を満たしていることを確認してください。
+劣化が適用されている間に事前認証の決定を取得する前に、次の前提条件が満たされていることを確認します。
 
-* ストリーミングアプリケーションは、リソースのリストを表示する事前認証の決定と、関連するステータスを取得したいと考えています。
+* ストリーミングアプリケーションは、事前承認決定を取得して、リソースのリストと関連するステータスを表示します。
 
 >[!IMPORTANT]
 >
-> 前提
+> 前提条件
 >
 > <br/>
 > 
 > * ストリーミングアプリケーションには、その特定のMVPDに対する有効なプロファイルがありません。
-> * 指定された `serviceProvider` と `mvpd` の間の統合に、AuthZAll または AuthNAll の最適化規則が適用されています。
+> * 指定された`serviceProvider`と`mvpd`の間の統合に適用されたAuthZAllまたはAuthNAll劣化ルールがあります。
 
 ### ワークフロー {#workflow-retrieve-preauthorization-decisions-while-degradation-is-applied}
 
-次の図に示すように、事前認証フローを実装し、パフォーマンス低下が適用されている間は、次の手順に従います。
+次の図に示すように、劣化が適用されている間に事前認証フローを実装するには、次の手順に従います。
 
-![&#x200B; 最適化適用中に事前認証の決定を取得 &#x200B;](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-preauthorization-decisions-while-degradation-is-applied-flow.png)
+![劣化が適用されている間に事前認証の決定を取得する](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-preauthorization-decisions-while-degradation-is-applied-flow.png)
 
-*最適化適用中に事前認証の決定を取得*
+*劣化が適用されている間に事前認証の決定を取得する*
 
-1. **事前認証決定の取得：** ストリーミングアプリケーションは、決定の事前認証エンドポイントを呼び出すことにより、リソースのリストに対する事前認証決定を取得するために必要なすべてのデータを収集します。
-
-   >[!IMPORTANT]
-   >
-   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した事前認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
-   >
-   > * `serviceProvider`、`mvpd`、`resources` など、すべての _必須_ パラメーター
-   > * `Authorization` や `AP-Device-Identifier` など、すべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
-
-1. **最適化規則の確認：** Adobe Pass サーバーは、指定された `serviceProvider` と `mvpd` の間の統合に適用された AuthZAll または AuthNAll の最適化規則があるかどうかを確認します。
-
-1. **再来訪の事前認証の決定：** 決定の事前認証エンドポイント応答には、各リソースの `Permit` の決定が含まれています。
+1. **事前認証の決定を取得：** ストリーミングアプリケーションは、「決定の事前認証エンドポイント」を呼び出して、リソースのリストに対する事前認証の決定を取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した事前認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
+   > 詳しくは、[特定のmvpd](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) API ドキュメントを使用した事前承認決定の取得を参照してください。
+   >
+   > * `serviceProvider`、`mvpd`、`resources`など、_必須_&#x200B;のすべてのパラメーター
+   > * `Authorization`や`AP-Device-Identifier`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
+
+1. **劣化ルールを確認：** Adobe Pass サーバーは、指定された`serviceProvider`と`mvpd`の間の統合に適用されたAuthZAllまたはAuthNAll劣化ルールがあるかどうかを確認します。
+
+1. **事前承認の決定を返します：** エンドポイントの応答を事前承認する決定には、各リソースに対する`Permit`の決定が含まれます。
+
+   >[!IMPORTANT]
+   >
+   > 決定応答で提供される情報について詳しくは、[特定のmvpd](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) API ドキュメントを使用した事前承認決定の取得を参照してください。
    >
    > <br/>
    >
-   > 決定の事前認証エンドポイントは、基本条件が満たされていることを確認するためにリクエストデータを検証します。
+   > 決定事前認証エンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
    >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
-   > * 指定した `serviceProvider` と `mvpd` の統合はアクティブである必要があります。
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
+   > * 指定された`serviceProvider`と`mvpd`の統合はアクティブである必要があります。
    >
    > <br/>
    > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
    >
    > <br/>
    >
-   > 決定の事前認証エンドポイントは、リクエストデータを使用して、劣化したアクセス条件が満たされているかどうかを確認します。
+   > 決定事前認証エンドポイントは、リクエストデータを使用して、劣化したアクセス条件が満たされているかどうかを確認します。
    >
-   > * 指定された `serviceProvider` と `mvpd` の間の統合には、AuthZAll または AuthNAll 低下ルールが適用されている必要があります。
+   > * 指定された`serviceProvider`と`mvpd`の間の統合には、AuthZAllまたはAuthNAll劣化ルールが適用されている必要があります。
    >
    > <br/>
    > 
-   > 縮退アクセスの検証に失敗した場合、応答はデフォルトで基本的な事前認証フローに設定されます。
+   > 劣化したアクセス検証が失敗した場合、応答はデフォルトで基本事前認証フローに戻ります。
 
-1. **事前認証の決定を処理：** ストリーミングアプリケーションは応答を処理し、それを使用して、オプションでユーザーインターフェイス上の各リソースの適切なステータスを表示できます。
+1. **事前認証の決定を処理します：** ストリーミングアプリケーションは応答を処理し、オプションでユーザーインターフェイス上の各リソースの適切なステータスを表示するために使用できます。
 
-## 最適化適用中にプロファイルを取得 {#retrieve-profile-while-degradation-is-applied}
+## 劣化の適用中にプロファイルを取得 {#retrieve-profile-while-degradation-is-applied}
 
 >[!IMPORTANT]
 >
-> パフォーマンス低下が適用されている場合、プロファイルエンドポイントクエリはオプションです。
+> 劣化が適用されている場合、プロファイル エンドポイントクエリはオプションです。
 >
 > <br/>
 > 
-> セッションエンドポイント応答は、低下が適用されている間、決定フローを続行するようにアプリケーションに指示します。 詳しくは、[&#x200B; パフォーマンス低下が適用されている間に認証を実行する &#x200B;](#perform-authentication-while-degradation-is-applied) の節を参照してください。
+> セッションエンドポイントの応答は、劣化が適用されている間に決定フローを続行するようにアプリケーションに指示します。 詳しくは、「[劣化が適用されている間に認証を実行する](#perform-authentication-while-degradation-is-applied)」の節を参照してください。
 
 ### 前提条件 {#prerequisites-retrieve-profile-while-degradation-is-applied}
 
-低下が適用されている場合に特定のMVPDのプロファイルを取得する前に、次の前提条件が満たされていることを確認してください。
+デプロイメントが適用されている場合に、特定のMVPDのプロファイルを取得する前に、次の前提条件を満たしていることを確認してください。
 
-* 選択されたまたはキャッシュされた `mvpd` ーザー ID を持つストリーミングアプリケーションが、特定のMVPDのプロファイルを取得したいと考えています。
+* 選択またはキャッシュされた`mvpd`識別子を持つストリーミングアプリケーションは、特定のMVPDのプロファイルを取得しようとしています。
 
 >[!IMPORTANT]
 >
-> 前提
+> 前提条件
 >
 > <br/>
 > 
 > * ストリーミングアプリケーションには、その特定のMVPDに対する有効なプロファイルがありません。
-> * 指定された `serviceProvider` と `mvpd` の間の統合に適用される AuthNAll 低下ルールがあります。
+> * 指定された`serviceProvider`と`mvpd`の間の統合に適用されたAuthNAll劣化ルールがあります。
 
 ### ワークフロー {#workflow-retrieve-profile-while-degradation-is-applied}
 
-次の図に示すように、パフォーマンス低下が適用されている場合に特定のMVPDのプロファイル取得フローを実装するには、次の手順に従います。
+次の図に示すように、劣化が適用されている場合に特定のMVPDのプロファイル取得フローを実装するには、次の手順に従います。
 
-![&#x200B; 最適化適用中にプロファイルを取得 &#x200B;](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-profile-while-degradation-is-applied-flow.png)
+![劣化が適用されている間にプロファイルを取得](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-profile-while-degradation-is-applied-flow.png)
 
-*最適化適用中にプロファイルを取得*
+*劣化が適用されている間にプロファイルを取得*
 
-1. **特定の mvpd のプロファイルを取得：** ストリーミングアプリケーションは、プロファイルエンドポイントにリクエストを送信して、その特定のMVPDのプロファイル情報を取得するために必要なすべてのデータを収集します。
-
-   >[!IMPORTANT]
-   >
-   > 次について詳しくは、[&#x200B; 特定の mvpd のプロファイルを取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
-   >
-   > * `serviceProvider`、`mvpd` など、すべての _必須_ パラメーター
-   > * `Authorization` や `AP-Device-Identifier` など、すべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
-
-1. **最適化規則の確認：** Adobe Pass サーバーは、指定された `serviceProvider` と `mvpd` の間の統合に適用された AuthNAll 最適化規則があるかどうかを確認します。
-
-1. **機能縮退プロファイルに関する情報を返す：** プロファイルエンドポイント応答には、属性 `type` 「機能縮退」に設定されているなど、機能縮退プロファイルに関する情報が含まれています。
+1. **特定のmvpdのプロファイルの取得：** ストリーミングアプリケーションは、プロファイルエンドポイントにリクエストを送信することで、特定のMVPDのプロファイル情報を取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd のプロファイルを取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)API ドキュメントを参照してください。
+   > 次の詳細については、特定のmvpd](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) API ドキュメントの[ プロファイルの取得を参照してください。
    >
-   > <br/>
-   >
-   > プロファイルエンドポイントは、基本条件が満たされていることを確認するために、リクエストデータを検証します。
-   >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
-   > * 指定した `serviceProvider` と `mvpd` の統合はアクティブである必要があります。
-   >
-   > <br/>
-   > 
-   > 基本検証が失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
-   >
-   > <br/>
-   > 
-   > プロファイルエンドポイントはリクエストデータを使用して、低下したアクセス条件が満たされているかどうかを確認します。
-   >
-   > * 指定された `serviceProvider` と `mvpd` の統合には、AuthNAll 低下ルールが適用されている必要があります。
-   >
-   > <br/>
-   > 
-   > 縮退したアクセス検証が失敗した場合、応答はデフォルトで基本プロファイル取得フローに設定されます。
+   > * `serviceProvider`や`mvpd`など、すべての&#x200B;_必須_ パラメーター
+   > * `Authorization`や`AP-Device-Identifier`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
 
-1. **決定フローで続行：** プロファイルエンドポイント応答にプロファイルが含まれている場合、ストリーミングアプリケーションは劣化したプロファイル情報を使用して、後続の決定フローを続行します。
+1. **劣化ルールを確認：** Adobe Pass サーバーは、指定された`serviceProvider`と`mvpd`の間の統合に適用されたAuthNAll劣化ルールがあるかどうかを確認します。
 
-1. **新しい基本認証フローを指定：** プロファイルエンドポイント応答にプロファイルが含まれていない場合、ストリーミングアプリケーションは新しい基本認証フローを開始するようにユーザーに指示します。
+1. **劣化したプロファイルに関する情報を返します：** プロファイル エンドポイントの応答には、劣化したプロファイルに関する情報が含まれており、属性`type`が「劣化」に設定されています。
+
+   >[!IMPORTANT]
+   >
+   > プロファイル応答で提供される情報について詳しくは、特定のmvpd](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) API ドキュメントの[ プロファイルの取得を参照してください。
+   >
+   > <br/>
+   >
+   > プロファイルエンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
+   >
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
+   > * 指定された`serviceProvider`と`mvpd`の統合はアクティブである必要があります。
+   >
+   > <br/>
+   > 
+   > 基本的な検証が失敗した場合は、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+   >
+   > <br/>
+   > 
+   > プロファイルエンドポイントは、リクエストデータを使用して、劣化したアクセス条件が満たされているかどうかを確認します。
+   >
+   > * 指定された`serviceProvider`と`mvpd`の間の統合には、AuthNAll劣化ルールが適用されている必要があります。
+   >
+   > <br/>
+   > 
+   > 劣化したアクセス検証が失敗した場合、応答はデフォルトで基本プロファイル取得フローに送信されます。
+
+1. **決定フローで続行：** プロファイル エンドポイント応答にプロファイルが含まれている場合、ストリーミング アプリケーションは劣化したプロファイル情報を使用して、後続の決定フローを続行します。
+
+1. **新しい基本認証フローを示します：** プロファイル エンドポイントの応答にプロファイルが含まれていない場合、ストリーミング アプリケーションはユーザーに新しい基本認証フローを開始することを示します。
 
 >[!NOTE]
 >
-> 特定の認証コードのプロファイル取得フローの手順は前述と同じですが、使用するエンドポイントが「[&#x200B; 特定のコードのプロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) ドキュメントに記載されているエンドポイントである点が異なります。
+> 特定の認証コードのプロファイル取得フローの手順は、使用されるエンドポイントが特定のコードの[取得プロファイル ](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) ドキュメントに記載されているものを除き、上記と同じです。

@@ -2,7 +2,10 @@
 title: 同時視聴数モニタリングの概要
 description: 同時視聴数モニタリングの基本と統合方法について説明します
 exl-id: d2b8c7c4-b02d-4bea-9310-162064fd7216
-source-git-commit: 39384d753e7808fa433f30d8dafabd531dbf3acf
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '372'
 ht-degree: 0%
@@ -60,9 +63,9 @@ ht-degree: 0%
 
 ## クイックスタートパス {#quick-start-path}
 
-1. **主要な概念を確認** - [&#x200B; セッション、ポリシー、メタデータについて説明](key-concepts.md)
+1. **主要な概念を確認** - [ セッション、ポリシー、メタデータについて説明](key-concepts.md)
 2. **戦略の選択** - [LIFOとFIFO戦略の比較](../use-cases/lifo-fifo-strategies.md)を確認します
-3. **実装を開始** - [API リファレンス &#x200B;](../api/api-reference-overview.md)に従います
+3. **実装を開始** - [API リファレンス ](../api/api-reference-overview.md)に従います
 
 ## 導入のご相談？ {#ready-to-integrate}
 
@@ -72,7 +75,7 @@ ht-degree: 0%
 
 ## サービス登録 {#service-registration}
 
-同時視聴数モニタリングを開始するには、次の情報を[&#x200B; サポートチーム &#x200B;](mailto:tve-support@adobe.com)にお問い合わせください。
+同時視聴数モニタリングを開始するには、次の情報を[ サポートチーム ](mailto:tve-support@adobe.com)にお問い合わせください。
 
 1. **会社名**&#x200B;と連絡先の詳細
 2. 同時実行モニタリングと統合する&#x200B;**アプリケーション**。 アプリケーションごとに、次の情報を提供してください。
@@ -85,5 +88,5 @@ ht-degree: 0%
 
 - **API Explorer** - [Swagger UI](https://streams-stage.adobeprimetime.com/swagger-ui/index.html)でAPIをインタラクティブにテストします
 - **主な用語と定義** - [用語集](../cm-glossary.md)
-- **ヘルプを受け取る方法は？** - [&#x200B; サポート手順](../support/cm-escalation-procedures.md)
+- **ヘルプを受け取る方法は？** - [ サポート手順](../support/cm-escalation-procedures.md)
 - **サポート** - [tve-support@adobe.com](mailto:tve-support@adobe.com)にお問い合わせください

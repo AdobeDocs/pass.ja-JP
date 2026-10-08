@@ -1,13 +1,14 @@
 ---
 title: Adobe Pass Authentication 3.8.0 リリースノート
 description: Adobe Pass Authentication 3.8.0 リリースノート
-source-git-commit: 7d3f430ccfa158c3da32512e6c6d3b6f189ee63c
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '153'
 ht-degree: 0%
-
 ---
-
 # Adobe Pass Authentication 3.8.0 リリースノート {#authn-380-rn}
 
 >[!IMPORTANT]

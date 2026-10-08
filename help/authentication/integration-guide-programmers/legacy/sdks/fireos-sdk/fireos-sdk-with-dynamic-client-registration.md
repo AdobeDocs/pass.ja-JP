@@ -2,13 +2,14 @@
 title: Amazon FireOS SDKとDynamic Client Registration
 description: Amazon FireOS SDKとDynamic Client Registration
 exl-id: 27acf3f5-8b7e-4299-b0f0-33dd6782aeda
-source-git-commit: b6ba687240799d1889302019613f426259f147ad
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '1185'
 ht-degree: 1%
-
 ---
-
 
 # （レガシー） Amazon FireOS SDKとDynamic Client Registration {#amazon-fireos-sdk-with-dynamic-client-registration}
 
@@ -123,8 +124,8 @@ FireOS AccessEnabler SDK for FireTVは、セッション Cookieを使用せず�
 
   SDKは、次の操作を実行します。
 
-   - アプリケーションの登録：**software\_statement**&#x200B;を使用すると、SDKは&#x200B;**client\_id、client\_secret、client\_id\_issued\_at、redirect\_uris、grant\_types**&#x200B;を取得します。 この情報は、アプリケーションの内部ストレージに保存されます。
-   - client\_id、client\_secret、grant\_type=&quot;client\_credentials&quot;を使用して&#x200B;**access\_token**&#x200B;を取得します。 このaccess\_tokenは、SDKからAdobe Pass サーバーへの呼び出しごとに使用されます。
+  - アプリケーションの登録：**software\_statement**&#x200B;を使用すると、SDKは&#x200B;**client\_id、client\_secret、client\_id\_issued\_at、redirect\_uris、grant\_types**&#x200B;を取得します。 この情報は、アプリケーションの内部ストレージに保存されます。
+  - client\_id、client\_secret、grant\_type=&quot;client\_credentials&quot;を使用して&#x200B;**access\_token**&#x200B;を取得します。 このaccess\_tokenは、SDKからAdobe Pass サーバーへの呼び出しごとに使用されます。
 
 | トークンエラー応答： |  |  |
 |--- | --- | --- |
@@ -136,32 +137,32 @@ FireOS AccessEnabler SDK for FireTVは、セッション Cookieを使用せず�
 
 - b. checkAuthentication （）
 
-   - *true*：認証に移動
-   - *false* :MVPDを選択に移動
+  - *true*：認証に移動
+  - *false* :MVPDを選択に移動
 
 - c. getAuthentication :SDKでは、呼び出しパラメーターに&#x200B;**access_token**&#x200B;が含まれます
 
-   - mvpd記憶：setSelectedProvider （mvpd\_id）に移動
-   - mvpdが選択されていません：displayProviderDialog
-   - mvpd selected :setSelectedProvider （mvpd\_id）に移動
+  - mvpd記憶：setSelectedProvider （mvpd\_id）に移動
+  - mvpdが選択されていません：displayProviderDialog
+  - mvpd selected :setSelectedProvider （mvpd\_id）に移動
 
 - d. setSelectedProvider
 
-   - mvpd\_id認証URLがChromeCustomTabsに読み込まれます
-   - ログインに成功しました：delegate.setAuthenticationStatus （SUCCESS）
-   - ログインがキャンセルされました：MVPDの選択範囲をリセット
-   - 認証が完了したときに取得するURL スキームは、「adobepass://android.app」として確立されます
+  - mvpd\_id認証URLがChromeCustomTabsに読み込まれます
+  - ログインに成功しました：delegate.setAuthenticationStatus （SUCCESS）
+  - ログインがキャンセルされました：MVPDの選択範囲をリセット
+  - 認証が完了したときに取得するURL スキームは、「adobepass://android.app」として確立されます
 
-- e. get/checkAuthorization :SDKには、Authorization: Bearer **access\_token** 1&rbrace;として&#x200B;**access\_tokenがヘッダーに含まれます**
+- e. get/checkAuthorization :SDKには、Authorization: Bearer **access\_token** 1}として**access\_tokenがヘッダーに含まれます**
 
 - 認証に成功すると、メディアトークンを取得するための呼び出しが行われます
 
 - f. ログアウト :
 
-   - SDKは、現在の依頼者の有効なトークンを削除します（SSOを介して取得した認証ではなく、他のアプリケーションで取得した認証は有効のままです）
-   - SDKはChrome カスタムタブを開いて、mvpd\_id ログアウトエンドポイントにアクセスします。 完了すると、Chrome カスタムタブは閉じられます
-   - ログアウトが完了した瞬間をキャプチャするために、URL スキームは「adobepass://logout」として確立されます
-   - logoutはsendTrackingData （new Event （EVENT\_LOGOUT,USER\_NOT\_AUTHENTICATED\_ERROR）とコールバック :setAuthenticationStatus （0,&quot;Logout&quot;）をトリガーします。
+  - SDKは、現在の依頼者の有効なトークンを削除します（SSOを介して取得した認証ではなく、他のアプリケーションで取得した認証は有効のままです）
+  - SDKはChrome カスタムタブを開いて、mvpd\_id ログアウトエンドポイントにアクセスします。 完了すると、Chrome カスタムタブは閉じられます
+  - ログアウトが完了した瞬間をキャプチャするために、URL スキームは「adobepass://logout」として確立されます
+  - logoutはsendTrackingData （new Event （EVENT\_LOGOUT,USER\_NOT\_AUTHENTICATED\_ERROR）とコールバック :setAuthenticationStatus （0,&quot;Logout&quot;）をトリガーします。
 
 
 

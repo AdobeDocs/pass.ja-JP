@@ -2,20 +2,21 @@
 title: Adobe Pass Authentication JavaScript 4.4.0 リリースノート
 description: Adobe Pass Authentication JavaScript 4.4.0 リリースノート
 exl-id: 28cc0ccc-7a1d-45bd-8455-26cfde25c5c5
-source-git-commit: ecafc3a92f691203d8113a741f0b6cd00a134e80
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '250'
 ht-degree: 0%
-
 ---
-
 # Adobe Pass Authentication JavaScript 4.4.0 リリースノート {#javascript-sdk-440-rn}
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
-このページでは、このリリースの新機能、変更点および既知の問題について説明します。
+このページでは、このリリースの新機能、変更点、既知の問題について説明します。
 
 ## ビルド番号 {#build-number-440}
 
@@ -29,26 +30,26 @@ Adobe Pass認証：JavaScript 4.4.0
 
 プリフライト認証
 
-* 新しい事前認証 API – これは、プリフライトフローの認証機能に使用される新しい API 呼び出しです。プリフライトフローの強化されたエラーレポートも導入されています。
-* この機能は、Primetime Authentication 設定で有効にする必要があるので、リクエスト時に使用できます。 この機能を有効にする方法の詳細については、担当の TAM にお問い合わせください。
-* checkPreauthorizedResources API を廃止します。
+* 新しい事前認証API – これは、プリフライト認証機能に使用される新しいAPI呼び出しです。これにより、プリフライトフローのエラーレポートが強化されます。
+* この機能は、Primetime Authentication設定で有効にする必要があるため、リクエスト時に利用できます。 この機能を有効にする方法の詳細については、TAMにお問い合わせください。
+* checkPreauthorizedResources APIを非推奨（廃止予定）。
 
-プラットフォームの識別
+プラットフォームの特定
 
-* すべてのSDK呼び出しに AP-SDK-Identifier ヘッダーを追加して、SDKのタイプとバージョンをより正確に識別します。
+* すべてのSDK呼び出しにAP-SDK-Identifier ヘッダーを追加して、SDKのタイプとバージョンをより適切に識別します。
 
 その他
 
-* 内部アーキテクチャの改善。
+* 内部アーキテクチャの改善：
 
-### バグの修正
+### バグ修正
 
-* setRequestor と getAuthentication が同時に呼び出されたときに発生する競合状態を修正しました。
-* 権限がステージング環境に正しく読み込まれない問題を修正しました。
-* Safari ブラウザーでバックグラウンドログアウトフローが完了せず、ページが更新されるまでユーザーが認証されているように見える問題を修正しました。 タイムアウトが導入され、現在は 30 秒に設定されています。この間に Primetime Authentication サーバーから応答がない場合、SDKは setAuthenticationStatus コールバックを呼び出します。
+* setRequestorとgetAuthenticationが同時に呼び出されたときに生成される競合条件を修正します。
+* ステージング環境で使用権限が正しく読み込まれない問題を修正しました。
+* Safari ブラウザーでバックグラウンドログアウトフローを完了できない問題を修正し、ページの更新が発生するまでユーザーが認証されたように見えました。 現在30秒に設定されているタイムアウトが導入されたため、この期間中にPrimetime Authentication Serverからの応答がない場合、SDKはsetAuthenticationStatus コールバックを呼び出します。
 
 ## リリースパッケージ {#release-package-440}
 
-実稼動 URL はhttps://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.jsです。
+実稼動URLはhttps://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.jsです。
 
-ステージング URL はhttps://entitlement.auth-staging.adobe.com/entitlement/v4/AccessEnabler.jsです。
+ステージング URL: https://entitlement.auth-staging.adobe.com/entitlement/v4/AccessEnabler.js

@@ -2,13 +2,14 @@
 title: Android SDK Cookbook
 description: Android SDK Cookbook
 exl-id: 7f66ab92-f52c-4dae-8016-c93464dd5254
-source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '1690'
 ht-degree: 0%
-
 ---
-
 # （レガシー） Android SDK クックブック {#android-sdk-cookbook}
 
 >[!NOTE]
@@ -30,9 +31,9 @@ Android用のAdobe Pass認証エンタイトルメントソリューションは
 
 - UI ドメイン – これは、UIを実装し、AccessEnabler ライブラリが提供するサービスを使用して制限付きコンテンツへのアクセスを提供する上位レベルのアプリケーション層です。
 - AccessEnabler ドメイン – これは、使用権限ワークフローが次の形式で実装される場所です。
-   - Adobeのバックエンドサーバーへのネットワーク呼び出し
-   - 認証ワークフローと承認ワークフローに関連するビジネス論理ルール
-   - 様々なリソースの管理とワークフロー状態（トークンキャッシュなど）の処理
+  - Adobeのバックエンドサーバーへのネットワーク呼び出し
+  - 認証ワークフローと承認ワークフローに関連するビジネス論理ルール
+  - 様々なリソースの管理とワークフロー状態（トークンキャッシュなど）の処理
 
 AccessEnabler ドメインの目的は、使用権限ワークフローのすべての複雑さを非表示にし、使用権限ワークフローを実装する簡単な使用権限プリミティブのセットを（AccessEnabler ライブラリを通じて）上位アプリケーションに提供することです。
 
@@ -124,7 +125,7 @@ AccessEnablerのネットワーク アクティビティは別のスレッドで
    a.  [`getInstance`](#$getInstance)を呼び出して、Adobe Pass Authentication AccessEnablerの1つのインスタンスを作成します。
 
    - **依存関係：** Adobe Pass Authentication Native
-Android Library （AccessEnabler）
+     Android Library （AccessEnabler）
 
    b.  呼び出し` setRequestor()`を実行してプログラマーのIDを確認します。プログラマーの`requestorID`と（オプションで）Adobe Pass認証エンドポイントの配列を渡します。
 
@@ -139,7 +140,7 @@ Android Library （AccessEnabler）
 
    <!--Removed bad image link from first note cell above. ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/icons/1313859077_lightbulb.png) -->
 
-1. [checkAuthentication （） &#x200B;](#$checkAuthN)を呼び出して、完全な認証フローを開始せずに既存の認証を確認します。   この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
+1. [checkAuthentication （） ](#$checkAuthN)を呼び出して、完全な認証フローを開始せずに既存の認証を確認します。   この呼び出しが成功した場合は、認証フローに直接進むことができます。  そうでない場合は、認証フローに進みます。
 
    - **依存関係：** `setRequestor()`への呼び出しが成功しました（この依存関係は、以降のすべての呼び出しにも適用されます）。
 
@@ -174,7 +175,7 @@ Android Library （AccessEnabler）
 
 ### ニ。認可の流れ {#authz_flow}
 
-1. [getAuthorization （） &#x200B;](#$getAuthZ)を呼び出して、認証を開始します
+1. [getAuthorization （） ](#$getAuthZ)を呼び出して、認証を開始します
 フロー。
 
    依存関係：MVPDで合意された有効なResourceID。
@@ -185,9 +186,9 @@ Android Library （AccessEnabler）
 
    - `getAuthorization()`呼び出しが成功した場合：ユーザーには有効なAuthN トークンとAuthZ トークンがあります（ユーザーは認証され、要求されたメディアを視聴する権限を持っています）。
    - `getAuthorization()`が失敗した場合：タイプ （AuthN、AuthZなど）を判断するためにスローされた例外を調べます：
-      - 認証（AuthN）エラーの場合は、認証フローを再起動します。
-      - 認証（AuthZ）エラーの場合、ユーザーは要求されたメディアを視聴する権限がなく、何らかのエラーメッセージがユーザーに表示されます。
-      - 他のタイプのエラー（接続エラー、ネットワークエラーなど）が発生した場合 その後、ユーザーに適切なエラーメッセージを表示します。
+     - 認証（AuthN）エラーの場合は、認証フローを再起動します。
+     - 認証（AuthZ）エラーの場合、ユーザーは要求されたメディアを視聴する権限がなく、何らかのエラーメッセージがユーザーに表示されます。
+     - 他のタイプのエラー（接続エラー、ネットワークエラーなど）が発生した場合 その後、ユーザーに適切なエラーメッセージを表示します。
 
 1. ショートメディアトークンを検証します。\
    Adobe Pass Authentication Media Token Verifier ライブラリを使用して、上記の`getAuthorization()`呼び出しから返された短期間有効なメディアトークンを検証します。
@@ -211,7 +212,7 @@ Android Library （AccessEnabler）
 1. ユーザーをログアウトするには、[`logout()`](#$logout)に電話してください。\
    AccessEnablerは、現在のMVPDのキャッシュされた値とトークンを、現在の依頼者とシングルサインオンの依頼者に対してすべてクリアします。 キャッシュをクリアした後、AccessEnablerはサーバーサイドのセッションをクリーンアップするためにサーバーコールを実行します。  サーバー呼び出しはIdPへのSAML リダイレクトにつながる可能性があるため（これにより、IdP側でセッションクリーンアップが可能になります）、この呼び出しはすべてのリダイレクトに従う必要があります。 このため、この呼び出しはWebView コントロール内で処理する必要があります。
 
-   a.  認証ワークフローと同じパターンに従って、AccessEnabler ドメインは（0&rbrace; コールバックを介して） UI アプリケーション レイヤーにWebView コントロールを作成するようにリクエストし、そのコントロールにバックエンド サーバー上のログアウトエンドポイントのURLを読み込むように指示します。`navigateToUrl()`
+   a.  認証ワークフローと同じパターンに従って、AccessEnabler ドメインは（0} コールバックを介して） UI アプリケーション レイヤーにWebView コントロールを作成するようにリクエストし、そのコントロールにバックエンド サーバー上のログアウトエンドポイントのURLを読み込むように指示します。`navigateToUrl()`
 
    b.  繰り返しますが、UIはWebView コントロールのアクティビティを監視し、コントロールが複数のリダイレクトを通過する際に、アプリケーションのカスタム URL （つまり、`http://adobepass.android.app/`）を読み込む瞬間を検出する必要があります。 このイベントが発生すると、UI アプリケーションレイヤーがWebViewを閉じ、ログアウトプロセスが完了します。
 

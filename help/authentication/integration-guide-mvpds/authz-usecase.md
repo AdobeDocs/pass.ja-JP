@@ -1,46 +1,47 @@
 ---
-title: MVPD認証
-description: MVPD認証
+title: MVPD Authorization
+description: MVPD Authorization
 exl-id: 215780e4-12b6-4ba6-8377-4d21b63b6975
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '588'
 ht-degree: 0%
-
 ---
-
-# MVPD認証
+# MVPD Authorization
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 ## 概要 {#mvpd-authz-overview}
 
-認証（AuthZ）は、AdobeがホストするバックエンドサーバーとMVPD AuthZ エンドポイントの間で、バックチャネル（サーバー間）通信を介して行われます。
+認証（AuthZ）は、AdobeがホストするバックエンドサーバーとMVPD AuthZ エンドポイント間のバックチャネル（サーバー間）通信を介して実行されます。
 
 AuthZ リクエストの場合、認証エンドポイントは少なくとも次のパラメーターを処理できる必要があります。
 
-* **Uid**。 認証手順から受信したユーザー ID。
+* **Uid**。 認証ステップから受信したユーザーID。
 
-* **リソース ID**。 特定のコンテンツリソースを識別する文字列。 このリソース ID はプログラマーによって指定され、MVPDはこれらのリソースに関するビジネスルールを強化する必要があります（例えば、ユーザーが特定のチャネルを購読していることを確認するなど）。
+* **リソース ID**。 特定のコンテンツリソースを識別する文字列。 このリソース IDはプログラマによって指定され、MVPDはこれらのリソースに関するビジネスルールを強化する必要があります（例えば、ユーザーが特定のチャネルに登録されていることを確認することで）。
 
-応答には、ユーザーが認証されているかどうかを判断する以外に、この認証の有効期間（TTL）（つまり認証の有効期限）を含める必要があります。 TTL が設定されていない場合、AuthZ リクエストは失敗します。  このため、MVPDがリクエストに TTL を含めない場合に対応するために、**TTL は、Adobe Pass認証側の必須の設定です**。
+ユーザーが認証されているかどうかの判断に加えて、応答には、認証の有効期限である、この認証の有効期間（TTL）が含まれている必要があります。 TTLが設定されていない場合、AuthZ リクエストは失敗します。  このため、**TTLは、Adobe PassがリクエストにTTLを含まない場合をカバーするために、MVPD認証側**&#x200B;で必須の設定です。
 
-## 承認リクエスト {#authz-req}
+## 認証リクエスト {#authz-req}
 
-AuthZ リクエストには、リクエストを行う主体、主体がアクセスしようとしているリソース、主体がリソースに対して実行しようとしているアクション、および操作が実行されようとしている環境が含まれている必要があります。 Adobe Pass認証の特定のケースでは、これらの要素は次に対応します。
+AuthZ リクエストには、リクエストを実行する主体、その主体がアクセスしようとしているリソース、その主体がリソースに対して実行しようとしているアクション、および操作を実行しようとしている環境が含まれている必要があります。 Adobe Pass認証の場合、これらの要素は次に対応します。
 
-| XACML 要素 | 次に対応 |
+| XACML要素 | 対応先 |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------|
-| 件名 | 認証済みセッションで識別されるプリンシパル。SAML アサーションの「subject-token」 AttributeValue で参照されます。 |
-| Resource | 保護されたリソースの URI。 |
-| アクション | 表示。 |
-| 0.5511122 | SP から見た要求元クライアントの IP アドレスが含まれます。 |
+| 件名 | SAML アサーションの「subject-token」 AttributeValueによって参照される、認証済みセッションで識別されるプリンシパル。 |
+| リソース | 保護されたリソースのURI。 |
+| アクション | ビュー： |
+| 環境 | SPで表示される、リクエスト側のクライアントのIP アドレスが含まれます。 |
 
 
 
-この時点の SP は、XACML Authorization DecisionQuery を準備し、（HTTP POST を介して） IdP の（事前に合意された） Policy Decision Point （PDP; ポリシー決定ポイント）に送信する必要があります。 次に、単純な XACML リクエストの例を示します（XACML コア仕様を参照）。
+この時点でSPはXACML Authorization DecisionQueryを準備し、それを（HTTP POST経由で） IdPの（以前に合意された） Policy Decision Point （PDP）に送信する必要があります。 以下は、単純なXACML リクエストの例です（XACML コア仕様を参照）。
 
 ```XML
 POST https://authz.site.com/XACML_endpoint
@@ -80,11 +81,11 @@ http://docs.oasis-open.org/xacml/access_control-xacml-2.0-context-schema-os.xsd"
 ```
 
 
-MVPDの PDP は、AuthZ 要求を受け取ると、その要求を評価し、要求されたアクションをリソースに対して実行することをサブジェクトに許可する必要があるかどうかを判断します。 次に、MVPDは、意思決定、ステータスコードおよびメッセージを含む応答を返します（以下の認証応答を参照）。
+AuthZ リクエストを受け取った後、MVPDのPDPはリクエストを評価し、リクエストされたアクションをリクエストされたリソースに対して実行できるかどうかを判断します。 その後、MVPDは、以下の「承認応答」の説明に従って、決定、ステータスコード、およびメッセージを含む応答を返します。
 
-## 承認応答 {#authz-response}
+## 認証の応答 {#authz-response}
 
-AuthZ リクエストへの応答は、MVPDがリクエストを評価し、リクエストされたビジネスルールを適用して、サブジェクトがリソースに対してリクエストされたアクションを実行できるかどうかを判断した後になります。 返されたAdobe Pass認証への応答は、SP が Policy Enforcement Point （PEP; ポリシー強制ポイント）として持つ Decision、Status code、message、および Oblidations を含む XACML コア仕様に従って再度表されます。 応答の例を次に示します。
+AuthZ リクエストへの応答は、MVPDがリクエストを評価し、リクエストされたビジネスルールを適用して、件名がリクエストされたアクションをリソースで実行できるかどうかを判断した後に行われます。 Adobe Pass Authenticationに対して返される応答は、XACML コア仕様に従って、SPがPolicy Enforcement Point （PEP）として持つDecision、Status Code、Message、およびObligationsで再度表されます。 応答の例を次に示します。
 
 ```XML
 <Response xmlns="urn:oasis:names:tc:xacml:2.0:context:schema:os">
@@ -104,17 +105,17 @@ AuthZ リクエストへの応答は、MVPDがリクエストを評価し、リ�
 </Response>
 ```
 
-以下は、Adobe Pass認証がサポートし、プログラマーが履行できる DENY 義務のリストです。
+次に、Adobe Pass Authenticationがサポートし、プログラマーが実行できるDENY Obligationsのリストを示します。
 
-* **urn:tve:xacml:2.0:obligations:restrict-pc** - サブスクライバはペアレンタルコントロールチェックに失敗しました。SP はこのコンテンツへのアクセスを制限するために適切な措置を講じる必要があります。
+* **urn:tve:xacml:2.0:obligations:restrict-pc** – 加入者はペアレンタルコントロールのチェックに失敗しました。SPは、このコンテンツへのアクセスを制限するために適切な対策を講じる必要があります。
 
-* **urn:tve:xacml:2.0:obligations:upgrade** - サブスクライバーに適切なサブスクリプション レベルがありません。  コンテンツにアクセスするには、サブスクリプションをアップグレードする必要があります。
+* **urn:tve:xacml:2.0:obligations: アップグレード** – 購読者に適切なサブスクリプションレベルがありません。  コンテンツにアクセスするには、サブスクリプションをアップグレードする必要があります。
 
-Adobe Pass認証は、次の **PERMIT** 義務をサポートし、プログラマーがそれらを履行できるようにします。
+Adobe Pass Authenticationでは、次の&#x200B;**PERMIT**&#x200B;の義務をサポートしており、プログラマーがそれらを満たすことができます。
 
-* **urn:cablelabs:olca:1.0:obligations:log** - Adobe Passは、トランザクションをログに記録し、同意されたレポートメカニズムを通じて利用できるようにします。
+* **urn:cablelabs:olca:1.0:obligations:log** - Adobe Passはトランザクションをログに記録し、合意されたレポートメカニズムを介して利用できるようにします。
 
-* **urn:cablelabs:olca:1.0:obligations:re-authz** - Adobe Pass Authentication は、n 秒で認証内容を再度更新します（XACML AttributeAssignment を介した債務引数として指定されます – XACML コア仕様の 5.46 節を参照）。
+* **urn:cablelabs:olca:1.0:obligations:re-authz** - Adobe Pass Authenticationは、認証をn秒以内に再度更新します（XACML AttributeAssignmentを介してObligationの引数として指定します – XACML コア仕様、セクション 5.46を参照）。
 
 <!--
 >![RelatedInformation]

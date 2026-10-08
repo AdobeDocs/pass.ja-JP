@@ -2,47 +2,48 @@
 title: ヘッダー – 認証
 description: REST API V2 - ヘッダー – 認証
 exl-id: 86917d7e-ffd9-4d34-8f9c-5a50083f85e6
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '121'
 ht-degree: 1%
-
 ---
-
 
 # ヘッダー – 認証 {#header-authorization}
 
 >[!NOTE]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 ## 概要 {#overview}
 
-<b>Authorization</b> リクエストヘッダーには、Adobe Passで保護された API にアクセスするためにクライアントアプリケーションで必要な `Bearer` アクセストークンが含まれています。
+<b>Authorization</b> リクエストヘッダーには、クライアントアプリケーションがAdobe Passで保護されたAPIにアクセスするために必要な`Bearer` アクセストークンが含まれています。
 
-Adobe Passで保護された API へのアクセスの仕組みについて詳しくは、[Dynamic Client Registration Overview](../../../rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
+Adobe Passで保護されたAPIにアクセスする仕組みについて詳しくは、[Dynamic Client Registration Overview](../../../rest-api-dcr/dynamic-client-registration-overview.md)のドキュメントを参照してください。
 
 ## 構文 {#syntax}
 
 <table style="table-layout:auto">
    <tr>
-      <td style="background-color: #DEEBFF;" colspan="2"><b>Authorization</b>: ベアラー &lt;access_token&gt;</td>
+      <td style="background-color: #DEEBFF;" colspan="2"><b>認証</b>: ベアラー&lt;access_token&gt;</td>
    </tr>
    <tr>
       <td>ヘッダータイプ</td>
       <td>リクエストヘッダー</td>
    </tr>
    <tr>
-      <td>標準</td>
+      <td>Standard</td>
       <td>はい</td>
    </tr>
 </table>
 
-## ディレクティブ {#directives}
+## 指令 {#directives}
 
 <b>&lt;access_token></b>
 
-アクセストークン値は、有効期限が限られている opaque 値（24 時間など）で、[&#x200B; アクセストークンの取得 &#x200B;](../../../rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントに記載されているように、Adobe Passから取得する必要があります。
+アクセストークンの値は、制限された有効期間（24時間など）を持つ不透明な値で、[ アクセストークンの取得](../../../rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) API ドキュメントで説明されているように、Adobe Passから取得する必要があります。
 
 ## 例 {#examples}
 

@@ -1,76 +1,77 @@
 ---
-title: Adobe&reg; Pass Authentication へようこそ
-description: Adobe&reg; Pass Authentication へようこそ
+title: Adobe&-160;Workfront AI Collaboratorsregへようこそ。Pass Authentication
+description: Adobe&-160;Workfront AI Collaboratorsregへようこそ。Pass Authentication
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: fab5964aeb832d419702b41a6d3bc5676cb3354f
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '433'
-ht-degree: 4%
-
+ht-degree: 0%
 ---
-
-# Adobe® のパス認証へようこそ {#welcome}
+# Adobe® Pass Authenticationへようこそ {#welcome}
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
-Adobe Pass Authentication は、TV Everywhere （TVE）の強力な使用権限付与ソリューションです。保護されたコンテンツにアクセスする権限が視聴者にあるかどうかを確認するプロセスを合理化および保護するために設計されています。 このモジュール型フレームワークは、コンテンツプロバイダー（プログラマー）と有料テレビプロバイダー（MVPD）を接続し、使用権限のトランザクションを速度、一貫性、信頼性で促進します。
+Adobe Pass Authenticationは、TV Everywhere （TVE）向けの強力なエンタイトルメントソリューションで、視聴者が保護されたコンテンツにアクセスする権利があるかどうかを検証するプロセスを合理化および保護するように設計されています。 このモジュール方式のフレームワークは、コンテンツプロバイダー（プログラマー）と有料テレビ事業者（MVPD）を結びつけ、スピード、一貫性、信頼性を保ちながら、権利付与トランザクションを促進します。
 
-TVE エコシステムでは、プログラマーがコンテンツを提供すると同時に、MVPD が加入者データを管理します。 この動的な動作は、特に多数の MVPD の多様なシステムをナビゲートする場合に困難になる可能性があります。 Adobe Pass認証は、1 つの統合ポイントを提供することで、これらの複雑さを排除し、両方の関係者をより広範な TVE 環境に接続します。
+TVEのエコシステムでは、プログラマーがコンテンツを提供し、MVPDが加入者データを管理します。 このダイナミズムは、特に多数のMVPDの多様なシステムを操作する場合、困難になる可能性があります。 Adobe Pass Authenticationは、両当事者をより広範なTVE環境に接続する単一の統合ポイントを提供することで、こうした複雑さを解消します。
 
-プログラマーは、Adobe Pass認証を使用することで、資格のあるビューアへの安全なアクセスが保証され、エンタイトルメント検証の技術的な負担が軽減されます。 MVPD の場合、統合されたインターフェイスを通じて複数のコンテンツプロバイダーと接続し、顧客との関係を強化し、ビューアエクスペリエンスを向上させる拡張性の高いソリューションを提供します。
+プログラマーにとって、Adobe Pass認証は、資格のある視聴者への安全なアクセスを保証し、資格認定の技術的な負担を軽減します。 MVPD向けには、統合インターフェイスを通じて複数のコンテンツプロバイダーと接続し、顧客関係を強化して視聴者体験を向上させる、拡張性の高いソリューションが提供されます。
 
-Adobe Pass認証は SaaS （Software as a Service）ソリューションとして、市場投入までの時間を短縮し、不正リスクを軽減し、シームレスなクロスプラットフォームコンテンツアクセスを可能にして、適切な視聴者が適切なコンテンツを簡単に受け取れるようにします。
+Adobe Pass Authenticationは、SaaS （Software as a Service）ソリューションとして、市場投入までの時間を短縮し、不正リスクを軽減し、クロスプラットフォームのシームレスなコンテンツアクセスを可能にすることで、適切な視聴者が容易に適切なコンテンツを受け取れるようにします。
 
-## 📢 コミュニティとアップデート
+## 📢のコミュニティとアップデート
 
-* [&#x200B; 製品に関するお知らせ &#x200B;](/help/authentication/product-announcements.md)\
-  最新のAdobe Pass認証製品のお知らせと廃止予定タイムラインについて常に情報を得ます。
+* [製品のお知らせ](/help/authentication/product-announcements.md)\
+  Adobe Pass Authenticationの最新の発表と廃止スケジュールについて常に情報を得ることができます。
 
-## ❓ のサポートとトラブルシューティング
+## ❓のサポートとトラブルシューティング
 
-* [Zendesk カスタマーサポートポータル &#x200B;](https://tve.zendesk.com/home)\
-  チケットへのアクセス、クエリの送信、ナレッジベースの表示を行うには、ログインします。
+* [Zendesk カスタマーサポートポータル ](https://tve.zendesk.com/home)\
+  ログインしてチケットにアクセスしたり、クエリを送信したり、ナレッジベースを表示したりできます。
 
-* [&#x200B; サポート手順に関する FAQ](/help/authentication/kickstart/support-procedures-faqs.md)
-Adobe Pass認証サポート手順に関するよくある質問です。
+* [ サポート手順に関するよくある質問](/help/authentication/kickstart/support-procedures-faqs.md)
+Adobe Pass認証サポート手順に関するよくある質問。
 
-* [Dynamic Client Registration （DCR）に関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md)\
-  Adobe Pass Authentication Dynamic Client Registration （DCR）に関するよくある質問です。
+* [動的クライアント登録（DCR）に関するFAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md)\
+  Adobe Pass Authentication Dynamic Client Registration （DCR）に関するよくある質問。
 
-* [REST API V2 に関する FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md)\
-  Adobe Pass認証 REST API V2 に関するよくある質問です。
+* [REST API V2に関するFAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md)\
+  Adobe Pass Authentication REST API V2に関するよくある質問。
 
-## 📄 ドキュメント
+## 📄件のドキュメント
 
-**プログラマーの場合：**
+**プログラマー：**
 
-* [&#x200B; プログラマー向けキックスタートガイド &#x200B;](/help/authentication/kickstart/programmer-kickstart-guide.md)\
-  Adobe Pass認証の基本を学びます。
+* [番組制作会社向けスタートガイド ](/help/authentication/kickstart/programmer-kickstart-guide.md)\
+  Adobe Pass認証の基本を学ぶ。
 
-* [&#x200B; プログラマー向け統合ガイド &#x200B;](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)\
-  Adobe Pass認証をプログラマーと統合する方法を説明します。
+* [ プログラマー向け統合ガイド ](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)\
+  Adobe Pass認証をプログラマーに統合する方法について説明します。
 
-**MVPD の場合：**
+**MVPDの場合：**
 
-* [MVPD キックスタートガイド &#x200B;](/help/authentication/kickstart/mvpd-kickstart-guide.md)\
-  Adobe Pass認証の基本を学びます。
+* [MVPD キックスタートガイド ](/help/authentication/kickstart/mvpd-kickstart-guide.md)\
+  Adobe Pass認証の基本を学ぶ。
 
-* [MVPD 統合ガイド &#x200B;](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md)\
-  Adobe Pass認証をMVPDと統合する方法を説明します。
+* [MVPDの統合ガイド ](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md)\
+  Adobe Pass認証をMVPDに統合する方法について説明します。
 
-*ページ上部の検索バーを使用するか、左側のメニュー内を移動して、特定のトピックを検索します。*
+*ページ上部の検索バーを使用して特定のトピックを検索するか、左側のメニューから移動します。*
 
-## 🛠️ ツールとライブラリ
+## 🛠️個のツールとライブラリ
 
-* [Adobe Developer Web サイト &#x200B;](https://developer.adobe.com/adobe-pass/)\
-  Adobe Developer web サイトにアクセスして、Adobe Pass認証 REST API を試します。
+* [Adobe Developer Web サイト ](https://developer.adobe.com/adobe-pass/)\
+  Adobe Developerのweb サイトにアクセスして、Adobe Pass Authentication REST APIを試します。
 
-* [&#x200B; メディアトークン検証機能 &#x200B;](https://tve.zendesk.com/hc/en-us/articles/204963159-Media-Token-Verifier-library)\
-  Adobe Pass認証で生成されたメディアトークンを検証するライブラリを統合します。
+* [Media Token Verifier](https://tve.zendesk.com/hc/en-us/articles/204963159-Media-Token-Verifier-library)\
+  Adobe Pass認証によって生成されたメディアトークンを検証するライブラリを統合します。
 
-## 📧 連絡先
+## 📧件の連絡先
 
-* [Adobe サポートへのお問い合わせ &#x200B;](mailto:tve-support@adobe.com)\
-  詳細なヘルプまたはビジネスに関するお問い合わせは、Adobe サポートチームまでメールでお問い合わせください。
+* [Adobe サポートへのお問い合わせ](mailto:tve-support@adobe.com)\
+  その他のヘルプやビジネスに関するお問い合わせは、Adobe サポートチームにお問い合わせください。

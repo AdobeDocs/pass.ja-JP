@@ -2,30 +2,31 @@
 title: 事前承認済みリソースのリストの取得
 description: 事前承認済みリソースのリストの取得
 exl-id: 3821378c-bab5-4dc9-abd7-328df4b60cc3
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '395'
-ht-degree: 3%
-
+ht-degree: 0%
 ---
-
 # （レガシー）事前承認済みリソースのリストの取得 {#retrieve-list-of-preauthorized-resources}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 >[!NOTE]
 >
-> REST API の実装には、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) という制限があります。
+> REST APIの実装は[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
 
 ## REST API エンドポイント {#clientless-endpoints}
 
-&lt; レジストリ_FQDN>:
+&lt;REGGIE_FQDN>:
 
 * 実稼動 – [api.auth.adobe.com](http://api.auth.adobe.com/)
 * ステージング - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
@@ -39,29 +40,29 @@ ht-degree: 3%
 
 ## 説明 {#description}
 
-Adobe Pass Authentication に対するリクエストで、事前に許可されたリソースのリストを取得します。
+事前承認済みリソースのリストを取得するためのAdobe Pass認証へのリクエスト。
 
-API には、ストリーミングアプリまたはプログラマーサービス用の API セットと、2 番目の画面の web アプリ用の API セットの 2 つのセットがあります。 ここでは、ストリーミングアプリまたはプログラマーサービスの API について説明します。
+APIには2つのセットがあります。1つはストリーミングアプリまたはプログラマーサービス用、もう1つはSecond Screen Web App用です。 このページでは、ストリーミングアプリまたはプログラマーサービスのAPIについて説明します。
 
 
-| エンドポイント | 呼び出 </br> 元 | 入力   </br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>Response |
+| エンドポイント | </br>様に呼び出されました | 入力</br> パラメーター | HTTP </br> メソッド | 応答 | HTTP </br>応答 |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/事前承認 | ストリーミングアプリ </br></br> プログラマ </br></br> サービス | &#x200B;1.  要求者（必須） </br>2.  deviceId （必須） </br>3.  resource （必須） </br>4.  device_info/X-Device-Info （必須） </br>5.  _deviceType_</br> 6.  _deviceUser_ （非推奨） </br>7.  _appId_ （非推奨） | GET | 個々の事前認証の決定やエラーの詳細が含まれる XML または JSON。 以下のサンプルを参照してください。 | 200 - Success</br></br>400 - Bad request</br></br>401 - Unauthorized</br></br>405 - Method not allowed </br></br>412 - Precondition failed</br></br>500 – 内部サーバーエラー |
+| &lt;SP_FQDN>/api/v1/preauthorize | ストリーミングアプリ </br></br>または</br></br> プログラマーサービス | &#x200B;1.  依頼者（必須） </br>2。  deviceId （必須） </br>3。  リソース （必須） </br>4。  device_info/X-Device-Info （必須） </br>5.  _deviceType_</br> 6.  _deviceUser_ （非推奨） </br>7。  _appId_ （非推奨） | GET | 個別の事前認証の決定またはエラーの詳細を含むXMLまたはJSON。 以下のサンプルを参照してください。 | 200 – 成功</br></br>400 – 不正なリクエスト </br></br>401 – 許可されていない</br></br>405 - メソッドが許可されていません</br></br>412 – 前提条件が失敗しました</br></br>500 – 内部サーバーエラー |
 
 
 | 入力パラメーター | 説明 |
 | --- | --- |
-| 要求者 | この操作が有効なプログラマ requestorId です。 |
-| deviceId | デバイス ID のバイト。 |
-| resource | ユーザーがアクセス可能で、MVPD認証エンドポイントによって認識されるコンテンツを識別する resourceId のコンマ区切りリストを含む文字列。 |
-| device_info/</br></br>X-Device-Info | Streaming Device information.</br></br>**Note**：これは device_info を URL パラメーターとして渡す場合がありますが、このパラメーターの潜在的なサイズとGET URL の長さに関する制限により、http ヘッダーで X-Device-Info として渡す必要があります。</br></br>詳しくは、「デバイスと接続情報の受け渡し [&#x200B; を参照してください &#x200B;](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。 |
-| _deviceType_ | デバイスタイプ（Roku、PC など）。</br></br> このパラメーターが正しく設定されている場合、Roku、AppleTV、Xbox など、様々なタイプの分析が実行できるように、ESM では [&#x200B; デバイスタイプごとに分類 &#x200B;](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type) された指標が提供されます。</br></br>[&#x200B; パス指標でクライアントレスデバイスタイプパラメーターを使用するメリット &#x200B;](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**メモ**：このパラメーターは、`device_info` に置き換えられます。 |
-| _deviceUser_ | デバイスユーザー識別子。 |
-| _appId_ | アプリケーション ID/名前。</br></br>**注意**：このパラメータは device_info に置き換えられます。 |
+| 依頼者 | この操作が有効なプログラマの依頼者Id。 |
+| deviceId | デバイス ID バイト。 |
+| リソース | ユーザーがアクセスできる可能性のあるコンテンツを識別し、MVPD認証エンドポイントが認識する、resourceIdのコンマ区切りリストを含む文字列。 |
+| device_info/</br></br>X-Device-Info | ストリーミングデバイス情報。</br></br>**注**：これはdevice_infoをURL パラメーターとして渡すことができますが、このパラメーターの潜在的なサイズとGET URLの長さに制限があるため、HTTP ヘッダーでX-Device-Infoとして渡す必要があります。 </br></br>詳細については、[ デバイスと接続情報の受け渡し](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)を参照してください。 |
+| _deviceType_ | デバイスの種類（Roku、PCなど）。</br></br>このパラメーターが正しく設定されている場合、ESMはクライアントレスを使用する際にデバイスの種類](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type)ごとに[分割された指標を提供するため、様々なタイプの分析を実行できます（Roku、AppleTV、Xboxなど）。</br></br>参照、[ パス指標でクライアントレスのデバイスタイプパラメーターを使用する利点&#x200B;](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**注**: `device_info`は、このパラメーターに置代わります。 |
+| _deviceUser_ | デバイスユーザーID。 |
+| _appId_ | アプリケーション ID/名前。 </br></br>**メモ**:device_infoがこのパラメーターに置き換わります。 |
 
 
 
-### 応答のサンプル {#sample-response}
+### 応答サンプル {#sample-response}
 
 
 

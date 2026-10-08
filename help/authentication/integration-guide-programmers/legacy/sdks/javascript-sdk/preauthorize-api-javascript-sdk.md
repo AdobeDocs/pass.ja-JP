@@ -2,13 +2,14 @@
 title: 事前承認
 description: JavaScriptの事前認証
 exl-id: b7493ca6-1862-4cea-a11e-a634c935c86e
-source-git-commit: 7208b16831e1c6c4cbb37bf925a798d931ab8ea3
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '1149'
 ht-degree: 0%
-
 ---
-
 # （レガシー）事前認証 {#js-preauthorize}
 
 >[!NOTE]
@@ -294,7 +295,7 @@ accessEnablerApi.preauthorize(request, callback);
             "status": 403,
             "code": "preauthorization_denied_by_mvpd",
             "message": "The MVPD has returned a \"Deny\" decision when requesting pre-authorization for the specified resource.",
-            "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html?lang=ja",
+            "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html",
             "action": "none"
         }
         },
@@ -363,7 +364,7 @@ accessEnablerApi.preauthorize(request, callback);
             "status": 403,
             "code": "preauthorization_denied_by_mvpd",
             "message": "The MVPD has returned a \"Deny\" decision when requesting pre-authorization for the specified resource.",
-            "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html?lang=ja",
+            "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html",
             "action": "none"
             }
         },
@@ -374,7 +375,7 @@ accessEnablerApi.preauthorize(request, callback);
                 "status": 403,
                 "code": "preauthorization_denied_by_mvpd",
                 "message": "The MVPD has returned a \"Deny\" decision when requesting pre-authorization for the specified resource.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html?lang=ja",
+                "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html",
                 "action": "none"
             }
         },
@@ -385,7 +386,7 @@ accessEnablerApi.preauthorize(request, callback);
             "status": 403,
             "code": "maximum_execution_time_exceeded",
             "message": "The request did not complete in the maximum allowed time. Retrying the request might solve the issue.",
-            "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html?lang=ja",
+            "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html",
             "action": "retry"
                 }
             }
@@ -420,7 +421,7 @@ accessEnablerApi.preauthorize(request, callback);
     "code": "internal_error",
     "message": "The request failed due to an internal error.",
     "details": "Required String[] parameter 'resource' is not present",
-    "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html",
     "action": "none"
     },
     "decisions": []
@@ -452,7 +453,7 @@ accessEnablerApi.preauthorize(request, callback);
     "status": 412,
     "code": "missing_resource",
     "message": "The resource parameter is missing",
-    "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html?lang=ja",
+    "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html",
     "action": "none"
     },
     "decisions": []
@@ -488,7 +489,7 @@ accessEnablerApi.preauthorize(request, callback);
             "status": 403,
             "code": "network_received_error",
             "message": "There was a read error while retrieving the response from the associated partner service. Retrying the request might solve the issue.",
-            "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html?lang=ja",
+            "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html",
             "action": "retry"
             }
         },
@@ -499,7 +500,7 @@ accessEnablerApi.preauthorize(request, callback);
                 "status": 403,
                 "code": "network_received_error",
                 "message": "There was a read error while retrieving the response from the associated partner service. Retrying the request might solve the issue.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html?lang=ja",
+                "helpUrl": "https://experienceleague.adobe.com/docs/primetime/authentication/home.html",
                 "action": "retry"
                 }   
         }

@@ -2,13 +2,14 @@
 title: 登録ページ
 description: 登録ページ
 exl-id: 581b8e2e-7420-4511-88b9-f2cd43a41e10
-source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
-source-wordcount: '528'
+source-wordcount: '529'
 ht-degree: 0%
-
 ---
-
 # （レガシー）登録ページ {#registration-page}
 
 ## REST API エンドポイント {#clientless-endpoints}
@@ -23,7 +24,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> REST APIの実装は[&#x200B; スロットル メカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
+> REST APIの実装は[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)によって制限されています
 
 &lt;REGGIE_FQDN>:
 
@@ -41,9 +42,9 @@ ht-degree: 0%
 
 ランダムに生成された登録コードとログインページ URIを返します。
 
-| エンドポイント | <br>様に呼び出されました | 入力   <br> パラメーター | HTTP <br> メソッド | 応答 | HTTP <br>応答 |
+| エンドポイント | <br>様に呼び出されました | 入力<br> パラメーター | HTTP <br> メソッド | 応答 | HTTP <br>応答 |
 | --- | --- | --- | --- | --- | --- |
-| &lt;REGGIE_FQDN>/reggie/v1/{requestor}/regcode<br>例：<br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | ストリーミングアプリ <br>または<br> プログラマーサービス | &#x200B;1.  依頼者<br>    （パスコンポーネント） <br>2。  deviceId （ハッシュ化）   <br>    （必須） <br>3.  device_info/X-Device-Info （必須） <br>4.  mvpd （オプション） <br>5。  ttl （オプション） <br> | 投稿する | 登録コードと情報またはエラーの詳細を含むXMLまたはJSONが失敗した場合。 以下のサンプルを参照してください。 | 201 |
+| &lt;REGGIE_FQDN>/reggie/v1/{requestor}/regcode<br>例：<br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | ストリーミングアプリ <br>または<br> プログラマーサービス | &#x200B;1.  依頼者<br> （パスコンポーネント） <br>2。  deviceId （ハッシュ化） <br> （必須） <br>3。  device_info/X-Device-Info （必須） <br>4.  mvpd （オプション） <br>5。  ttl （オプション） <br> | 投稿する | 登録コードと情報またはエラーの詳細を含むXMLまたはJSONが失敗した場合。 以下のサンプルを参照してください。 | 201 |
 
 {style="table-layout:auto"}
 
@@ -53,7 +54,7 @@ ht-degree: 0%
 | 承認 | ヘッダー<br>値：application/json | 顧客が理解できる必要があるコンテンツタイプを示します |
 | 依頼者 | クエリパラメーター | この操作が有効なプログラマの依頼者Id。 |
 | deviceId | クエリパラメーター | デバイス ID バイト。 |
-| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: Header | ストリーミングデバイス情報。<br>**注**：これはdevice_infoをURL パラメーターとして渡すことができますが、このパラメーターの潜在的なサイズとGET URLの長さに制限があるため、http ヘッダーでX-Device-Infoとして渡す必要があります。 <br>詳細については、[&#x200B; デバイスと接続情報の受け渡し](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)を参照してください。 |
+| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: Header | ストリーミングデバイス情報。<br>**注**：これはdevice_infoをURL パラメーターとして渡すことができますが、このパラメーターの潜在的なサイズとGET URLの長さに制限があるため、HTTP ヘッダーでX-Device-Infoとして渡す必要があります。 <br>詳細については、[ デバイスと接続情報の受け渡し](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)を参照してください。 |
 | mvpd | クエリパラメーター | この操作が有効なMVPD ID。 |
 | ttl | クエリパラメーター | このregcodeの有効期間を秒単位で指定します。<br>**注**: ttlに許可される最大値は36000秒（10時間）です。 値が大きいほど、400 HTTP応答（不正なリクエスト）が返されます。 `ttl`が空のままの場合、Adobe Pass Authenticationはデフォルト値を30分に設定します。 |
 | _deviceType_ | クエリパラメーター | 非推奨です。使用しないでください。 |
@@ -65,7 +66,8 @@ ht-degree: 0%
 >[!CAUTION]
 >
 >**ストリーミングデバイス IP アドレス**
-><br>>クライアント間の実装の場合、ストリーミングデバイスのIP アドレスは、この呼び出しで暗黙的に送信されます。  サーバー間の実装では、**regcode**&#x200B;呼び出しがストリーミングデバイスではなくプログラマーサービスとして行われます。ストリーミングデバイスのIP アドレスを渡すには、次のヘッダーが必要です。
+><br>
+>クライアント間の実装の場合、ストリーミングデバイスのIP アドレスは、この呼び出しで暗黙的に送信されます。  サーバー間の実装では、**regcode**&#x200B;呼び出しがストリーミングデバイスではなくプログラマーサービスとして行われます。ストリーミングデバイスのIP アドレスを渡すには、次のヘッダーが必要です。
 >
 >
 >```
@@ -73,13 +75,14 @@ ht-degree: 0%
 >```
 >
 >ここで、`<streaming\_device\_ip>`はストリーミングデバイスのパブリック IP アドレスです。
-><br><br>>例：<br>
+><br><br>
+>例：<br>
 >
 >```
 >POST /reggie/v1/{req_id}/regcode HTTP/1.1<br>X-Forwarded-For:203.45.101.20
 >```
 >
-><br>
+<br>
 
 ### 応答JSON
 

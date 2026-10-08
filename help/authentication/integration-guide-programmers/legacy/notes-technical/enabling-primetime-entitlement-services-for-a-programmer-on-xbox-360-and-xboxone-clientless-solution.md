@@ -1,52 +1,53 @@
 ---
-title: Xbox 360 および XboxOne クライアントレスでのプログラマーに対するAdobe Pass使用権サービスの有効化
-description: Xbox 360 および XboxOne クライアントレスでのプログラマーに対するAdobe Pass使用権サービスの有効化
+title: Xbox 360およびXboxOne クライアントレスでのプログラマーのAdobe Pass使用権限サービスの有効化
+description: Xbox 360およびXboxOne クライアントレスでのプログラマーのAdobe Pass使用権限サービスの有効化
 exl-id: ff7254de-9ea4-4c27-a186-d1c2eea12222
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '484'
 ht-degree: 0%
-
 ---
-
-# （従来のバージョン） Xbox 360 および XboxOne クライアントレスで、プログラマー向けのAdobe Pass使用権限サービスを有効にする {#enabling-primetime-entitlement-services-for-a-programer-on-xbox-360-and-xboxone-clientless}
+# （レガシー） Xbox 360およびXboxOne クライアントレスでのプログラマーに対するAdobe Passの使用権限サービスの有効化 {#enabling-primetime-entitlement-services-for-a-programer-on-xbox-360-and-xboxone-clientless}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 
-1. プログラマーは、次の情報を提供して、Adobe Pass認証のクライアントレスソリューションに対して Xbox 360/One を有効にするための Zendesk チケットを作成します。
+1. プログラマーは、次の情報を提供することで、Xbox 360/One for Adobe Pass Authentication クライアントレスソリューションを有効にするためのZendesk チケットを作成します。
 
-   1. プラットフォーム：Xbox 360、Xbox One など
+   1. プラットフォーム：例：Xbox 360、Xbox One
 
-   1. 要求者 ID：例：netgeo、CNN など
+   1. 依頼者ID: netgeo、CNNなど
 
-1. Adobeは X509 証明書を作成し、その最後に秘密鍵とパスワードを設定します。
+1. AdobeはX509証明書を作成し、秘密鍵とパスワードを最後に設定します。
 
-1. Adobeは、（X509 証明書の）公開証明書を、チケットまたはメールでプログラマーに提供します。
+1. Adobeは、チケットまたは電子メールでプログラマーに公開証明書（X509証明書）を提供します。
 
-1. その後、プログラマーは、Microsoftに登録されたアプリの GDNP ポータルに、その公開証明書をインストールする必要があります。
+1. その後、プログラマーは、Microsoftに登録されたアプリのGDNP ポータルにその公開証明書をインストールする必要があります。
 
-1. 次に、プログラマーは、Microsoft Xbox Live サービスから、それぞれ XboxOne または 360 用の JWT （Java Web トークン）または STS トークンをリクエストします。このトークンは、手順 3 で提供された X509 公開証明書を使用して暗号化されます。
+1. その後、プログラマーはXboxOneまたは360のJWT （Java Web Token）またはSTS TokenをMicrosoft Xbox Live サービスからそれぞれリクエストします。これは、手順3で提供されるX509公開証明書を使用して暗号化されます。
 
-1. これらは、Xbox デバイス用の一意の deviceId を含むトークンです。 以下のように、「x」パラメーターを使用して、Authorization ヘッダーにトークン（JWT または STS）を含めます。
+1. これらは、Xbox デバイスの一意のdeviceIdを含むトークンです。 以下のように&#39;x&#39; パラメーターを使用して、認証ヘッダーにトークン（JWTまたはSTS）を含めます。
 
-   1. Xbox 360 の場合、Adobe Passの有料テレビ放送に送信する前に、XSTS トークンを Base64 エンコードする必要があります。
-   1. Xbox One の場合、JWT はすでに適切にエンコードされているので、追加のエンコーディングは行われません。
+   1. Xbox 360の場合、XSTS トークンはAdobe Pass有料テレビ認証に送信する前にBase64 エンコードされている必要があります。
+   1. Xbox Oneの場合、JWTは既に適切にエンコードされているため、追加のエンコードは行われません。
 
-1. Xbox デバイスからのすべての API 呼び出しには、x パラメーターに前述のトークンを含む認証ヘッダーが含まれている必要があります。
+1. Xbox デバイスからのすべてのAPI呼び出しには、上記のトークンがx パラメーターに含まれている認証ヘッダーが含まれている必要があります。
 
 
-
->[!NOTE]
->
->特に Xbox には、デジタル署名に関連した独自の要件がいくつかあります。 XBox コンソールのデバイス ID は、XSTS トークンに含まれます。  Xbox 360 の場合、これは暗号化された SAML アサーションです。Xbox One の場合、これは暗号化された JWT です。 XBox コンソールアプリは、XSTS トークン全体をAdobe Passの有料テレビ認証に送信します。 Adobe Passの有料 TV 認証では、公開鍵を使用してトークンを復号化し、トークンを解析して、そのトークンから deviceId を抽出します。
 
 >[!NOTE]
 >
->XSTS トークンの長さが長いため、XBox コンソールには技術的な制限があります。つまり、トークンを HTTP GETのパラメーターとしてAdobe Passの有料テレビ認証 API に送信することはできません。 これに対処するために、Adobe Passの有料テレビ認証では、API を呼び出す際に、HTTP ヘッダー「Authorization」の一部として XSTS トークンを送信できます。 XSTS トークンは、Adobe Pass有料テレビ認証からプログラマーに発行された X.509 証明書の公開鍵を使用して暗号化する必要があります。 Adobe Passの有料 TV 認証では、関連する秘密鍵が保存され、その秘密鍵を使用して XSTS トークンが復号化され、deviceId が抽出されます。
+>特にXboxには、デジタル署名に関連する独自の要件がいくつかあります。 XBox コンソールのデバイス IDは、XSTS トークンに含まれています。  Xbox 360の場合、これは暗号化されたSAML アサーションです。Xbox Oneの場合、これは暗号化されたJWTです。 XBox コンソールアプリは、XSTS トークン全体をAdobe Pass有料テレビ認証に送信します。 Adobe Pass pay-TV認証は、公開鍵を使用してトークンを復号化し、トークンを解析して、そこからdeviceIdを抽出します。
+
+>[!NOTE]
+>
+>XSTS トークンの長さが大きいため、XBox コンソールには技術的な制限があります。Adobe Passの有料テレビ認証APIにHTTP GET パラメーターとしてトークンを送信することはできません。 これに対処するため、Adobe Passの有料テレビ認証では、APIを呼び出す際に、HTTP ヘッダー「認証」の一部としてXSTS トークンを送信できます。 XSTS トークンは、Adobe Pass有料テレビ認証からプログラマーに発行されたX.509証明書の公開鍵を使用して暗号化する必要があります。 Adobe Pass有料テレビ認証は、関連する秘密鍵を保存し、XSTS トークンを復号化し、そこからdeviceIdを抽出するために使用します。

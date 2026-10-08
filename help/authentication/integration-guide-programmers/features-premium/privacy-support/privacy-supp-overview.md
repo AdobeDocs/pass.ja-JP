@@ -2,23 +2,24 @@
 title: プライバシーサポートの概要
 description: プライバシーサポートの概要
 exl-id: 9868a7e7-30f6-420e-a660-7d2f7870374d
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '245'
-ht-degree: 11%
-
+ht-degree: 0%
 ---
-
 # プライバシーサポートの概要 {#priv-supp-overview}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 ## 概要 {#overview}
 
-**GDPR** - 2018 年 5 月 25 日に施行された法律である一般データ保護規則（GDPR）は、欧州連合（EU）の境界内のすべての個人（データ主体）に個人データの管理を提供し、国際的なビジネスのための規制環境を簡素化します。 この法律は、個人データが処理される時点で、EU の境界内の個人に対して商品またはサービスを提供、行動を監視、および個人データを収集するすべてのビジネス（データ管理者）に適用されます
+**GDPR**-2018年5月25日に施行される法律である一般データ保護規則（GDPR）は、欧州連合（EU）の範囲内のすべての個人（データ主体）に個人データの制御を与え、国際的なビジネスの規制環境を簡素化します。 この法律は、データ管理者のビジネスの場所に関係なく、個人データが処理される際に、EUの国境内の個人に対して商品またはサービスを提供し、行動を監視し、収集するすべてのビジネス（データ管理者）に適用されます
 
-**CCPA** - カリフォルニア州消費者プライバシー法（CCPA）は、カリフォルニア州の居住者に個人情報に関する新しい権利を提供し、カリフォルニア州でビジネスを行う特定の事業者に対してデータ保護の責任を課す法律です。 CCPA は、個人情報へのアクセス権や削除権など、GDPR で既に知られている一部の概念を利用します。 ただし、CCPA が GDPR と異なる他の領域もあります。
+**CCPA** – カリフォルニア州消費者プライバシー法（CCPA）は、カリフォルニア在住の方に個人情報に関する新たな権利を提供する法律であり、カリフォルニア州で事業を行う特定の企業に対してデータ保護の責任を課します。 CCPAは、個人情報へのアクセスや削除の権利など、GDPRの下ですでに知られている概念のいくつかを利用しています。 ただし、CCPAとGDPRは異なる点があります。
 
-Adobe Pass Authentication のお客様は、[&#128279;](https://www.adobe.io/apis/experiencecloud/gdpr/docs/alldocs.html#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md)Privacy Service UI を使用するか、[Privacy Service API](https://www.adobe.io/apis/experiencecloud/gdpr/docs/alldocs.html#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_api_tutorial.md) を呼び出すことにより、カスタマーデータに対するアクセスおよび削除のリクエストを GDPR または CCPA プライバシーリクエストを個別に送信す &#x200B; ことができます。
+Adobe Pass認証をご利用のお客様は、[Privacy Service UI](https://www.adobe.io/apis/experiencecloud/gdpr/docs/alldocs.html#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md)または[Privacy Service API](https://www.adobe.io/apis/experiencecloud/gdpr/docs/alldocs.html#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_api_tutorial.md)を呼び出して、お客様データへのアクセスと削除を求める個別のGDPRまたはCCPA プライバシーリクエストを送信できます。

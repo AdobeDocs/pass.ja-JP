@@ -1,200 +1,201 @@
 ---
-title: TempPass フィーチャ
-description: TempPass フィーチャ
+title: TempPass機能
+description: TempPass機能
 exl-id: 1df14090-8e71-4e3e-82d8-f441d07c6f64
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
-source-wordcount: '2240'
+source-wordcount: '2245'
 ht-degree: 0%
-
 ---
-
-# TempPass フィーチャ {#temp-pass-feature}
-
->[!IMPORTANT]
->
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
-
-TempPass は、有効なMVPD アカウント資格情報がなくても、プログラマーが保護されたコンテンツへの一時的なアクセスを提供できるようにする多目的な機能です。 基本的なアクセスシナリオやターゲットを絞ったプロモーションキャンペーンを通じて、視聴者を惹きつける効果的なツールとして機能します。
-
-TempPass は、プログラマーが次のことを行うための強力なソリューションです。
-
-* **エンゲージメント閲覧者：** 新規購読者を引き付けるプレミアムコンテンツの嗜好を提供します。
-* **プロモーションの促進：** ターゲットキャンペーンを実行して、コンテンツのエクスポージャーを増やし、ブランドロイヤルティを構築します。
-* **制御を保持：** アクセス期間の管理、制限の適用、アクセスのリセットを必要に応じて行い、ビジネス目標に合わせます。
-
-TempPass 機能は、Adobe Pass Authentication Server configuration 内に疑似MVPD（さらに「Temp Pass」と呼ばれる）を導入し、参加するプログラマーとの連携によって提供されます。 TempPass 機能は、次の 2 つの構成で使用できます。
-
-* 時間ベースのアクセス用 [&#x200B; 基本 TempPass](#basic-temp-pass)。
-* [&#x200B; プロモーション TempPass](#promotional-temp-pass) で、キャンペーン駆動型の柔軟なアクセスが可能になります。
+# TempPass機能 {#temp-pass-feature}
 
 >[!IMPORTANT]
 >
-> TempPass 機能はプレミアム機能で、Adobeの現在のライセンスが必要になります。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-次の表に、基本およびプロモーションの TempPass 機能を簡単に比較します。
+TempPassは、プログラマーが有効なMVPDアカウント資格情報を持たないユーザーに、保護されたコンテンツへの一時的なアクセスを提供できるようにする汎用性の高い機能です。 基本的なアクセスシナリオでも、ターゲットを絞ったプロモーションキャンペーンでも、視聴者を惹きつけるための効果的なツールとして機能します。
 
-| **機能** | **基本 TempPass** | **プロモーション TempPass** |
+TempPassは、プログラマーが次のことを行うための強力なソリューションです。
+
+* **視聴者のエンゲージメント：**&#x200B;新しい加入者を引き付けるために、プレミアムコンテンツの味を提供します。
+* **プロモーションを促進：** コンテンツの露出を高め、ブランドロイヤルティを構築するために、ターゲットを絞ったキャンペーンを実施します。
+* **制御の維持：** ビジネス目標に合わせて、必要に応じてアクセス期間を管理し、制限を適用し、アクセスをリセットします。
+
+TempPass機能は、Adobe Pass Authentication Server Configuration内に疑似MVPD（さらに「Temp Pass」という名前）を導入し、関連するプログラマーとの統合として提供されます。 TempPass機能は、次の2つの構成で利用できます。
+
+* 時間ベースのアクセス用の[Basic TempPass](#basic-temp-pass)。
+* [ キャンペーン駆動型の柔軟なアクセスを実現するプロモーション TempPass](#promotional-temp-pass)。
+
+>[!IMPORTANT]
+>
+> TempPass機能はプレミアム機能であり、Adobeの現在のライセンスが必要です。
+
+次の表に、基本TempPass機能とプロモーション TempPass機能の簡単な比較を示します。
+
+| **機能** | **基本TempPass** | **プロモーション TempPass** |
 |-------------------------------|------------------------------|-------------------------------------------------------------------------------------------------|
-| **コンテンツへのアクセス** | <ul><li>時間ベース</li></ul> | <ul><li>時間ベース</li><li>リソースの最大数に制限</li></ul> |
-| **アクセスのセキュリティ基準** | <ul><li>デバイス ID</li></ul> | <ul><li>デバイス ID</li><li>指定されたユーザー識別情報のハッシュ （例：メール）</li></ul> |
-| **拡張エラーコード** | 利用可能 | 利用可能 |
+| **コンテンツへのアクセス** | <ul><li>時間ベース</li></ul> | <ul><li>時間ベース</li><li>リソースの最大数に制限されています</li></ul> |
+| **に基づくアクセス セキュリティ :** | <ul><li>デバイス ID</li></ul> | <ul><li>デバイス ID</li><li>提供されたユーザーID情報（電子メールなど）のハッシュ</li></ul> |
+| **強化されたエラーコード** | 利用可能 | 利用可能 |
 | **TempPass リセット機能** | 利用可能 | 利用可能 |
 
 >[!IMPORTANT]
 > 
-> Adobe Pass認証には、割り当てられた時間（X 分）が経過すると進行中のストリームを自動的に停止する組み込みのメカニズムは含まれていません。 進行中のストリーム中に TempPass が期限切れになったら、アクセス制限を実施するのは、プログラマーの責任です。
+> Adobe Pass認証には、割り当てられた時間（X分）が経過すると、進行中のストリームを自動的に停止する組み込みメカニズムは含まれていません。 進行中のストリーム中にTempPassが期限切れになると、アクセス制限を適用するのはプログラマーの責任です。
 
-コンテンツライブラリを見る機会を与える場合でも、マーキーイベントを宣伝する場合でも、TempPass はアクセス制御を維持しながらオーディエンスを拡大するツールを提供します。
+TempPassでは、コンテンツライブラリを存分に活用したい場合にも、マーキーイベントを宣伝したい場合にも、アクセス制御を維持しながらオーディエンスを拡大するためのツールを提供しています。
 
-## 基本 TempPass {#basic-temp-pass}
+## 基本TempPass {#basic-temp-pass}
 
-基本的な TempPass 機能を使用すると、プログラマーは、様々なシナリオに対応して、コンテンツへの時間制限アクセスを提供できます。
+基本的なTempPass機能により、プログラマーは、さまざまなシナリオに対応したコンテンツへの時間制限付きアクセスを提供できます。
 
-* **短いプレビュー：** 潜在的な購読者を引き付けるために、1 日 10 分のアクセス期間などの簡単なプレビューを提供します。
-* **イベントベースのアクセス：** 4 時間のセッションなど、主要なイベントに対して長時間のアクセスを有効にします。
-* **組み合わせアクセス：** 最初の拡張表示期間と、数日にわたる毎日の短いプレビューなど、期間の組み合わせと一致。
+* **ショートプレビュー：**&#x200B;潜在的な購読者を惹きつけるために、毎日10分間のアクセス期間などの簡単なプレビューを提供します。
+* **イベントベースのアクセス：** 4時間セッションなどの主要なイベントに対する長いアクセスを有効にします。
+* **組み合わせアクセス：**&#x200B;最初の延長視聴期間に続いて、数日にわたって毎日のプレビューを短くするなど、ミックスとマッチの期間を設定します。
 
-特定のイベントでは、コンテンツへの段階的な無料アクセスが必要となる場合があります。例えば、最初の拡張無料アクセス期間（4 時間）の後、1 日あたりの無料アクセス間隔（1 日あたり 10 分など）を短くすることが挙げられます。 このシナリオを実装するには、プログラマーはAdobe担当者と調整して、ニーズに合わせて 2 つの TempPass MVPD を設定する必要があります。
+特定のイベントでは、最初の無料利用期間の延長（4時間など）、その後の毎日の無料利用期間の短縮（毎日10分など）など、コンテンツへの段階的な無料アクセスが必要になる場合があります。 このシナリオを実装するには、プログラマーはAdobeの担当者と連携して、ニーズに合わせて2つのTempPass MVPDを設定する必要があります。
 
-例えば、最初の 4 時間のフリーセッションと 1 日の 10 分間のフリーセッションを提供するには、Adobeでプログラマー用にを設定します。
+例えば、最初の4時間の無料セッションの後に毎日10分の無料セッションを提供するために、Adobeはプログラマーに対して次のように設定できます。
 
-* **TempPass1**：最初の空きアクセス期間に対応するために、有効期間（TTL）を 4 時間に設定します。
-* **TempPass2**：後続の 1 日の空きアクセス間隔の有効期間（TTL）が 10 分に設定されます。
+* **TempPass1**：最初の無料アクセス期間をカバーするために、有効期間（TTL）が4時間で構成されています。
+* **TempPass2**：その後の毎日の無料アクセス間隔に対して、有効期間（TTL）が10分になるように設定されています。
 
-毎日のアクセスに対して適切な機能を確保するには、すべてのデバイスの TempPass2 を毎日 00:00 時間でリセットする必要があります。
+毎日アクセスするための適切な機能を確保するために、TempPass2は、毎日00:00時間にすべてのデバイスでリセットする必要があります。
 
-### 機能の詳細 {#basic-temp-pass-feature-details}
+### 機能について {#basic-temp-pass-feature-details}
 
 **設定パラメーター：**
 
-* **TTL （Time-To-Live）:** プログラマーは、アクセス時間を指定できます。 このクロックベース TTL は、実際の表示時間に関係なく期限切れとなります。
+* **TTL （Time-To-Live）:** プログラマーはアクセス時間を指定できます。 この時計ベースのTTLは、実際の視聴時間に関係なく有効期限が切れます。
 
-**ユーザー ID:**
+**ユーザーID:**
 
-基本的な TempPass 機能では、デバイス識別子をユーザー識別パラメーターとして使用します。
+基本的なTempPass機能では、デバイス識別子をユーザー識別パラメーターとして使用します。
 
-次の表を参照すると、ユーザー識別パラメーターがユーザーの体験版エクスペリエンスにどのように影響するかを理解するのに役立ちます。
+次の表は、ユーザー識別パラメーターがユーザートライアル体験にどのような影響を与えるかを理解するのに役立ちます。
 
 | デバイス識別子 | 結果 |
 |-------------------|----------------|
-| 新規 | 新規体験版 |
+| 新規 | 新しい体験版 |
 | 既存 | 既存の体験版 |
 
 **表示時間の計算：**
 
-TTL は、コンテンツの表示に費やされた実際の時間とは無関係に、最初の承認リクエストの時間から有効期限までの期間を表します。 今後の各リクエストでは、現在のサーバー時間と保存されている有効期限を確認して、アクセスを許可します。
+TTLは、コンテンツを実際に表示した時間に関係なく、最初の認証リクエスト時間から有効期限までの時間を表します。 今後の各リクエストは、現在のサーバー時間を、保存された有効期限と比較して確認し、アクセスを承認します。
 
 **認証：**
 
-ベーシック TempPass では認証が必要ないため、認証手順に直接進むことができます。
+Basic TempPassでは、認証は必要ありません。認証ステップに直接進むことができます。
 
 **認証：**
 
-実際のMVPDとのやり取りは行われないので、基本「一時パス」MVPDは、その一時パスが有効であると指定されたリソースを認証します。 認証が成功した場合、メディアトークン検証用ライブラリは、コンテンツ再生を開始する前のメディアトークンの検証とリソースの検証に引き続き適用されます。
+実際のMVPDとのインタラクションがないので、TempPassが有効な場合、基本の「Temp Pass」MVPDはリソースを認証します。 承認が成功した場合、メディアトークン検証ライブラリは、コンテンツ再生を開始する前に、メディアトークンを検証し、リソース検証を確保するために引き続き適用されます。
 
-認証決定は、ユーザー識別パラメーターおよび設定された TTL に基づいて行われます。 リソースに対して正常な認証を取得するには、有効なリクエストが次の条件を満たす必要があります。
+認証の決定は、ユーザー識別パラメーターと設定されたTTLに基づいて行われます。 リソースの認証を成功させるには、次の条件を有効なリクエストで満たす必要があります。
 
-* **未使用の期間：** 有効期限は、（データベースに保存された）最初の認証リクエスト時間を設定済み TTL に追加することによって計算されます。 現在のサーバー時間をこの有効期限と比較して、TempPass がまだ有効かどうかを判断します。
+* **未使用期間：**&#x200B;有効期限は、最初の承認要求時間（データベースに保存）を設定されたTTLに追加することで計算されます。 現在のサーバー時間がこの有効期限と比較され、TempPassがまだ有効かどうかを判断します。
 
-ユーザーが設定された TTL を超えると、TempPass がリセットされない限り、同じデバイス上のコンテンツを表示できなくなります。
+ユーザーが設定されたTTLを超えた場合、TempPassがリセットされない限り、同じデバイスでコンテンツを表示できなくなります。
 
 **事前認証：**
 
-基本的な「一時パス」MVPDに対して事前認証リクエストが行われると、リクエストからリソースのリスト全体が正常に事前認証として返されます。 認証条件が特定のリソースではなく、時間制限に基づいていることを考慮すると、この動作は認証ロジックを反映しています。 時間制約が有効である限り、リクエストされたリソースは許可されます。
+基本的な「Temp Pass」MVPDに対して事前認証リクエストを行うと、リクエストからリクエストのリスト全体が正常に事前承認された状態で返されます。 この動作は、認証条件が特定のリソースではなく時間制限に基づいていることを考えると、認証ロジックを反映します。 時間制約が有効である限り、リクエストされたリソースは許可されます。
 
 **ログアウト：**
 
-ベーシック TempPass ではログアウトする必要がないため、実際のユーザーのMVPDを使用して、認証手順に直接切り替えることができます。
+Basic TempPassでは、ログアウトは必要ありません。これにより、実際のユーザーMVPDを使用して認証ステップに直接切り替えることができます。
 
-**トラッキングデータと分析：**
+**データと分析の追跡：**
 
-基本的な TempPass フローでは、トラッキングデータは、MVPD ID が「Temp Pass」に設定された、ハッシュ化されたバージョンのデバイス ID を使用します。 プログラマーは、Analytics 実装において、TempPass 指標を標準のMVPD指標と区別する必要があります。
+基本的なTempPass フローでは、トラッキングデータはデバイス IDのハッシュ化されたバージョンを使用し、MVPD IDは「Temp Pass」に設定されます。 プログラマーは、アナリティクス実装において、TempPass指標をMVPDの標準的な指標と区別する必要があります。
 
 ## プロモーション TempPass {#promotional-temp-pass}
 
-プロモーション TempPass 機能は、プロモーションキャンペーンを実行するために特別に設計された基本的な TempPass の機能を拡張します。 この機能を使用すると、メールアドレスなどの有効なユーザー ID を収集した後、指定した期間、事前定義済みの数のVOD タイトルにアクセスできるようにすることで、ユーザーを引き付けることができます。
+プロモーション TempPass機能は、プロモーションキャンペーンの実行に特化して設計された基本的なTempPassの機能を拡張します。 この機能を使用すると、電子メールアドレスなどの有効なユーザーIDを収集した後、指定された期間にわたって定義済みの数のVOD タイトルにアクセスできるため、ユーザーをエンゲージできます。
 
-プロモーション TempPass には、基本的な TempPass のすべての機能が含まれており、次の柔軟性が追加されています。
+プロモーション TempPassには、基本的なTempPassのすべての機能が含まれており、次のような柔軟性が追加されています。
 
 * プロモーション期間中にアクセスできるVOD タイトルの最大数を定義します。
-* プロモーション アクセスが有効な期間を設定します。
+* プロモーションアクセスが有効な期間を設定します。
 
-ユーザーが定義済みのアクセス制限（VOD タイトルの数または期間）を超えると、TempPass がリセットされない限り、同じデバイス上または同じユーザー ID を持つコンテンツを表示できなくなります。
+ユーザーが事前定義されたアクセス制限（VODのタイトル数または期間）を超えると、TempPassがリセットされない限り、同じデバイスまたは同じユーザーIDを使用してコンテンツを表示できなくなります。
 
-### 機能の詳細 {#promotional-temp-pass-feature-details}
+### 機能について {#promotional-temp-pass-feature-details}
 
 **設定パラメーター：**
 
-* **ユーザー情報キー：** メールアドレスなどの、ユーザーが指定した識別子を通信するために使用するキー（キーはメール）。
+* **ユーザー情報キー：**&#x200B;電子メールアドレス（キーは電子メール）など、ユーザーが指定した識別子を通信するために使用するキー。
 * **リソース数：** ユーザーがアクセスできるVOD タイトルの数を定義します。
-* **TTL （Time-To-Live）:** ユーザーが許可されたリソースを使用できる期間です。
+* **TTL （Time-To-Live）:** ユーザーが許可されたリソースを使用できる期間。
 
-**ユーザー ID:**
+**ユーザーID:**
 
-プロモーション TempPass 機能では、デバイス識別子の上に表示されるユーザー指定の識別子のハッシュをユーザー識別パラメーターとして使用します。
+プロモーション TempPass機能では、デバイス識別子の上にユーザーが指定した識別子のハッシュをユーザー識別パラメーターとして使用します。
 
 >[!IMPORTANT]
 >
-> ID の検証とハッシュは、Adobeではなく、プログラマーが管理します。 Adobeには、個人を特定できる情報（PII）は格納されません。 そのため、プログラマーは、Adobe Pass Authentication API とのやり取りの際に、一意のユーザーが指定した ID のハッシュを生成して送信する責任があります。
+> ユーザーが指定したIDの検証とハッシュ化は、Adobeではなくプログラマによって管理されます。 Adobeは、個人情報（PII）を一切保存しません。 そのため、プログラマーは、Adobe Pass Authentication APIを操作する際に、一意のユーザーが提供したIDのハッシュを生成して送信する責任があります。
 
-Adobeでは、データをAdobeに送信する前に、データに **SHA-2** ファミリまたはその固有の **SHA-256** 関数 **SHA-512** を使用することをお勧めします。 例えば、**&quot;user@domain.com&quot;** を超える **SHA-256** は、**&quot;f7ee5ec7312165148b69fcca1d29075b14b8aef0b5048a332b18b88d09069fb7&quot;** です。
+Adobeでは、データがAdobeに送信される前に、**SHA-2** ファミリーまたはその特定の&#x200B;**SHA-256**、**SHA-512**&#x200B;関数を使用することをお勧めします。 例えば、**&quot;user@domain.com&quot;**&#x200B;の&#x200B;**SHA-256**&#x200B;は&#x200B;**&quot;f7ee5ec7312165148b69fcca1d29075b14b8aef0b5048a332b18b88d09069fb7&quot;**&#x200B;です。
 
-次の表を参照すると、ユーザー識別パラメーターがユーザーの体験版エクスペリエンスにどのように影響するかを理解するのに役立ちます。
+次の表は、ユーザー識別パラメーターがユーザートライアル体験にどのような影響を与えるかを理解するのに役立ちます。
 
-| ユーザー指定の識別子ハッシュ | デバイス識別子 | 結果 |
+| ユーザーが指定した識別子ハッシュ | デバイス識別子 | 結果 |
 |-------------------------------|-------------------|---------------------------------------------------------|
-| 新規 | 新規 | 新規体験版 |
-| 既存 | 新規 | 既存の体験版（ユーザーが指定した識別子ハッシュに基づく） |
-| 新規 | 既存 | 既存の体験版（デバイス ID に基づく） |
+| 新規 | 新規 | 新しい体験版 |
+| 既存 | 新規 | 既存の体験版（ユーザーが提供した識別子ハッシュに基づく） |
+| 新規 | 既存 | 既存の体験版（デバイス識別子に基づく） |
 | 既存 | 既存 | 既存の体験版 |
 
 **表示時間の計算：**
 
-TTL は、コンテンツの表示に費やされた実際の時間とは無関係に、最初の承認リクエストの時間から有効期限までの期間を表します。 今後の各リクエストでは、現在のサーバー時間と保存されている有効期限を確認して、アクセスを許可します。
+TTLは、コンテンツを実際に表示した時間に関係なく、最初の認証リクエスト時間から有効期限までの時間を表します。 今後の各リクエストは、現在のサーバー時間を、保存された有効期限と比較して確認し、アクセスを承認します。
 
 **認証：**
 
-プロモーションの TempPass では認証が必要ないため、認証手順に直接進むことができます。
+プロモーション TempPassでは、認証は必要ありません。認証ステップに直接進むことができます。
 
-プログラマーのアプリケーションの実装をサポートするために、プロモーションの TempPass は、対応するキーを介してアクセスできる以下のユーザーメタデータ情報を公開します。
+プログラマーアプリケーションの実装をサポートするために、プロモーションテンプパスは、対応するキーを介してアクセス可能な次のユーザーメタデータ情報を公開します。
 
-* **`remaining_resources`**: ユーザーがまだ使用できるリソースの数を示します。
-* **`used_assets`**：ユーザーが既に消費したリソースのリストを提供します。
+* **`remaining_resources`**: ユーザーが引き続き使用できるリソースの数を示します。
+* **`used_assets`**: ユーザーが既に使用しているリソースのリストを提供します。
 * **`expiration_date`**: ユーザーのプロモーション一時パスの有効期限を表示します。
 
 **認証：**
 
-実際のMVPDとのやり取りがないため、プロモーションの「Temp Pass」MVPDは、TempPass が有効であると指定されたリソースを認証します。 認証が成功した場合、メディアトークン検証用ライブラリは、コンテンツ再生を開始する前のメディアトークンの検証とリソースの検証に引き続き適用されます。
+実際のMVPDとのインタラクションがないので、TempPassが有効な場合、プロモーション「Temp Pass」MVPDは任意のリソースを認証します。 承認が成功した場合、メディアトークン検証ライブラリは、コンテンツ再生を開始する前に、メディアトークンを検証し、リソース検証を確保するために引き続き適用されます。
 
-認証決定は、ユーザー識別パラメーター、設定されたリソース数および TTL に基づいて行われます。 リソースに対して正常な認証を取得するには、有効なリクエストが次の条件を満たす必要があります。
+認証の決定は、ユーザー識別パラメーター、設定されたリソース数およびTTLに基づいて行われます。 リソースの認証を成功させるには、次の条件を有効なリクエストで満たす必要があります。
 
-* **未使用の期間：** 有効期限は、（データベースに保存された）最初の認証リクエスト時間を設定済み TTL に追加することによって計算されます。 現在のサーバー時間をこの有効期限と比較して、TempPass がまだ有効かどうかを判断します。
-* **未使用のリソース：** 消費されたリソースの数が追跡されます（データベースに保存されます）。 消費されたリソースの数と設定されたリソースの数を比較して、TempPass がまだ有効かどうかを判断します。
+* **未使用期間：**&#x200B;有効期限は、最初の承認要求時間（データベースに保存）を設定されたTTLに追加することで計算されます。 現在のサーバー時間がこの有効期限と比較され、TempPassがまだ有効かどうかを判断します。
+* **未使用のリソース：**&#x200B;使用されたリソースの数が追跡されます（データベースに保存されます）。 消費されたリソースの数が、設定されたリソース数と比較され、TempPassが引き続き有効かどうかを判断します。
 
-設定された TTL またはリソース数を超えるユーザーが発生した場合、TempPass がリセットされない限り、同じデバイス上または同じユーザー提供の ID を持つコンテンツを表示できなくなります。
+設定されたTTLまたはリソース数を超えるユーザーの場合、TempPassがリセットされない限り、同じデバイスまたは同じユーザーが提供した識別子でコンテンツを表示できなくなります。
 
 **事前認証：**
 
-プロモーションの「Temp Pass」MVPDに対して事前認証リクエストが行われると、リクエストからリソースのリスト全体が正常に事前認証として返されます。 承認条件が特定のリソースではなく、時間制限とアクセスしたリソースの合計数に基づいていることを考慮すると、この動作は承認ロジックを反映します。 時間制限が有効で、リソースの制限を超えていない限り、リクエストされたリソースは許可されます。
+プロモーション「Temp Pass」MVPDに対して事前承認リクエストが行われると、リクエストからリクエストのリスト全体が正常に事前承認された状態で返されます。 この動作は認証ロジックを反映します。認証条件は、特定のリソースではなく、時間制限とアクセスされるリソースの合計数に基づいています。 時間制約が有効で、リソース制限を超えていない限り、リクエストされたリソースは承認されます。
 
 **ログアウト：**
 
-プロモーションの TempPass にログアウトする必要はなく、実際のユーザーのMVPDを使用して認証ステップに直接切り替えることができます。
+プロモーションテンプパスでは、ログアウトは必要ありません。これにより、実際のユーザーMVPDを使用して認証ステップに直接切り替えることができます。
 
-**トラッキングデータと分析：**
+**データと分析の追跡：**
 
-プロモーションの TempPass フロー中、トラッキングデータは、MVPD ID が「Temp Pass」に設定された、ハッシュ化されたバージョンのデバイス ID を使用します。 プログラマーは、Analytics 実装において、TempPass 指標を標準のMVPD指標と区別する必要があります。
+プロモーション用TempPass フローでは、トラッキングデータはデバイス IDのハッシュ化されたバージョンを使用し、MVPD IDは「Temp Pass」に設定されます。 プログラマーは、アナリティクス実装において、TempPass指標をMVPDの標準的な指標と区別する必要があります。
 
-## TempPass API アクセスをリセット {#reset-tempass-api-access}
+## TempPass API アクセスのリセット {#reset-tempass-api-access}
 
-Reset TempPass API にアクセスする前に、動的クライアント登録（DCR）プロセスで必要な手順を完了する必要があります。 この必須のプロセスにより、Reset TempPass API とやり取りするのに必要なアクセストークンが確保されます。
+Reset TempPass APIにアクセスする前に、Dynamic Client Registration （DCR）プロセスで必要な手順を完了する必要があります。 この必須プロセスにより、Reset TempPass APIを操作するために必要なアクセストークンを取得できます。
 
-包括的な手順については、[Dynamic Client Registration Overview](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) ドキュメントを参照してください。
+包括的な手順については、[Dynamic Client Registration Overview](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)のドキュメントを参照してください。
 
-## TempPass API のリセット - DELETE /reset-tempass/v3/reset {#reset-tempass-v3-reset}
+## TempPass APIのリセット - DELETE /reset-tempass/v3/reset {#reset-tempass-v3-reset}
 
-デバイスまたはすべてのデバイスの特定の TempPass をリセットするために、Adobe Pass認証では、基本とプロモーションの両方の TempPass で機能する API をプログラマーに提供します。
+デバイスまたはすべてのデバイスに対して特定のTempPassをリセットするには、Adobe Pass Authenticationで、BasicとPromotional TempPassの両方に対応するAPIがプログラマーに提供されます。
 
 ### リクエスト {#reset-tempass-v3-reset-request}
 
@@ -205,7 +206,7 @@ Reset TempPass API にアクセスする前に、動的クライアント登録�
       <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">host</td>
+      <td style="background-color: #DEEBFF;">ホスト</td>
       <td>mgmt.auth.adobe.com</td>
       <td></td>
    </tr>
@@ -226,22 +227,22 @@ Reset TempPass API にアクセスする前に、動的クライアント登録�
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">requestor_id</td>
-      <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部の一意の ID。</td>
+      <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部一意のID。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">mvpd_id</td>
-      <td>オンボーディングプロセス中に TempPass に関連付けられた内部一意 ID。</td>
+      <td>オンボーディングプロセス中にTempPassに関連付けられた内部一意のID。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">device_id</td>
       <td>
-            このリセット操作が有効なデバイス識別子。
+            このリセット操作が有効なデバイス ID。
             <br/><br/>
-            値を指定しない場合、リセット操作はすべてのデバイスに適用されます。
+            値が指定されていない場合、リセット操作はすべてのデバイスに適用されます。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <th style="background-color: #EFF2F7;">ヘッダー</th>
@@ -250,7 +251,7 @@ Reset TempPass API にアクセスする前に、動的クライアント登録�
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md"> アクセストークンの取得 </a> ドキュメントを参照してください。</td>
+      <td>ベアラートークンのペイロードの生成については、<a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md"> アクセストークンの取得</a> ドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
@@ -267,49 +268,49 @@ Reset TempPass API にアクセスする前に、動的クライアント登録�
       <td>204</td>
       <td>コンテンツなし</td>
       <td>
-        リセットに成功しました。
+        リセットが成功しました。
       </td>
    </tr>
    <tr>
       <td>400</td>
-      <td>リクエストが正しくありません</td>
+      <td>不正なリクエスト</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。
+        リクエストが無効です。クライアントはリクエストを修正して、もう一度試す必要があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
-      <td>未認証</td>
+      <td>未承認</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得し、再試行する必要があります。 詳しくは、<a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md">動的クライアント登録の概要</a>のドキュメントを参照してください。
       </td>
    </tr>
    <tr>
       <td>403</td>
       <td>禁止</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいクライアント資格情報と新しいアクセストークンを取得して、もう一度試してください。 詳しくは、<a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいクライアント資格情報と新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md">動的クライアント登録の概要</a>のドキュメントを参照してください。
       </td>
    </tr>
 </table>
 
 ### サンプル {#reset-tempass-v3-reset-samples}
 
-#### 特定のデバイスの TempPass をリセット {#reset-tempass-v3-reset-specific-device}
+#### 特定のデバイスのTempPassをリセット {#reset-tempass-v3-reset-specific-device}
 
 ```curl
 $ curl -H "Authorization: Bearer <access_token_here>" -X DELETE -v "https://mgmt.auth.adobe.com/reset-tempass/v3/reset?requestor_id=REF30&mvpd_id=TempPass&device_id=ba23d141-d715-561c-94f4-e9e4c966b1eb"
 ```
 
-#### すべてのデバイスの TempPass をリセット {#reset-tempass-v3-reset-all-devices}
+#### すべてのデバイスのTempPassをリセット {#reset-tempass-v3-reset-all-devices}
 
 ```curl
 $ curl -H "Authorization: Bearer <access_token_here>" -X DELETE -v "https://mgmt.auth.adobe.com/reset-tempass/v3/reset?requestor_id=REF30&mvpd_id=TempPass&device_id=all"
 ```
 
-## TempPass API のリセット - DELETE /reset-tempass/v3/reset/generic {#reset-tempass-v3-reset-generic}
+## TempPass APIのリセット - DELETE /reset-tempass/v3/reset/generic {#reset-tempass-v3-reset-generic}
 
-汎用キー（ユーザーが指定した ID ハッシュ）またはすべてのキーの特定の TempPass をリセットするために、Adobe Pass認証は、プロモーション TempPass で機能する API をプログラマーに提供します。
+汎用キー（ユーザーが提供する識別子ハッシュ）またはすべてのキーに対して特定のTempPassをリセットするために、Adobe Pass Authenticationはプログラマーにプロモーション TempPassで動作するAPIを提供します。
 
 ### リクエスト {#reset-tempass-v3-reset-generic-request}
 
@@ -320,7 +321,7 @@ $ curl -H "Authorization: Bearer <access_token_here>" -X DELETE -v "https://mgmt
       <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">host</td>
+      <td style="background-color: #DEEBFF;">ホスト</td>
       <td>mgmt.auth.adobe.com</td>
       <td></td>
    </tr>
@@ -341,22 +342,22 @@ $ curl -H "Authorization: Bearer <access_token_here>" -X DELETE -v "https://mgmt
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">requestor_id</td>
-      <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部の一意の ID。</td>
+      <td>オンボーディングプロセス中にサービスプロバイダーに関連付けられた内部一意のID。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">mvpd_id</td>
-      <td>オンボーディングプロセス中に TempPass に関連付けられた内部一意 ID。</td>
+      <td>オンボーディングプロセス中にTempPassに関連付けられた内部一意のID。</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">キー</td>
       <td>
-            このリセット操作が有効なユーザー指定の識別子ハッシュ。
+            このリセット操作が有効なユーザーが指定した識別子ハッシュ。
             <br/><br/>
-            値を指定しない場合、リセット操作はすべてのユーザーに適用されます。
+            値が指定されていない場合、リセット操作はすべてのユーザーに適用されます。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <th style="background-color: #EFF2F7;">ヘッダー</th>
@@ -365,7 +366,7 @@ $ curl -H "Authorization: Bearer <access_token_here>" -X DELETE -v "https://mgmt
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">認証</td>
-      <td>ベアラートークンペイロードの生成については、<a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md"> アクセストークンの取得 </a> ドキュメントを参照してください。</td>
+      <td>ベアラートークンのペイロードの生成については、<a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md"> アクセストークンの取得</a> ドキュメントを参照してください。</td>
       <td><i>必須</i></td>
    </tr>
 </table>
@@ -382,41 +383,41 @@ $ curl -H "Authorization: Bearer <access_token_here>" -X DELETE -v "https://mgmt
       <td>204</td>
       <td>コンテンツなし</td>
       <td>
-        リセットに成功しました。
+        リセットが成功しました。
       </td>
    </tr>
    <tr>
       <td>400</td>
-      <td>リクエストが正しくありません</td>
+      <td>不正なリクエスト</td>
       <td>
-        リクエストが無効です。クライアントはリクエストを修正して再試行する必要があります。
+        リクエストが無効です。クライアントはリクエストを修正して、もう一度試す必要があります。
       </td>
    </tr>
    <tr>
       <td>401</td>
-      <td>未認証</td>
+      <td>未承認</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいアクセストークンを取得し、再試行する必要があります。 詳しくは、<a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md">動的クライアント登録の概要</a>のドキュメントを参照してください。
       </td>
    </tr>
    <tr>
       <td>403</td>
       <td>禁止</td>
       <td>
-        アクセストークンが無効です。クライアントは新しいクライアント資格情報と新しいアクセストークンを取得して、もう一度試してください。 詳しくは、<a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md"> 動的クライアント登録の概要 </a> ドキュメントを参照してください。
+        アクセストークンが無効です。クライアントは新しいクライアント資格情報と新しいアクセストークンを取得して、再試行する必要があります。 詳しくは、<a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md">動的クライアント登録の概要</a>のドキュメントを参照してください。
       </td>
    </tr>
 </table>
 
 ### サンプル {#reset-tempass-v3-reset-generic-samples}
 
-#### 特定のキーの TempPass をリセット {#reset-tempass-v3-reset-specific-key}
+#### 特定のキーのTempPassのリセット {#reset-tempass-v3-reset-specific-key}
 
 ```curl
 $ curl -H "Authorization: Bearer <access_token_here>" -X DELETE -v "https://mgmt.auth.adobe.com/reset-tempass/v3/reset/generic?requestor_id=REF30&mvpd_id=TempPass&key=f7ee5ec7312165148b69fcca1d29075b14b8aef0b5048a332b18b88d09069fb7"
 ```
 
-#### すべてのキーの TempPass をリセット {#reset-tempass-v3-reset-all-keys}
+#### すべてのキーのTempPassをリセット {#reset-tempass-v3-reset-all-keys}
 
 ```curl
 $ curl -H "Authorization: Bearer <access_token_here>" -X DELETE -v "https://mgmt.auth.adobe.com/reset-tempass/v3/reset/generic?requestor_id=REF30&mvpd_id=TempPass&key=all"
@@ -424,6 +425,6 @@ $ curl -H "Authorization: Bearer <access_token_here>" -X DELETE -v "https://mgmt
 
 ## REST API V2 {#rest-api-v2}
 
-TempPass 機能を活用するには、TV Everywhere （TVE）アプリケーションとAdobe Pass認証 [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) のやり取りを変更するためのコード更新を実装する必要があります。
+TempPass機能を利用するには、コードの更新を実装して、TV Everywhere （TVE） アプリケーションがAdobe Pass Authentication [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)とどのように連携するかを変更する必要があります。
 
-これらのアップデートと関連ワークフローの包括的なガイドについては、[&#x200B; 一時的なアクセスフロー &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md) ドキュメントを参照してください。
+これらの更新と関連ワークフローに関する包括的なガイドについては、[一時アクセスフロー](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md)のドキュメントを参照してください。

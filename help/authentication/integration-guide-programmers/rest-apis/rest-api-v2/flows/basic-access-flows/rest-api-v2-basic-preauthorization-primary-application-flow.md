@@ -1,77 +1,78 @@
 ---
-title: 基本的な事前認証 – プライマリ申請 – フロー
+title: 基本的な事前認証 – プライマリアプリケーション – フロー
 description: REST API V2 – 基本的な事前認証 – プライマリアプリケーション – フロー
 exl-id: f557f6c3-d5b2-4ec8-be51-91a90fbd31c0
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '496'
 ht-degree: 0%
-
 ---
-
 # プライマリアプリケーション内で実行される基本的な事前認証フロー {#basic-preauthorization-flow-performed-within-primary-application}
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2の実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
-Adobe Pass認証使用権内の **事前認証フロー** により、ストリーミングアプリケーションは、MVPDがリソースのリストへのユーザーのアクセスを許可または拒否できるかどうかを判断できます。 この検証により、アプリケーションが、閲覧資格のあるコンテンツに関する正確な情報をユーザーに提示できるようになります。
+Adobe Pass認証権限内の&#x200B;**事前認証フロー**&#x200B;により、ストリーミングアプリケーションは、MVPDがリソースのリストへのユーザーのアクセスを許可するか拒否するかを判断できます。 この検証により、アプリケーションは、表示する資格があるコンテンツに関する正確な情報をユーザーに提示できるようになります。
 
-## 特定の mvpd を使用した事前認証決定の取得 {#retrieve-preauthorization-decisions-using-specific-mvpd}
+## 特定のmvpdを使用して事前承認決定を取得する {#retrieve-preauthorization-decisions-using-specific-mvpd}
 
 ### 前提条件 {#prerequisites-retrieve-preauthorization-decisions-using-specific-mvpd}
 
-特定のMVPDを使用して事前認証の決定を取得する前に、次の前提条件が満たされていることを確認してください。
+特定のMVPDを使用して事前認証の決定を取得する前に、次の前提条件を満たしていることを確認してください。
 
-* ストリーミングアプリケーションには、次のいずれかの基本認証フローを使用してMVPD用に正常に作成された有効な標準プロファイルが必要です。
-   * [プライマリアプリケーション内での認証の実行](rest-api-v2-basic-authentication-primary-application-flow.md)
-   * [事前に選択された mvpd を使用して、セカンダリ・アプリケーション内で認証を実行](rest-api-v2-basic-authentication-secondary-application-flow.md)
-   * [事前に選択された mvpd を使用せずに、セカンダリ・アプリケーション内で認証を実行](rest-api-v2-basic-authentication-secondary-application-flow.md)
-* ストリーミングアプリケーションは、リソースのリストを表示する事前認証の決定と、関連するステータスを取得したいと考えています。
+* ストリーミングアプリケーションには、基本的な認証フローのいずれかを使用してMVPD用に正常に作成された有効な通常プロファイルが必要です。
+  * [プライマリアプリケーション内で認証を実行](rest-api-v2-basic-authentication-primary-application-flow.md)
+  * [事前に選択したmvpdを使用して、セカンダリアプリケーション内で認証を実行します](rest-api-v2-basic-authentication-secondary-application-flow.md)
+  * [事前に選択したmvpdを使用せずに、セカンダリアプリケーション内で認証を実行します](rest-api-v2-basic-authentication-secondary-application-flow.md)
+* ストリーミングアプリケーションは、事前承認決定を取得して、リソースのリストと関連するステータスを表示します。
 
 ### ワークフロー {#workflow-retrieve-preauthorization-decisions-using-specific-mvpd}
 
-次の図に示すように、プライマリアプリケーション内で実行される特定のMVPDを使用して基本的な事前認証フローを実装するには、以下の手順に従います。
+次の図に示すように、プライマリアプリケーション内で実行される特定のMVPDを使用して、基本的な事前認証フローを実装するには、次の手順に従います。
 
-![&#x200B; 特定の mvpd を使用した事前認証決定の取得 &#x200B;](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-preauthorization-decisions-within-primary-application-using-specific-mvpd.png)
+![特定のmvpdを使用して事前承認決定を取得](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-preauthorization-decisions-within-primary-application-using-specific-mvpd.png)
 
-*特定の mvpd を使用した事前認証決定の取得*
+*特定のmvpdを使用して事前承認決定を取得*
 
-1. **事前認証決定の取得：** ストリーミングアプリケーションは、決定の事前認証エンドポイントを呼び出すことにより、リソースのリストに対する事前認証決定を取得するために必要なすべてのデータを収集します。
-
-   >[!IMPORTANT]
-   >
-   > 次の項目について詳しくは、[&#x200B; 特定の mvpd を使用した事前認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
-   >
-   > * `serviceProvider`、`mvpd`、`resources` など、すべての _必須_ パラメーター
-   > * `Authorization` や `AP-Device-Identifier` など、すべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
-
-1. **標準プロファイルを検索：** Adobe Pass サーバーは、受信したパラメーターとヘッダーに基づいて有効なプロファイルを識別します。
-
-1. **リクエストされたリソースのMVPD決定を取得：** Adobe Pass サーバーは、MVPD事前認証エンドポイントを呼び出して、ストリーミングアプリケーションから受信した各リソースに関する `Permit` 定または `Deny` 定の決定を取得します。
-
-1. **再来訪の事前認証の決定：** 決定の事前認証エンドポイント応答には、各リソースの `Permit` または `Deny` の決定が含まれています。
-   * `Permit` の決定は、リソースが再生可能であることを意味します。 事前認証フローはリソースの再生に使用できないので、応答にはメディアトークンが含まれていません。
-   * `Deny` の決定は、リソースが再生可能でないことを意味します。 応答には、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従ったエラーペイロードが含まれています。
+1. **事前認証の決定を取得：** ストリーミングアプリケーションは、「決定の事前認証エンドポイント」を呼び出して、リソースのリストに対する事前認証の決定を取得するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > 決定応答で提供される情報について詳しくは、[&#x200B; 特定の mvpd を使用した事前認証の決定の取得 &#x200B;](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) API ドキュメントを参照してください。
-   > 
-   > <br/>
-   > 
-   > 決定の事前認証エンドポイントは、基本条件が満たされていることを確認するためにリクエストデータを検証します。
+   > 詳しくは、[特定のmvpd](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) API ドキュメントを使用した事前承認決定の取得を参照してください。
    >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
-   > * 指定した `serviceProvider` と `mvpd` の統合はアクティブである必要があります。
-   >
-   > <br/>
-   > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > * `serviceProvider`、`mvpd`、`resources`など、_必須_&#x200B;のすべてのパラメーター
+   > * `Authorization`や`AP-Device-Identifier`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
 
-1. **事前認証の決定を処理：** ストリーミングアプリケーションは応答を処理し、それを使用して、オプションでユーザーインターフェイス上の各リソースの適切なステータスを表示できます。
+1. **通常のプロファイルを検索：** Adobe Pass サーバーは、受信したパラメーターとヘッダーに基づいて有効なプロファイルを識別します。
+
+1. **要求されたリソースに対するMVPDの決定を取得：** Adobe Pass サーバーは、MVPD事前認証エンドポイントを呼び出して、ストリーミングアプリケーションから受信した各リソースに対する`Permit`または`Deny`の決定を取得します。
+
+1. **事前承認の決定を返します：** 「決定事前承認」エンドポイント応答には、各リソースに対する`Permit`または`Deny`の決定が含まれています。
+   * `Permit`の決定は、リソースが再生可能であることを意味します。 応答にはメディアトークンが含まれていません。事前承認フローを使用してリソースを再生することはできません。
+   * `Deny`の決定は、リソースが再生できないことを意味します。 応答には、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠するエラーペイロードが含まれます。
+
+   >[!IMPORTANT]
+   >
+   > 決定応答で提供される情報について詳しくは、[特定のmvpd](../../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md) API ドキュメントを使用した事前承認決定の取得を参照してください。
+   > 
+   > <br/>
+   > 
+   > 決定事前認証エンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
+   >
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
+   > * 指定された`serviceProvider`と`mvpd`の統合はアクティブである必要があります。
+   >
+   > <br/>
+   > 
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+
+1. **事前認証の決定を処理します：** ストリーミングアプリケーションは応答を処理し、オプションでユーザーインターフェイス上の各リソースの適切なステータスを表示するために使用できます。

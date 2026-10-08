@@ -1,51 +1,52 @@
 ---
-title: AccessEnabler iOS/tvOS 3.7.0 アップグレード・パス
-description: AccessEnabler iOS/tvOS 3.7.0 アップグレード・パス
+title: AccessEnabler iOS/tvOS 3.7.0 アップグレードパス
+description: AccessEnabler iOS/tvOS 3.7.0 アップグレードパス
 exl-id: f15c7414-ec9b-4e21-b457-1ecf59f47441
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '330'
 ht-degree: 0%
-
 ---
-
-# （従来の） AccessEnabler iOS/tvOS 3.7.0 アップグレード・パス {#accessenabler-iostvos-370-upgrade-path}
+# （レガシー） AccessEnabler iOS/tvOS 3.7.0 アップグレードパス {#accessenabler-iostvos-370-upgrade-path}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 </br>
 
-[&#x200B; 新しい AccessEnabler バージョン 3.7.0](/help/authentication/notes-releases/authn-rn-ios-tvos-370.md) からのキーチェーン・ストレージの変更は、AccessEnabler バージョン 3.7.0 以前からのキーチェーン・ストレージの実装と互換性がありません。
+[新しいAccessEnabler バージョン 3.7.0](/help/authentication/notes-releases/authn-rn-ios-tvos-370.md)からのキーチェーンストレージの変更は、AccessEnabler バージョン 3.7.0より前のキーチェーンストレージの実装と互換性がありません。
 
-新しい AccessEnabler バージョン 3.7.0 を採用する 1 つのアプリケーションのアップグレード・パスでは、すべてのトークンが以前のバージョンの Keychain ストレージから移行されます。 そのため、AccessEnabler フレームワークの更新プロセス中にエンド・ユーザーに認証/承認セッションの消失が発生することは **ありません**。
+新しいAccessEnabler バージョン 3.7.0を採用した1つのアプリケーションのアップグレードパスは、以前のバージョンのキーチェーンストレージからすべてのトークンを移行します。 したがって、エンドユーザー&#x200B;**は、AccessEnabler フレームワークの更新プロセス中に認証/承認セッション**&#x200B;を失うことはありません。
 
-## 既知の制限事項
+## 既知の制限
 
-実装者によっては、次に示すいくつかの制限事項が発生する場合があります。
-
-
-1. 通常の（Adobe） SSO は、同じベンダによって開発されたアプリケーションであっても、AccessEnabler バージョン 3.7.0 を使用している 1 つのアプリケーションと、AccessEnabler バージョン 3.7.0 より前のバージョンを使用している 1 つのアプリケーションでは動作しません。
-
-   >[!IMPORTANT]
-   >
-   >* システムレベル（Apple）の SSO は影響を受けません。
-   >
-   >* 両方のアプリケーションが同じベンダーによって開発されており、AccessEnabler のバージョンが 3.7.0 より前の場合は、通常の（Adobe） SSO が引き続き動作します。
-   >
-   >* 両方のアプリケーションが同じベンダーによって開発され、AccessEnabler バージョン 3.7.0 を使用している場合は、通常の（Adobe） SSO が動作します。
+以下で説明する制限事項の中には、実装者が遭遇する可能性があります。
 
 
-1. AccessEnabler バージョン 3.7.0 を使用しているアプリケーションを下位バージョンの AccessEnabler にダウングレードすると、新しく生成されたトークンは移行されません。 そのため、エンドユーザーが予期せずに認証/承認セッションが失われる可能性があります。
+1. 通常（Adobe）のSSOは、同じベンダーによって開発されたアプリケーションであっても、AccessEnabler バージョン 3.7.0を使用する1つのアプリケーションと、AccessEnabler バージョン 3.7.0より前の3.7.0を使用する1つのアプリケーションの間では機能しません。
 
    >[!IMPORTANT]
    >
-   >* システムレベル（Apple） SSO で認証されたエンドユーザーは影響を受けません。
-   >* AccessEnabler バージョン 3.7.0 を使用して新しいアプリケーションに更新する前に認証済みのエンド・ユーザーは影響を受けません。
+   >* システムレベル（Apple）のSSOは影響を受けません。
+   >
+   >* 通常（Adobe）のSSOは、両方のアプリケーションが同じベンダーによって開発され、AccessEnablerのバージョンが3.7.0未満の場合も引き続き機能します。
+   >
+   >* 通常（Adobe）のSSOは、両方のアプリケーションが同じベンダーによって開発され、AccessEnabler バージョン 3.7.0を使用している場合に機能します。
 
-1. AccessEnabler バージョン 3.7.0 を使用しているアプリケーションを下位バージョンの AccessEnabler にダウングレードすると、削除されたトークンは確認されません。 そのため、エンドユーザーが予期せず、認証/承認セッションが存在する可能性があります。
+
+1. AccessEnabler バージョン 3.7.0を使用して1つのアプリケーションを下位バージョンのAccessEnablerにダウングレードする場合、新しく生成されたトークンは移行されません。 したがって、エンドユーザーは、認証/認証セッションを期待せずに失う可能性があります。
+
+   >[!IMPORTANT]
+   >
+   >* システムレベル（Apple） SSOで認証されたエンドユーザーは影響を受けません。
+   >* AccessEnabler バージョン 3.7.0を使用して新しいアプリケーションに更新する前に既に認証されたエンドユーザーは影響を受けません。
+
+1. AccessEnabler バージョン 3.7.0を使用して1つのアプリケーションを下位バージョンのAccessEnablerにダウングレードする場合、削除されたトークンは確認されません。 したがって、エンドユーザーは、認証/認証セッションの存在を期待せずに経験する可能性があります。

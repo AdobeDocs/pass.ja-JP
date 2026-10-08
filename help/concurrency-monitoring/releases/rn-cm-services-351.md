@@ -2,7 +2,10 @@
 title: Adobe Concurrency Monitoring Services 3.5.1 リリースノート
 description: Adobe Concurrency Monitoring Services 3.5.1 リリースノート
 exl-id: a09704d8-6db8-418a-ad70-81ca63f915a6
-source-git-commit: 39384d753e7808fa433f30d8dafabd531dbf3acf
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '62'
 ht-degree: 3%

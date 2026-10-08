@@ -1,23 +1,24 @@
 ---
 title: クライアント資格情報の取得
-description: Dynamic Client Registration API - クライアント資格情報を取得します
+description: Dynamic Client Registration API - クライアント資格情報の取得
 exl-id: 0b39768b-25b8-47b9-8080-59c56fb829fb
-source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
-source-wordcount: '449'
-ht-degree: 2%
-
+source-wordcount: '472'
+ht-degree: 1%
 ---
-
 # クライアント資格情報の取得 {#retrieve-client-credentials}
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> 動的なクライアント登録 API の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) に関するドキュメントに限られています。
+> 動的クライアント登録APIの実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 ## リクエスト {#request}
 
@@ -34,27 +35,27 @@ ht-degree: 2%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">メソッド</td>
-      <td>POST</td>
+      <td>投稿する</td>
       <td></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7;">本文パラメーター</th>
+      <th style="background-color: #EFF2F7;">Body パラメーター</th>
       <th style="background-color: #EFF2F7;"></th>
       <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">software_statement</td>
       <td>
-            <a href="https://experience.adobe.com/#/pass/authentication">Adobe Pass TVE Dashboard</a> から作成およびダウンロードされた、登録済みアプリケーションに関連付けられたソフトウェア ステートメント。
+            登録済みアプリケーションに関連付けられているソフトウェアステートメントが、<a href="https://experience.adobe.com/#/pass/authentication">Adobe Pass TVE Dashboard</a>から作成およびダウンロードされました。
             <br/><br/>
-            登録済みアプリケーションの管理については、<a href="../dynamic-client-registration-overview.md">Dynamic Client Registration Overview</a> ドキュメントを参照してください。
+            登録アプリケーションの管理については、<a href="../dynamic-client-registration-overview.md">動的クライアント登録の概要</a>のドキュメントを参照してください。
       </td>
       <td><i>必須</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">redirect_uri</td>
-      <td>認証フローが完了したときにユーザーエージェントが移動する場所に関連付けられたリダイレクト URI です。</td>
-      <td>optional</td>
+      <td>認証フローが完了したときにユーザーエージェントが移動する場所に関連付けられたリダイレクト URI。</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <th style="background-color: #EFF2F7;">ヘッダー</th>
@@ -62,11 +63,11 @@ ht-degree: 2%
       <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
       <td>
-         送信するリソースに使用できるメディアタイプ。
+         送信されるリソースの許可されたメディアタイプ。
          <br/><br/>
-         application/json;charset=utf-8 である必要があります。
+         application/json;charset=utf-8である必要があります。
       </td>
       <td><i>必須</i></td>
    </tr>
@@ -75,27 +76,27 @@ ht-degree: 2%
       <td>
          デバイス情報ペイロードの生成については、<a href="../../rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md">X-Device-Info</a> ドキュメントを参照してください。
          <br/><br/>
-         アプリケーションのデバイスプラットフォームで有効な値を明示的に指定できる場合は、常に使用することを強くお勧めします。
+         アプリケーションのデバイスプラットフォームで有効な値の明示的なプロビジョニングが可能な場合は、必ず使用することを強くお勧めします。
          <br/><br/>
-         指定した場合、Adobe Pass認証バックエンドは、明示的に設定された値を、抽出された値と暗黙的に（デフォルトで）結合します。
+         指定すると、Adobe Pass認証バックエンドは、明示的に設定された値と抽出された値を暗黙的に（デフォルトで）マージします。
          <br/><br/>
-         指定しない場合、Adobe Pass認証バックエンドでは、抽出された値が暗黙的に（デフォルトで）使用されます。
+         指定しない場合、Adobe Pass認証バックエンドは、抽出された値を暗黙的に（デフォルトで）使用します。
       </td>
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">承諾</td>
+      <td style="background-color: #DEEBFF;">承認</td>
       <td>
-         クライアントアプリケーションによって受け入れられるメディアタイプ。
+         クライアントアプリケーションが受け入れたメディアタイプ。
          <br/><br/>
-         指定する場合は、application/json;charset=utf-8 にする必要があります。
+         指定する場合は、application/json;charset=utf-8である必要があります。
       </td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">User-Agent</td>
       <td>クライアントアプリケーションのユーザーエージェント。</td>
-      <td>optional</td>
+      <td>オプション</td>
    </tr>
 </table>
 
@@ -115,8 +116,8 @@ ht-degree: 2%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -127,7 +128,7 @@ ht-degree: 2%
    <tr>
       <td style="background-color: #DEEBFF;"></td>
       <td>
-         次の属性を持つ JSON オブジェクト。
+         次の属性を持つJSON オブジェクト：
          <table style="table-layout:auto">
             <tr>
                <th style="background-color: #EFF2F7;">属性</th>
@@ -136,22 +137,22 @@ ht-degree: 2%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">client_id</td>
-               <td>クライアントアプリケーション識別子の文字列。</td>
+               <td>クライアントアプリケーションのID文字列。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">client_secret</td>
-               <td>クライアントアプリケーションのシークレット文字列。</td>
+               <td>クライアントアプリケーションの秘密文字列。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">client_id_issued_at</td>
-               <td>クライアントアプリケーション識別子が発行された時間。</td>
+               <td>クライアント アプリケーション IDが発行された時刻。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
-               <td style="background-color: #DEEBFF;">redirect_uri</td>
-               <td>リダイレクトベースのフローでクライアントアプリケーションが使用できるリダイレクト URI 文字列の配列。</td>
+               <td style="background-color: #DEEBFF;">redirect_uris</td>
+               <td>クライアントアプリケーションがリダイレクトベースのフローで使用できるリダイレクト URI文字列の配列。</td>
                <td><i>必須</i></td>
             </tr>
             <tr>
@@ -160,8 +161,8 @@ ht-degree: 2%
                <td><i>必須</i></td>
             </tr>
             <tr>
-               <td style="background-color: #DEEBFF;">スコープ</td>
-               <td>クライアントアプリケーションが使用できるAdobe Pass認証 API を定義するスコープ文字列。</td>
+               <td style="background-color: #DEEBFF;">範囲</td>
+               <td>クライアントアプリケーションが使用できるAdobe Pass認証APIを定義するスコープ文字列。</td>
                <td><i>必須</i></td>
             </tr>
          </table>
@@ -183,8 +184,8 @@ ht-degree: 2%
       <td><i>必須</i></td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Content-Type</td>
-      <td>application/json</td>
+      <td style="background-color: #DEEBFF;">コンテンツタイプ</td>
+      <td>アプリケーション/json</td>
       <td><i>必須</i></td>
    </tr>
    <tr>
@@ -205,10 +206,10 @@ ht-degree: 2%
             <tr>
                <td style="background-color: #DEEBFF;">invalid_request</td>
                <td>
-                    次のいずれかの理由により、リクエストは無効です。
+                    次のいずれかの理由により、リクエストは無効です：
                     <ul>
-                        <li>リクエストに必須パラメーターがありません。</li>
-                        <li>リクエストに、サポートされていないパラメーター値が含まれています。</li>
+                        <li>リクエストに必要なパラメーターが不足しています。</li>
+                        <li>リクエストには、サポートされていないパラメーター値が含まれています。</li>
                         <li>リクエストはパラメーターを繰り返します。</li>
                         <li>リクエストの形式が正しくありません。</li>
                     </ul>
@@ -216,15 +217,15 @@ ht-degree: 2%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">invalid_redirect_uri</td>
-               <td>リクエストに無効なリダイレクト URI の値が含まれています。</td>
+               <td>リクエストには、無効なリダイレクト URIの値が含まれています。</td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">invalid_software_statement</td>
-               <td>リクエストに、無効なソフトウェア ステートメントの値が含まれています。</td>
+               <td>リクエストには、無効なソフトウェアステートメントの値が含まれています。</td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">unapproved_software_statement</td>
-               <td>リクエストには、Adobe Pass認証サーバーで使用が承認されていないソフトウェアステートメントの値が含まれています。</td>
+               <td>このリクエストには、Adobe Pass Authentication Serverによる使用が承認されていないソフトウェアステートメントの値が含まれています。</td>
             </tr>
          </table>
       </td>
@@ -263,7 +264,7 @@ POST /o/client/register HTTP/1.1
  }
 ```
 
->[!TAB  応答 – 成功 ]
+>[!TAB 応答 – 成功]
 
 ```HTTPS
 HTTP/1.1 201 Created
@@ -286,7 +287,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
->[!TAB  応答 – エラー ]
+>[!TAB 応答 – エラー]
 
 ```HTTPS
 HTTP/1.1 400 Bad Request

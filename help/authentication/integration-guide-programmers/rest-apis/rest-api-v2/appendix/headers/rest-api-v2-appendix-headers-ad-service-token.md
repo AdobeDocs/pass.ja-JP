@@ -2,26 +2,27 @@
 title: ヘッダー – AD-Service-Token
 description: REST API V2 - ヘッダー – AD-Service-Token
 exl-id: 856f76fc-cde6-4b3f-81f7-deaa0df015dc
-source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '266'
 ht-degree: 1%
-
 ---
-
 # ヘッダー – AD-Service-Token {#header-ad-service-token}
 
 >[!NOTE]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 ## 概要 {#overview}
 
-<b>AD-Service-Token</b> リクエストヘッダーには、Adobe Pass Authentication Systems の外部で動作する ID サービスから取得した一意のユーザー ID`JWS` 含まれています。
+<b>AD-Service-Token</b> リクエストヘッダーには、Adobe Pass認証システム外で実行されているID サービスから取得した`JWS`という一意のユーザーIDが含まれています。
 
-このヘッダーは、サービストークンメソッドを活用するシングルサインオン（SSO）対応フローで使用するように設計されています。
+このヘッダーは、サービストークン方式を利用したシングルサインオン（SSO）対応フローで使用するように設計されています。
 
-サービストークンメソッドを活用したシングルサインオン（SSO）有効フローについて詳しくは、[&#x200B; サービストークンフローを使用したシングルサインオン &#x200B;](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md) ドキュメントを参照してください。
+サービストークン方式を使用したシングルサインオン（SSO）対応フローの詳細については、[ サービストークンのフローを使用したシングルサインオン ](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md)のドキュメントを参照してください。
 
 ## 構文 {#syntax}
 
@@ -34,18 +35,18 @@ ht-degree: 1%
       <td>リクエストヘッダー</td>
    </tr>
    <tr>
-      <td>標準</td>
-      <td>不可</td>
+      <td>Standard</td>
+      <td>いいえ</td>
    </tr>
 </table>
 
-## ディレクティブ {#directives}
+## 指令 {#directives}
 
 <b>unique_user_identifier</b>
 
-JSON web 署名（`JWS`）：一意のユーザー識別情報を含む署名済み JSON web トークン（`JWT`）です。
+一意のユーザーID情報を含む署名済みJSON Web トークン （`JWT`）であるJSON Web署名（`JWS`）。
 
-`JWT` には次の属性があります。
+`JWT`には次の属性があります。
 
 <table style="table-layout:auto">
    <tr>
@@ -53,32 +54,32 @@ JSON web 署名（`JWS`）：一意のユーザー識別情報を含む署名済
       <th style="background-color: #EFF2F7;">説明</th>
    </tr>
    <tr>
-      <td>が</td>
-      <td>シングルサインオン（SSO）を実現するためにアプリケーションに外部 ID サービスを提供するエンティティに関連付けられた一意の ID。</td>
+      <td>iss</td>
+      <td>シングルサインオン（SSO）を実現するための外部ID サービスをアプリケーションに提供するエンティティに関連付けられた一意のID。</td>
    </tr>
    <tr>
-      <td>sub</td>
-      <td>外部 ID サービスから返されるユーザーの一意の ID。</td>
+      <td>サブ</td>
+      <td>外部ID サービスから返されたユーザーの一意のID。</td>
    </tr>
    <tr>
       <td>aud</td>
-      <td>オーディエンス（「Adobe」にする必要があります）。</td>
+      <td>オーディエンスは「Adobe」であるべきです。</td>
    </tr>
    <tr>
       <td>iat</td>
-      <td>現在の JWT のタイムスタンプ時に発行されたもの。</td>
+      <td>現在のJWTのタイムスタンプで発行された値。</td>
    </tr>
    <tr>
-      <td>費用</td>
-      <td>現在の JWT の有効期限タイムスタンプ。</td>
+      <td>exp</td>
+      <td>現在のJWTの有効期限タイムスタンプ。</td>
    </tr>
 </table>
 
-`JWT` は、アルゴリズムを使用して署名する必要 `SHA256withRSA` あります。
+`JWT`は、`SHA256withRSA` アルゴリズムを使用して署名する必要があります。
 
-`JWT` は、RSA 秘密鍵のペアの一部である秘密鍵で署名する必要があります。秘密鍵 – 外部 ID サービスによって管理される公開鍵。
+`JWT`は、RSA秘密鍵のペアの一部である秘密鍵で署名する必要があります。これは、外部ID サービスによって管理される公開鍵です。
 
-そのペアの公開鍵をAdobe Pass認証に引き継いで、前述の秘密鍵で署名されたトークン `JWT` 認識できるようにする必要があります。
+前述の秘密鍵で署名された`JWT` トークンを認識するには、そのペアの公開鍵をAdobe Pass Authenticationに引き渡す必要があります。
 
 ## 例 {#examples}
 

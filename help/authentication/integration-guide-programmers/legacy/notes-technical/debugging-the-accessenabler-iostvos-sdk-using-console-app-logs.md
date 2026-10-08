@@ -1,83 +1,84 @@
 ---
-title: コンソールアプリログを使用した AccessEnabler iOS/tvOS SDKのデバッグ
-description: コンソールアプリログを使用した AccessEnabler iOS/tvOS SDKのデバッグ
+title: コンソールアプリログを使用したAccessEnabler iOS/tvOS SDKのデバッグ
+description: コンソールアプリログを使用したAccessEnabler iOS/tvOS SDKのデバッグ
 exl-id: 0dad325e-db15-4ea0-a87a-75409eaf8d46
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '577'
-ht-degree: 1%
-
+ht-degree: 0%
 ---
-
-# （レガシー）コンソールアプリログを使用した AccessEnabler iOS/tvOS SDKのデバッグ {#debugging-the-accessenabler-iostvos-sdk-using-console-app-logs}
+# （レガシー） コンソールアプリログを使用したAccessEnabler iOS/tvOS SDKのデバッグ {#debugging-the-accessenabler-iostvos-sdk-using-console-app-logs}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 ## 概要
 
-このドキュメントでは、コンソール・アプリケーション・ログを使用して AccessEnabler フレームワークをデバッグする際に役立つ詳細情報とともに、AccessEnabler のiOS/tvOSSDKログ・メカニズムの進化を取り上げて説明します。
+このドキュメントでは、AccessEnablerのiOS/tvOS SDK ログ機能の進化と、コンソール アプリのログを使用したAccessEnabler フレームワークのデバッグに役立つ詳細情報を取り上げて紹介します。
 
-## ロギング メカニズムの状態
+## ロギング機構状態
 
-AccessEnabler iOS/tvOS のログ メカニズムの目的は、AccessEnabler フレームワークを使用するアプリケーションが原因で発生する可能性のある問題のトラブルシューティングに役立つメッセージを出力することです。
+AccessEnabler iOS/tvOS ロギング メカニズムの目的は、AccessEnabler フレームワークを使用するアプリケーションが原因で発生する可能性のある問題のトラブルシューティングに役立つメッセージを送信することです。
 
-### AccessEnabler iOS/tvOS 3.5.0 以降
+### AccessEnabler iOS/tvOS 3.5.0以降
 
-AccessEnabler iOS/tvOS 3.5.0 以降では、ログ機能に次の変更が加えられています。
+AccessEnabler iOS/tvOS 3.5.0 バージョン以降、ロギング メカニズムでは、次の機能強化が変更として導入されています。
 
-* AccessEnabler フレームワークでは、Appleの推奨 [OSLog](https://developer.apple.com/documentation/os/oslog) 実装が使用されます。
+* AccessEnabler フレームワークは、Appleの推奨[OSLog](https://developer.apple.com/documentation/os/oslog)実装を使用します。
 
-* AccessEnabler フレームワークでは、サブシステム **com.adobe.pass.AccessEnabler** に基づいてコンソール・アプリケーション・ログをフィルタリングする機能が導入されています。 SDKから送信されるすべてのメッセージは、com.adobe.pass.AccessEnabler の一部です。
+* AccessEnabler フレームワークでは、サブシステム **com.adobe.pass.AccessEnabler**&#x200B;に基づいてコンソールアプリログをフィルタリングする機能が導入されています。 SDKから送信されるすべてのメッセージは、com.adobe.pass.AccessEnablerの一部です。
 
-* AccessEnabler フレームワークでは、任意（プレフィックス）の **[AccessEnabler]** に基づいてコンソール・アプリケーション・ログをフィルタリングする機能が導入されています。 SDKから送信されるすべてのメッセージには、先頭に [AccessEnabler] が付きます。
+* AccessEnabler フレームワークでは、任意（プレフィックス）に基づいてコンソールアプリログをフィルタリングする機能が導入されました：**[AccessEnabler]**。 SDKから送信されるすべてのメッセージには、[AccessEnabler]というプレフィックスが付きます。
 
-* AccessEnabler フレームワークでは、Subsystem または Any （プレフィックス）のいずれか 2 つの条件と組み合わせて、カテゴリ：**debug**、**error** に基づいてコンソール・アプリケーション・ログをフィルタリングする機能が導入されています。
+* AccessEnabler フレームワークでは、カテゴリ：**debug**、**error**&#x200B;に基づいてコンソールアプリログをフィルタリングする機能が、上記の2つの条件であるサブシステムまたは任意（プレフィックス）と組み合わせて導入されています。
 
 ## コンソールアプリログを使用したデバッグ
 
-調査対象の問題に応じて、AccessEnabler フレームワークが発行するログ・メッセージを含めるか除外することができます。したがって、調査時やコンソール・アプリケーション・ログ使用時に役立つ以下の役立つ詳細情報を参照できます。
+調査される問題によっては、AccessEnabler フレームワークから出力されるログメッセージを含めるか除外する場合があるため、調査中やコンソールアプリログを使用する際に役立つ有用な詳細情報を以下に示します。
 
 
-### AccessEnabler iOS/tvOS 3.5.0 以降
+### AccessEnabler iOS/tvOS 3.5.0以降
 
 #### 含む {#including}
 
-まず、AccessEnabler フレームワークから出力されるログ・メッセージを確認するには、次の図に示すように **コンソール・アプリのアクション・セクションで** Include Info Messages」と「Include Debug Messages」を選択します。
+まず、AccessEnabler フレームワークによって発行されたログ メッセージを表示するには、次の画像に示すように、コンソールアプリのアクション セクションで「情報メッセージを含める」と「デバッグメッセージを含める」を選択する必要があります&#x200B;**1}。**
 
 ![](../../../assets/include-info-debug-msg.png)
 
 
-AccessEnabler iOS/tvOS SDKの機能をデバッグするには、AccessEnabler フレームワーク ログを **参照** して、次の操作を実行します。
+AccessEnabler iOS/tvOS SDKの機能と&#x200B;**AccessEnabler フレームワークのログを**&#x200B;参照して、次の操作を実行できます。
 
-* 以下の画像に示すように、「**サブシステム**」オプションを使用して、コンソールアプリを検索します。このオプションの値は com.adobe.pass.AccessEnabler の値と等しくなります。
+* コンソールアプリで、**Subsystem** オプションを使用して検索します。このオプションは、次の画像のようにcom.adobe.pass.AccessEnabler値に等しくなります。
 
 ![](../../../assets/subsys-console-app.png)
 
-* 次を含む **Any** オプションを使用して、コンソールアプリを検索します
-  [AccessEnabler] の値を以下の図に示します。
+* **Any** オプションを使用してコンソールアプリで検索します。このオプションには、
+  [AccessEnabler]の値を次の画像に示します。
 
 ![](../../../assets/any-optn-console-app.png)
 
-上記の 2 つの条件に加えて、**Subsystem** または **Any （プレフィックス** と組み合わせて **Category** オプションを使用し、AccessEnabler iOS/tvOS SDKが発行する **debug** または **error** レベルのメッセージを明示的に検索することもできます。
+上記の2つの条件に加えて、**Category** オプションを&#x200B;**Subsystem**&#x200B;または&#x200B;**Any （プレフィックス）**&#x200B;と組み合わせて使用して、AccessEnabler iOS/tvOS SDKから出力される&#x200B;**debug**&#x200B;または&#x200B;**error** レベルのメッセージを明示的に検索することもできます。
 
-#### 除外中
+#### 除外
 
-他のコンポーネントの機能をより適切にデバッグしたり、AccessEnabler フレームワークのログを **除外** したりするには、次の操作を行います。
+他のコンポーネントの機能をより適切にデバッグし、AccessEnabler フレームワークのログを&#x200B;**exclude**&#x200B;できるように、次の操作を実行できます。
 
-* com.adobe.pass.AccessEnabler の値と等しくない **Subsystem** オプションを使用して、コンソールアプリを検索します。
-* [AccessEnabler] 値を含まない **Any** オプションを使用して、コンソール・アプリ内を検索します。
+* com.adobe.pass.AccessEnablerの値と等しくない&#x200B;**Subsystem** オプションを使用して、コンソールアプリで検索します。
+* [AccessEnabler]値を含まない&#x200B;**Any** オプションを使用してコンソールアプリで検索します。
 
-## 問題のレポート
+## 問題の報告
 
-Adobe Pass Authentication に問題を報告する際は、次の提案を考慮してください。
+Adobe Pass認証に問題を報告する場合は、次の推奨事項を検討してください。
 
-* 再現手順を指定してください。
-* 問題が発生した OS のバージョンとデバイスのモデルを指定してください。
-* この問題が発生している AccessEnabler iOS/tvOS SDKのバージョンを指定してください。
-* [&#x200B; 含む &#x200B;](#including) セクションに示されている 2 つのオプションのいずれかを使用して、すべての AccessEnabler iOS/tvOS SDK ログ メッセージをキャプチャし、添付してください。
+* 再生の手順を指定してください。
+* 問題が発生するOS バージョンとデバイスモデルを指定してください。
+* 問題が発生しているAccessEnabler iOS/tvOS SDKのバージョンを提供してみてください。
+* 「[を含む](#including)」セクションに記載されている2つのオプションのいずれかを使用して、すべてのAccessEnabler iOS/tvOS SDK ログ メッセージをキャプチャして添付してみてください。

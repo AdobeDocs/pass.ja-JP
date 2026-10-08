@@ -2,13 +2,14 @@
 title: 強化されたエラーコード
 description: 強化されたエラーコード
 exl-id: 2b0a9095-206b-4dc7-ab9e-e34abf4d359c
-source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '2747'
 ht-degree: 3%
-
 ---
-
 # 強化されたエラーコード {#enhanced-error-codes}
 
 >[!IMPORTANT]
@@ -18,12 +19,12 @@ ht-degree: 3%
 拡張エラーコードは、以下に統合されたクライアントアプリケーションに追加のエラー情報を提供するAdobe Pass認証機能を表します。
 
 * Adobe Pass Authentication REST API:
-   * [REST API v2](../../rest-apis/rest-api-v2/apis/rest-api-v2-apis-overview.md)
-   * [（レガシー） REST API v1](../../legacy/rest-api-v1/rest-api-overview.md)
+  * [REST API v2](../../rest-apis/rest-api-v2/apis/rest-api-v2-apis-overview.md)
+  * [（レガシー） REST API v1](../../legacy/rest-api-v1/rest-api-overview.md)
 * Adobe Pass Authentication SDK Preauthorize API:
-   * [（レガシー） JavaScript SDK （Preauthorize API）](../../legacy/sdks/javascript-sdk/preauthorize-api-javascript-sdk.md)
-   * [（レガシー） iOS/tvOS SDK （Preauthorize API）](../../legacy/sdks/ios-tvos-sdk/preauthorize-api-ios-tvos-sdk.md)
-   * [（レガシー） Android SDK （Preauthorize API）](../../legacy/sdks/android-sdk/preauthorize-api-android-sdk.md)
+  * [（レガシー） JavaScript SDK （Preauthorize API）](../../legacy/sdks/javascript-sdk/preauthorize-api-javascript-sdk.md)
+  * [（レガシー） iOS/tvOS SDK （Preauthorize API）](../../legacy/sdks/ios-tvos-sdk/preauthorize-api-ios-tvos-sdk.md)
+  * [（レガシー） Android SDK （Preauthorize API）](../../legacy/sdks/android-sdk/preauthorize-api-android-sdk.md)
 
   _（*）事前認証APIは、拡張エラーコードのサポートを提供する唯一のAdobe Pass Authentication SDK APIです。_
 
@@ -45,9 +46,9 @@ ht-degree: 3%
 
 | Adobe Pass Authentication API | JSON | XML |
 |-------------------------------|---------|---------|
-| REST API v2 | &check; |         |
-| REST API v1 | &check; | &check; |
-| SDK Preauthorize API | &check; |         |
+| REST API v2 | &amp;check; |         |
+| REST API v1 | &amp;check; | &amp;check; |
+| SDK Preauthorize API | &amp;check; |         |
 
 >[!IMPORTANT]
 >
@@ -101,7 +102,7 @@ Content-Type: application/json
         "code": "authorization_denied_by_mvpd",
         "message": "The MVPD has returned a \"Deny\" decision when requesting authorization for the specified resource",
         "details": "Your subscription package does not include the \"Live\" channel",
-        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
         "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
       }
     }
@@ -120,7 +121,7 @@ Content-Type: application/json
   "status": 400,
   "code": "invalid_parameter_service_provider",
   "message": "The service provider parameter value is missing or invalid.",
-  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
   "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
 }
 ```
@@ -154,7 +155,7 @@ Content-Type: application/json
         "code": "authorization_denied_by_mvpd",
         "message": "The MVPD has returned a \"Deny\" decision when requesting authorization for the specified resource",
         "details": "Your subscription package does not include the \"Live\" channel",
-        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
         "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
       }
     }
@@ -173,7 +174,7 @@ Content-Type: application/json
   "status": 400,
   "code": "invalid_requestor",
   "message": "The requestor parameter is missing or invalid.",
-  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja",
+  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
   "trace": "8bcb17f9-b172-47d2-86d9-3eb146eba85e"
 }
 ```
@@ -189,7 +190,7 @@ Content-Type: application/xml
   <status>400</status>
   <code>invalid_requestor</code>
   <message>The requestor parameter is missing or invalid.</message>
-  <helpUrl>https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja</helpUrl>
+  <helpUrl>https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html</helpUrl>
   <trace>8bcb17f9-b172-47d2-86d9-3eb146eba85e</trace>
 </error>
 ```
@@ -202,12 +203,12 @@ Content-Type: application/xml
 
 | 名前 | タイプ | 例 | 制限付き | 説明 |
 |-----------|-----------|---------------------------------------------------------------------------------------------------------------------|:----------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *アクション* | *文字列* | *none* | &check; | Adobe Pass認証では、このドキュメントで定義されているように、状況を修正する可能性のあるアクションを推奨しました。<br/><br/> 詳しくは、「[&#x200B; アクション &#x200B;](#enhanced-error-codes-action)」の節を参照してください。 |
-| *ステータス* | *整数* | *403* | &check; | [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6)文書で定義されているHTTP応答ステータスコード。<br/><br/> 詳細については、「[&#x200B; ステータス &#x200B;](#enhanced-error-codes-status)」の節を参照してください。 |
-| *コード* | *文字列* | *authorization_denied_by_mvpd* | &check; | このドキュメントで定義されているように、エラーに関連付けられたAdobe Pass認証の一意のID コード。<br/><br/> 詳しくは、「[Code](#enhanced-error-codes-code)」の節を参照してください。 |
+| *アクション* | *文字列* | *none* | &amp;check; | Adobe Pass認証では、このドキュメントで定義されているように、状況を修正する可能性のあるアクションを推奨しました。<br/><br/> 詳しくは、「[ アクション ](#enhanced-error-codes-action)」の節を参照してください。 |
+| *ステータス* | *整数* | *403* | &amp;check; | [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6)文書で定義されているHTTP応答ステータスコード。<br/><br/> 詳細については、「[ ステータス ](#enhanced-error-codes-status)」の節を参照してください。 |
+| *コード* | *文字列* | *authorization_denied_by_mvpd* | &amp;check; | このドキュメントで定義されているように、エラーに関連付けられたAdobe Pass認証の一意のID コード。<br/><br/> 詳しくは、「[Code](#enhanced-error-codes-code)」の節を参照してください。 |
 | *メッセージ* | *文字列* | *指定されたリソースの認証をリクエストする際に、MVPDから「拒否」の判断が返されました* |            | エンドユーザーに表示できる、人間が判読可能なメッセージです。<br/><br/> 詳しくは、[応答処理](#enhanced-error-codes-response-handling) セクションを参照してください。 |
 | *詳細* | *文字列* | *サブスクリプションパッケージに「ライブ」チャネルが含まれていません* |            | 場合によっては、サービス パートナーから提供される可能性のある詳細なメッセージ、<br/><br/> サービス パートナーがカスタム メッセージを提供しない場合、このフィールドは存在しない可能性があります。 |
-| *helpUrl* | *url* | *https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=ja* |            | このエラーが発生した理由と考えられる解決策の詳細にリンクするAdobe Pass認証の公開ドキュメント URL。<br/><br/> このフィールドには絶対URLが含まれており、エラーコードから推測されるべきではありません。エラーコンテキストに応じて、異なるURLを指定できます。 |
+| *helpUrl* | *url* | *https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html* |            | このエラーが発生した理由と考えられる解決策の詳細にリンクするAdobe Pass認証の公開ドキュメント URL。<br/><br/> このフィールドには絶対URLが含まれており、エラーコードから推測されるべきではありません。エラーコンテキストに応じて、異なるURLを指定できます。 |
 | *トレース* | *文字列* | *12f6fef9-d2e0-422b-a9d7-60d799abe353* |            | Adobe Pass認証サポートに連絡して特定の問題のトラブルシューティングを行う際に使用できる応答の一意のID。 |
 
 >[!IMPORTANT]
@@ -356,7 +357,7 @@ _（*）一部のエラーでは、複数のアクションが解決策になる
 
 ### （レガシー） SDK Preauthorize API {#enhanced-error-codes-lists-sdks-preauthorize-api}
 
-クライアントアプリケーションがAdobe Pass Authentication SDK Preauthorize APIと統合されたときに発生する可能性のある拡張エラーコードについては、前の[&#x200B; セクション &#x200B;](#enhanced-error-codes-list-rest-api-v1)を参照してください。
+クライアントアプリケーションがAdobe Pass Authentication SDK Preauthorize APIと統合されたときに発生する可能性のある拡張エラーコードについては、前の[ セクション ](#enhanced-error-codes-list-rest-api-v1)を参照してください。
 
 ## 応答処理 {#enhanced-error-codes-response-handling}
 

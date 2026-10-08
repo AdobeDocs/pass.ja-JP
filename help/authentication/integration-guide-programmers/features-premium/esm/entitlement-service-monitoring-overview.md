@@ -2,13 +2,14 @@
 title: 使用権限サービスの監視の概要
 description: 使用権限サービスの監視の概要
 exl-id: ebd5d650-0a32-4583-9045-5156356494e2
-source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '1349'
 ht-degree: 0%
-
 ---
-
 # 使用権限サービスの監視の概要 {#entitlement-service-monitoring-overview}
 
 >[!NOTE]
@@ -83,7 +84,7 @@ ESM APIは一般には使用できません。  ご利用に関するご質問�
 | platform | デバイスはプラットフォームを識別しました。 可能な値：</br> - Android </br> - FireTV </br> - Roku </br> - iOS </br> - tvOS </br> – など |
 | application-name | 使用するように設定されたDCR登録済みアプリケーションに対して、TVE ダッシュボードで設定されたアプリケーション名。 |
 | application-version | 使用するように設定されたDCR登録済みアプリケーションに対して、TVE ダッシュボードで設定されたアプリケーションバージョン。 |
-| customer-app | [&#x200B; デバイス情報](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)を介して渡されたカスタムアプリケーション ID。 |
+| customer-app | [ デバイス情報](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)を介して渡されたカスタムアプリケーション ID。 |
 | content-category | アプリケーションによって要求されたコンテンツのカテゴリ。 |
 
 ## MVPD向けESM {#esm-for-mvpds}

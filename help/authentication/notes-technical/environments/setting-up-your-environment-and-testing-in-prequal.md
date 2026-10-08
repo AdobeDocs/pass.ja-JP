@@ -2,13 +2,14 @@
 title: 環境の設定と事前定期テスト
 description: 環境の設定と事前定期テスト
 exl-id: f822c0a1-045a-401f-a44f-742ed25bfcdc
-source-git-commit: b6ba687240799d1889302019613f426259f147ad
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '492'
 ht-degree: 0%
-
 ---
-
 # 環境の設定と事前定期テスト{#setting-up-your-environment-and-testing-in-prequal}
 
 >[!NOTE]
@@ -89,8 +90,8 @@ Addresses:  52.26.79.43
 * *c:\\windows\\System32\\drivers\\etc\\hosts* ファイル （Windows）または&#x200B;*/etc/hosts* ファイル （Macintosh/Linux/Android上）を編集し、次のファイルを追加します。
 
 * Spoofの制作プロファイル
-   * 52.13.71.11 sp.auth.adobe.com api.auth.adobe.com
-   * 54.190.212.171 entitlement.auth.adobe.com
+  * 52.13.71.11 sp.auth.adobe.com api.auth.adobe.com
+  * 54.190.212.171 entitlement.auth.adobe.com
 
 **Androidでのスプーフィング：** Androidでスプーフィングするには、Android エミュレーターを使用する必要があります。
 
@@ -115,7 +116,7 @@ Addresses:  52.26.79.43
 
 ## 手順6:  API テストサイトを使用したテストの実行 {#perform-testing-using-api-testing-site}
 
-* Adobe Pass認証のテストについて詳しく説明する場合は、[API テストサイト &#x200B;](http://entitlement-prequal.auth.adobe.com/apitest/api.html)を使用することをお勧めします。
+* Adobe Pass認証のテストについて詳しく説明する場合は、[API テストサイト ](http://entitlement-prequal.auth.adobe.com/apitest/api.html)を使用することをお勧めします。
 
 API テストサイトの詳細については、[AdobeのAPI テストサイトを使用して認証と認証フローをテストする方法](/help/authentication/integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)を参照してください。
 

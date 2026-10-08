@@ -1,17 +1,18 @@
 ---
-title: Adobe同時実行性モニタリング 2.7.2 リリースノート
-description: Adobe同時実行性モニタリング 2.7.2 リリースノート
+title: Adobe Concurrency Monitoring 2.7.2 リリースノート
+description: Adobe Concurrency Monitoring 2.7.2 リリースノート
 exl-id: b7850400-a3ae-4c26-aba9-ffbf68bc41f4
-source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '46'
 ht-degree: 10%
-
 ---
+# Adobe Concurrency Monitoring 2.7.2 リリースノート {#cm-272-rn}
 
-# Adobe同時実行性モニタリング 2.7.2 リリースノート {#cm-272-rn}
-
-このページでは、このリリースの新機能、変更点および既知の問題について説明します。
+このページでは、このリリースの新機能、変更点、既知の問題について説明します。
 
 ## リリース日 {#release-date}
 
@@ -19,9 +20,9 @@ ht-degree: 10%
 
 ## リリースの概要 {#rel-overview}
 
-* DirecTV 統合の機能強化。
+* DirecTV統合の機能強化
 
-* バグの修正。
+* バグ修正。
 
 
 

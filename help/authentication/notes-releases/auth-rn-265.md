@@ -2,22 +2,23 @@
 title: Adobe Pass Authentication 2.65 リリースノート
 description: Adobe Pass Authentication 2.65 リリースノート
 exl-id: 12a1578f-e990-4b3b-ac3d-e356ecd20810
-source-git-commit: ecafc3a92f691203d8113a741f0b6cd00a134e80
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '86'
 ht-degree: 0%
-
 ---
-
 # Adobe Pass Authentication 2.65 リリースノート {#authn-265-rn}
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
-このページでは、このリリースの新機能、変更点および既知の問題について説明します。
+このページでは、このリリースの新機能、変更点、既知の問題について説明します。
 
-## サーバーサイドと Web クライアント {#server-side-web-clients-265}
+## サーバーサイドおよびWeb クライアント {#server-side-web-clients-265}
 
 * [ビルド番号](#build-number-265)
 * [リリースの概要](#release-overview-265)
@@ -30,4 +31,4 @@ Adobe Pass認証：adobe-pass-**2.65**
 
 ### リリースの概要 {#release-overview-265}
 
-このリリースでは、内部アーキテクチャの改善が続けられています。
+このリリースでは、内部アーキテクチャの改善が引き続き行われます。

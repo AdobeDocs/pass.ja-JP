@@ -2,61 +2,62 @@
 title: MVPD User Metadata Exchange
 description: MVPD User Metadata Exchange
 exl-id: 8bce6acc-cd33-476c-af5e-27eb2239cad1
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
-source-wordcount: '949'
+source-wordcount: '947'
 ht-degree: 0%
-
 ---
-
 # MVPD User Metadata Exchange
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 ## 概要 {#intro-user-metadata-exchange}
 
-MVPD は、顧客に関するユーザー固有のメタデータを保持し、プログラマーと共有される場合もあります。 Adobe Pass Authentication の目的は、この「ユーザーメタデータ」の交換を仲介することですが、交換に関するあらゆる種類の規則を実施することではありません。 交換ルールは、MVPD がプログラマのパートナーと協力するためのものです。
+MVPDは、顧客に関するユーザー固有のメタデータを保持し、場合によってはプログラマーと共有されます。 Adobe Pass Authenticationの目的は、この「ユーザーメタデータ」の交換を仲介することですが、交換に関するいかなる種類のルールも適用しません。 交換ルールは、MVPDがプログラマーパートナーと協力して作業するためのものです。
 
-Exchange で利用可能なユーザー・メタデータ・タイプには、現在、次のものが含まれます。
+現在、Exchangeで使用できるユーザーメタデータタイプには、次のものが含まれます。
 
 * 郵便番号
-* 最大定格（VChip または MPAA）
+* 最大評価（VChipまたはMPAA）
 * ユーザー ID
-* 世帯 ID
+* 世帯ID
 * チャネル ID
 
-この機能を使用すると、MVPD とプログラマーは、ペアレンタルコントロールなどの特別なユースケースを実装できます。 例えば、MVPDは、保護者によるレーティングのデータをプログラマーに渡し、プログラマーはそのデータを使用して、ユーザーが利用できる視聴オプションをフィルタリングできます。
+この機能を使用すると、MVPDとプログラマーは、ペアレンタルコントロールなどの特別なユースケースを実装できます。 例えば、MVPDでは、保護者の評価データをプログラマーに渡し、そのデータを使用してユーザーの利用可能な視聴の選択肢をフィルタリングできます。
 
-ユーザーメタデータの重要なポイント：
+ユーザーメタデータのキーポイント：
 
-* MVPDは、認証および承認フロー中に、ユーザーメタデータをプログラマーアプリケーションに渡します
-* Adobe Pass認証では、メタデータ値を AuthN および AuthZ トークンに保存します
-* Adobe Pass認証では、様々な形式のユーザーメタデータを提供する MVPD の値を正規化できます
+* MVPDは、認証フローと承認フロー中に、プログラマーのアプリケーションにユーザーメタデータを渡します
+* Adobe Pass Authenticationは、AuthNおよびAuthZ トークンにメタデータ値を保存します
+* Adobe Pass認証では、異なる形式でユーザーメタデータを提供するMVPDの値を正規化できます
 * 一部のパラメーターは、プログラマーのキーを使用して暗号化できます
-* 設定を変更すると、特定の値がAdobeで使用可能になります
+* Adobeでは、設定の変更により特定の値を使用できます
 
 >[!NOTE]
 >
->ユーザーメタデータは、Adobe Pass Authentication で以前に使用可能だった静的メタデータ（認証トークン TTL、認証トークン TTL、デバイス ID）を拡張したものです。
+>ユーザーメタデータは、以前にAdobe Pass Authenticationで利用可能だった静的メタデータ（認証トークン TTL、認証トークン TTL、およびデバイス ID）の拡張機能です。
 
 ## 例 {#example-mvpd-user-metadata-exch}
 
-### 保護者による制限 {#example-parental-control}
+### 保護者の管理 {#example-parental-control}
 
-この例では、次の交換を示します。
+次の例は、次のやりとりを示しています。
 
-* [MVPD メタデータ交換のプログラマ](#progr-mvpd-metadata-exch)
+* [MVPD Metadata Exchangeへのプログラマ](#progr-mvpd-metadata-exch)
 
-* [MVPDからプログラマーへのメタデータ交換フロー](#mvpd-progr-exchange-flow)
+* [MVPDからプログラマへのメタデータ交換フロー](#mvpd-progr-exchange-flow)
 
-### MVPD メタデータ交換のプログラマ {#progr-mvpd-metadata-exch}
+### MVPD Metadata Exchangeへのプログラマ {#progr-mvpd-metadata-exch}
 
-現在、プログラマー API、Adobe Pass認証、MVPD認証機能はすべて、チャネルレベルの認証のみをサポートしています。 チャネルは、プログラマーの getAuthorization （） API 呼び出しで、プレーンテキストの文字列として指定されます。 この文字列は、MVPD認証バックエンドに最終的に生成されます。
+現在、Programmer API、Adobe Pass Authentication、MVPD Authorizersはすべて、チャネルレベルの認証のみをサポートしています。 チャネルは、プログラマのgetAuthorization （） API呼び出しでプレーンテキスト文字列として指定されます。 この文字列は、MVPDの承認バックエンドに至るまで反映されます。
 
-プログラマーのアプリまたはサイトから、XACML 対応のMVPD（この例では「TNT」）を選択します。 XACML について詳しくは、「[eXtensible Access Control Markup Language](https://en.wikipedia.org/wiki/XACML){target=_blank}」を参照してください。
-プログラマーのアプリが、リソースとそのメタデータを含む AuthZ リクエストを作成します。  この例では、チャネル要素の media 属性に「pg」の MPAA レーティングを含めています。
+プログラマーのアプリまたはサイトから、ユーザーはXACML対応のMVPD（この例では「TNT」）を選択します。 XACMLについて詳しくは、[拡張可能アクセス制御マークアップ言語](https://en.wikipedia.org/wiki/XACML){target=_blank}を参照してください。
+プログラマーのアプリは、リソースとそのメタデータを含むAuthZ リクエストを形成します。  この例では、channel要素のmedia属性に「pg」というMPAA評価が含まれています。
 
 ```XML
 var resource = '<rss version="2.0" xmlns:media="http://video.search.yahoo.com/mrss/">
@@ -68,20 +69,20 @@ var resource = '<rss version="2.0" xmlns:media="http://video.search.yahoo.com/mr
 getAuthorization(resource);
 ```
 
-Adobe Pass認証は、実際には、MVPDとプログラマーの両方でサポートされる場合、アセットレベルに至るまで、より詳細な認証をサポートします。 リソースとそのメタデータはAdobeに対して不透明です。その目的は、リソース ID とメタデータを正規化された方法で指定する標準形式を確立し、リソース ID を異なる MVPD に送信することです。
+Adobe Pass Authenticationは、MVPDとプログラマーの両方でサポートされている場合、アセットレベルまで、より詳細な認証をサポートします。 リソースとそのメタデータはAdobeに対して不透明です。その目的は、リソース IDとメタデータを正規化された方法で指定するための標準フォーマットを確立し、リソース IDを異なるMVPDに送信することです。
 
 >[!NOTE]
 >
->ユーザーがチャンネルのみのMVPDを選択した場合、Adobe Pass認証は、チャネルタイトル（上記の例では「TNT」）のみを抽出し、タイトルのみをMVPDに渡します。
+>ユーザーがチャンネル専用のMVPDを選択した場合、Adobe Pass Authenticationはチャンネルタイトル（上記の例では「TNT」）のみを抽出し、タイトルのみをMVPDに渡します。
 
-### MVPDからプログラマーへのメタデータ交換フロー {#mvpd-progr-exchange-flow}
+### MVPDからプログラマへのメタデータ交換フロー {#mvpd-progr-exchange-flow}
 
-Adobe Pass認証では、次のような前提があります。
+Adobe Pass認証では、次の前提が満たされます。
 
-* MVPDは、SAML 応答の一部として最大評価を送信します
+* MVPDは、SAML応答の一部として最大評価を送信します
 * この情報は、認証トークンの一部として保存されます
-* API は、プログラマーがこの情報を取得できるようにするためにAdobe Pass Authentication によって提供されます
-* プログラマーは、この機能をサイトまたはアプリに実装します（例えば、ユーザーの最高評価を超えるビデオを非表示にするため）
+* Adobe Pass Authenticationでは、プログラマーがこの情報を取得できるようにするためのAPIを提供しています
+* プログラマーは、この機能をサイトまたはアプリに実装します（例えば、ユーザーの最大評価を超えるビデオを非表示にするため）
 
 ```XML
 <saml:Assertion ID="pfxec5f92e0-8589-3fc3-c708-f4fb8e2fad59"
@@ -103,60 +104,60 @@ Adobe Pass認証では、次のような前提があります。
 </saml:Assertion>
 ```
 
-### 備考 {#notes-mvpd-progr-metadata-exch-flow}
+### メモ {#notes-mvpd-progr-metadata-exch-flow}
 
-**リソースの正規化と検証** リソース ID は、プレーン文字列または MRSS 文字列として渡すことができます。 プログラマーは、プレーンストリング形式または MRSS のいずれかを使用することにできますが、MVPDがそのリソースの処理方法を把握できるように、MVPDとの事前の合意が必要になります。
+**リソースの正規化と検証。** リソース IDは、プレーン文字列またはMRSS文字列として渡すことができます。 プログラマは、プレーン文字列書式またはMRSSのいずれかを使用できますが、MVPDがそのリソースの処理方法を把握できるように、MVPDとの事前の契約が必要です。
 
-**リソース ID とメタデータの仕様。** Adobe Pass認証では、RSS 標準とメディア RSS 拡張機能を使用して、リソースとそのメタデータを指定します。 Adobe Pass認証は、メディア RSS 拡張機能と組み合わせて、ペアレンタルコントロール（`<media:rating>` 経由）やジオロケーション（`<media:location>` 経由）など、様々なメタデータをサポートしています。
+**リソース IDとメタデータの指定。** Adobe Pass認証では、Media RSS拡張機能を使用してRSS標準を使用し、リソースとそのメタデータを指定します。 Media RSS拡張機能と組み合わせることで、Adobe Pass Authenticationは、ペアレンタルコントロール（`<media:rating>`経由）や位置情報（`<media:location>`）など、様々なメタデータをサポートしています。
 
-また、Adobe Pass認証では、RSS を必要とする MVPD の対応する RSS リソースへの、従来のチャネル文字列からの透過的な変換もサポートされます。 一方、Adobe Pass認証では、チャンネル専用の MVPD について、RSS+MRSS からプレーンチャネルタイトルへの変換をサポートしています。
+Adobe Pass Authenticationは、RSSを必要とするMVPDのレガシーチャネル文字列から対応するRSS リソースへの透過的な変換もサポートできます。 一方、Adobe Pass Authenticationでは、チャネルのみのMVPDに対して、RSS+MRSSからプレーンチャネルタイトルへの変換がサポートされます。
 
-**Adobe Pass認証により、既存の統合との完全な後方互換性が確保されます。** つまり、チャンネルレベルの認証を使用するプログラマーの場合、Adobe Pass認証は、そのフォーマットを理解できるMVPDにチャンネル ID を送信する前に、必要なフォーマットでチャンネル ID をパッケージ化します。 逆も適用されます。プログラマーがすべてのリソースを新しいフォーマットで指定する場合、Adobe Pass認証は、チャネルレベルの認証のみを行うMVPDに対して認証を行う場合、新しいフォーマットを単純なチャネル文字列に変換します。
+**Adobe Pass Authenticationは、既存の統合との完全な後方互換性を保証します。** つまり、チャンネルレベルの認証を使用するプログラマーの場合、Adobe Pass認証は、そのフォーマットを理解しているMVPDに送る前に、必要なフォーマットでチャネル IDをパッケージ化するように注意します。 その逆も同様です。プログラマが新しいフォーマットですべてのリソースを指定した場合、Adobe Pass Authenticationは、チャネルレベルの認証のみを行うMVPDに対して認証を行う場合、新しいフォーマットを単純なチャネル文字列に変換します。
 
-## ユーザーメタデータのユースケース {#user-metadata-use-cases}
+## ユーザーメタデータの使用例 {#user-metadata-use-cases}
 
-法的取り決めや機能の追加を行う MVPD が増えるにつれ、ユースケースは変化し続け、拡大しています。 ユーザーメタデータの使用目的の例を以下に示します。
+Mvpdが法的措置や機能追加を行うケースが増えるにつれて、ユースケースは常に変化し、拡大しています。 ユーザーメタデータの使用例を次に示します。
 
-* [MVPD ユーザー ID](#mvpd-user-id)
-* [世帯 ID](#household-user-id)
+* [MVPD ユーザーID](#mvpd-user-id)
+* [世帯ID](#household-user-id)
 * [郵便番号](#zip-code)
-* [最大レーティング （保護者による制限）](#max-rating-parental-control)
-* [チャネルラインアップ](#channel-line-up)
+* [最大評価（ペアレンタルコントロール）](#max-rating-parental-control)
+* [チャネルラインナップ](#channel-line-up)
 
-### MVPD ユーザー ID {#mvpd-user-id}
+### MVPD ユーザーID {#mvpd-user-id}
 
-* MVPDによって提供される
-* MVPDによってハッシュ化されるので、ユーザーの実際のログイン情報ではありません
-* 特定のユーザーに関するまたはの問題を示すために使用できます
+* MVPDの提供する
+* MVPDによってハッシュ化されるので、実際のログイン情報ではなく
+* 特定のユーザーに関する問題を示すために使用できます
 * 暗号化
-* MVPD サポート：すべての MVPD
+* MVPDのサポート：すべてのMVPD
 
-### 世帯ユーザー ID {#household-user-id}
+### 世帯ユーザーID {#household-user-id}
 
-* 適切な指標情報を利用できます
+* 適切な指標を設定できる
 * 暗号化
-* MVPD サポート：一部の MVPD
+* MVPD サポート：一部のMVPD
 
 ### 郵便番号 {#zip-code}
 
-* ユーザーの請求先郵便番号
-* 主にスポーツイベント凍結期間ルールの実施に使用
-* 迅速なアップデートのために、AuthZ 応答で提供可能
-* MVPD サポート：一部の MVPD
+* ユーザーの請求郵便番号
+* 主に、スポーツイベントのフリーズ期間ルールを強制するために使用されます
+* 迅速な更新のためにAuthZ応答を提供できます
+* MVPD サポート：一部のMVPD
 
-### 最大レーティング （保護者による制限） {#max-rating-parental-control}
+### 最大評価（ペアレンタルコントロール） {#max-rating-parental-control}
 
-* 最初は AuthN、さらに AuthZ の更新
-* UI からのコンテンツのフィルタリング
-* MPAA または VChip の評価
-* MVPD サポート：一部の MVPD
+* 最初にAuthNを行い、AuthZを更新する
+* UIからコンテンツをフィルタリング
+* MPAAまたはVChip評価
+* MVPD サポート：一部のMVPD
 
-### チャネルラインアップ {#channel-line-up}
+### チャネルラインナップ {#channel-line-up}
 
-* MVPD は、ユーザーが閲覧できるチャネルのリストを提供できます
-* クイック UI ペインティングを可能にします
-* OLCA の仕様では、これを AuthN 応答の AttributeStatement として使用できます
-* MVPD のサポート：一部の MVPD
+* MVPDは、ユーザーが表示できるチャネルのリストを提供できます
+* クイック UI ペインティングを可能にする
+* OLCA仕様では、これをAuthN応答のAttributeStatementとして使用できます
+* MVPDのサポート：一部のMVPD
 
 <!--
 >[!RELATEDINFORMATION]

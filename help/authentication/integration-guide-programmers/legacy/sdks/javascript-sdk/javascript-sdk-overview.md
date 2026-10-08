@@ -2,46 +2,47 @@
 title: JavaScript SDKの概要
 description: JavaScript SDKの概要
 exl-id: 8756c804-a4c1-4ee3-b2b9-be45f38bdf94
-source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '515'
 ht-degree: 0%
-
 ---
-
-# （従来の）JavaScript SDKの概要 {#javascript-sdk-overview}
+# （レガシー） JavaScript SDKの概要 {#javascript-sdk-overview}
 
 >[!NOTE]
 >
->このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+>このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> [&#x200B; 製品のお知らせ &#x200B;](/help/authentication/product-announcements.md) ページに集約された最新のAdobe Pass認証製品のお知らせや廃止予定タイムラインについて、常に情報を提供するようにします。
+> [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 ## 概要
 
-Adobeでは、最新の JS v4.x の AccessEnabler ライブラリにマイグレーションすることを強くお勧めします。
+Adobeでは、AccessEnabler ライブラリの最新のJS v4.xに移行することを強くお勧めします。
 
-Adobe Pass Authentication JavaScript統合は、使い慣れた JS web アプリケーション開発環境で、プログラマーに TV-Everywhere ソリューションを提供します。 統合の主なコンポーネントは、「高レベル」のアプリケーション（ユーザー・インタラクション、ビデオ・プレゼンテーション）、Adobeが提供する「低レベル」の AccessEnabler ライブラリです。これらは、使用権限フローへのエントリーを提供し、Adobe Pass認証サーバとの通信を処理します。
+Adobe Pass Authentication JavaScriptの統合により、プログラマーは、使い慣れたJS web アプリケーション開発環境でTV-Everywhere ソリューションを利用できます。 統合の主なコンポーネントは、「上位レベル」アプリケーション（ユーザーインタラクション、ビデオのプレゼンテーション）と、Adobeが提供する「下位レベル」のAccessEnabler ライブラリです。このライブラリは、使用権限フローへのエントリを提供し、Adobe Pass認証サーバーとの通信を処理します。
 
-次のセクションでは、JavaScript AccessEnabler の統合に関する説明とサンプルを示します。
+次の節では、JavaScript AccessEnabler統合に固有の説明とサンプルを示します。
 
 >[!IMPORTANT]
 >
->このドキュメントでは、デスクトップ web ソリューションの実装について説明します。 JavaScript ライブラリは、モバイルプラットフォームではサポートされません（例えば、iOSの Safari、AndroidのChrome）。 モバイルプラットフォーム（iOS、Android、Windows）をターゲットにする場合は、ネイティブ SDK を使用してください。
+>このドキュメントでは、デスクトップ web ソリューションの実装について説明します。 JavaScript ライブラリは、モバイルプラットフォーム（iOSのSafari、AndroidのChromeなど）ではサポートされていません。 モバイルプラットフォーム（iOS、Android、Windows）をターゲットにする場合は、アドビのネイティブ SDKをご利用ください。
 
 ## MVPD選択ダイアログの作成 {#creating-the-mvpd-selection-dialog}
 
-ユーザーがMVPDにログインして認証されるようにするには、ページまたはプレーヤーが、ユーザーがMVPDを識別する方法を提供する必要があります。 MVPDの選択ダイアログのデフォルトバージョンが、開発用に提供されています。 実稼動で使用するには、独自のMVPD セレクターを実装する必要があります。
+利用者がMVPDにログインして認証を受けるには、ページまたはプレーヤーが、利用者がMVPDを識別する方法を提供する必要があります。 MVPDの選択ダイアログのデフォルトバージョンが開発用に用意されています。 実稼動用には、独自のMVPD セレクターを実装する必要があります。
 
-顧客のプロバイダーが既にわかっている場合は、ユーザーの操作なしで [&#x200B; プログラムによってMVPDを設定 &#x200B;](/help/authentication/home.md) できます。 方法は同じですが、プロバイダーセレクターダイアログを呼び出して顧客にMVPDを選択するように依頼する手順は省略されます。
+お客様のプロバイダーが誰であるか既にご存知の場合は、ユーザーの操作なしで[MVPDをプログラムで](/help/authentication/home.md)設定できます。 この方法は同じですが、プロバイダーセレクターダイアログを呼び出し、お客様にMVPDを選択するように依頼する手順は省略します。
 
 ## サービスプロバイダーの表示 {#displaying-the-service-provider}
 
-次のコード例は、現在の顧客のサービスプロバイダーを検出して表示する方法を示しています。
+次のコードサンプルは、現在の顧客のサービスプロバイダーを検出して表示する方法を示しています。
 
-**HTML** – このページには、顧客が既にログインしている場合に、顧客が選択したプロバイダーを表示するセクションが追加されます。
+**HTML** – このページには、お客様が選択したプロバイダーが既にログインしている場合に表示されるセクションが追加されます。
 
 ```HTML
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
@@ -55,7 +56,7 @@ Adobe Pass Authentication JavaScript統合は、使い慣れた JS web アプリ
     </head>
     <body>
         <div id="alternative">
-        <a href="http://www.adobe.com/go/getflashplayer_jp"> 
+        <a href="http://www.adobe.com/go/getflashplayer"> 
             <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" 
                  alt="Get Adobe Flash player"/> </a>
         </div> 
@@ -80,7 +81,7 @@ Adobe Pass Authentication JavaScript統合は、使い慣れた JS web アプリ
 ```
 
 
-**JavaScript** このJavaScript ファイルは、ユーザーが既にログインしている場合、現在のプロバイダーのアクセス イネーブラを照会し、その結果をページ セクションに表示します。 また、MVPDのセレクターダイアログも実装されています。
+**JavaScript**&#x200B;このJavaScript ファイルは、ユーザーが既にログインしている場合に、現在のプロバイダーのAccess Enablerをクエリし、その結果を、そのプロバイダー用に予約されたページセクションに表示します。 また、次のMVPD セレクターダイアログも実装されています。
 
 ```JS
     $(function() {
@@ -201,19 +202,19 @@ Adobe Pass Authentication JavaScript統合は、使い慣れた JS web アプリ
 
 ## ログアウト {#logout}
 
-`logout()` を呼び出してログアウトプロセスを開始します。 このメソッドは引数を取りません。 現在のユーザーをログアウトし、そのユーザーのすべての認証および認証情報をクリアして、ローカル・システムからすべての AuthN および AuthZ トークンを削除します。
+`logout()`を呼び出して、ログアウトプロセスを開始します。 このメソッドは引数を取りません。 現在のユーザーをログアウトし、そのユーザーのすべての認証情報と認証情報を消去し、ローカルシステムからすべてのAuthNおよびAuthZ トークンを削除します。
 
-プレーヤーがユーザーのログアウトの処理に責任を負わない場合があります。
+ユーザーのログアウトを処理する責任をプレイヤーが負わない場合があります。
 
 
 
-- **Adobe Pass認証と統合されていないサイトからログアウトが開始された場合。** この場合、MVPDは、ブラウザーリダイレクトを通じてAdobe Pass Authentication Single Logout サービスを呼び出すことができます。 （バックチャネル呼び出しを使用した SLO の呼び出しは、現在サポートされていません）。
+- **Adobe Pass Authenticationと統合されていないサイトからログアウトが開始されたとき。** この場合、MVPDは、ブラウザーリダイレクトを介してAdobe Pass Authentication Single Logout サービスを呼び出すことができます。 （バックチャネルコールを介したSLOの呼び出しは現在サポートされていません）。
 
 >[!NOTE]
 >
->ユーザーがトークンの有効期限が切れるまでマシンをアイドル状態のままにしても、セッションに戻ってログアウトを正常に開始できます。 Adobe Pass認証を使用すると、すべてのトークンが削除され、セッションを削除するようにMVPDに通知されます。
+>ユーザーがトークンの有効期限が切れるほどマシンをアイドル状態のままにした場合、セッションに戻り、ログアウトを正常に開始できます。 Adobe Pass認証では、すべてのトークンが削除され、MVPDに対してセッションの削除も通知されます。
 
-次のJavaScript コードは、現在認証されているユーザーのログアウト（認証の解除）を示しています。
+次のJavaScript コードは、現在認証されているユーザーのログアウト（認証解除）を示しています。
 
 ```JS
     [...]

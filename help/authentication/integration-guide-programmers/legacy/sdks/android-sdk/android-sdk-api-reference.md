@@ -2,13 +2,14 @@
 title: Android SDK API リファレンス
 description: Android SDK API リファレンス
 exl-id: f932e9a1-2dbe-4e35-bd60-a4737407942d
-source-git-commit: b6ba687240799d1889302019613f426259f147ad
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '4628'
 ht-degree: 0%
-
 ---
-
 # （レガシー） Android SDK API リファレンス {#android-sdk-api-reference}
 
 >[!NOTE]
@@ -134,12 +135,12 @@ ht-degree: 0%
 **パラメーター：**
 
 - *status*：次のいずれかの値を取ることができます：
-   - SDK \>= 3.4.0
-      - `AccessEnablerConstants.ACCESS_ENABLER_STATUS_SUCCESS` – 構成フェーズが正常に完了しました
-      - `AccessEnablerConstants.ACCESS_ENABLER_STATUS_ERROR` – 構成フェーズが失敗しました
-   - SDK \&lt; 3.4
-      - `AccessEnabler.ACCESS_ENABLER_STATUS_SUCCESS` – 構成フェーズが正常に完了しました
-      - `AccessEnabler.ACCESS_ENABLER_STATUS_ERROR` – 構成フェーズが失敗しました
+  - SDK \>= 3.4.0
+    - `AccessEnablerConstants.ACCESS_ENABLER_STATUS_SUCCESS` – 構成フェーズが正常に完了しました
+    - `AccessEnablerConstants.ACCESS_ENABLER_STATUS_ERROR` – 構成フェーズが失敗しました
+  - SDK \&lt; 3.4
+    - `AccessEnabler.ACCESS_ENABLER_STATUS_SUCCESS` – 構成フェーズが正常に完了しました
+    - `AccessEnabler.ACCESS_ENABLER_STATUS_ERROR` – 構成フェーズが失敗しました
 
 **トリガー：** `setRequestor()`
 
@@ -160,10 +161,10 @@ ht-degree: 0%
 **パラメーター：**
 
 - *options*：グローバル SDK オプションを含むMap&lt;String, String>。 現在、次のオプションを使用できます。
-   - **applicationProfile** – この値に基づいてサーバー設定を行うために使用できます。
-   - **ap_vi** - Experience Cloud ID （visitorID）。 この値は、後で高度な分析レポートに使用できます。
-   - **ap_ai** - Advertising ID
-   - **device_info** – ここに記載されているクライアント情報：[&#x200B; クライアント情報デバイス接続とアプリケーションを渡しています](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。
+  - **applicationProfile** – この値に基づいてサーバー設定を行うために使用できます。
+  - **ap_vi** - Experience Cloud ID （visitorID）。 この値は、後で高度な分析レポートに使用できます。
+  - **ap_ai** - Advertising ID
+  - **device_info** – ここに記載されているクライアント情報：[ クライアント情報デバイス接続とアプリケーションを渡しています](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)。
 
 [トップへ戻る…](#apis)
 
@@ -172,7 +173,7 @@ ht-degree: 0%
 
 **説明：**&#x200B;認証ステータスを確認します。 これは、ローカルトークンのストレージ領域で有効な認証トークンを検索することで実現します。 このメソッドはネットワーク呼び出しを実行せず、メインスレッドで呼び出すことをお勧めします。 ユーザーの認証ステータスをクエリし、それに応じてUIを更新するためにアプリケーションによって使用されます（つまり、ログイン/ログアウト UIを更新します）。 認証ステータスは、[*setAuthenticationStatus （）*](#setAuthNStatus) コールバックを介してアプリケーションに通知されます。
 
-MVPDが「リクエスト者ごとの認証」機能をサポートしている場合、複数の認証トークンをデバイスに保存できます。  この機能について詳しくは、Androidの技術概要の「[&#x200B; キャッシングガイドライン &#x200B;](#$caching)」の節を参照してください。
+MVPDが「リクエスト者ごとの認証」機能をサポートしている場合、複数の認証トークンをデバイスに保存できます。  この機能について詳しくは、Androidの技術概要の「[ キャッシングガイドライン ](#$caching)」の節を参照してください。
 
 | API呼び出し：認証ステータスの確認 |
 | --- |
@@ -192,11 +193,11 @@ MVPDが「リクエスト者ごとの認証」機能をサポートしている�
 **説明：**&#x200B;完全な認証ワークフローを開始します。 まず、認証ステータスを確認します。 まだ認証されていない場合は、認証フローのstate-machineが開始されます。
 
 - 最後の認証が成功した場合、MVPDの選択フェーズはスキップされ、[*navigateToUrl （）*](#navigagteToUrl) コールバックがトリガーされます。 このコールバックを使用して、MVPDのログインページを表示するWebView コントロールをインスタンス化します。
-- 前回の認証が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションでは、このコールバックを使用してMVPDの選択UIを表示します。 また、[setSelectedProvider （） &#x200B;](#setSelectedProvider) メソッドを使用して、Access Enabler ライブラリにユーザーのMVPDの選択を通知することで、認証フローを再開する必要もあります。
+- 前回の認証が失敗した場合、またはユーザーが明示的にログアウトした場合、[*displayProviderDialog （）*](#displayProviderDialog) コールバックがトリガーされます。 アプリケーションでは、このコールバックを使用してMVPDの選択UIを表示します。 また、[setSelectedProvider （） ](#setSelectedProvider) メソッドを使用して、Access Enabler ライブラリにユーザーのMVPDの選択を通知することで、認証フローを再開する必要もあります。
 
 ユーザーの資格情報はMVPD ログインページで確認されるため、ユーザーがMVPD ログインページで認証する間に行われる複数のリダイレクト操作をモニターする必要があります。 正しい資格情報を入力すると、WebView コントロールは&#x200B;*AccessEnabler.ADOBEPASS\_REDIRECT\_URL*&#x200B;定数で定義されたカスタム URLにリダイレクトされます。 このURLは、WebViewで読み込まれることを意図したものではありません。 アプリケーションはこのURLをインターセプトし、ログインフェーズが完了したことを示すシグナルとしてこのイベントを解釈する必要があります。 次に、認証フローを完了するためにAccess Enablerに制御を渡す必要があります（*getAuthenticationToken （）* メソッドを呼び出すことによって）。
 
-MVPDが「Authentication per Requestor」機能をサポートしている場合、1つのデバイス（プログラマーごとに1つ）に複数の認証トークンを保存できます。  この機能について詳しくは、Androidの技術概要の「[&#x200B; キャッシングガイドライン &#x200B;](#$caching)」の節を参照してください。
+MVPDが「Authentication per Requestor」機能をサポートしている場合、1つのデバイス（プログラマーごとに1つ）に複数の認証トークンを保存できます。  この機能について詳しくは、Androidの技術概要の「[ キャッシングガイドライン ](#$caching)」の節を参照してください。
 
 最後に、認証ステータスは&#x200B;*setAuthenticationStatus （）* コールバックを介してアプリケーションに通知されます。
 
@@ -232,7 +233,9 @@ MVPDが「Authentication per Requestor」機能をサポートしている場合
 
 >[!NOTE]
 >
-> 認証フローの中止これは、ユーザーが「戻る」ボタンを押す機能を持つポイントです。これは、認証フローの中止に相当します。 このようなシナリオでは、Access Enablerに認証状態マシンをリセットする機会を与えるために、*null*&#x200B;をパラメーターとして渡す`setSelectedProvider()` メソッドを呼び出す必要があります。
+> 認証フローの中止
+> </br></br>
+> これは、ユーザーが「戻る」ボタンを押す機能を持つポイントです。これは、認証フローの中止に相当します。 このようなシナリオでは、Access Enablerに認証状態マシンをリセットする機会を与えるために、*null*&#x200B;をパラメーターとして渡す`setSelectedProvider()` メソッドを呼び出す必要があります。
 
 | コールバック：MVPDの選択UIの表示 |
 | --- |
@@ -337,12 +340,12 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 **パラメーター：**
 
 - *status*：次のいずれかの値を取ることができます：
-   - `AccessEnablerConstants.ACCESS_ENABLER_STATUS_SUCCESS` – 認証フローが正常に完了しました
-   - `AccessEnablerConstants.ACCESS_ENABLER_STATUS_ERROR` – 認証フローに失敗しました
+  - `AccessEnablerConstants.ACCESS_ENABLER_STATUS_SUCCESS` – 認証フローが正常に完了しました
+  - `AccessEnablerConstants.ACCESS_ENABLER_STATUS_ERROR` – 認証フローに失敗しました
 - *code*：失敗の理由。 *status*&#x200B;が`AccessEnablerConstants.ACCESS_ENABLER_STATUS_SUCCESS`の場合、*code*&#x200B;は空の文字列です（つまり、`AccessEnablerConstants.USER_AUTHENTICATED`定数で定義されています）。 失敗した場合、このパラメーターは次のいずれかの値を取ることができます。
-   - `AccessEnablerConstants.USER_NOT_AUTHENTICATED_ERROR` - ユーザーが認証されていません。 ローカル トークン キャッシュに有効な認証トークンがない場合の&#x200B;*checkAuthentication （）* メソッド呼び出しに対する応答。
-   - `AccessEnablerConstants.PROVIDER_NOT_SELECTED_ERROR` – 上層アプリケーションが&#x200B;*null*&#x200B;を`setSelectedProvider()`に渡して認証フローを中止した後、AccessEnablerは認証状態マシンをリセットしました。  おそらく、ユーザーは認証フローをキャンセルしました（「戻る」ボタンを押しました）。
-   - `AccessEnablerConstants.GENERIC_AUTHENTICATION_ERROR` - ネットワークが利用できないなどの理由で認証フローが失敗したか、ユーザーが認証フローを明示的にキャンセルしました。
+  - `AccessEnablerConstants.USER_NOT_AUTHENTICATED_ERROR` - ユーザーが認証されていません。 ローカル トークン キャッシュに有効な認証トークンがない場合の&#x200B;*checkAuthentication （）* メソッド呼び出しに対する応答。
+  - `AccessEnablerConstants.PROVIDER_NOT_SELECTED_ERROR` – 上層アプリケーションが&#x200B;*null*&#x200B;を`setSelectedProvider()`に渡して認証フローを中止した後、AccessEnablerは認証状態マシンをリセットしました。  おそらく、ユーザーは認証フローをキャンセルしました（「戻る」ボタンを押しました）。
+  - `AccessEnablerConstants.GENERIC_AUTHENTICATION_ERROR` - ネットワークが利用できないなどの理由で認証フローが失敗したか、ユーザーが認証フローを明示的にキャンセルしました。
 
 **トリガー：** `checkAuthentication(), getAuthentication(), checkAuthorization()`
 
@@ -499,7 +502,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 - *resourceId*：認証を取得したリソース
 - *errorCode*：失敗シナリオに関連付けられたエラーコード。 使用可能な値：
-   - `AccessEnablerConstants.USER_NOT_AUTHORIZED_ERROR` - ユーザーは指定されたリソースを承認できませんでした
+  - `AccessEnablerConstants.USER_NOT_AUTHORIZED_ERROR` - ユーザーは指定されたリソースを承認できませんでした
 - *errorDescription*：失敗シナリオに関する追加の詳細。 この記述文字列が何らかの理由で使用できない場合、Adobe Pass Authenticationは空の文字列&#x200B;**（&quot;&quot;）**&#x200B;を送信します。
 
   この文字列は、MVPDでカスタムエラーメッセージまたはセールス関連メッセージを渡すために使用できます。 例えば、サブスクライバーがリソースの認証を拒否された場合、MVPDは次のようなメッセージを送信できます。「現在、パッケージ内のこのチャネルにアクセスできません。 パッケージをアップグレードする場合は、ここをクリックしてください。」 メッセージは、このコールバックを通じてAdobe Pass認証によってプログラマーに渡されます。プログラマーは、メッセージを表示または無視するオプションを持っています。 Adobe Pass認証では、このパラメーターを使用して、エラーの原因となった可能性のある条件を通知することもできます。 例えば、「プロバイダーの認証サービスと通信する際にネットワークエラーが発生しました。」
@@ -584,19 +587,19 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 **パラメーター：**
 
 - *metadataKey*: キーと引数の変数をカプセル化するデータ構造で、次の意味を持ちます。
-   - キーが`METADATA_KEY_USER_META`で、引数に名前= `METADATA_ARG_USER_META`および値= `[metadata_name]`のSerializableNameValuePair オブジェクトが含まれている場合、クエリはユーザーメタデータに対して実行されます。 使用可能なユーザーメタデータタイプの現在のリスト：
-      - `zip` – 郵便番号
+  - キーが`METADATA_KEY_USER_META`で、引数に名前= `METADATA_ARG_USER_META`および値= `[metadata_name]`のSerializableNameValuePair オブジェクトが含まれている場合、クエリはユーザーメタデータに対して実行されます。 使用可能なユーザーメタデータタイプの現在のリスト：
+    - `zip` – 郵便番号
 
-      - `householdID` – 世帯ID。 MVPDがサブアカウントをサポートしていない場合、これは`userID`と同じです。
+    - `householdID` – 世帯ID。 MVPDがサブアカウントをサポートしていない場合、これは`userID`と同じです。
 
-      - `maxRating` - ユーザーの最大保護者の評価
+    - `maxRating` - ユーザーの最大保護者の評価
 
-      - `userID` - ユーザーID。 MVPDがサブアカウントをサポートしており、ユーザーがメインアカウントでない場合、`userID`は`householdID`とは異なります。
+    - `userID` - ユーザーID。 MVPDがサブアカウントをサポートしており、ユーザーがメインアカウントでない場合、`userID`は`householdID`とは異なります。
 
-      - `channelID` - ユーザーが表示する権限を持つチャネルのリスト
-   - キーが`METADATA_KEY_DEVICE_ID`の場合、現在のデバイス IDを取得するためにクエリが実行されます。 この機能はデフォルトで無効になっており、プログラマーは有効化と料金についてAdobeに問い合わせる必要があります。
-   - キーが`METADATA_KEY_TTL_AUTHZ`で、引数に名前= `METADATA_ARG_RESOURCE_ID`および値= `[resource_id]`のSerializableNameValuePair オブジェクトが含まれている場合、クエリを実行して、指定したリソースに関連付けられている認証トークンの有効期限を取得します。
-   - キーが`METADATA_KEY_TTL_AUTHN`の場合、認証トークンの有効期限を取得するためにクエリが実行されます。
+    - `channelID` - ユーザーが表示する権限を持つチャネルのリスト
+  - キーが`METADATA_KEY_DEVICE_ID`の場合、現在のデバイス IDを取得するためにクエリが実行されます。 この機能はデフォルトで無効になっており、プログラマーは有効化と料金についてAdobeに問い合わせる必要があります。
+  - キーが`METADATA_KEY_TTL_AUTHZ`で、引数に名前= `METADATA_ARG_RESOURCE_ID`および値= `[resource_id]`のSerializableNameValuePair オブジェクトが含まれている場合、クエリを実行して、指定したリソースに関連付けられている認証トークンの有効期限を取得します。
+  - キーが`METADATA_KEY_TTL_AUTHN`の場合、認証トークンの有効期限を取得するためにクエリが実行されます。
 
 
 
@@ -612,7 +615,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **コールバックがトリガーされました：** [`setMetadataStatus()`](#setMetadaStatus)
 
-**詳細情報：** [&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
+**詳細情報：** [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
 
 [Android APIに戻る…](#api)
 
@@ -630,10 +633,10 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 - *key*: メタデータ値が要求されるキーと関連するパラメーターを含むMetadataKey オブジェクト（参照実装については、デモアプリケーションを参照）。
 - *結果*：要求されたメタデータを含む複合オブジェクト。 オブジェクトには次のフィールドがあります。
-   - *simpleResult*：認証TTL、認証TTL、またはデバイス IDに対してリクエストが行われたときのメタデータ値を表す文字列。 この値は、ユーザーメタデータに対してリクエストが行われた場合はnullです。
+  - *simpleResult*：認証TTL、認証TTL、またはデバイス IDに対してリクエストが行われたときのメタデータ値を表す文字列。 この値は、ユーザーメタデータに対してリクエストが行われた場合はnullです。
 
-   - *userMetadataResult*: JSON ユーザーメタデータペイロードのJava表現を含むオブジェクト。\
-     例：
+  - *userMetadataResult*: JSON ユーザーメタデータペイロードのJava表現を含むオブジェクト。\
+    例：
 
 ```json
           '{
@@ -674,7 +677,7 @@ getAuthentication （） メソッドに追加のパラメーターが指定さ�
 
 **トリガー：** [`getMetadata()`](#getMetadata)
 
-**詳細情報：** [&#x200B; ユーザーメタデータ &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
+**詳細情報：** [ ユーザーメタデータ ](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
 
 
 [Android APIに戻る…](#api)
@@ -708,18 +711,18 @@ Access Enablerは、必ずしも使用権限フローに関連しない追加の
 
 
 - デバイスタイプの可能な値：
-   - `computer`
-   - `tablet`
-   - `mobile`
-   - `gameconsole`
-   - `unknown`
+  - `computer`
+  - `tablet`
+  - `mobile`
+  - `gameconsole`
+  - `unknown`
 
 
 - Access Enabler クライアントの種類に指定できる値：
-   - `flash`
-   - `html5`
-   - `ios`
-   - `android`
+  - `flash`
+  - `html5`
+  - `ios`
+  - `android`
 
 </br>
 
@@ -732,39 +735,39 @@ Access Enablerは、必ずしも使用権限フローに関連しない追加の
 **パラメーター：**
 
 - *event*：追跡されているイベント。 トラッキングイベントには、次の3つのタイプがあります。
-   - **authorizationDetection:**&#x200B;認証トークン要求が返されるたびに（イベントタイプは`EVENT_AUTHZ_DETECTION`）
-   - 認証チェックが発生するたびに&#x200B;**authenticationDetection:** （イベントタイプは`EVENT_AUTHN_DETECTION`）です
-   - **mvpdSelection:**：ユーザーがMVPDの選択フォームでMVPDを選択した場合（イベントタイプは`EVENT_MVPD_SELECTION`）
+  - **authorizationDetection:**&#x200B;認証トークン要求が返されるたびに（イベントタイプは`EVENT_AUTHZ_DETECTION`）
+  - 認証チェックが発生するたびに&#x200B;**authenticationDetection:** （イベントタイプは`EVENT_AUTHN_DETECTION`）です
+  - **mvpdSelection:**：ユーザーがMVPDの選択フォームでMVPDを選択した場合（イベントタイプは`EVENT_MVPD_SELECTION`）
 - *data*：報告されたイベントに関連付けられている追加データ。 このデータは、値のリストの形式で表示されます。
 
 以下は、*データの値を解釈するための手順です*
 配列：
 
 - イベントタイプ *`EVENT_AUTHN_DETECTION`:*&#x200B;の場合
-   - **0** - トークン要求が成功したかどうか（true/false）、上記がtrueの場合：
-   - **1** - MVPD ID文字列
-   - **2** - GUID （md5 ハッシュ）
-   - **3** - トークンは既にキャッシュ内にあります（true/false）
-   - **4** - デバイスの種類
-   - **5** - Access Enabler クライアント タイプ
-   - **6** - オペレーティング システムの種類
+  - **0** - トークン要求が成功したかどうか（true/false）、上記がtrueの場合：
+  - **1** - MVPD ID文字列
+  - **2** - GUID （md5 ハッシュ）
+  - **3** - トークンは既にキャッシュ内にあります（true/false）
+  - **4** - デバイスの種類
+  - **5** - Access Enabler クライアント タイプ
+  - **6** - オペレーティング システムの種類
 
 - イベントタイプ `EVENT_AUTHZ_DETECTION`の
-   - **0** - トークン要求が成功したかどうか（true/false）、成功した場合：
-   - **1** - MVPD ID
-   - **2** - GUID （md5 ハッシュ）
-   - **3** - トークンは既にキャッシュ内にあります（true/false）
-   - **4** - エラー
-   - **5** – 詳細
-   - **6** - デバイスの種類
-   - **7** - Access Enabler クライアント タイプ
-   - **8** - オペレーティング システムの種類
+  - **0** - トークン要求が成功したかどうか（true/false）、成功した場合：
+  - **1** - MVPD ID
+  - **2** - GUID （md5 ハッシュ）
+  - **3** - トークンは既にキャッシュ内にあります（true/false）
+  - **4** - エラー
+  - **5** – 詳細
+  - **6** - デバイスの種類
+  - **7** - Access Enabler クライアント タイプ
+  - **8** - オペレーティング システムの種類
 
 - イベントタイプ `EVENT_MVPD_SELECTION`の
-   - **0** – 現在選択されているMVPDのID
-   - **1** - デバイスの種類
-   - **2** - Access Enabler クライアント タイプ
-   - **3** - オペレーティング システムの種類
+  - **0** – 現在選択されているMVPDのID
+  - **1** - デバイスの種類
+  - **2** - Access Enabler クライアント タイプ
+  - **3** - オペレーティング システムの種類
 
 **トリガー：** `checkAuthentication()`、`getAuthentication()`、`checkAuthorization()`、`getAuthorization()`、`setSelectedProvider()`
 

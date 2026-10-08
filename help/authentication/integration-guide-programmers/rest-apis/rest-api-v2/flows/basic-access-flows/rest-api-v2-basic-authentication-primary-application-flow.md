@@ -1,146 +1,147 @@
 ---
-title: 基本認証 – プライマリアプリケーション – フロー
+title: Basic Authentication - プライマリアプリケーション - Flow
 description: REST API V2 – 基本認証 – プライマリアプリケーション – フロー
 exl-id: 8122108d-e9da-43c5-9abb-ab177cb21eb6
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+product_v2:
+  - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
+    internal-label: Pass
+source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
 workflow-type: tm+mt
 source-wordcount: '904'
 ht-degree: 0%
-
 ---
-
 # プライマリアプリケーション内で実行される基本認証フロー {#basic-authentication-flow-performed-within-primary-application}
 
 >[!IMPORTANT]
 >
-> このページのコンテンツは情報提供のみを目的としています。 この API を使用するには、Adobeの最新ライセンスが必要です。 無許可の使用は許可されていません。
+> このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
 >[!IMPORTANT]
 >
-> REST API V2 の実装については、[&#x200B; スロットルメカニズム &#x200B;](/help/authentication/integration-guide-programmers/throttling-mechanism.md) のドキュメントで制限されています。
+> REST API V2の実装は、[ スロットル メカニズム ](/help/authentication/integration-guide-programmers/throttling-mechanism.md)のドキュメントによって制限されています。
 
 >[!MORELIKETHIS]
 >
-> また、[REST API V2 の FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general) も必ず参照してください。
+> また、[REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general)にもアクセスしてください。
 
-Adobe Pass認証使用権内の **認証フロー** により、ストリーミングアプリケーションはユーザーが有効なMVPD アカウントを持っていることを確認できます。 このプロセスを実行するには、MVPDのアクティブなアカウントを持ち、MVPDのログインページに有効なログイン資格情報を入力する必要があります。
+Adobe Pass認証権限内の&#x200B;**認証フロー**&#x200B;により、ストリーミングアプリケーションは、ユーザーが有効なMVPD アカウントを持っていることを確認できます。 このプロセスでは、ユーザーがアクティブなMVPD アカウントを持ち、MVPD ログインページに有効なログイン資格情報を入力する必要があります。
 
-次の場合は、認証フローが必要です。
+認証フローは、次の場合に必要です。
 
 * ユーザーが初めてアプリケーションを開いたとき。
 * ユーザーの以前の認証が期限切れになった場合。
-* ユーザーがMVPD アカウントからログアウトしたとき。
-* ユーザーが別のMVPDで認証を行う場合。
+* ユーザーがMVPD アカウントからログアウトすると。
+* 別のMVPDで認証する場合。
 
-これらの場合はすべて、プロファイルエンドポイントを呼び出すアプリケーションは、空の応答または 1 つ以上のプロファイル（ただし異なる MVPD の場合）を受け取ります。
+これらすべての場合において、任意のプロファイルエンドポイントを呼び出すアプリケーションは、空の応答または1つ以上のプロファイルを受信しますが、異なるMVPDに対して受信します。
 
-**認証フロー** では、ユーザーエージェント（ブラウザー）が、アプリケーションからAdobe Pass バックエンド、次にMVPD ログインページ、最後にアプリケーションに一連の呼び出しを実行する必要があります。 このフローには、MVPD システムへのリダイレクトと、ドメインごとに保存される Cookie やセッションの管理が含まれる場合があります。これらは、ユーザーエージェントを使用せずに達成し、保護することが困難な場合があります。
+**認証フロー**&#x200B;では、ユーザーエージェント （ブラウザー）がアプリケーションからAdobe Pass バックエンド、次にMVPD ログインページ、最後にアプリケーションに戻る一連の呼び出しを完了する必要があります。 このフローには、MVPDシステムへの複数のリダイレクトや、各ドメインに保存されたCookieまたはセッションの管理が含まれる場合があります。これらは、ユーザーエージェントなしでは達成や保護が困難な場合があります。
 
-ユーザーインタラクションをサポートしてMVPDを選択し、ユーザーエージェントで選択されたMVPDを使用して認証を行うプライマリアプリケーション（ストリーミングアプリケーション）の機能に基づいて、認証シナリオは次のようになります。
+MVPDを選択し、ユーザーエージェントで選択したMVPDを使用して認証するためのユーザーインタラクションをサポートするプライマリアプリケーション（ストリーミングアプリケーション）機能に基づいて、認証シナリオは次のとおりです。
 
-* [プライマリアプリケーション内での認証の実行](./rest-api-v2-basic-authentication-primary-application-flow.md)
-* [事前に選択された mvpd を使用して、セカンダリ・アプリケーション内で認証を実行](rest-api-v2-basic-authentication-secondary-application-flow.md)
-* [事前に選択された mvpd を使用せずに、セカンダリ・アプリケーション内で認証を実行](rest-api-v2-basic-authentication-secondary-application-flow.md)
+* [プライマリアプリケーション内で認証を実行](./rest-api-v2-basic-authentication-primary-application-flow.md)
+* [事前に選択したmvpdを使用して、セカンダリアプリケーション内で認証を実行します](rest-api-v2-basic-authentication-secondary-application-flow.md)
+* [事前に選択したmvpdを使用せずに、セカンダリアプリケーション内で認証を実行します](rest-api-v2-basic-authentication-secondary-application-flow.md)
 
-## プライマリアプリケーション内での認証の実行 {#perform-authentication-within-primary-application}
+## プライマリアプリケーション内で認証を実行 {#perform-authentication-within-primary-application}
 
 ### 前提条件 {#prerequisites-perform-authentication-within-primary-application}
 
-プライマリアプリケーション内でユーザーインタラクションを通じて認証を実行する前に、次の前提条件が満たされていることを確認してください。
+プライマリアプリケーション内でユーザーインタラクションを介して認証を実行する前に、次の前提条件が満たされていることを確認します。
 
-* ストリーミングアプリケーションは、MVPDを選択する必要があります。
-* ストリーミングアプリケーションは、選択したMVPDでログインするための認証セッションを開始する必要があります。
-* ストリーミングアプリケーションは、ユーザーエージェントで選択したMVPDを使用して認証する必要があります。
+* ストリーミングアプリケーションでMVPDを選択する必要があります。
+* 選択したMVPDでログインするには、ストリーミングアプリケーションで認証セッションを開始する必要があります。
+* ストリーミングアプリケーションは、ユーザーエージェントで選択したMVPDで認証する必要があります。
 
 >[!IMPORTANT]
 >
-> 前提
+> 前提条件
 >
 > <br/>
 > 
 > * ストリーミングアプリケーションは、MVPDを選択するためのユーザーインタラクションをサポートしています。
-> * ストリーミングアプリケーションは、ユーザーエージェント内の選択されたMVPDを使用して認証を行うユーザーインタラクションをサポートしています。
+> * ストリーミングアプリケーションは、ユーザーエージェントで選択したMVPDで認証するためのユーザーインタラクションをサポートしています。
 
 ### ワークフロー {#workflow-perform-authentication-completed-on-primary-application}
 
-次の図に示すように、プライマリ・アプリケーション内で実行される基本認証フローを実装するには、次の手順に従います。
+次の図に示すように、プライマリアプリケーション内で実行される基本認証フローを実装するには、次の手順に従います。
 
-![&#x200B; プライマリアプリケーション内での認証の実行 &#x200B;](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-primary-application.png)
+![ プライマリアプリケーション内で認証を実行](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-primary-application.png)
 
-*プライマリアプリケーション内での認証の実行*
+*プライマリアプリケーション内で認証を実行*
 
-1. **認証セッションの作成：** ストリーミングアプリケーションは、セッションエンドポイントを呼び出して認証セッションを開始するために必要なすべてのデータを収集します。
-
-   >[!IMPORTANT]
-   >
-   > 次について詳しくは、[&#x200B; 認証セッションの作成 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
-   > 
-   > * `serviceProvider`、`mvpd`、`domainName`、`redirectUrl` などのすべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier` などのすべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
-   > 
-   > <br/>
-   > 
-   > ストリーミングアプリケーションは、認証セッションを作成する際に、1 回の呼び出しで必要なすべてのパラメーターを指定する必要があります。
-
-1. **次のアクションを示す：** セッションエンドポイント応答には、次のアクションに関するストリーミングアプリケーションのガイドに必要なデータが含まれています。
+1. **認証セッションの作成：** ストリーミングアプリケーションは、Sessions エンドポイントを呼び出して、認証セッションを開始するために必要なすべてのデータを収集します。
 
    >[!IMPORTANT]
    >
-   > セッション応答で提供される情報について詳しくは、[&#x200B; 認証セッションの作成 &#x200B;](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
+   > 詳細については、[認証セッションの作成](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
+   > 
+   > * `serviceProvider`、`mvpd`、`domainName`、`redirectUrl`など、_必須_&#x200B;のすべてのパラメーター
+   > * `Authorization`、`AP-Device-Identifier`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
    > 
    > <br/>
    > 
-   > セッション エンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
-   >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
-   > * 指定した `serviceProvider` と `mvpd` の統合はアクティブである必要があります。
-   > 
-   > <br/>
-   > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > ストリーミングアプリケーションは、認証セッションの作成時に、1回の呼び出しで必要なすべてのパラメーターを提供する必要があります。
 
-1. **決定フローで続行：** セッションエンドポイント応答には、次のデータが含まれます。
-   * `actionName` 属性は「authorize」に設定されます。
-   * `actionType` 属性は「direct」に設定されます。
-
-   Adobe Pass バックエンドが有効なプロファイルを特定した場合、その後の決定フローに使用できるプロファイルが既に存在するので、ストリーミングアプリケーションは選択したMVPDで再認証する必要はありません。
-
-1. **ユーザーエージェントで URL を開く：** セッションエンドポイントの応答には、次のデータが含まれます。
-   * MVPDのログインページ内でインタラクティブ認証を開始するために使用できる `url`。
-   * `actionName` 属性は「authenticate」に設定されています。
-   * `actionType` 属性は「interactive」に設定されます。
-
-   Adobe Pass バックエンドが有効なプロファイルを識別できない場合、ストリーミングアプリケーションはユーザーエージェントを開いて指定されたプロファイ `url` を読み込み、Authenticate エンドポイントにリクエストを送信します。 このフローには、複数のリダイレクトが含まれる場合があり、最終的にユーザーがMVPDのログインページに移動して、有効な資格情報を提供します。
-
-1. **MVPD認証の完了：** 認証フローが正常に完了すると、ユーザーエージェントインタラクションは通常のプロファイルをAdobe Pass バックエンドに保存し、指定された `redirectUrl` に到達します。
-
-1. **特定のコードのプロファイルを取得：** ストリーミングアプリケーションは、プロファイルエンドポイントにリクエストを送信することで、プロファイル情報を取得するために必要なすべてのデータを収集します。
+1. **次のアクションを示します：** セッションエンドポイントの応答には、次のアクションに関するストリーミングアプリケーションを導くために必要なデータが含まれています。
 
    >[!IMPORTANT]
    >
-   > 次について詳しくは、[&#x200B; 特定のコードのプロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)API ドキュメントを参照してください。
+   > セッション応答で提供される情報について詳しくは、[認証セッションの作成](../../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) API ドキュメントを参照してください。
+   > 
+   > <br/>
+   > 
+   > セッションエンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
    >
-   > * `serviceProvider`、`code` などのすべての _必須_ パラメーター
-   > * `Authorization`、`AP-Device-Identifier` などのすべての _必須_ ヘッダー
-   > * すべての _オプション_ パラメーターおよびヘッダー
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
+   > * 指定された`serviceProvider`と`mvpd`の統合はアクティブである必要があります。
+   > 
+   > <br/>
+   > 
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
+
+1. **決定フローで続行：** セッションエンドポイントの応答には、次のデータが含まれます。
+   * `actionName`属性が「authorize」に設定されています。
+   * `actionType`属性が「direct」に設定されています。
+
+   Adobe Pass バックエンドが有効なプロファイルを識別する場合、後続の意思決定フローに使用できるプロファイルが既に存在するため、ストリーミングアプリケーションは選択したMVPDで再認証する必要がありません。
+
+1. **ユーザーエージェントでURLを開く：** セッションエンドポイントの応答には、次のデータが含まれます。
+   * MVPD ログインページ内でインタラクティブ認証を開始するために使用できる`url`。
+   * `actionName`属性が「authenticate」に設定されています。
+   * `actionType`属性が「インタラクティブ」に設定されています。
+
+   Adobe Pass バックエンドが有効なプロファイルを識別しない場合、ストリーミングアプリケーションはユーザーエージェントを開いて、指定された`url`を読み込み、認証エンドポイントにリクエストを行います。 このフローには複数のリダイレクトが含まれる場合があり、最終的にはユーザーがMVPD ログインページに移動し、有効な資格情報を提供します。
+
+1. **MVPD認証を完了：**&#x200B;認証フローが成功した場合、ユーザーエージェントのインタラクションはAdobe Pass バックエンドに通常のプロファイルを保存し、指定された`redirectUrl`に到達します。
+
+1. **特定のコードのプロファイルの取得：** ストリーミングアプリケーションは、プロファイルエンドポイントにリクエストを送信することで、プロファイル情報を取得するために必要なすべてのデータを収集します。
+
+   >[!IMPORTANT]
+   >
+   > 次の詳細については、特定のコードの[ プロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
+   >
+   > * `serviceProvider`、`code`など、_必須_&#x200B;のすべてのパラメーター
+   > * `Authorization`、`AP-Device-Identifier`など、_必須_ ヘッダーすべて
+   > * すべての&#x200B;_optional_ パラメーターとヘッダー
 
    >[!TIP]
    >
-   > ストリーミングアプリケーションは、ユーザーエージェントが指定された `redirectUrl` に到達して、通常のプロファイルが正常に生成および保存されたかどうかを確認するまで待つ必要があります。
+   > ストリーミングアプリケーションは、ユーザーエージェントが指定された`redirectUrl`に到達するのを待ち、通常のプロファイルが正常に生成され、保存されたかどうかを確認する必要があります。
 
-1. **通常のプロファイルに関する情報を返す：** プロファイルエンドポイント応答には、受信したパラメーターとヘッダーに関連付けられた通常のプロファイルに関する情報が含まれます。
+1. **通常のプロファイルに関する情報を返します：** プロファイル エンドポイントの応答には、受信したパラメーターとヘッダーに関連付けられた通常のプロファイルに関する情報が含まれます。
 
    >[!IMPORTANT]
    >
-   > プロファイル応答で提供される情報について詳しくは、[&#x200B; 特定のコードのプロファイルの取得 &#x200B;](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
+   > プロファイル応答で提供される情報の詳細については、[特定のコードのプロファイルの取得](../../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) API ドキュメントを参照してください。
    > 
    > <br/>
    > 
-   > プロファイルエンドポイントは、基本条件が満たされていることを確認するために、リクエストデータを検証します。
+   > プロファイルエンドポイントは、基本的な条件が満たされていることを確認するために、リクエストデータを検証します。
    >
-   > * _required_ パラメーターおよびヘッダーは有効である必要があります。
+   > * _必須_ パラメーターとヘッダーは有効である必要があります。
    >
    > <br/>
    > 
-   > 検証に失敗した場合は、エラー応答が生成され、[&#x200B; 拡張エラーコード &#x200B;](../../../../features-standard/error-reporting/enhanced-error-codes.md) ドキュメントに従った追加情報が提供されます。
+   > 検証が失敗すると、エラー応答が生成され、[拡張エラーコード ](../../../../features-standard/error-reporting/enhanced-error-codes.md)のドキュメントに準拠する追加情報が提供されます。
