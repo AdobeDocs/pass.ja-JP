@@ -57,7 +57,7 @@ Adobe Pass Authentication JavaScriptの統合により、プログラマーは�
     <body>
         <div id="alternative">
         <a href="http://www.adobe.com/go/getflashplayer"> 
-            <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" 
+            <img src="http://www.adobe.com/jp/images/shared/download_buttons/get_flash_player.gif" 
                  alt="Get Adobe Flash player"/> </a>
         </div> 
         <div id="user_authenticated">Please wait while we verify your authentication status</div> 
