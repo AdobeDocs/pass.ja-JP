@@ -270,7 +270,7 @@ Content-Type: application/json;charset=UTF-8
     "existingParameters": {
         "mvpd": "apassidp",
         "domain": "adobe.com"
-        "redirectUrl": "https://www.adobe.com",
+        "redirectUrl": "https://www.adobe.com/jp",
         "serviceProvider": "REF30"        
     },
     "device": {
@@ -366,7 +366,7 @@ Content-Type: application/json;charset=UTF-8
     "mvpd"
   ],
   "existingParameters": {
-    "redirectUrl": "https://adobe.com",
+    "redirectUrl": "https://adobe.com/jp",
     "domainName": "adobe.com",
     "serviceProvider": "REF30"
   },
