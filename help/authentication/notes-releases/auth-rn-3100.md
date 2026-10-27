@@ -1,11 +1,10 @@
 ---
 title: Adobe Pass Authentication 3.10.0 リリースノート
 description: Adobe Pass Authentication 3.10.0 リリースノート
-hold: true
 product_v2:
   - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
     internal-label: Pass
-source-git-commit: b754c97fc3c045e9511d07e22e0cc5387306a67d
+source-git-commit: d60b5256f5809b52122d70d04eb873018707fcaf
 workflow-type: tm+mt
 source-wordcount: '227'
 ht-degree: 0%
