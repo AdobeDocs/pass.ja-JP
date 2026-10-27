@@ -5,9 +5,9 @@ exl-id: 3c9c66e1-d31d-4af3-8ab2-eb32492f42ca
 product_v2:
   - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
     internal-label: Pass
-source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
+source-git-commit: d60b5256f5809b52122d70d04eb873018707fcaf
 workflow-type: tm+mt
-source-wordcount: '1027'
+source-wordcount: '1039'
 ht-degree: 22%
 ---
 # 製品のお知らせ {#product-announcements}
@@ -34,6 +34,7 @@ ht-degree: 22%
 
 | リリースノート | 日付 |
 |------------------------------------------------------------------------------------------------|-------------------------|
+| [Adobe Pass Authentication 3.10.0 リリースノート &#x200B;](notes-releases/auth-rn-3100.md) | 10/27/2026 - 10/29/2026 |
 | [Adobe Pass Authentication 3.9.0 リリースノート &#x200B;](notes-releases/auth-rn-390.md) | 09/08/2026 - 09/10/2026 |
 | [Adobe Pass Authentication 3.8.0 リリースノート &#x200B;](notes-releases/auth-rn-380.md) | 08/11/2026 - 08/13/2026 |
 | [Adobe Pass Authentication 3.7.0 リリースノート &#x200B;](notes-releases/auth-rn-370.md) | 05/12/2026 - 05/14/2026 |
