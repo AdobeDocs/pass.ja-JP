@@ -5,9 +5,9 @@ exl-id: 62b48bf0-d200-4949-b268-8f8ea2daabfa
 product_v2:
   - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
     internal-label: Pass
-source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
+source-git-commit: 297578d3b311fbc2a5702f1bcc947e94463fb884
 workflow-type: tm+mt
-source-wordcount: '152'
+source-wordcount: '266'
 ht-degree: 0%
 ---
 # REST API V2 APIの概要 {#rest-api-v2-apis-overview}
@@ -17,6 +17,19 @@ ht-degree: 0%
 > [製品のお知らせ](/help/authentication/product-announcements.md) ページに集計されている最新のAdobe Pass認証製品のお知らせと廃止予定について、常に情報を得てください。
 
 開始するには、以下のリストに興味のあるAPIの公開ドキュメントにアクセスしてください。
+
+## ベース URL {#rest-api-v2-apis-base-urls}
+
+REST API V2 リクエストには、以下の環境固有のベース URLを使用します。 各APIについて文書化された相対`path`をこのベース URLに追加します。
+
+一部のAPI応答では、ストリーミングデバイスがブラウザーまたはユーザーエージェントで開く必要があるインタラクティブ URLが返されます。 例として、[特定のmvpd](logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)に対してログアウトを開始するために返される`url`属性と、[&#x200B; ユーザーエージェント &#x200B;](sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)で認証を実行するために返される`Location` リダイレクトが含まれます。
+
+これらのインタラクティブ URLは、同じAdobe Pass サービスプロバイダー（SP）ホストを使用します。 返されたとおりに絶対インタラクティブ URLを開きます。 Adobe Passが`/adobe-services/`で始まる相対インタラクティブ URLを返す場合は、ターゲット環境のSP ホストに対して解決します。
+
+| 環境 | REST API V2とインタラクティブなベース URL |
+| --- |--------------------------------------|
+| 本番 | `https://sp.auth.adobe.com` |
+| ステージング | `https://sp.auth-staging.adobe.com` |
 
 ## 設定 {#rest-api-v2-apis-configuration}
 
