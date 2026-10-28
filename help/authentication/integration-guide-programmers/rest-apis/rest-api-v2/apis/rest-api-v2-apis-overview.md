@@ -27,7 +27,7 @@ REST API V2 リクエストには、以下の環境固有のベース URLを使�
 URLを貼り付けます。 例としては、次によって返される`url`属性が含まれます
 [特定のmvpdのログアウトを開始](logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)
 `Location` リダイレクトが返されました：
-[ ユーザーエージェント ](sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)で認証を実行します。
+[&#x200B; ユーザーエージェント &#x200B;](sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)で認証を実行します。
 
 これらのインタラクティブ URLは、同じAdobe Pass サービスプロバイダー（SP）ホストを使用します。
 返されたとおりに絶対インタラクティブ URLを開きます。 Adobe Passが
