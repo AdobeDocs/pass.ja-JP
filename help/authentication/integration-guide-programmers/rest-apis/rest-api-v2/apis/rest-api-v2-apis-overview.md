@@ -22,7 +22,7 @@ ht-degree: 0%
 
 REST API V2 リクエストには、以下の環境固有のベース URLを使用します。 各APIについて文書化された相対`path`をこのベース URLに追加します。
 
-一部のAPI応答では、ストリーミングデバイスがブラウザーまたはユーザーエージェントで開く必要があるインタラクティブ URLが返されます。 例として、[特定のmvpd](logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)に対してログアウトを開始するために返される`url`属性と、[ ユーザーエージェント ](sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)で認証を実行するために返される`Location` リダイレクトが含まれます。
+一部のAPI応答では、ストリーミングデバイスがブラウザーまたはユーザーエージェントで開く必要があるインタラクティブ URLが返されます。 例として、[特定のmvpd](logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)に対してログアウトを開始するために返される`url`属性と、[&#x200B; ユーザーエージェント &#x200B;](sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)で認証を実行するために返される`Location` リダイレクトが含まれます。
 
 これらのインタラクティブ URLは、同じAdobe Pass サービスプロバイダー（SP）ホストを使用します。 返されたとおりに絶対インタラクティブ URLを開きます。 Adobe Passが`/adobe-services/`で始まる相対インタラクティブ URLを返す場合は、ターゲット環境のSP ホストに対して解決します。
 
