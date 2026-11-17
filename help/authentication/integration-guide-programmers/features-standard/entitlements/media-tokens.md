@@ -5,9 +5,9 @@ exl-id: 7e486d2c-e078-464d-90b1-14e2cfb4d20a
 product_v2:
   - id: f002a92a-b99f-47a4-90c8-65e0e415bc7a
     internal-label: Pass
-source-git-commit: 9cd75fbc66d5395a899c272d94774cbaf7ea3d07
+source-git-commit: 6fdd77e300d01269357d7917702f31aef35d6751
 workflow-type: tm+mt
-source-wordcount: '697'
+source-wordcount: '726'
 ht-degree: 0%
 ---
 # メディアトークン {#media-tokens}
@@ -16,49 +16,55 @@ ht-degree: 0%
 >
 > このページのコンテンツは、情報提供のみを目的として提供されています。 このAPIを使用するには、Adobeの現在のライセンスが必要です。 無断使用は認められません。
 
-メディアトークンは、保護されたコンテンツ（リソース）への表示アクセスを提供するための認証決定の結果として、Adobe Pass認証[REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)によって生成されたトークンです。
+メディアトークンは、保護されたコンテンツ（リソース）への表示アクセスを提供するための認証決定後に、Adobe Pass認証[REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md)によって生成されるトークンです。
 
 メディアトークンは、問題の時点で指定された制限付き短い期間（デフォルトは7分）有効であり、クライアントアプリケーションで検証して使用する前の時間制限を示します。 メディアトークンは1回限りの使用に制限されており、キャッシュしないでください。
 
 メディアトークンは、クリアテキストで送信される公開鍵基盤（PKI）に基づく署名済み文字列で構成されます。 PKI ベースの保護では、トークンは、認証局（CA）によってAdobeに発行された非対称キーを使用して署名されます。
 
-メディアトークンはプログラマーに渡され、プログラマーはビデオストリームを開始する前にメディアトークン検証ツールを使用してメディアトークンを検証し、そのリソースへのアクセスのセキュリティを確保できます。
+メディアトークンはプログラマーに渡され、プログラマーはビデオストリームを開始する前にメディアトークン検証ツールを使用してメディアトークンを検証し、そのリソースへのアクセスのセキュリティを確保します。
 
-Media Token Verifierは、Adobe Pass Authenticationによって配布されるライブラリで、メディアトークンの信頼性を検証します。
+Media Token Verifierは、メディアトークンの信頼性を検証するAdobe Pass Authenticationによって配布されるライブラリです。
 
 ## Media Token Verifier {#media-token-verifier}
 
-Adobe Pass Authenticationでは、ビデオストリームを開始する前に、Media Token Verifier ライブラリを統合した独自のバックエンドサービスにメディアトークンを送信して、安全なアクセスを確保することをお勧めします。 メディアトークンのTTL （Time-to-Live）は、トークン生成サーバーと検証サーバー間の潜在的なクロック同期の問題を考慮するように設計されています。
+ビデオストリームを開始する前に安全なアクセスを確保するために、Adobe Pass Authenticationでは、Media Token Verifier ライブラリを統合する独自のバックエンドサービスにMedia Tokenを送信することをお勧めします。 メディアトークンのTTL （Time-to-Live）は、トークン生成サーバーと検証サーバー間の潜在的なクロック同期の問題を考慮するように設計されています。
 
 Adobe Pass Authenticationは、メディアトークンのフォーマットが保証されておらず、将来的に変更される可能性があるため、メディアトークンを解析し、そのデータを直接抽出することを強くお勧めします。 Media Token Verifier ライブラリは、トークンのコンテンツを分析するために使用される唯一のツールである必要があります。
 
-Media Token Verifier ライブラリは、次のリンクからダウンロードできます。
+次のリンクからMedia Token Verifier ライブラリをダウンロードします。
 
 * https://tve.zendesk.com/hc/en-us/articles/204963159-Media-Token-Verifier-library
 
-Media Token Verifier ライブラリにはJDK バージョン 1.5以降が必要で、署名アルゴリズム （`SHA256WithRSA`）に優先Java Cryptography Extension （JCE） プロバイダーの使用をサポートしています。
+Media Token Verifier ライブラリにはJava バージョン 8以降が必要で、署名アルゴリズム （`SHA256WithRSA`）に優先Java Cryptography Extension （JCE） プロバイダーの使用をサポートしています。
 
-`mediatoken-verifier-VERSION.jar` Java アーカイブで表されるMedia Token Verifier ライブラリには、次のものが含まれます。
+Media Token Verifier ディストリビューションには、次のものが含まれます。
 
 * Adobe公開鍵。
 * トークン検証API （`ITokenVerifier.java`）。
 * 参照実装（`com.adobe.entitlement.test.EntitlementVerifierTest.java`）。
-* 依存関係と証明書キーストア：
+* 証明書キーストア （`media_token_keystore.jks`）。
+* `mediatoken-verifier-VERSION-application-with-dependencies.jar`のランタイム依存関係。 シン `mediatoken-verifier-VERSION.jar`には、これらの依存関係が個別に必要です。
 
 >[!IMPORTANT]
 > 
 > 含まれる証明書キーストアのデフォルト パスワードは`123456`です。
 
+>[!IMPORTANT]
+>
+> REST API V1およびV2から返された`serializedToken`は、Base64 エンコードされています。 `getInstance(...)`に渡す前にUTF-8としてデコードします。それ以外の場合、検証は`INVALID_SIGNATURE`を返します。 以下のサンプルは、エンコードされた値を受け入れて、このデコードを実行します。
+
 ### メソッド {#methods}
 
-`ITokenVerifier` クラスは、次のメソッドを定義します。
+`ITokenVerifier` インターフェイスは、次のメソッドを定義します。
 
-* メディアトークンの検証に使用される`isValid()` メソッド。 単一の引数[&#x200B; リソース識別子](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier)を受け入れます。 指定されたリソース IDが`null`の場合、メソッドはメディアトークンの真正性と有効期間のみを検証します。
+* メディアトークンの検証に使用される`isValid()` メソッド。 単一の引数[ リソース識別子](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier)を受け入れます。 指定されたリソース識別子が`null`の場合、メソッドはメディアトークンの真正性と有効期間のみを検証します。
 
   `isValid()` メソッドは、次のいずれかのステータス値を返します。
 
-  | VALID_TOKEN | トークンの検証に成功しました |
+  | ステータス | 意味 |
   |----------------------|-------------------------------------------|
+  | VALID_TOKEN | トークンの検証に成功しました |
   | INVALID_TOKEN_FORMAT | トークン形式が無効です |
   | INVALID_SIGNATURE | トークンの信頼性を検証できませんでした |
   | TOKEN_EXPIRED | トークン TTLが無効です |
@@ -69,7 +75,7 @@ Media Token Verifier ライブラリにはJDK バージョン 1.5以降が必要
 
 * メディアトークンが発行された時間を取得するために使用される`getTimeIssued()` メソッド。
 
-* メディアトークンのTTLを取得するために使用される`getTimeToLive()` メソッド。
+* メディアトークンのTTLをミリ秒単位で取得するために使用される`getTimeToLive()` メソッド。
 
 * MVPDによって設定された匿名化されたGUIDを取得するために使用される`getUserSessionGUID()` メソッド。
 
@@ -79,7 +85,7 @@ Media Token Verifier ライブラリにはJDK バージョン 1.5以降が必要
 
 ### サンプル {#sample}
 
-Media Token Verifier アーカイブには、参照実装（`com.adobe.entitlement.test.EntitlementVerifierTest.java`）と、テストクラスでAPIを呼び出す例が含まれています。 このサンプル （`com.adobe.entitlement.text.EntitlementVerifierTest.java`）は、Media Token Verifier ライブラリをメディア サーバーに統合する方法を示しています。
+Media Token Verifier アーカイブには、参照実装（`com.adobe.entitlement.test.EntitlementVerifierTest.java`）と、テストクラスでAPIを呼び出す例が含まれています。 このサンプル （`com.adobe.entitlement.test.EntitlementVerifierTest.java`）は、Media Token Verifier ライブラリをメディア サーバーに統合する方法を示しています。
 
 ```JAVA
 package com.adobe.entitlement.test;
@@ -88,8 +94,10 @@ import com.adobe.entitlement.verifier.CryptoDataHolder;
 import com.adobe.entitlement.verifier.ITokenVerifier;
 import com.adobe.entitlement.verifier.ITokenVerifierFactory;
 import com.adobe.entitlement.verifier.SimpleTokenPKISignatureVerifierFactory;
-import com.adobe.tve.crypto.SignatureVerificationCredential; 
+import com.adobe.entitlement.verifier.SignatureVerificationCredential;
 import java.io.InputStream; 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 public class EntitlementVerifierTest { 
     String mRequestorID = null;
@@ -113,11 +121,11 @@ public class EntitlementVerifierTest {
             System.out.println("One or more arguments is null");
             return;
         } 
+        tokenToVerify = new String(Base64.getDecoder().decode(tokenToVerify),
+                StandardCharsets.UTF_8);
         System.out.println("RequestorID: " + requestorID);
-        System.out.println("token: " + tokenToVerify);
         System.out.println("cert: " + pathToCertificate);
         System.out.println("keystoretype: " + keystoreType);
-        System.out.println("keystore passwd: " + keystorePasswd);
         String resourceID = null;
         if (args.length > 2) {
             resourceID = args[2];
@@ -171,10 +179,9 @@ public class EntitlementVerifierTest {
                                                                                    String keystorePasswd) {
         SignatureVerificationCredential cred = null; 
         if (keystoreFile != null){
-            try {
+            try (InputStream certInputStream =
+                    EntitlementVerifierTest.class.getClassLoader().getResourceAsStream(keystoreFile)) {
                 // load the keystore file 
-                ClassLoader loader = EntitlementVerifierTest.class.getClassLoader();
-                InputStream certInputStream =  loader.getResourceAsStream(keystoreFile);
                 if (certInputStream != null) {
                     cred = new SignatureVerificationCredential(certInputStream, keystorePasswd, keystoreType);          
                 }
@@ -183,8 +190,8 @@ public class EntitlementVerifierTest {
                 System.out.println("Error creating short token server credentials: " + e.getMessage());
             }
         }
-        if (cred == null) {
-            System.out.println("Error creating short token server credentials");
+        if (cred == null || !cred.isValid()) {
+            throw new IllegalStateException("Error creating short token server credentials");
         } 
         return cred;
     } 
@@ -201,7 +208,7 @@ public class EntitlementVerifierTest {
 
 >[!IMPORTANT]
 >
-> クライアントアプリケーションは、ユーザーアクセスを許可する承認決定に既に含まれているため、[&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)を取得するために別のエンドポイントをクエリする必要はありません。
+> クライアントアプリケーションは、ユーザーアクセスを許可する承認決定に既に含まれているため、[ メディアトークン ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)を取得するために別のエンドポイントをクエリする必要はありません。
 
 上記のAPIを統合する方法とタイミングについて詳しくは、次のドキュメントを参照してください。
 
