@@ -58,7 +58,7 @@ Media Token Verifier ディストリビューションには、次のものが�
 
 `ITokenVerifier` インターフェイスは、次のメソッドを定義します。
 
-* メディアトークンの検証に使用される`isValid()` メソッド。 単一の引数[ リソース識別子](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier)を受け入れます。 指定されたリソース識別子が`null`の場合、メソッドはメディアトークンの真正性と有効期間のみを検証します。
+* メディアトークンの検証に使用される`isValid()` メソッド。 単一の引数[&#x200B; リソース識別子](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier)を受け入れます。 指定されたリソース識別子が`null`の場合、メソッドはメディアトークンの真正性と有効期間のみを検証します。
 
   `isValid()` メソッドは、次のいずれかのステータス値を返します。
 
@@ -208,7 +208,7 @@ public class EntitlementVerifierTest {
 
 >[!IMPORTANT]
 >
-> クライアントアプリケーションは、ユーザーアクセスを許可する承認決定に既に含まれているため、[ メディアトークン ](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)を取得するために別のエンドポイントをクエリする必要はありません。
+> クライアントアプリケーションは、ユーザーアクセスを許可する承認決定に既に含まれているため、[&#x200B; メディアトークン &#x200B;](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)を取得するために別のエンドポイントをクエリする必要はありません。
 
 上記のAPIを統合する方法とタイミングについて詳しくは、次のドキュメントを参照してください。
 
